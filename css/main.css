@@ -13,7 +13,7 @@ body {
     border-bottom: 1px solid rgb(128,128,128) !important;
 }
 
-.sidebar ul li a {
+.sidebar ul li a, .sidebar li {
     color: black;
 }
 
@@ -21,7 +21,7 @@ body {
     color: black;
 }
 
-p, li{
+p, li {
     color: white;
 }
 
@@ -71,6 +71,12 @@ code {
 }
 
 summary {
+    color: white;
     cursor: pointer;
     user-select: none;
+}
+
+p.tip {
+    background-color: rgba(189, 70, 124, 0.3) !important;
+    color: white !important;
 }
