@@ -21,7 +21,7 @@ body {
     color: black;
 }
 
-p, li {
+.content p, .content li {
     color: white;
 }
 
