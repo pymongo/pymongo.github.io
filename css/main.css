@@ -4,24 +4,15 @@ body {
 }
 
 .sidebar, .sidebar-toggle, .search, input[type="search"] {
-    /* background-color: #C6FECD; 浅绿 */
-    background-color: #cba;
+    /* background-color: #cba; */
+    background-color: rgb(116, 120, 125);
 }
 
-/* sidebar */
 .search {
-    border-bottom: 1px solid rgb(128,128,128) !important;
+    border-bottom: 1px solid rgb(128, 128, 128) !important;
 }
 
-.sidebar ul li a, .sidebar li {
-    color: black;
-}
-
-.app-sub-sidebar li:before {
-    color: black;
-}
-
-.content p, .content li {
+p, li, summary, .sidebar-nav li p a, .sidebar ul li a {
     color: white;
 }
 
@@ -37,41 +28,14 @@ h3 .anchor span {
     color: #FF66FF;
 }
 
-h2::before, h3::before {
+h2::before {
     content: "#";
+    color: #42b983;
     position: absolute;
     left: -4px;
 }
 
-h2::before {
-    color: #42b983;
-}
-
-h3::before {
-    /* \25CF = "●"; \2605 = "★" */
-    content: "\2605";
-    transform: scale(0.5);
-}
-
-code {
-    background: #fdf6e3 !important;
-}
-
-.markdown-section pre {
-    width: auto;
-    padding: 0;
-}
-
-.markdown-section pre>code {
-    padding: 0;
-    padding-left: 16px;
-    color: black;
-    font-weight: bold;
-    font-size: 100%;
-}
-
 summary {
-    color: white;
     cursor: pointer;
     user-select: none;
 }
@@ -80,3 +44,16 @@ p.tip {
     background-color: rgba(189, 70, 124, 0.3) !important;
     color: white !important;
 }
+
+.prettyprint {
+    font-family: "Roboto Mono";
+    font-weight: bold;
+    filter: invert(1);
+}
+
+span.com {
+    /* prettyprint comment */
+    color: #8E908C;
+}
+
+/* markdown-code background: #fdf6e3 !important; */
