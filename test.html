@@ -1,0 +1,30 @@
+<h1 style="color:white">测试基于docsify的新功能/组件</h1>
+
+<style>
+pre.prettyprint {
+    font-family: "Roboto Mono";
+    font-weight: bold;
+    filter: invert(1);
+}
+</style>
+
+<pre class="prettyprint lang-python">
+def twoSum(nums, target):
+'''
+@param {List[int]} nums
+@param {int} target
+@return {List[int]}
+'''
+hashMap = {}
+i = 0
+LEN = len(nums)
+while i < LEN:
+    # 不能用get判断，因为0和None都会使if不成立
+    if target-nums[i] in hashMap:
+        # return sorted([i, hashMap.get(target-nums[i])])
+        # 字典只有旧的键值，i必然大于字典的任何值
+        return i, hashMap.get(target-nums[i])
+    else:
+        hashMap[nums[i]] = i
+        i += 1
+</pre>
