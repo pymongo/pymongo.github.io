@@ -1,0 +1,76 @@
+body {
+    background-color: #333;
+    font-family: "Microsoft Yahei";
+}
+
+.sidebar, .sidebar-toggle, .search, input[type="search"] {
+    /* background-color: #C6FECD; 浅绿 */
+    background-color: #cba;
+}
+
+/* sidebar */
+.search {
+    border-bottom: 1px solid rgb(128,128,128) !important;
+}
+
+.sidebar ul li a {
+    color: black;
+}
+
+.app-sub-sidebar li:before {
+    color: black;
+}
+
+p, li{
+    color: white;
+}
+
+h1 .anchor span {
+    color: #D13EAC;
+}
+
+h2 .anchor span {
+    color: #FC9929;
+}
+
+h3 .anchor span {
+    color: #FF66FF;
+}
+
+h2::before, h3::before {
+    content: "#";
+    position: absolute;
+    left: -4px;
+}
+
+h2::before {
+    color: #42b983;
+}
+
+h3::before {
+    /* \25CF = "●"; \2605 = "★" */
+    content: "\2605";
+    transform: scale(0.5);
+}
+
+code {
+    background: #fdf6e3 !important;
+}
+
+.markdown-section pre {
+    width: auto;
+    padding: 0;
+}
+
+.markdown-section pre>code {
+    padding: 0;
+    padding-left: 16px;
+    color: black;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+summary {
+    cursor: pointer;
+    user-select: none;
+}
