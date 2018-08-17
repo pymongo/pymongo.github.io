@@ -1,6 +1,7 @@
 * [Home](README)
-* [eclipse安装与配置](eclipse.md)
-* [vscode tricks](vscode.md)
+* [eclipse安装与配置](eclipse)
+* [vscode tricks](vscode)
 * leetcode
-    * [1 two sum](/leetcode/001.md)
+    * [1 two sum](/leetcode/001)
+* [公众号+树莓派远程开关灯](rpi-gpio)
 * [test](test.md)
