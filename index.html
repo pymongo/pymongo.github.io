@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="icon" href="/img/twitter.png">
     <link rel="stylesheet" href="/css/vue.css">
+    <!-- <link rel="stylesheet" href="/css/vue.offline.css"> -->
     <link rel="stylesheet" href="/css/main.css">
 </head>
 
@@ -18,6 +19,9 @@
     <div id="app"></div>
     <script>
         window.$docsify = {
+            alias: {
+                '/.*/SUMMARY.md': '/SUMMARY.md'
+            },
             executeScript: true,
             loadSidebar: 'SUMMARY.md',
             subMaxLevel: 2,
@@ -32,7 +36,6 @@
     <script src="/js/docsify.js"></script>
     <script src="/js/search.min.js"></script>
     <script src="/js/external-script.min.js"></script>
-    <script src="/js/run_prettify.js"></script>
 </body>
 
 </html>

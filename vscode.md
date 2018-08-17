@@ -12,11 +12,11 @@ warp src attr with double quote
 
 Source: `<img src=/img/vscode>`
 
-Regax: &nbsp;`<img src=(\/.+?)>`
+Regax:&nbsp;&nbsp;`<img src=(\/.+?)>`
 
 Replace:`$1 = /img/vscode`
 
-Result: `<img src="$1">`
+Result:&nbsp;&nbsp;`<img src="$1">`
 
 ## F2重命名变量
 

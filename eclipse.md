@@ -9,11 +9,11 @@ eclipse类似VisualStudio能给多种语言编程的IDE
 - 安装eclipse下载器后再安装JavaEE
 - 解压JavaEE压缩包即可用【推荐】(protable)
 
-![01-eclipse-download.png](img/eclipse-config/01-eclipse-download.png)
+<img src="/img/eclipse-config/01-eclipse-download.png">
 
 记得点下面的download package
 
-![02-eclipse-packages.png](img/eclipse-config/02-eclipse-packages.png)
+<img src="/img/eclipse-config/02-eclipse-packages.png">
 
 选择下载量最大的也就是JavaEE包
 
@@ -23,15 +23,15 @@ eclipse类似VisualStudio能给多种语言编程的IDE
 
 看到【欢迎界面】后，右下角勾上 don't show again，叉掉欢迎界面后看到正常界面了
 
-![03-disable-welcome.png](img/eclipse-config/03-disable-welcome.png)
+<img src="/img/eclipse-config/03-disable-welcome.png">
 
 eclipse可能跟微软有合作，居然默认用微软的【编码】方法
 
-![04-change-encode.png](img/eclipse-config/04-change-encode.png)
+<img src="/img/eclipse-config/04-change-encode.png">
 
 都2018年了eclipse的【自动保存】居然要延迟1s，默认没启用自动保存
 
-![05-autosave.png](img/eclipse-config/05-autosave.png)
+<img src="/img/eclipse-config/05-autosave.png">
 
 ## 自动补全
 
@@ -41,7 +41,7 @@ eclipse默认补全嗅探太烂了，而且还是按Enter键进行补全
 
 `window->preference->搜索advance`
 
-![06-auto-complete.png](img/eclipse-config/06-auto-complete.png)
+<img src="/img/eclipse-config/06-auto-complete.png">
 
 将 `Auto activation triggers for Java`
 
@@ -55,13 +55,13 @@ eclipse改建不支持多对一，没法吧Alt+/改为Tab
 
 而且大写键和tab很近，也便于肌肉记忆
 
-![07-sharpkeys-caps-to-enter.png](img/eclipse-config/07-sharpkeys-caps-to-enter.png)
+<img src="/img/eclipse-config/07-sharpkeys-caps-to-enter.png">
 
 ## Java路径设置
 
 `preference->Java->Installed JREs`
 
-![08-eclipse-java-path.png](img/eclipse-config/08-eclipse-java-path.png)
+<img src="/img/eclipse-config/08-eclipse-java-path.png">
 
 ## 高对比度下的theme
 
@@ -69,7 +69,7 @@ eclipse改建不支持多对一，没法吧Alt+/改为Tab
 
 不然失去了代码高亮
 
-![09-eclipse-high-contrast.png](img/eclipse-config/09-eclipse-high-contrast.png)
+<img src="/img/eclipse-config/09-eclipse-high-contrast.png">
 
 ## 其它设置
 

@@ -1,6 +1,6 @@
 body {
     background-color: #333;
-    font-family: "Microsoft Yahei";
+    font-family: "Microsoft YaHei";
 }
 
 .sidebar, .sidebar-toggle, .search, input[type="search"] {
@@ -51,8 +51,7 @@ p.tip {
     filter: invert(1);
 }
 
-.prettyprint {
-    font-family: "Roboto Mono";
+pre.prettyprint span {
     font-weight: bold;
 }
 
