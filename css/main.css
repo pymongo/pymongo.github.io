@@ -45,10 +45,15 @@ p.tip {
     color: white !important;
 }
 
+.markdown-section code, .markdown-section pre {
+    background-color: white;
+    color: #1696FF;
+    filter: invert(1);
+}
+
 .prettyprint {
     font-family: "Roboto Mono";
     font-weight: bold;
-    filter: invert(1);
 }
 
 span.com {
