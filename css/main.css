@@ -2,9 +2,7 @@ body {
     background-color: #333;
     font-family: "Microsoft YaHei";
 }
-
 .sidebar, .sidebar-toggle, .search, input[type="search"] {
-    /* background-color: #cba; */
     background-color: rgb(116, 120, 125);
 }
 
@@ -16,18 +14,15 @@ p, li, summary, .sidebar-nav li p a, .sidebar ul li a {
     color: white;
 }
 
-h1 .anchor span {
+h1 .anchor span { 
     color: #D13EAC;
 }
-
 h2 .anchor span {
     color: #FC9929;
 }
-
 h3 .anchor span {
     color: #FF66FF;
 }
-
 h2::before {
     content: "#";
     color: #42b983;
@@ -45,19 +40,42 @@ p.tip {
     color: white !important;
 }
 
-.markdown-section code, .markdown-section pre {
-    background-color: white;
-    color: #1696FF;
+.markdown-section p code {
+    color: aqua;
+    font-size: 16px;
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 3px;
+    padding: 1px 5px;
+}
+
+/* prism hightlight */
+pre[v-pre=""] {
+    padding: 0;
+    margin: 0;
     filter: invert(1);
 }
 
-pre.prettyprint span {
-    font-weight: bold;
+pre[v-pre=""] code {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 16px;
+    color: black;
+}
+
+pre[v-pre=""] p {
+    color: white;
+}
+/* /prism hightlight */
+
+/* prettyprint */
+pre.prettyprint {
+    background-color: white;
+    color: #1696FF;
+    filter: invert(1) !important;
 }
 
 span.com {
-    /* prettyprint comment */
+    /* prettyprint's comment */
     color: #8E908C;
 }
-
-/* markdown-code background: #fdf6e3 !important; */
+/* /prettyprint */
