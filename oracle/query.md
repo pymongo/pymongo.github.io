@@ -1,46 +1,3 @@
-```java
-class Solution {
-    /**
-    * @param {int[]} nums
-    * @param {int} target
-    * @return {int[]}
-    */
-    public int[] twoSum(int[] nums, int target) {
-        int len = nums.length;
-        for (int i=0; i&lt;len; i++) {
-            for (int j=i+1; j&lt;len; j++) {
-                if (nums[i]+nums[j]==target)
-                    return new int[]{i, j};
-            }
-        }
-        return null;
-    }
-}
-```
-
-123
-
-```python
-def twoSum(nums, target):
-    '''
-    @param {List[int]} nums
-    @param {int} target
-    @return {List[int]}
-    '''
-    hashMap = {}
-    i = 0
-    LEN = len(nums)
-    while i < LEN:
-        # 不能用get判断，因为0和None都会使if不成立
-        if target-nums[i] in hashMap:
-            # return sorted([i, hashMap.get(target-nums[i])])
-            # 字典只有旧的键值，i必然大于字典的任何值
-            return i, hashMap.get(target-nums[i])
-        else:
-            hashMap[nums[i]] = i
-            i += 1
-```
-
 # 查询/别名/字符串
 
 ## 获取当前用户名
@@ -86,18 +43,18 @@ SMITH               9600
 
 !> ||表示字符串拼接(concatenation)
 
-<pre class="prettyprint lang-sql">
+```sql
 SQL> SELECT ename || ': ' || sal FROM emp;
 
 ENAME||':'||SAL
 ------------------
 SMITH: 800
 ...
-</pre>
+```
 
 ## 像json一样打印员工信息
 
-<pre class="prettyprint lang-sql">
+```sql
 SELECT ' Job number:'||empno
      ||' Name:'||ename
      ||' Salary:'||sal
@@ -108,7 +65,7 @@ employees' infomation
 ---------------------------------------
  Job number:7369 Name:SMITH Salary:800
 ...
-</pre>
+```
 
 ---
 
@@ -137,8 +94,5 @@ SELECT 'Mike''s apple' FROM dual;
 
 - Oracle在解释sql语句时会全部转换为大写再进行操作
 - 如创建表的时候表名用双引号，则表名区分大小写
-- 用户名/表名/字段名/别名可用双引号，见<a href="/img/oem-departments-data.png">OEM一文打印部门表的图</a>
+- 用户名/表名/字段名/别名可用双引号，见<a href="/img/oracle/oem-departments-data.png">OEM一文打印部门表的图</a>
 - 单引号可以转义(escape)单引号 例如 'I''am' -> I'am
-- 表达式中有NULL结果为NULL
-
-<script src="/js/run.prettify.js"></script>
