@@ -23,7 +23,7 @@ FROM dba_users;
 > 解锁用户(不然没法使用)：
 
 ```sql
-ALTER USER scott IDENTIFIED BY ${password}
+ALTER USER scott IDENTIFIED BY ${password};
 ```
 
 ## exec sql script

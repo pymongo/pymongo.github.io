@@ -1,5 +1,3 @@
-# emp表练习/LIKE模糊查找
-
 ## 查询工资在2k-2.5k之间的经理
 
 ```sql
@@ -31,5 +29,32 @@ WHERE hiredate BETWEEN '01-JAN-87' AND '31-DEC-87';
 
 - _ 匹配单个字符
 - % 匹配0/1/多个字符
+- $ 用来转义_和%
 
-## 查询
+## 查询以A开头的员工姓名
+
+```sql
+SELECT * 
+FROM emp
+WHERE ename LIKE 'A%';
+```
+
+## 含A和不含A的员工姓名
+
+写出含A即可，不含A加个NOT够了
+
+```sql
+SELECT *
+FROM emp
+WHERE ename LIKE '%A%';
+```
+
+LIKE子句不仅可以用于字符串，而且可用于任意数据类型
+
+## 工资降序排列，若相同则按工龄(入职时间)
+
+```sql
+SELECT *
+FROM emp
+ORDER BY sal DESC, hiredate;
+```

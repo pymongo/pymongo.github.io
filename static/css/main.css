@@ -14,6 +14,10 @@ p, li, summary, .sidebar-nav li p a, .sidebar ul li a {
     color: white;
 }
 
+.markdown-section strong {
+    color: white;
+}
+
 h1 .anchor span { 
     color: #D13EAC;
 }

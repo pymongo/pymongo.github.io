@@ -20,7 +20,7 @@
 
 `%ORACLE_HOME% = C:\Users\w\oracleDb\product\11.2.0\dbhome_1`
 
-<a href="/drive/hr-oracle.zip">下载hr表</a> 解压到 %ORACLE_HOME%\demo\schema\human_resources
+<a href="/static/drive/hr-oracle.zip">下载hr表</a> 解压到 %ORACLE_HOME%\demo\schema\human_resources
 
 建议直接在human_resources文件夹内开启sqlplus登入sys账户，
 
