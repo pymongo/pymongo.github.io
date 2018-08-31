@@ -2,6 +2,8 @@
 
 没网时，谷歌浏览器(以下简称为chrome)会出现一个恐龙奔跑游戏
 
+或打开 [chrome://dino/](chrome://dino/) 进入游戏
+
 操作很简单，跳跃或下蹲避开障碍物，按Alt可以暂停
 
 那么如何在这个小游戏中作弊呢？
@@ -38,9 +40,41 @@ Runner函数源码一开始就是「单例模式」实现部分，
 
 <img src="/img/chrome-game-cheat/VM.png">
 
-先阅读下VM前缀意味着什么 ![[VM] file from javascript](https://stackoverflow.com/questions/17367560/chrome-development-tool-vm-file-from-javascript)
+先阅读下VM前缀是什么意思 [VM] file from javascript](https://stackoverflow.com/questions/17367560/chrome-development-tool-vm-file-from-javascript)
 
+VM前缀的js代码可能在以下地方
+
+- 开发者工具的console内
+- eval
+- script标签内
+
+排除前两种可能，很快在第四个script标签内找到了游戏源码
+
+<img src="/img/chrome-game-cheat/source.png">
+
+从这样优秀的源码中还是能学到不少新东西
+
+结果源码太长还是看不全，只好另存为html文件用IDE打开看
+
+## 游戏作弊
+
+如何让小恐龙"无敌"，碰到敌人也不死掉？
+
+原来触发gameover后会结束游戏，现在只要把gameover函数改为空
+
+即便碰到障碍物触发了gameover也会当做无事发生继续游戏
+
+<img src="/img/chrome-game-cheat/gameover.png">
+
+```javascript
+// 存储旧的gameover Handler以便手动结束游戏
+var gameoverOld = Runner.instance_.gameOver;
+
+Runner.instance_.gameOver = () => undefined;
+```
+
+<img src="/img/chrome-game-cheat/cheat.gif">
 
 参考文章
 
-githu.io chrome-dino-hack
+[chrome-dino-hack](https://mathewsachin.github.io/blog/2016/11/05/chrome-dino-hack.html)

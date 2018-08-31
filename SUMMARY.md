@@ -16,5 +16,5 @@
 * unarchived file
     * [eclipse安装与配置](doc/unfiled/eclipse)
     * [vscode tricks](doc/unfiled/vscode)
-    * [richText to HTML](doc/unfiled/tools/paste.html)
+    * [richText to HTML](doc/unfiled/paste.html)
     * [bugs](doc/unfiled/bugs.md)
