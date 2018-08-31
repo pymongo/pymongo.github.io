@@ -1,6 +1,6 @@
 <img src="/img/chrome-game-cheat/cover.png">
 
-没网时，谷歌浏览器(以下简称为chrome)会出现一个恐龙奔跑游戏
+没网时，谷歌浏览器会出现一个恐龙奔跑游戏
 
 或打开 [chrome://dino/](chrome://dino/) 进入游戏
 
@@ -40,7 +40,7 @@ Runner函数源码一开始就是「单例模式」实现部分，
 
 <img src="/img/chrome-game-cheat/VM.png">
 
-先阅读下VM前缀是什么意思 [VM] file from javascript](https://stackoverflow.com/questions/17367560/chrome-development-tool-vm-file-from-javascript)
+先阅读下VM前缀是什么意思 [VM file from javascript](https://stackoverflow.com/questions/17367560/chrome-development-tool-vm-file-from-javascript)
 
 VM前缀的js代码可能在以下地方
 

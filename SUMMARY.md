@@ -11,7 +11,7 @@
     * [BETWEEN/LIKE模糊查找/ORDER](doc/oracle/like)
     * [单行函数](doc/oracle/func)
 * project
-    * [在谷歌浏览器自带游戏中作弊](doc/project/chrome-game-cheat)
+    * [谷歌浏览器自带游戏中作弊](doc/project/chrome-game-cheat)
     * [公众号+树莓派远程开关灯](doc/project/rpi-gpio)
 * unarchived file
     * [eclipse安装与配置](doc/unfiled/eclipse)
