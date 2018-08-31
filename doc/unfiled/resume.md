@@ -14,12 +14,12 @@
 - python写得最多，其次是js，Java看过些培训班视频
 - 具有丰富的Chrome/Firefox开发者工具使用经验，熟悉chromeDebugJS
 - 能部署Debug环境，单步调试Bug/Undefined Behaviour
-- Web框架：Django/Flask
+- Web服务端框架：Django/Flask
 - 前端框架：Bootstrap
 - 数据库：MySQL/SQLite/Oracle
 - 文档工具：常常用docsify整理笔记/项目资料
 - Git版本管理：基本只用add/commit/push、pull request
-- 云(VPS)：Vultr/腾讯云/域名商dynadot
+- 云(VPS)：Vultr/腾讯云，域名商dynadot
 
 ---
 
