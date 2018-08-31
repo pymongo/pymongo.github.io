@@ -37,8 +37,6 @@ eclipse可能跟微软有合作，居然默认用微软的【编码】方法
 
 eclipse默认补全嗅探太烂了，而且还是按Enter键进行补全
 
-文件编码和自动补全真是违反行业规范，也是逐渐没人用eclipse的原因之一
-
 `window->preference->搜索advance`
 
 <img src="/img/eclipse-config/06-auto-complete.png">
@@ -46,6 +44,8 @@ eclipse默认补全嗅探太烂了，而且还是按Enter键进行补全
 将 `Auto activation triggers for Java`
 
 改为 `.abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`
+
+!> **按 Ese 关掉自动补全的窗口**
 
 虽然现在有下拉菜单式的补全提示，可是要按enter才能补全
 
@@ -73,5 +73,10 @@ eclipse改建不支持多对一，没法吧Alt+/改为Tab
 
 ## 其它设置
 
-- 字体大小
+- 字体：建议用Consolas等宽字体
 - 重置窗口布局-window->perspective->reset
+
+## eclipse小技巧
+
+- 重命名类：右键类->Refactor->Rename(选中类文件Shift+Alt+R)
+- 重命名变量：选中变量名/标识符 Shift+Alt+R
