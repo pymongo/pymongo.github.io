@@ -33,3 +33,7 @@ OEM(Oracle Enterprise Manager)是个本地网页
 非常高兴地看到Oracle给出了相应的SQL语句
 
 <img src="/img/oracle/oem-departments-data.png">
+
+## 在plsql中查看表的信息
+
+<img src="/img/oracle/plsql-table-info.png">
