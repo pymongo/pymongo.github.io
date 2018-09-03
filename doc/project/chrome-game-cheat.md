@@ -47,6 +47,7 @@ VM前缀的js代码可能在以下地方
 - 开发者工具的console内
 - eval
 - script标签内
+- Chrome内部网页
 
 排除前两种可能，很快在第四个script标签内找到了游戏源码
 

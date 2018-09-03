@@ -1,4 +1,4 @@
-## 统计函数
+## 聚合(Aggregate)函数
 
 min,max,sum,count,avg,stddev(标准差),variance(方差)
 
@@ -46,20 +46,17 @@ FROM   (SELECT e.deptno,
 GROUP  BY e.deptno; 
 ```
 
-## 多字段分组
+## 【重要】分组后再分组
 
 ```sql
-SELECT d.deptno, 
-       d.dname, 
-       d.loc, 
-       Count(e.empno), 
-       Nvl(Avg(e.sal), 0) 
-FROM   dept d, 
-       emp e 
-WHERE  d.deptno = e.deptno(+) 
-GROUP  BY d.deptno, 
-          d.dname, 
-          d.loc; 
+-- 各部门的各职业各有几人？
+SELECT deptno,
+       job,
+       count(*)
+FROM emp
+GROUP BY deptno,
+         job
+ORDER BY deptno;
 ```
 
 ## HAVING子句
@@ -87,4 +84,12 @@ WHERE  job != 'SALESMAN'
 GROUP  BY job 
 HAVING SUM(sal) > 5000 
 ORDER  BY SUM(sal); 
+```
+
+## 工资数值有几种
+
+```sql
+SELECT COUNT(empno),
+       COUNT(DISTINCT sal)
+FROM emp;
 ```
