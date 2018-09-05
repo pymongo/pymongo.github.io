@@ -152,3 +152,20 @@ WHERE  e.mgr = boss.empno(+);
 ## 总结
 
 <img src="/img/oracle/join.png">
+
+## 习题：全排列
+
+用笛卡尔积去实现
+
+```sql
+CREATE TABLE perm (name VARCHAR(8));
+INSERT INTO perm VALUES('AA');
+INSERT INTO perm VALUES('BB');
+INSERT INTO perm VALUES('CC');
+INSERT INTO perm VALUES('DD');
+COMMIT;
+
+SELECT p1.name,p2.name
+FROM perm p1,perm p2
+WHERE p1.name!=P2.name;
+```

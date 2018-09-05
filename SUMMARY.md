@@ -10,6 +10,13 @@
     * [查询/别名/字符串](doc/oracle/query)
     * [BETWEEN/LIKE模糊查找/ORDER](doc/oracle/like)
     * [单行函数](doc/oracle/func)
+    * [多表查询](doc/oracle/multi-table)
+    * [子查询](doc/oracle/subquery)
+    * [分组与聚合函数](doc/oracle/group)
+    * [增删改](doc/oracle/update)
+    * [伪列](doc/oracle/rownum)
+    * [约束](doc/oracle/constraint)
+    * [思考题：员工等级](doc/oracle/hierarchical)
 * project
     * [谷歌浏览器自带游戏中作弊](doc/project/chrome-game-cheat)
     * [公众号+树莓派远程开关灯](doc/project/rpi-gpio)

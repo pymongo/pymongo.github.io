@@ -93,3 +93,54 @@ SELECT COUNT(empno),
        COUNT(DISTINCT sal)
 FROM emp;
 ```
+
+## 练习题1
+
+找出工资比SMITH或MARTIN多的员工 的 编号，姓名，工资，领导名，领导工资
+
+```sql
+SELECT emp.empno,
+       emp.ename,
+       emp.sal,
+       boss.bossname,
+       boss.sal
+FROM emp,
+  (SELECT empno,
+          ename AS bossname,
+          sal
+   FROM emp) boss
+WHERE emp.mgr = boss.empno(+)
+  AND emp.sal >
+    ( SELECT MIN(sal)
+     FROM emp
+     WHERE ename IN ('SMITH',
+                     'MARTIN') )
+ORDER BY emp.empno;
+
+/*
+EMPNO ENAME SAL  BOSSNAME SAL
+----- ----- ---- -------- ----
+ 7499 ALLEN 1600 BLAKE    2850
+ 7521 WARD  1250 BLAKE    2850
+ 7566 JONES 2975 KING     5000
+...
+*/
+```
+
+## 练习题2
+
+列出各个职位最低工资雇员姓名，工资
+
+```sql
+SELECT e.job,
+       e.sal,
+       e.ename
+FROM emp e,
+
+  (SELECT job,
+          min(sal) AS MIN
+   FROM emp
+   GROUP BY job) job
+WHERE e.sal = job.min
+ORDER BY e.sal;
+```
