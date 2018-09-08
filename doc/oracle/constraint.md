@@ -72,8 +72,31 @@ insert into lession values(2,'bb');
 
 外键约束的类型有三种：
 
-no action：默认 A部门有人不能直接删掉A部门字段
+on no action：默认 A部门有人不能直接删掉A部门字段
 
-set null：删掉A部门后，原A部门雇员的部门编号设为NULL
+ON DELETE set null：删掉A部门后，原A部门雇员的部门编号设为NULL
 
-cascade级联 删掉A部门后同时删掉A部门所有雇员的记录
+ON DELETE cascade级联 删掉A部门后同时删掉A部门所有雇员的记录
+
+## 修改约束
+
+```sql
+-- 如果表中存在违反年龄条件的数据
+-- 则会报错，必须先处理掉非法数据
+ALTER TABLE student 
+ADD CONSTRAINT ck_age
+CHECK (age BETWEEN 16 AND 25);
+
+ALTER TABLE student
+DROP CONSTRAINT pk_mid;
+```
+
+如果不知道约束名，可以去查询
+
+!> 非空约束无法增删改
+
+## AUTO_INCREMENT
+
+Oracle没有mysql/sqlite的 AUTO_INCREMENT 关键字
+
+Oracle通过序列或触发器实现自动自增

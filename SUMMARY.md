@@ -16,6 +16,7 @@
     * [增删改](doc/oracle/update)
     * [伪列](doc/oracle/rownum)
     * [约束](doc/oracle/constraint)
+    * [序列，View](doc/oracle/view-seq)
     * [思考题：员工等级](doc/oracle/hierarchical)
 * project
     * [谷歌浏览器自带游戏中作弊](doc/project/chrome-game-cheat)
@@ -25,3 +26,4 @@
     * [vscode tricks](doc/unfiled/vscode)
     * [richText to HTML](doc/unfiled/paste.html)
     * [bugs](doc/unfiled/bugs.md)
+    * [bugs](doc/unfiled/tag.md)
