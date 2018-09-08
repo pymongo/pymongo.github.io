@@ -26,4 +26,5 @@
     * [vscode tricks](doc/unfiled/vscode)
     * [richText to HTML](doc/unfiled/paste.html)
     * [bugs](doc/unfiled/bugs.md)
-    * [bugs](doc/unfiled/tag.md)
+    * [前端小知识](doc/unfiled/frontend.md)
+    * [linux hack](doc/unfiled/linux.md)
