@@ -15,7 +15,7 @@
             !g || g.readyState && !/loaded|complete/.test(g.readyState) || (g.onerror = g.onload = g.onreadystatechange = null, --S, S || k.setTimeout(T, 0), g.parentNode && g.parentNode.removeChild(g),
                 g = null)
             }; g.type = "text/javascript"; g.src = "https://raw.githubusercontent.com/google/code-prettify/master/loader/lang-" + encodeURIComponent(H[l]) + ".js"; N.insertBefore(g, N.firstChild)
-        })(H[l]); for (var S = H.length, F = [], l = 0, B = P.length; l < B; ++l)F.push("https://raw.githubusercontent.com/google/code-prettify/master/loader/skins/" + encodeURIComponent(P[l]) + ".css"); F.push("/css/static/prettify.css"); (function (g) {
+        })(H[l]); for (var S = H.length, F = [], l = 0, B = P.length; l < B; ++l)F.push("https://raw.githubusercontent.com/google/code-prettify/master/loader/skins/" + encodeURIComponent(P[l]) + ".css"); F.push("/static/css/prettify.css"); (function (g) {
             function r(l) {
                 if (l !== x) {
                     var k = z.createElement("link"); k.rel = "stylesheet"; k.type =
