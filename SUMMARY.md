@@ -1,4 +1,4 @@
-* [Home](doc/README)
+* [Home](README)
 * [我的简历](doc/unfiled/resume)
 * leetcode
     * [1 two sum](doc/leetcode/001)
@@ -26,5 +26,6 @@
     * [vscode tricks](doc/unfiled/vscode)
     * [richText to HTML](doc/unfiled/paste.html)
     * [bugs](doc/unfiled/bugs.md)
+    * [chrome](doc/unfiled/chrome.md)
     * [前端小知识](doc/unfiled/frontend.md)
     * [linux hack](doc/unfiled/linux.md)

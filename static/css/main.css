@@ -83,3 +83,24 @@ span.com {
     color: #8E908C;
 }
 /* /prettyprint */
+
+figure {
+    border: thin #000000 solid;
+    display: flex;
+    flex-flow: column;
+    margin: 0;
+    padding: 5px;
+    width: 19em;
+}
+
+figure img {
+    width: 100%;
+}
+
+figure figcaption {
+    background-color: #222;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
+}
