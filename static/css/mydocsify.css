@@ -1,0 +1,57 @@
+body {
+    font-family: "Microsoft YaHei";
+}
+
+h1 .anchor span { color: #D13EAC;}
+h2 .anchor span { color: #FC9929;}
+h3 .anchor span { color: #FF66FF;}
+h2::before {
+    content: "#";
+    color: #42b983;
+    position: absolute;
+    left: -4px;
+}
+
+.markdown-section hr {
+    border-color: #D1D1D1;
+    border-width: 2px;
+}
+div.search {
+    border-bottom: 1px solid #D1D1D1;
+}
+
+/* code block */
+pre[v-pre=""] code {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 16px;
+}
+
+/* prettyprint's comment */
+pre.prettyprint span.com {
+    color: #8E908C;
+}
+
+/* html5 tag */
+summary {
+    cursor: pointer;
+    user-select: none;
+}
+
+figure {
+    border: thin #000000 solid;
+    display: flex;
+    flex-flow: column;
+    margin: 0;
+    padding: 5px;
+    width: 19em;
+    /* filter: invert(1); */
+}
+
+figure figcaption {
+    background-color: #222;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
+}
