@@ -1,5 +1,6 @@
 body {
     background-color: #333;
+    color: white;
 }
 
 .sidebar, .sidebar-toggle, .search, input[type="search"] {
@@ -11,17 +12,17 @@ body {
     color: white;
 }
 
-p, li, summary, .sidebar-nav li p a, .sidebar ul li a {
+li, .sidebar-nav li p a, .sidebar ul li a {
     color: white;
 }
 
+/* markdown内粗体字 */
 .markdown-section strong {
     color: white;
 }
 
 p.tip {
     background-color: rgba(189, 70, 124, 0.3) !important;
-    color: white !important;
 }
 
 figure img {
@@ -38,9 +39,6 @@ pre[v-pre=""] code {
     color: black;
 }
 
-pre[v-pre=""] p {
-    color: white;
-}
 /* /prism hightlight */
 
 pre.prettyprint {

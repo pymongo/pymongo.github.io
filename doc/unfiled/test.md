@@ -15,7 +15,9 @@ details被折叠内容...
 
 <marquee behavior="alternate">marquee tag behavior="alternate"(往回弹),默认是scroll</marquee>
 
-滚动效果的CSS实现: `animation: scroll 7s linear 0s infinite;`
+**滚动** *效果* 的CSS实现: `animation: scroll 7s linear 0s infinite;`
+
+some emoji: 😉 :memo: 📝
 
 <kbd>Ctrl</kbd> + <kbd>s</kbd> : Save file // kbd tag
 
@@ -23,10 +25,6 @@ details被折叠内容...
     <img src="/img/chrome-game-cheat/source.png">
     <figcaption>dino game's source</figcaption>
 </figure>
-
-## emoji测试
-
-😉 - :memo: 📝
 
 ## 代码块测试
 
