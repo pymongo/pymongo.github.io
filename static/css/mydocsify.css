@@ -1,5 +1,5 @@
 body {
-    font-family: "Microsoft YaHei";
+    font-family: "Microsoft YaHei", "Source Sans Pro", Arial;
 }
 
 h1 .anchor span { color: #D13EAC;}
@@ -44,14 +44,16 @@ figure {
     flex-flow: column;
     margin: 0;
     padding: 5px;
-    width: 19em;
-    /* filter: invert(1); */
+}
+
+figure img {
+    filter: invert(1);
 }
 
 figure figcaption {
-    background-color: #222;
+    background-color: gray;
     color: #fff;
-    font: italic smaller sans-serif;
+    font-style: italic;
     padding: 3px;
     text-align: center;
 }

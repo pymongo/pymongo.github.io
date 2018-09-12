@@ -6,6 +6,7 @@ body {
     background-color: rgb(116, 120, 125);
 }
 
+/* placeholder */
 ::-webkit-input-placeholder {
     color: white;
 }
@@ -23,6 +24,10 @@ p.tip {
     color: white !important;
 }
 
+figure img {
+    filter: invert(0);
+}
+
 /* prism hightlight */
 pre[v-pre=""] {
     padding: 0;
@@ -38,10 +43,8 @@ pre[v-pre=""] p {
 }
 /* /prism hightlight */
 
-/* prettyprint */
 pre.prettyprint {
     background-color: white;
     color: #1696FF;
     filter: invert(1) !important;
 }
-/* /prettyprint */
