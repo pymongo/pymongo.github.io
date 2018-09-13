@@ -22,9 +22,25 @@ some emoji: 😉 :memo: 📝
 <kbd>Ctrl</kbd> + <kbd>s</kbd> : Save file // kbd tag
 
 <figure>
-    <img src="/img/chrome-game-cheat/source.png">
+    <img src="//interactive-examples.mdn.mozilla.net/media/cc0-images/Elephant_In_Silhouette_Closer--660x480.jpg" alt="Elephant at sunset">
     <figcaption>dino game's source</figcaption>
 </figure>
+
+<table>
+    <caption>caption tag表格标题</caption>
+    <thead>
+        <tr>
+            <th>Month</th>
+            <th>Savings</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>January</td>
+            <td>$100</td>
+        </tr>
+    </tbody>
+</table>
 
 ## 代码块测试
 

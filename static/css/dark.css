@@ -12,11 +12,11 @@ body {
     color: white;
 }
 
-li, .sidebar-nav li p a, .sidebar ul li a {
+li, .sidebar-nav li p a, .sidebar ul li a {  
     color: white;
 }
 
-/* markdown内粗体字 */
+/* markdown粗体字 */
 .markdown-section strong {
     color: white;
 }
