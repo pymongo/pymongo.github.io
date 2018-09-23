@@ -1,15 +1,17 @@
 body {
-    font-family: "Microsoft YaHei", "Source Sans Pro", Arial;
+    font-family: Meiryo, "Microsoft YaHei", Arial;
 }
 
 h1 .anchor span { color: #D13EAC;}
 h2 .anchor span { color: #FC9929;}
 h3 .anchor span { color: #FF66FF;}
-h2::before {
-    content: "#";
-    color: #42b983;
-    position: absolute;
-    left: -4px;
+@media (min-width: 1088px) {
+    h2::before {
+        content: "#";
+        color: #42b983;
+        position: absolute;
+        left: -6px;
+    }
 }
 
 .markdown-section hr {
