@@ -893,7 +893,7 @@ section.cover blockquote>p>a:hover {
     display: block;
     /* font-family: Roboto Mono,Monaco,courier,monospace; */
     font-family: "Roboto Mono", Consolas;
-    font-size: .8rem;
+    /* font-size: .8rem; */
     line-height: inherit;
     margin: 0 2px;
     max-width: inherit;

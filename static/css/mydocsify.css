@@ -26,7 +26,6 @@ div.search {
 pre[v-pre=""] code {
     padding-top: 0;
     padding-bottom: 0;
-    font-size: 16px;
 }
 
 /* prettyprint's comment */

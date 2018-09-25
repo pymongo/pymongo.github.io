@@ -1,18 +1,37 @@
+# 分组
+
+Tags: [数据库](#)
+
+首发于: 18-09-23 最后修改于: 18-09-23
+
 ## 聚合(Aggregate)函数
 
-min,max,sum,count,avg,stddev(标准差),variance(方差)
+min,max,sum,count,avg,stddev,variance(方差)
 
-注意表中无数据count返回0，而其他统计函数返回NULL
+若表中无数据则count返回0，而其他统计函数返回NULL
 
-## 分组统计(GROUP BY)
+举例-一共有几种职业: SELECT COUNT(DISTINCT job) FROM emp;
 
-分组条件：例如按照部门分组
+## 数据量不一致
 
-不成文的规定：当数据重复(比如好多个人都是市场部)的时候分组才有意义
+所谓聚合, 输入N个记录, 输出却只有一个结果/一行
+
+SELECT sal, AVG(sal) FROM emp;
+
+sal有14行, 而AVG(sal)只有一行, Oracle/MySQL不允许返回的各列记录数不一样
+
+虽然sqlite语法运行, 但会按最少记录数的列为基准截断其它列, 所以不建议这么写
+
+select语句要注意返回的各列长度是否一致
+
+## 分组(GROUP BY)
+
+下面是一个GROUP BY语句示例
 
 ```sql
+-- 统计各部门人数和平均工资
 SELECT e2.deptno, 
-       --e2.dname, 只能select分组字段
+       --e2.dname, // select中只能出现分组字段
        Count(e2.sal), 
        Avg(e2.sal) 
 FROM   (SELECT e.deptno, 
@@ -21,32 +40,10 @@ FROM   (SELECT e.deptno,
         FROM   emp e,
                dept d 
         WHERE  e.deptno = d.deptno) e2 -- 子查询内不得有分号 
-GROUP  BY e2.deptno; 
+GROUP  BY e2.deptno;
 ```
 
-- 分组函数可以在不分组下使用，但此时select语句不能查询字段
-
-- 进行分组时只能出现分组的字段和统计函数，其它字段不得出现
-
-- 分组函数嵌套时如MAX(AVG(sal))不能select其它字段
-
-## 部门名，人数，平均工资
-
-```sql
-SELECT e.deptno, 
-       e.dname, 
-       Count(e.empno), 
-       Avg(e.sal) 
-FROM   (SELECT e.deptno, 
-               d.dname, 
-               e.sal 
-        FROM   emp e, 
-               dept d 
-        WHERE  e.deptno = d.deptno) e 
-GROUP  BY e.deptno; 
-```
-
-## 【重要】分组后再分组
+## 多字段分组分组
 
 ```sql
 -- 各部门的各职业各有几人？
@@ -61,7 +58,7 @@ ORDER BY deptno;
 
 ## HAVING子句
 
-where子句中不得出现组函数
+语法/逻辑规定了where语句会在分组前面
 
 如果要对分组后的数据再次进行过滤，则用HAVING子句
 
@@ -84,14 +81,6 @@ WHERE  job != 'SALESMAN'
 GROUP  BY job 
 HAVING SUM(sal) > 5000 
 ORDER  BY SUM(sal); 
-```
-
-## 工资数值有几种
-
-```sql
-SELECT COUNT(empno),
-       COUNT(DISTINCT sal)
-FROM emp;
 ```
 
 ## 练习题1

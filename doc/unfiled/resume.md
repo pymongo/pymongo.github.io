@@ -4,7 +4,7 @@
 - 手机/微信号：17150313884
 - 吴翱翔/男/1990
 - 本科/天津职业技术师范大学/2015-2019 
-- 推特：[@ThinkingGain](https://twitter.com/ThinkingGain)
+- 推特：[@ThinkingGain](https://twitter.com/ospopen)
 - 技术博客：[pymongo.github.io](https://pymongo.github.io)
 
 ---
