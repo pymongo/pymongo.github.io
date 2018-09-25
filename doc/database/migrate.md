@@ -19,13 +19,13 @@ Tags: [数据库](#)
 
 > 迁移方案二: livesql.oracle.com官方创建脚本
 
-我在[Oracle安装/OEM/第三方工具](doc/oracle.md)一文中提到在线运行Oracle脚本的网站
+我在Oracle安装/OEM/第三方工具一文中提到在线运行Oracle脚本的网站
 
 这个livesql有点像Jupyter Notebook一样保存输入记录及相应输出结果
 
 可读性比github强多了, [livesql相应笔记地址](https://livesql.oracle.com/apex/livesql/file/content_O5AEB2HE08PYEPTGCFLZU9YCV.html)
 
-<img src="/img/livesql-demo.png">
+<img src="/img/database/livesql-demo.png">
 
 看到这html-table格式的表格, 打开浏览器Dev Tools,
 
@@ -39,7 +39,7 @@ Tags: [数据库](#)
 
 把方案一中github创建emp表代码粘贴方案二提到的livesql中, 自己加上`SELECT * FROM EMP;`
 
-<img src="/img/livesql-csv.png">
+<img src="/img/database/livesql-csv.png">
 
 正好livesql提供了Download as csv(LF换行符, 记事本看不到换行)
 
