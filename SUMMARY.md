@@ -1,5 +1,5 @@
 * [Home](README)
-* [我的简历](doc/unfiled/resume)
+* [我的简历](doc/unfiled/resume.html)
 * leetcode
     * [1 two sum](doc/leetcode/001)
 * database
