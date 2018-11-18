@@ -1,5 +1,10 @@
-body {
+* {
     font-family: Meiryo, "Microsoft YaHei", Arial;
+}
+
+body {
+    color: initial;
+    font-size: inherit;
 }
 
 h1 .anchor span { color: #D13EAC;}

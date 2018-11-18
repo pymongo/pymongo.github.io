@@ -12,15 +12,6 @@ body {
     color: white;
 }
 
-li, .sidebar-nav li p a, .sidebar ul li a {
-    color: white;
-}
-
-/* markdown粗体字 */
-.markdown-section strong {
-    color: white;
-}
-
 p.tip {
     background-color: rgba(189, 70, 124, 0.3) !important;
 }
