@@ -15,5 +15,4 @@
     * [eclipse安装与配置](doc/unfiled/eclipse)
     * [vscode tricks](doc/unfiled/vscode)
     * [richText to HTML](doc/unfiled/paste.html)
-    * [linux hack](doc/unfiled/linux.md)
     * [测试用例(标签,样式等)](doc/unfiled/test.md)
