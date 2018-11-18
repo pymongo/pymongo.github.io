@@ -1,16 +1,16 @@
-# 分组
+# 分组与聚合函数
 
 Tags: [数据库](#)
 
-首发于: 18-09-23 最后修改于: 18-09-23
+首发于: 18-09-23 最后修改于: 18-11-18
 
-## 聚合(Aggregate)函数
+## Aggregate Function
 
 min,max,sum,count,avg,stddev,variance(方差)
 
 若表中无数据则count返回0，而其他统计函数返回NULL
 
-举例-一共有几种职业: SELECT COUNT(DISTINCT job) FROM emp;
+举例:一共有几种职业: SELECT COUNT(DISTINCT job) FROM emp;
 
 ## 数据量不一致
 

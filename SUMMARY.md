@@ -6,7 +6,7 @@
     * [数据库介绍](doc/database/database.md)
     * [sqlite](doc/database/sqlite.md)
     * [Oracle的emp表迁移到sqlite](doc/database/migrate.md)
-    * [分组](doc/database/group.md)
+    * [分组与聚合函数](doc/database/group.md)
 * project
     * [chrome的恐龙奔跑游戏中作弊](/doc/project/chrome-game-cheat.md)
     * [公众号+树莓派远程开关灯](doc/project/rpi-gpio)

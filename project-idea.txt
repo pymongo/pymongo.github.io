@@ -1,3 +1,0 @@
-﻿python文件服务器
-注意下flask的html渲染引擎不支持 多文件选择框
-相关阅读:CSS-trick input file
