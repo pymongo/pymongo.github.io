@@ -12,7 +12,6 @@
     * [公众号+树莓派远程开关灯](doc/project/rpi-gpio)
     * [谷歌字体库被墙的解决方案](doc/project/googlefont.md)
 * unarchived file
-    * [eclipse安装与配置](doc/unfiled/eclipse)
     * [vscode tricks](doc/unfiled/vscode)
     * [richText to HTML](doc/unfiled/paste.html)
     * [测试用例(标签,样式等)](doc/unfiled/test.md)
