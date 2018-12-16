@@ -40,8 +40,7 @@ details被折叠内容...
 
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
+| col 1 is      | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
 
 ```java
@@ -77,7 +76,7 @@ class Solution {
 
 <div class="img-center-container">
     <img src="//developer.mozilla.org/static/img/favicon144.e7e21ca263ca.png" alt="MDN logo">
-    <p>div..img-center-container</p>
+    <p>div.img-center-container p</p>
 </div>
 
 <script src="/static/js/run.prettify.js"></script>

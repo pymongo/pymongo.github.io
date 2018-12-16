@@ -1,6 +1,6 @@
 # python的sqliteAPI
 
-Tags: [数据库](/), [python](/)
+, [python](/)
 
 首发于: 18-12-08 最后修改于: 18-12-08
 

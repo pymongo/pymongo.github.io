@@ -53,16 +53,3 @@ img {
     max-width: 100%;
     height: auto;
 }
-
-figure {
-    border: thin #c0c0c0 solid;
-    padding: 5px;
-}
-
-figcaption {
-    background-color: #222;
-    color: #fff;
-    font: italic smaller sans-serif;
-    padding: 3px;
-    text-align: center;
-}
