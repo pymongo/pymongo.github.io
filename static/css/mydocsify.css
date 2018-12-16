@@ -1,22 +1,19 @@
-* {
-    font-family: Meiryo, "Microsoft YaHei", Arial;
-}
-
-body {
-    color: initial;
-    font-size: inherit;
-}
-
 h1 .anchor span { color: #D13EAC;}
 h2 .anchor span { color: #FC9929;}
 h3 .anchor span { color: #FF66FF;}
-@media (min-width: 1088px) {
+
+/* more than 1100px width display #*/
+@media screen and (min-width: 1100px) {
     h2::before {
         content: "#";
         color: #42b983;
         position: absolute;
         left: -6px;
     }
+}
+/* search resulat don't display # */
+.results-panel h2::before {
+    content: "";
 }
 
 .markdown-section hr {
@@ -44,22 +41,28 @@ summary {
     user-select: none;
 }
 
+.img-center-container {
+    text-align: center;
+}
+
+.img-center-container img {
+    display: inline-block;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 figure {
-    border: thin #000000 solid;
-    display: flex;
-    flex-flow: column;
-    margin: 0;
+    border: thin #c0c0c0 solid;
     padding: 5px;
 }
 
-figure img {
-    filter: invert(1);
-}
-
-figure figcaption {
-    background-color: gray;
+figcaption {
+    background-color: #222;
     color: #fff;
-    font-style: italic;
+    font: italic smaller sans-serif;
     padding: 3px;
     text-align: center;
 }

@@ -1,6 +1,6 @@
 * japanese
     * [Japanese IME(入力/输入法)](/doc/japanese/IME.md)
-* diary
+    * [発音](/doc/japanese/pernounce.md)
 * project
     * [chrome的恐龙奔跑游戏中作弊](/doc/project/chrome-game-cheat.md)
     * [公众号+树莓派远程开关灯](doc/project/rpi-gpio)
@@ -9,7 +9,7 @@
     * [SQLiteAPI](doc/python/python-sqlite.md)
 * database
     * [数据库介绍](doc/database/01-database.md)
-    * [Oracle安装/OEM/第三方工具](doc/database/02-oracle.md)x
+    * [Oracle安装/OEM/第三方工具](doc/database/02-oracle.md)
     * [sqlplus](doc/database/03-sqlplus.md)
     * [sqlite](doc/database/04-sqlite.md)
     * [Oracle的emp表迁移到sqlite](doc/database/05-migrate.md)
@@ -26,4 +26,4 @@
     * [我的简历](doc/unfiled/resume.html)
     * [vscode tricks](doc/unfiled/vscode)
     * [richText to HTML](doc/unfiled/paste.html)
-    * [测试用例(标签,样式等)](doc/unfiled/test.md)
+    * [博客各元素CSS测试](doc/unfiled/test.md)

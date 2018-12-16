@@ -35,7 +35,7 @@ def search():
             WHERE "{lang}"="{q}"
             ''')
         query_result = cur.fetchone()
-        if query_result == None:
+        if query_result is None:
             query_result = ("","未收录该单词","","","","")
         return jsonify( # 0是主键所在列
             japanese=query_result[1],
