@@ -3,11 +3,11 @@
     * [chrome的恐龙奔跑游戏中作弊](/doc/project/chrome-game-cheat.md)
     * [公众号+树莓派远程开关灯](doc/project/rpi-gpio)
     * [谷歌字体库被墙的解决方案](doc/project/googlefont.md)
+* japanese
+    * [日本語入力(输入法/IME)](/doc/201812/japanese-input-method.md)
+    * [発音](/doc/japanese/pernounce.md)
 * python
     * [SQLiteAPI](doc/python/python-sqlite.md)
-* japanese
-    * [Japanese IME(入力/输入法)](/doc/japanese/IME.md)
-    * [発音](/doc/japanese/pernounce.md)
 * database
     * [数据库介绍](doc/database/01-database.md)
     * [Oracle安装/OEM/第三方工具](doc/database/02-oracle.md)
