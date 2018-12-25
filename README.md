@@ -1,42 +1,40 @@
-# 吴翱翔的博客 - 主页
+# 博客主页
 
-(没什么用的主页)
+## About Me
+
+Python业余爱好者, 常用Flask/Bottle框架, 从一个flask项目(想法得实现)到下一个flask项目, 对我而言就像换皮一样轻松, 从数据库原型设计到网站上限两小时就能搞定
+
+虽然我最擅长Python, 奈何python有技术没市场, 寥寥无几得python工作还得跟黑马等python培训班得学员抢工作
+
+我作为一个CCP痛恨者, 决定先移民再择业
 
 我有很多想法/观点/经历, 在忘掉之前想要分享给世界
+
+## 2018年年度总结
+
+我是个优柔寡断的人, 直到2018年9月彻底抛弃了进互联网行业月入上万得想法
+
+跟一个日企签了合同, 懒惰与自控能力差让满怀期待的上司对我很失望
+
+我从2018年11月底开始, 实习了一个月, 日语学习进度也就会认五十音, 而且辨识速度很慢, 日语单词记住的不到50个
+
+总以颈椎病/脑瘤/手肘关节炎为借口放纵自己消遣人生, 一事无成
+
+别说一年内过N2了, 现在的基础和状态半年内过N3都不可能, 而且还有模电补考和费时间的毕业设计
+
+大四上学期最后一个月的时光, 到底能前进多远?内在动机强不强?行动力如何?
+
+首先破除杂念纷飞的最有效方法是, 不看没营养的东西, 让遗忘去战胜它, 等我脑容量只有不到10%是垃圾信息自然不会经常走神。
+
+贪婪的我还想留着刺激战场APP跟同学吃鸡
+
+机电楼604的座位太窄桌子太小插电麻烦, 还是去图书馆吧。哎呀三楼人好多好吵啊没有安静的位置, 那就别去三楼了进图书馆直接去一楼随便找个空位看书, 墙边还有几个插座能用让我充电, 唯一遗憾就是9点半关门。关门后虽然可以继续在走廊学习, 但是笔记本的最大问题在于续航, 怕没电。
+
 
 [博客测试用页](/doc/unfiled/test.md)
 
 ## Blog's TODO List
 
-## table of contents
+(没有用过)
 
-* project
-    * [首次给开源项目提交代码(PR),为开源社区做贡献](doc/201812/pr-to-scoop/pr-to-scoop.md)
-    * [chrome的恐龙奔跑游戏中作弊](/doc/project/chrome-game-cheat.md)
-    * [公众号+树莓派远程开关灯](doc/project/rpi-gpio)
-    * [谷歌字体库被墙的解决方案](doc/project/googlefont.md)
-* japanese
-    * [日本語入力(输入法/IME)](/doc/201812/japanese-input-method.md)
-    * [発音](/doc/japanese/pernounce.md)
-* python
-    * [SQLiteAPI](doc/python/python-sqlite.md)
-* database
-    * [数据库介绍](doc/database/01-database.md)
-    * [Oracle安装/OEM/第三方工具](doc/database/02-oracle.md)
-    * [sqlplus](doc/database/03-sqlplus.md)
-    * [sqlite](doc/database/04-sqlite.md)
-    * [Oracle的emp表迁移到sqlite](doc/database/05-migrate.md)
-    * [数据库的组成](doc/database/06-traverse-db.md)
-    * [字符串与模糊查询](doc/database/07-query.md)
-    * [sql函数](doc/database/08-function.md)
-    * [子查询](doc/database/09-subquery.md)
-    * [多表查询](doc/database/10-multi-table.md)
-    * [分组与聚合函数](doc/database/11-group.md)
-    * [增删改与事务处理](doc/database/12-update.md)
-    * [约束](doc/database/13-constraint.md)
-    * [数据库思考题](doc/database/problem.md)
-* unarchived file
-    * [我的简历](doc/unfiled/resume.html)
-    * [vscode tricks](doc/unfiled/vscode)
-    * [richText to HTML](doc/unfiled/paste.html)
-    * [博客各元素CSS测试](doc/unfiled/test.md)
+## 目次

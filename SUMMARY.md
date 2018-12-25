@@ -1,6 +1,6 @@
 * project
-    * [首次给开源项目提交代码(PR),为开源社区做贡献](doc/201812/pr-to-scoop/pr-to-scoop.md)
-    * [chrome的恐龙奔跑游戏中作弊](/doc/project/chrome-game-cheat.md)
+    * [首次给开源项目提交代码(PR),为开源社区做贡献](doc/2018/pr-to-scoop/pr-to-scoop.md)
+    * [chrome的恐龙奔跑游戏中作弊](/doc/2018/chrome-game-cheat/chrome-game-cheat.md)
     * [公众号+树莓派远程开关灯](doc/project/rpi-gpio)
     * [谷歌字体库被墙的解决方案](doc/project/googlefont.md)
 * japanese
@@ -23,7 +23,7 @@
     * [增删改与事务处理](doc/database/12-update.md)
     * [约束](doc/database/13-constraint.md)
     * [数据库思考题](doc/database/problem.md)
-* unarchived file
+* unarchived
     * [我的简历](doc/unfiled/resume.html)
     * [vscode tricks](doc/unfiled/vscode)
     * [richText to HTML](doc/unfiled/paste.html)
