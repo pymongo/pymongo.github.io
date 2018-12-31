@@ -1,13 +1,14 @@
 * project
-    * [首次给开源项目提交代码(PR),为开源社区做贡献](doc/2018/pr-to-scoop/pr-to-scoop.md)
+    * [首次给开源项目提交代码(PR),为开源社区做贡献](doc/2018/pull-request-to-scoop/pull-request-to-scoop.md)
+    * [谷歌字体库被墙的解决方案](doc/2018/google-font-block-solution.md)
     * [chrome的恐龙奔跑游戏中作弊](/doc/2018/chrome-game-cheat/chrome-game-cheat.md)
-    * [公众号+树莓派远程开关灯](doc/project/rpi-gpio)
-    * [谷歌字体库被墙的解决方案](doc/project/googlefont.md)
+    * [Web UI控制树莓派开关灯](doc/2018/rpi-gpio.md)
 * japanese
     * [日本語入力(输入法/IME)](/doc/201812/japanese-input-method.md)
     * [発音](/doc/japanese/pernounce.md)
-* python
-    * [SQLiteAPI](doc/python/python-sqlite.md)
+* programing
+    * [vscode技巧](doc/2018/vscode-trick/vscode-trick.md)
+    * [Python SQLite API](doc/python/python-sqlite.md)
 * database
     * [数据库介绍](doc/database/01-database.md)
     * [Oracle安装/OEM/第三方工具](doc/database/02-oracle.md)

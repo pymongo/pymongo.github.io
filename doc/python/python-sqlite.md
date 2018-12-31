@@ -30,10 +30,7 @@ def search():
         cur = conn.cursor()
         q = request.args.get('q')
         lang = request.args.get('lang')
-        cur.execute(f'''
-            SELECT * FROM dict
-            WHERE "{lang}"="{q}"
-            ''')
+        cur.execute(f'SELECT * FROM dict WHERE "{lang}"="{q}"')
         query_result = cur.fetchone()
         if query_result is None:
             query_result = ("","未收录该单词","","","","")
