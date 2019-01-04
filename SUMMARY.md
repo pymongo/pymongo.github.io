@@ -3,19 +3,16 @@
     * [谷歌字体库被墙的解决方案](doc/2018/google-font-block-solution.md)
     * [chrome的恐龙奔跑游戏中作弊](/doc/2018/chrome-game-cheat/chrome-game-cheat.md)
     * [Web UI控制树莓派开关灯](doc/2018/rpi-gpio.md)
+* programing
+    * [vscode技巧](doc/2018/vscode-trick/vscode-trick.md)
+    * [database](doc/2018/database.md)
+    * [Oracle数据库](doc/2018/oracle-database/oracle-database.md)
+    * [sqlite](doc/2018/sqlite.md)    
 * japanese
     * [日本語入力(输入法/IME)](/doc/201812/japanese-input-method.md)
     * [発音](/doc/japanese/pernounce.md)
-* programing
-    * [vscode技巧](doc/2018/vscode-trick/vscode-trick.md)
-    * [Python SQLite API](doc/python/python-sqlite.md)
 * database
-    * [数据库介绍](doc/database/01-database.md)
-    * [Oracle安装/OEM/第三方工具](doc/database/02-oracle.md)
-    * [sqlplus](doc/database/03-sqlplus.md)
-    * [sqlite](doc/database/04-sqlite.md)
     * [Oracle的emp表迁移到sqlite](doc/database/05-migrate.md)
-    * [数据库的组成](doc/database/06-traverse-db.md)
     * [字符串与模糊查询](doc/database/07-query.md)
     * [sql函数](doc/database/08-function.md)
     * [子查询](doc/database/09-subquery.md)
@@ -24,8 +21,8 @@
     * [增删改与事务处理](doc/database/12-update.md)
     * [约束](doc/database/13-constraint.md)
     * [数据库思考题](doc/database/problem.md)
+* essays
+    * [会社の同僚](doc/essays/colleague.md)
 * unarchived
     * [我的简历](doc/unfiled/resume.html)
-    * [vscode tricks](doc/unfiled/vscode)
-    * [richText to HTML](doc/unfiled/paste.html)
-    * [博客各元素CSS测试](doc/unfiled/test.md)
+    * [博客各元素CSS测试](doc/unfiled/blog-css-test.md)
