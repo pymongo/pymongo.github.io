@@ -7,20 +7,15 @@
     * [vscode技巧](doc/2018/vscode-trick/vscode-trick.md)
     * [database](doc/2018/database.md)
     * [Oracle数据库](doc/2018/oracle-database/oracle-database.md)
-    * [sqlite](doc/2018/sqlite.md)    
+    * [sqlite](doc/2018/sqlite.md)
+    * [sql基础知识](doc/2018)
+    * [Oracle的emp表迁移到sqlite](doc/2018/oracle-migrate-to-sqlite/oracle-migrate-to-sqlite.md)
+    * [多表查询](doc/2018/multi-table-query.md)
+    * [sql分组与聚合函数](doc/2018/sql-group.md)
+    * [增删改,约束与事务处理](doc/2018/sql-update.md)
 * japanese
     * [日本語入力(输入法/IME)](/doc/201812/japanese-input-method.md)
     * [発音](/doc/japanese/pernounce.md)
-* database
-    * [Oracle的emp表迁移到sqlite](doc/database/05-migrate.md)
-    * [字符串与模糊查询](doc/database/07-query.md)
-    * [sql函数](doc/database/08-function.md)
-    * [子查询](doc/database/09-subquery.md)
-    * [多表查询](doc/database/10-multi-table.md)
-    * [分组与聚合函数](doc/database/11-group.md)
-    * [增删改与事务处理](doc/database/12-update.md)
-    * [约束](doc/database/13-constraint.md)
-    * [数据库思考题](doc/database/problem.md)
 * essays
     * [会社の同僚](doc/essays/colleague.md)
 * unarchived
