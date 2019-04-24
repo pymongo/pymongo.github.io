@@ -16,8 +16,5 @@
 * japanese
     * [日本語入力(输入法/IME)](/doc/201812/japanese-input-method.md)
     * [発音](/doc/japanese/pernounce.md)
-* essays
-    * [会社の同僚](doc/essays/colleague.md)
 * unarchived
-    * [我的简历](doc/unfiled/resume.html)
     * [博客各元素CSS测试](doc/unfiled/blog-css-test.md)
