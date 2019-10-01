@@ -1,0 +1,19 @@
+- **解决方案**
+    - [首次给开源项目提交代码](2018/pull-request-to-scoop/pull-request-to-scoop)
+    - [谷歌字体库被墙的解决方案](2018/google-font-block-solution)
+    - [chrome的恐龙奔跑游戏中作弊](2018/chrome-game-cheat/chrome-game-cheat)
+    - [Web UI控制树莓派开关灯](2018/rpi-gpio.md)
+- **programing**
+    - [vscode技巧](2018/vscode-trick/vscode-trick)
+    - [database](2018/database)
+    - [Oracle数据库](2018/oracle-database/oracle-database)
+    - [sqlite](2018/sqlite)
+    - [sql基础知识](2018/sql-basic)
+    - [Oracle的emp表迁移到sqlite](2018/oracle-migrate-to-sqlite/oracle-migrate-to-sqlite)
+    - [多表查询](2018/multi-table-query)
+    - [sql分组与聚合函数](2018/sql-group)
+    - [增删改,约束与事务处理](2018/sql-update)
+- **日本語**
+    - [日本語記号の入力](/2019/kigou)
+- **联系我**
+    - [我的简历](resume.html)
