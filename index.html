@@ -7,9 +7,16 @@
     <meta name="keywords" content="日语,Python,chrome">
     <meta name="description" content="Python业余爱好者,常用flask框架,日本語學習中">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/static/icon.png">
-    <link rel="stylesheet" href="/static/css/vue.css">
-    <link rel="stylesheet" href="/static/css/mydocsify.css">
+    <link rel="icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="/static/docsify-themeable.css">
+    <style>
+        :root {
+            font-family: "Microsoft Yahei";
+        }
+        summary {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,25 +24,32 @@
     <script>
         window.$docsify = {
             alias: {
-                '/.*/README.md': '/SUMMARY.md',
-                '/.*/SUMMARY.md':  '/SUMMARY.md'
+                '/.*/_sidebar.md': '_sidebar.md',
+                '/': '_sidebar.md',
             },
-            executeScript: true,
-            loadSidebar: 'SUMMARY.md',
             repo: 'pymongo/pymongo.github.io',
+            basePath: '/doc',
+            loadSidebar: '_sidebar.md',
             subMaxLevel: 3,
             search: {
                 paths: 'auto',
-                placeholder: '站内搜索',
-                noData: '找不到结果',
+                placeholder: '検索',
+                noData: '一致なし'
+            },
+            pagination: {
+                previousText: 'PREVIOUS',
+                nextText: '下一章节',
+                crossChapter: true
             }
         }
     </script>
-    <script src="/static/js/docsify.min.js"></script>
-    <script src="/static/js/search.min.js"></script>
-    <script src="/static/js/external-script.min.js"></script>
-    <script src="/static/js/prism-highlight.js"></script>
-    <!-- <script src="/static/js/run.prettify.js"></script> -->
+    <script src="/static/docsify@4.9.4.js"></script>
+    <script src="/static/search@4.9.4.js"></script>
+    <script src="/static/docsify-themeable@0.7.2.js"></script>
+    <script src="/static/docsify-pagination@2.4.0.js"></script>
+    <script src="/static/docsify-tabs@1.1.2.js"></script>
+    <script src="/static/docsify-plugin-flexible-alerts@1.0.4.js"></script>
+    <script src="/static/docsify-copy-code@2.1.0.js"></script>
 </body>
 
 </html>
