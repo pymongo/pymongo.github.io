@@ -1,6 +1,6 @@
-# vscode技巧
+# vscode技巧・正则表达式置换等
 
-首发于: 18-08-17 最后修改于: 18-12-31
+[egghead.io](http://egghead.io)上面现在有VScode的教程，等我看完后再更新本文吧...
 
 ## regax replace
 

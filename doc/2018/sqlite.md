@@ -1,7 +1,5 @@
 # sqlite
 
-首发于: 18-09-20 最后修改于: 19-01-03
-
 ## sqlite的应用领域
 - macOS很多自带APP如Notes的数据库就是sqlite
 - 嵌入式设备如Android设备

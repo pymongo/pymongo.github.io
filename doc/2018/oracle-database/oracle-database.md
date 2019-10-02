@@ -1,7 +1,5 @@
 # Oracle安装/OEM/第三方工具
 
-首发于: 18-09-20 最后修改于: 19-01-04
-
 ## Oracle运行环境与服务进程
 
 - [Oracle 11g 的安装过程](https://www.cnblogs.com/dmego/p/6353641.html)

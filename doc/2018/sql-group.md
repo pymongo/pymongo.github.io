@@ -1,7 +1,5 @@
 # sql分组与聚合函数
 
-首发于: 18-09-23 后修改于: 19-01-04
-
 ## Aggregate Function
 
 min,max,sum,count,avg,stddev,variance(方差)

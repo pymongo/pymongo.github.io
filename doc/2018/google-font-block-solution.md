@@ -1,7 +1,5 @@
 # 谷歌字体库被墙的解决方案
 
-首发于: 18-09-25 最后修改于: 18-12-25
-
 ## 博客引用的谷歌字体库被墙
 
 我博客https://pymongo.github.io 用的是docsify框架, docsify框架拷贝了在**vue**文档的css, 而vue.css中有这么一行:

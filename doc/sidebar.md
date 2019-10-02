@@ -1,10 +1,28 @@
-- **解决方案**
+- **经历分享**
     - [首次给开源项目提交代码](2018/pull-request-to-scoop/pull-request-to-scoop)
     - [谷歌字体库被墙的解决方案](2018/google-font-block-solution)
     - [chrome的恐龙奔跑游戏中作弊](2018/chrome-game-cheat/chrome-game-cheat)
+    - [谷歌的文字冒险游戏](2019/google-text-adventure)
     - [Web UI控制树莓派开关灯](2018/rpi-gpio.md)
-- **programing**
-    - [vscode技巧](2018/vscode-trick/vscode-trick)
+- **知识收集**
+    - [vscode技巧・正则表达式置换等](2018/vscode-trick/vscode-trick)
+    - [小技巧收集](2019/trick-collect)
+- **日本語**
+    - [日本語発音](2019/hatsuon)
+    - [日本語入力(输入法)](2019/nyūryoku)
+    - [日本語記号の入力](2019/kigou)
+- **单片机嵌入式**
+    - [以中断方式读轻触按键](2019/button-interrupt/button-interrupt)
+    - [矩阵键盘(keypad)](2019/keypad/keypad.md)
+- **联系我**
+    - [我的简历](resume.html)
+- **leetcode**
+    - [001 two sum](2019/001-two-sum)
+    - [066 plus one](2019/066-plus-one)
+    - [070 Climbing Stairs(递归类)](2019/070-Climbing-Stairs)
+    - [118 pascal triangle(杨辉三角)](2019/118-pascal-triangle)
+    - [leetcode简单题/API题](2019/leetcode-easy)
+- **数据库基础知识**
     - [database](2018/database)
     - [Oracle数据库](2018/oracle-database/oracle-database)
     - [sqlite](2018/sqlite)
@@ -13,7 +31,3 @@
     - [多表查询](2018/multi-table-query)
     - [sql分组与聚合函数](2018/sql-group)
     - [增删改,约束与事务处理](2018/sql-update)
-- **日本語**
-    - [日本語記号の入力](2019/kigou)
-- **联系我**
-    - [我的简历](resume.html)

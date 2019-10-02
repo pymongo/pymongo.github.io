@@ -1,11 +1,8 @@
 # Oracle的emp表迁移到sqlite
 
-首发于: 18-09-23 最后修改于: 19-01-04
-
 ## 迁移需求
 
 没有安装Oracle, 而很多教程都是用scott用户的emp表, 其实sqlite官方提供了一个唱片相关的数据库, 搜索SQLite Sample Database
-
 
 ## 迁移难点
 
