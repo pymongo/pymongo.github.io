@@ -8,6 +8,7 @@
         #page {
             margin: 6% 10% 4% 10%;
             font-family: "Microsoft YaHei";
+            --pad: 152px;
         }
 
         .right {
@@ -19,19 +20,25 @@
         }
 
         ul {
-            padding-left: 152px;
+            padding-left: var(--pad);
             list-style-type: square;
         }
 
-        .cert1 {
+        .project {
+            padding: var(--pad);
+        }
+
+        #cert p {
+            margin: 0 0 8px 0;
+            line-height: 100%;
             display: inline-block;
-            margin: 0;
-            width: 152px;
+        }
+
+        .cert1 {
+            width: var(--pad);
         }
 
         .cert2 {
-            display: inline-block;
-            margin: 0;
             width: 300px;
         }
     </style>
@@ -41,56 +48,58 @@
     <div id="page">
         <h1 align=center>吴翱翔的简历</h1>
         <div id="info">
-            <p><span>me@tute.edu.cn</span><span class=right><b>应聘：应届毕业生</b></span></p>
-            <p><span><b>(+86) 171-5031-3994</b></span><span class=right>本科2019毕业/天津职业技术师范大学/电子信息工程</span></p>
+            <p><b>me@tute.edu.cn</b><span class=right><b>应聘：软件开发工程师</b></span></p>
+            <p><span><b>(+86) 171-5031-3994</b></span><span class=right>本科19毕业/天津职业技术师范大学/电子信息工程</span></p>
         </div>
         <h2 class="title">工作经历</h2>
-        <p>2018.11ー2019.07　北京邦友科技开发有限公司<span class=right><b>自動化評価部　实习生</b></span></p>
+        <p>2018.11ー2019.07　北京邦友科技开发有限公司<span class=right><b>自動化部　实习生</b></span></p>
         <ul>
-            <li>根据日本客户(爱信)的指摘或发过来的依赖维护项目代码</li>
-            <li>根据客户给出的仕様書，编写与维护テスト設計書</li>
+            <li>负责不同製品的ECU(车载电子控制器)进行开发</li>
+            <li>主要业务是车载座椅的自动化设计，车体车棚的自动化设计</li>
         </ul>
-        <p>2018.11ー2019.07　北京邦友科技开发有限公司<b class=right>自動化評価部　正社員</b></p>
+        <p>2019.07ー2019.11　北京邦友科技开发有限公司<b class=right>自動化部　正社員</b></p>
         <ul>
-            <li>对汽车ECU(车载电子控制器)如天窗STR，电动座椅MS等进行自动化功能测试</li>
-            <li>根据項目書中提供的测试用例，以日方提供的脚本语言编写脚本</li>
-            <li>对脚本在M-RAD机器上的运行结果进行解析与排错，向日方提課題</li>
+            <li>理解製品仕様書，考虑设计方案，编写与维护項目書</li>
+            <li>根据項目書以日方提供的脚本语言进行编程，调试</li>
         </ul>
         <h2 class="title">项目经验</h2>
-        <p>2018.08ー2019.12　个人技术博客 pymongo.github.io<b class=right>　独立完成</b></p>
+        <p>2019.06ー2019.09　レクサス720B车型的MS(车载座椅)P席软件开发<b class=right></b></p>
         <ul>
-            <li>以Git做版本管理，docsify作为静态页面的前端框架，完成配置并运行在GithubPage上</li>
-        </ul>
-        <p>2019.02ー2019.03　无线电设备机械装校工・数字化资源库<b class=right>　学校项目Demo 独立完成</b></p>
-        <ul>
-            <li>后端框架使用Python语言的Flask框架，数据库使用SQLite</li>
-            <li>负责数字资料库在线练习系统，上传下载部分的设计与实现</li>
+            <li>基于客户的依赖(委托)，以D席(驾驶席)的代码为基准开发与维护P席(驾驶席)车载座椅的控制程序</li>
+            <li>通过ダイアグ(自動車故障診断)的途径对P席车载座椅进行功能测试</li>
         </ul>
         <p>2019.03ー2019.06　基于网络云平台的日语翻译软件设计<b class=right>　毕业设计 独立完成</b></p>
         <ul>
-            <li>采用网页作为用户界面显示(Web UI)，网页后端采用Flask框架，语料数据库使用SQLite</li>
-        </ul> 
+            <li>编写对接Google的接口代码，用到了MVC，Ajax等技术</li>
+        </ul>
+        <p>2019.02ー2019.03　无线电设备机械装校工・数字化资源库<b class=right>　项目Demo 独立完成</b></p>
+        <ul>
+            <li>后端框架使用Python语言的Flask框架，数据库使用SQLite，用Git进行项目版本管理</li>
+            <li>负责数字资料库<b>在线练习/做题系统</b>，上传下载部分的设计与实现</li>
+        </ul>
+        <p>2018.08ー2019.12　个人技术博客 pymongo.github.io<b class=right>　独立完成</b></p>
+        <ul>
+            <li>以前端框架docsify作为基础，将静态页面部署在在GithubPage上</li>
+        </ul>
+
         <h2 class="title">已获证书</h2>
-        <p>
+        <div id=cert>
             <p class="cert1">2019.07</p>
             <p class="cert2">日本語能力試験(JLPT)</p><b>N5</b>
-        </p>
-        <p>
+            <br>
             <p class="cert1">2018.12</p>
             <p class="cert2">全国大学英语四、六级考试(CET)</p><b>四级</b>
-        </p>
-        <p>
+            <br>
             <p class="cert1">2018.11</p>
             <p class="cert2">广电和通信设备调试工</p><b>三级/高级工</b>
-        </p>
-        <p>
+            <br>
             <p class="cert1">2017.03</p>
             <p class="cert2">全国计算机等级考试(NCRE)</p><b>二级C语言</b>
-        </p>
-        <p>
+            <br>
             <p class="cert1">2016.12</p>
             <p class="cert2">2016天津市大学生电子设计竞赛(TI杯)</p><b>市三等奖</b>
-        </p>
+        </div>
+
     </div>
 </body>
 
