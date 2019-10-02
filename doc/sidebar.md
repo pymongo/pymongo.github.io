@@ -9,7 +9,7 @@
     - [小技巧收集](2019/trick-collect)
 - **日本語**
     - [日本語発音](2019/hatsuon)
-    - [日本語入力(输入法)](2019/nyūryoku)
+    - [日本語入力(输入法)](2019/nyuuryoku)
     - [日本語記号の入力](2019/kigou)
 - **单片机嵌入式**
     - [以中断方式读轻触按键](2019/button-interrupt/button-interrupt)
