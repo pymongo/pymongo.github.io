@@ -8,9 +8,9 @@
     - [vscode技巧・正则表达式置换等](2018/vscode-trick/vscode-trick)
     - [小技巧收集](2019/trick-collect)
 - **日本語**
+    - [日本語の絵文字/記号/顔文字](2019/kigou)
     - [日本語発音](2019/hatsuon)
     - [日本語入力(输入法)](2019/nyuuryoku)
-    - [日本語記号の入力](2019/kigou)
 - **单片机嵌入式**
     - [以中断方式读轻触按键](2019/button-interrupt/button-interrupt)
     - [矩阵键盘(keypad)](2019/keypad/keypad.md)
