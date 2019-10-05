@@ -30,6 +30,12 @@ details被折叠内容...
 
 ## block content test
 
+```diff
+- docsify don't support But github support
++ this text is highlighted in green
+- this text is highlighted in red
+```
+
 !> p.tip *em* `code`
 
 ?> [docsify的markdown扩充语法](https://docsify.js.org/#/zh-cn/helpers)

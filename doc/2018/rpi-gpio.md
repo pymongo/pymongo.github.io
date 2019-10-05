@@ -1,29 +1,25 @@
-# Web端控制树莓派IO口
+# 【智能家居】平板电脑控制电灯
 
-## 兴趣的来源
+> [!TIP|label:Surface平板电脑控制电灯]
+> 如图，把电灯换成继电器就能控制任意220V的家用电器了
 
-以前在Youtube看些智能硬件的视频, 非常喜欢网页控制硬件的设计, 可惜当时不懂前后端技术, 也没法自己动手做
-
-让我比较印象深刻的是onion的Single Board Computer, 可以在Web UI的Node.Red软件思维导图一般画流程控制, LabVIEW结合Arduino的桌面窗口程序控制硬件IO口, 有点智能家居的意思
-
-## 终于找到实现的方法
-
-我在看GreatScott的树莓派的时候看到他在terminal输入gpio命令就能点亮一个小灯
-
-恰好我那时也在soloLearn学完PHP课程, 想起PHP可以在CGI脚本里执行命令行的gpio命令, 于是在大三上学期开始做
-
-[wiringpi](http://wiringpi.com/the-gpio-utility/)
-
-## 成果演示
 
 ![rpi-gpio](rpi-gpio.gif "rpi-gpio")
 
-## 程序流程思路
+## 如何实现
 
-前端页面是一个按钮 [https://www.w3schools.com/howto/howto_css_switch.asp](create a toggle switch)
+树莓派RaspberryPi能在主流操作系统如Ubuntu上
 
-用flask做框架, 前端点击相应按钮时执行 gpio toggle [引脚]的命令
+!> 直接控制芯片引脚电压/电平
 
-## 后续工作
+通过Raspbian系统内置的[wiringpi](http://wiringpi.com/the-gpio-utility/)库，可通过shell或任意编程语言直接修改芯片GPIO的电平
 
-微信公众号+VPS实现微信公众号发开灯即可开灯
+当时我还没学Python的Flask框架，就用自认为最简单的PHP做后端
+
+前端网页就只有红色和绿色两个按钮，按一下就发送一个Ajax请求给PHP处理
+
+通过网线相连让平板电脑和树莓派处于同一网段，最后平板电脑访问下树莓派上的相应PHP页面即可。
+
+## 再加点需求
+
+微信公众号+VPS实现微信公众号/小程序远程控制
