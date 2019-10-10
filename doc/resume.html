@@ -2,106 +2,119 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset=UTF-8>
     <title>吴翱翔的简历</title>
     <style>
-        #page {
-            margin: 6% 10% 3% 10%;
-            font-family: "Microsoft YaHei",Meiryo;
-            --pad: 152px;
+        body {
+            margin: 5% 10% 2% 10%;
+            font-family: "Microsoft YaHei", Meiryo;
+            --col: 110px;
         }
 
         .right {
             float: right;
         }
 
-        .title {
+        h3 {
             background-color: #eee;
         }
 
         ul {
-            padding-left: var(--pad);
-            list-style-type: square;
+            padding-left: var(--col);
+            list-style-type: none;
+            margin-top: 8px;
         }
 
-        .project {
-            padding: var(--pad);
+        li:before {
+            content: '・';
+            margin-left: -16px;
         }
 
-        #cert p {
-            margin: 0 0 8px 0;
-            line-height: 100%;
+        .col {
+            width: var(--col);
             display: inline-block;
         }
 
-        .cert1 {
-            width: var(--pad);
+        .date {
+            font-size: 75%;
         }
 
-        .cert2 {
+        .col-cert {
             width: 300px;
+            display: inline-block;            
+        }
+
+        .pre p {
+            margin: 0 0 8px 0;
+            line-height: 100%;
         }
     </style>
 </head>
 
 <body>
-    <div id="page">
-        <h1 align=center>吴翱翔的简历</h1>
-        <div id="info">
-            <p>邮箱：<b>me@tute.edu.cn</b><b class=right>应聘：日语软件测试岗位</b></p>
-            <p>手机/微信：<b>17150313994</b><span class=right>本科19毕业/天津职业技术师范大学/电子信息工程</span></p>
-        </div>
-        <h2 class="title">工作经历</h2>
-        <p>2018.11ー2019.07　北京邦友科技开发有限公司<span class=right><b>自動化部　实习生</b></span></p>
-        <ul>
-            <li>负责对不同製品的ECU(车载电子控制器)进行功能测试</li>
-            <li>主要业务是MS(记忆座椅)的自动化设计</li>
-        </ul>
-        <p>2019.07ー2019.11　北京邦友科技开发有限公司<b class=right>自動化部　正社員</b></p>
-        <ul>
-            <li>理解ECU(车载电子控制器)製品仕様書，考虑设计方案，编写与维护項目書</li>
-            <li>根据項目書以日方提供的脚本语言进行编程，调试</li>
-        </ul>
-        <h2 class="title">项目经验</h2>
-        <p>2019.06ー2019.09　レクサス720B车型的MS软件开发<b class=right></b></p>
-        <ul>
-            <li>以D席(驾驶席)的代码为基准开发与维护P席(驾驶席)车载座椅的控制程序</li>
-            <li>通过ダイアグ(自動車故障診断)的途径对P席车载座椅进行功能测试</li>
-        </ul>
-        <p>2018.11ー2019.05　基于网络云平台的日语翻译软件设计<b class=right>　毕业设计 独立完成</b></p>
-        <ul>
-            <li>设计翻译语料数据库的表结构，项目中遇到问题能通过Google/StackOverflow解决</li>
-        </ul>
-        <p>2019.02ー2019.04　无线电设备机械装校工・数字化资源库<b class=right>　项目Demo 独立完成</b></p>
-        <ul>
-            <li>后端框架使用Python语言的Flask框架，数据库使用SQLite，以Git进行版本管理，用到了Ajax，MVC等技术</li>
-            <li>负责数字资料库<b>在线练习/做题系统</b>，上传下载部分的设计与实现</li>
-            <li>尝试不使用任何<b>JavaScript</b>完成前后端交互与数据通信</li>
-        </ul>
-        <p>2018.08ー2019.12　技术博客 http://pymongo.github.io<b class=right>　独立完成</b></p>
-        <ul>
-            <li>以Node.JS的docsify框架作为基础，将静态页面部署在在GithubPage上</li>
-        </ul>
-
-        <h2 class="title">已获证书</h2>
-        <div id=cert>
-            <p class="cert1">2019.07</p>
-            <p class="cert2">日本語能力試験(JLPT)</p><b>N5</b>
-            <br>
-            <p class="cert1">2018.12</p>
-            <p class="cert2">全国大学英语四、六级考试(CET)</p><b>四级</b>
-            <br>
-            <p class="cert1">2018.11</p>
-            <p class="cert2">广电和通信设备调试工</p><b>三级/高级工</b>
-            <br>
-            <p class="cert1">2017.03</p>
-            <p class="cert2">全国计算机等级考试(NCRE)</p><b>二级C语言</b>
-            <br>
-            <p class="cert1">2016.12</p>
-            <p class="cert2">2016天津市大学生电子设计竞赛(TI杯)</p><b>市三等奖</b>
-        </div>
-
+    <h2 align=center>吴翱翔的简历</h2>
+    <div class=pre>
+        <p>邮箱：<b>me@tute.edu.cn</b><b class=right>应聘：应届毕业生岗位</b></p>
+        <p>手机：<b>17150313994</b><span class=right>本科19毕业/天津职业技术师范大学/电子信息工程</span></p>
     </div>
+    <h3>工作经历</h3>
+    <div><div class="col date">2018.11~至今</div>北京邦友科技开发有限公司
+        <span class=right>自动化部&nbsp;&nbsp;测试工程师/实习生(19.07前)</span>
+    </div>
+    <ul>
+        <li>主要业务是MS(记忆座椅)和STR(车体车棚)的自动化设计</li>
+        <li>负责对不同製品的ECU(车载电子控制器)进行功能测试</li>
+        <li>理解ECU(电子控制器)仕様書，考虑设计方案，编写与维护項目書</li>
+        <li>根据項目書以日方提供的脚本语言进行编程，调试</li>
+    </ul>
+    <h3>项目经验</h3>
+    <div><div class="col date">2018.04~至今</div>技术博客 http://pymongo.github.io<b class=right>个人网站</b></div>
+    <ul>
+        <li>用到了NodeJS的docsify框架并部署在GithubPage上，通过该项目了解到CSS权重等技术</li>
+    </ul>
+    <div><div class="col date">2019.05~2019.09</div>レクサス720B车型的MS软件开发</div>
+    <ul>
+        <li>以D席(驾驶席)的代码为基准开发与维护P席的控制程序</li>
+        <li>通过ダイアグ(自動車故障診断)的途径对P席车载座椅进行功能测试</li>
+    </ul>
+    <div><div class="col date">2018.11~2019.04</div>基于网络云平台的日语翻译软件设计<b class=right>毕业设计</b></div>
+    <ul>
+        <li>该项目通过GoogleAPI和SQLite语料库实现了中日英互译的基本功能</li>
+    </ul>
+    <div><div class="col date">2018.10~2018.12</div>无线电调试工・数字化资源库<b class=right>在校项目</b></div>
+    <ul>
+        <li>这是个面向无线电调试工考试学生的在线学习网站，设计并实现在线做题系统，上传/下载学习资源等功能</li>
+        <li>以Python语言的Flask框架为基础，数据库使用SQLite，用到了Ajax，MVC等技术</li>
+        <li>项目中遇到了文件上传失败的问题，通过查阅英文的Flask官方文档以及Google/StackOverflow独立解决技术难题</li>
+    </ul>
+    <h3>技能清单</h3>
+    <div class=pre>
+        <p>・熟练使用Python、JavaScript、Java，熟悉函数式编程和面向对象的设计思路</p>
+        <p>・了解Git版本管理/Linux/WSL常用命令，有阿里云等云主机的部署和维护经验</p>
+        <p>・熟悉数据库基本操作与常用SQL语句，有SQLite，Oracle经验</p>
+        <p>・日语标日学到中级N2在考。能阅读API英语文档，MDN的网页文档等</p>
+    </div>
+
+    <h3>已获证书</h3>
+    <div class=pre>     
+        <div>
+            <p class=col>2019.07</p><p class=col-cert>日本語能力試験(JLPT)</p><b>N5</b>
+        </div>
+        <div>
+            <p class=col>2018.12</p><p class=col-cert>全国大学英语四、六级考试(CET)</p><b>四级</b>
+        </div>        
+        <div>
+            <p class=col>2017.03</p><p class=col-cert>全国计算机等级考试(NCRE)</p><b>二级C语言</b>
+        </div>      
+        <div>
+            <p class=col>2016.12</p><p class=col-cert>2016天津市大学生电子设计竞赛(TI杯)</p><b>市三等奖</b>
+        </div>
+    </div>
+
 </body>
 
 </html>
+
+<!--
+2018.11 广电和通信设备调试工 三级/高级工
+-->
