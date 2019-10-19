@@ -31,18 +31,27 @@ ruby本身就对非UnixLike系统不友好，windows只能用官方推荐的【r
 
 关于标准指法，根据typeclub.com的测试结果我标准指法只有7WPM的速度，而同样100%正确率自己习惯的打法速度在50-60WPM之间，而且我能盲打很熟悉每个键的位置，参考[v2ex.com/t/221161](https://www.v2ex.com/t/221161)，指法问题先放下。
 
-## bundle的sqlite3安装问题
-
-> rails new projectName
-
-然后就是bundle install安装依赖，类似NodeJS的什么lock.json
-
-以前我用rails5的时候没注意过这个问题，现在看了下安装的错误日志发现无法安装上gem的sqlite
-
-## ruby知识回顾
+## ruby运算回顾
 
 puts/print区别上前者有换行，语法上二者像python2的print
 
 *ruby的多行注释是在=begin和=end之间
 
 ★ruby常量ID以大写字母开头
+
+nil≈null,nil is a instance of @@NilClass  
+没有返回值的表达式会在irb上显示=>nil
+
+.reverse! 逆序并改变值 使用驚嘆號，通常是表示使用這個方法可能會有「副作用」  
+.include?、.empty?、.gsub#replace
+
+不想要地板除的话，就让被除数或除数加个.0成小数就行
+
+实现列表追加，可以用<< 或 + 或 逻辑或|
+
+### [reduce]ruby从1加到100
+
+(1..100).to_a.each ==  [*1..100].each
+
+> puts [*1..100].reduce(:+)
+
