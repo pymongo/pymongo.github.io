@@ -1,5 +1,7 @@
 - **学习成长**
     - [再次学习Ruby](2019/ruby-restudy/ruby-restudy)
+    - [vim操作](2019/vim-note)
+    - [rails步骤记录](2019/rails-step)
 - **项目分享**
     - [首次给开源项目提交代码](2018/pull-request-to-scoop/pull-request-to-scoop)
     - [谷歌字体库被墙的解决方案](2018/google-font-block-solution)
