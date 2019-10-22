@@ -52,6 +52,9 @@ details被折叠内容...
 > [!TIP]
 > An alert of type 'tip'
 
+> [!TIP|label:haha]
+> An alert of type 'tip'
+
 > [!TIP|style:flat|label:untitled|iconVisibility:visible]
 > type[tip]style:flat, label:untitled, iconVisibility:visible
 

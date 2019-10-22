@@ -197,6 +197,8 @@ p([*1..10].map) do |i| i * 2 end
 
 可以通过Proc类使block object化
 
+[TODO:]Refactor as docsify-tabs
+
 ```ruby
 def say_hello1
   yield if block_given?
