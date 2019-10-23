@@ -47,6 +47,8 @@ zt/zb - 把当前行移动画面最上/最下
     
 !> mac通过Alt+左右实现按单词左右跳，而win系统是Ctrl+左右
 
+Ctrl+P/N - 上一条/下一条命令
+
 <pre>
 cmd+n - Open new terminal window
 Ctrl+l - same as clear

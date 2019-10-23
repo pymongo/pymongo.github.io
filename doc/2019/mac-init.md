@@ -16,6 +16,14 @@
 
 主题改为pro，字体大小改为16，Use Option As Metakey
 
+## 启用root用户并创建workspace文件夹
+
+[HowtoGeek的启用root用户教程](https://www.howtogeek.com/howto/35132/how-to-enable-the-root-user-in-mac-os-x/)
+
+因为 /workspace  比 ~/workspace 容易敲，但是在非用户文件夹内没权限啊
+
+第一次用sudo创建好文件夹好后，用chmod 777 开放全部权限，以后在workspace下面读写就不用sudo了
+
 ## cli工具与禁用更新
 
 ### gcc/cli_tools
@@ -112,8 +120,6 @@ rbenv versions
 ## vim
 
 [大师的配置教程](http://www.imooc.com/article/13269)
-
-
 
 ## Mysql
 
