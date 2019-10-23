@@ -2,7 +2,9 @@
 
 公司给我配的mbp到了，记录下配置开发环境的过程
 
-## 先禁用更新
+## 系统app设置
+
+### appstore and softwareUpdate
 
 首先断网下把mac的更新给关了，我这台mbp是10.14的，有的10.13的软件都用不了😭
 
@@ -10,7 +12,11 @@
 
 把finder sidebar没用的项去掉，view选项里把show path bar开了
 
-## command-line
+### terminal设置
+
+主题改为pro，字体大小改为16，Use Option As Metakey
+
+## cli工具与禁用更新
 
 ### gcc/cli_tools
 
@@ -33,4 +39,42 @@
 > defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
 
 > killall Dock
+
+但这个不是最有效的方法，根本上停止更新可通过ignore
+
+### ignore Update
+
+> [!NOTE|label:ignoreCatalinaUpdate]
+> sudo softwareupdate --ignore "macOS Catalina"
+
+> sudo softwareupdate --ignore "macOS 10.14.6 Update"
+
+简单来说就是把更新的【名字】放进ignore里面
+
+删除所有的ignore
+
+> [!NOTE|label:删除所有的ignore]
+> sudo softwareupdate --reset-ignored
+
+## 安装APP
+
+- GoogleChrome
+- ExpressVPN
+- 任意shadowsocks客户端(如GoAgentX)
+- vscode
+
+## brew
+
+### [Alias].bash_profile
+
+```bash
+alias v=vim
+alias caps="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":0x700000039,\"HIDKeyboardModifierMappingDst\":0x70000002A}]}'"
+alias ms="mysql -u root --password=123456"
+alias pyser="python3 -m http.server 80"
+alias docser="docsify serve . --open --port=80"
+```
+
+
+### brew install python3
 
