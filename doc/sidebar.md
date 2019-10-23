@@ -1,7 +1,14 @@
+- **VIM**
+    - [vim cursor(光标移动)](vim/cursor)
+    - [vim register and select/copy](vim/copy)
+    - [vim mode,macro](vim/mode.md)
+    - [vim find/replace](vim/find.md)
+    - [vim eidt,tab,spilt(分屏)](vim/edit.md)
+    - [vim plugin](vim/plugin.md)
 - **学习成长**
     - [再次学习Ruby](2019/ruby-restudy/ruby-restudy)
-    - [vim操作](2019/vim-note)
     - [rails步骤记录](2019/rails-step)
+    - [mac init(配置等)](2019/mac-init)
 - **项目分享**
     - [首次给开源项目提交代码](2018/pull-request-to-scoop/pull-request-to-scoop)
     - [谷歌字体库被墙的解决方案](2018/google-font-block-solution)
