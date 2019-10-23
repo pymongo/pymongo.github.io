@@ -63,6 +63,7 @@
 - 任意shadowsocks客户端(如GoAgentX)
 - vscode
 
+
 ## brew
 
 ### [Alias].bash_profile
@@ -76,5 +77,51 @@ alias docser="docsify serve . --open --port=80"
 ```
 
 
-### brew install python3
+## brew install
 
+- brew install python3
+- brew cask install squirrel(rime IME, need logout to finish install)
+
+## Node.js
+
+brew install nvm完后在.bash_profile加入以下三行
+
+```bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
+
+接下来就安装项目所需的node版本
+
+nvm install v10.16.0
+
+npm install -g @vue/cli
+
+## ruby
+
+```bash
+brew install rbenv # 注意rbenv不能与rvm共存
+# 在.bash_profile里加入上
+eval "$(rbenv init -)"
+rbenv install 2.5.0
+rbenv global 2.5.0
+rbenv versions
+```
+
+## vim
+
+[大师的配置教程](http://www.imooc.com/article/13269)
+
+
+
+## Mysql
+
+```bash
+brew install mysql@5.7
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+# 重启terminal
+mysql_secure_installtion # 设置初始密码
+```
+
+最后别忘了用brew pin把rbenv mysql@5.7 nvm给固定住不再让他更新
