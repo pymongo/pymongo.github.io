@@ -4,19 +4,15 @@
 
 ## 系统app设置
 
-### appstore and softwareUpdate
-
 首先断网下把mac的更新给关了，我这台mbp是10.14的，有的10.13的软件都用不了😭
 
-### finder设置
-
-把finder sidebar没用的项去掉，view选项里把show path bar开了
+finder设置: 把finder sidebar没用的项去掉，view选项里把show path bar开了
 
 ### terminal设置
 
 主题改为pro，字体大小改为16，Use Option As Metakey
 
-## 启用root用户并创建workspace文件夹
+### 启用root用户并创建workspace文件夹
 
 [HowtoGeek的启用root用户教程](https://www.howtogeek.com/howto/35132/how-to-enable-the-root-user-in-mac-os-x/)
 
@@ -24,7 +20,7 @@
 
 第一次用sudo创建好文件夹好后，用chmod 777 开放全部权限，以后在workspace下面读写就不用sudo了
 
-## cli工具与禁用更新
+## 禁用系统更新
 
 ### gcc/cli_tools
 
@@ -70,11 +66,11 @@
 - ExpressVPN
 - 任意shadowsocks客户端(如GoAgentX)
 - vscode
+- brew install python3
+- brew cask install squirrel(rime IME, need logout to finish install)
 
 
-## brew
-
-### [Alias].bash_profile
+## [Alias].bash_profile
 
 ```bash
 alias v=vim
@@ -83,12 +79,6 @@ alias ms="mysql -u root --password=123456"
 alias pyser="python3 -m http.server 80"
 alias docser="docsify serve . --open --port=80"
 ```
-
-
-## brew install
-
-- brew install python3
-- brew cask install squirrel(rime IME, need logout to finish install)
 
 ## Node.js
 
@@ -117,7 +107,7 @@ rbenv global 2.5.0
 rbenv versions
 ```
 
-## vim
+## vim配置
 
 [大师的配置教程](http://www.imooc.com/article/13269)
 
@@ -125,9 +115,22 @@ rbenv versions
 
 ```bash
 brew install mysql@5.7
+# 将mysql的bin文件夹加到环境变量PATH
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 # 重启terminal
 mysql_secure_installtion # 设置初始密码
+brew services start mysql # 设置开机启动mysql
 ```
 
 最后别忘了用brew pin把rbenv mysql@5.7 nvm给固定住不再让他更新
+
+### gem install mysql
+
+首先可以通过brew info mysql查看mysql的依赖，发现有两个没安装可能会影响gem安装mysql
+
+> brew install openssl cmake
+
+由于我不是安装最新版的mysql，导致gem找不到mysql的路径然后报错
+
+!> gem install mysql2 -- --with-mysql-dir=/usr/local/opt/mysql@5.7/
+
