@@ -12,15 +12,15 @@ finder设置: 把finder sidebar没用的项去掉，view选项里把show path ba
 
 主题改为pro，字体大小改为16，Use Option As Metakey
 
-### 启用root用户并创建workspace文件夹
+### ~~启用root用户并~~创建workspace文件夹
 
 [HowtoGeek的启用root用户教程](https://www.howtogeek.com/howto/35132/how-to-enable-the-root-user-in-mac-os-x/)
 
 因为 /workspace  比 ~/workspace 容易敲，但是在非用户文件夹内没权限啊
 
-第一次用sudo创建好文件夹好后，用chmod 777 开放全部权限，以后在workspace下面读写就不用sudo了
+所以先用sudo创建好文件夹后，chmod 777开权限，以后在workspace下面读写就不用sudo了
 
-## 禁用系统更新
+TODO:好像没有必要启用root
 
 ### gcc/cli_tools
 
@@ -32,7 +32,9 @@ finder设置: 把finder sidebar没用的项去掉，view选项里把show path ba
 
 不幸的是安装cli工具时好像调用的appStore的检查更新功能，所以出现了提示系统更新的烦人信息
 
-### disable systemPreference badge icon
+### 禁用系统更新
+
+!> APP右上角的红色小数字通知叫「badge alert」 
 
 为了考虑开发环境稳定性，不考虑更新系统。
 
@@ -69,8 +71,7 @@ finder设置: 把finder sidebar没用的项去掉，view选项里把show path ba
 - brew install python3
 - brew cask install squirrel(rime IME, need logout to finish install)
 
-
-## [Alias].bash_profile
+## .bash_profile
 
 ```bash
 alias v=vim
@@ -106,6 +107,11 @@ rbenv install 2.5.0
 rbenv global 2.5.0
 rbenv versions
 ```
+
+### rails版本5.2.3
+
+1. gem uninstall rails
+2. gem uninstall railties
 
 ## vim配置
 

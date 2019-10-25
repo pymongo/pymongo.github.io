@@ -1,16 +1,35 @@
+- **测试**
+    - [网页新功能/样式测试](/test)
+- **Leetcode**
+    - [001 two sum](/archive/leetcode/001-two-sum)
+    - [066 plus one](/archive/leetcode/066-plus-one)
+    - [070 Climbing Stairs(递归类)](archive/leetcode/070-Climbing-Stairs)
+    - [118 pascal tria:ngle(杨辉三角)](archive/leetcode/118-pascal-triangle)
+    - [leetcode简单题/API题](archive/leetcode/leetcode-easy)
+- **VIM**
+    - [vim cursor(光标移动)](archive/vim/cursor)
+    - [vim select/copy(复制粘贴)](archive/vim/copy)
+    - [vim mode,macro](archive/vim/mode.md)
+    - [vim find/replace](archive/vim/find.md)
+    - [vim eidt,tab,spilt(分屏)](archive/vim/edit.md)
+    - [vim plugin](archive/vim/plugin.md)
+    - [vim buffer](archive/vim/buffer.md)
+    - [vim 折叠代码和标记](archive/vim/collapse.md)
 - **1911**
     - [仿京东的vueAPP中遇到的问题](2019/1911/jd-vue-problem/jd-vue-problem)
-- **VIM**
-    - [vim cursor(光标移动)](vim/cursor)
-    - [vim register and select/copy](vim/copy)
-    - [vim mode,macro](vim/mode.md)
-    - [vim find/replace](vim/find.md)
-    - [vim eidt,tab,spilt(分屏)](vim/edit.md)
-    - [vim plugin](vim/plugin.md)
-    - [vim buffer](vim/buffer.md)
-    - [vim 折叠代码和标记](vim/collapse.md)
-- **新技术**
-    - [chrome78支持Darkmode](2019/)
+- **发现**
+    - [谷歌的文字冒险游戏](2019/google-text-adventure)
+    - [chrome78开始支持darkmode](archive/discover/chrome-dark-mode)
+- **数据库**
+
+    - [database](2018/database)
+    - [Oracle数据库](2018/oracle-database/oracle-database)
+    - [sqlite](2018/sqlite)
+    - [sql基础知识](2018/sql-basic)
+    - [Oracle的emp表迁移到sqlite](2018/oracle-migrate-to-sqlite/oracle-migrate-to-sqlite)
+    - [多表查询](2018/multi-table-query)
+    - [sql分组与聚合函数](2018/sql-group)
+    - [增删改,约束与事务处理](2018/sql-update)
 - **学习成长**
     - [再次学习Ruby](2019/ruby-restudy/ruby-restudy)
     - [rails步骤记录](2019/rails-step)
@@ -31,20 +50,5 @@
     - [以中断方式读轻触按键](2019/button-interrupt/button-interrupt)
     - [矩阵键盘(keypad)](2019/keypad/keypad.md)
 - **联系我**
-    - [我的简历](resume.html)
-- **Leetcode**
-    - [001 two sum](2019/001-two-sum)
-    - [066 plus one](2019/066-plus-one)
-    - [070 Climbing Stairs(递归类)](2019/070-Climbing-Stairs)
-    - [118 pascal triangle(杨辉三角)](2019/118-pascal-triangle)
-    - [leetcode简单题/API题](2019/leetcode-easy)
-- **数据库基/被雪藏的文章**
-    - [谷歌的文字冒险游戏](2019/google-text-adventure)
-    - [database](2018/database)
-    - [Oracle数据库](2018/oracle-database/oracle-database)
-    - [sqlite](2018/sqlite)
-    - [sql基础知识](2018/sql-basic)
-    - [Oracle的emp表迁移到sqlite](2018/oracle-migrate-to-sqlite/oracle-migrate-to-sqlite)
-    - [多表查询](2018/multi-table-query)
-    - [sql分组与聚合函数](2018/sql-group)
-    - [增删改,约束与事务处理](2018/sql-update)
+    - [我的简历](/archive/resume.html)
+

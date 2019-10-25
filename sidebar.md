@@ -1,0 +1,50 @@
+- **测试**
+    - [网页新功能/样式测试](/test)
+- **1911**
+    - [仿京东的vueAPP中遇到的问题](2019/1911/jd-vue-problem/jd-vue-problem)
+- **VIM**
+    - [vim cursor(光标移动)](vim/cursor)
+    - [vim register and select/copy](vim/copy)
+    - [vim mode,macro](vim/mode.md)
+    - [vim find/replace](vim/find.md)
+    - [vim eidt,tab,spilt(分屏)](vim/edit.md)
+    - [vim plugin](vim/plugin.md)
+    - [vim buffer](vim/buffer.md)
+    - [vim 折叠代码和标记](vim/collapse.md)
+- **学习成长**
+    - [再次学习Ruby](2019/ruby-restudy/ruby-restudy)
+    - [rails步骤记录](2019/rails-step)
+    - [mac init(配置等)](2019/mac-init)
+- **项目分享**
+    - [首次给开源项目提交代码](2018/pull-request-to-scoop/pull-request-to-scoop)
+    - [谷歌字体库被墙的解决方案](2018/google-font-block-solution)
+    - [chrome的恐龙奔跑游戏中作弊](2018/chrome-game-cheat/chrome-game-cheat)
+    - [【智能家居】平板电脑控制电灯](2018/rpi-gpio.md)
+- **知识收集**
+    - [vscode技巧・正则表达式置换等](2018/vscode-trick/vscode-trick)
+    - [编程小知识收集](2019/trick-collect)
+- **日本語**
+    - [日本語の絵文字/記号/顔文字](2019/kigou)
+    - [日本語発音](2019/hatsuon)
+    - [日本語入力(输入法)](2019/nyuuryoku)
+- **单片机嵌入式**
+    - [以中断方式读轻触按键](2019/button-interrupt/button-interrupt)
+    - [矩阵键盘(keypad)](2019/keypad/keypad.md)
+- **联系我**
+    - [我的简历](resume.html)
+- **Leetcode**
+    - [001 two sum](2019/001-two-sum)
+    - [066 plus one](2019/066-plus-one)
+    - [070 Climbing Stairs(递归类)](2019/070-Climbing-Stairs)
+    - [118 pascal triangle(杨辉三角)](2019/118-pascal-triangle)
+    - [leetcode简单题/API题](2019/leetcode-easy)
+- **数据库基/被雪藏的文章**
+    - [谷歌的文字冒险游戏](2019/google-text-adventure)
+    - [database](2018/database)
+    - [Oracle数据库](2018/oracle-database/oracle-database)
+    - [sqlite](2018/sqlite)
+    - [sql基础知识](2018/sql-basic)
+    - [Oracle的emp表迁移到sqlite](2018/oracle-migrate-to-sqlite/oracle-migrate-to-sqlite)
+    - [多表查询](2018/multi-table-query)
+    - [sql分组与聚合函数](2018/sql-group)
+    - [增删改,约束与事务处理](2018/sql-update)

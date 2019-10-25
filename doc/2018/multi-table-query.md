@@ -151,10 +151,6 @@ WHERE  e.mgr = boss.empno(+);
 
 这个(+)号是Oracle特有的
 
-## 总结
-
-<img src="/img/database/join.png">
-
 ## 习题：全排列
 
 用笛卡尔积去实现
