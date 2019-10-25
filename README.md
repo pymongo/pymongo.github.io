@@ -3,5 +3,5 @@
 ---
 
 <script>
-    location.href = "/#/2018/chrome-game-cheat/chrome-game-cheat";
+    // location.href = "/#/2018/chrome-game-cheat/chrome-game-cheat";
 </script>
