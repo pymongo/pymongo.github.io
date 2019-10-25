@@ -1,3 +1,5 @@
+- **1911**
+    - [仿京东的vueAPP中遇到的问题](2019/1911/jd-vue-problem)
 - **VIM**
     - [vim cursor(光标移动)](vim/cursor)
     - [vim register and select/copy](vim/copy)
@@ -5,6 +7,10 @@
     - [vim find/replace](vim/find.md)
     - [vim eidt,tab,spilt(分屏)](vim/edit.md)
     - [vim plugin](vim/plugin.md)
+    - [vim buffer](vim/buffer.md)
+    - [vim 折叠代码和标记](vim/collapse.md)
+- **新技术**
+    - [chrome78支持Darkmode](2019/)
 - **学习成长**
     - [再次学习Ruby](2019/ruby-restudy/ruby-restudy)
     - [rails步骤记录](2019/rails-step)

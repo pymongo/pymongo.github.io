@@ -1,6 +1,8 @@
-# vim eidt and spilt(分屏)
+# vim plugin 
 
+## 粘贴板插件
 
+,a - clipboard plugin
 
 ## NERDTree
 <pre>
@@ -28,3 +30,9 @@ Ctrl+N/P 下一个/上一个候选
 ## chrome vimum
 
 补充个mac的快捷键，win+`在同一个应用的多个窗口间切换
+
+d/u j/k 滚动
+
+f - 显示链接
+
+gt - switch tab

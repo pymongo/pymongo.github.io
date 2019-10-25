@@ -50,6 +50,7 @@ zt/zb - 把当前行移动画面最上/最下
 Ctrl+P/N - 上一条/下一条命令
 
 <pre>
+ctrl+w - backspace a word
 cmd+n - Open new terminal window
 Ctrl+l - same as clear
 Ctrl+f/b - jump Forward/Backward by char
