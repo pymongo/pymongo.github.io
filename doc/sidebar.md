@@ -1,5 +1,5 @@
 - **1911**
-    - [仿京东的vueAPP中遇到的问题](2019/1911/jd-vue-problem)
+    - [仿京东的vueAPP中遇到的问题](2019/1911/jd-vue-problem/jd-vue-problem)
 - **VIM**
     - [vim cursor(光标移动)](vim/cursor)
     - [vim register and select/copy](vim/copy)
