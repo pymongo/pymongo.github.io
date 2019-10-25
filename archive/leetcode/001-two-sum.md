@@ -32,15 +32,6 @@ for循环不能改变下标，内层循环下标还是从0开始
 
 Time Limit Exceeded超出了时间限制
 
-<pre class="prettyprint lang-python">
-for idx, val in enumerate(nums):
-    for idx2, val2 in enumerate(nums):
-        if idx2<=idx:
-            pass
-        else:
-            if (val+val2)==target:
-                return [idx,idx2]
-</pre>
 
 ## Java版
 
@@ -100,5 +91,3 @@ def twoSum(nums, target):
 数组get a[9]是先找到a的地址后，连续偏移9次才去到a[9]的值
 
 而哈希是 直接运算key就访问到value，所以时间复杂度是O(n)，牺牲空间换时间
-
-<script src="/static/js/run.prettify.js"></script>
