@@ -13,7 +13,7 @@
     - [vim buffer](archive/vim/buffer.md)
     - [vim 折叠代码和标记](archive/vim/collapse.md)
 - **IDE**
-    - [vscode技巧,正则表达式置换等](2018/vscode-trick/vscode-trick)    
+    - [vscode技巧,正则表达式置换等](archive/IDE/vscode/index)    
 - **发现**
     - [谷歌的文字冒险游戏](archive/discover/google-text-adventure)
     - [chrome78开始支持darkmode](archive/discover/chrome-dark-mode)
@@ -21,9 +21,9 @@
     - [以中断方式读轻触按键](archive/embedded/button-interrupt/index)
     - [矩阵键盘(keypad)](archive/embedded/keypad/index)
 - **日本語**
-    - [日本語の絵文字/記号/顔文字](archive/kigou)
-    - [日本語発音](archive/hatsuon)
-    - [日本語入力(输入法)](archive/nyuuryoku)
+    - [日本語の絵文字/記号/顔文字](archive/japanese/kigou)
+    - [日本語発音](archive/japanese/hatsuon)
+    - [日本語入力(输入法)](archive/japanese/nyuuryoku)
 - **Leetcode**
     - [066 plus one](archive/leetcode/066-plus-one)
     - [070 Climbing Stairs(递归类)](archive/leetcode/070-climbing-stairs)
