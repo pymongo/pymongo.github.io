@@ -29,7 +29,7 @@ vue标签的属性内想用js的表达式，那么这个属性要加上v-bind:�
 
 如果不希望如图img标签下面有未定义的间隙
 
-![gap-below-img](gap-below-img.png "gap-below-img")
+![gap-below-img](jd-vue-problem.png "gap-below-img")
 
 解决方案：改成display: block
 

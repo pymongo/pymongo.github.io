@@ -26,7 +26,7 @@
     - [日本語入力(输入法)](archive/nyuuryoku)
 - **Leetcode**
     - [066 plus one](archive/leetcode/066-plus-one)
-    - [070 Climbing Stairs(递归类)](archive/leetcode/070-Climbing-Stairs)
+    - [070 Climbing Stairs(递归类)](archive/leetcode/070-climbing-stairs)
     - [118 pascal tria:ngle(杨辉三角)](archive/leetcode/118-pascal-triangle)
     - [leetcode简单题/API题](archive/leetcode/leetcode-easy)
 - **数据库**
@@ -47,7 +47,7 @@
     - [首次给开源项目提交代码](old/pull-request-to-scoop/index)
     - [chrome的恐龙奔跑游戏中作弊](old/chrome-game-cheat/index)
     - [谷歌字体库被墙的解决方案](old/google-font-block-solution)
-    - [【智能家居】平板电脑控制电灯](old/rpi-gpio.md)]
+    - [【智能家居】平板电脑控制电灯](old/rpi-gpio.md)
     - [CSS权重等前端豆知识回顾](old/css-specificity)
 - **联系我**
     - [我的简历](old/resume.html)
