@@ -1,4 +1,6 @@
-*.log
 .DS_Store
 .idea
+.vscode
+.gif
+.mp4
 node_modules

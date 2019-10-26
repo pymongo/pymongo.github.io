@@ -23,10 +23,18 @@
 
 <kbd>Ctrl</kbd> + <kbd>S</kbd> : Save file
 
+## details-summary
 
-
-
-
+<details>
+<summary>题目描述</summary>
+<blockquote>
+<p>给定一个整数数组和一个目标值，找出数组中【和为目标值的两个数】，且元素不能重复</p>
+<p></p>
+<p>Given nums = [2, 7, 11, 15], target = 9,</p>
+<p>Because nums[0] + nums[1] = 2 + 7 = 9,</p>
+<p>return [0, 1].</p>
+</blockquote>
+</details>
 
 ## docsify-tabs
 
@@ -109,20 +117,10 @@ public int[] twoSum(int[] nums, int target) {
 > [!DANGER|style:flat]
 > (style:flat)This is a danger alert!
 
-## Other
-
-### details-summary tag
-
-<details>
-<summary>
-summary折叠
-</summary>
-details被折叠内容...
-</details>
 
 --- 
 
-### diff block test
+## diff block test
 
 ```diff
 - github/vscode support diff block
