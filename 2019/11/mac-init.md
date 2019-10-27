@@ -71,16 +71,6 @@ TODO:好像没有必要启用root
 - brew install python3
 - brew cask install squirrel(rime IME, need logout to finish install)
 
-## .bash_profile
-
-```bash
-alias v=vim
-alias caps="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":0x700000039,\"HIDKeyboardModifierMappingDst\":0x70000002A}]}'"
-alias ms="mysql -u root --password=123456"
-alias pyser="python3 -m http.server 80"
-alias docser="docsify serve . --open --port=80"
-```
-
 ## Node.js
 
 brew install nvm完后在.bash_profile加入以下三行
@@ -138,8 +128,6 @@ mysql_secure_installtion # 设置初始密码
 brew services start mysql # 设置开机启动mysql
 ```
 
-最后别忘了用brew pin把rbenv mysql@5.7 nvm给固定住不再让他更新
-
 ### gem install mysql
 
 首先可以通过brew info mysql查看mysql的依赖，发现有两个没安装可能会影响gem安装mysql
@@ -150,3 +138,24 @@ brew services start mysql # 设置开机启动mysql
 
 !> gem install mysql2 -- --with-mysql-dir=/usr/local/opt/mysql@5.7/
 
+## .bash_profile
+
+最后别忘了用brew pin把rbenv、mysql@5.7、nvm忽略这三个项目SDK的更新，日后想要更新可以用unpin
+
+!> 用brew list --pinned检查下三个SDK是否锁定版本 
+
+```bash
+alias v=vim
+alias caps="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":0x700000039,\"HIDKeyboardModifierMappingDst\":0x70000002A}]}'"
+alias ms="mysql -u root --password=asdf"
+alias pyser="python3 -m http.server 80"
+alias docser="docsify serve . --open --port=80"
+alias gitp="git add . && git commit -m 'add/edit posts' && git push"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
+eval "$(rbenv init -)"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+```
