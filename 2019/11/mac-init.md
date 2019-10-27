@@ -90,12 +90,22 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
-
 接下来就安装项目所需的node版本
 
 nvm install v10.16.0
 
 npm install -g @vue/cli
+
+### npm之愉快的阅读离线文档
+
+除了vue我还要安装两个npm的全局包：
+
+- docsify(用于我个人博客及简单热重载服务器)
+- gitbook
+
+然后就能git clone一些技术文档，在本地启动服务器后离线阅读文档(如做飞机时)
+
+更多相关介绍请看[同时热重载(livereload)多个网页]这篇文章(2019/11/multi-livereload.md)
 
 ## ruby
 

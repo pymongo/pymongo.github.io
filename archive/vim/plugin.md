@@ -1,8 +1,12 @@
 # vim plugin 
 
-## 粘贴板插件
+## 插件快捷键
 
+下面时大师配好的插件快捷键
+
+,q - :q
 ,a - clipboard plugin
+
 
 ## NERDTree
 <pre>

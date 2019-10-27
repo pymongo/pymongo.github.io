@@ -1,17 +1,18 @@
 - **1911**
     - [mac init(配置等)](2019/11/mac-init)
     - [仿京东的vueAPP中遇到的问题](2019/11/jd-vue-problem)
-
+    - [同时热重载(livereload)多个网页](2019/11/multi-livereload.md)
 <!-- archive -->
 - **VIM**
-    - [vim cursor(光标移动)](archive/vim/cursor)
+    - [vim光标移动](archive/vim/cursor)
+    - [vim多文件编辑(buffer,tab,分屏)](archive/vim/multi-files)
     - [vim select/copy(复制粘贴)](archive/vim/copy)
-    - [vim mode,macro](archive/vim/mode.md)
-    - [vim find/replace](archive/vim/find.md)
-    - [vim eidt,tab,spilt(分屏)](archive/vim/edit.md)
+    - [vim mode,macro](archive/vim/mode)
+    - [vim find/replace](archive/vim/find)
+    - [vim eidt,tab,spilt(分屏)](archive/vim/edit)
     - [vim plugin](archive/vim/plugin.md)
     - [vim buffer](archive/vim/buffer.md)
-    - [vim 折叠代码和标记](archive/vim/collapse.md)
+    - [vim 折叠代码和标记](archive/vim/collapse)
 - **IDE**
     - [vscode技巧,正则表达式置换等](archive/IDE/vscode/index)    
 - **发现**
