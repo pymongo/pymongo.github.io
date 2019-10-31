@@ -1,4 +1,4 @@
-# vim find/replace
+# [find & replace](archive/vim/find)
 
 <pre>
 查找汇总

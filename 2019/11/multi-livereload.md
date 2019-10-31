@@ -33,7 +33,7 @@ You should stop it and try again.
 
 发现gitbook命令参数的英文资料很少，[参考资料](https://stackoverflow.com/questions/28789420/how-to-change-default-listening-port-when-use-gitbook-to-serve-a-site)
 
-> gitbook --lrport 35730 --port 4001 serve
+> gitbook --lrport 35710 --port 4001 serve
 
 我建议是先联网serve一次完成编译gitbook所需依赖
 

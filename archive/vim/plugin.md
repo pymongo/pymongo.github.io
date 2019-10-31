@@ -1,37 +1,14 @@
-# vim plugin 
+# [plugin & Vimium](archive/vim/plugin)
 
-## 插件快捷键
+## 大师配置好的插件快捷键
 
-下面时大师配好的插件快捷键
+- Ctrl+N/P - 自动补全下一个/上一个候选
+- Ctrl+t - 查找文件
+- ,a - 剪切板
+- ,cb - 注释代码
+- ,q - :q
 
-,q - :q
-,a - clipboard plugin
-
-
-## NERDTree
-<pre>
-R - refresh file explorer
-g/i - 垂直/水平分割打开文件
-x - 合拢选中结点的父目录
-X - 递归 合拢选中结点下的所有目录
-p - cd ..
-p - cd ../..
-J/K - 调到当前目录最上/最下的文件
-</pre>
-
-## 代码补全
-
-Ctrl+N/P 下一个/上一个候选
-
-## Ctrl+T 找文件的插件
-
-挨个点文件树去找实在是太慢了。
-
-## 注释多行
-
-选中文本后 ,cb
-
-## chrome vimum
+## chrome Vimium
 
 补充个mac的快捷键，win+`在同一个应用的多个窗口间切换
 

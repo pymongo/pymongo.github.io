@@ -69,7 +69,7 @@ TODO:好像没有必要启用root
 - 任意shadowsocks客户端(如GoAgentX)
 - vscode
 - brew install python3
-- brew cask install squirrel(rime IME, need logout to finish install)
+- ~~brew cask install squirrel(rime IME)~~
 
 ## Node.js
 
@@ -110,14 +110,30 @@ rbenv versions
 
 ### rails版本5.2.3
 
+最初我没指定版本结果安装了6.X的rails，没有安装项目需要的5.2.3
+
+卸载rails的指令如下，需要两步
+
 1. gem uninstall rails
 2. gem uninstall railties
+
+最后 gem install rails -v 5.2.3
 
 ## vim配置
 
 [大师的配置教程](http://www.imooc.com/article/13269)
 
-## Mysql
+TODO：补充我的个人偏好设置
+
+## mysql5.7.27
+
+网上已经找不到这个27的安装包，Oracle只给出了5.7.28的，所以还需自己保存一份以后项目用
+
+鉴于brew install mysql@5.7导致gem各种找不到mysql而报错，所以还是用Oracle的安装包
+
+[mysql安装配置请看这个教程](http://dxisn.com/blog/posts/macos-mysql-dmg)
+
+## ~~Mysql@5.7安装~~
 
 ```bash
 brew install mysql@5.7
@@ -128,7 +144,7 @@ mysql_secure_installtion # 设置初始密码
 brew services start mysql # 设置开机启动mysql
 ```
 
-### gem install mysql
+### ~~gem install mysql报错~~
 
 首先可以通过brew info mysql查看mysql的依赖，发现有两个没安装可能会影响gem安装mysql
 
@@ -144,18 +160,23 @@ brew services start mysql # 设置开机启动mysql
 
 !> 用brew list --pinned检查下三个SDK是否锁定版本 
 
+全部软件安装完毕后我的bash配置如下
+
 ```bash
-alias v=vim
-alias caps="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":0x700000039,\"HIDKeyboardModifierMappingDst\":0x70000002A}]}'"
+alias v=vim                                                                     
+alias caps="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierM
 alias ms="mysql -u root --password=asdf"
-alias pyser="python3 -m http.server 80"
-alias docser="docsify serve . --open --port=80"
-alias gitp="git add . && git commit -m 'add/edit posts' && git push"
+alias pyser="python3 -m http.server"
+alias docser="docsify serve . -p 3999 -P 35700 --open"
+alias gitbookser="gitbook --lrport 35710 --port 4001 serve"
+alias gitpushblog="git add . && git commit -m 'add/edit posts' && git push"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This load
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bas
 
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+export PATH=$PATH:/usr/local/mysql/bin
 ```
