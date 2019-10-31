@@ -12,7 +12,6 @@
     - [find & replace](archive/vim/find)
     - [bookmark & macro & collapse](archive/vim/bookmark)
     - [plugin & Vimium](archive/vim/plugin)
-
 - **IDE**
     - [vscode技巧,正则表达式置换等](archive/IDE/vscode/index)    
 - **发现**

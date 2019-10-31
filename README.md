@@ -1,11 +1,14 @@
 # [pymongo.github.io](http://pymongo.github.io)
 
-## 
-LiLIns  linshi linshilin
+一名全栈实习生的技术博客,记录工作与学习中有趣的事
+
+## 常用技术栈:
+
+- ruby on rails
+- vue
+- mysql
+
+
 
 
 ---
-
-<script>
-    // location.href = "/#/2018/chrome-game-cheat/chrome-game-cheat";
-</script>
