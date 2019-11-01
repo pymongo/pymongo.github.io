@@ -56,7 +56,7 @@ role_id=1说明是超级管理员, is_otp_binded=0表示登录不需要谷歌验
 
 > Manager.find_by_email("w@w.w").update(phone: 13241234123) 
 
-#### ** delete **
+#### ** Delete **
 
 > Manager.find(16).destroy
 
