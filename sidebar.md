@@ -3,6 +3,7 @@
     - [仿京东的vueAPP中遇到的问题](2019/11/jd-vue-problem)
     - [同时热重载(livereload)多个网页](2019/11/multi-livereload.md)
     - [初始化base-api遇到的各种报错](2019/11/base-api-error.md)
+    - [admin项目启动时遇到的各种错误](2019/11/admin-env)
 <!-- archive -->
 - **VIM**
     - [cursor(光标移动)](archive/vim/cursor)

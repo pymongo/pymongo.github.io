@@ -8,7 +8,11 @@
 - vue
 - mysql
 
-
-
-
 ---
+
+## English
+
+- 数字货币 - crypto
+- 法定货币 - fiat/legal tender/currence
+- AKA - Also Known As
+- FYI - For Your Information

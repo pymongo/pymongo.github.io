@@ -48,11 +48,14 @@ Ctrl+[ OR Ese - 退出insert mode
 </pre>
 
 ## vim通用
+<pre>
 「:! 」 - 临时执行shell命令,如:! touch p.py
 Ctrl+z - 暂时挂起vim (推荐用小指指腹按Ctrl)
 fg - 回到vim
 :wq、:x、ZZ - save and exit
 Ctrl+g - show file and current line info
+gf - goto cursor's file
+</pre>
 
 ## 格式化代码
 

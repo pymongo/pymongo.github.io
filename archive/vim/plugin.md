@@ -7,6 +7,7 @@
 - ,a - 剪切板
 - ,cb - 注释代码
 - ,q - :q
+- Gsearch -F '要替换的字符串' . -R --include=*rb
 
 ## chrome Vimium
 
