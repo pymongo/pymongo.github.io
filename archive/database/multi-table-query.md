@@ -167,3 +167,7 @@ SELECT p1.name,p2.name
 FROM perm p1,perm p2
 WHERE p1.name!=P2.name;
 ```
+
+## 总结
+
+![multi-table-query-join](multi-table-query-join.png "multi-table-query-join")

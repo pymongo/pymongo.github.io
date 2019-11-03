@@ -65,8 +65,13 @@ gt/gT - switch tab
 
 ## NERDTree
 
+### NERD新建文件/文件夹
+
+按下m, 第一个候选菜单就是创建文件或目录
+
 ### dir chagne
 
+I - toggle display of hidden files
 O - Recursively open the dir
 X - Recursively close all children
 C - change root to current dir

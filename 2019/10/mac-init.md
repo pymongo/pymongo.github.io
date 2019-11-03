@@ -8,6 +8,10 @@
 
 finder设置: 把finder sidebar没用的项去掉，view选项里把show path bar开了
 
+### emoji picker
+
+Command+Control+Space: 打开emoji picker😃
+
 ### terminal设置
 
 主题改为pro，字体大小改为16，Use Option As Metakey

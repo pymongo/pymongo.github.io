@@ -1,9 +1,18 @@
-- **1911**
-    - [mac init(配置等)](2019/11/mac-init)
-    - [仿京东的vueAPP中遇到的问题](2019/11/jd-vue-problem)
-    - [同时热重载(livereload)多个网页](2019/11/multi-livereload.md)
-    - [初始化base-api遇到的各种报错](2019/11/base-api-error.md)
-    - [admin项目启动时遇到的各种错误](2019/11/admin-env)
+- **海南出差**
+    - [初始化base-api遇到的各种报错](2019/hainan/base-api-error.md)
+    - [admin项目的配置与工作](2019/hainan/project-admin)
+    - [rails数据验证与消息闪现(flash)](2019/hainan/validates)
+    - [多对多的多表查询练习](/)
+    - [grape接口服务器](2019/hainan/grape)
+    - [海南出差感受](/)
+- **1910**
+    - [再次学习Ruby](2019/10/ruby-restudy)
+    - [rails步骤记录](2019/10/rails-step)
+    - [chrome78开始支持darkmode](2019/10/chrome-dark-mode)
+    - [仿京东的vueAPP中遇到的问题](2019/10/jd-vue-problem)
+    - [同时热重载(livereload)多个网页](2019/10/multi-livereload.md)
+    - [mac init(配置等)](2019/10/mac-init)
+
 <!-- archive -->
 - **VIM**
     - [cursor(光标移动)](archive/vim/cursor)
@@ -13,11 +22,6 @@
     - [find & replace](archive/vim/find)
     - [bookmark & macro & collapse](archive/vim/bookmark)
     - [plugin & Vimium](archive/vim/plugin)
-- **IDE**
-    - [vscode技巧,正则表达式置换等](archive/IDE/vscode/index)    
-- **发现**
-    - [谷歌的文字冒险游戏](archive/discover/google-text-adventure)
-    - [chrome78开始支持darkmode](archive/discover/chrome-dark-mode)
 - **单片机嵌入式**
     - [以中断方式读轻触按键](archive/embedded/button-interrupt/index)
     - [矩阵键盘(keypad)](archive/embedded/keypad/index)
@@ -43,12 +47,12 @@
 
 - **old**
     - [网页新功能/样式测试](old/test)
-    - [再次学习Ruby](old/ruby-restudy)
-    - [rails步骤记录](old/rails-step)
     - [首次给开源项目提交代码](old/pull-request-to-scoop/index)
     - [chrome的恐龙奔跑游戏中作弊](old/chrome-game-cheat/index)
+    - [vscode技巧,正则表达式置换等](old/vscode/index)    
     - [谷歌字体库被墙的解决方案](old/google-font-block-solution)
     - [【智能家居】平板电脑控制电灯](old/rpi-gpio.md)
+    - [谷歌的文字冒险游戏](old/google-text-adventure)
     - [CSS权重等前端豆知识回顾](old/css-specificity)
 - **联系我**
     - [我的简历](old/resume.html)

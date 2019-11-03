@@ -42,6 +42,16 @@
 
 #### ** Brute Force **
 
+#### ** Two-pass Hash Table **
+
+#### ** One-pass Hash Table **
+
+<!-- tabs:end -->
+
+<!-- tabs:start -->
+
+#### ** Brute Force **
+
 ```java
 public int[] twoSum(int[] nums, int target) {
     for (int i = 0; i < nums.length; i++) {
