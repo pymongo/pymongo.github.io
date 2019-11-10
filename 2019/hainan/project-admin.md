@@ -10,7 +10,7 @@ www项目是普通用户的前端页面,cms项目是帮助文档及用户社区,
 
 可以在admin里给cms发布或修改新文章,也可以修改www项目的首页轮播图等
 
-admin是这几个项目中最复杂的,提交次数也是最多的j
+admin是这几个项目中最复杂的,提交次数也是最多的
 
 ## 软件版本
 
@@ -146,3 +146,15 @@ SELECT * FROM information_schema.columns WHERE column_name = 'column_name';
 ### Model验证逻辑问题
 
 关于robot数据验证的逻辑我放在这篇文章中介绍[rails数据验证](2019/11/validates)
+
+## 翻译过程中的小问题
+
+### 通过raw在erb文件中插入html代码
+
+不加raw的话 没有转义html的br标签:
+
+![project-admin-raw1](project-admin-raw1.png "project-admin-raw1")
+
+加上raw之后的代码截图:
+
+![project-admin-raw1](project-admin-raw2.png "project-admin-raw2")
