@@ -3,6 +3,7 @@
 <pre>
 查找汇总
 f/F&lt;char> - find/previous next char in current line 
+t/T - 跟f一样只不过光标停在⬅️左侧
 */# - find current word
 n/N - find next/previous
 N/n - find next in # and ?
@@ -29,4 +30,8 @@ n/N - find next/previous
 ### 局部替换
 
 vision模式选中代码后  :s/原来的/新的字符串
+
+## 移动行
+
+> :m 0 "移动当前行到第一行
 

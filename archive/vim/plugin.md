@@ -24,6 +24,10 @@
 
 补充个mac的快捷键，win+`在同一个应用的多个窗口间切换
 
+翻页用 gt/gT 或 J/K
+
+H/L 返回/前进
+
 d/u j/k 滚动
 
 o - 显示书签+历史的输入框
@@ -31,3 +35,9 @@ o - 显示书签+历史的输入框
 f - 显示链接
 
 gt - switch tab
+
+### chrome findNext
+
+cmd + G 或 cmd + F 或聚焦在搜索框内按enter
+
+find previous: cmd+shift+G

@@ -64,3 +64,13 @@ Mac还有一个常用的全局光标移动快捷键 Ctrl+a/e - Home/End
 
 Ctrl+k - delete Forward by word
 Ctrl+Cmd+l - 清屏
+
+## Ese+. 复制上个命令的参数
+
+如果不小心把 vim a文件 打错为 cd a文件
+
+可以直接打 vim，然后Ese+.就会粘贴上个命令的参数
+
+## vim光标移动的复习
+
+Ctrl+Y/E: 逐行滚动屏幕
