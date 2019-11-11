@@ -1,10 +1,13 @@
+- **1911**
+    - [Add Default Constraint](2019/11/add-default-constraint)
 - **海南出差**
     - [初始化base-api遇到的各种报错](2019/hainan/base-api-error.md)
     - [admin项目的配置与工作](2019/hainan/project-admin)
     - [rails数据验证与消息闪现(flash)](2019/hainan/validates)
-    - [多对多的多表查询练习](/)
+    - [ActiveRecord多表关联](/2019/hainan/join-query)
+    - [测量数据库查询时间](2019/hainan/measure-qurey-time)
+    - [提高百万行记录count的速度](2019/hainan/millions-count.md)
     - [grape接口服务器](2019/hainan/grape)
-    - [海南出差感受](/)
 - **1910**
     - [再次学习Ruby](2019/10/ruby-restudy)
     - [rails步骤记录](2019/10/rails-step)
@@ -40,7 +43,7 @@
     - [sqlite](archive/database/sqlite)
     - [sql基础知识](archive/database/sql-basic)
     - [Oracle的emp表迁移到sqlite](archive/database/oracle-migrate-to-sqlite/index)
-    - [多表查询](archive/database/multi-table-query)
+    - [多表查询](archive/database/join)
     - [sql分组与聚合函数](archive/database/sql-group)
     - [增删改,约束与事务处理](archive/database/sql-update)
 <!-- /archive -->

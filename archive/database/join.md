@@ -1,8 +1,22 @@
 # 多表查询
 
+## 连接的分类
+
+- cross join(几乎不用)
+- natural join(不指定字段的join，几乎不用)
+- inner join
+- left join
+- right join
+
+## 内连接
+
+JOIN的全程就是INNER JOIN，所以默认就是内连接
+
+取两个表的交集，所以不会有NULL值出现
+
 ## 不想要的笛卡尔积
 
-多表查询时，字段名前加上表名能加快数据库访问
+!> 多表查询时，指明**字段的表名**能提高查询速度
 
 ```sql
 SELECT emp.ename, 
