@@ -1,5 +1,9 @@
 - **1911**
     - [Add Default Constraint](2019/11/add-default-constraint)
+    - [debug,log](2019/11/rails-debug-log)
+    - [idea](2019/11/idea)
+    - [crontab](2019/11/crontab)
+    - [account-first](2019/11/account-first)
 - **海南出差**
     - [初始化base-api遇到的各种报错](2019/hainan/base-api-error.md)
     - [admin项目的配置与工作](2019/hainan/project-admin)

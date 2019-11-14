@@ -26,3 +26,5 @@ ALTER territory SET DEFAULT 'China';
 ## f.submit_tag 用错方法
 
 form_tag 表单适用submit_tag， 而form_for表单要用f.submit而不是 submit_tag或其他
+
+## 通过dup方法复制行

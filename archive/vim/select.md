@@ -35,3 +35,15 @@ vim有很多个寄存器从a-z还有0-9等,为了可读性和易用性a-z这几
 如： 5”ap 就是把a寄存器的值粘贴五次
 
 :regs 显示所有寄存器的值
+
+## 检查vim是否支持剪切板
+
+> /usr/bin/vim --version | grep clipboard
+
+如果结果出现 "-clipboard"说明不支持剪切板
+
+vscode或idea的vim都是支持剪切板的
+
+用 "*p 或 "+p 粘贴剪切板内容
+
+

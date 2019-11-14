@@ -132,7 +132,7 @@ gem "activerecord", "6.0.0"
 - Gemfile,12:gem 'grape-swagger'
 - app/api.rb,5:    add_swagger_documentation(
 
-启动服务器后在
+启动服务器后在 http://localhost:4000/api/v2/swagger_doc 图形化查看接口
 
 ## constrant没找到/未初始化的问题
 
