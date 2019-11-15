@@ -34,6 +34,8 @@ logger.error "to trace var change"
 logger.warn "\e[5m" + "-"*40 + "\e[0m"
 ```
 
+!> 如果日志的量太大,建议用<mark>grep</mark>找到想要的内容,而不是靠文字样式
+
 然后通过`tail -f`命令持续滚屏显示log
 
 > [!NOTE]

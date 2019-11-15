@@ -21,13 +21,27 @@ crontab [-u username]　# 省略用户表表示操作当前用户的crontab
     -r      (Remove everything from crontab:)
 ```
 
-crontab跑起来后会提示
-
-> You have new mail in /var/mail/w
-
 输入mail命令可以查看crontab任务执行结果的stdout
 
 !> crontab需要开放FullDiskControl给Terminal
+
+## 仅定时执行一次的 at命令
+
+[at/crontab - 鳥哥的Linux私房菜](http://linux.vbird.org/linux_basic/0430cron.php)
+
+使用at前必须启动atd server, 以下是mac版的启动方法
+
+> launchctl load -w /System/Library/LaunchDaemons/com.apple.atrun.plist
+
+---
+
+at命令例子:
+
+```
+$ at now + 1 minute
+touch ~/a.txt
+EOF(Ctrl+D)
+```
 
 ## crontab例子
 
@@ -43,6 +57,16 @@ crontab -e:
 ```
 * * * * * /usr/bin/ruby ~/code_archive/ruby/r.rb 
 ```
+
+## mail command
+
+crontab定时任务的stdout会写在 mail中
+
+> You have new mail in /var/mail/w
+
+存储mail的文件在 /var/mail/$USER or /var/spool/mail/$USER
+
+
 
 ## nohup ... &
 

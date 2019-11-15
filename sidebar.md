@@ -4,6 +4,9 @@
     - [idea](2019/11/idea)
     - [crontab](2019/11/crontab)
     - [account-first](2019/11/account-first)
+    - [k-line-vue](2019/11/k-line-vue)
+    - [多态关联](2019/11/ploy-associate)
+    - [link_to merge参数时报错DEPRECATION](linkto-merge-warning)
 - **海南出差**
     - [初始化base-api遇到的各种报错](2019/hainan/base-api-error.md)
     - [admin项目的配置与工作](2019/hainan/project-admin)

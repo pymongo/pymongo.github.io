@@ -2,7 +2,7 @@
 
 ## text test
 
-~~line-through~~ **strong** *italic*
+~~line-through~~ **strong** *italic* <mark>mark_tag·</mark>
 
 `print("单行代码测试")`
 
