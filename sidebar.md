@@ -7,8 +7,8 @@
     - [k-line-vue](2019/11/k-line-vue)
     - [多态关联](2019/11/ploy-associate)
     - [涉及钱的操作要加事务处理和线程锁](2019/11/data-lock)
-    - [link_to merge参数时报错DEPRECATION](linkto-merge-warning)
-    - [linear-gradient](linear-gradient-warn)
+    - [link_to merge参数时报错DEPRECATION](2019/11/link_to-merge-warning)
+    - [linear-gradient](2019/11/linear-gradient-warn)
 - **海南出差**
     - [初始化base-api遇到的各种报错](2019/hainan/base-api-error.md)
     - [admin项目的配置与工作](2019/hainan/project-admin)

@@ -1,4 +1,4 @@
-# [link_to merge参数时报错DEPRECATION](linkto-merge-warning)
+# [link_to merge参数时报错DEPRECATION](2019/11/link_to-merge-warning)
 
 情景: a和b表是一对多的关系, 希望点击a表的id能跳到b表的查询条件 a_id=id
 
