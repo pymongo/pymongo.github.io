@@ -1,7 +1,6 @@
 - **1911**
     - [Add Default Constraint](2019/11/add-default-constraint)
     - [debug,log](2019/11/rails-debug-log)
-    - [idea](2019/11/idea)
     - [crontab](2019/11/crontab)
     - [account-first](2019/11/account-first)
     - [k-line-vue](2019/11/k-line-vue)
@@ -9,6 +8,7 @@
     - [涉及钱的操作要加事务处理和线程锁](2019/11/data-lock)
     - [link_to merge参数时报错DEPRECATION](2019/11/link_to-merge-warning)
     - [linear-gradient](2019/11/linear-gradient-warn)
+    - [SQL统计有记录的交易对](2019/11/select-distinct)
 - **海南出差**
     - [初始化base-api遇到的各种报错](2019/hainan/base-api-error.md)
     - [admin项目的配置与工作](2019/hainan/project-admin)
@@ -34,6 +34,8 @@
     - [find & replace](archive/vim/find)
     - [bookmark & macro & collapse](archive/vim/bookmark)
     - [plugin & Vimium](archive/vim/plugin)
+- **IDE**
+    - [vscode技巧,正则表达式置换等](archive/IDE/vscode/index)
 - **单片机嵌入式**
     - [以中断方式读轻触按键](archive/embedded/button-interrupt/index)
     - [矩阵键盘(keypad)](archive/embedded/keypad/index)
@@ -61,7 +63,6 @@
     - [网页新功能/样式测试](old/test)
     - [首次给开源项目提交代码](old/pull-request-to-scoop/index)
     - [chrome的恐龙奔跑游戏中作弊](old/chrome-game-cheat/index)
-    - [vscode技巧,正则表达式置换等](old/vscode/index)    
     - [谷歌字体库被墙的解决方案](old/google-font-block-solution)
     - [【智能家居】平板电脑控制电灯](old/rpi-gpio.md)
     - [谷歌的文字冒险游戏](old/google-text-adventure)
