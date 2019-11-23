@@ -24,6 +24,8 @@ vim同时编辑多个文件主要靠buffer，tab和分屏
 
 Ctrl+^ OR :bn :bp :bf 切换buffer
 
+Ctrl+^经常与gf搭配使用，用在跳进文件定义后返回上一个文件
+
 ## 比分屏更好用的tab
 
 ### new Tab

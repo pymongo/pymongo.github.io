@@ -36,6 +36,8 @@
     - [plugin & Vimium](archive/vim/plugin)
 - **IDE**
     - [vscode技巧,正则表达式置换等](archive/IDE/vscode/index)
+    - [idea/jetbrains全家桶通用技巧](archive/IDE/idea)
+    - [dataGrip数据库工具](archive/IDE/datagrip)
 - **单片机嵌入式**
     - [以中断方式读轻触按键](archive/embedded/button-interrupt/index)
     - [矩阵键盘(keypad)](archive/embedded/keypad/index)
