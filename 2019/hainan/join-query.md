@@ -1,4 +1,6 @@
-# [多对多的多表查询练习](/2019/hainan/join-query)
+# [多对多的多表查询练习](2019/hainan/join-query)
+
+相关文章 - [ActiveRecord关联](/2019/11/includes-assocation)
 
 ## mysql样例数据库
 

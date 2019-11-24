@@ -1,7 +1,5 @@
 # [debug,log](2019/11/rails-debug-log)
 
-## 为rubymine安装debug相关gem
-
 ruby没有自带的debug支持(而python3.7加入与debug相关的新函数)
 
 打断点单步调试还是在IDE里面做比较方便
@@ -16,10 +14,26 @@ ruby没有自带的debug支持(而python3.7加入与debug相关的新函数)
 
 想用rubymine的断点调试，需要手动安装以下两个gem
 
+旧版的rubyMine安装时可能会报错，需要手动在cli环境安装
+
 ```
 gem install debase --pre
 gem install ruby-debug-ide
 ```
+
+## step into和step out
+
+step out: 如果认为当前语句/方法没问题，Bug不是出自这里，则跳出当前方法/语句
+
+不过rubyMine经常会碰到警告 这是c-level的语句，没法继续step into
+
+这时只好step out。我本人是不太喜欢step over，会跳过下一个方法
+
+> 单步调试时如何只在自己的项目文件中跳转
+
+设置->Debug->Stepping 有个选项是`Ignore non-project source`
+
+不过我勾上以后还是会跳入ruby的代码库中.... 都不知道要按多少次step over才能回到自己的代码中
 
 ## 为logger/log4r添加打印颜色
 
