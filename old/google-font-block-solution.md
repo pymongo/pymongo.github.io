@@ -38,6 +38,10 @@ Google字体库的完整GET请求链接是：
 
 [中科大提供的字体库镜像](https://lug.ustc.edu.cn/wiki/mirrors/help/revproxy)
 
+```
+https://fonts.proxy.ustclug.org/css?family=Roboto+Mono|Source+Sans+Pro:300,400,600
+```
+
 [总结一下各大CDN - v2ex](https://www.v2ex.com/t/320418)
 
 !> 缺点: 免费的镜像源不如商业公司可靠，无法离线使用
