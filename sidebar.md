@@ -11,7 +11,7 @@
     - [crontab定时任务](2019/11/crontab)
     - [debug,log](2019/11/rails-debug-log)
     - [Add Default Constraint](2019/11/add-default-constraint)
-- **海南出差**
+- **1911出差**
     - [grape接口服务器](2019/hainan/grape)
     - [提高百万行记录count的速度](2019/hainan/millions-count.md)
     - [测量数据库查询时间](2019/hainan/measure-qurey-time)

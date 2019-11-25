@@ -26,7 +26,7 @@ DataGrip中cmd+Alt+O能搜索表的字段名，不过不能区分表名
 
 ## HTML标签/代码块 open/end之间跳动
 
-<kbd>cmd</kbd>+<kbd>alt</kbd>+ <kbd>[</kbd> / <kbd>]</kbd>
+<kbd>cmd</kbd>+<kbd>alt</kbd>+ <kbd>[</kbd> / <kbd></kbd>
 
 ## vim快捷键配置
 

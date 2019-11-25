@@ -15,7 +15,13 @@ DEPRECATION WARNING: Calling URL helpers with string keys controller, action is 
 ## 解决办法
 
 ```ruby
-general_operation_details_path(params.merge(general_operation_id: general_operation.id))
+details_path(params.merge(operation_id: operation.id))
 # 改为
-general_operation_details_path(general_operation_id: general_operation.id)
+details_path(operation_id: operation.id)
 ```
+
+?> 最好的解决方案
+
+hash.slice类似String的substring，避免了不必要的数据被暴露
+
+> details_path(params.**slice**(`:operation_id`))

@@ -108,7 +108,7 @@ Manager有多个Operation,每个Operation属于一个Manager，
 
 写上这两句就能以`xxx.sender_member.email`访问发送者邮箱
 
-## has_xxx through:
+\## has_xxx through:
 
 医生有多个病人，通过第三个表 预约记录，那么医生model中has_many 病人, through: 预约记录
 
