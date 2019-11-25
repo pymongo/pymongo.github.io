@@ -12,7 +12,7 @@
 DEPRECATION WARNING: Calling URL helpers with string keys controller, action is deprecated. Use symbols instead.
 ```
 
-## 解决办法
+> 解决办法
 
 ```ruby
 details_path(params.merge(operation_id: operation.id))

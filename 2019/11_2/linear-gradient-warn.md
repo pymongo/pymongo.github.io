@@ -19,7 +19,7 @@ Warning
 
 ![linear-gradient-warn-code](linear-gradient-warn-code.png "linear-gradient-warn-code")
 
-## 解决方案
+> 解决方案
 
 在CSS属性linear-gradient的第一个参数前加`to`
 
