@@ -27,6 +27,8 @@
     - [再次学习Ruby](2019/10/ruby-restudy)
     - [chrome78开始支持darkmode](2019/10/chrome-dark-mode)
 <!-- archive -->
+- **性能优化**
+    - [谷歌字体库被墙的解决方案](old/google-font-block-solution)
 - **VIM**
     - [cursor(光标移动)](archive/vim/cursor)
     - [vim多文件编辑(buffer,tab,分屏)](archive/vim/multi-files)
@@ -61,12 +63,13 @@
     - [sql分组与聚合函数](archive/database/sql-group)
     - [增删改,约束与事务处理](archive/database/sql-update)
 <!-- /archive -->
+- **个人作品**
+    - [【智能家居】平板电脑控制电灯](old/rpi-gpio.md)
+- **参与开源**
+    - [首次给开源项目提交代码](old/pull-request-to-scoop/index)
 - **old**
     - [网页新功能/样式测试](old/test)
-    - [首次给开源项目提交代码](old/pull-request-to-scoop/index)
     - [chrome的恐龙奔跑游戏中作弊](old/chrome-game-cheat/index)
-    - [谷歌字体库被墙的解决方案](old/google-font-block-solution)
-    - [【智能家居】平板电脑控制电灯](old/rpi-gpio.md)
     - [谷歌的文字冒险游戏](old/google-text-adventure)
     - [CSS权重等前端豆知识回顾](old/css-specificity)
 - **联系我**
