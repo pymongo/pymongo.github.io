@@ -70,4 +70,4 @@
     - [谷歌的文字冒险游戏](old/google-text-adventure)
     - [CSS权重等前端豆知识回顾](old/css-specificity)
 - **联系我**
-    - [我的简历](old/resume.html)
+    <!-- - [我的简历](old/resume.html) -->
