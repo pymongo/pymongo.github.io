@@ -99,7 +99,7 @@ npm install -g @vue/cli
 
 然后就能git clone一些技术文档，在本地启动服务器后离线阅读文档(如做飞机时)
 
-更多相关介绍请看[同时热重载(livereload)多个网页]这篇文章(2019/11/multi-livereload.md)
+更多相关介绍请看[同时热重载(livereload)多个网页]这篇文章(2019/11_2/multi-livereload.md)
 
 ## ruby
 

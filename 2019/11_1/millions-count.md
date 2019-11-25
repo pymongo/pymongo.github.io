@@ -1,4 +1,4 @@
-# [提高百万行记录count的速度](2019/hainan/millions-count.md)
+# [提高百万行记录count的速度](2019/11_1/millions-count.md)
 
 ## 百万级的数据count很慢
 

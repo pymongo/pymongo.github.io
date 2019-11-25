@@ -1,4 +1,4 @@
-# [debug,log](2019/11/rails-debug-log)
+# [debug,log](2019/11_2/rails-debug-log)
 
 ruby没有自带的debug支持(而python3.7加入与debug相关的新函数)
 

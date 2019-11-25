@@ -1,4 +1,4 @@
-# [k-line-vue](2019/11/k-line-vue)
+# [k-line-vue](2019/11_2/k-line-vue)
 
 ## 股票k线图知识
 

@@ -1,4 +1,4 @@
-# [rails数据验证与消息闪现(flash)](2019/11/validates)
+# [rails数据验证与消息闪现(flash)](2019/11_2/validates)
 
 ## Models中同时验证多个字段
 
