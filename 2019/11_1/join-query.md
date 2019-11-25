@@ -44,17 +44,7 @@ model里面的写法:
 
 #### ** 通过外键使用accounts表 **
 
-> &lt;%= virtual_asset.to_account.currency.code %>
-
-#### ** 多表关联下的遍历 **
-
-遍历方法一:
-
-> @virtual_assets.includes(:operator, :to_account).each
-
-遍历方法二:
-
-> @virtual_assets.each 
+> &lt;%= asset.to_account.name %>
 
 <!-- tabs:end -->
 

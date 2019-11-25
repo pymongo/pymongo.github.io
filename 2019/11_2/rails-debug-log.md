@@ -64,7 +64,3 @@ tail -f log/puma*.log 表示同时滚屏打印所有 puma开头的log文件
 `\033`或`\e`➕[xxm 是bash shell样式的写法前缀，[API请看这个链接](https://misc.flogisoft.com/bash/tip_colors_and_formatting)
 
 多个属性之间以分号为划分，如 \e[31;5m，\e[0m表示清空设置
-
-
-
-

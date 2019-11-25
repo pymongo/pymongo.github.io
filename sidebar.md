@@ -1,6 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **1911**
-    - [ActiveRecord关联的命名约定/规范](2019/11_2/includes-assocation)
+    - [ActiveRecord关联的命名约定/规范](2019/11_2/includes_assocation)
     - [统计有记录的交易对](2019/11_2/select-distinct)
     - [linear-gradient](2019/11_2/linear-gradient-warn)
     - [link_to merge参数时报错DEPRECATION](2019/11_2/link_to-merge-warning)

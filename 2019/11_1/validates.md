@@ -14,7 +14,7 @@ robot的数据验证代码如下:
 
 ```ruby
 class Robot < ActiveRecord::Base
-  validates :name, :status, presence: {message:"必须提供机器人名称和状态"}
+  validates :name, :status, presence: {message:"必须提供名称和状态"}
   validates :interval_of_hang, :interval_of_trade, numericality: {
     only_integer: true,
     greater_than_or_equal_to: 0,
@@ -96,36 +96,15 @@ end
 
 我希望能同时显示多条flash[:error]消息 效果如图:
 
-![validates2-flash](validates.png "validates2-flash")
+![validates2-flash](validates2-flash.png "validates2-flash")
 
 ### 修改_flash文件
 
 希望用一个for循环遍历显示所有错误信息, 如果传过来的消息不是数组, 那就把它变成数组
 
-<!-- tabs:start -->
-
-#### ** _flash.erb.html **
-
-```ruby
-  <% if flash[:error] %>
-    <% unless flash[:error].is_a?(Array) %>
-      <% flash[:error] = Array(flash[:error]) %>
-    <% end %>
-    <% flash[:error].each do |error| %>
-      <div class="alert alert-dismissable alert-danger">
-        <button class="close" type="button" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <p>
-          <i class="fa fa-error-circle"></i>
-          <span><%= error %></span>
-        </p>
-      </div>
-    <% end %>
-  <% end %>
-```
-
 #### ** def create **
 
-```
+```ruby
 def create
   @robot = Robot.new(robot_params)
   if @robot.valid?
@@ -143,9 +122,8 @@ def create
 end
 ```
 
-#### ** def edit **
+后记：
 
-<!-- tabs:end -->
+并非开发给普通用户的后台管理员系统，其实只需要前端验证就够了
 
-
-
+jQuery Validate又简单又好用

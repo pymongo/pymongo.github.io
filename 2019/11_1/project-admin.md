@@ -1,16 +1,16 @@
 # [admin项目的配置与工作](2019/11_2/project-admin)
 
-记录11月1日第一次参与admin项目过程中,环境配置的排错,任务/需求的实现等过
+记录11月1日第一次参与后台管理项目过程中,环境配置的排错,任务/需求的实现等过
 
 ## admin是什么
 
 www项目是普通用户的前端页面,cms项目是帮助文档及用户社区,base-api项目是给www提供API
 
-那么admin就是网站管理员用户使用的,同时所有数据库的迁移都在里面,
+那么后台管理就是网站管理员用户使用的,同时所有数据库的迁移都在里面,
 
-可以在admin里给cms发布或修改新文章,也可以修改www项目的首页轮播图等
+可以在后台管理里给cms发布或修改新文章,也可以修改www项目的首页轮播图等
 
-admin是这几个项目中最复杂的,提交次数也是最多的
+后台管理是这几个项目中最复杂的,提交次数也是最多的
 
 ## 软件版本
 
@@ -109,17 +109,17 @@ SELECT * FROM information_schema.columns WHERE column_name = 'column_name';
 
 ## 任务2:添加机器人页面
 
-机器人具体是什么先不用管,先把上司发来的页面及数据库原型图做好
+机器人具体是什么先不用管,先把任务的页面及数据库原型图做好
 
 ### 顶部下拉菜单栏添加机器人按钮
 
 首先通过grep命令找下顶部菜单栏在哪一个view里面
 
-> grep 数字币与交易 . -r
+> grep 随便一个下拉菜单子项 . -r
 
 ```
-./app/views/shared/_customer_service_menu.html.erb:          <span>数字币与交易</span>
-./config/locales/zh.yml:    digital_urrency_transaction: 数字币与交易
+./app/views/shared/_customer_service_menu.html.erb:          <span>随便一个下拉菜单子项</span>
+./config/locales/zh.yml:    digital_urrency_transaction: 随便一个下拉菜单子项
 ```
 
 第一个查询结果是在views中下划线开头的 **partials** 文件
@@ -153,8 +153,6 @@ SELECT * FROM information_schema.columns WHERE column_name = 'column_name';
 
 不加raw的话 没有转义html的br标签:
 
-![project-admin-raw1](project-admin-raw1.png "project-admin-raw1")
+后记：后来通过Unicode调用font-awesome图表时，就必须通过raw把 **&#x**开头的Unicode转为html
 
-加上raw之后的代码截图:
-
-![project-admin-raw1](project-admin-raw2.png "project-admin-raw2")
+像input标签的的文本藏在value属性里，只能通过unicode的办法显示图表
