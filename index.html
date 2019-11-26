@@ -2,63 +2,59 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>吴翱翔的博客</title>
-    <meta name="keywords" content="rails,python,chrome">
-    <meta name="description" content="Vue+Rails全栈开发,Python业余爱好">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="//showmethemoney.sweetysoft.com/image_after_2019_06/1851/favicon.ico">
-    <link rel="stylesheet" href="/assets/vue-css-4.9.4.css">
-    <link rel="stylesheet" href="/assets/mycss.css">
-    <!-- <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css"> -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500|Source+Sans+Pro:400,400i,600" rel="stylesheet">
-    <link rel="stylesheet" href="//amzn.github.io/style-dictionary/assets/styles.css">
-    <style>
-        :root { font-family: "Microsoft Yahei"; }
-        summary { cursor: pointer; }
-    </style>
+  <meta charset="UTF-8">
+  <title>吴翱翔的博客</title>
+  <meta name="keywords" content="rails,python,chrome">
+  <meta name="description" content="Vue+Rails全栈开发,Python业余爱好">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="//showmethemoney.sweetysoft.com/image_after_2019_06/1851/favicon.ico">
+  <link rel="stylesheet" href="/assets/vue-css-4.9.4.css">
+  <!-- <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css"> -->
+  <link rel="stylesheet" href="/assets/mycss.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500|Source+Sans+Pro:400,400i,600" rel="stylesheet">
+  <link rel="stylesheet" href="//amzn.github.io/style-dictionary/assets/styles.css">
 </head>
 
 <body>
-    <div id="app"></div>
-    <script>
-        window.$docsify = {
-            alias: { '/.*/sidebar.md': 'sidebar.md' },
-            homepage: 'sidebar.md',
-            repo: 'pymongo/pymongo.github.io',
-            loadSidebar: 'sidebar.md',
-            subMaxLevel: 3,
-            executeScript: true,
-            search: {
-                paths: 'auto',
-                placeholder: 'Search',
-                noData: 'No result'
-            },
-            pagination: {
-                previousText: 'PREVIOUS',
-                nextText: 'NEXT',
-                crossChapter: true
-            },
-            plugins: [
-                function (hook) {
-                    hook.afterEach(function (html) {
-                        ;
-                    })
-                }
-            ]
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      alias: { '/.*/sidebar.md': 'sidebar.md' },
+      homepage: 'sidebar.md',
+      repo: 'pymongo/pymongo.github.io',
+      loadSidebar: 'sidebar.md',
+      subMaxLevel: 3,
+      executeScript: true,
+      search: {
+        paths: 'auto',
+        placeholder: 'Search',
+        noData: 'No result'
+      },
+      pagination: {
+        previousText: 'PREVIOUS',
+        nextText: 'NEXT',
+        crossChapter: true
+      },
+      plugins: [
+        function (hook) {
+          hook.afterEach(function (html) {
+            ;
+          })
         }
-    </script>
-    <script src="//unpkg.com/docsify"></script>
-    <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
-    <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
-    <!-- flexible-alerts会引入font-awesome -->
-    <script src="//unpkg.com/docsify-plugin-flexible-alerts"></script>
-    <script src="//unpkg.com/docsify-copy-code"></script>
-    <script src="//unpkg.com/docsify-tabs"></script>
-    <script src="//unpkg.com/prismjs/components/prism-sql.min.js"></script>
-    <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
-    <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
-    <script src="//unpkg.com/prismjs/components/prism-ruby.min.js"></script>
+      ]
+    }
+  </script>
+  <script src="//unpkg.com/docsify"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- flexible-alerts会引入font-awesome -->
+  <script src="//unpkg.com/docsify-plugin-flexible-alerts"></script>
+  <script src="//unpkg.com/docsify-copy-code"></script>
+  <script src="//unpkg.com/docsify-tabs"></script>
+  <script src="//unpkg.com/prismjs/components/prism-sql.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-ruby.min.js"></script>
 </body>
 
 </html>
