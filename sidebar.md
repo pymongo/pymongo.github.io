@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **1911**
+    - [jQuery验证checkbox](2019/11_2/checkbox_jquery_validate)
     - [ActiveRecord关联的命名约定/规范](2019/11_2/includes_assocation)
     - [统计有记录的交易对](2019/11_2/select-distinct)
     - [linear-gradient](2019/11_2/linear-gradient-warn)
