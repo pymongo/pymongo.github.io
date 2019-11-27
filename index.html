@@ -7,7 +7,8 @@
   <meta name="keywords" content="rails,python,chrome">
   <meta name="description" content="Vue+Rails全栈开发,Python业余爱好">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="//showmethemoney.sweetysoft.com/image_after_2019_06/1851/favicon.ico">
+  <link rel="icon" href="data:,"><!-- avoid GET /favicon.ico -->
+  <link rel="icon" href="http://showmethemoney.sweetysoft.com/image_after_2019_06/1851/favicon.ico">
   <link rel="stylesheet" href="/assets/vue-css-4.9.4.css">
   <!-- <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css"> -->
   <link rel="stylesheet" href="/assets/mycss.css">
@@ -20,7 +21,11 @@
   <script>
     window.$docsify = {
       routerMode: 'history',
-      alias: { '/.*/sidebar.md': 'sidebar.md' },
+      alias: {
+        '/.*/sidebar.md': 'sidebar.md',
+        '/resume': 'http://pymongo.github.io/assets/%E5%BA%94%E8%81%98%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91_%E5%90%B4%E7%BF%B1%E7%BF%94%E7%9A%84%E7%AE%80%E5%8E%86_17150313884.pdf',
+        '/changelog': 'https://raw.githubusercontent.com/docsifyjs/docsify/master/CHANGELOG',
+      },
       homepage: 'sidebar.md',
       repo: 'pymongo/pymongo.github.io',
       loadSidebar: 'sidebar.md',
