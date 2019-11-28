@@ -80,7 +80,7 @@ a.save!
 
 <!-- tabs:end -->
 
-## 任务1:members的详情页面的修改
+## 需求1:members的详情页面的修改
 
 ### 找到members页面的controller
 
@@ -133,8 +133,8 @@ SELECT * FROM information_schema.columns WHERE column_name = 'column_name';
 ### 给robot表添加约束/验证
 
 ```ruby
-  validates :interval_of_hang, length: { in: 1..60 }
-  validates :interval_of_trade, length: { in: 1..60 }
+  validates :interval_of_hook, length: { in: 1..60 }
+  validates :interval_of_sleep, length: { in: 1..60 }
   validates :status, inclusion: { in: %w(ok error),
     message: "staus must be ok or error" }
 ```

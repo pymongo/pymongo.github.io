@@ -5,6 +5,14 @@
 
 例如修改了application.scss，需要执行`recompile`脚本编译css和js
 
+```
+rm tmp/cache/assets/ -rf
+rm public/assets/locales/* -f
+bundle exec rake tmp:create assets:precompile
+```
+
+!> bundle install或update之后需要重新**编译css/js**
+
 <i class="fa fa-hashtag mytitle"></i>
 没有热重载
 
@@ -14,3 +22,7 @@
 log文件名不一样
 
 由于服务器不一样，生产环境的log文件是`puma.stdout.log`和`puma.stderr.log`
+
+## nginx所有二级域名的配置处
+
+> /etc/nginx/sites-enabled

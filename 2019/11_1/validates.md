@@ -1,4 +1,6 @@
-# [rails数据验证与消息闪现(flash)](2019/11_2/validates)
+# [model数据验证与消息闪现(flash)](2019/11_2/validates)
+
+相关文章 - [jQuery验证checkbox](/2019/11_2/checkbox_jquery_validate)
 
 ## Models中同时验证多个字段
 
@@ -15,7 +17,7 @@ robot的数据验证代码如下:
 ```ruby
 class Robot < ActiveRecord::Base
   validates :name, :status, presence: {message:"必须提供名称和状态"}
-  validates :interval_of_hang, :interval_of_trade, numericality: {
+  validates :interval_of_hook, :interval_of_sleep, numericality: {
     only_integer: true,
     greater_than_or_equal_to: 0,
     less_than_or_equal_to: 60,
@@ -67,7 +69,7 @@ end
 
 编辑功能的验证稍微困难点, 因为update方法不管有无错误都会保存
 
-要使用一个之前没学过的方法 assign_attributes
+要使用一个之前没学过的方法 **assign_attributes**
 
 ```ruby
 def update

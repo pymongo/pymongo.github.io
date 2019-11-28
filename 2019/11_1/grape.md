@@ -22,7 +22,7 @@ grape是一个基于rack的REST-like APIs,可以通过[petstore.swagger.io](http
 
 ### 学习理由2:rails的性能不好,接口要脱离rails
 
-## ✨apache benchmark测试接口速度
+## ⭑apache benchmark测试接口速度
 
 ab命令全称是apache HTTP server benchmark
 
@@ -125,7 +125,8 @@ gem "activerecord", "6.0.0"
 2. vim config/database.yml
 3. bundle exec guard -d
 
-## grape-swagger
+<i class="fa fa-hashtag mytitle"></i>
+grape-swagger
 
 在以下两个文件中实现了swagger的定义
 

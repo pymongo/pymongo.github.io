@@ -1,4 +1,4 @@
-# [debug,log](2019/11_2/rails-debug-log)
+# [如何打彩色log与单步调试](2019/11_2/rails-debug-log)
 
 ruby没有自带的debug支持(而python3.7加入与debug相关的新函数)
 
@@ -16,10 +16,9 @@ ruby没有自带的debug支持(而python3.7加入与debug相关的新函数)
 
 旧版的rubyMine安装时可能会报错，需要手动在cli环境安装
 
-```
-gem install debase --pre
-gem install ruby-debug-ide
-```
+> gem install debase --pre
+> gem install ruby-debug-ide
+
 
 ## step into和step out
 
