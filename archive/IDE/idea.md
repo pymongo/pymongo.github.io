@@ -1,5 +1,15 @@
 # [idea/jetbrains全家桶通用技巧](archive/IDE/idea)
 
+## cmd+Alt+O, cmd+O搜索类/字段等
+
+DataGrip中cmd+Alt+O能搜索表的字段名，不过不能区分表名
+
+## HTML标签/代码块 open/end之间跳动
+
+<kbd>cmd</kbd>+<kbd>alt</kbd>+ <kbd>[</kbd> / <kbd></kbd>
+
+> cmd+alt+[
+
 ## 打开/关闭文件
 
 不好用的搜索文件：cmd+1切换侧边栏，然后通过输入关键字查找文件
@@ -20,15 +30,9 @@
 
 默认的快捷键是Ctrl+F4相当不好用，肯定要改掉
 
-## cmd+Alt+O, cmd+O搜索类/字段等
-
-DataGrip中cmd+Alt+O能搜索表的字段名，不过不能区分表名
-
-## HTML标签/代码块 open/end之间跳动
-
-<kbd>cmd</kbd>+<kbd>alt</kbd>+ <kbd>[</kbd> / <kbd></kbd>
-
 ## vim快捷键配置
+
+有个见vim emulator的设置项，决定冲突的快捷键使用vim还是IDEA的
 
 !> 不能用J,J退出编辑模式，因为idea不区分imap，nmap
 

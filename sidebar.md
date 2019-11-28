@@ -9,17 +9,17 @@
     - [link_to merge参数时报错DEPRECATION](2019/11_2/link_to-merge-warning)
     - [涉及钱的操作要加事务处理和线程锁](2019/11_2/data-lock)
     - [多态关联](2019/11_2/ploy-associate)
-    - [vue画k线图](2019/11_2/k-line-vue)
+    - [k线画图工具(基于vue)](2019/11_2/k-line-vue)
     - [account.first](2019/11_2/account-first)
     - [crontab定时任务](2019/11_2/crontab)
-    - [debug,log](2019/11_2/rails-debug-log)
+    - [如何打彩色log与单步调试](2019/11_2/rails-debug-log)
     - [Add Default Constraint](2019/11_2/add-default-constraint)
 - **1911出差**
     - [grape接口服务器](2019/11_1/grape)
     - [提高百万行记录count的速度](2019/11_1/millions-count.md)
     - [测量数据库查询时间](2019/11_1/measure-qurey-time)
     - [ActiveRecord多表关联](/2019/11_1/join-query)
-    - [rails数据验证与消息闪现(flash)](2019/11_1/validates)
+    - [model数据验证与消息闪现(flash)](2019/11_1/validates)
     - [admin项目的配置与工作](2019/11_1/project-admin)
     - [初始化base-api遇到的各种报错](2019/11_1/base-api-error.md)
 - **1910**
@@ -41,6 +41,7 @@
     - [bookmark & macro & collapse](archive/vim/bookmark)
     - [plugin & Vimium](archive/vim/plugin)
 - **IDE**
+    - [vscode添加切换terminal tab的快捷键](archive/IDE/vscode/switch_terminal_tab)
     - [vscode技巧,正则表达式置换等](archive/IDE/vscode/index)
     - [idea/jetbrains全家桶通用技巧](archive/IDE/idea)
     - [dataGrip数据库工具](archive/IDE/datagrip)
