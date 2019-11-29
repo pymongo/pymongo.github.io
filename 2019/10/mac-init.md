@@ -1,4 +1,6 @@
-# mac init(配置等)
+# [mac init(配置等)](2019/10/mac-init)
+
+相关文章 - [禁用option/alt键的特殊符号](/2019/11_2/ukelele/disable_alt_symbol_ukelele)
 
 公司给我配的mbp到了，记录下配置开发环境的过程
 
@@ -14,7 +16,7 @@ Command+Control+Space: 打开emoji picker😃
 
 ### terminal设置
 
-主题改为pro，字体大小改为16，Use Option As Metakey
+主题改为pro，字体大小改为16，**Use Option As Metakey**
 
 ### ~~启用root用户并~~创建workspace文件夹
 
