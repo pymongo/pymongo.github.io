@@ -1,6 +1,12 @@
 # [涉及钱的操作要加事务处理和线程锁](2019/11_2/data-lock)
 
+ActiveRecord的lock老大说只是一个**数据库锁**,并不是**线程锁**
+
 如 account.balance += amout 要写成
+
+<!-- tabs:start -->
+
+#### ** with_lock写法 **
 
 ```ruby
 Account.transation do
@@ -12,7 +18,7 @@ Account.transation do
 end
 ```
 
-account.with_lock可以换成lock! (本次项目的规范)
+#### ** lock!写法 **
 
 ```ruby
 Account.transation do
@@ -22,6 +28,12 @@ Account.transation do
   account.save!
 end
 ```
+
+<!-- tabs:end -->
+
+
+我个人lock! (本次项目的规范)
+
 
 加事务的目的是如果中途出错, 账户变动会回滚
 

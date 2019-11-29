@@ -12,6 +12,12 @@ end
 「重大改动」二级标题和三级标题的行距从2em改为1.5em，更有紧凑感
 
 
+## mysql dump
+
+> mysqldump -u user -p database_name table_name1[]...] > filename.sql
+
+mysqldump -u root --password=daydayUP666888$$$ cadae id_card_approvals > s.sql
+
 ## select_tag添加class的方法
 
 <%= f.select :status, options_for_select(%w(ok error)), {}, { class: 'form-control'} %>
