@@ -80,3 +80,9 @@ cmd+s 保存布局文件，命名为my_layout
 signout后，在添加输入法窗口可以看到my_layout
 
 ![06_add_input_source](06_add_input_source.png "06_add_input_source")
+
+## 并不完美的去掉Alt键字符
+
+事实上设置好后Alt+键盘不输出任何字符后，按alt+字母还是会输出一个看不到的字符
+
+可能是我的设置方法有问题
