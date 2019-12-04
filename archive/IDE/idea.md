@@ -10,6 +10,23 @@ DataGrip中cmd+Alt+O能搜索表的字段名，不过不能区分表名
 
 > cmd+alt+[
 
+## 在最近navigate的两处代码处跳动
+
+如cmd+b找到方法的定义处，然后cmd+alt+左 返回
+
+<i class="fa fa-hashtag mytitle"></i>
+复制当前行
+
+cmd+d
+
+<i class="fa fa-hashtag mytitle"></i>
+删除当前行
+
+cmd+Backspace
+
+<i class="fa fa-hashtag mytitle"></i>
+选中当前变量名，并在所有出处放上光标
+
 ## 打开/关闭文件
 
 不好用的搜索文件：cmd+1切换侧边栏，然后通过输入关键字查找文件
@@ -32,7 +49,7 @@ DataGrip中cmd+Alt+O能搜索表的字段名，不过不能区分表名
 
 ## vim快捷键配置
 
-有个见vim emulator的设置项，决定冲突的快捷键使用vim还是IDEA的
+有个见**vim emulator**的设置项，决定冲突的快捷键使用vim还是IDEA的
 
 !> 不能用J,J退出编辑模式，因为idea不区分imap，nmap
 
