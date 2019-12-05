@@ -1,6 +1,8 @@
 - [归档 - 吴翱翔的博客](/)
-- **1911**
-    - [rails变量命名驼峰式与小写下划线互相转换](2019/12_1/rails_camel_case.md)
+- **1912上旬**
+    - [元编程 - 类似eval的constantize](/2019/12_1/constantize_eval.md)
+    - [rails变量命名驼峰式与小写下划线互相转换](/2019/12_1/rails_camel_case.md)
+- **1911下旬**   
     - [返回CSV更友好的nil如果对象不存在](2019/11_2/try_return_nil)
     - [禁用option/alt键的特殊符号](2019/11_2/ukelele/disable_alt_symbol_ukelele)
     - [puma服务器生产环境与开发环境的区别](2019/11_2/puma_production)
@@ -12,12 +14,12 @@
     - [link_to merge参数时报错DEPRECATION](2019/11_2/link_to-merge-warning)
     - [涉及钱的操作要加事务处理和线程锁](2019/11_2/data-lock)
     - [多态关联](2019/11_2/ploy-associate)
-    - [k线画图工具(基于vue)](2019/11_2/k-line-vue)
+    - [k线画图工具(基于vue)](2019/11_2/k-line-vue.md)
     - [account.first](2019/11_2/account-first)
     - [crontab定时任务](2019/11_2/crontab)
-    - [如何打彩色log与单步调试](2019/11_2/rails-debug-log)
+    - [如何打彩色log与单步调试](2019/11_2/rails-debug-log.md)
     - [Add Default Constraint](2019/11_2/add-default-constraint)
-- **1911出差**
+- **1911上旬**
     - [grape接口服务器](2019/11_1/grape)
     - [提高百万行记录count的速度](2019/11_1/millions-count.md)
     - [测量数据库查询时间](2019/11_1/measure-qurey-time)
