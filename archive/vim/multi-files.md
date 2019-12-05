@@ -94,6 +94,11 @@ p - Jump to current nodes parent
 B - toggle bookmark window
 D - Delete bookmark
 
+<i class="fa fa-hashtag mytitle"></i>
+编辑书签
+
+> ~/.NERDTreeBookmarks
+
 ### 打开文件
 
 o - 打开文件或书签
