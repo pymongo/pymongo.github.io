@@ -1,5 +1,7 @@
 # [select & register](archive/vim/select)
 
+常用set nonu/nonumber 隐藏行号以便复制代码
+
 Ctrl+v是visiual block模式估计就只有以下一个用处(在大师的配置离里Ctrl+v是打开View文件)
 
 ## Ctrl+v唯一应用: 多行加注释
