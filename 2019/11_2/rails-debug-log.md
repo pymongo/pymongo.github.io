@@ -41,7 +41,7 @@ step out: 如果认为当前语句/方法没问题，Bug不是出自这里，则
 logger的使用，我个人比较喜欢给自己的log标红：
 
 ```ruby
-logger.warn "\e[31;5m" + "-"*40 + "\e[0m" + "\e[31;1m"
+logger.warn "== \e[31;1m" + "" + "\e[31;1m"
 logger.error "This is a log"
 logger.error "to trace var change"
 logger.warn "\e[5m" + "-"*40 + "\e[0m"
