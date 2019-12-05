@@ -44,7 +44,9 @@ www项目是普通用户的前端页面,cms项目是帮助文档及用户社区,
 
 创建一个utf8的数据库
 
-> CREATE DATABASE mydb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+~~CREATE DATABASE mydb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;~~~
+
+!> 必须用rake db:create保证数据库是utf-8
 
 ## 管理员表的CRUD
 
