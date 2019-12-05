@@ -1,16 +1,31 @@
 # [idea/jetbrains全家桶通用技巧](archive/IDE/idea)
 
-## cmd+Alt+O, cmd+O搜索类/字段等
+## ideaVim
 
-DataGrip中cmd+Alt+O能搜索表的字段名，不过不能区分表名
+新版的ideaVim真香~，使用与vim一样的配置文件，还能用vim插件
 
-## HTML标签/代码块 open/end之间跳动
+0.54版的ideaVim在keymap里只有3个快捷键设置项，有用的是vim emulator(开关vim快捷键)
+
+vim其余设置其余的在`~/.ideavimrc`，注意大部分`.vimrc`的设置都不能用
+
+<i class="fa fa-hashtag mytitle"></i>
+vim emulator
+
+通过find action找到**vim emulator**的设置项，决定vim和idea冲突的快捷键使用vim还是IDEA的
+
+按照Mac的习惯我把 `Ctrl+P/N/F/B` 指定使用IDE的上下左右
+
+## 代码间跳动
+
+<i class="fa fa-hashtag mytitle"></i>
+HTML标签/代码块 open/end之间跳动
 
 <kbd>cmd</kbd>+<kbd>alt</kbd>+ <kbd>[</kbd> / <kbd></kbd>
 
 > cmd+alt+[
 
-## 在最近navigate的两处代码处跳动
+<i class="fa fa-hashtag mytitle"></i>
+在最近navigate的两处代码处跳动
 
 如cmd+b找到方法的定义处，然后cmd+alt+左 返回
 
@@ -33,7 +48,7 @@ cmd+Backspace
 
 找到文件之后按Esc将光标退回editor，缺点是只能查找当前目录下的文件
 
-> [!NOTE|label:两下shift]
+> [!NOTE|label:两下￿￿shift]
 > 按两下<kbd>Shift</kbd> 和vscode一样好用的查找输入框
 
 找到并打开文件后可以点击导航栏的轮胎按钮定位到侧边栏中文件所在处
@@ -41,21 +56,7 @@ cmd+Backspace
 > [!TIP]
 > 双击Shift还能在DataGrip中搜索字段名呢
 
----
+cmd+Alt+O, cmd+O搜索类/字段等
 
-关闭当前文件：
+DataGrip中cmd+Alt+O能搜索表的字段名，不过不能区分表名
 
-默认的快捷键是Ctrl+F4相当不好用，肯定要改掉
-
-## vim快捷键配置
-
-有个见**vim emulator**的设置项，决定冲突的快捷键使用vim还是IDEA的
-
-!> 不能用J,J退出编辑模式，因为idea不区分imap，nmap
-
-- Ctrl+; 退出编辑模式
-
-光标移动的快捷键建议绑定在editor action，而且Ctrl+F不好使
-
-> [!DANGER|label:不好使的快捷键]
-> Ctrl+H强制是退格, Ctrl+F改不了 
