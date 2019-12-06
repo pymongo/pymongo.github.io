@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **1912上旬**
+    - [构建接口测试样例数据](/2019/12_1/test_example.md)
     - [元编程 - 类似eval的constantize](/2019/12_1/constantize_eval.md)
     - [rails变量命名驼峰式与小写下划线互相转换](/2019/12_1/rails_camel_case.md)
 - **1911下旬**   
