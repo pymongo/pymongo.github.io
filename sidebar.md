@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **1912上旬**
+    - [测试mysql对emoji的测试](2019/12_1/mysql_emoji.md)
     - [except数组内包含特定哈希](/2019/12_1/except_array_include_hash.md)
     - [构建接口测试样例数据](/2019/12_1/test_example.md)
     - [元编程 - 类似eval的constantize](/2019/12_1/constantize_eval.md)
