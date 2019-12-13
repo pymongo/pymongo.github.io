@@ -1,5 +1,7 @@
 # [测试mysql对emoji的测试](2019/12_1/mysql_emoji.md)
 
+![mysql_emoji](mysql_emoji.png "mysql_emoji")
+
 做用户聊天相关项目时，老大发现Mysql中写入emoji信息时Mysql报错，
 
 但是又希望有聊天功能，最后用emoji库，类似微信输入`[捂脸]`就会输出相应表情,
