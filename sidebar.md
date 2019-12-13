@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **1912上旬**
+    - [Mysql正则表达式-记一次清理脏数据的过程](/2019/12_1/mysql_regexp.md)
     - [测试mysql对emoji的测试](2019/12_1/mysql_emoji.md)
     - [except数组内包含特定哈希](/2019/12_1/except_array_include_hash.md)
     - [构建接口测试样例数据](/2019/12_1/test_example.md)
