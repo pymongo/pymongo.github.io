@@ -1,4 +1,4 @@
-# [ActiveRecord关联的命名约定/规范](2019/11_2/includes_assocation)
+# [ActiveRecord关联的命名约定/规范](/2019/11_2/includes_assocation.md)
 
 相关文章 - [多对多的多表查询练习](/2019/11_1/join-query)
 

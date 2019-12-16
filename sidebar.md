@@ -1,7 +1,9 @@
 - [归档 - 吴翱翔的博客](/)
+- **1912下旬**
+    - [不通过主键(id)进行关联](/2019/12_2/association_without_primary_key.md)
 - **1912上旬**
     - [Mysql正则表达式-记一次清理脏数据的过程](/2019/12_1/mysql_regexp.md)
-    - [测试mysql对emoji的测试](2019/12_1/mysql_emoji.md)
+    - [测试mysql对emoji的测试](/2019/12_1/mysql_emoji.md)
     - [except数组内包含特定哈希](/2019/12_1/except_array_include_hash.md)
     - [构建接口测试样例数据](/2019/12_1/test_example.md)
     - [元编程 - 类似eval的constantize](/2019/12_1/constantize_eval.md)
@@ -12,7 +14,7 @@
     - [puma服务器生产环境与开发环境的区别](2019/11_2/puma_production)
     - [rubymine无法识别ruby文件](2019/11_2/rubymine_not_recognize_rb)
     - [jQuery验证checkbox](2019/11_2/checkbox_jquery_validate)
-    - [ActiveRecord关联的命名约定/规范](2019/11_2/includes_assocation)
+    - [ActiveRecord关联的命名约定/规范](/2019/11_2/includes_association.md)
     - [统计有记录的交易对](2019/11_2/select-distinct)
     - [linear-gradient](2019/11_2/linear-gradient-warn)
     - [link_to merge参数时报错DEPRECATION](2019/11_2/link_to-merge-warning)
