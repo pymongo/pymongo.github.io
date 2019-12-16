@@ -1,6 +1,12 @@
-# [ActiveRecord关联的命名约定/规范](/2019/11_2/includes_assocation.md)
+# [ActiveRecord关联的命名约定/规范](/2019/11_2/includes_association.md)
 
-相关文章 - [多对多的多表查询练习](/2019/11_1/join-query)
+<i class="fa fa-hashtag mytitle"></i>
+相关文章
+
+- [不通过主键(id)进行关联](/2019/12_2/association_without_primary_key.md)
+
+- [多对多的多表查询练习](/2019/11_1/join-query.md)
+ 
 
 如果希望Account表关联上Member表，一个用户有多个钱包
 

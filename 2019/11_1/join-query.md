@@ -1,6 +1,6 @@
 # [多对多的多表查询练习](2019/11_1/join-query)
 
-相关文章 - [ActiveRecord关联](/2019/11_2/includes-assocation)
+相关文章 - [ActiveRecord关联](/2019/11_2/includes_association.md)
 
 ## mysql样例数据库
 

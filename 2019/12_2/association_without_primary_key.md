@@ -5,8 +5,6 @@
 
 [ActiveRecord关联的命名约定/规范](/2019/11_2/includes_association.md)
  
-![association_without_primary_key_problem](association_without_primary_key_problem.png "association_without_primary_key_problem")
-
 ```ruby
 # 出现N+1查询问题的代码
 markets.includes(:currency).map{ |market|

@@ -1,4 +1,4 @@
-# [测试mysql对emoji的测试](2019/12_1/mysql_emoji.md)
+# [测试mysql对emoji的测试](/2019/12_1/mysql_emoji.md)
 
 ![mysql_emoji](mysql_emoji.png "mysql_emoji")
 
