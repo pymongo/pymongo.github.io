@@ -3,6 +3,8 @@
 <i class="fa fa-hashtag mytitle"></i>
 相关文章
 
+- [includes同一个表两次的解决方案(不完美)](/2019/12_2/includes_same_table_twice.md)
+
 - [不通过主键(id)进行关联](/2019/12_2/association_without_primary_key.md)
 
 - [多对多的多表查询练习](/2019/11_1/join-query.md)
