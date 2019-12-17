@@ -1,6 +1,7 @@
 - [归档 - 吴翱翔的博客](/)
 - **1912下旬**
-    - [includes同一个表两次的解决方案(不完美)](/2019/12_2/includes_same_table_twice.md)
+    - [puma与rackup服务器](/2019/12_2/puma_rackup.md)
+    - [includes同一个表两次的解决方案(不完美)](/2019/12_2/includes_same_table_twice.md/vim)
     - [不通过主键(id)进行关联](/2019/12_2/association_without_primary_key.md)
 - **1912上旬**
     - [Mysql正则表达式-记一次清理脏数据的过程](/2019/12_1/mysql_regexp.md)
@@ -45,6 +46,7 @@
 - **性能优化**
     - [谷歌字体库被墙的解决方案](old/google-font-block-solution)
 - **VIM**
+    - [vim复习](/archive/vim/vim_review.md)
     - [cursor(光标移动)](archive/vim/cursor)
     - [vim多文件编辑(buffer,tab,分屏)](archive/vim/multi-files)
     - [keymap & autocmd & vim-setting](archive/vim/keymap)
