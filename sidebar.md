@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **1912下旬**
+    - [我的第一个Android APP](/2019/12_2/first_android_app.md)
     - [puma与rackup服务器](/2019/12_2/puma_rackup.md)
     - [includes同一个表两次的解决方案(不完美)](/2019/12_2/includes_same_table_twice.md/vim)
     - [不通过主键(id)进行关联](/2019/12_2/association_without_primary_key.md)
