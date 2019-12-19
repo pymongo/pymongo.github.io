@@ -23,6 +23,12 @@
 
 <kbd>Ctrl</kbd> + <kbd>S</kbd> : Save file
 
+## [Markdown task/todo list](https://github.blog/2014-04-28-task-lists-in-all-markdown-documents/)
+
+- [x] Python
+- [ ] Rust
+- [ ] PHP
+
 ## details-summary
 
 <details>
@@ -39,33 +45,6 @@
 ## docsify-tabs
 
 <!-- tabs:start -->
-
-#### ** Brute Force **
-
-#### ** Two-pass Hash Table **
-
-#### ** One-pass Hash Table **
-
-<!-- tabs:end -->
-
-
-
-<!-- tabs:start -->
-
-#### ** Brute Force **
-
-```java
-public int[] twoSum(int[] nums, int target) {
-    for (int i = 0; i < nums.length; i++) {
-        for (int j = i + 1; j < nums.length; j++) {
-            if (nums[j] == target - nums[i]) {
-                return new int[] { i, j };
-            }
-        }
-    }
-    throw new IllegalArgumentException("No two sum solution");
-}
-```
 
 #### ** Two-pass Hash Table **
 
