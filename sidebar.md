@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **1912下旬**
+    - [active_record的值并不是动态的](/2019/12_2/active_record_not_dynatic.md)
     - [Android学习路线](/2019/12_2/android_learn_step.md)
     - [我的第一个Android APP](/2019/12_2/first_android_app.md)
     - [puma与rackup服务器](/2019/12_2/puma_rackup.md)
