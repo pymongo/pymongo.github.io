@@ -1,4 +1,4 @@
-# [account-first](2019/11_2/account-first)
+# [account.first](/2019/11_2/account_first.md)
 
 ## where之后想取数据要加first
 

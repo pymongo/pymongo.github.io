@@ -1,4 +1,4 @@
-# 谷歌的文字冒险游戏
+# [谷歌的文字冒险游戏](/old/google_text_adventure.md)
 
 ## 进入游戏
 
@@ -13,7 +13,7 @@
 
 "ncr"的全称时no country redirect
 
-![google-text-adventure](google-text-adventure.png "google-text-adventure")
+![google_text_adventure](google_text_adventure.png "google_text_adventure")
 
 ## 游戏开始
 
