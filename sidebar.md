@@ -1,6 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **1912下旬**
-    - [active_record的值并不是动态的](/2019/12_2/active_record_not_dynatic.md)
+    - [active_record的值并不是动态的](/2019/12_2/active_record_not_dynamic.md)
     - [Android学习路线](/2019/12_2/android_learn_step.md)
     - [我的第一个Android APP](/2019/12_2/first_android_app.md)
     - [puma与rackup服务器](/2019/12_2/puma_rackup.md)
@@ -91,8 +91,8 @@
     - [首次给开源项目提交代码](old/pull-request-to-scoop/index)
 - **old**
     - [博客新功能/样式测试](old/test.md)
-    - [chrome的恐龙奔跑游戏中作弊](old/chrome-game-cheat/index.md)
-    - [谷歌的文字冒险游戏](old/google-text-adventure)
+    - [chrome的恐龙奔跑游戏中作弊](/old/chrome_game_cheat/index.md)
+    - [谷歌的文字冒险游戏](/old/google_text_adventure.md)
     - [CSS权重等前端豆知识回顾](/old/css_specificity.md)
 - **联系我**
     - [我的简历](/assets/resume.html)
