@@ -7,6 +7,9 @@
 - [Android Tutorial for Beginners](https://www.youtube.com/watch?v=taSwS5rhtmc&list=PLS1QulWo1RIbb1cYyzZpLFCKvdYV_yJ-E&index=3)
 - [Android Studio For Beginners Part 2](https://www.youtube.com/watch?v=6ow3L39Wxmg)
 
+<i class="fa fa-hashtag mytitle"></i>
+学习顺序
+
 - [ ] 安卓：点击按钮切换Dark/Light主题(学完CRUD先，把当前主题存入SQLite
 - [ ] 了解Activity的生命周期
 - [ ] 在不同的Activity之间传递参数
