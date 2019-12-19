@@ -103,10 +103,23 @@ toastButton.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-## 打包成apk
+---
+
+<i class="fa fa-hashtag mytitle"></i>
+打包成apk
 
 不加开发者签名的话，无法上架到谷歌商店，只能以app-debug.apk的形式打包
 
 我是通过idea的find_action->搜索apk 
 
 打包完成后，点击locale会在文件夹窗口打开apk, g完成打包打包后的路径是`app/build/outputs/apk/debug/`
+
+## APK下载链接及功能介绍
+
+- 功能1：输入1个数，计算它的平方(无输入参数验证)
+- 功能2：点击最底下的按钮，弹出toast消息
+
+<i class="fa fa-hashtag mytitle"></i>
+下载链接
+
+<a href="/assets/apk/my_first_app.apk">我的第一个APK - 下载链接</a>
