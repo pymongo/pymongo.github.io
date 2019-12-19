@@ -89,10 +89,10 @@
 - **参与开源**
     - [首次给开源项目提交代码](old/pull-request-to-scoop/index)
 - **old**
-    - [网页新功能/样式测试](old/test)
-    - [chrome的恐龙奔跑游戏中作弊](old/chrome-game-cheat/index)
+    - [博客新功能/样式测试](old/test.md)
+    - [chrome的恐龙奔跑游戏中作弊](old/chrome-game-cheat/index.md)
     - [谷歌的文字冒险游戏](old/google-text-adventure)
-    - [CSS权重等前端豆知识回顾](old/css-specificity)
+    - [CSS权重等前端豆知识回顾](/old/css_specificity.md)
 - **联系我**
-    - [我的简历](old/resume.html)
+    - [我的简历](/assets/resume.html)
  
