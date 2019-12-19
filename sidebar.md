@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **1912下旬**
+    - [Android学习路线](/2019/12_2/android_learn_step.md)
     - [我的第一个Android APP](/2019/12_2/first_android_app.md)
     - [puma与rackup服务器](/2019/12_2/puma_rackup.md)
     - [includes同一个表两次的解决方案(不完美)](/2019/12_2/includes_same_table_twice.md/vim)
@@ -56,6 +57,7 @@
     - [bookmark & macro & collapse](archive/vim/bookmark)
     - [plugin & Vimium](archive/vim/plugin)
 - **IDE**
+    - [Intellij idea](/archive/IDE/intellij.md)
     - [vscode添加切换terminal tab的快捷键](archive/IDE/vscode/switch_terminal_tab)
     - [vscode技巧,正则表达式置换等](archive/IDE/vscode/index)
     - [idea/jetbrains全家桶通用技巧](archive/IDE/idea)
