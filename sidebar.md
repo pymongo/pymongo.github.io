@@ -3,17 +3,17 @@
     - [Android学习路线](/2019/12_2/android_learn_step.md)
     - [我的第一个Android APP](/2019/12_2/first_android_app.md)
     - [puma与rackup服务器](/2019/12_2/puma_rackup.md)
-    - [includes同一个表两次的解决方案(不完美)](/2019/12_2/includes_same_table_twice.md/vim)
+    - [includes同一个表两次的解决方案(不完美)](/2019/12_2/includes_same_table_twice.md)
     - [不通过主键(id)进行关联](/2019/12_2/association_without_primary_key.md)
 - **1912上旬**
     - [Mysql正则表达式-记一次清理脏数据的过程](/2019/12_1/mysql_regexp.md)
     - [测试mysql对emoji的测试](/2019/12_1/mysql_emoji.md)
     - [except数组内包含特定哈希](/2019/12_1/except_array_include_hash.md)
-    - [构建接口测试样例数据](/2019/12_1/test_example.md)
+    - [构建接口测试样例数据](/2019/12_1/rspec_test_example.md)
     - [元编程 - 类似eval的constantize](/2019/12_1/constantize_eval.md)
     - [rails变量命名驼峰式与小写下划线互相转换](/2019/12_1/rails_camel_case.md)
 - **1911下旬**   
-    - [返回CSV更友好的nil如果对象不存在](2019/11_2/try_return_nil)
+    - [返回CSV更友好的nil如果对象不存在](2019/11_2/try_return_nil.md)
     - [禁用option/alt键的特殊符号](2019/11_2/ukelele/disable_alt_symbol_ukelele)
     - [puma服务器生产环境与开发环境的区别](2019/11_2/puma_production)
     - [rubymine无法识别ruby文件](2019/11_2/rubymine_not_recognize_rb)
@@ -94,4 +94,5 @@
     - [谷歌的文字冒险游戏](old/google-text-adventure)
     - [CSS权重等前端豆知识回顾](old/css-specificity)
 - **联系我**
-    <!-- - [我的简历](old/resume.html) -->
+    - [我的简历](old/resume.html)
+ 
