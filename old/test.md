@@ -1,4 +1,4 @@
-# 博客各元素CSS测试
+# [博客新功能/样式测试](/old/test.md)
 
 ## text test
 

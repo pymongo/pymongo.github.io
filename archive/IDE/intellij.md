@@ -15,3 +15,7 @@ cmd+j 可以列出idea所有java代码的快捷输入
 打到这里时，自动补全下拉菜单第一个选项有个大写I的图标
 
 此时一定不要按`Tab` 而是按 `Enter`完成匿名内部类的代码自动生成
+
+## Android Studio
+
+文件导航栏不要选Android，要选project类型才能列出所有文件

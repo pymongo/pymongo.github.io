@@ -60,3 +60,6 @@ cmd+Alt+O, cmd+O搜索类/字段等
 
 DataGrip中cmd+Alt+O能搜索表的字段名，不过不能区分表名
 
+## 错误处理
+
+`F2`跳到下个错误，`Alt+Enter`列出解决错误的办法
