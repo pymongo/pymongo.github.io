@@ -122,4 +122,6 @@ toastButton.setOnClickListener(new View.OnClickListener() {
 <i class="fa fa-hashtag mytitle"></i>
 下载链接
 
+[我的第一个APK - 下载链接](http://showmethemoney.sweetysoft.com/image_after_2019_06/1946/my_first_app.apk)
+
 <a href="/assets/apk/my_first_app.apk">我的第一个APK - 下载链接</a>
