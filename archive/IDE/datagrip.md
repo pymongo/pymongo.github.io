@@ -1,9 +1,12 @@
-# [dataGrip数据库工具](archive/IDE/datagrip)
+# [DataGrip - 最好用的数据库工具](/archive/IDE/datagrip.md)
 
-## DataGrip
+## 字段(field/column)搜索
 
-DataGrip可以cmd+o定位到表名后win+F12定位到特定字段
+cmd+o/Double Shift打开table后`cmd+F12`定位/搜索字段
 
-选中table,cmd+B: Open table in DDL(SQL语句版本)
+`cmd+F12`的快捷键实在难用，我改成了<kbd>Alt</kbd>+<kbd>F</kbd>
 
-cmd+alt+G: Open the SQL generator
+<i class="fa fa-hashtag mytitle"></i>
+open DDL(表结构)
+
+<kbd>cmd</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd>

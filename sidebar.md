@@ -62,7 +62,7 @@
     - [vscode添加切换terminal tab的快捷键](archive/IDE/vscode/switch_terminal_tab)
     - [vscode技巧,正则表达式置换等](archive/IDE/vscode/index)
     - [idea/jetbrains全家桶通用技巧](archive/IDE/idea)
-    - [dataGrip数据库工具](archive/IDE/datagrip)
+    - [DataGrip - 最好用的数据库工具](/archive/IDE/datagrip.md)
 - **单片机嵌入式**
     - [以中断方式读轻触按键](archive/embedded/button-interrupt/index)
     - [矩阵键盘(keypad)](archive/embedded/keypad/index)
