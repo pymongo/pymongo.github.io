@@ -5,14 +5,16 @@
 ## 常用技术栈:
 
 - ruby on rails
-- vue
+- Vue
 - mysql
 
 ---
 
 ## English
 
-- 数字货币 - crypto
-- 法定货币 - fiat/legal tender/currence
-- AKA - Also Known As
-- FYI - For Your Information
+- crypto: 数字货币
+- fiat/legal tender/currence: 法定货币
+- AKA: Also Known As
+- FYI: For Your Information
+- annex: 附件
+- Forensics: 取证 
