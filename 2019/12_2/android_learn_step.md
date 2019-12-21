@@ -10,8 +10,8 @@
 <i class="fa fa-hashtag mytitle"></i>
 学习顺序
 
-- [ ] 安卓：点击按钮切换Dark/Light主题(学完CRUD先，把当前主题存入SQLite
-- [ ] 了解Activity的生命周期
+- [x] 隐藏ActionBar切换的黑暗主题，使用Toast，简单的xml修改
+- [x] 了解Activity的生命周期
 - [ ] 在不同的Activity之间传递参数
 - [ ] 在第一个Activity点击按钮，打开另外一个Activity(tabbor)
 - [ ] SharedPreferences本地存储(对标LocalStorage)，练习当前主题存储
