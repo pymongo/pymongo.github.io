@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **1912下旬**
+    - [Activity Lifecycle](/2019/12_2/Activity_Lifecycle.md)
     - [Rails跳转到页面特定位置(id,anchor,location)](/2019/12_2/redirect_to_anchor.md)
     - [active_record的值并不是动态的](/2019/12_2/active_record_not_dynamic.md)
     - [Android学习路线](/2019/12_2/android_learn_step.md)
