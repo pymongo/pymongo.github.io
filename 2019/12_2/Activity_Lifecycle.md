@@ -44,3 +44,7 @@ pause2->restart1->start1->resume1-stop2-destroy2
 注意：Activity的切换或称为父子关系有点像【栈】结果
 
 如果ActivityN退出时是栈的最底层，则会被destroy
+
+## onStart之后的状态下才能用toast
+
+onStart之前的状态可能未初始化完全，所以不能用Toast
