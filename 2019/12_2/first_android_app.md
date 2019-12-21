@@ -61,7 +61,7 @@ UI布局的XML文件最下方可以在Text和Design间切换，我还是习惯�
 
 Ctrl+Shift+←/→ [toggle between Design and Text](https://stackoverflow.com/questions/20682455/shortcut-to-switch-between-design-and-text-in-android-studio)
 
-Layout界面下还可以通过cmd+B
+Design模式下还可以通过cmd+B跳到Text模式
 
 ## ActionBar
 
