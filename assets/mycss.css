@@ -2,6 +2,12 @@
   color: var(--theme-color,#42b983);
 }
 
+var.mark {
+  color: rgb(237, 78, 132);
+  -webkit-font-smoothing: antialiased;
+  font-weight: 700;
+}
+
 div.sidebar-nav > ul > li > ul > li > ul > li > a,
 div.sidebar-nav > ul > li > ul > li > ul > ul > li > a {
   line-height: 1.5em;
