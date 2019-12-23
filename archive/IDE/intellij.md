@@ -10,6 +10,8 @@ cmd+J/F1：查文档
 
 Shift+F1：外部文档
 
+cmd+N: 快速生成getter/setter方法
+
 <i class="fa fa-hashtag mytitle"></i>
 sout -> System.out.println
 
