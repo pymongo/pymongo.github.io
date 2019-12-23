@@ -12,9 +12,9 @@
 
 - [x] 隐藏ActionBar切换的黑暗主题，使用Toast，简单的xml修改
 - [x] 了解Activity的生命周期
-- [ ] 在不同的Activity之间传递参数
-- [ ] 在第一个Activity点击按钮，打开另外一个Activity(tabbor)
-- [ ] SharedPreferences本地存储(对标LocalStorage)，练习当前主题存储
+- [x] 在不同的Activity之间传递参数
+- [x] 在第一个Activity点击按钮，打开另外一个Activity
+- [x] SharedPreferences本地存储(对标LocalStorage)，练习当前主题存储
 - [ ] 访问后台接口，更新当前的Activity(使用OK HTTP请求库)
 - [ ] 学习gradle的基本知识
 - [x] == 开始学习UI
