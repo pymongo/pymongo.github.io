@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **1912下旬**
+    - [安卓通过sharedPreference切换主题](/2019/12_2/android_change_theme.md)
     - [MySQL按日期分组](/2019/12_2/MySQL_group_by_date.md)
     - [Android Debug](/2019/12_2/android_debug.md)
     - [Activity Lifecycle](/2019/12_2/Activity_Lifecycle.md)
