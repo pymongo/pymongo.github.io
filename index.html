@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 
 <head>
   <meta charset="UTF-8">
@@ -29,7 +29,6 @@
       repo: 'pymongo/pymongo.github.io',
       loadSidebar: 'sidebar.md',
       subMaxLevel: 3,
-      executeScript: true,
       search: {
         paths: 'auto',
         placeholder: 'Search',
@@ -40,13 +39,13 @@
         nextText: 'NEXT',
         crossChapter: true
       },
-      plugins: [
-        function (hook) {
-          hook.afterEach(function (html) {
-            ;
-          })
-        }
-      ]
+      // plugins: [
+      //   function (hook) {
+      //     hook.afterEach(function (html) {
+      //       ;
+      //     })
+      //   }
+      // ]
     }
   </script>
   <script src="//unpkg.com/docsify"></script>
