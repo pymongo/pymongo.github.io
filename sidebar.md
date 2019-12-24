@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **1912下旬**
+    - [MySQL按日期分组](/2019/12_2/MySQL_group_by_date.md)
     - [Android Debug](/2019/12_2/android_debug.md)
     - [Activity Lifecycle](/2019/12_2/Activity_Lifecycle.md)
     - [Rails跳转到页面特定位置(id,anchor,location)](/2019/12_2/redirect_to_anchor.md)
