@@ -28,6 +28,10 @@ cmd+j 可以列出idea所有java代码的快捷输入
 
 此时一定不要按`Tab` 而是按 `Enter`完成匿名内部类的代码自动生成
 
+## cmd+;配置SDK
+
+cmd+; = `project structure`(配置JDK、SDK等等)
+
 ## Android Studio
 
 文件导航栏不要选Android，要选project类型才能列出所有文件
