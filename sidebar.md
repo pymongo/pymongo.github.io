@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **1912下旬**
+    - [postman发送字符串+和发送文件的方法](/2019/12_2/postmand_send_plus.md)
     - [安卓通过sharedPreference切换主题](/2019/12_2/android_change_theme.md)
     - [MySQL按日期分组](/2019/12_2/MySQL_group_by_date.md)
     - [Android Debug](/2019/12_2/android_debug.md)
@@ -31,7 +32,7 @@
     - [涉及钱的操作要加事务处理和线程锁](2019/11_2/data-lock)
     - [多态关联](2019/11_2/ploy-associate)
     - [k线画图工具(基于vue)](2019/11_2/k-line-vue.md)
-    - [account.first](2019/11_2/account-first)
+    - [account.first](/2019/11_2/account_first.md)
     - [crontab定时任务](2019/11_2/crontab)
     - [如何打彩色log与单步调试](2019/11_2/rails-debug-log.md)
     - [Add Default Constraint](2019/11_2/add-default-constraint)

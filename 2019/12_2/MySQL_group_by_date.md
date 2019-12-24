@@ -1,6 +1,5 @@
 # [MySQL按日期分组](/2019/12_2/MySQL_group_by_date.md)
 
-
 <!-- tabs:start -->
 
 #### **ActiveRecord**
@@ -21,6 +20,8 @@ end
 ```
 
 <!-- tabs:end -->
+
+!["MySQL_group_by_date"](MySQL_group_by_date.png ':size=484x304')
 
 <i class="fa fa-hashtag mytitle"></i>
 相关链接
