@@ -14,6 +14,8 @@
 
 如果需要发字符串"+86"则要改为<var class="mark">%2B</var>86
 
+解释为什么空格是+：搜索python slice，GET请求则是google.com/search?q=python+slice
+
 ## postman文件类型的参数
 
 文件类型的参数不能放在params标签页内，要放在<var class="mark">body的form-data</var>

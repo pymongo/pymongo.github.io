@@ -1,5 +1,9 @@
 # [MySQL按日期分组](/2019/12_2/MySQL_group_by_date.md)
 
+老板给出需求，要用图表显示**每日**注册用户数、每日交易量之类的
+
+我马上联想到python::pandas的datarange分组，其实查阅资料发现ruby的日期遍历更简单
+
 <!-- tabs:start -->
 
 #### **ActiveRecord**
@@ -8,7 +12,15 @@
 
 #### **MySQL**
 
-> SELECT SUM(foo), DATE(mydate) DateOnly FROM a_table GROUP BY DateOnly;
+```sql
+SELECT
+  SUM(created_at),
+  DATE(created_at) AS daily
+FROM
+  users
+GROUP BY
+  daily
+```
 
 #### **ruby daterange**
 
