@@ -28,5 +28,5 @@ end
 
 [rails group records by date](https://stackoverflow.com/questions/12657753/rails-group-records-by-dates-of-created-at)
 
-[pands dataframe group by date](https://stackoverflow.com/questions/12657753/rails-group-records-by-dates-of-created-at)
+[pands dataframe group by date](https://stackoverflow.com/questions/12657753/rails-group-records-by-dates-of-created-at ':disabled')
 
