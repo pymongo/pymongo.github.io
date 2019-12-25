@@ -6,16 +6,16 @@
   <title>吴翱翔的简历</title>
   <style>
   .page-container {
-    width: 800px;
+    /* 820≈A4_width_2480x0.33 */
+    width: 820px;
     margin: 0 auto;
   }
 
   * {
     margin: 0;
     padding: 0;
-    font-family: "PingFang SC", sans-serif;
-    /* font-weight: 500; */
-    --col: 110px;
+    /*Mac's default font*/
+    /*font-family: "PingFang SC", sans-serif;*/
   }
 
   :root {
@@ -44,19 +44,18 @@
   }
 
   .left-title-wrapper {
-    width: 85px;
+    width: 60px;
   }
 
   .title {
-    /* font-size: 1.1rem; */
+    font-size: 12px;
     padding: 4px;
-    /* font-weight: bold; */
     background-color: #ddd;
     border-bottom: 2px solid #ccc;
   }
 
   .right-wrapper {
-    width: 700px;
+    width: 760px;
   }
 
   .title-row .row-padding-lv1 {
@@ -80,6 +79,15 @@
     font-size: 14px;
     width: 120px;
   }
+
+  .project-title {
+    width: 225px;
+  }
+
+  .project-link {
+    width: 370px;
+    font-size: 14px;
+  }
   </style>
 </head>
 
@@ -100,7 +108,7 @@
     <div class="right-wrapper">
       <div class="title-row">
         <div style="display: flex;">
-          <div style="width: 300px">海南自贸区威中杰信息技术有限公司</div>
+          <div class="project-link">海南自贸区威中杰信息技术有限公司</div>
           <div style="width: 150px">全栈开发</div>
         </div>
         <div class="flex-right">
@@ -110,12 +118,13 @@
       <div class="row-padding-lv1">
         ・参与中亚交易所(数字货币交易平台)网站现有系统的优化升级，以及新功能的设计与维护
       </div>
-<!--      我任职威中杰公司技术部门的全栈开发岗位，该部门的主要业务是中亚交易所网站(数字货币交易平台)现有系统的优化升级，以及新功能的设计与维护。-->
-
-<!--      我负责otc(场外交易)移动端API接口的开发与维护、新版otc的PC端vue页面的设计维护、admin后台管理系统的维护与新功能开发等。现在空闲时间在学安卓，主要学习方向是安卓端的数据持久化存储(SQLite、ORM等)-->
+<!--
+我任职威中杰公司技术部门的全栈开发岗位，该部门的主要业务是中亚交易所网站(数字货币交易平台)现有系统的开发、维护以及集成测试。
+我负责开发otc(场外交易)移动端API接口、vue版otc系统、后台管理系统、安卓端websocket等。用到的技术栈主要是ruby、redis、vue、MySQL和安卓。
+-->
       <div class="title-row">
         <div style="display: flex;">
-          <div style="width: 300px">北京邦友科技开发有限公司</div>
+          <div class="project-link">北京邦友科技开发有限公司</div>
           <div style="width: 150px">软件测试</div>
         </div>
         <div class="flex-right">
@@ -135,8 +144,21 @@
     <div class="right-wrapper">
       <div class="title-row">
         <div style="display: flex;">
-          <div style="width: 225px">威中杰公司官网</div>
-          <div style="width: 300px">项目链接：http://wzj.testcadae.top/</div>
+          <div class="project-title">安卓：我开发的第二个APP</div>
+          <div class="project-link">项目链接：https://github.com/pymongo/IntentExtra</div>
+        </div>
+        <div class="flex-right">
+          <div class="time-range">19.12.03 - 19.12.13</div>
+        </div>
+      </div>
+      <div class="row-padding-lv1">・查阅sharedPreference的文档，完成本地化持久化存储配置项(key-value pairs的形式)的功能</div>
+      <div class="row-padding-lv1">・使用swagger/postman调试接口，使用rspec单元测试确保重构代码时接口依然能正常工作</div>
+      <div class="row-padding-lv1">・通过PxCook与美工/移动端的同事一起维护原型图，根据原型图确定相应接口返回数据</div>
+
+      <div class="title-row">
+        <div style="display: flex;">
+          <div class="project-title">威中杰公司官网</div>
+          <div class="project-link">项目链接：http://wzj.testcadae.top/</div>
         </div>
         <div class="flex-right">
           <div class="time-range">19.12.02 - 19.12.12</div>
@@ -145,10 +167,11 @@
       <div class="row-padding-lv1">・使用wget把tencent.com扒下来，修改网站文案，换上了公司的LOGO</div>
       <div class="row-padding-lv1">・修复了因公司网站没有https的原因导致所有外链都无法点击的Bug，添加了中英文支持</div>
       <div class="row-padding-lv1">・通过ffmpeg命令剪辑与压缩美工制作的公司首页视频，将视频压制到800k提高网站访问速度</div>
+
       <div class="title-row">
         <div style="display: flex;">
-          <div style="width: 225px">otc(场外交易)移动端接口</div>
-          <div style="width: 300px">项目链接：http://v-api.testcadae.top/</div>
+          <div class="project-title">otc(场外交易)移动端接口</div>
+          <div class="project-link">项目链接：http://v-api.testcadae.top/</div>
         </div>
         <div class="flex-right">
           <div class="time-range">19.12.03 - 19.12.13</div>
@@ -157,10 +180,11 @@
       <div class="row-padding-lv1">・使用RESTful API框架grape，完成了11个广告和订单相关的接口开发与测试</div>
       <div class="row-padding-lv1">・使用swagger/postman调试接口，使用rspec单元测试确保重构代码时接口依然能正常工作</div>
       <div class="row-padding-lv1">・通过PxCook与美工/移动端的同事一起维护原型图，根据原型图确定相应接口返回数据</div>
+
       <div class="title-row">
         <div style="display: flex;">
-          <div style="width: 225px">实名认证审核列表</div>
-          <div style="width: 300px">项目链接：http://gly.testcadae.top/id_card_approvals/list</div>
+          <div class="project-title">实名认证审核列表</div>
+          <div class="project-link">项目链接：http://gly.testcadae.top/id_card_approvals/list</div>
         </div>
         <div class="flex-right">
           <div class="time-range">19.11.20 - 19.11.24</div>
@@ -170,8 +194,8 @@
 
       <div class="title-row">
         <div style="display: flex;">
-          <div style="width: 225px">法币交易数据图表</div>
-          <div style="width: 300px">项目链接：http://gly.testcadae.top/chart/otc</div>
+          <div class="project-title">法币交易数据图表</div>
+          <div class="project-link">项目链接：http://gly.testcadae.top/chart/otc</div>
         </div>
         <div class="flex-right">
           <div class="time-range">19.11.20 - 19.12.03</div>
@@ -182,8 +206,8 @@
 
       <div class="title-row">
         <div style="display: flex;">
-          <div style="width: 225px">k线画线工具</div>
-          <div style="width: 300px">项目链接：k-line-drawer.testcadae.top</div>
+          <div class="project-title">k线画线工具</div>
+          <div class="project-link">项目链接：http://k-line-drawer.testcadae.top</div>
         </div>
         <div class="flex-right">
           <div class="time-range">19.11.18 - 19.12.01</div>
@@ -192,11 +216,12 @@
       <div class="row-padding-lv1">・新增了两个接口，一个用来给k线编辑器读取配置，另一个是保存配置</div>
       <div class="row-padding-lv1">・独自完成了用户编辑完k线后, 提示有多少个柱子没画并且高亮这些柱子的功能</div>
       <div class="row-padding-lv1">・让element-ui的loading组件覆盖每个HTTP请求，请求过程中把禁用按钮避免用户重复提交</div>
+      <div class="row-padding-lv1">・遇到的最大问题是ruby的时间戳是以秒为单位的，而js的时间戳以毫秒为单位，换算过程中出现很多Bug</div>
 
       <div class="title-row">
         <div style="display: flex;">
-          <div style="width: 225px">手动/批量解冻操作系统</div>
-          <div style="width: 275px">项目链接：http://gly.testcadae.top/general_operations</div>
+          <div class="project-title">手动/批量解冻操作系统</div>
+          <div class="project-link">项目链接：http://gly.testcadae.top/general_operations</div>
         </div>
         <div class="flex-right">
           <div class="time-range">19.11.13 - 19.11.18</div>
@@ -208,8 +233,8 @@
 
       <div class="title-row">
         <div style="display: flex;">
-          <div style="width: 225px">DSCT币每日利息<br>与佣金计算脚本</div>
-          <div style="width: 300px">项目链接：<br> http://v-api.testcadae.top/api/v2/otc</div>
+          <div class="project-title">DSCT币每日利息<br>与佣金计算脚本</div>
+          <div class="project-link">项目链接：<br> http://v-api.testcadae.top/api/v2/otc</div>
         </div>
         <div class="flex-right">
           <div class="time-range">19.11.14 - 19.11.14</div>
@@ -219,8 +244,8 @@
 
       <div class="title-row">
         <div style="display: flex;">
-          <div style="width: 225px">vue-otc法币交易前端页面</div>
-          <div style="width: 300px">项目链接：http://otc.cadae.top</div>
+          <div class="project-title">vue-otc法币交易前端页面</div>
+          <div class="project-link">项目链接：http://otc.cadae.top</div>
         </div>
         <div class="flex-right">
           <div class="time-range">19.11.18 - 19.11.20</div>
@@ -230,7 +255,7 @@
 
       <div class="title-row">
         <div style="display: flex;">
-          <div style="width: 225px">后台管理系统站内转账页面</div>
+          <div class="project-title">后台管理系统站内转账页面</div>
           <div style="width: 275px">项目链接：http://gly.testcadae.top/internal_transfer</div>
         </div>
         <div class="flex-right">
@@ -244,7 +269,7 @@
 
       <div class="title-row">
         <div style="display: flex;">
-          <div style="width: 225px">中亚交易所后台管理系统</div>
+          <div class="project-title">中亚交易所后台管理系统</div>
           <div style="width: 275px">项目链接：http://gly.testcadae.top</div>
         </div>
         <div class="flex-right">
@@ -268,7 +293,7 @@
     <div class="right-wrapper">
       <div class="title-row">
         <div style="display: flex;">
-          <div style="width: 225px">个人技术博客</div>
+          <div class="project-title">个人技术博客</div>
           <div style="width: 275px">项目链接：http://pymongo.github.io</div>
         </div>
         <div class="flex-right">
