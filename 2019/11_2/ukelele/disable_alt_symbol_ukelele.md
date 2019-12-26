@@ -16,7 +16,7 @@ emacs的问题可以通过Termial设置`use option as meta key`解决
 解决方案：安装ukelete
 [ukelele官网](http://software.sil.org/ukelele)
 
-<i class="fa fa-hashtag mytitle"></i> 1. new layout duplicate current
+<i class="fa fa-hashtag"></i> 1. new layout duplicate current
 
 通过以当前layout为基准duplicate一个layout
 
@@ -30,7 +30,7 @@ emacs的问题可以通过Termial设置`use option as meta key`解决
 
 ?> 可以把untitled的窗口关了
 
-<i class="fa fa-hashtag mytitle"></i> 2. 保存layout文件
+<i class="fa fa-hashtag"></i> 2. 保存layout文件
 
 出现标题为ABC copy的layout窗口后
 
@@ -49,7 +49,7 @@ cmd+s 保存布局文件，命名为my_layout
 
 !> 已经激活的布局文件不允许修改
 
-<i class="fa fa-hashtag mytitle"></i> 3. 设置布局名称
+<i class="fa fa-hashtag"></i> 3. 设置布局名称
 
 布局名称是显示在输入法选择处的名称，我习惯上与文件名保持一致
 
@@ -57,7 +57,7 @@ cmd+s 保存布局文件，命名为my_layout
 
 ![03_layout_name](03_layout_name.png "03_layout_name")
 
-<i class="fa fa-hashtag mytitle"></i> 4. 「删除」alt键特殊符号
+<i class="fa fa-hashtag"></i> 4. 「删除」alt键特殊符号
 
 4.1 点击toolbox勾上`Sticky Modifiers`，之后按下alt就会显示所有alt符号
 
@@ -69,13 +69,13 @@ cmd+s 保存布局文件，命名为my_layout
 
 ![04_my_layout](04_my_layout.png "04_my_layout")
 
-<i class="fa fa-hashtag mytitle"></i> 5. 保存,install,登出
+<i class="fa fa-hashtag"></i> 5. 保存,install,登出
 
 ![05_install](05_install.png "05_install")
 
 确保文件的图标是 ⌨️ 图标
 
-<i class="fa fa-hashtag mytitle"></i> 6. 系统设置,Input Source
+<i class="fa fa-hashtag"></i> 6. 系统设置,Input Source
 
 signout后，在添加输入法窗口可以看到my_layout
 

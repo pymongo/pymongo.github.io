@@ -8,7 +8,7 @@
 
 vim其余设置其余的在`~/.ideavimrc`，注意大部分`.vimrc`的设置都不能用
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 vim emulator
 
 通过find action找到**vim emulator**的设置项，决定vim和idea冲突的快捷键使用vim还是IDEA的
@@ -17,29 +17,29 @@ vim emulator
 
 ## 代码间跳动
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 HTML标签/代码块 open/end之间跳动
 
 <kbd>cmd</kbd>+<kbd>alt</kbd>+ <kbd>[</kbd> / <kbd></kbd>
 
 > cmd+alt+[
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 在最近navigate的两处代码处跳动
 
 如cmd+b找到方法的定义处，然后cmd+alt+左 返回
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 复制当前行
 
 cmd+d
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 删除当前行
 
 cmd+Backspace
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 选中当前变量名，并在所有出处放上光标
 
 ## 打开/关闭文件

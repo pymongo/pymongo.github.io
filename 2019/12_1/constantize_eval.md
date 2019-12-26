@@ -4,7 +4,7 @@ rails特有方法，eval驼峰式字符串，
 
 如 `"Student::School".constantize` 将对Student::School求值
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 参考链接：
 
 [constantize - Apidock](https://apidock.com/rails/String/constantize)

@@ -94,7 +94,7 @@ p - Jump to current nodes parent
 B - toggle bookmark window
 D - Delete bookmark
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 编辑书签
 
 > ~/.NERDTreeBookmarks

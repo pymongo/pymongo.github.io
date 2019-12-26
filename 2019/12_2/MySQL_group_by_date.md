@@ -35,7 +35,7 @@ end
 
 !["MySQL_group_by_date"](MySQL_group_by_date.png ':size=484x304')
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 相关链接
 
 [rails group records by date](https://stackoverflow.com/questions/12657753/rails-group-records-by-dates-of-created-at)

@@ -1,6 +1,6 @@
 # [Android Debug](/2019/12_2/android_debug.md)
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 debuggable true
 
 [谷歌的教程](https://developer.android.com/studio/debug)讲解了如何Enable Debug

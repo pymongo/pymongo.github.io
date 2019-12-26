@@ -12,14 +12,14 @@ Shift+F1：外部文档
 
 cmd+N: 快速生成getter/setter方法
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 sout -> System.out.println
 
 cmd+j 可以列出idea所有java代码的快捷输入
 
 如logd -> Log.d(TAG, "onCreate: ");
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 匿名内部类的代码自动生成
 
 `button.setOnClickListener(new V`

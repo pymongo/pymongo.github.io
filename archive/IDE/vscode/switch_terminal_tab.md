@@ -1,6 +1,6 @@
 # [vscode添加切换terminal tab的快捷键](archive/IDE/vscode/switch_terminal_tab)
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 [参考链接](https://stackoverflow.com/questions/44065101/vs-code-key-binding-for-quick-switch-between-terminal-screens)
 
 打开vscode keyboard json

@@ -12,7 +12,7 @@
 
 Mysql8.0(5.8)开始支持全部emoji，我测试下项目用的5.7.27版本到底支不支持emoji
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 结论
 
 Mysql5.7.27支持`Unicode 5.2`及以下标准的emoji

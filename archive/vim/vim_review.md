@@ -1,6 +1,6 @@
 # [vim复习](/archive/vim/vim_review.md)
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 行内移动
 
 移动到行首`0`，移动到行内第一个非空`^`或`_`
@@ -11,7 +11,7 @@
 
 ---
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 编辑文本
 
 行尾按`J`将下一行吸上来(concat two line)

@@ -1,6 +1,6 @@
 # [不通过主键(id)进行关联](/2019/12_2/association_without_primary_key.md)
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 相关文章
 
 [ActiveRecord关联的命名约定/规范](/2019/11_2/includes_association.md)
@@ -12,7 +12,7 @@ markets.includes(:currency).map{ |market|
 }
 ```
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 问题重现
 
 markets表没有一个外键是currencies表的外键，好在belongs_to有选项可以指向非id列的关联
@@ -33,7 +33,7 @@ markets表没有一个外键是currencies表的外键，好在belongs_to有选�
 
 ![association_without_primary_key_fix](association_without_primary_key_fix.png "association_without_primary_key_fix")
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 参考链接
 
 [https://stackoverflow.com/questions/16071735/active-record-association-without-using-id](https://stackoverflow.com/questions/16071735/active-record-association-without-using-id)

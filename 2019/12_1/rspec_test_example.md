@@ -45,7 +45,7 @@ SELECT schema_name,default_character_set_name FROM information_schema.SCHEMATA;
 
 ## rspec文件
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 rspec文件结构
 
 ```ruby

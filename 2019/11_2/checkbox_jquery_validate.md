@@ -2,12 +2,12 @@
 
 [model数据验证与消息闪现(flash)](2019/11_1/validates)
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 需求：
 
 将现有的后端验证 重构为 jquery_validate
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 初始化jQuery validate
 
 初始化方法和datepicker类似，选择器+.validate()
@@ -18,7 +18,7 @@
 
 并不像datepicker一样可以批量初始化
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 验证checkbox至少选中一个
 
 jQuery自带的验证方法没有涉及checkbox的，需要自定义规则
@@ -61,7 +61,7 @@ $("#form").validate({
 
 <!-- tabs:end -->
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 参考链接：
 
 - [Checkbox Form validation using jQuery Validate plugin](https://codepen.io/paulyabsley/pen/zFkbI)

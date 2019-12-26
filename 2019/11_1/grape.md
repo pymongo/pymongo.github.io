@@ -125,7 +125,7 @@ gem "activerecord", "6.0.0"
 2. vim config/database.yml
 3. bundle exec guard -d
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 grape-swagger
 
 在以下两个文件中实现了swagger的定义

@@ -83,7 +83,7 @@ toggleTheme.setChecked(isDarkTheme);
 
 <!-- tabs:end -->
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 相关链接
 
 - [Reload activity in Android](https://stackoverflow.com/questions/3053761/reload-activity-in-android)

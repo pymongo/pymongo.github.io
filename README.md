@@ -21,7 +21,7 @@
 - retrieve: 恢复
 - hierarchy: 等级制度
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 retrieve
 
 > public static final String `EXTRA_MESSAGE` = "com.example.myfirstapp.MESSAGE";

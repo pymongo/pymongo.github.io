@@ -7,7 +7,7 @@
 - [Android Tutorial for Beginners](https://www.youtube.com/watch?v=taSwS5rhtmc&list=PLS1QulWo1RIbb1cYyzZpLFCKvdYV_yJ-E&index=3)
 - [Android Studio For Beginners Part 2](https://www.youtube.com/watch?v=6ow3L39Wxmg)
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 学习顺序
 
 - [x] 隐藏ActionBar切换的黑暗主题，使用Toast，简单的xml修改

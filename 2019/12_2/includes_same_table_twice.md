@@ -1,11 +1,11 @@
 # [includes同一个表两次的解决方案(不完美)](/2019/12_2/includes_same_table_twice.md)
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 相关文章
 
 [ActiveRecord关联的命名约定/规范](/2019/11_2/includes_association.md)
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 问题重现
 
 `members`表有`email`字段和`id`字段

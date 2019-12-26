@@ -18,7 +18,7 @@ WHERE
 
 写完以后我好奇到底还有几个银行卡号是脏数据，还需正则表达式解决
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 regexp
 
 > 找出银卡卡号不是16-19位数字的record

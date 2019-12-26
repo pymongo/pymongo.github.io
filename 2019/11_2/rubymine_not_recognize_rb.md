@@ -2,7 +2,7 @@
 
 在rubymin新建.rb文件有时候不会被识别为ruby文件
 
-<i class="fa fa-hashtag mytitle"></i>
+<i class="fa fa-hashtag"></i>
 解决方案
 
 假设未识别的文件名为 ruby.rb，那么打开设置->editor->fileType->ruby
