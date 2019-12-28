@@ -1,5 +1,11 @@
 # [idea/jetbrains全家桶通用技巧](archive/IDE/idea)
 
+## 「生产力」打开粘贴板历史
+
+cmd+shift+v
+
+clipboard history
+
 ## ideaVim
 
 新版的ideaVim真香~，使用与vim一样的配置文件，还能用vim插件
