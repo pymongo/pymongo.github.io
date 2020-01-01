@@ -1,4 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
+- **20年1月上旬**
+    - [运维 - 服务器硬盘满了——列出最大文件](/2020/01_1/linux_list_largest_files.md)
 - **1912下旬**
     - [2019年下旬的codeReview总结](/2019/12_2/code_review.md)
     - [rspec只运行一个it/example/case](/2019/12_2/rspec_single_it.md)
