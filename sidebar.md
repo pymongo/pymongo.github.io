@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年1月上旬**
+    - [redis存储时效性短的数据(如每日申诉次数)](/2020/01_1/redis_count_user_daily_data.md)
     - [运维 - 服务器硬盘满了——列出最大文件](/2020/01_1/linux_list_largest_files.md)
 - **1912下旬**
     - [2019年下旬的codeReview总结](/2019/12_2/code_review.md)
