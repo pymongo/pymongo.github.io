@@ -1,12 +1,12 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年1月上旬**
+    - [Android - ListView](/2019/12_2/list_view.md)
     - [redis存储时效性短的数据(如每日申诉次数)](/2020/01_1/redis_count_user_daily_data.md)
     - [运维 - 服务器硬盘满了——列出最大文件](/2020/01_1/linux_list_largest_files.md)
 - **1912下旬**
     - [2019年下旬的codeReview总结](/2019/12_2/code_review.md)
     - [rspec只运行一个it/example/case](/2019/12_2/rspec_single_it.md)
     - [guard statement](/2019/12_2/guard_statement.md)
-    - [Android - ListView](/2019/12_2/list_view.md)
     - [postman发送字符串+和发送文件的方法](/2019/12_2/postman_send_plus.md)
     - [安卓通过sharedPreference切换主题](/2019/12_2/android_change_theme.md)
     - [MySQL按日期分组](/2019/12_2/MySQL_group_by_date.md)
