@@ -1,4 +1,4 @@
-# [Android - ListView](/2019/12_2/list_view.md)
+# [Android - ListView](/2020/01_1/list_view.md)
 
 <i class="fa fa-paragraph"></i>
 内心独白
@@ -15,4 +15,17 @@
 
 ## 学点AS技巧(视图xml中快速生成代码)
 
+LinearLayout中：`or` => android:orientation
 
+这个属性是设置线性布局的方向，一般是vertical(从上往下)
+
+`<Lis` => 自动生成ListView组件
+
+所有自动生成组件的代码都是通过左尖括号+组件名
+
+<i class=“fa fa-hashtag"></i>
+给ListView添加子布局文件row.xml
+
+## 做个淘宝订单详情的页面
+
+![list_view](list_view.png)
