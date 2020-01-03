@@ -11,17 +11,15 @@ ActiveRecord`where(state: 'cancel', updated_at: Date.today.beginning_of_day..Dat
 Redis:
 
 ```ruby
-# 计数器方法的定义(仅用于计数)
+# redis给某个key的值+1方法(计数器)，有效期默认是1天
   # models/user.rb
   def redis_counter(key, time=86400)
     key = "#{key}_#{self.id}"
     # 获取redis中该key的剩余时间，过期或不存在都是返回-2
-    expired_in = redis.ttl(key)
-    if expired_in > 0
-      redis.set(key, redis.get(key).to_i+1, expired_in)
-    else
-      redis.set(key, 1, time)
-    end
+    expired_in = DataKeeper.ttl(key)
+    # 如果key不存在，get(key)返回nil.to_i=>0，重新设置一个key
+    # 如果key存在则继承之前的剩余时间
+    DataKeeper.set(key, DataKeeper.get(key).to_i+1, expired_in>0 ? expired_in : time)
   end
 # 获取计数器的值(也就是获取redis的值)
   # controller
