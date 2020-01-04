@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年1月上旬**
+    - [Java的volley网络请求库](/2020/01_1/volley.md)
     - [Android - ListView](/2020/01_1/list_view.md)
     - [redis存储时效性短的数据(如每日申诉次数)](/2020/01_1/redis_count_user_daily_data.md)
     - [运维 - 服务器硬盘满了——列出最大文件](/2020/01_1/linux_list_largest_files.md)
@@ -13,7 +14,7 @@
     - [Android Debug](/2019/12_2/android_debug.md)
     - [Activity Lifecycle](/2019/12_2/Activity_Lifecycle.md)
     - [Rails跳转到页面特定位置(id,anchor,location)](/2019/12_2/redirect_to_anchor.md)
-    - [active_record的值并不是动态的](/2019/12_2/active_record_not_dynamic.md)
+    - [ActiveRecord的值并不是动态的](/2019/12_2/active_record_not_dynamic.md)
     - [Android学习路线](/2019/12_2/android_learn_step.md)
     - [我的第一个Android APP](/2019/12_2/first_android_app.md)
     - [puma与rackup服务器](/2019/12_2/puma_rackup.md)
@@ -37,7 +38,6 @@
     - [linear-gradient](2019/11_2/linear-gradient-warn)
     - [link_to merge参数时报错DEPRECATION](2019/11_2/link_to-merge-warning)
     - [涉及钱的操作要加事务处理和线程锁](2019/11_2/data-lock)
-    - [多态关联](2019/11_2/ploy-associate)
     - [k线画图工具(基于vue)](2019/11_2/k-line-vue.md)
     - [account.first](/2019/11_2/account_first.md)
     - [crontab定时任务](2019/11_2/crontab)
