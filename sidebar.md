@@ -47,7 +47,6 @@
     - [grape接口服务器](2019/11_1/grape)
     - [提高百万行记录count的速度](2019/11_1/millions-count.md)
     - [测量数据库查询时间](2019/11_1/measure-qurey-time)
-    - [ActiveRecord多表关联](/2019/11_1/join-query)
     - [model数据验证与消息闪现(flash)](2019/11_1/validates)
     - [admin项目的配置与工作](2019/11_1/project-admin)
     - [初始化base-api遇到的各种报错](2019/11_1/base-api-error.md)
