@@ -33,7 +33,7 @@
     - [puma服务器生产环境与开发环境的区别](2019/11_2/puma_production)
     - [rubymine无法识别ruby文件](2019/11_2/rubymine_not_recognize_rb)
     - [jQuery验证checkbox](2019/11_2/checkbox_jquery_validate)
-    - [ActiveRecord关联的命名约定/规范](/2019/11_2/includes_association.md)
+    - [ActiveRecord关联的命名约定/规范](/2019/11_2/active_record_association.md)
     - [统计有记录的交易对](2019/11_2/select-distinct)
     - [linear-gradient](2019/11_2/linear-gradient-warn)
     - [link_to merge参数时报错DEPRECATION](2019/11_2/link_to-merge-warning)

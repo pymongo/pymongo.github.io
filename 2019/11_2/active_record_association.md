@@ -1,4 +1,4 @@
-# [ActiveRecord关联的命名约定/规范](/2019/11_2/includes_association.md)
+# [ActiveRecord关联的命名约定/规范](/2019/11_2/active_record_association.md)
 
 ¶ [belongs_to - apidock](https://apidock.com/rails/ActiveRecord/Associations/ClassMethods/belongs_to)
 
@@ -106,7 +106,6 @@ has_many through:
 <i class="fa fa-hashtag"></i>
 多态关联
 
-<i class="fa fa-hashtag"></i>
 **相关文章**
 
 - [不通过主键(id)进行关联](/2019/12_2/association_without_primary_key.md)

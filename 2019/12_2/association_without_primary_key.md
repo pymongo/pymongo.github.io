@@ -3,7 +3,7 @@
 <i class="fa fa-hashtag"></i>
 相关文章
 
-[ActiveRecord关联的命名约定/规范](/2019/11_2/includes_association.md)
+[ActiveRecord关联的命名约定/规范](/2019/11_2/active_record_association.md)
  
 ```ruby
 # 出现N+1查询问题的代码

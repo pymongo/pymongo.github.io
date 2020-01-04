@@ -15,10 +15,10 @@
 - [x] 在不同的Activity之间传递参数
 - [x] 在第一个Activity点击按钮，打开另外一个Activity
 - [x] SharedPreferences本地存储(对标LocalStorage)，练习当前主题存储
-- [ ] 访问后台接口，更新当前的Activity(使用OK HTTP请求库)
-- [ ] 学习gradle的基本知识
+- [x] 访问后台接口，更新当前的Activity(使用volley请求库)
+- [x] 学习gradle的基本知识
 - [x] == 开始学习UI
-- [ ] UI一：学习基本组件(TextView/Button/Select)
+- [x] UI一：学习基本组件(TextView/Button/Spinners)
 - [ ] UI二：学习常见的布局，例如线性布局、相对布局、绝对布局、recycle布局
 - [ ] UI三：学习其它UI组件(Loader、ImageView等等)
 - [ ] 了解Fragment,做出一个轮播图
