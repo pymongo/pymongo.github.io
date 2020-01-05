@@ -10,12 +10,10 @@
 <i class="fa fa-hashtag"></i>
 学习顺序
 
-- [x] 隐藏ActionBar切换的黑暗主题，使用Toast，简单的xml修改
 - [x] 了解Activity的生命周期
-- [x] 在不同的Activity之间传递参数
-- [x] 在第一个Activity点击按钮，打开另外一个Activity
-- [x] SharedPreferences本地存储(对标LocalStorage)，练习当前主题存储
-- [x] 访问后台接口，更新当前的Activity(使用volley请求库)
+- [x] 在第一个Activity点击按钮，传递参数打开另外一个Activity
+- [x] SharedPreferences本地存储(类似浏览器的LocalStorage)，练习当前主题存储
+- [x] 访问后台接口，更新当前的Activity(使用OkHttp/Retrofit/Volley请求库)
 - [x] 学习gradle的基本知识
 - [x] == 开始学习UI
 - [x] UI一：学习基本组件(TextView/Button/Spinners)

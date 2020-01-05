@@ -11,7 +11,7 @@
 
 `app/build.gradle`的`dependencies`项目中加入一行
 
-> implementation 'com.android.volley:volley\:1.1.1'
+`implementation 'com.android.volley:volley:1.1.1'`
 
 上面的代码去掉\就行了，因为docsify会把冒号+单词+冒号解析为<var class="mark">Emoji Shortcodes</var>
 
