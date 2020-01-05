@@ -11,9 +11,9 @@
 
 `app/build.gradle`的`dependencies`项目中加入一行
 
-> implementation 'com.android.volley:|volley:1.1.1'
+> implementation 'com.android.volley:volley\:1.1.1'
 
-上面的代码去掉|就行了，因为docsify会把冒号+单词+冒号解析为<var class="mark">Emoji Shortcodes</var>
+上面的代码去掉\就行了，因为docsify会把冒号+单词+冒号解析为<var class="mark">Emoji Shortcodes</var>
 
 别以为这就完了，步骤1只是新增了一个包，就像在Gemfile或package.json里加了一行
 
@@ -29,6 +29,8 @@ list task `./gradlew tasks`
 我是直接用AS停止按钮右边的蓝色小象按钮进行"npm install"：
 
 <var class="mark">Sync Project with Gradle Files</var>
+
+可以暂时的把gradle理解为rake(task) + Gemfile的结合体 
 
 <i class=“fa fa-hashtag"></i>
 导入volley步骤3：允许app访问网络与允许明文的网络请求(如HTTP)
@@ -50,3 +52,13 @@ volley默认是异步请求
 Log.e(TAG, response.toString(<var class="mark">2</var>))
 
 JSONObject.toString方法的第一个参数是indentSpaces，用于pretty print json
+
+---
+
+<i class=“fa fa-hashtag"></i>
+volley的优点
+
+1. 代码里少，可读性强(缺点是配置项不多)
+2. 可以在异步请求的回调中更改view(OkHttp不能)
+
+但是就因为okhttp速度更快，用的人多遇到问题能找到答案，所以项目中还是得用OkHttp
