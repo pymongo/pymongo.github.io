@@ -34,7 +34,11 @@ cmd+; = `project structure`(配置JDK、SDK等等)
 
 ## Android Studio
 
-文件导航栏不要选Android，要选project类型才能列出所有文件
+~~文件导航栏不要选Android，要选project类型才能列出所有文件~~
+
+文件导航栏要选默认的Android，如果用Project(也就是真实的文件结构)，
+
+资源文件夹会很乱，[mipmap folder - stackoverflow](https://stackoverflow.com/questions/43184727/seperate-mipmap-folders-in-android-studio)
 
 UI布局的XML文件最下方可以在Text和Design间切换，我还是习惯看纯文本的xml
 
