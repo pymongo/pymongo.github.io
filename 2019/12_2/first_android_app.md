@@ -65,25 +65,9 @@ Design模式下还可以通过cmd+B跳到Text模式
 
 ## ActionBar
 
-也就是应用的标题栏,下面列举几种隐藏的方法，也加深对Android的理解
+￿¶ 隐藏方法: 修改style.xml
 
-￿¶ 隐藏方法1:修改MainActivity的继承类
-
-`MainActivity extends AppCompatActivity`改为`MainActivity extends Activity`
-
-￿¶ 隐藏方法2:修改res/values/style.xml
-
-> \<style name="AppTheme" `parent`="Theme.AppCompat.Light.`DarkActionBar`">
-
-改为
-
-> \<style name="AppTheme" `parent`="Theme.AppCompat.Light.`NoActionBar`">
-
-￿¶ 隐藏方法3:添加相应Java代码
-
-不推荐把MVC中视图层的设置放在controller中，
-
-所以只推荐隐藏方法2，当然你想点击按钮去toggle ActionBar就另说
+> \<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
 > [!TIP|auto_import]
 > 写Java代码前最好把IDEA的auto import给启用了，省事

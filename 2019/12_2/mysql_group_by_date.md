@@ -1,4 +1,4 @@
-# [MySQL按日期分组](/2019/12_2/MySQL_group_by_date.md)
+# [MySQL按日期分组](/2019/12_2/mysql_group_by_date.md)
 
 老板给出需求，要用图表显示**每日**注册用户数、每日交易量之类的
 
@@ -33,7 +33,7 @@ end
 
 <!-- tabs:end -->
 
-!["MySQL_group_by_date"](MySQL_group_by_date.png ':size=484x304')
+!["MySQL_group_by_date"](mysql_group_by_date.png ':size=484x304')
 
 <i class="fa fa-hashtag"></i>
 相关链接
