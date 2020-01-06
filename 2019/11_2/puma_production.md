@@ -1,4 +1,4 @@
-# [puma服务器生产环境与开发环境的区别](2019/11_2/puma_production)
+# [puma服务器生产环境与开发环境的区别](/2019/11_2/puma_production.md)
 
 <i class="fa fa-hashtag"></i>
 不会自动编译css和js代码

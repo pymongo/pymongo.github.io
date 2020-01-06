@@ -43,6 +43,9 @@ UB3的解决方法 `app:itemBackground="?android:attr/windowBackground"`
 
 !> navigation里的ID一定要和`menu/bottom_navigation.xml`<var class="mark">一致</var>
 
+> [!DANGER]
+> label属性用来设置ActionBar的标题，加了就不能NoActionBar
+
 ```xml
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -53,7 +56,6 @@ UB3的解决方法 `app:itemBackground="?android:attr/windowBackground"`
   <fragment
     android:id="@+id/navigation_home"
     android:name="com.monitor.exchange.fragment.HomeFragment"
-    android:label="fragment_list_view"
     tools:layout="@layout/items_container" />
 </navigation>
 ```

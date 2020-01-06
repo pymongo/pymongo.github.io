@@ -1,4 +1,4 @@
-# [rubymine无法识别ruby文件](2019/11_2/rubymine_not_recognize_rb)
+# [rubymine无法识别ruby文件](/2019/11_2/rubymine_not_recognize_rb.md)
 
 在rubymin新建.rb文件有时候不会被识别为ruby文件
 
