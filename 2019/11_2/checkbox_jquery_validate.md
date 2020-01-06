@@ -1,6 +1,6 @@
-# [jQuery验证checkbox](2019/11_2/checkbox_jquery_validate)
+# [jQuery验证checkbox](/2019/11_2/checkbox_jquery_validate.md)
 
-[model数据验证与消息闪现(flash)](2019/11_1/validates)
+相关文章 - [model数据验证与消息闪现(flash)](/2019/11_1/validates.md)
 
 <i class="fa fa-hashtag"></i>
 需求：

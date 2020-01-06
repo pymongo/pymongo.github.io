@@ -1,6 +1,6 @@
-# [model数据验证与消息闪现(flash)](2019/11_2/validates)
+# [model数据验证与消息闪现(flash)](/2019/11_1/validates.md)
 
-相关文章 - [jQuery验证checkbox](/2019/11_2/checkbox_jquery_validate)
+相关文章 - [jQuery验证checkbox](/2019/11_2/checkbox_jquery_validate.md)
 
 ## Models中同时验证多个字段
 
