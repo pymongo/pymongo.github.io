@@ -69,7 +69,7 @@ listView每行只有两个元素，如何才能两个TextView左对齐右对齐
 
   <!-- 布局参考：淘宝-订单详情页面 -->
   <TextView
-    android:id="@+id/item_key"/>
+    android:id="@+id/detail_key"/>
 
   <!-- layout_weight=1让容器占据剩余宽度 -->
   <!-- 类似css的flex-grow: 1 -->
@@ -79,12 +79,12 @@ listView每行只有两个元素，如何才能两个TextView左对齐右对齐
     android:layout_weight="1" />
 
   <TextView
-    android:id="@+id/item_value"/>
+    android:id="@+id/detail_value"/>
 
 </LinearLayout>
 ```
 
-#### **Adapter**
+#### **DetailAdapter.java**
 
 ```java
   private LayoutInflater inflater;
@@ -95,29 +95,50 @@ listView每行只有两个元素，如何才能两个TextView左对齐右对齐
     this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
   }
 
-  // ...
-
-  public void updateCurrencies(List<HashMap<String, String>> currencies) {
-    this.currencies = currencies;
-    notifyDataSetChanged();
+  public DetailAdapter(Context context, ArrayList<ArrayList<String>> data) {
+    this.data = data;
+    this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
   }
 
   @Override
   public View getView(int index, View convertView, ViewGroup parent) {
     if (convertView == null) {
-      convertView = inflater.inflate(R.layout.listitem_currency, parent, false);
+      convertView = inflater.inflate(R.layout.item_detail, parent, false);
     }
-
-    ImageView currencyIcon = convertView.findViewById(R.id.currency_icon);
-    TextView currencyID = convertView.findViewById(R.id.currency_id);
-    Map<String, String> currency = currencies.get(index);
-    currencyCode.setText(currency.get("code"));
-    currencyID.setText(currency.get("id"));
+    TextView key = convertView.findViewById(R.id.detail_key);
+    TextView value = convertView.findViewById(R.id.detail_value);
+    ArrayList<String> detail = data.get(index);
+    key.setText(detail.get(0));
+    value.setText(detail.get(1));
 
     return convertView;
   }
 ```
 
-#### **Adapter**
+#### **detailFragment.java**
+
+```java
+  private CurrencyAdapter adapter;
+
+  @Nullable
+  @Override
+  public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    // return super.onCreateView(inflater, container, savedInstanceState);
+    return inflater.inflate(R.layout.items_container, container, false);
+  }
+
+  @Override
+  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    Activity activity = getActivity();
+    assert activity != null;
+    Context context = activity.getApplicationContext();
+    List<HashMap<String, String>> currencies = new ArrayList<>();
+    adapter = new CurrencyAdapter(context, currencies);
+    ListView listView = Objects.requireNonNull(getView()).findViewById(R.id.list_view);
+    listView.setAdapter(adapter);
+
+    // 省略获取接口数据的代码，在response回调中adapter.updateData或listView.setAdapter即可
+  }
+```
 
 <!-- tabs:end -->
