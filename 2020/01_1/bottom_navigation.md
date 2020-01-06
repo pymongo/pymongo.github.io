@@ -44,7 +44,7 @@ UB3的解决方法 `app:itemBackground="?android:attr/windowBackground"`
 !> navigation里的ID一定要和`menu/bottom_navigation.xml`<var class="mark">一致</var>
 
 > [!DANGER]
-> label属性用来设置ActionBar的标题，加了就不能NoActionBar
+> label属性用来设置ActionBar的标题，几乎没什么用
 
 ```xml
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
@@ -74,10 +74,10 @@ implementation 'androidx.navigation:navigation-ui:2.1.0'
 ```java
 /* 初始化底部导航栏 */
 BottomNavigationView bottomNavigation = findViewById(R.id.bottom_navigation_menu);
-// menu.xml中的id必须与navigation_graph.xml中的ID保持一致
+NavController navController = Navigation.findNavController(this, R.id.navigation_host_fragment);
+NavigationUI.setupWithNavController(bottomNavigation, navController);
+// 绝大部分App都没有ActionBar，这行几乎没用
 AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.navigation_home,
   R.id.navigation_monitor, R.id.navigation_currencies, R.id.navigation_mine).build();
-NavController navController = Navigation.findNavController(this, R.id.navigation_host_fragment);
 NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-NavigationUI.setupWithNavController(bottomNavigation, navController);
 ```
