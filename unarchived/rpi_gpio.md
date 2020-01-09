@@ -1,10 +1,10 @@
-# [【智能家居】平板电脑控制电灯](/old/rpi-gpio.md)
+# [【智能家居】平板电脑控制电灯](/unarchived/rpi_gpio.md)
 
 > [!TIP|label:Surface平板电脑控制电灯]
 > 如图，把电灯换成继电器就能控制任意220V的家用电器了
 
 
-![rpi-gpio](rpi-gpio.gif "rpi-gpio")
+![rpi_gpio](rpi_gpio.gif "rpi_gpio")
 
 ## 如何实现
 
@@ -12,7 +12,7 @@
 
 !> 直接控制芯片引脚电压/电平
 
-通过Raspbian系统内置的[wiringpi](http://wiringpi.com/the-gpio-utility/)库，可通过shell或任意编程语言直接修改芯片GPIO的电平
+通过Raspbian系统内置的[WiringPi](http://wiringpi.com/the-gpio-utility/)库，可通过shell或任意编程语言直接修改芯片GPIO的电平
 
 当时我还没学Python的Flask框架，就用自认为最简单的PHP做后端
 

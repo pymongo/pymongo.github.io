@@ -1,6 +1,6 @@
 # [chrome的恐龙奔跑游戏中作弊](/old/chrome_game_cheat/index.md)
 
-![01-cover](01-cover.png "01-cover")
+![01_cover](01_cover.png "01_cover")
 
 断网时chrome(谷歌浏览器)会出现一个恐龙跑酷类游戏
 
@@ -17,7 +17,7 @@
 
 !> 既然游戏用键盘操作，那就设置键盘监听事件的【断点】
 
-![02-event-listener-breakpoint](02-event-listener-breakpoint.gif "02-event-listener-breakpoint")
+![02_event_listener_breakpoint](02_event_listener_breakpoint.gif "02_event_listener_breakpoint")
 
 发现是在JS的Runner对象内处理键盘事件
 
@@ -25,7 +25,7 @@
 
 那就通过Runner.toString方法,看某个Object的源代码
 
-![03-runner-tostring](03-runner-tostring.png "03-runner-tostring")
+![03_runner_tostring](03_runner_tostring.png "03_runner_tostring")
 
 第一个If语句「**单例设计模式**」实现部分之一
 
@@ -33,7 +33,7 @@
 
 进一步看页面的JS源码在哪，结果发现来自VM...
 
-![04-VM](04-VM.png "04-VM")
+![04_vm](04_vm.png "04_vm")
 
 VM前缀的js代码可能在以下地方
 
@@ -43,7 +43,7 @@ VM前缀的js代码可能在以下地方
 
 排除前两种可能，很快在HTML页面的第四个script标签内找到了游戏源码
 
-![05-source](05-source.png "05-source")
+![05_source](05_source.png "05_source")
 
 ## 游戏作弊
 
@@ -58,9 +58,10 @@ var gameoverOld = Runner.instance_.gameOver;
 Runner.instance_.gameOver = () => undefined;
 ```
 
-![06-cheat](06-cheat.gif "06-cheat")
+![06_cheat](06_cheat.gif "06_cheat")
 
-## 参考文章
+<i class="fa fa-hashtag"></i>
+参考文章
 
 [chrome dinohack](https://mathewsachin.github.io/blog/2016/11/05/chrome-dino-hack.html)
 

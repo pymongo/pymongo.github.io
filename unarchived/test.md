@@ -1,4 +1,4 @@
-# [博客新功能/样式测试](/old/test.md)
+# [博客新功能/样式测试](/unarchived/test.md)
 
 ## text test
 
