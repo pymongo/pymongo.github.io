@@ -142,3 +142,5 @@ listView每行只有两个元素，如何才能两个TextView左对齐右对齐
 ```
 
 <!-- tabs:end -->
+
+## include layout模板继承
