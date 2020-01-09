@@ -1,5 +1,7 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年1月上旬**
+    - [使用Room操作SQLite](/2020/01_1/sqlite_room.md)
+    - [adb从手机中导出apk](/2020/01_1/adb_export_apk.md)
     - [webview](/2020/01_1/webview.md)
     - [Android底部导航栏](/2020/01_1/bottom_navigation.md)
     - [Java的volley网络请求库](/2020/01_1/volley.md)
@@ -61,7 +63,7 @@
     - [chrome78开始支持darkmode](/2019/10/chrome-dark-mode.md)
 <!-- archive -->
 - **性能优化**
-    - [谷歌字体库被墙的解决方案](old/google-font-block-solution.md)
+    - [谷歌字体库被墙的解决方案](unarchived/google-font-block-solution.md)
 - **VIM**
     - [vim复习](/archive/vim/vim_review.md)
     - [cursor(光标移动)](/archive/vim/cursor.md)
@@ -100,14 +102,14 @@
     - [增删改,约束与事务处理](/archive/database/sql-update.md)
 <!-- /archive -->
 - **个人作品**
-    - [【智能家居】平板电脑控制电灯](/old/rpi-gpio.md)
+    - [【智能家居】平板电脑控制电灯](/unarchived/rpi_gpio.md)
 - **参与开源**
-    - [首次给开源项目提交代码](old/pull-request-to-scoop/index.md)
+    - [首次给开源项目提交代码](/unarchived/pull-request-to-scoop/index.md)
 - **old**
-    - [博客新功能/样式测试](/old/test.md)
-    - [chrome的恐龙奔跑游戏中作弊](/old/chrome_game_cheat/index.md)
-    - [谷歌的文字冒险游戏](/old/google_text_adventure.md)
-    - [CSS权重等前端豆知识回顾](/old/css_specificity.md)
+    - [博客新功能/样式测试](/unarchived/test.md)
+    - [chrome的恐龙奔跑游戏中作弊](/unarchived/chrome_game_cheat/index.md)
+    - [谷歌的文字冒险游戏](/unarchived/google_text_adventure.md)
+    - [CSS权重等前端豆知识回顾](/unarchived/css_specificity.md)
 - **联系我**
-    - [我的简历](/assets/resume.html)
+    - [我的简历](/redirect/resume.html)
  
