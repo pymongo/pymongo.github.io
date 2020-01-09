@@ -1,6 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年1月上旬**
-    - [使用Room操作SQLite](/2020/01_1/sqlite_room.md)
+    - [使用Room读写SQLite](/2020/01_1/sqlite_room.md)
     - [adb从手机中导出apk](/2020/01_1/adb_export_apk.md)
     - [webview](/2020/01_1/webview.md)
     - [Android底部导航栏](/2020/01_1/bottom_navigation.md)
@@ -95,7 +95,7 @@
     - [database](/archive/database/database.md)
     - [Oracle数据库](/archive/database/oracle-database/index.md)
     - [sqlite](/archive/database/sqlite.md)
-    - [sql基础知识](/archive/database/sql-basic.md)
+    - [sql基础知识](/archive/database/sql_basic.md)
     - [Oracle的emp表迁移到sqlite](/archive/database/oracle-migrate-to-sqlite/index.md)
     - [多表查询](/archive/database/join.md)
     - [sql分组与聚合函数](/archive/database/sql-group.md)
@@ -104,7 +104,7 @@
 - **个人作品**
     - [【智能家居】平板电脑控制电灯](/unarchived/rpi_gpio.md)
 - **参与开源**
-    - [首次给开源项目提交代码](/unarchived/pull-request-to-scoop/index.md)
+    - [首次给开源项目(scoop)提交代码](/unarchived/pull_request_to_scoop/index.md)
 - **old**
     - [博客新功能/样式测试](/unarchived/test.md)
     - [chrome的恐龙奔跑游戏中作弊](/unarchived/chrome_game_cheat/index.md)

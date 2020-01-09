@@ -1,4 +1,4 @@
-# 首次给开源项目提交代码
+# [首次给开源项目(scoop)提交代码](/unarchived/pull_request_to_scoop/index.md)
 
 ## 版本管理器git与SVN
 
@@ -20,7 +20,7 @@ scoop是一个windows平台下的包管理软件, 类似Linux的apt-get或macOS�
 
 最近我通过scoop更新sqlite的时候发现了软件的一个Bug
 
-![01-sqlite-version](01-sqlite-version.png "01-sqlite-version")
+![01_sqlite_version](01_sqlite_version.png "01_sqlite_version")
 
 ## 正确地参与开源社区
 
@@ -46,7 +46,7 @@ Linux之父曾说过"Talk is cheap, show me the code"
 
 ### 1. 先把别人项目fork到自己账户
 
-![02-fork](02-fork.png "02-fork")
+![02_fork](02_fork.png "02_fork")
 
 fork简单说就是完整地拷贝一份别人的代码, 当你改完代码后再merge合并回去
 
@@ -69,7 +69,7 @@ scoop这个项目超过5000人点赞/收藏, 预计上万人使用, 算个大项
 
 64位的16进制正是256位二进制, 说明用的是sha256算法, sha256sum是Linux自带命令很快算出新的哈希值
 
-![03-sha256sum](03-sha256sum.png "03-sha256sum")
+![03_sha256sum](03_sha256sum.png "03_sha256sum")
 
 ### 3. commit代码后提PR
 
@@ -85,13 +85,13 @@ github网页版可以在线修改代码, 然后commit到自己账户下刚刚for
 
 我commit到自己账户后, 回到原项目, 提出了PR
 
-![04-pr](04-pr.png "04-pr")
+![04_pull_request](04_pull_request.png "04_pull_request")
 
 ---
 
 PR提交完后就出现在项目的PR清单, github告诉我, 我的PR没有检测出分支冲突
 
-![05-pull-requests-list](05-pull-requests-list.png "05-pull-requests-list")
+![05_pull_requests_list](05_pull_requests_list.png "05_pull_requests_list")
 
 现在就耐心等待作者看到后, 决定是否把我的代码加到他项目里
 
@@ -101,7 +101,7 @@ PR提交完后就出现在项目的PR清单, github告诉我, 我的PR没有检�
 
 8个小时后, 我收到邮件提醒我给scoop项目提交的代码通过作者的审核了!
 
-![06-merged](06-merged.png "06-merged")
+![06_merged](06_merged.png "06_merged")
 
 ## 总结
 
@@ -111,7 +111,7 @@ PR提交完后就出现在项目的PR清单, github告诉我, 我的PR没有检�
 
 下图是最终的commit文件差分/修改结果以及commit信息
 
-![07-commit-file-diff](07-commit-file-diff.png "07-commit-file-diff")
+![07_commit_file_diff](07_commit_file_diff.png "07_commit_file_diff")
 
 scoop项目8000多次的commit, 离不开作者无私奉献, 也离不开像我这样的热心用户给项目PR修改代码
 
