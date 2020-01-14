@@ -62,3 +62,24 @@ volley的优点
 2. 可以在异步请求的回调中更改view(OkHttp不能)
 
 但是就因为okhttp速度更快，用的人多遇到问题能找到答案，所以项目中还是得用OkHttp
+
+## volley的post请求
+
+比较恶心/不合常理的是，post请求的参数居然要写在response回调的下面？
+
+```java
+JsonObjectRequest sendChatMessage(String chatMessage) {
+  return new JsonObjectRequest(Request.Method.POST,
+    Urls.SEND_MESSAGE, null, response -> {
+  }, error -> {
+  }
+  ) {
+    @Override
+    public byte[] getBody() {
+      return new HashMap<String, String>() {{
+        put("message", "HellowWorld");
+      }}.toString().getBytes();
+    }
+  };
+}
+```
