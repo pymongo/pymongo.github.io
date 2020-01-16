@@ -1,4 +1,4 @@
-# [使用Room读写SQLite](/2020/01_1/sqlite_room.md)
+# [安卓读写SQLite数据库](/2020/01_1/android_sqlite.md)
 
 验证代码成功修改了安卓的SQLite，我认为有几个方法：打log、安卓自带的SQLite Viewer、
 
