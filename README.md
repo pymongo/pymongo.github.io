@@ -1,6 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年1月上旬**
-    - [使用Room读写SQLite](http://pymongo.github.io/2020/01_1/sqlite_room.md)
+    - [安卓使用Room读写SQLite](http://pymongo.github.io/2020/01_1/sqlite_room.md)
     - [adb从手机中导出apk](http://pymongo.github.io/2020/01_1/adb_export_apk.md)
     - [webview](http://pymongo.github.io/2020/01_1/webview.md)
     - [Android底部导航栏](http://pymongo.github.io/2020/01_1/bottom_navigation.md)
