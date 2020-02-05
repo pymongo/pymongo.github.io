@@ -1,4 +1,4 @@
-# [Android底部导航栏](/2020/01_1/bottom_navigation.md)
+# [Android底部导航栏](/2020/01/bottom_navigation.md)
 
 ## BottomNavigation
 

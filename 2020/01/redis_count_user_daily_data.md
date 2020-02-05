@@ -1,4 +1,4 @@
-# [redis存储时效性短的数据(如每日申诉次数)](/2020/01_1/redis_count_user_daily_data.md)
+# [redis存储时效性短的数据(如每日申诉次数)](/2020/01/redis_count_user_daily_data.md)
 
 时效性短的数据，可存储于redis中减轻MySQL的负载
 

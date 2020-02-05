@@ -1,4 +1,4 @@
-# [adb从手机中导出apk](/2020/01_1/adb_export_apk.md)
+# [adb从手机中导出apk](/2020/01/adb_export_apk.md)
 
 <i class="fa fa-hashtag"></i>
 通过alias将adb添加到环境变量中

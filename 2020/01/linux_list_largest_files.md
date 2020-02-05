@@ -1,4 +1,4 @@
-# [运维 - 服务器硬盘满了——列出最大文件](/2020/01_1/linux_list_largest_files.md)
+# [运维 - 服务器硬盘满了——列出最大文件](/2020/01/linux_list_largest_files.md)
 
 话说测试服务器的硬盘空间又满了，没法git pull、bash自动补全、Web服务器没法上传文件等等
 

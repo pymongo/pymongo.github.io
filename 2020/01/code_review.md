@@ -1,4 +1,4 @@
-# [每月技术分享和codeReview_2020年1月](/2020/01_1/code_review.md)
+# [每月技术分享和codeReview_2020年1月](/2020/01/code_review.md)
 
 ## 解释持续集成
 

@@ -1,4 +1,4 @@
-# [安卓读写SQLite数据库](/2020/01_1/android_sqlite.md)
+# [安卓读写SQLite数据库](/2020/01/android_sqlite.md)
 
 <i class="fa fa-hashtag"></i>
 该用哪个API？android.database.sqlite还是androidx.room？

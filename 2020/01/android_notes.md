@@ -1,4 +1,4 @@
-# [安卓笔记](/2020/01_1/android_notes.md)
+# [安卓笔记](/2020/01/android_notes.md)
 
 ## Fragment newInstance
 
