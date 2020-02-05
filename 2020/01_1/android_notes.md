@@ -1,5 +1,31 @@
 # [安卓笔记](/2020/01_1/android_notes.md)
 
+## Fragment newInstance
+
+Fragment无法通过构造方法传参，最佳实践是定义一个newInstance静态方法
+
+Android Studio中可以通过<var class="mark">newInstance</var>自动生成出Fragment的newIntance方法
+
+```java
+
+```
+
+## 打log的最佳实践
+
+> 不要为了显眼而使用Log.e
+
+<i class="fa fa-hashtag"></i>
+去掉log中无用的前缀，提高信噪比
+
+如`2020-01-08 20:18:34.040 20145-23939/com.monitor.exchange`这种前缀不该出现在log中
+
+[Hide datetime in android log](https://stackoverflow.com/questions/18125257/how-to-show-only-message-from-log-hide-time-pid-etc-in-android-studio)
+
+<i class="fa fa-hashtag"></i>
+分段打印Log
+
+安卓的log消息过长，好像会截断(例如打印接口返回的json数据)
+
 ## Snackbar
 
 ![](snack_bar.png)

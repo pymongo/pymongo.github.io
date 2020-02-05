@@ -145,8 +145,49 @@
 
       <div class="title-row">
         <div style="display: flex">
-          <div class="project-title">安卓-交易所客户端</div>
-          <div class="project-link">项目链接：http://pymongo.github.io/redirect/apk_server_monitor.apk</div>
+          <div class="project-title">安卓-自动更新</div>
+          <div class="project-link">项目链接：TODO</div>
+        </div>
+        <div class="flex-right">
+          <div class="time-range">20.01.09 - 20.01.12</div>
+        </div>
+      </div>
+      <div class="row-padding-lv1">・设计出App版本管理的表结构，在后台管理项目中添加了App表的CRUD功能</div>
+      <div class="row-padding-lv1">・用Grape框架开发出检查版本更新的接口，支持返回多国语言的更新日志</div>
+      <div class="row-padding-lv1">・安卓端请求版本更新接口时携带设备信息(如机型,安卓版本)等参数，方便后端统计</div>
+
+      <div class="title-row">
+        <div style="display: flex">
+          <div class="project-title">安卓-聊天功能</div>
+          <div class="project-link">项目链接：TODO</div>
+        </div>
+        <div class="flex-right">
+          <div class="time-range">20.01.09 - 20.01.12</div>
+        </div>
+      </div>
+      <div class="row-padding-lv1">・进入聊天页面后，先请求HTTP接口获取历史聊天数据，然后连接WebSocket私有聊天频道</div>
+      <div class="row-padding-lv1">・在后端的聊天消息表中添加一个触发器(after_create)回调，像相关频道推送最新消息</div>
+      <div class="row-padding-lv1">・因服务端使用的MySQL版本过低无法存储Emoji表情包，安卓聊天输入框设置了emoji过滤器</div>
+
+      <div class="title-row">
+        <div style="display: flex">
+          <div class="project-title">安卓-涨跌幅榜功能</div>
+          <div class="project-link">项目链接：TODO</div>
+        </div>
+        <div class="flex-right">
+          <div class="time-range">20.01.07 - 20.01.16</div>
+        </div>
+      </div>
+      <div class="row-padding-lv1">・重新设计了行情涨跌榜的显示机制：旧版显示机制是订阅websocket频道每隔5秒收到一次数据广播，</div>
+      <div class="row-padding-lv1">・如果在websocket轮询间隙访问旧版涨跌榜，会显示一个空白的页面等待下次轮询得到数据再刷新页面</div>
+      <div class="row-padding-lv1">・解决方案：离开涨跌榜Acitivity时把数据存入本地SQLite，下次进入涨跌榜时优先从数据库中获取数据</div>
+      <div class="row-padding-lv1">・设计了安卓端markets的表结构，使用SQL语句排序实现了按涨跌幅/24小时成交量的排序</div>
+      <div class="row-padding-lv1">・尝试使用LiveData API，只要SQLite有变化立即刷新页面的数据，但至今未实现该功能</div>
+
+      <div class="title-row">
+        <div style="display: flex">
+          <div class="project-title">安卓-涨跌幅榜功能</div>
+          <div class="project-link">项目链接：TODO</div>
         </div>
         <div class="flex-right">
           <div class="time-range">20.01.07 - 至今</div>
@@ -155,6 +196,7 @@
       <div class="row-padding-lv1">・重新设计了行情涨跌榜的显示机制：旧版显示机制是订阅websocket频道每隔5秒收到一次数据广播，</div>
       <div class="row-padding-lv1">・如果在websocket轮询间隙访问旧版涨跌榜，会显示一个空白的页面等待下次轮询得到数据再刷新页面</div>
       <div class="row-padding-lv1">・解决方案：离开涨跌榜Acitivity时把数据存入本地SQLite，下次进入涨跌榜时优先从数据库中获取数据</div>
+      <div class="row-padding-lv1">・设计了安卓端markets的表结构，使用SQL语句排序实现了按涨跌幅/24小时成交量的排序</div>
 
       <div class="title-row">
         <div style="display: flex">

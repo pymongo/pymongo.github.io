@@ -1,18 +1,24 @@
 # [安卓读写SQLite数据库](/2020/01_1/android_sqlite.md)
 
-验证代码成功修改了安卓的SQLite，我认为有几个方法：打log、安卓自带的SQLite Viewer、
+<i class="fa fa-hashtag"></i>
+该用哪个API？android.database.sqlite还是androidx.room？
 
-adb连上SQLite、安卓端或PC端的SQlite可视化工具等等，我还是喜欢打log
+> android.database.sqlite的优缺点
+
+- API较底层，代码里大
+- 没有SQL语句验证，也没有SQL注入的检查 
+- 需要大量模板代码(boilerplate code)去转换SQL语句和Java对象
+- 没有数据库迁移(Room真👍，支持迁移)，更改表结构会带来很大麻烦
+
+
 
 <i class="fa fa-hashtag"></i>
-去掉log中无用的前缀，提高信噪比
+Gradle添加Room的API库的依赖
 
-如`2020-01-08 20:18:34.040 20145-23939/com.monitor.exchange`这种前缀不该出现在log中
+普通JDK：String output = DigestUtils.md5Hex(inputString);
 
-[Hide datetime in android log](https://stackoverflow.com/questions/18125257/how-to-show-only-message-from-log-hide-time-pid-etc-in-android-studio)
 
-<i class="fa fa-hashtag"></i>
-添加Room的API库
+安卓JDK：String output = String(Hex.encodeHex(DigestUtils.md5(inputString)));
 
 ```
 def room_version = "2.2.3"
@@ -90,3 +96,10 @@ public interface MarketDao {
 TODO
 
 增加异步执行SQL的实现代码
+
+<i class="fa fa-hashtag"></i>
+参考文章
+
+[Save data using SQLite](https://developer.android.com/training/data-storage/sqlite)
+
+## TODO Room Database 迁移
