@@ -1,4 +1,4 @@
-# rails步骤记录
+# [rails步骤记录](/2019/10/rails_step.md)
 
 ★尽量养成习惯用bundle exce rails/rake 而不是bin/rails或rails
 

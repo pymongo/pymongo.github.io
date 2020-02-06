@@ -26,6 +26,14 @@ Android Studio中可以通过<var class="mark">newInstance</var>自动生成出F
 
 安卓的log消息过长，好像会截断(例如打印接口返回的json数据)
 
+## TextView+drawableLeft
+
+> This tag and its children can be replaced by one <TextView/> and a compound drawable
+
+一个TextView+ImageView可以写成一个TextView(加上一个drawable属性)，而且渲染性能更好
+
+[https://stackoverflow.com/questions/3214424/android-layout-this-tag-and-its-children-can-be-replaced-by-one-textview-and](https://stackoverflow.com/questions/3214424/android-layout-this-tag-and-its-children-can-be-replaced-by-one-textview-and)
+
 ## Snackbar
 
 ![](snack_bar.png)

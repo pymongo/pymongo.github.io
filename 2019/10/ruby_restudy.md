@@ -1,4 +1,4 @@
-# 再次学习Ruby
+# [再次学习Ruby](/2019/10/ruby_restudy.md)
 
 以前在soloLearn上面学过一次ruby，虽然后面mixin等学得一知半解。
 

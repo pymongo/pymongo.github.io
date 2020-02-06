@@ -62,7 +62,7 @@
     - [mac init(配置等)](/2019/10/mac-init.md)
     - [同时热重载(livereload)多个网页](/2019/10/multi-livereload.md)
     - [仿京东的vueAPP中遇到的问题](/2019/10/jd-vue-problem.md)
-    - [rails步骤记录](/2019/10/rails-step.md)
+    - [rails步骤记录](/2019/10/rails_step.md)
     - [再次学习Ruby](/2019/10/ruby_restudy.md)
     - [chrome78开始支持darkmode](/2019/10/chrome-dark-mode.md)
 <!-- archive -->
