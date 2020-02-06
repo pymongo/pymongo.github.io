@@ -10,15 +10,8 @@
 - 需要大量模板代码(boilerplate code)去转换SQL语句和Java对象
 - 没有数据库迁移(Room真👍，支持迁移)，更改表结构会带来很大麻烦
 
-
-
 <i class="fa fa-hashtag"></i>
 Gradle添加Room的API库的依赖
-
-普通JDK：String output = DigestUtils.md5Hex(inputString);
-
-
-安卓JDK：String output = String(Hex.encodeHex(DigestUtils.md5(inputString)));
 
 ```
 def room_version = "2.2.3"
@@ -29,49 +22,56 @@ testImplementation "androidx.room:room-testing:$room_version"
 
 <!-- tabs:start -->
 
-#### **AppDatabase.java**
+#### **SQLite.java**
 
 ```java
-// utils/AppDatabase.java
-// TODO Singleton pattern
-@Database(entities = {Market.class}, version = 1)
-public abstract class AppDatabase extends RoomDatabase {
+@Database(entities = {Market.class}, version = 2, exportSchema = false)
+public abstract class SQLite extends RoomDatabase {
+
   public abstract MarketDao marketDao();
-}
-```
+  private static SQLite db;
 
-#### **MainActivity.java**
+  // 1 号migration, 起点是版本1, 终点是版本2
+  private static final Migration MIGRATION_1_ADD_HIGH_LOW_TO_MARKETS  = new Migration(1, 2){
+    @Override
+    public void migrate(SupportSQLiteDatabase database) {
+      // real表示SQLite的浮点类型
+      database.execSQL("alter table markets add column high real");
+    }
+  };
 
-!> 在主线程同步执行SQL语句会报错，需要加个参数允许(不是最佳实践)
-
-```java
-// TODO db实例变量应该通过AppDatabase的单例模式去存储
-public static AppDatabase db;
-private static void initDatabase(Context context) {
-  // Cannot access database on the main thread since it may potentially lock the UI for a long period of time.
-  db = Room.databaseBuilder(context, AppDatabase.class, "cadae.db")
-    .allowMainThreadQueries() // FIXME 主线程同步执行SQL可能耗时很久卡线程
-    .build();
-}
-
-protected void onCreate(Bundle savedInstanceState) {
-  MainActivity.initDatabase(getApplicationContext());
+  // 注意：即便使用单例模式，RoomDatabase的构造方法也不能设为private
+  public static SQLite db() {
+    if (db == null) {
+      // SQLite数据库文件存储在 /data/data/${package_name}/databases/${app_name}.sqlite 中
+      db = Room.databaseBuilder(BaseApplication.getContext(), SQLite.class, Constants.APP_NAME + ".sqlite")
+        .allowMainThreadQueries() // 允许主线程执行SQL语句
+        .addMigrations(MIGRATION_1_ADD_HIGH_LOW_TO_MARKETS)
+        .build();
+    }
+    return db;
+  }
 }
 ```
 
 #### **Market.java**
 
 ```java
-// models/Market.java
 @Entity(tableName = "markets")
 public class Market {
-  @PrimaryKey(autoGenerate = true)
-  public int id;
-  @ColumnInfo(name = "market")
-  public String market;
+  // 主键不能用自增的ID，App使用一天ID大约能增加到17万
+  // @PrimaryKey(autoGenerate = true)
+  // public int id;
+  @NonNull // 主键需要非空
+  @PrimaryKey()
+  public String market_id;
 
-  public Market(String market) {
-    this.market = market;
+  public Market(JSONObject market) {
+    try {
+      this.market_id = market.getString("market_id");
+    } catch (JSONException e) {
+      e.printStackTrace();
+    }
   }
 }
 ```
@@ -79,8 +79,8 @@ public class Market {
 #### **MarketDao.java**
 
 ```java
-// models/MarketDao.java
-@Dao // DAO design pattern: Data Access Object
+// 使用方法 SQLite.db().marketDao().first()
+@Dao // DAO(Data Access Object) design pattern
 public interface MarketDao {
   @Insert
   public void create(Market market);
@@ -101,5 +101,9 @@ TODO
 参考文章
 
 [Save data using SQLite](https://developer.android.com/training/data-storage/sqlite)
+
+## 避免频繁读写SQLite
+
+执行一次SQLite大约耗时19-200ms不等，实际上使用SQL语句进行排序可能效率还不如使用Java代码排序
 
 ## TODO Room Database 迁移
