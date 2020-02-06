@@ -1,4 +1,4 @@
-# 谷歌字体库被墙的解决方案
+# [谷歌字体库被墙的解决方案](/unarchived/google_font_block_solution.md)
 
 ## 博客引用的谷歌字体库被墙
 
@@ -54,13 +54,13 @@ https://fonts.proxy.ustclug.org/css?family=Roboto+Mono|Source+Sans+Pro:300,400,6
 
 看看vue的中文文档是如何解决的
 
-![google-font-block-solution](google-font-block-solution.png "google-font-block-solution")
+![google-font-block-solution](google_font_block_solution.png "google-font-block-solution")
 
 vue中文版文档直接把英文版的谷歌字体请求部分给【注释掉】，然后用服务器本地的字体文件
 
 vue中文版把需要用到的字体提前放在自己服务器上的, 参考[vue中文文档的github项目](https://github.com/vuejs/cn.vuejs.org/tree/master/themes/vue/source/fonts)
 
-```css
+```html
 /* 这是styl文件 */
 @font-face
     font-family: "Source Sans Pro" /* styl这里没有分号 */

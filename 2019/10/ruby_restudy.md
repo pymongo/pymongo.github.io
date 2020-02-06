@@ -15,9 +15,7 @@
 
 ## 试着用scoop安装rails
 
-![01-scoop-rails](01-scoop-rails.png "01-scoop-rails")
-
-果然scoop就不适合安装这种依赖复杂的cli软件，毕竟scoop安装ruby的时候就提示我要额外安装这个那个的依赖
+scoop就不适合安装这种依赖复杂的cli软件，毕竟scoop安装ruby的时候就提示我要额外安装这个那个的依赖
 
 ruby本身就对非UnixLike系统不友好，windows只能用官方推荐的【rubyInstaller】进行安装
 

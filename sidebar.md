@@ -1,9 +1,9 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年2月**
     - [安卓虚拟机将App快捷方式添加到桌面](/2020/02/avd_add_app_shortcut_to_home.md)
+    - [安卓websocket实现聊天功能](/2020/02/android_websocket.md)
 - **20年1月**
     - [安卓读写SQLite数据库](/2020/01/android_sqlite.md)
-    - [安卓websocket实现聊天功能](/2020/01/android_websocket.md)
     - [安卓笔记](/2020/01/android_notes.md)
     - [adb从手机中导出apk](/2020/01/adb_export_apk.md)
     - [webview](/2020/01/webview.md)
@@ -63,11 +63,11 @@
     - [同时热重载(livereload)多个网页](/2019/10/multi-livereload.md)
     - [仿京东的vueAPP中遇到的问题](/2019/10/jd-vue-problem.md)
     - [rails步骤记录](/2019/10/rails-step.md)
-    - [再次学习Ruby](/2019/10/ruby-restudy.md)
+    - [再次学习Ruby](/2019/10/ruby_restudy.md)
     - [chrome78开始支持darkmode](/2019/10/chrome-dark-mode.md)
 <!-- archive -->
 - **性能优化**
-    - [谷歌字体库被墙的解决方案](unarchived/google-font-block-solution.md)
+    - [谷歌字体库被墙的解决方案](/unarchived/google_font_block_solution.md)
 - **VIM**
     - [vim复习](/archive/vim/vim_review.md)
     - [cursor(光标移动)](/archive/vim/cursor.md)

@@ -1,4 +1,4 @@
-# [安卓websocket实现聊天功能](/2020/01/android_websocket.md)
+# [安卓websocket实现聊天功能](/2020/02/android_websocket.md)
 
 [okhttp的官方demo](https://github.com/square/okhttp/blob/master/samples/guide/src/main/java/okhttp3/recipes/WebSocketEcho.java)
 看完后只能写出一个在websocket类中能发websocket，在别的Class中又调用不了，这样写代码没法复用reuse啊

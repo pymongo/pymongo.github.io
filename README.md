@@ -63,7 +63,7 @@
     - [chrome78开始支持darkmode](http://pymongo.github.io/2019/10/chrome-dark-mode.md)
 <!-- archive -->
 - **性能优化**
-    - [谷歌字体库被墙的解决方案](unarchived/google-font-block-solution.md)
+    - [谷歌字体库被墙的解决方案](unarchived/google_font_block_solution.md)
 - **VIM**
     - [vim复习](http://pymongo.github.io/archive/vim/vim_review.md)
     - [cursor(光标移动)](http://pymongo.github.io/archive/vim/cursor.md)
