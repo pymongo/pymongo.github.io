@@ -102,6 +102,11 @@ TODO
 
 [Save data using SQLite](https://developer.android.com/training/data-storage/sqlite)
 
+<i class="fa fa-hashtag"></i>
+sqlite文件的存放位置
+
+![android_sqlite_file_location](android_sqlite_file_location.png)
+
 ## 避免频繁读写SQLite
 
 执行一次SQLite大约耗时19-200ms不等，实际上使用SQL语句进行排序可能效率还不如使用Java代码排序
