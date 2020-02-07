@@ -14,6 +14,7 @@
 不太重要的
 
 - mnemonics 助记手段/记忆术
+- enzymes 酶/酵素
 - ribosome 核糖体，例句：The ribosome is the site of protein synthesis.
 - polypeptide chain 多肽链
 - pigment 颜料(n.)/变色(v.)
