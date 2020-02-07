@@ -1,4 +1,4 @@
-# 多表查询
+# [多表查询](/archive/database/join.md)
 
 ## 连接的分类
 

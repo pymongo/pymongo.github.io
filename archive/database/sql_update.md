@@ -1,4 +1,4 @@
-# 增删改,约束与事务处理
+# [增删改,约束与事务处理](/archive/database/sql_update.md)
 
 ## insert into
 

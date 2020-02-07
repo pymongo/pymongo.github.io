@@ -1,4 +1,4 @@
-# sql分组与聚合函数
+# [sql分组与聚合函数](/archive/database/sql_group.md)
 
 ## Aggregate Function
 

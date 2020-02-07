@@ -104,8 +104,8 @@
     - [sql基础知识](/archive/database/sql_basic.md)
     - [Oracle的emp表迁移到sqlite](/archive/database/oracle-migrate-to-sqlite/index.md)
     - [多表查询](/archive/database/join.md)
-    - [sql分组与聚合函数](/archive/database/sql-group.md)
-    - [增删改,约束与事务处理](/archive/database/sql-update.md)
+    - [sql分组与聚合函数](/archive/database/sql_group.md)
+    - [增删改,约束与事务处理](/archive/database/sql_update.md)
 <!-- /archive -->
 - **个人作品**
     - [【智能家居】平板电脑控制电灯](/unarchived/rpi_gpio.md)
