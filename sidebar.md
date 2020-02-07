@@ -1,8 +1,9 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年2月**
+    - [安卓显示loading动画](/2020/02/android_loading_spinner.md)
     - [2020年2月英语积累](/2020/02/monthly_english.md)
     - [安卓虚拟机将App快捷方式添加到桌面](/2020/02/avd_add_app_shortcut_to_home.md)
-    - [安卓websocket实现聊天功能](/2020/02/android_websocket.md)
+    - [安卓websocket研究](/2020/02/android_websocket.md)
 - **20年1月**
     - [安卓读写SQLite数据库](/2020/01/android_sqlite.md)
     - [安卓笔记](/2020/01/android_notes.md)
