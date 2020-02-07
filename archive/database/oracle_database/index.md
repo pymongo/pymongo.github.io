@@ -18,7 +18,7 @@ OEM(Oracle Enterprise Manager)是Oracle数据库的Web端管理软件
 
 注意只能用https协议访问，由于无SSL证书，需要浏览器单独允许
 
-![01-oem-localhost1158](01-oem-localhost1158.png "01-oem-localhost1158")
+![01-oem-localhost1158](01_oem_localhost1158.png "01-oem-localhost1158")
 
 其它账户未授权下，只能用sys账户管理员身份登陆
 
@@ -26,13 +26,13 @@ OEM(Oracle Enterprise Manager)是Oracle数据库的Web端管理软件
 
 从OEM主页进入到scheme页面->Tables
 
-![02-oem-tables](02-oem-tables.png "02-oem-tables")
+![02-oem-tables](02_oem_tables.png "02-oem-tables")
 
 选中一个表, 在右上角的Action选上View data
 
 Oracle给出了查询数据相应的SQL语句
 
-![03-oem-departments-data](03-oem-departments-data.png "03-oem-departments-data")
+![03-oem-departments-data](03_oem_departments_data.png "03-oem-departments-data")
 
 OEM这样图形化查询/修改数据库的软件有点像Django的后台管理
 

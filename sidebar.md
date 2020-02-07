@@ -99,10 +99,10 @@
     - [leetcode简单题/API题](/archive/leetcode/leetcode-easy.md)
 - **数据库**
     - [database](/archive/database/database.md)
-    - [Oracle数据库](/archive/database/oracle-database/index.md)
+    - [Oracle数据库](/archive/database/oracle_database/index.md)
     - [sqlite](/archive/database/sqlite.md)
     - [sql基础知识](/archive/database/sql_basic.md)
-    - [Oracle的emp表迁移到sqlite](/archive/database/oracle-migrate-to-sqlite/index.md)
+    - [Oracle的emp表迁移到sqlite](/archive/database/oracle_migrate_to_sqlite/index.md)
     - [多表查询](/archive/database/join.md)
     - [sql分组与聚合函数](/archive/database/sql_group.md)
     - [增删改,约束与事务处理](/archive/database/sql_update.md)

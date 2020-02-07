@@ -25,7 +25,7 @@ Oracle与sqltie的语法不同, Oracle与sqlite数据类型不同
 
 可读性比github的sql脚本强多了, [livesql相应笔记地址](https://livesql.oracle.com/apex/livesql/file/content_O5AEB2HE08PYEPTGCFLZU9YCV.html)
 
-![01-livesql-demo](01-livesql-demo.png "01-livesql-demo")
+![01-livesql-demo](01_livesql_demo.png "01-livesql-demo")
 
 看到这html-table格式的表格, 打开浏览器Dev Tools,
 
@@ -35,7 +35,7 @@ Oracle与sqltie的语法不同, Oracle与sqlite数据类型不同
 
 把方案一中github创建emp表代码粘贴方案二提到的livesql中, 自己加上`SELECT * FROM EMP;`
 
-![02-livesql-csv](02-livesql-csv.png "02-livesql-csv")
+![02-livesql-csv](02_livesql_csv.png "02-livesql-csv")
 
 ## 查看/修改csv文件
 
