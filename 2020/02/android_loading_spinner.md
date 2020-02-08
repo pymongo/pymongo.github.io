@@ -47,3 +47,12 @@ ProgressDialog的显示效果类似MIUI的「正在关机」的对话框，左�
 ## loading演示gif
 
 ![android_loading_spinner.gif](android_loading_spinner.gif)
+
+---
+
+我提了一个[suggest edit](https://stackoverflow.com/review/suggested-edits/25291010)
+去改善[loading动画的回答](https://stackoverflow.com/a/42878518/9970487)
+
+不过被android分区给拒绝了(2票拒绝，1票同意，review没通过)，🤕review没通过
+
+![stackoverflow_suggest_edit_was_rejected](stackoverflow_suggest_edit_was_rejected.png)
