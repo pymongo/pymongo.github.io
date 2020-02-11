@@ -7,6 +7,7 @@
 - prep. preposition 介词，如：about
 - pron. pronoun 代词，如：this
 - substantially 大体上 adv.
+- hierarchy 等级制度
 - trait 特征，例句：How can the DNA result in a trait?
 - synthesis 合成/综合 n.
 

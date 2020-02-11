@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年2月**
+    - [魅族所有等级的日志输出](/2020/02/meizu_enable_debug_log_level.md)
     - [charles抓包笔记](/2020/02/charles.md)
     - [安卓显示loading动画](/2020/02/android_loading_spinner.md)
     - [2020年2月英语积累](/2020/02/monthly_english.md)
@@ -119,4 +120,6 @@
     - [CSS权重等前端豆知识回顾](/unarchived/css_specificity.md)
 - **联系我**
     - [我的简历](/redirect/resume.html)
+- **日记感想**
+    - [兄弟卧谈会：]()
  
