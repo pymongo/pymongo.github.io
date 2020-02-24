@@ -117,11 +117,10 @@
 ## English Learning
 
 - crypto: 数字货币
-- fiat/legal tender/currence: 法定货币
+- fiat/legal tender/currency: 法定货币
 - AKA: Also Known As
 - FYI: For Your Information
 - annex: 附件
 - Forensics: 取证 
 - retrieve: 恢复
-- hierarchy: 等级制度
 

@@ -1,5 +1,9 @@
 # [2020年2月英语积累](/2020/02/monthly_english.md)
 
+- two-way data binding 双向绑定
+
+---
+
 - abbr. abbreviation 缩写
 - adj. adjective
 - adv. adverb
