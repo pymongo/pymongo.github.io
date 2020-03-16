@@ -186,6 +186,20 @@
 
       <div class="title-row">
         <div style="display: flex">
+          <div class="project-title">运维-部署野火IM</div>
+          <div class="project-link">项目链接：TODO</div>
+        </div>
+        <div class="flex-right">
+          <div class="time-range">20.03.14 - 20.03.16</div>
+        </div>
+      </div>
+      <div class="row-padding-lv1">・重新设计了行情涨跌榜的显示机制：旧版显示机制是订阅websocket频道每隔5秒收到一次数据广播，</div>
+      <div class="row-padding-lv1">・如果在websocket轮询间隙访问旧版涨跌榜，会显示一个空白的页面等待下次轮询得到数据再刷新页面</div>
+      <div class="row-padding-lv1">・解决方案：离开涨跌榜Acitivity时把数据存入本地SQLite，下次进入涨跌榜时优先从数据库中获取数据</div>
+      <div class="row-padding-lv1">・设计了安卓端markets的表结构，使用SQL语句排序实现了按涨跌幅/24小时成交量的排序</div>
+
+      <div class="title-row">
+        <div style="display: flex">
           <div class="project-title">安卓-涨跌幅榜功能</div>
           <div class="project-link">项目链接：TODO</div>
         </div>
