@@ -44,3 +44,31 @@ controller我理解是解析前端发送的请求，调用service来处理业务
 
 还有一种理解是service相当于项目的子系统
 
+## spring添加一个路由
+
+我仿照官网教程导入`org.springframework.web`包准备添加路由时一直报错，原来是我没导入spring的web组件
+
+```xml
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-web</artifactId>
+</dependency>
+```
+
+嗯，感觉照着官网的教程把controller写好了，Ctrl+R运行... 刚出现spring的LOGO，进程就结束了
+
+> process finished with exit code 1
+
+网上找了下资料，我没有装tomcat服务器，需要一个HTTP服务器
+
+```xml
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+```
+
+<i class="fa fa-hashtag"></i>
+修改HTTP服务器运行的端口号
+
+application.properties: server.port=8080
