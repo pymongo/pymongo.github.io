@@ -10,4 +10,37 @@ Linux有<var class="mark">update-alternatives</var>，mac的`jenv`就没那么�
 
 所以mac上被迫只安装一个jdk8，没法用jdk9以上的`jshell`交互环境(实践一些Java语法只能靠online jdk了)
 
+在mac开发环境上不需要安装maven，用Intellij自带的maven就够了；在Ubuntu上先安装jdk8再安装maven
+
+## nohup ... 2>1& &
+
+maven install/package 编译出可执行文件后，通过nohup使之后台运行
+
+`2>1&`的意思是把stdout也重定向输出到nohup.out中
+
+至于如何关掉nohup，`jobs -l`不好使，一般用以下命令列出占用内存最大的进程再通过`kill -9`去删
+
+以下命令可以列出内存占用最高的几个进程，方便关掉java的nohup进程
+
+> ps aux --sort rss
+
+## 创建spring boot项目
+
+我看[这个视频](https://www.youtube.com/watch?v=vtPkZShrvXQ)入门spring
+
+初始化spring项目可以在`start.spring.io`中进行，也可在Intellij中进行
+
+`start.spring.io`创建spring项目的过程有点酷炫(像vultr)，但我还是喜欢在IDE中创建项目
+
+NewProject -> SpringInitializr
+
+[spring官方教程](https://spring.io/guides/gs/spring-boot/#initial)
+
+DAO我以前做安卓SQLite时有所理解，但是spring的service有点难以理解
+
+controller我理解是解析前端发送的请求，调用service来处理业务，再调用dao来实现数据库操作
+
+还是rails方便，dao和model合二为一、service和controller合二为一
+
+还有一种理解是service相当于项目的子系统
 
