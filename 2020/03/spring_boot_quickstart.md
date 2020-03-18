@@ -72,3 +72,29 @@ controller我理解是解析前端发送的请求，调用service来处理业务
 修改HTTP服务器运行的端口号
 
 application.properties: server.port=8080
+
+## spring单元测试
+
+官方的单元测试样例代码，需要先掌握一个Java小知识[static import](https://www.geeksforgeeks.org/static-import-java/)
+
+static import类似python的import *，用了之后节省代码Math.sqrt(4) 变 sqrt(4)
+
+> 使用MockMvc的单元测试样例
+
+```java
+@SpringBootTest
+@AutoConfigureMockMvc
+class DemoApplicationTests {
+
+  @Autowired
+  private MockMvc mvc;
+
+  @Test
+  public void getIndex() throws Exception {
+    mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
+      .andExpect(MockMvcResultMatchers.status().isOk())
+      .andExpect(MockMvcResultMatchers.content().string(Matchers.equalTo("Index")));
+  }
+
+}
+```
