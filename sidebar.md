@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年3月**
+    - [野火IM的二次开发心得](/2020/03/wildfire_chat.md)
     - [spring官方集成测试Demo的错误](/2020/03/spring_integration_test_error.md)
     - [2020年2月英语积累](/2020/03/monthly_english.md)
     - [spring boot部署与体验](/2020/03/spring_boot_quickstart.md)
