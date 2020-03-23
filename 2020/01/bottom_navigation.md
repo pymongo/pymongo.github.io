@@ -4,7 +4,7 @@
 
 我是照抄AS的底部导航栏模板，首先要引入一个包，导航栏**组件**要靠它
 
-`implementation 'com.google.android.material:material:1.0.0`
+`implementation 'com.google.android.material:material:1.1.0`
 
 用的时候我也一步步照着视频做，比如最外层是相对布局，导航栏要alignParentBottom，上面的组件要layout_above...
 
@@ -61,12 +61,12 @@ UB3的解决方法 `app:itemBackground="?android:attr/windowBackground"`
 ```
 
 ## Activity中初始化导航栏
-
+                                                  
 MainActivity初始化的导航栏的代码依赖以下两个包
 
 ```
-implementation 'androidx.navigation:navigation-fragment:2.1.0'
-implementation 'androidx.navigation:navigation-ui:2.1.0'
+implementation 'androidx.navigation:navigation-fragment:2.2.1'
+implementation 'androidx.navigation:navigation-ui:2.2.1'
 ```
 
 将下面的代码放在onCreate中setContentView后
