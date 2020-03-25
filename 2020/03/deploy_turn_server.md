@@ -13,7 +13,7 @@ turn服务器是什么
 <i class="fa fa-hashtag"></i>
 允许turn服务器以service的方式进行
 
-[参考链接](https://www.allerstorfer.at/install-coturn-on-ubuntu/)
+[参考链接](https://www.allerstorfer.at/install-coturn-on-ubuntu/)(这位大神的文章基本都是视频推流服务器相关的，感兴趣的话可以看看)
 
 `vi /etc/default/coturn`:
 
@@ -32,4 +32,7 @@ turn服务器是什么
 启动/停止查看服务状态
 
 > service coturn status/start/stop/restart
+
+<i class="fa fa-hashtag"></i>
+测试turn服务器
 

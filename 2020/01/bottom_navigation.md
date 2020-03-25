@@ -1,6 +1,22 @@
 # [Android底部导航栏](/2020/01/bottom_navigation.md)
 
+只介绍`material`的底部导航栏的库，不介绍`com.android.support`的
+
+[See Also](https://mikescamell.com/bottoms-up-bottomnavigationview-updates-in-the-material-design-design-support-library/index.html)
+
 ## BottomNavigation
+
+注意MainActivity一定是继承自AppCompatActivity
+
+加入底部导航栏主要分四步：
+
+1. 添加`menu/bottom_nav_menu.xml`，这个文件定义了底部导航栏的图标和文案
+2. 添加`bottom_nav_fragment`的Java文件夹，并创建好四个Java类并指定好xml布局文件
+3. 添加`navigation/bottom_nav_graph.xml`，这个文件定义了底部导航栏的路由，
+   id属性对应步骤1中menu.xml的各项id，name属性指向步骤2中各个fragment的类名
+4. 编写MainActivity以及相应布局文件的代码
+5. 在`style.xml`中AppTheme中加入一行`<item name="colorPrimary">#3e64e4</item>`
+   用于设置已选中tab的颜色
 
 我是照抄AS的底部导航栏模板，首先要引入一个包，导航栏**组件**要靠它
 
