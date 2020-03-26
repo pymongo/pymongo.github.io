@@ -13,7 +13,7 @@
 
 那就完全不需要findViewById了，xml直接从数据集合(dataSet)中获取数据并加工后显示
 
-![data_binding.png "data_binding"](data_binding)
+![data_binding](data_binding.png)
 
 ---
 
@@ -129,3 +129,13 @@ public class RecordsAdapter extends RecyclerView.Adapter<RecordsAdapter.ItemView
 ```
 
 <!-- tabs:end -->
+
+---
+
+安卓MVVM还需要掌握的概念：
+
+- dagger2依赖注入
+- ViewModel Provider
+- ViewModel Factory
+- Live Data
+- Obverse(生产者/消费者模式更新数据)
