@@ -51,3 +51,8 @@ binding.loginButton.setOnClickListener(v -> {
 \- 不能找到include中的组件id
 \- 相比data binding功能更弱，适用于简单逻辑的页面
 
+## 仅用于UI预览的文案显示
+
+you can add tools:text to specify some text for the layout preview only.
+
+应该是只会在UI预览中显示，实际的显示效果为空

@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年3月**
+    - [无需定义任何组件id的dataBinding写法](/2020/03/recycler_view_data_binding.md)
     - [android view binding](/2020/03/android_view_binding.md)
     - [部署turn服务器](/2020/03/deploy_turn_server.md)
     - [野火IM的二次开发心得](/2020/03/wildfire_chat.md)
