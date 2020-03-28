@@ -15,6 +15,8 @@
 
 ![data_binding](data_binding.png)
 
+这种将数据的样例(仅在预览模式下显示的tools:text)和获取数据的Java代码写在一起的开发体验太好了，所见即所得！
+
 ---
 
 下面演示如何使用data binding渲染recyclerView
@@ -43,7 +45,7 @@ public class Record {
 }
 ```
 
-#### **Adapter**
+#### **RecordsAdapter.java**
 
 ```java
 public class RecordsAdapter extends RecyclerView.Adapter<RecordsAdapter.ItemViewHolder> {
@@ -90,7 +92,7 @@ public class RecordsAdapter extends RecyclerView.Adapter<RecordsAdapter.ItemView
 }
 ```
 
-#### **item.xml**
+#### **record_item.xml**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
