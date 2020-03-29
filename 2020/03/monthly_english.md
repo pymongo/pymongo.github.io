@@ -21,7 +21,10 @@
 - n. chassis 底盘
 - vt. facilitates 促进/帮组
 - adj. verifiable 能证实的
-- adj. potential 潜在的(n.潜能/电势)
+- adj. potential 潜在的(n.潜能/电势)\
+- adj/adv/n. plenty 大量的,丰富的
+- adj. 不重要的 trivial
+- HC=Head Count 企业招人的预计人数
 
 - Parse Error: There was a problem parsing the package
 - 解析安装包时出错

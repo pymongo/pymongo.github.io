@@ -13,6 +13,8 @@
 
 那就完全不需要findViewById了，xml直接从数据集合(dataSet)中获取数据并加工后显示
 
+> 比较智能的是，如果数据类的成员变量是私有的但提供了getter，databinding会把@{movie.title}转换为@{movie.getTitle}
+
 ![data_binding](data_binding.png)
 
 这种将数据的样例(仅在预览模式下显示的tools:text)和获取数据的Java代码写在一起的开发体验太好了，所见即所得！

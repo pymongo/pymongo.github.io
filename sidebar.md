@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年3月**
+    - [安卓每月小知识积累](/2020/03/monthly_android_note.md)
     - [依赖注入](/2020/03/dependency_injection.md)
     - [无需定义任何组件id的dataBinding写法](/2020/03/recycler_view_data_binding.md)
     - [android view binding](/2020/03/android_view_binding.md)

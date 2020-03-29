@@ -14,21 +14,12 @@ Alternatives to dependency injection
 
 ## build.gradle
 
-> AndroidX
+以我的使用或学习经验来说，dagger的下列五个库都用到，不区分androidx和support
 
 ```
 implementation 'com.google.dagger:dagger:2.24'
-implementation 'com.google.dagger:dagger-android:2.24' // (androidx libraries)
-annotationProcessor 'com.google.dagger:dagger-compiler:2.24'
-annotationProcessor 'com.google.dagger:dagger-android-processor:2.24'
-```
-
-> AndroidX
-
-```
-// 存疑，还没试过
-implementation 'com.google.dagger:dagger:2.24'
-implementation 'com.google.dagger:dagger-android-support:2.24' // (support libraries)
+implementation 'com.google.dagger:dagger-android:2.24'
+implementation 'com.google.dagger:dagger-android-support:2.24'
 annotationProcessor 'com.google.dagger:dagger-compiler:2.24'
 annotationProcessor 'com.google.dagger:dagger-android-processor:2.24'
 ```
