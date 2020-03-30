@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年3月**
+    - [parcelable页面间传递实例对象](/2020/03/parcelable_serializable.md)
     - [安卓每月小知识积累](/2020/03/monthly_android_note.md)
     - [依赖注入](/2020/03/dependency_injection.md)
     - [无需定义任何组件id的dataBinding写法](/2020/03/recycler_view_data_binding.md)
@@ -132,6 +133,4 @@
     - [CSS权重等前端豆知识回顾](/unarchived/css_specificity.md)
 - **联系我**
     - [我的简历](/redirect/resume.html)
-- **日记感想**
-    - [兄弟卧谈会：]()
  
