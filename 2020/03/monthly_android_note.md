@@ -17,3 +17,50 @@ tools:text仅用于预览模式的文案显示
 Method separators
 
 Intellij可以设置函数间的分隔线，这样看代码时将注意力集中在某一段函数，搜索Method separators
+
+<i class="fa fa-hashtag"></i>
+Context Menu(长按弹出菜单复制聊天消息)
+
+第二次见到这个KeyWord，以前用windows修改context Menu(右键菜单)时了解过context menu
+
+不过这次我是实现长按复制聊天消息的需求
+
+```java
+// OnLongClickListener
+@Override
+public void onCreateContextMenu 
+
+@Override
+public boolean onContextItemSelected (MenuItem item) {
+```
+
+<i class="fa fa-hashtag"></i>
+(Adapter)在itemOnClick中执行Activity的方法
+
+虽然可以通过Interface的方式让Activity文件中定义点击事件
+
+但是现在提供另一种解决办法：将view.getContext转换为所需的Activity类型
+
+```java
+holder.itemView.setOnClickListener(view -> {
+  Intent intent = new Intent();
+  intent.putExtra("country_code", dataSet.code);
+  CountryCodesActivity activity = (CountryCodesActivity)view.getContext();
+  activity.setResult(Activity.RESULT_OK, intent);
+  activity.finish();
+});
+```
+
+<i class="fa fa-hashtag"></i>
+onAttachedToRecyclerView
+
+似乎有些鸡肋，要想传参在Adapter构造方法中传也行啊。用处似乎是让Adapter获取reclycerView对象
+
+<i class="fa fa-hashtag"></i>
+Parcelable(序列化传输java实例对象)
+
+类似JDK的Serializable接口，用于序列化传输Java实例对象
+
+Parcelable有点复杂，我单独写篇文章
+
+See Also: ObservableParcelable
