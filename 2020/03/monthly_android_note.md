@@ -64,3 +64,24 @@ Parcelable(序列化传输java实例对象)
 Parcelable有点复杂，我单独写篇文章
 
 See Also: ObservableParcelable
+
+<i class="fa fa-hashtag"></i>
+onTouchListener
+
+实现按住时背景颜色改变，松开时又恢复的效果
+
+<i class="fa fa-hashtag"></i>
+SearchView踩坑总结
+
+1. 不要用android.widget.SearchView，很多属性多不能用
+2. iconifiedByDefault="false"使整个SearchView可点击而非单个搜索图标可点击
+
+<i class="fa fa-hashtag"></i>
+64k方法数限制
+
+APK文件限制了单个.dex文件最多引用的方法数是65536个，解决方案：MultiDex
+
+<i class="fa fa-hashtag"></i>
+./gradlew lint
+
+检查未使用的资源，检查代码质量等等

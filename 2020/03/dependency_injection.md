@@ -1,5 +1,11 @@
 # [依赖注入](/2020/03/dependency_injection.md)
 
+提到依赖注入，可以了解下Spring AOP(面向切面编程?)/IOC
+
+[一个花了40讲介绍dagger2的油管播单，可见作者对dagger2的理解很深](https://www.youtube.com/playlist?list=PLgCYzUzKIBE8AOAspC3DHoBNZIBHbIOsC)
+
+[Dependency Injection of ViewModel with Dagger 2](https://www.techyourchance.com/dependency-injection-viewmodel-with-dagger-2/)
+
 依赖注入的概念是在安卓文档的最后，一个叫「Best Practice」的部分去介绍的
 
 一个类的构造方法的入参中可能需要依赖第二个类，例如new一个Adapter时需要传一个List<DataSet>

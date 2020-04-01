@@ -53,6 +53,8 @@ mySnackbar.setAction(R.string.undo_string, new View.OnClickListener {
 mySnackbar.show();
 ```
 
+See Also: seek bar(进度条) 
+
 ## invisible和gone的区别
 
 invisible：不显示，但是会保留组件占有的空间

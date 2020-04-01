@@ -25,6 +25,15 @@
 - adj/adv/n. plenty 大量的,丰富的
 - adj. 不重要的 trivial
 - HC=Head Count 企业招人的预计人数
+- n. guideline 指导
+- adj. seamlessly 无缝的\[高频，第2次出现]
+- n. violation 违反
+- OOP: [Liskov Substitution Principle](https://stackoverflow.com/questions/56860/what-is-an-example-of-the-liskov-substitution-principle)
+- n. freelance 自由职业者
+- n. scenario 剧本
+- adj. ironic 讽刺地
+- adj. hypothetical 假设的
+- vt. facilitates 促进/帮组\[高频，第2次出现]
 
 - Parse Error: There was a problem parsing the package
 - 解析安装包时出错
