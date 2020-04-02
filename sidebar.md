@@ -1,6 +1,10 @@
 - [归档 - 吴翱翔的博客](/)
+- **20年4月**
+    - [底部导航栏页面切换的坑(socket)](/2020/04/navigation_lifecircle.md)
+    - [Rust and actix](/2020/04/rust.md)
+    - [编写安卓测试用例](/2020/04/android_test.md)
+    - [2020年第二季度英语积累](/2020/04/quarterly_english.md)
 - **20年3月**
-    - [编写安卓测试用例](/2020/03/android_test.md)
     - [安卓搜索栏SearchView](/2020/03/search_view.md)
     - [parcelable页面间传递实例对象](/2020/03/parcelable_serializable.md)
     - [安卓每月小知识积累](/2020/03/monthly_android_note.md)
@@ -10,7 +14,6 @@
     - [部署turn服务器](/2020/03/deploy_turn_server.md)
     - [野火IM的二次开发心得](/2020/03/wildfire_chat.md)
     - [spring官方集成测试Demo的错误](/2020/03/spring_integration_test_error.md)
-    - [2020年3月英语积累](/2020/03/monthly_english.md)
     - [spring boot部署与体验](/2020/03/spring_boot_quickstart.md)
     - [安卓解决重命名包名后IDE报错的办法](/2020/03/android_rename_package.md)
 - **20年2月**

@@ -1,4 +1,4 @@
-# [编写安卓测试用例](/2020/03/android_test.md)
+# [编写安卓测试用例](/2020/04/android_test.md)
 
 安卓测试方法分三类
 1. UnitTest: JUnit、Mockito。缺点：运行在PC的JVM上并不是在安卓机上运行。优点：轻量，运行速度极快(因为没有UI )

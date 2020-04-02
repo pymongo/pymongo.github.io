@@ -1,4 +1,4 @@
-# [Rust and actix](/2020/03/rust.md)
+# [Rust and actix](/2020/04/rust.md)
 
 ruby/rails的性能不能满足实时性很强的需求(股票交易所)，于是尝试下[据说世界第一快的API框架](https://www.techempower.com/benchmarks/)
 rust/actix

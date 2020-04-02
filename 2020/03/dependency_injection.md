@@ -29,3 +29,7 @@ implementation 'com.google.dagger:dagger-android-support:2.24'
 annotationProcessor 'com.google.dagger:dagger-compiler:2.24'
 annotationProcessor 'com.google.dagger:dagger-android-processor:2.24'
 ```
+
+---
+
+Java依赖注入这块我理解的不是很全面，先停更
