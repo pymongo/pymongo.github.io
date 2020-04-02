@@ -34,6 +34,7 @@
 - adj. ironic 讽刺地
 - adj. hypothetical 假设的
 - vt. facilitates 促进/帮组\[高频，第2次出现]
+- n. Medical Prescription 处方
 
 - Parse Error: There was a problem parsing the package
 - 解析安装包时出错
