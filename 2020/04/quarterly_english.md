@@ -39,3 +39,15 @@
 
 - Parse Error: There was a problem parsing the package
 - 解析安装包时出错
+
+---
+
+> 2020年4月
+
+- adv. consistently 一致性
+- n. regression 回归/回滚?
+- n. versatility 多功能/多才多艺
+- n. strategy 策略
+
+- Your unit tests should nearly exhaust all possible interactions with the unit
+- exhaust在CS中指的是穷举、穷尽的感觉

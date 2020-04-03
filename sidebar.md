@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年4月**
+    - [国产安卓机UI测试的坑](/2020/04/domestic_can_not_run_ui_test.md)
     - [底部导航栏页面切换的坑(socket)](/2020/04/navigation_lifecircle.md)
     - [Rust and actix](/2020/04/rust.md)
     - [编写安卓测试用例](/2020/04/android_test.md)
