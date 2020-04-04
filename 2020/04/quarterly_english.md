@@ -48,6 +48,7 @@
 - n. regression 回归/回滚?
 - n. versatility 多功能/多才多艺
 - n. strategy 策略
+- v. suppress 隐瞒(常见于Java中隐藏警告)/镇压
 
 - Your unit tests should nearly exhaust all possible interactions with the unit
 - exhaust在CS中指的是穷举、穷尽的感觉
