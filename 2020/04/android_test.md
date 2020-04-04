@@ -16,7 +16,7 @@ testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
 > Error=Unable to find instrumentation info for: ComponentInfo{ }
 
-Build Variant: 先选
+Build Variant: 先选release然后在选回debug即可解决
 
 
 
