@@ -32,7 +32,9 @@ rack是ruby最简单的HTTP服务器组件, 咱们来跑跑分看看
 
 ab命令的语法格式:
 
-> ab -n 100 -c 10 http://localhost:3000/wallets/1278
+> ab -n 100 -c 10 http://127.0.0.1:3000/wallets/1278
+
+!> mac的ab命令要用127.0.0.1不能用localhost
 
 -n 表示总共有100个请求, -c 表示并发的请求数(concurrency)
 
