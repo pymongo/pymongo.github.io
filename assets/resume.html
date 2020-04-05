@@ -310,10 +310,11 @@
           <div class="time-range">19.11.18 - 19.12.01</div>
         </div>
       </div>
+      <div class="row-padding-lv1">・用来绘制币币交易系统部分对外展示的交易对的K线图，通过机器人之间互相买卖生成的K线效果不佳</div>
       <div class="row-padding-lv1">・新增了两个接口，一个用来给k线编辑器读取配置，另一个是保存配置</div>
       <div class="row-padding-lv1">・独自完成了用户编辑完k线后, 提示有多少个柱子没画并且高亮这些柱子的功能</div>
       <div class="row-padding-lv1">・让element-ui的loading组件覆盖每个HTTP请求，请求过程中把禁用按钮避免用户重复提交</div>
-      <div class="row-padding-lv1">・遇到的最大问题是：ruby的时间戳是以秒为单位，而js以毫秒为单位，换算过程中出现很多Bug</div>
+<!--      <div class="row-padding-lv1">・遇到的最大问题是：ruby的时间戳是以秒为单位，而js以毫秒为单位，换算过程中出现很多Bug</div>-->
 
       <div class="title-row">
         <div style="display: flex">
@@ -324,6 +325,7 @@
           <div class="time-range">19.11.14 - 19.11.23</div>
         </div>
       </div>
+      <div class="row-padding-lv1">・该脚本计算DSCT矿池锁仓的每日利息以及用户推荐新人锁仓的佣金计算</div>
       <div class="row-padding-lv1">・用ruby<b>元编程</b>(define_method)简化了佣金计算部分的代码，通过<b>「crontab」</b>每日定时执行该脚本</div>
       <div class="row-padding-lv1">・学习建立User表与Account表之间的<b>「双向关联」</b>，简化操作代码</div>
       <div class="row-padding-lv1">・在ActiveRecord的before_update「hook/callback」给用户钱包余额加了非负验证</div>
@@ -349,7 +351,7 @@
           <div class="time-range">19.11.07 - 19.12.08</div>
         </div>
       </div>
-      <div class="row-padding-lv1">・需要同时按转账发起人邮箱和转账接收人邮箱进行查询，转账记录表需要join用户表两次</div>
+      <div class="row-padding-lv1">・需求是同时按转账发起人邮箱和转账接收人邮箱进行查询，转账记录表需要join用户表两次</div>
       <div class="row-padding-lv1">・在ActiveRecord转账记录表上建立了sender/receiver_user_id外键关联</div>
       <div class="row-padding-lv1">・遇到rails的设计缺陷，两次includes同一个用户表时无法辨别是发起者还是接收者</div>
       <div class="row-padding-lv1">・最后用混合ORM和原生SQL实现查询，总结整理出多篇ActiveRecord相关文章发布在我的个人博客</div>
