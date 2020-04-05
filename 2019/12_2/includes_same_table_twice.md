@@ -13,7 +13,7 @@
 `transfers`表(邮件记录)只有`from_member_id`和`to_member_id`字段与`members`表关联
 
 > [!TIP|label:按邮箱查询]
-> 如何按`发件人邮箱`和`收件人邮箱`查询邮件记录表
+> 如何「同时」按`发件人邮箱`和`收件人邮箱`查询邮件记录表
 
 <!-- tabs:start -->
 
