@@ -195,3 +195,105 @@ async fn create_post(
 ```
 
 <!-- tabs:end -->
+
+### Update
+
+<!-- tabs:start -->
+
+#### ** models/post.rs **
+
+```rust
+pub fn update_post(conn: &PgConnection, id: i32, params_author: &str, params_title: &str, params_body: &str) -> Result<(), diesel::result::Error>{
+  use super::super::schema::posts::dsl::{posts, author, title, body};
+
+  diesel::update(posts.find(id))
+    .set((
+      author.eq(params_author),
+      title.eq(params_title),
+      body.eq(params_body)
+    ))
+    .get_result::<Post>(conn)?; // 通过问号把异常抛给main.rs处理
+    // .expect(&format!("Unable to find post {}", id));
+  Ok(())
+}
+```
+
+#### ** main.rs **
+
+```rust
+#[patch("/post/{id}")]
+async fn update_post(
+  path: web::Path<(i32, )>,
+  db_conn: web::Data<Mutex<PgConnection>>,
+  post: web::Json<models::post::NewPost>,
+) -> impl Responder {
+  // curl --request POST --url http://localhost:8333/post/1 --header 'content-type: application/json' --data '{"author":"12","title":"1","body":"1"}'
+  let db_conn_locked = db_conn.lock().unwrap();
+  let res = models::post::update_post(&db_conn_locked, path.0, &post.author, &post.title, &post.body);
+  match res {
+    Ok(_) => {
+      web::Json(serde_json::json!({
+        "status_code": 200,
+        "message": "ok",
+        "author": post.author,
+        "title": post.title,
+        "body": post.body
+      }))
+    }
+    Err(_) => {
+      HttpResponse::BadRequest().finish();
+      web::Json(serde_json::json!({
+        "status_code": 400,
+        "message": "id not found"
+      }))
+    }
+  }
+}
+```
+
+<!-- tabs:end -->
+
+### Delete
+
+<!-- tabs:start -->
+
+#### ** models/post.rs **
+
+```rust
+pub fn delete_post(conn: &PgConnection, id: i32) -> Result<(), diesel::result::Error> {
+  use super::super::schema::posts::dsl::posts;
+
+  diesel::delete(posts.find(id))
+    .execute(conn)?;
+  Ok(())
+}
+```
+
+#### ** main.rs **
+
+```rust
+#[delete("/post/{id}")]
+async fn delete_post(
+  path: web::Path<(i32, )>,
+  db_conn: web::Data<Mutex<PgConnection>>
+) -> impl Responder {
+  let db_conn_locked = db_conn.lock().unwrap();
+  match models::post::delete_post(&db_conn_locked, path.0) {
+    Ok(_) => {
+      web::Json(serde_json::json!({
+        "status_code": 200,
+        "message": "Delete post success!"
+      }))
+    }
+    Err(_) => {
+      HttpResponse::BadRequest().finish();
+      web::Json(serde_json::json!({
+        "status_code": 400,
+        "message": "id not found"
+      }))
+    }
+  }
+}
+```
+
+<!-- tabs:end -->
