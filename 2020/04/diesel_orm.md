@@ -135,3 +135,63 @@ pub fn create_post(conn: &PgConnection, author: &str, title: &str, body: &str) {
 ```
 
 <!-- tabs:end -->
+
+### Read
+
+actix-web多线程数据库连接池的内容我还在摸索中，先不演示了
+
+<!-- tabs:start -->
+
+#### ** models/post.rs **
+
+```rust
+// 新增Post用的struct，唯一的差別是不需要「id」
+// 记笔记：derive(Debug)等于支持以"{:#?}"的格式pretty print
+#[derive(Debug, Insertable, Serialize, Deserialize)]
+// 要指定表的名称为posts，不然会类似rails把NewPost看做表名new_posts
+#[table_name = "posts"]
+pub struct NewPost {
+  pub author: String,
+  pub title: String,
+  pub body: String,
+}
+
+pub fn read_posts(conn: &PgConnection) -> Vec<Post> {
+  // posts::dsl::*必须写在函数里面，否则会与外面的变量命名冲突，污染变量名
+  /*
+  let users = sql_query("SELECT * FROM users ORDER BY id")
+      .load(&connection);
+  let expected_users = vec![
+      User { id: 1, name: "Sean".into() },
+      User { id: 2, name: "Tess".into() },
+  ];
+  assert_eq!(Ok(expected_users), users);
+  */
+  use super::super::schema::posts::dsl::*;
+  log::info!("SELECT * FROM posts");
+  posts.load::<Post>(conn).expect("Error in Execute SQL: SELECT * FROM posts")
+}
+```
+
+#### ** main.rs **
+
+```rust
+#[post("/posts")]
+async fn create_post(
+  db_conn: web::Data<Mutex<PgConnection>>,
+  post: web::Json<models::post::NewPost>
+) -> impl Responder {
+  // curl --request POST --url http://localhost:8333/posts --header 'content-type: application/json' --data '{"author":"12","title":"1","body":"1"}'
+  let db_conn_locked = db_conn.lock().unwrap();
+
+  models::post::create_post(&db_conn_locked, &post.author, &post.title, &post.body);
+
+  web::Json(serde_json::json!({
+    "status_code": 200,
+    "message": "ok"
+  }))
+}
+
+```
+
+<!-- tabs:end -->

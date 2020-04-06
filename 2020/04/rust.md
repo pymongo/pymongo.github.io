@@ -123,6 +123,12 @@ fn get_gender(gender: &str) -> Option<&str> {
 
 能把iter类型转为vector
 
+## rust句尾/句末的问号?
+
+[参考](https://doc.rust-lang.org/edition-guide/rust-2018/error-handling-and-panics/the-question-mark-operator-for-easier-error-handling.html)
+try!(foo()) 等于 foo()?
+?类似unwrap，但unwrap和try!是不一样的
+
 ## Rust学习资料
 
 # 学习资料
