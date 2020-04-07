@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年4月**
+    - [actix日志拦截器对性能的影响](/2020/04/actix_logger_performance.md)
     - [diesel的CRUD教程(Rust-ORM)](/2020/04/diesel_orm.md)
     - [国产安卓机UI测试的坑](/2020/04/domestic_can_not_run_ui_test.md)
     - [底部导航栏页面切换的坑(socket)](/2020/04/navigation_lifecircle.md)
