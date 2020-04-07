@@ -31,7 +31,7 @@ Open a **new shell** and type the following:
 <i class="fa fa-hashtag"></i>
 Intellij创建Rust项目
 
-!> 只有Clion上才有debugger和profiler，建议使用CLione
+!> 只有Clion上才有debugger和profiler，建议使用CLion
 
 设置`Toolchain location`: /Users/w/.cargo/bin 之后 Intellij会提示
 

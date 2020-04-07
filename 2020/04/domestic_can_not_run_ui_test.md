@@ -13,9 +13,15 @@
 
 安卓UI测试本质上是给手机安装一个 包名.test 的apk，然后自启动apk进行测试
 
+---
+
 ![](test_apk_list.jpg)
 
+---
+
 但是这些自动安装的xx.test的apk都没有autostart(自启动)的权限
+
+![](test_apk_autostart_permission.jpg)
 
 导致activityScenario启动失败
 
