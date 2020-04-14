@@ -1,4 +1,4 @@
-# [DataGrip - 最好用的数据库工具](/archive/IDE/datagrip.md)
+# [DataGrip - 最好用的数据库工具](/archive/intellij_idea/datagrip.md)
 
 ## 字段(field/column)搜索
 

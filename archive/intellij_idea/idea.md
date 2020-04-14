@@ -1,25 +1,10 @@
-# [idea/jetbrains全家桶通用技巧](archive/IDE/idea)
+# [idea/jetbrains全家桶通用技巧](/archive/intellij_idea/idea.md)
 
 ## 「生产力」打开粘贴板历史
 
 cmd+shift+v
 
 clipboard history
-
-## ideaVim
-
-新版的ideaVim真香~，使用与vim一样的配置文件，还能用vim插件
-
-0.54版的ideaVim在keymap里只有3个快捷键设置项，有用的是vim emulator(开关vim快捷键)
-
-vim其余设置其余的在`~/.ideavimrc`，注意大部分`.vimrc`的设置都不能用
-
-<i class="fa fa-hashtag"></i>
-vim emulator
-
-通过find action找到**vim emulator**的设置项，决定vim和idea冲突的快捷键使用vim还是IDEA的
-
-按照Mac的习惯我把 `Ctrl+P/N/F/B` 指定使用IDE的上下左右
 
 ## 代码间跳动
 
@@ -31,14 +16,20 @@ HTML标签/代码块 open/end之间跳动
 > cmd+alt+[
 
 <i class="fa fa-hashtag"></i>
-在最近navigate的两处代码处跳动
+在最近navigate的两处光标间跳动
 
-如cmd+b找到方法的定义处，然后cmd+alt+左 返回
+如cmd+b找到方法的定义处，然后cmd+alt+左/友 返回
+
+?> 还可以通过cmd+\[ 和 cmd+] 实现最近两处光标间跳动
+
+## 编辑代码
 
 <i class="fa fa-hashtag"></i>
 复制当前行
 
 cmd+d
+
+?> cmd+d 还可以复制当前选中的单词
 
 <i class="fa fa-hashtag"></i>
 删除当前行
@@ -47,6 +38,23 @@ cmd+Backspace
 
 <i class="fa fa-hashtag"></i>
 选中当前变量名，并在所有出处放上光标
+
+## 查看代码文档
+
+Alt+SPACE、cmd+Y：快速查看方法的定义definition
+
+★`cmd+P`：【】查看方法的入参parameter，并提示当前还差几个参数没输入
+
+cmd+J/F1：查文档
+
+Shift+F1：外部文档
+
+cmd+N: 快速生成getter/setter方法
+
+<i class="fa fa-hashtag"></i>
+sout -> System.out.println
+
+cmd+j 可以列出idea所有java代码的快捷输入
 
 ## 打开/关闭文件
 
@@ -69,3 +77,9 @@ DataGrip中cmd+Alt+O能搜索表的字段名，不过不能区分表名
 ## 错误处理
 
 `F2`跳到下个错误，`Alt+Enter`列出解决错误的办法
+
+## 配置全局/项目的SQL语法
+
+打开preference，搜索SQL dialect，如图：
+
+![](idea_sql_dialect.png)

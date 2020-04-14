@@ -103,12 +103,14 @@
     - [find & replace](/archive/vim/find.md)
     - [bookmark & macro & collapse](archive/vim/bookmark.md)
     - [plugin & Vimium](archive/vim/plugin.md)
-- **IDE**
-    - [Intellij idea](/archive/IDE/intellij.md)
-    - [vscode添加切换terminal tab的快捷键](/archive/IDE/vscode/switch_terminal_tab.md)
-    - [vscode技巧,正则表达式置换等](/archive/IDE/vscode/index.md)
-    - [idea/jetbrains全家桶通用技巧](/archive/IDE/idea.md)
-    - [DataGrip - 最好用的数据库工具](/archive/IDE/datagrip.md)
+- **Intellij IDEA**
+    - [IDEA Vim](/archive/intellij_idea/idea_vim.md)
+    - [jetbrainsIDE通用技巧](/archive/intellij_idea/idea.md)
+    - [DataGrip - 最好用的数据库工具](/archive/intellij_idea/datagrip.md)
+    - [Android Studio](/archive/intellij_idea/android_studio.md)
+- **vscode**
+    - [vscode添加切换terminal tab的快捷键](/archive/vscode/switch_terminal_tab.md)
+    - [vscode技巧,正则表达式置换等](/archive/vscode/index.md)
 - **单片机嵌入式**
     - [以中断方式读轻触按键](/archive/embedded/button-interrupt/index.md)
     - [矩阵键盘(keypad)](/archive/embedded/keypad/index.md)
