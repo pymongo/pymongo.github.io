@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年4月**
+    - [Rust解决use of moved value](/2020/04/rust_use_of_moved_value.md)
     - [redis-cli订阅频道](/2020/04/redis_cli_subscribe.md)
     - [actix日志拦截器对性能的影响](/2020/04/actix_logger_performance.md)
     - [diesel的CRUD教程(Rust-ORM)](/2020/04/diesel_orm.md)
@@ -92,8 +93,6 @@
     - [再次学习Ruby](/2019/10/ruby_restudy.md)
     - [chrome78开始支持darkmode](/2019/10/chrome-dark-mode.md)
 <!-- archive -->
-- **性能优化**
-    - [谷歌字体库被墙的解决方案](/unarchived/google_font_block_solution.md)
 - **VIM**
     - [vim复习](/archive/vim/vim_review.md)
     - [cursor(光标移动)](/archive/vim/cursor.md)
@@ -111,6 +110,8 @@
 - **vscode**
     - [vscode添加切换terminal tab的快捷键](/archive/vscode/switch_terminal_tab.md)
     - [vscode技巧,正则表达式置换等](/archive/vscode/index.md)
+- **性能优化**
+    - [谷歌字体库被墙的解决方案](/unarchived/google_font_block_solution.md)
 - **单片机嵌入式**
     - [以中断方式读轻触按键](/archive/embedded/button-interrupt/index.md)
     - [矩阵键盘(keypad)](/archive/embedded/keypad/index.md)
