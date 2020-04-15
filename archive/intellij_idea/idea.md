@@ -83,3 +83,13 @@ DataGrip中cmd+Alt+O能搜索表的字段名，不过不能区分表名
 打开preference，搜索SQL dialect，如图：
 
 ![](idea_sql_dialect.png)
+
+## maven
+
+需要启用：`Delegate IDE build`才能让Intellij默认使用maven运行项目而非采用java命令
+
+!> 注意maven的设置里不要勾选：`work in offline mode`
+
+## idea无法识别message.rs文件
+
+参考 [rubymine无法识别ruby文件](/2019/11_2/rubymine_not_recognize_rb.md)0.0n
