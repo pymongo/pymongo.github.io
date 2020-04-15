@@ -38,7 +38,7 @@ UB1的解决方法`app:labelVisibilityMode="labeled` [参考stackoverflow](https
 
 UB2的解决方法`values/dimens.xml`中插入一行:
 
-> \<dimen name="design_bottom_navigation_active_text_size" tools:override="true" tools:ignore="PrivateResource">12sp</dimen>
+> \<dimen name="design_bottom_navigation_active_text_size" tools:override="true">12sp\</dimen>
 
 UB3的解决方法 `app:itemBackground="?android:attr/windowBackground"`
 
