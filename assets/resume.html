@@ -116,9 +116,9 @@
         </div>
       </div>
       <div class="row-padding-lv1">
-        ・参与中亚交易所(数字货币交易平台)现有系统的维护与测试，以及新业务系统(如杠杆交易)的开发与维护
+        ・参与数字货币交易平台、区块链节点的开发与维护，主要负责WebSocket、数交所安卓端和聊天功能
       </div>
-<!--
+<!-- TODO 自我介绍草稿
 我任职威中杰公司技术部门的全栈开发岗位，该部门的主要业务是中亚交易所网站(数字货币交易平台)现有系统的维护与测试，以及新业务系统的开发与维护。
 我负责开发otc(场外交易)移动端API接口、vue版otc系统、后台管理系统、安卓端websocket等。用到的技术栈主要是ruby、redis、vue、MySQL和安卓。
 -->
@@ -145,74 +145,50 @@
 
       <div class="title-row">
         <div style="display: flex">
-          <div class="project-title">大学生记账App</div>
+          <div class="project-title">Rust版orderbook</div>
           <div class="project-link">项目链接：TODO</div>
         </div>
         <div class="flex-right">
-          <div class="time-range">20.03.24 - 20.03.xx</div>
+          <div class="time-range">20.03.24 - 至今</div>
         </div>
       </div>
-      <div class="row-padding-lv1">・主要是记录大学生食堂就餐、京东白条等消费记录，尝试使用Android的jetpack/MVVM架构技术</div>
-      <div class="row-padding-lv1">・用了dagger2依赖注入、viewBinding、viewModel和dataBinding技术，在xml中嵌入Java代码</div>
-      <div class="row-padding-lv1">・通过Parcelable序列化/反序列化接口实现两个页面之间传递Java实例对象</div>
-
-      <div class="title-row">
-        <div style="display: flex">
-          <div class="project-title">运维-部署野火IM</div>
-          <div class="project-link">项目链接：TODO</div>
-        </div>
-        <div class="flex-right">
-          <div class="time-range">20.03.14 - 20.03.16</div>
-        </div>
-      </div>
-      <div class="row-padding-lv1">・重新设计了行情涨跌榜的显示机制：旧版显示机制是订阅websocket频道每隔5秒收到一次数据广播，</div>
-      <div class="row-padding-lv1">・如果在websocket轮询间隙访问旧版涨跌榜，会显示一个空白的页面等待下次轮询得到数据再刷新页面</div>
-      <div class="row-padding-lv1">・解决方案：离开涨跌榜Acitivity时把数据存入本地SQLite，下次进入涨跌榜时优先从数据库中获取数据</div>
-      <div class="row-padding-lv1">・设计了安卓端markets的表结构，使用SQL语句排序实现了按涨跌幅/24小时成交量的排序</div>
+      <div class="row-padding-lv1">・用actix重写grape+thin(ruby)的某个查数据库的接口，性能从每秒1700次请求提升到12000次</div>
 
       <div class="title-row">
         <div style="display: flex">
           <div class="project-title">野火聊天二次开发</div>
-          <div class="project-link">项目链接：http://www.wildfirechat.cn/</div>
+          <div class="project-link">项目链接：https://docs.wildfirechat.cn/</div>
         </div>
         <div class="flex-right">
-          <div class="time-range">20.03.09 - 20.03.23</div>
+          <div class="time-range">20.03.09 - 至今</div>
         </div>
       </div>
-      <div class="row-padding-lv1">・独自负责安卓端和后端聊天私服应用的开发，实现语音/定位等各种消息类型的消息发送</div>
+      <div class="row-padding-lv1">・独自负责野火IM后端和安卓端的开发维护，基于野火开源部分和付费购买的多人视频SDK二次开发</div>
       <div class="row-padding-lv1">・部署coturn服务器，实现两个客户端之间NAT内网穿透从而进行P2P视频通话</div>
-      <div class="row-padding-lv1">・自学maven和spring-boot，部署野火IM的后端代码，编写JUnit单元测试</div>
-      <div class="row-padding-lv1">・发现spring官方教程中集成测试代码Demo中有一处错误(详情见我博客)</div>
+      <div class="row-padding-lv1">・自学maven，发现spring官方教程中集成测试代码Demo中有一处错误(详见我博客)</div>
+      <div class="row-padding-lv1">・给野火IM安卓端提PR，与野火技术支持沟通，改善了语音消息的音质</div>
 
       <div class="title-row">
         <div style="display: flex">
-          <div class="project-title">安卓-自动更新</div>
-          <div class="project-link">项目链接：TODO</div>
-        </div>
-        <div class="flex-right">
-          <div class="time-range">20.01.09 - 20.01.12</div>
-        </div>
-      </div>
-      <div class="row-padding-lv1">・设计出App版本管理的表结构，在后台管理项目中添加了App表的CRUD功能</div>
-      <div class="row-padding-lv1">・集成了友盟SDK，收集用户错误日志以及统计用户的使用信息</div>
-      <div class="row-padding-lv1">・安卓端请求版本更新接口时携带设备信息(如机型,安卓版本)等参数，方便后端统计</div>
-
-      <div class="title-row">
-        <div style="display: flex">
-          <div class="project-title">数交所安卓涨跌幅榜</div>
-          <div class="project-link">项目链接：http://app-download.cadex.top/</div>
+          <div class="project-title">数交所安卓APP</div>
+          <div class="project-link">项目链接：http://app-download.cadex.top</div>
         </div>
         <div class="flex-right">
           <div class="time-range">20.01.07 - 至今</div>
         </div>
       </div>
-      <div class="row-padding-lv1">・涨幅榜的数据来自反序列WebSocket的json字符串得到的Java对象，定期写入SQLite(Room ORM)</div>
-      <div class="row-padding-lv1">・设计了相关的表结构，进入App时会先读取SQLite的涨幅榜数据，避免涨幅榜空白造成不好的用户体验</div>
+      <div class="row-padding-lv1">・开发了OkHttpHelper，为每个请求加上签名校验和设备信息(如机型,安卓版本)等参数，方便后端统计</div>
+      <div class="row-padding-lv1">・实现了java websocket client，包括断线重连、恢复订阅、取消全部订阅等功能</div>
+      <div class="row-padding-lv1">・了解jetpack MVVM架构，项目中用的了viewModel、DataBinding等新技术</div>
+      <div class="row-padding-lv1">・将项目升级为androidx，从安卓5.0兼容到安卓10，了解dagger2依赖注入</div>
+      <div class="row-padding-lv1">・通过Parcelable序列化/反序列化接口实现两个页面之间传递Java实例对象</div>
+      <div class="row-padding-lv1">・从WebSocket获取数据的RecyclerView改为用SQLite的数据(Room ORM)进行初始化</div>
+      <div class="row-padding-lv1">・集成了友盟SDK，收集用户错误日志以及统计用户的使用信息，方便产品运营</div>
 
       <div class="title-row">
         <div style="display: flex">
           <div class="project-title">数交所安卓聊天功能</div>
-          <div class="project-link">项目链接：http://app-download.cadex.top/</div>
+          <div class="project-link">项目链接：http://app-download.cadex.top</div>
         </div>
         <div class="flex-right">
           <div class="time-range">20.01.09 - 20.01.12</div>
@@ -237,19 +213,6 @@
 
       <div class="title-row">
         <div style="display: flex">
-          <div class="project-title">移动端API接口单元测试</div>
-          <div class="project-link">项目链接：http://v-api.testcadae.top/mobile_api/</div>
-        </div>
-        <div class="flex-right">
-          <div class="time-range">19.11.17 - 20.01.07</div>
-        </div>
-      </div>
-      <div class="row-padding-lv1">・使用FactoryBot库结合Faker库通过工厂模式生成测试数据，借助单元测试帮组重构代码</div>
-      <div class="row-padding-lv1">・在before :each的hooks将本次用到的相关数据表情况，确保每个test case/example做到数据上的解耦</div>
-<!--      <div class="row-padding-lv1">・将每个接口中的每个if else都进行测试，将复杂if语句重构为guard statement</div>-->
-
-      <div class="title-row">
-        <div style="display: flex">
           <div class="project-title">交易所移动端API接口</div>
           <div class="project-link">项目链接：http://v-api.testcadae.top/mobile_api/v2/otc</div>
         </div>
@@ -257,9 +220,12 @@
           <div class="time-range">19.12.03 - 至今</div>
         </div>
       </div>
-      <div class="row-padding-lv1">・使用RESTful API框架grape，通过单元测试/swagger/postman调试接口</div>
+      <div class="row-padding-lv1">・践行TDD开发方式，使用RESTful API框架grape，通过单元测试/swagger/postman调试接口</div>
       <div class="row-padding-lv1">・给所有接口加上数字签名校验，解决「N+1查询」问题，通过ab命令测试接口性能</div>
       <div class="row-padding-lv1">・对于时效性短的数据，存入redis减轻MySQL负载，如当日取消订单3次限制交易的功能通过redis实现</div>
+      <div class="row-padding-lv1">・使用FactoryBot库结合Faker库通过工厂模式生成测试数据，借助单元测试帮组重构代码</div>
+      <div class="row-padding-lv1">・在before :each的hooks将本次用到的相关数据表情况，确保每个test case/example做到数据上的解耦</div>
+      <!--      <div class="row-padding-lv1">・将每个接口中的每个if else都进行测试，将复杂if语句重构为guard statement</div>-->
       <!--      <div class="row-padding-lv1">・通过PxCook与美工/移动端的同事一起维护原型图，与移动端同事一起约定接口的数据格式</div>-->
 
       <div class="title-row">
@@ -276,6 +242,7 @@
 
       <div class="title-row">
         <div style="display: flex">
+          <!-- 5 -->
           <div class="project-title">k线画线工具</div>
           <div class="project-link">项目链接：http://k-line-drawer.testcadae.top</div>
         </div>
@@ -287,12 +254,14 @@
       <div class="row-padding-lv1">・新增了两个接口，一个用来给k线编辑器读取配置，另一个是保存配置</div>
       <div class="row-padding-lv1">・独自完成了用户编辑完k线后, 提示有多少个柱子没画并且高亮这些柱子的功能</div>
       <div class="row-padding-lv1">・让element-ui的loading组件覆盖每个HTTP请求，请求过程中把禁用按钮避免用户重复提交</div>
+      <br>
 <!--      <div class="row-padding-lv1">・遇到的最大问题是：ruby的时间戳是以秒为单位，而js以毫秒为单位，换算过程中出现很多Bug</div>-->
 
       <div class="title-row">
         <div style="display: flex">
+          <!-- 4 -->
           <div class="project-title">DSCT币每日利息<br>与佣金计算脚本</div>
-          <div class="project-link">项目链接：<br>http://v-api.testcadae.top/api/v2/otc</div>
+          <div class="project-link">项目链接：无</div>
         </div>
         <div class="flex-right">
           <div class="time-range">19.11.14 - 19.11.23</div>
@@ -306,6 +275,7 @@
 
       <div class="title-row">
         <div style="display: flex">
+          <!-- 3 -->
           <div class="project-title">vue-otc(法币交易系统)</div>
           <div class="project-link">项目链接：http://vue-otc.testcadae.top</div>
         </div>
@@ -317,6 +287,7 @@
 
       <div class="title-row">
         <div style="display: flex">
+          <!-- 2 -->
           <div class="project-title">站内转账按邮箱查询功能</div>
           <div class="project-link">项目链接：http://gly.testcadae.top/internal_transfer</div>
         </div>
@@ -331,6 +302,7 @@
 
       <div class="title-row">
         <div style="display: flex">
+          <!-- 1 -->
           <div class="project-title">交易所后台管理系统</div>
           <div class="project-link">项目链接：http://gly.testcadae.top</div>
         </div>
@@ -368,6 +340,17 @@
       <span class="title bold">个人作品</span>
     </div>
     <div class="right-wrapper">
+      <div class="title-row">
+        <div style="display: flex">
+          <div class="project-title">rust教程</div>
+          <div class="project-link">项目链接：https://rusttu.github.io</div>
+        </div>
+        <div class="flex-right">
+          <div class="time-range">20.04.09 - 至今</div>
+        </div>
+      </div>
+      <div class="row-padding-lv1">・我编写的面向有经验开发者的rust教程</div>
+
       <div class="title-row">
         <div style="display: flex">
           <div class="project-title">rust_leetcode</div>

@@ -21,7 +21,7 @@ match msg {
 }
 ```
 
-常用的消息类型是Text和Binary，不过本文主要讨论的是Ping和Pong消息类型
+常用的消息类型是Text和Binary，不过本文主要讨论的是Ping和Pong消息类型，详见[RFC6455](https://tools.ietf.org/html/rfc6455#section-5.5.2)
 
 ## js的ws心跳包
 
