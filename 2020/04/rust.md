@@ -41,6 +41,11 @@ Intellij创建Rust项目
 
 > /Users/w/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
+> [!TIP]
+> 推荐新手使用IDEA的「Rust REPL」工具，类似python或irb的shell环境学习Rust
+
+![](rust_repl.png)
+
 <i class="fa fa-hashtag"></i>
 Cargo创建Rust项目
 
