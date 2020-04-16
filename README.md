@@ -1,7 +1,9 @@
 - [归档 - 吴翱翔的博客](/)
 - **联系我**
     - [我的简历](/redirect/resume.html)
- 
+
+镜像1：[wuaoxiang.github.io](https://wuaoxiang.github.io)
+镜像2：[pymongo.github.io](https://pymongo.github.io)
 
 ## English Learning
 
@@ -13,4 +15,3 @@
 - Forensics: 取证 
 - retrieve: 恢复
 
-                                      
