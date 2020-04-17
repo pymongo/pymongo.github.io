@@ -1,6 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年4月**
-    -
+    - [cmake体验](/2020/04/cmake.md)
     - [浏览器运行Rust编译的wasm](/2020/04/rust_wasm.md)
     - [websocket心跳包与断线重连](/2020/04/websocket_heartbeat.md)
     - [Rust解决use of moved value](/2020/04/rust_use_of_moved_value.md)
