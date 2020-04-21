@@ -15,9 +15,12 @@ WebSocket服务端开发必须了解的几个名词的概念：
 
 MQ: Message Queue(消息队列)
 
-broker: 也叫Message Broker，帮你把消息从发送端传送到接收端
+broker: 也叫Message Broker，帮你把消息从发送端传送到接收端，有点像交换机？
 
 例如Erlang的RabbitMQ的简介如下:
 
 > RabbitMQ is an open-source message-broker software that...
 
+**Actor**
+
+Actor可能来源于Java的Akka框架，影响了后来Rust的actix等等，感觉Actor的概念跟线程很像

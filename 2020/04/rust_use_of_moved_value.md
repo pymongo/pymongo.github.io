@@ -1,4 +1,4 @@
-# [Rust解决use of moved value](/2020/04/rust_use_of_moved_value.md)
+# [Rust解决一个moved案例](/2020/04/rust_use_of_moved_value.md)
 
 看了leetcode第二题上别人的解答之后，自己终于能遍历+构造ListNode了
 
