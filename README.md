@@ -47,3 +47,5 @@ scoop是一款windows系统的包管理工具，类似mac的homebrew或Linux的a
 ## 高频英语单词
 
 - retrieve: 恢复
+- Boilerplate code: 样板代码
+- middleware: 中间件
