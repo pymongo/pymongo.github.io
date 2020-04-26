@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年4月**
+    - [抄底BTC成功案例分析](/2020/04/case_study_buy_low_sell_high_on_btc.md)
     - [复盘第一次rebase](/2020/04/git_rebase)
     - [算法 - 等比级数](/2020/04/geometric_series.md)
     - [ab测试工具的极限](/2020/04/limit_of_apache_ab.md)
