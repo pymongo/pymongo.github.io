@@ -133,7 +133,7 @@
     - [日本語入力(输入法)](/archive/japanese/nyuuryoku.md)
 - **Leetcode**
     - [066 plus one](/archive/leetcode/066-plus-one.md)
-    - [070 Climbing Stairs(递归类)](/archive/leetcode/070-climbing-stairs.md)
+    - [070 爬楼梯动态规划](/archive/leetcode/070_dp_climbing_stairs.md)
     - [118 pascal tria:ngle(杨辉三角)](/archive/leetcode/118-pascal-triangle.md)
     - [leetcode简单题/API题](/archive/leetcode/leetcode-easy.md)
 - **数据库**
