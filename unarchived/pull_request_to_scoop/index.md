@@ -1,4 +1,4 @@
-# [首次给开源项目(scoop)提交代码](/unarchived/pull_request_to_scoop/index.md)
+# [给开源项目(scoop)提交代码](/unarchived/pull_request_to_scoop/index.md)
 
 ## 版本管理器git与SVN
 

@@ -149,7 +149,7 @@
 - **个人作品**
     - [【智能家居】平板电脑控制电灯](/unarchived/rpi_gpio.md)
 - **old**
-    - [首次给开源项目(scoop)提交代码](/unarchived/pull_request_to_scoop/index.md)
+    - [给开源项目(scoop)提交代码](/unarchived/pull_request_to_scoop/index.md)
     - [chrome恐龙奔跑游戏中作弊](/unarchived/chrome_game_cheat/index.md)
     - [谷歌的文字冒险游戏](/unarchived/google_text_adventure.md)
     - [CSS/HTML小知识(如CSS权重)](/unarchived/css_html_notes.md)
