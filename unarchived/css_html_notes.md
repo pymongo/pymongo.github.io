@@ -1,4 +1,4 @@
-# [CSS/HTML小知识(如CSS权重)](/unarchived/css_specificity.md)
+# [CSS/HTML小知识(如CSS权重)](/unarchived/css_html_notes.md)
 
 ## CSS权重
 

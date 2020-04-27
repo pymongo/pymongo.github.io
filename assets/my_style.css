@@ -8,9 +8,14 @@ var.mark {
   font-weight: 700;
 }
 
-div.sidebar-nav > ul > li > ul > li > ul > li > a,
+/* 二级标题间行距 */
+div.sidebar-nav > ul > li > ul > li > ul > li > a {
+  line-height: 1.4em;
+}
+
+/* 三级标题间行距 */
 div.sidebar-nav > ul > li > ul > li > ul > ul > li > a {
-  line-height: 1.5em;
+  line-height: 1em;
 }
 
 summary { 

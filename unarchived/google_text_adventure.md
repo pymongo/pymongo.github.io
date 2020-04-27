@@ -126,7 +126,6 @@ You see a map on a bench.  Type "grab" to pick it up.
 
 更多谷歌搜索彩蛋请看[维基百科](https://en.wikipedia.org/wiki/List_of_Google_Easter_eggs)
 
-- 翻译组件: english to chinese 这种格式
 - 经济曲线/股市行情: google stock/上证指数
 - 汇率换算/单位/进制转化: 1000JPY to CNY
 - 地图问路: from nagoya to tokyo

@@ -1,6 +1,6 @@
 # [博客新功能/样式测试](/unarchived/test.md)
 
-## text test
+## text's style test
 
 ~~line-through~~ **strong** *italic* <mark>mark_tag·</mark>
 
