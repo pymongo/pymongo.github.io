@@ -1,4 +1,4 @@
-# 编程小知识收集
+# [CSS/HTML小知识(如CSS权重)](/unarchived/css_specificity.md)
 
 ## CSS权重
 
@@ -10,31 +10,42 @@
 
 比如 .text 里面的color属性会覆盖掉 p 里面的color属性
 
-- important(CSS选择器权重值)/inline-styling: 1000, ID: 100, class: 10, tag: 1) 
-- [CSS Specificity - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
+- important(CSS选择器权重值)/inline-styling: 1000
+- ID: 100
+- class: 10
+- tag: 1 
 
-## 给console.log输出结果添加css
+[CSS Specificity - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
+
+---
+
+<i class="fa fa-hashtag"></i>
+console.log输出添加颜色
 
 console.log('%c green%c red', 'color:green', 'color:red')
 
-## 行距
+<i class="fa fa-hashtag"></i>
+文字间行距
 
 常用 line-height: 100% 与margin/padding调整文字间行距
 
-## background-attachment
+<i class="fa fa-hashtag"></i>
+background-attachment
 
 滚动时背景图固定
 
-## vw-vh单位
+<i class="fa fa-hashtag"></i>
+vw-vh单位
 
-1vw = 1% of viewport width
-1vh = 1% of viewport height
-1vmin = 1vw or 1vh, whichever is smaller
-1vmax = 1vw or 1vh, whichever is larger
+- 1vw = 1% of viewport width
+- 1vh = 1% of viewport height
+- 1vmin = 1vw or 1vh, whichever is smaller
+- 1vmax = 1vw or 1vh, whichever is larger
 
 [viewport-sized css-trick](https://css-tricks.com/viewport-sized-typography/)
 
-## onblur事件-离开input后立即验证
+<i class="fa fa-hashtag"></i>
+input失焦的onblur事件
 
 [onblur event - W3School](https://www.w3schools.com/jsref/event_onblur.asp)
 
@@ -44,7 +55,8 @@ console.log('%c green%c red', 'color:green', 'color:red')
 
 Event.stopPropagation()停止事件触发往上冒泡传递
 
-## 折叠功能:details-summary标签
+<i class="fa fa-hashtag"></i>
+折叠功能:details-summary
 
 <details>
 <summary>
@@ -53,29 +65,20 @@ summary折叠后显示
 details被折叠内容...
 </details>
 
-## figcaption标签
-
-[figcaption - MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption)
-MDN的
-
-<figure>
-    <img src="//interactive-examples.mdn.mozilla.net/media/cc0-images/Elephant_In_Silhouette_Closer--660x480.jpg" alt="Elephant at sunset">
-    <figcaption>An elephant in sun set</figcaption>
-</figure>
-
-表格的标题有caption标签, 定义在table第一个子元素
-
-## marquee标签
+<i class="fa fa-hashtag"></i>
+marquee标签
 
 <marquee behavior="alternate">marquee tag behavior="alternate"(往回弹),默认是scroll</marquee>
 
 **滚动** *效果* 的CSS实现: `animation: scroll 7s linear 0s infinite;`
 
-## kbd标签
+<i class="fa fa-hashtag"></i>
+kbd标签
 
 <kbd>Ctrl</kbd> + <kbd>s</kbd> : Save file // kbd tag
 
-## ruby标签显示拼音
+<i class="fa fa-hashtag"></i>
+ruby标签显示拼音
 
 <ruby>
  拼音 <rt> pīn yīn </rt>
@@ -87,7 +90,8 @@ MDN的
 </ruby>
 ```
 
-## 名词缩写(虚线下划线效果)
+<i class="fa fa-hashtag"></i>
+名词缩写(虚线下划线效果)
 
 <p>世界卫生组织<abbr title="World Health Organization">WHO</abbr></p>
 

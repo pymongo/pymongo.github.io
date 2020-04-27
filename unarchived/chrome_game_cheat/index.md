@@ -1,4 +1,4 @@
-# [chrome的恐龙奔跑游戏中作弊](/old/chrome_game_cheat/index.md)
+# [chrome恐龙奔跑游戏中作弊](/old/chrome_game_cheat/index.md)
 
 ![01_cover](01_cover.png "01_cover")
 

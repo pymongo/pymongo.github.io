@@ -152,9 +152,9 @@
     - [首次给开源项目(scoop)提交代码](/unarchived/pull_request_to_scoop/index.md)
 - **old**
     - [博客新功能/样式测试](/unarchived/test.md)
-    - [chrome的恐龙奔跑游戏中作弊](/unarchived/chrome_game_cheat/index.md)
+    - [chrome恐龙奔跑游戏中作弊](/unarchived/chrome_game_cheat/index.md)
     - [谷歌的文字冒险游戏](/unarchived/google_text_adventure.md)
-    - [CSS权重等前端豆知识回顾](/unarchived/css_specificity.md)
+    - [CSS/HTML小知识(如CSS权重)](/unarchived/css_specificity.md)
 - **联系我**
     - [我的简历](/redirect/resume.html)
  
