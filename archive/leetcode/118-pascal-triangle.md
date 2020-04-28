@@ -24,7 +24,7 @@ def getRow(self, n):
     return row
 ```
 
-#### 用generator生成杨辉三角
+## 用generator生成杨辉三角
 ```python
 # 性能：前10%
 def triangles():
@@ -44,7 +44,7 @@ def getRow(self, n):
 ```
 <pre>
 杨辉三角的递推思路
-     c = 0  b1 b2 ... bn-1 bn
+  b(n) = 0  b1 b2 ... bn-1 bn
     +d = b1 b2 b3 ... bn   0
-= b.next  
+= b(n+1) = b.next  
 </pre>

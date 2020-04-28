@@ -105,6 +105,12 @@
     - [再次学习Ruby](/2019/10/ruby_restudy.md)
     - [chrome78开始支持darkmode](/2019/10/chrome-dark-mode.md)
 <!-- archive -->
+- **Leetcode**
+    - [062 走格子最短路径](/archive/leetcode/062_dp_unique_paths.md)
+    - [066 plus one](/archive/leetcode/066-plus-one.md)
+    - [070 爬楼梯动态规划](/archive/leetcode/070_dp_climbing_stairs.md)
+    - [118 pascal tria:ngle(杨辉三角)](/archive/leetcode/118-pascal-triangle.md)
+    - [leetcode简单题/API题](/archive/leetcode/leetcode-easy.md)
 - **VIM**
     - [vim复习](/archive/vim/vim_review.md)
     - [cursor(光标移动)](/archive/vim/cursor.md)
@@ -131,11 +137,6 @@
     - [日本語の絵文字/記号/顔文字](/archive/japanese/kigou.md)
     - [日本語発音](/archive/japanese/hatsuon.md)
     - [日本語入力(输入法)](/archive/japanese/nyuuryoku.md)
-- **Leetcode**
-    - [066 plus one](/archive/leetcode/066-plus-one.md)
-    - [070 爬楼梯动态规划](/archive/leetcode/070_dp_climbing_stairs.md)
-    - [118 pascal tria:ngle(杨辉三角)](/archive/leetcode/118-pascal-triangle.md)
-    - [leetcode简单题/API题](/archive/leetcode/leetcode-easy.md)
 - **数据库**
     - [database](/archive/database/database.md)
     - [Oracle数据库](/archive/database/oracle_database/index.md)
