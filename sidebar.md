@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年4月**
+    - [Go语言研究](/2020/04/golang.md)
     - [chrome导出插件](/2020/04/chrome_export_extension.md)
     - [抄底BTC成功案例分析](/2020/04/case_study_buy_low_sell_high_on_btc.md)
     - [复盘第一次rebase](/2020/04/git_rebase)

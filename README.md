@@ -50,6 +50,10 @@ scoop是一款windows系统的包管理工具，类似mac的homebrew或Linux的a
 - Boilerplate code: 样板代码
 - middleware: 中间件
 
+## 常用的又没背下来的命令
+
+- find ~ -iname '*.apk'
+
 ## 名词缩写
 
 我个人不喜欢变量命名中将单词缩写的习惯，不过有些缩写还是要记一下免得看不懂别人代码
