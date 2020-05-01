@@ -1,4 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
+- **20年5月**
+    - [diesel给mysql加锁](/2020/05/diesel_mysql_lock.md)
 - **20年4月**
     - [Go语言研究](/2020/04/golang.md)
     - [chrome导出插件](/2020/04/chrome_export_extension.md)
