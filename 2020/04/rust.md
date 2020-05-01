@@ -3,6 +3,28 @@
 ruby/rails的性能不能满足实时性很强的需求(股票交易所)，于是尝试下[据说世界第一快的API框架](https://www.techempower.com/benchmarks/)
 rust/actix
 
+## rustup切换版本
+
+查看已安装的所有rust toolchain版本
+
+```
+ws-MacBook-Pro:~ w$ rustup toolchain list
+stable-x86_64-apple-darwin
+nightly-x86_64-apple-darwin
+1.40.0-x86_64-apple-darwin (default)
+1.43.0-x86_64-apple-darwin
+```
+
+通过项目文件夹根目录内的`rust-toolchain`文件可以指定项目的rust版本
+
+rustup没有rbenv那么方便，可以设置local和global的版本，rustup只能通过default设置global版本
+
+stable默认指向最高版本的rust
+
+如果想要从1.43.0切换到1.40.0，首先rustup install 1.40.0然后rustup default 1.40.0
+
+如果发现切换到1.40.0后没有cargo命令，可能由于网络原因没将1.40版本下载完整，卸载了重装即可(建议开ExpressVPN安装，下载速度快)
+
 ## rustup与cargo
 
 rustup好像类似于brew，用于升级rust；cargo就等同于npm，比如cargo run = npm run
