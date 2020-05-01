@@ -61,4 +61,16 @@ diesel似乎还提供了一个with_lock() API给数据库加锁，不过文档�
 
 ---
 
-TODO diesel官方对我PR的回复
+## diesel官方回复我PR
+
+```
+Can you please elaborate(阐述) why this needs a distinct example in the example directory,
+instead of just improving the API documentation here,
+especially as this example applies to multiple backends, but is only provided for one.
+```
+
+虽然diesel作者拒绝了我的PR，不过我不后悔，提PR的过程中学到了不少新知识。
+
+挺欣赏diesel作者对项目代码质量的高要求，我水平太低过不了他的review
+
+我的英语水平、技术水平还需要质变才能参与diesel的开发。
