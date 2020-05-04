@@ -61,7 +61,7 @@ diesel似乎还提供了一个with_lock() API给数据库加锁，不过文档�
 
 ---
 
-## diesel官方回复我PR
+## diesel对我PR的回复
 
 ```
 Can you please elaborate(阐述) why this needs a distinct example in the example directory,

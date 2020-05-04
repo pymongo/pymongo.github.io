@@ -25,6 +25,11 @@ HTML标签/代码块 open/end之间跳动
 ## 编辑代码
 
 <i class="fa fa-hashtag"></i>
+同时编辑多行(多个光标)
+
+ALt+Shift+Click
+
+<i class="fa fa-hashtag"></i>
 复制当前行
 
 cmd+d
