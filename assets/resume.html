@@ -147,26 +147,19 @@
 
       <div class="title-row">
         <div style="display: flex">
-          <div class="project-title">actix/examples</div>
-          <div class="project-link">项目链接：github.com/actix/examples/pull/298</div>
-        </div>
-        <div class="flex-right">
-          <div class="time-range">20.04.16 - 20.04.16</div>
-        </div>
-      </div>
-      <div class="row-padding-lv1">・actix是Rust语言一款开源的WebSocket/HTTP框架，actix/examples是框架各种应用的例子</div>
-      <div class="row-padding-lv1">・我发现关闭服务器Example中有两个无用的变量，为actix开源项贡献了Pull Request</div>
-
-      <div class="title-row">
-        <div style="display: flex">
-          <div class="project-title">Rust版orderbook</div>
+          <div class="project-title">Rust版撮合引擎</div>
           <div class="project-link">项目链接：TODO</div>
         </div>
         <div class="flex-right">
-          <div class="time-range">20.03.24 - 至今</div>
+          <div class="time-range">20.04.16 - 至今/div>
         </div>
       </div>
-      <div class="row-padding-lv1">・用actix重写grape+thin(ruby)的某个查数据库的接口，性能从每秒1700次请求提升到12000次</div>
+      <div class="row-padding-lv1">・我用Rust语言重写了交易所ruby版撮合引擎，性能从每秒撮合45单提升到610单</div>
+      <div class="row-padding-lv1">・编写了大量单元测试mock用户下单到撮合的过程，通过测试验证重构代码后是否出现UB</div>
+      <div class="row-padding-lv1">・使用MySQL的slow_log/general_log排查与调试性能问题，通过添加索引等方式提高性能</div>
+      <div class="row-padding-lv1">・订单撮合过程中用for update悲观锁确保用户账户变动是安全的</div>
+      <div class="row-padding-lv1">・项目中主要用到的actix框架，除了阅读源码我还给actix开源项目贡献了PR</div>
+<!--      <div class="row-padding-lv1">・我发现关闭服务器Example中有两个无用的变量，为actix开源项贡献了Pull Request</div>-->
 
       <div class="title-row">
         <div style="display: flex">
