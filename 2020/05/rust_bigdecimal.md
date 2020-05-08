@@ -1,5 +1,7 @@
 # [rust BigDecimal最佳实践](/2020/05/rust_bigdecimal.md)
 
+本文不仅是rust BigDecimal教程，还涉及Python的BigDecimal类型的一个坑，或者说所有语言的BigDecimal构造方法都不要用float等等。
+
 BigDecimal(以下简称decimal)不是Rust的primitive_type，所以没有Copy Trait，需要实现重载加减乘除运算符
 
 下面这段是BigDecimal乘法、加法的部分实现代码
@@ -56,6 +58,8 @@ bigdecimal结构体内部有两个u64，一个是存储数值部分，另一个�
 python错误示例
 
 如果是python中的decimal，decimal构造方法中使用float类型会导致运算过程中像浮点数一样出现精度丢失
+
+![](python_decimal_float_constructor.png)
 
 ```python
 from decimal import Decimal
