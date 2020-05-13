@@ -2,76 +2,76 @@
 <html lang="zh">
 
 <head>
-  <meta charset="UTF-8"/>
-  <title>吴翱翔的博客</title>
-  <meta name="keywords" content="rust,python,ruby,mysql"/>
-  <meta name="description" content="吴翱翔的技术博客 - rust/Android全栈工程师"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- <link rel="icon" href="http://showmethemoney.sweetysoft.com/image_after_2019_06/1851/favicon.ico"> -->
-  <link rel="icon" href="/favicon.ico"/>
-  <link rel="stylesheet" href="/assets/vue.css"/>
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@latest/lib/themes/vue.css"> -->
-  <link rel="stylesheet" href="/assets/my_style.css"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
-  <link rel="stylesheet" href="https://amzn.github.io/style-dictionary/assets/styles.css"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-dark-mode@latest/dist/style.min.css"/>
+    <meta charset="UTF-8"/>
+    <title>吴翱翔的博客</title>
+    <meta name="keywords" content="rust,python,ruby,mysql"/>
+    <meta name="description" content="吴翱翔的技术博客 - rust/Android全栈工程师"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- <link rel="icon" href="http://showmethemoney.sweetysoft.com/image_after_2019_06/1851/favicon.ico"> -->
+    <link rel="icon" href="/favicon.ico"/>
+    <link rel="stylesheet" href="/assets/vue.css"/>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@latest/lib/themes/vue.css"> -->
+    <link rel="stylesheet" href="/assets/my_style.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+    <link rel="stylesheet" href="https://amzn.github.io/style-dictionary/assets/styles.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-dark-mode@latest/dist/style.min.css"/>
 </head>
 
 <body>
-  <div id="app"></div>
-  <script>
+<div id="app"></div>
+<script>
     window.$docsify = {
-      // 警告：历史模式下请求old会返回old文件夹目录，而hash模式会返回404
-      // 错误：历史模式下docsify无法热重载
-      // routerMode: 'history',
-      alias: { '/.*/sidebar.md': 'sidebar.md' },
-      executeScript: true,
-      homepage: 'sidebar.md',
-      repo: 'pymongo/pymongo.github.io',
-      loadSidebar: 'sidebar.md',
-      subMaxLevel: 3,
-      themeColor: "#42b983", // for dark mode
-      darkMode: {
-        dark: {
-          background: "#1c2022",
-          toggleBtnBg: "#34495e",
-          textColor: "#d4d4d4"
+        // 警告：历史模式下请求old会返回old文件夹目录，而hash模式会返回404
+        // 错误：历史模式下docsify无法热重载
+        // routerMode: 'history',
+        alias: {'/.*/sidebar.md': 'sidebar.md'},
+        executeScript: true,
+        homepage: 'sidebar.md',
+        repo: 'pymongo/pymongo.github.io',
+        loadSidebar: 'sidebar.md',
+        subMaxLevel: 3,
+        themeColor: "#42b983", // for dark mode
+        darkMode: {
+            dark: {
+                background: "#1c2022",
+                toggleBtnBg: "#34495e",
+                textColor: "#d4d4d4"
+            },
+            light: {
+                background: "#ebebeb",
+                toggleBtnBg: "var(--theme-color)",
+                textColor: "#202528"
+            }
         },
-        light: {
-          background: "#ebebeb",
-          toggleBtnBg: "var(--theme-color)",
-          textColor: "#202528"
-        }
-      },
-      search: {
-        paths: 'auto',
-        placeholder: 'Search',
-        noData: 'No result'
-      },
-      pagination: {
-        previousText: 'PREVIOUS',
-        nextText: 'NEXT',
-        crossChapter: true
-      },
-      // hook.afterEach
+        search: {
+            paths: 'auto',
+            placeholder: 'Search',
+            noData: 'No result'
+        },
+        pagination: {
+            previousText: 'PREVIOUS',
+            nextText: 'NEXT',
+            crossChapter: true
+        },
+        // hook.afterEach
     }
-  </script>
-  <!-- flexible-alerts会引入font-awesome -->
-  <!-- 北京联通unpkg.com(230ms), cdn.jsdelivr.net(4.5ms) -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@latest/lib/docsify.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@latest/lib/plugins/search.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-plugin-flexible-alerts/dist/docsify-plugin-flexible-alerts.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@latest/dist/docsify-pagination.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@latest/dist/docsify-copy-code.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@latest/dist/docsify-tabs.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-dark-mode@latest/dist/index.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@latest/components/prism-sql.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@latest/components/prism-bash.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@latest/components/prism-java.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@latest/components/prism-rust.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@latest/components/prism-ruby.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@latest/components/prism-python.min.js"></script>
+</script>
+<!-- flexible-alerts会引入font-awesome -->
+<!-- 北京联通unpkg.com(230ms), cdn.jsdelivr.net(4.5ms) -->
+<script src="https://cdn.jsdelivr.net/npm/docsify@latest/lib/docsify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsify@latest/lib/plugins/search.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsify-plugin-flexible-alerts/dist/docsify-plugin-flexible-alerts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsify-pagination@latest/dist/docsify-pagination.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@latest/dist/docsify-copy-code.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsify-tabs@latest/dist/docsify-tabs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsify-dark-mode@latest/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@latest/components/prism-sql.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@latest/components/prism-bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@latest/components/prism-java.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@latest/components/prism-rust.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@latest/components/prism-ruby.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@latest/components/prism-python.min.js"></script>
 </body>
 
 </html>

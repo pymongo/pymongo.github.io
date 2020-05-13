@@ -1,23 +1,23 @@
 .fa.fa-hashtag {
-  color: var(--theme-color,#42b983);
+    color: var(--theme-color, #42b983);
 }
 
 var.mark {
-  color: rgb(237, 78, 132);
-  -webkit-font-smoothing: antialiased;
-  font-weight: 700;
+    color: rgb(237, 78, 132);
+    -webkit-font-smoothing: antialiased;
+    font-weight: 700;
 }
 
 /* 二级标题间行距 */
 div.sidebar-nav > ul > li > ul > li > ul > li > a {
-  line-height: 1.4em;
+    line-height: 1.4em;
 }
 
 /* 三级标题间行距 */
 div.sidebar-nav > ul > li > ul > li > ul > ul > li > a {
-  line-height: 1em;
+    line-height: 1em;
 }
 
-summary { 
-  cursor: pointer;
+summary {
+    cursor: pointer;
 }
