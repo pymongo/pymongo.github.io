@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年5月**
+    - [Go/Rust语言工具介绍](/2020/05/go_rust_toolchain.md)
     - [Go项目文件结构](/2020/05/go_file_structure.md)
     - [chrono不能连用两个local](/2020/05/rust_chrono_dual_local_ub.md)
     - [rust BigDecimal最佳实践](/2020/05/rust_bigdecimal.md)

@@ -93,23 +93,23 @@ test from_u64 ... bench: 73 ns/iter (+/- 3)
 ```rust
 #[bench]
 fn one_operator_rhs_ref(bencher: &mut test::Bencher) {
-  bencher.iter(|| {
-    let price = BigDecimal::from_str("1.1").unwrap();
-    let volume = BigDecimal::from(1);
-    let _total = price * &volume;
-  });
+    bencher.iter(|| {
+        let price = BigDecimal::from_str("1.1").unwrap();
+        let volume = BigDecimal::from(1);
+        let _total = price * &volume;
+    });
 }
 
 #[bench]
 fn one_operator_both_ref(bencher: &mut test::Bencher) {
-  // ...
-  let _total = &price * &volume;
+    // ...
+    let _total = &price * &volume;
 }
 
 #[bench]
 fn one_operator_lhs_borrow(bencher: &mut test::Bencher) {
-  // ...
-  let _total = price.borrow() * volume;
+    // ...
+    let _total = price.borrow() * volume;
 }
 ```
 
@@ -151,32 +151,32 @@ let d = a * b; // use of moved value
 ```rust
 #[bench]
 fn two_mul_first_clone(bencher: &mut test::Bencher) {
-  bencher.iter(|| {
-    let price = BigDecimal::from_str("1.1").unwrap();
-    let volume_a = BigDecimal::from(1);
-    let volume_b = BigDecimal::from(1);
-    let _total = price.clone() * volume_a + price * volume_b;
-  });
+    bencher.iter(|| {
+        let price = BigDecimal::from_str("1.1").unwrap();
+        let volume_a = BigDecimal::from(1);
+        let volume_b = BigDecimal::from(1);
+        let _total = price.clone() * volume_a + price * volume_b;
+    });
 }
 
 #[bench]
 fn two_mul_first_price_ref(bencher: &mut test::Bencher) {
-  bencher.iter(|| {
-    let price = BigDecimal::from_str("1.1").unwrap();
-    let volume_a = BigDecimal::from(1);
-    let volume_b = BigDecimal::from(1);
-    let _total = &price * volume_a + price * volume_b;
-  });
+    bencher.iter(|| {
+        let price = BigDecimal::from_str("1.1").unwrap();
+        let volume_a = BigDecimal::from(1);
+        let volume_b = BigDecimal::from(1);
+        let _total = &price * volume_a + price * volume_b;
+    });
 }
 
 #[bench]
 fn two_mul_first_price_second_price_ref(bencher: &mut test::Bencher) {
-  bencher.iter(|| {
-    let price = BigDecimal::from_str("1.1").unwrap();
-    let volume_a = BigDecimal::from(1);
-    let volume_b = BigDecimal::from(1);
-    let _total = &price * volume_a + &price * volume_b;
-  });
+    bencher.iter(|| {
+        let price = BigDecimal::from_str("1.1").unwrap();
+        let volume_a = BigDecimal::from(1);
+        let volume_b = BigDecimal::from(1);
+        let _total = &price * volume_a + &price * volume_b;
+    });
 }
 
 #[bench]
@@ -188,12 +188,12 @@ test two_mul_first_price_second_price_ref ... bench:         720 ns/iter (+/- 12
 结论：运算符左边的使用指针，或者全用指针性能最好，避免使用clone
 */
 fn two_mul_both_ref(bencher: &mut test::Bencher) {
-  bencher.iter(|| {
-    let price = BigDecimal::from_str("1.1").unwrap();
-    let volume_a = BigDecimal::from(1);
-    let volume_b = BigDecimal::from(1);
-    let _total = &price * &volume_a + &price * &volume_b;
-  });
+    bencher.iter(|| {
+        let price = BigDecimal::from_str("1.1").unwrap();
+        let volume_a = BigDecimal::from(1);
+        let volume_b = BigDecimal::from(1);
+        let _total = &price * &volume_a + &price * &volume_b;
+    });
 }
 ```
 
@@ -203,19 +203,19 @@ fn two_mul_both_ref(bencher: &mut test::Bencher) {
 
 ```rust
 lazy_static::lazy_static! {
-  static ref MAX_RATIO: BigDecimal = BigDecimal::from_str("1.1").unwrap();
-  static ref MIN_RATIO: BigDecimal = BigDecimal::from_str("0.9").unwrap();
+    static ref MAX_RATIO: BigDecimal = BigDecimal::from_str("1.1").unwrap();
+    static ref MIN_RATIO: BigDecimal = BigDecimal::from_str("0.9").unwrap();
 }
 
 #[bench]
 fn last_price_lazy_static_ref(bencher: &mut test::Bencher) {
-  bencher.iter(|| {
-    let params_price = BigDecimal::from(1);
-    let last_price = BigDecimal::from(1);
-    if params_price > &last_price * &*MAX_RATIO || params_price < &last_price * &*MIN_RATIO {
-      panic!("price > last_price*1.1 or price < last_price*0.9")
-    }
-  });
+    bencher.iter(|| {
+        let params_price = BigDecimal::from(1);
+        let last_price = BigDecimal::from(1);
+        if params_price > &last_price * &*MAX_RATIO || params_price < &last_price * &*MIN_RATIO {
+            panic!("price > last_price*1.1 or price < last_price*0.9")
+        }
+    });
 }
 ```
 
