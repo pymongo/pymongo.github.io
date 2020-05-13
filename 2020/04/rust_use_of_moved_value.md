@@ -3,55 +3,55 @@
 看了leetcode第二题上别人的解答之后，自己终于能遍历+构造ListNode了
 
 ```rust
-// 用于存储生成result链表的节点
-let mut current_node : ListNode = ListNode::new(0);
+    // 用于存储生成result链表的节点
+    let mut current_node : ListNode = ListNode::new(0);
 // result链表的头节点，仅仅用于返回值(head_node.next)
-let mut head_node : ListNode = ListNode::new(-1);
-head_node.next = Some(Box::new(current_node));
+    let mut head_node : ListNode = ListNode::new(-1);
+    head_node.next = Some(Box::new(current_node));
 // 用于存储当前节点的下一个节点
-let mut new_node : ListNode;
-let (mut ln1, mut ln2) = (l1, l2);
-let mut sum: i32;
+    let mut new_node : ListNode;
+    let (mut ln1, mut ln2) = (l1, l2);
+    let mut sum: i32;
 // 是否进位
-let mut is_carry : bool = false;
+    let mut is_carry : bool = false;
 
-loop {
-  // 像数字电路datasheet真值表一样...
-  match (ln1, ln2) { // 必须要在每个分支都给ln1和ln2复制才能避免moved value的报错
-    (Some(node1), Some(node2)) => {
-      sum = node1.val + node2.val;
-      if sum > 10 {
-        is_carry = true;
-        sum = sum % 10;
-      }
-      ln1 = node1.next;
-      ln2 = node2.next;
-    },
-    (Some(node1), None) => {
-      sum = node1.val;
-      ln1 = node1.next;
-      ln2 = None;
-    },
-    (None, Some(node2)) => {
-      sum = node2.val;
-      ln1 = None;
-      ln2 = node2.next;
-    },
-    (None, None) => {
-      break;
-    }
-  }
-  
-  current_node.val += sum;
-  if is_carry {
-    new_node = ListNode::new(1);
-    is_carry = false;
-  } else {
-    new_node = ListNode::new(0);
-  }
-  current_node.next = Some(Box::new(new_node));
-  current_node = new_node;
-} // end of loop
+    loop {
+// 像数字电路datasheet真值表一样...
+        match (ln1, ln2) { // 必须要在每个分支都给ln1和ln2复制才能避免moved value的报错
+            (Some(node1), Some(node2)) => {
+                sum = node1.val + node2.val;
+                if sum > 10 {
+                    is_carry = true;
+                    sum = sum % 10;
+                }
+                ln1 = node1.next;
+                ln2 = node2.next;
+            },
+            (Some(node1), None) => {
+                sum = node1.val;
+                ln1 = node1.next;
+                ln2 = None;
+            },
+            (None, Some(node2)) => {
+                sum = node2.val;
+                ln1 = None;
+                ln2 = node2.next;
+            },
+            (None, None) => {
+                break;
+            }
+        }
+
+        current_node.val += sum;
+        if is_carry {
+            new_node = ListNode::new(1);
+            is_carry = false;
+        } else {
+            new_node = ListNode::new(0);
+        }
+        current_node.next = Some(Box::new(new_node));
+        current_node = new_node;
+    } // end of loop
 head_node.next
 ```
 

@@ -71,8 +71,8 @@ mod models;
 mod schema;
 
 fn main() {
-  let db_connection = diesel_helper::establish_connection();
-  models::post::create_post(&db_connection, "author1", "title1", "body1");
+    let db_connection = diesel_helper::establish_connection();
+    models::post::create_post(&db_connection, "author1", "title1", "body1");
 }
 ```
 
@@ -86,12 +86,12 @@ use diesel::prelude::*;
 use dotenv::dotenv;
 
 pub fn establish_connection() -> PgConnection {
-  dotenv().ok();
-
-  let database_url = std::env::var("DATABASE_URL")
-    .expect("DATABASE_URL must be set in .env file");
-  PgConnection::establish(&database_url)
-    .expect(&format!("Error connecting to {}", database_url))
+    dotenv().ok();
+    
+    let database_url = std::env::var("DATABASE_URL")
+        .expect("DATABASE_URL must be set in .env file");
+    PgConnection::establish(&database_url)
+        .expect(&format!("Error connecting to {}", database_url))
 }
 ```
 
@@ -151,25 +151,26 @@ actix-web多线程数据库连接池的内容我还在摸索中，先不演示�
 // 要指定表的名称为posts，不然会类似rails把NewPost看做表名new_posts
 #[table_name = "posts"]
 pub struct NewPost {
-  pub author: String,
-  pub title: String,
-  pub body: String,
+    pub author: String,
+    pub title: String,
+    pub body: String,
 }
 
 pub fn read_posts(conn: &PgConnection) -> Vec<Post> {
-  // posts::dsl::*必须写在函数里面，否则会与外面的变量命名冲突，污染变量名
-  /*
-  let users = sql_query("SELECT * FROM users ORDER BY id")
+    // posts::dsl::*必须写在函数里面，否则会与外面的变量命名冲突，污染变量名
+    // 最佳实践是，将schema的orders与dsl的orders作区分，将dsl的orders重命名为orders_dsl
+    /*
+    let users = sql_query("SELECT * FROM users ORDER BY id")
       .load(&connection);
-  let expected_users = vec![
+    let expected_users = vec![
       User { id: 1, name: "Sean".into() },
       User { id: 2, name: "Tess".into() },
-  ];
-  assert_eq!(Ok(expected_users), users);
-  */
-  use super::super::schema::posts::dsl::*;
-  log::info!("SELECT * FROM posts");
-  posts.load::<Post>(conn).expect("Error in Execute SQL: SELECT * FROM posts")
+    ];
+    assert_eq!(Ok(expected_users), users);
+    */
+    use super::super::schema::posts::dsl::*;
+    log::info!("SELECT * FROM posts");
+    posts.load::<Post>(conn).expect("Error in Execute SQL: SELECT * FROM posts")
 }
 ```
 
@@ -178,18 +179,18 @@ pub fn read_posts(conn: &PgConnection) -> Vec<Post> {
 ```rust
 #[post("/posts")]
 async fn create_post(
-  db_conn: web::Data<Mutex<PgConnection>>,
-  post: web::Json<models::post::NewPost>
+    db_conn: web::Data<Mutex<PgConnection>>,
+    post: web::Json<models::post::NewPost>
 ) -> impl Responder {
-  // curl --request POST --url http://localhost:8333/posts --header 'content-type: application/json' --data '{"author":"12","title":"1","body":"1"}'
-  let db_conn_locked = db_conn.lock().unwrap();
-
-  models::post::create_post(&db_conn_locked, &post.author, &post.title, &post.body);
-
-  web::Json(serde_json::json!({
+    // curl --request POST --url http://localhost:8333/posts --header 'content-type: application/json' --data '{"author":"12","title":"1","body":"1"}'
+    let db_conn_locked = db_conn.lock().unwrap();
+    
+    models::post::create_post(&db_conn_locked, &post.author, &post.title, &post.body);
+    
+    web::Json(serde_json::json!({
     "status_code": 200,
     "message": "ok"
-  }))
+    }))
 }
 
 ```
@@ -204,17 +205,17 @@ async fn create_post(
 
 ```rust
 pub fn update_post(conn: &PgConnection, id: i32, params_author: &str, params_title: &str, params_body: &str) -> Result<(), diesel::result::Error>{
-  use super::super::schema::posts::dsl::{posts, author, title, body};
-
-  diesel::update(posts.find(id))
-    .set((
-      author.eq(params_author),
-      title.eq(params_title),
-      body.eq(params_body)
-    ))
+    use super::super::schema::posts::dsl::{posts, author, title, body};
+    
+    diesel::update(posts.find(id))
+        .set((
+            author.eq(params_author),
+            title.eq(params_title),
+            body.eq(params_body)
+        ))
     .get_result::<Post>(conn)?; // 通过问号把异常抛给main.rs处理
     // .expect(&format!("Unable to find post {}", id));
-  Ok(())
+    Ok(())
 }
 ```
 
@@ -223,31 +224,31 @@ pub fn update_post(conn: &PgConnection, id: i32, params_author: &str, params_tit
 ```rust
 #[patch("/post/{id}")]
 async fn update_post(
-  path: web::Path<(i32, )>,
-  db_conn: web::Data<Mutex<PgConnection>>,
-  post: web::Json<models::post::NewPost>,
+    path: web::Path<(i32, )>,
+    db_conn: web::Data<Mutex<PgConnection>>,
+    post: web::Json<models::post::NewPost>,
 ) -> impl Responder {
-  // curl --request POST --url http://localhost:8333/post/1 --header 'content-type: application/json' --data '{"author":"12","title":"1","body":"1"}'
-  let db_conn_locked = db_conn.lock().unwrap();
-  let res = models::post::update_post(&db_conn_locked, path.0, &post.author, &post.title, &post.body);
-  match res {
-    Ok(_) => {
-      web::Json(serde_json::json!({
-        "status_code": 200,
-        "message": "ok",
-        "author": post.author,
-        "title": post.title,
-        "body": post.body
-      }))
+    // curl --request POST --url http://localhost:8333/post/1 --header 'content-type: application/json' --data '{"author":"12","title":"1","body":"1"}'
+    let db_conn_locked = db_conn.lock().unwrap();
+    let res = models::post::update_post(&db_conn_locked, path.0, &post.author, &post.title, &post.body);
+    match res {
+        Ok(_) => {
+            web::Json(serde_json::json!({
+                "status_code": 200,
+                "message": "ok",
+                "author": post.author,
+                "title": post.title,
+                "body": post.body
+            }))
+        }
+        Err(_) => {
+            HttpResponse::BadRequest().finish();
+            web::Json(serde_json::json!({
+                "status_code": 400,
+                "message": "id not found"
+            }))
+        }
     }
-    Err(_) => {
-      HttpResponse::BadRequest().finish();
-      web::Json(serde_json::json!({
-        "status_code": 400,
-        "message": "id not found"
-      }))
-    }
-  }
 }
 ```
 
@@ -261,11 +262,11 @@ async fn update_post(
 
 ```rust
 pub fn delete_post(conn: &PgConnection, id: i32) -> Result<(), diesel::result::Error> {
-  use super::super::schema::posts::dsl::posts;
-
-  diesel::delete(posts.find(id))
+    use super::super::schema::posts::dsl::posts;
+    
+    diesel::delete(posts.find(id))
     .execute(conn)?;
-  Ok(())
+    Ok(())
 }
 ```
 
@@ -274,25 +275,25 @@ pub fn delete_post(conn: &PgConnection, id: i32) -> Result<(), diesel::result::E
 ```rust
 #[delete("/post/{id}")]
 async fn delete_post(
-  path: web::Path<(i32, )>,
-  db_conn: web::Data<Mutex<PgConnection>>
+    path: web::Path<(i32, )>,
+    db_conn: web::Data<Mutex<PgConnection>>
 ) -> impl Responder {
-  let db_conn_locked = db_conn.lock().unwrap();
-  match models::post::delete_post(&db_conn_locked, path.0) {
+    let db_conn_locked = db_conn.lock().unwrap();
+    match models::post::delete_post(&db_conn_locked, path.0) {
     Ok(_) => {
-      web::Json(serde_json::json!({
-        "status_code": 200,
-        "message": "Delete post success!"
-      }))
+        web::Json(serde_json::json!({
+            "status_code": 200,
+            "message": "Delete post success!"
+        }))
     }
     Err(_) => {
-      HttpResponse::BadRequest().finish();
-      web::Json(serde_json::json!({
-        "status_code": 400,
-        "message": "id not found"
-      }))
+        HttpResponse::BadRequest().finish();
+        web::Json(serde_json::json!({
+            "status_code": 400,
+            "message": "id not found"
+        }))
     }
-  }
+    }
 }
 ```
 

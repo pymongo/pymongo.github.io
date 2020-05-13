@@ -59,13 +59,13 @@ use crate::schema::orders::dsl::orders as orders_dsl
 
 #[derive(Queryable, Serialize, Deserialize, Debug)]
 pub struct Order {
-  pub price: BigDecimal,
-  pub created_at: chrono::NaiveDateTime,
+    pub price: BigDecimal,
+    pub created_at: chrono::NaiveDateTime,
 }
 
 pub fn find_by_market_id(conn: &MysqlConnection) -> Vec<Order> {
-  orders_dsl.limit(5)
-    .load::<Order>(conn)
-    .unwrap()
+    orders_dsl.limit(5)
+        .load::<Order>(conn)
+        .unwrap()
 }
 ```
