@@ -8,6 +8,12 @@
 
 ## 我在开源社区上的贡献(PR)
 
+### https://github.com/launchbadge/sqlx
+
+sqlx 是Rust语言一款数据库工具，我参与了sqlx的MySQL相关文档的修正
+
+- [PR#391](https://github.com/launchbadge/sqlx/pull/319) Fix a misspelling in MySQL types document
+
 ### actix/examples
 
 actix/examples 是actix_web的样例代码仓库
@@ -59,6 +65,12 @@ scoop是一款windows系统的包管理工具，类似mac的homebrew或Linux的a
 - fuser 80/tcp
 - netstat -nlp | grep :80
 
+## 技术术语缩写
+
+[RPC](https://zhuanlan.zhihu.com/p/36427583): Remote Procedure Call
+
+分布式系统中，调用远程服务器的某个类方法，比Restful API更高效 
+
 ## 名词缩写
 
 我个人不喜欢变量命名中将单词缩写的习惯，不过有些缩写还是要记一下免得看不懂别人代码
@@ -69,3 +81,11 @@ scoop是一款windows系统的包管理工具，类似mac的homebrew或Linux的a
 ## 线程相关的英文单词
 
 - Parallel or Consecutively(并发或连续，指的是rust单元测试test case的运行方式)
+
+海南省经济状况的观察：
+
+随着疫情原因外地旅客减少、哈罗电动车在海南的推广，如今的海南的道路上越来越少摩的司机了。
+
+起步价2元月卡10元的哈罗电动车逐渐蚕食5元起步价的摩的司机。
+
+由于海南地理原因，工业品运输往内地的成本很高，可能这是海南工厂特别少工业不发达的一个原因。
