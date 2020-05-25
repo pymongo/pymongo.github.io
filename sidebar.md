@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年5月**
+    - [sqlx教程](/2020/05/sqlx_tutorial.md)
     - [sqlx项目提PR修正文档](/2020/05/pr_to_sqlx_document.md)
     - [Go/Rust语言工具介绍](/2020/05/go_rust_toolchain.md)
     - [Go项目文件结构](/2020/05/go_file_structure.md)
