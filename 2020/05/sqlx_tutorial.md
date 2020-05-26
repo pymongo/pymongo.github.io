@@ -125,6 +125,12 @@ sqlx::query_as::<_, (u32)>(
 
 如果想要db_connection对象则用db_pool.begin() API从连接池中获取一个(带事务的)连接
 
+## SELECT 1保持连接
+
+连接池的每个连接对象会时不时执行一个SELECT 1的查询语句用来保持连接或检查连接(类似websocket心跳包)
+
+https://github.com/launchbadge/sqlx/issues/340
+
 ## sqlx的设计理念
 
 没有用unsafe语句，没有多余的功能，而diesel相比之下多了数据库迁移/管理等功能
