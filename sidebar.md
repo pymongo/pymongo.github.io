@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年5月**
+    - [redis切换数据库](/2020/05/redis_select_db_index.md)
     - [异步时死锁的解决办法](/2020/05/async_mutex_deadlock.md)
     - [sqlx教程](/2020/05/sqlx_tutorial.md)
     - [sqlx项目提PR修正文档](/2020/05/pr_to_sqlx_document.md)
