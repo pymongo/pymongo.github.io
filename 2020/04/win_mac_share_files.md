@@ -1,4 +1,4 @@
-# [win和mac共享文件夹](/2020/04/win_mac_share.md)
+# [win和mac共享文件夹](/2020/04/win_mac_share_files.md)
 
 首先要保证win和mac在同一个局域网内，通过smb协议分享文件
 

@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年5月**
+    - [技术面试复习大纲](/2020/05/interview_notes.md)
     - [redis切换数据库](/2020/05/redis_select_db_index.md)
     - [异步时死锁的解决办法](/2020/05/async_mutex_deadlock.md)
     - [sqlx教程](/2020/05/sqlx_tutorial.md)
@@ -18,7 +19,7 @@
     - [ab测试工具的极限](/2020/04/limit_of_apache_ab.md)
     - [diesel映射datetime、decimal类型](/2020/04/diesel_datetime_decimal.md)
     - [WebSocket中broker、Actor等概念](/2020/04/mq_broker_actor.md)
-    - [win和mac共享文件夹](/2020/04/win_mac_share.md)
+    - [win和mac共享文件夹](/2020/04/win_mac_share_files.md)
     - [cmake体验](/2020/04/cmake.md)
     - [浏览器运行Rust编译的wasm](/2020/04/rust_wasm.md)
     - [websocket心跳包与断线重连](/2020/04/websocket_heartbeat.md)

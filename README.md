@@ -58,6 +58,10 @@ scoop是一款windows系统的包管理工具，类似mac的homebrew或Linux的a
 - Primitive type: 原始类型(例如Java的int等等)
 - implicitly: 隐含地
 
+## README常见短语
+
+- In a nutshell: 简而言之
+
 ## 常用的又没背下来的命令
 
 - find ~ -iname '*.apk'
