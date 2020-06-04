@@ -120,13 +120,14 @@
                 </div>
             </div>
             <div class="row-padding-lv1">
-                ・参与数字货币交易平台、区块链节点的开发与维护，主要负责WebSocket、数交所安卓端和聊天功能
+                ・参与虚拟货币交易所的开发与维护，主要负责币币交易/杠杠交易订单撮合引擎的开发(Rust语言)、WebSocket维护、安卓端的维护
             </div>
             <!-- TODO 自我介绍草稿
             为了避免 失联招聘，Boss直拒，前程堪忧/无一job，58同骗/58不成，扫大街网，拉钩上吊。努力刷题吧！
             ===
-            我任职威中杰公司技术部门的全栈开发岗位，该部门的主要业务是中亚交易所网站(数字货币交易平台)现有系统的维护与测试，以及新业务系统的开发与维护。
-            我负责开发otc(场外交易)移动端API接口、vue版otc系统、后台管理系统、安卓端websocket等。用到的技术栈主要是ruby、redis、vue、MySQL和安卓。
+            ## 自我介绍
+            我任职威中杰公司技术部门的全栈开发岗位，主要负责是虚拟货币交易所的开发与维护，主要负责币币交易/杠杠交易订单撮合引擎的开发(Rust语言)、WebSocket维护、安卓端的维护。
+            由于项目进度过于安逸，工作没有太大的挑战性，我想跳出舒适区。
             -->
             <div class="title-row">
                 <div style="display: flex">
@@ -151,15 +152,41 @@
             <div class="title-row">
                 <div style="display: flex">
                     <div class="project-title">sqlx开源项目</div>
-                    <div class="project-link">PR链接：https://github.com/launchbadge/sqlx/pull/319</div>
+                    <div class="project-link">https://github.com/launchbadge/sqlx/pull/319</div>
                 </div>
                 <div class="flex-right">
                     <div class="time-range">20.05.15 - 至今</div>
                 </div>
             </div>
             <div class="row-padding-lv1">・Rust版sqlx与Go语言的sqlx类似，是一个轻量的高性能的数据库工具</div>
-            <div class="row-padding-lv1">・我阅读sqlx的MySQL源码时发现一处typo(单词拼写错误)，提交了PR修复了该文档拼写错误</div>
+            <div class="row-padding-lv1">・我阅读sqlx的MySQL源码时发现一处typo(单词拼写错误)，提交了PR#319修复了该文档拼写错误</div>
+
+            <div class="title-row">
+                <div style="display: flex">
+                    <div class="project-title">actix开源项目</div>
+                    <div class="project-link">https://github.com/actix/examples/pull/298</div>
+                </div>
+                <div class="flex-right">
+                    <div class="time-range">20.04.17 - 至今</div>
+                </div>
+            </div>
+            <div class="row-padding-lv1">・actix是一款Rust语言Actor框架，我参与了actix/examples的维护</div>
+            <div class="row-padding-lv1">・删掉了关闭服务器example中两个未使用的变量，避免内存浪费</div>
+            <div class="row-padding-lv1">・我认为我PR中的代码改的不好，RC/ARC的共享变量应该定义在closure外</div>
+
+            <div class="title-row">
+                <div style="display: flex">
+                    <div class="project-title">开源项目野火IM</div>
+                    <div class="project-link">https://github.com/wildfirechat/android-chat/pull/330</div>
+                </div>
+                <div class="flex-right">
+                    <div class="time-range">20.04.10 - 至今</div>
+                </div>
+            </div>
+            <div class="row-padding-lv1">・野火IM是一款仿微信的聊天软件，我参与了安卓端的开发</div>
+            <div class="row-padding-lv1">・将聊天消息RecyclerView仅用于UI预览下显示的文案改成tools:text属性</div>
         </div>
+
     </div>
 
     <div class="wrapper">
@@ -188,8 +215,10 @@
                     <div class="time-range">20.04.16 - 20.05.25</div>
                 </div>
             </div>
-            <div class="row-padding-lv1">・耗时一个半月从零学习Rust语言，一个人重写交易所撮合引擎，技术栈是actix+sqlx</div>
-            <div class="row-padding-lv1">・相比ruby/sinatra旧版撮合，性能从每秒处理25个下单请求提升到450个，提升约20~25倍</div>
+            <div class="row-padding-lv1">・交易所的撮合引擎的功能是将价格相近的买单和买单匹配在一起进行成交</div>
+            <div class="row-padding-lv1">・耗时一个半月从零学习Rust语言，一边学新语言一边重写旧版Ruby撮合引擎，技术栈是actix+sqlx</div>
+            <div class="row-padding-lv1">・我重写的Rust撮合引擎相比旧版ruby撮合引擎，性能从每秒处理25个下单请求提升到550个，性能提升25倍以上</div>
+            <div class="row-padding-lv1">・早期版本的技术栈是actix+diesel，当前的技术栈是actix+tokio+sqlx</div>
             <div class="row-padding-lv1">・作为项目负责人，制定每日开发目标/TODO List，编写项目文档，提前交付项目</div>
             <div class="row-padding-lv1">・负责项目技术选型，调研Go、Rust、C++等高性能语言，项目中途将数据库框架更换为性能更好的sqlx</div>
             <div class="row-padding-lv1">・攻克rust异步环境下多线程共享变量的死锁问题，优雅地处理了Rust错误传递的过程</div>
@@ -403,39 +432,6 @@
 
             <div class="title-row">
                 <div style="display: flex">
-                    <div class="project-title">rust_leetcode</div>
-                    <div class="project-link">项目链接：https://github.com/pymongo/rust_leetcode</div>
-                </div>
-                <div class="flex-right">
-                    <div class="time-range">20.04.05 - 至今</div>
-                </div>
-            </div>
-            <div class="row-padding-lv1">・使用Rust语言解LeetCode上的题，独自思考，通过之后才看别人的解答</div>
-
-            <div class="title-row">
-                <div style="display: flex">
-                    <div class="project-title">go_leetcode</div>
-                    <div class="project-link">项目链接：https://github.com/pymongo/go_leetcode</div>
-                </div>
-                <div class="flex-right">
-                    <div class="time-range">20.04.05 - 至今</div>
-                </div>
-            </div>
-            <div class="row-padding-lv1">・由于Rust做算法题debug单步调试时经常跳进汇编代码中，而Go语言不会，所以先用Go解题</div>
-
-            <div class="title-row">
-                <div style="display: flex">
-                    <div class="project-title">java_leetcode</div>
-                    <div class="project-link">项目链接：https://github.com/pymongo/java_leetcode</div>
-                </div>
-                <div class="flex-right">
-                    <div class="time-range">20.04.05 - 至今</div>
-                </div>
-            </div>
-            <div class="row-padding-lv1">・使用junit5 TDD开发leetcode的Java版解答</div>
-
-            <div class="title-row">
-                <div style="display: flex">
                     <div class="project-title">个人技术博客</div>
                     <div class="project-link" style="font-size: 16px">项目链接：https://pymongo.github.io</div>
                 </div>
@@ -443,7 +439,19 @@
                     <div class="time-range">18.08.16 - 至今</div>
                 </div>
             </div>
-            <div class="row-padding-lv1">・镜像：wuaoxiang.github.io，用Vue框架(SPA页面)做的个人博客，整理总结学过的新技术</div>
+            <div class="row-padding-lv1">・用Vue框架(SPA页面)做的个人博客，整理总结学过的新技术</div>
+
+            <div class="title-row">
+                <div style="display: flex">
+                    <div class="project-title">leetcode</div>
+                    <div class="project-link">项目链接：https://github.com/pymongo/rust_leetcode</div>
+                </div>
+                <div class="flex-right">
+                    <div class="time-range">20.04.05 - 至今</div>
+                </div>
+            </div>
+            <div class="row-padding-lv1">・使用Rust/Go/Java语言解LeetCode上的题，追求一题多解，每种解法都有单元测试</div>
+            <div class="row-padding-lv1">・现阶段主要用Rust解题，将来打算用C/C++解决部分经典题</div>
         </div>
     </div>
 

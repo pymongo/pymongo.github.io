@@ -44,7 +44,19 @@ TODO
 
 ---
 
-## C++
+## 内存管理
+
+### 智能指针
+
+在C++11中，会有三种智能指针
+
+- unique_ptr: 独占内存，不共享。在Rust中是: std::boxed::Box
+- shared_ptr: 以引用计数的方式共享内存。在Rust中是: std::rc::Rc
+- weak_ptr: 不以引用计数的方式共享内存。在Rust中是: std::rc::Weak
+
+---
+
+## C/C++
 
 ### 虚函数(实现多态)
 
