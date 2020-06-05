@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=UTF-8>
-    <title>吴翱翔的简历</title>
+    <title>应聘Rust工程师/C++工程师(北京)_吴翱翔的简历</title>
     <style>
         .page-container {
             /* 820≈A4_width_2480x0.33 */
@@ -272,15 +272,25 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <pre class="project-details">
 [项目链接] http://trading-account-type.testcadae.top/margin/omgusdt
 [项目介绍] 虚拟货币交易所的撮合引擎的功能是将价格相近的买单和买单匹配在一起进行成交
-[项目背景] 我司交易所老版撮合引擎是用Ruby单线程框架写的，创建一个订单耗时40ms，性能与一流交易所差距太大
+[项目背景] 老版撮合引擎是用Ruby单线程框架写的，创建一个订单耗时40ms，与一流交易所的撮合引擎性能差距太大
 [项目成绩] Rust重写的撮合引擎创建一个订单耗时1~2ms，Apache Benchmark并发10的测试结果是每秒处理1100个请求
 [项目架构] 1. Rust技术栈主要是：actix-web+tokio+sqlx，除了初始化调用的方法是同步的，其余所有方法都是异步的
-　　　　   2. 尝试推动Ruby团队逐渐转型Rust团队，由于团队成员水平差距大、业务忙、Ruby是银弹等原因没能成功
+　　　　   2. 一个进程只负责一个交易对，所有进程都是共用一个二进制运行文件，通过环境变量/命令行参数
+　　　　      区分交易对，例如请求'/btcusdt/create_order'会被nginx转发到负责btcusdt交易对的撮合进程
+　　　　      老版撮合是用四级域名作不同交易对的分发，域名暴露在公网不利用防火墙的配置
+　　　　   3. 服务器启动时将数据库的订单、交易对数据加载成Rust全局变量，减少了每次撮合时订单数据的SQL查询
+　　　　   4. 项目早期用的是diesel ORM，遇到高并发下MySQL FOR UPDATE锁超时后换成sqlx
+　　　　   5. 不同服务器，不同Ruby/Rust项目之间共用一个redis服务器，利用redis pubsub机制实现通信
 [主要工作] 1. 早期负责技术选型，调研并学习了Go和Rust语言，理解老版撮合的Ruby代码和单元测试用例
 　　　　   2. 尝试推动Ruby团队逐渐转型Rust团队，由于团队成员水平差距大、业务忙、Ruby是银弹等原因没能成功
 　　　　   3. 学习火币/OKEX等一流交易所的币币交易业务逻辑，编写项目文档(例如接口文档、redis通信文档)
-　　　　   4. 为了支持杠杠交易，给订单、账户表等设计新字段，参与用户账户拆分工作，理解杠杠交易做空做多的原理
+　　　　   4. 为了支持杠杠交易要对账户进行拆分，给订单、账户表等设计新字段，同时修改老版撮合去兼容新字段
+　　　　   5. 参与对账系统的重做，讨论账户拆分后新老数据的过渡问题
+[项目收获] 1. 异步环境下要用异步的Mutex锁，不能用std::sync::Mutex，否则在高并发请求时容易发生死锁
+　　　　   2. 学会区分HTTP携带参数的几种方式，rails处理POST请求，参数放在body或url上都能解析是一个UB
+　　　　   3. 简单了解了Rust一些多线程技术，例如：Mutex、RwLock、Once、Atomic
     </pre>
+    <pre class="deprecated">[项目收获]</pre>
     <pre class="deprecated">全角空格[　]</pre>
     <pre class="deprecated">
         [项目介绍]撮合引擎有几个概念，一是交易对，交易对也叫市场，指的是以ask_unit和bid_unit组成的一个市场，例如BTC/USDT交易对中ask_unit就是左边的BTC，
@@ -289,22 +299,86 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
         币币交易的买单指的是用户想用稳定的USDT美元币去买比特币
     </pre>
 
-<!--    <div class="row-padding-lv1">・交易所的撮合引擎的功能是将价格相近的买单和买单匹配在一起进行成交</div>-->
-<!--    <div class="row-padding-lv1">・负责项目技术选型，调研了Go和Rust，理解旧版Ruby撮合引擎代码和其它交易所(如火币)的撮合流程</div>-->
-<!--    <div class="row-padding-lv1">・重写后的撮合引擎相比Ruby撮合引擎，性能从每秒处理25个下单请求提升到550个，性能提升25倍以上</div>-->
-<!--    <div class="row-padding-lv1">・早期版本的技术栈是actix+diesel，diesel遇到数据库死锁的问题，所以换成actix+tokio+sqlx</div>-->
-<!--    <div class="row-padding-lv1">・攻克rust异步环境下多线程共享变量的死锁问题，通过anyhow优雅地处理了Rust错误传递的过程</div>-->
-<!--    <div class="row-padding-lv1">・使用了两台redis和多台MySQL(主从关系)，使用内存变量的方式缓存数据库的订单数据减少SQL查询</div>-->
+    <h3 class="header3">
+        <span class="project-title">交易所安卓端APP</span>
+        <span class="project-role">安卓开发</span>
+        <span class="project-cycle">2020.01 - 2020.04</span>
+    </h3>
+    <pre class="project-details">
+[项目链接] https://github.com/wildfirechat/android-chat/pull/330
+[项目背景] 由于安卓开发的同事离职，我接手安卓项目继续开发与维护
+[项目架构] 1. 一些新需求用到的库只有androidx版本，我将安卓项目升级为androidx架构
+　　　　   2. 老的Activity/Fragment页面保持MVP模式不变，新页面尝试使用新技术MVVM
+　　　　   3. 通过Parcelable序列化/反序列化接口实现两个页面之间传递Java实例对象
+[主要工作] 1. 参考PC端法币交易系统的聊天功能，开发安卓端的聊天功能
+　　　　   2. 开发安卓端WebSocket工具，包括心跳包、断线重连、恢复订阅、取消订阅等功能
+　　　　   3. 我做了币币订单列表、法币广告列表、邀请返佣等共计15~20个页面
+　　　　   4. 新增了SQLite数据库(Room API)缓存WebSocket数据
+　　　　   5. 集成了友盟SDK，收集用户错误日志以及统计用户的使用信息，方便产品运营
+    </pre>
 
-<!--    <div class="row-padding-lv1 deprecated">・负责项目技术选型，调研Go/Rust等高性能语言，项目中途将数据库框架更换为性能更好的sqlx</div>-->
-<!--    <div class="row-padding-lv1 deprecated">・耗时一个半月从零学习Rust语言，一边学新语言一边重写旧版Ruby撮合引擎，技术栈是actix+sqlx</div>-->
-<!--    <div class="row-padding-lv1 deprecated">・学新语言的同时重写旧版Ruby撮合引擎，遇到问题时通过翻issue/查文档/读源码得到解决</div>-->
-<!--    <div class="row-padding-lv1 deprecated">・作为项目负责人，制定每日开发目标/TODO List，编写项目文档，提前交付项目</div>-->
-<!--    <div class="row-padding-lv1 deprecated">・使用MySQL的slow_log/general_log排查与调试性能问题，通过添加索引等方式提高性能</div>-->
-<!--    <div class="row-padding-lv1 deprecated">・订单撮合过程中用for update悲观锁确保用户账户变动是安全的</div>-->
-<!--    <div class="row-padding-lv1 deprecated">・项目中主要用到的actix框架，除了阅读源码我还给actix开源项目贡献了PR</div>-->
-<!--    <div class="row-padding-lv1 deprecated">・我发现关闭服务器Example中有两个无用的变量，为actix开源项贡献了Pull Request</div>    -->
+    <h3 class="header3">
+        <span class="project-title">交易所移动端API接口</span>
+        <span class="project-role">Ruby开发</span>
+        <span class="project-cycle">2019.12 - 2020.04</span>
+    </h3>
+    <pre class="project-details">
+[项目链接] http://v-api.testcadae.top/api/v2/swagger_doc
+[项目介绍] 该项目作用是给交易所移动端APP提供API和WebSocket数据
+[项目架构] 1. 践行TDD，使用REST API框架grape，了解RPC，通过单元测试/swagger/postman调试接口
+　　　　   2. 对于时效性短的数据，存入redis减轻MySQL负载，例如当日取消订单3次就禁止交易的功能
+　　　　   3. 使用FactoryBot库结合Faker库通过工厂模式生成测试数据，借助单元测试进行代码重构
+[主要工作] 1. 维护老的API接口，为APP的新页面开发接口，我参与开发了30~40个接口以及相应的单元测试
+　　　　   2. 给所有接口加上数字签名校验，同时开发了安卓端的生成签名的工具
+　　　　   3. 分析多表联查时出现N+1查询的原因，通过加单向/双向关联和includes语句解决N+1查询问题
+    </pre>
+    <pre class="deprecated">3. 解决多个「N+1查询」问题</pre>
 
+    <h3 class="header3">
+        <span class="project-title">k线画线工具</span>
+        <span class="project-role">Vue前端开发+Ruby开发</span>
+        <span class="project-cycle">2019.11 - 2020.12</span>
+    </h3>
+    <pre class="project-details">
+[项目链接] http://k-line-drawer.testcadae.top
+[项目介绍] 小交易所有很多交易对都没有真实用户下单，K线画线工具帮组运营人员手工画k线进行数据造假
+[项目架构] 1. 前端是Vue+element-ui的UI组件，后端是rails API框架
+　　　　   2. 避免用户重复点击发起多个请求的解决方案：发起请求前禁用按钮，请求response时恢复按钮
+[主要工作] 开发了两个新接口：一个用来给k线编辑器读取配置，另一个是保存配置
+[项目收获] 简单入门了Vue，了解v-for列表渲染，Vue如何发起网络请求
+    </pre>
+
+    <h3 class="header3">
+        <span class="project-title">锁仓利息与佣金计算脚本</span>
+        <span class="project-role">Ruby开发</span>
+        <span class="project-cycle">2019.11 - 2019.12</span>
+    </h3>
+    <pre class="project-details">
+[项目介绍] 很多交易所定期都会推广锁仓活动，锁仓一定数量的币，每天都有利息收益，推荐他人锁仓能获得佣金
+[项目架构] 1. 使用crontab每日凌晨定时计算当日DSCT矿池锁仓的利息和佣金
+　　　　   2. 用Ruby元编程(define_method)简化了不同佣金等级的计算公式
+[主要工作] 根据项目需求文档，开发DSCT矿池锁仓的利息和佣金计算脚本
+[项目收获] 1. 涉及钱或需要精准计算的数据要用BigDecimal类型，避免浮点数计算时的精度丢失问题
+　　　　   2. 浮点数转BigDecimal时只能传字符串的构造方法，Python中BigDecimal的构造方法入参浮点数会精度丢失
+　　　　   3. 对数据库进行金钱变动操作时要加上事务处理和FOR UPDATE悲观锁避免数据竞争
+    </pre>
+
+    <h3 class="header3">
+        <span class="project-title">交易所后台管理系统</span>
+        <span class="project-role">Ruby开发</span>
+        <span class="project-cycle">2019.11 - 2020.01</span>
+    </h3>
+    <pre class="project-details">
+[项目链接] http://new-gly.testcadae.top
+[项目介绍] rails后台管理系统类似jsp前后端不分离的系统，网页端主要给运营/客服人员使用
+[项目架构] 后台管理系统主要负责所有项目/子系统共用数据库的迁移管理
+[主要工作] 1. 开发了用户支付方式、运营统计、数据图表、安卓版本管理等约15~20个页面
+　　　　   2. 为所有导出csv下载的链接添加参数过滤(params.slice)，防止携带参数跳转时「无关的数据被暴露」
+　　　　   3. 添加部分I18n英文和俄文的国际化支持，通过参数merge解决了切换语言时GET请求参数被覆盖的问题
+[项目收获] 入门了Ruby on Rails，了解风控系统、赌场的用户画像系统
+    </pre>
+
+    <!--
     <div class="wrapper">
         <div class="left-title-wrapper">
             <span class="title bold">项目经验</span>
@@ -349,8 +423,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
             <div class="row-padding-lv1 deprecated">・我发现关闭服务器Example中有两个无用的变量，为actix开源项贡献了Pull Request</div>
 
 
-            <!--
-            <div class="title-row">
+            <div class="title-row deprecated">
                 <div style="display: flex">
                     <div class="project-title">野火聊天二次开发</div>
                     <div class="project-link">项目链接：https://docs.wildfirechat.cn/</div>
@@ -363,7 +436,6 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
             <div class="row-padding-lv1">・部署coturn服务器，实现两个客户端之间NAT内网穿透从而进行P2P视频通话</div>
             <div class="row-padding-lv1">・自学maven，发现spring官方教程中集成测试代码Demo中有一处错误(详见我博客)</div>
             <div class="row-padding-lv1">・给野火IM安卓端提PR，与野火技术支持沟通，改善了语音消息的音质</div>
-            -->
 
             <div class="title-row">
                 <div style="display: flex">
@@ -397,8 +469,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
             <div class="row-padding-lv1 deprecated">・WebSocket客户端一开始用OkHTTP，后来重构为java-websocket</div>
             <div class="row-padding-lv1 deprecated">・因服务端使用的MySQL版本过低无法存储Emoji表情包，安卓聊天输入框设置了emoji过滤器</div>
 
-            <!--
-            <div class="title-row">
+            <div class="title-row deprecated">
                 <div style="display: flex">
                     <div class="project-title">服务器监控(安卓+后端)</div>
                     <div class="project-link">项目链接：github.com/pymongo/server_monitor_android</div>
@@ -409,7 +480,6 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
             </div>
             <div class="row-padding-lv1">・APP的功能主要是监控测试服务器和生产服务器的硬盘、内存和CPU等资源的使用情况</div>
             <div class="row-padding-lv1">・项目中用到了安卓底部导航栏、带参数的页面跳转、本地存储、按键绑定等安卓基础知识</div>
-            -->
 
             <div class="title-row">
                 <div style="display: flex">
@@ -428,8 +498,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
             <div class="row-padding-lv1 deprecated">・将每个接口中的每个if else都进行测试，将复杂if语句重构为guard statement</div>
             <div class="row-padding-lv1 deprecated">・通过PxCook与美工/移动端的同事一起维护原型图，与移动端同事一起约定接口的数据格式</div>
 
-            <!--
-            <div class="title-row">
+            <div class="title-row deprecated">
                 <div style="display: flex">
                     <div class="project-title">运营系统-法币交易数据图表</div>
                     <div class="project-link">项目链接：http://gly.testcadae.top/chart/otc</div>
@@ -440,7 +509,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
             </div>
             <div class="row-padding-lv1">・前端图表库使用echart.js，MySQL通过按日期和按币种两次分组，完成查询</div>
             <div class="row-padding-lv1">・通过bootstrap的nav-tab实现柱状图(每日交易量)和扇形图(总交易量)的图表模式切换</div>
-            -->
+
 
             <div class="title-row">
                 <div style="display: flex">
@@ -472,8 +541,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
             <div class="row-padding-lv1">・项目收获1：资金应用要使用<b>「Decimal」</b>类型精准计算账户变动避免浮点数精度丢失</div>
             <div class="row-padding-lv1">・项目收获2：涉及钱的操作要加<b>「事务处理」</b>和<b>「线程锁/数据库锁」</b></div>
 
-            <!--
-            <div class="title-row">
+            <div class="title-row deprecated">
                 <div style="display: flex">
                     <div class="project-title">vue-otc(法币交易系统)</div>
                     <div class="project-link">项目链接：http://vue-otc.testcadae.top</div>
@@ -483,9 +551,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
                 </div>
             </div>
             <div class="row-padding-lv1">・使用el-tabs组件实现了法币交易切换不同tab时会请求相应币种的广告列表的功能</div>
-            -->
 
-            <!--
             <div class="title-row">
                 <div style="display: flex">
                     <div class="project-title">站内转账按邮箱查询功能</div>
@@ -498,7 +564,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
             <div class="row-padding-lv1">・在ActiveRecord转账记录表上建立了sender/receiver_user_id外键关联</div>
             <div class="row-padding-lv1">・遇到rails的设计缺陷，两次includes同一个用户表时无法辨别是发起者还是接收者</div>
             <div class="row-padding-lv1">・最后用混合ORM和原生SQL实现查询，总结整理出多篇ActiveRecord相关文章发布在我的个人博客</div>
-            -->
+
 
             <div class="title-row">
                 <div style="display: flex">
@@ -517,8 +583,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
             <div class="row-padding-lv1 deprecated">・构思交易所的风控系统、(赌场)用户画像系统、对冲系统</div>
             <div class="row-padding-lv1 deprecated">・使用select2.js库给选择币种下拉菜单组件添加上搜索框，美化了搜索框</div>
 
-            <!--
-            <div class="title-row">
+            <div class="title-row deprecated">
                 <div style="display: flex">
                     <div class="project-title">威中杰公司官网</div>
                     <div class="project-link">项目链接：http://wzj.testcadae.top/</div>
@@ -530,28 +595,17 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
             <div class="row-padding-lv1">・使用wget把tencent.com扒下来，修改网站文案，换上了公司的LOGO</div>
             <div class="row-padding-lv1">・修复了因公司网站没有https的原因导致所有外链都无法点击的Bug，添加了中英文支持</div>
             <div class="row-padding-lv1">・通过ffmpeg命令剪辑与压缩美工制作的公司首页视频，将视频压制到800k提高网站访问速度</div>
-            -->
+
         </div>
     </div>
+    -->
 
+    <!--
     <div class="wrapper">
         <div class="left-title-wrapper">
             <span class="title bold">个人作品</span>
         </div>
         <div class="right-wrapper">
-            <!--
-            <div class="title-row">
-                <div style="display: flex">
-                    <div class="project-title">rust教程</div>
-                    <div class="project-link">项目链接：https://rusttu.github.io</div>
-                </div>
-                <div class="flex-right">
-                    <div class="time-range">20.04.09 - 至今</div>
-                </div>
-            </div>
-            <div class="row-padding-lv1">・我编写的面向有经验开发者的rust教程</div>
-            -->
-
             <div class="title-row">
                 <div style="display: flex">
                     <div class="project-title">个人技术博客</div>
@@ -574,8 +628,20 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
             </div>
             <div class="row-padding-lv1">・使用Rust/Go/Java语言解LeetCode上的题，追求一题多解，每种解法都有单元测试</div>
             <div class="row-padding-lv1">・现阶段主要用Rust解题，将来打算用C/C++解决部分经典题</div>
+
+            <div class="title-row">
+            <div style="display: flex">
+            <div class="project-title">rust教程</div>
+            <div class="project-link">项目链接：https://rusttu.github.io</div>
+            </div>
+            <div class="flex-right">
+            <div class="time-range">20.04.09 - 至今</div>
+            </div>
+            </div>
+            <div class="row-padding-lv1">・我编写的面向有经验开发者的rust教程</div>
         </div>
     </div>
+    -->
 
     <!--
     <div class="wrapper">
@@ -602,7 +668,6 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
             <p>・<b>第三梯队(做过leetcode,爱好者水平)：</b>C/C++、Go(iris)、Arduino</p>
         </div>
     </div>
-    -->
 
     <div class="wrapper" style="border-bottom: none">
         <div class="right-wrapper">
@@ -610,6 +675,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
             <p>致谢：感谢您花时间阅读我的简历，期待能有机会和您共事</p>
         </div>
     </div>
+    -->
 
 </div>
 
