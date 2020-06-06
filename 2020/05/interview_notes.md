@@ -30,13 +30,53 @@ await的作用
 
 futures do nothing unless polled or await
 
-### 动态语言/弱类型语言
+### 类型较丰富语言和类型不丰富语言
 
-我个人认为可以分为丰富类型语言和类型较少语言
+自从Go/Rust做到了编译语言的自动类型推断以后，而且Rust/Java也有REPL环境，
+
+我认为不能局限于 动态/静态 和 弱类型/强类型 语言这两个维度去看待编程语言
+
+我个人认为更可靠可以分为 类型较丰富语言 和 类型不丰富语言
+
+例如Python
 
 例如Java，有符号的无符号的整数都叫int或long，在python里就只是一个Number
 
 但是在Rust/Go/C/C++中，整数还分u8、u32......
+
+---
+
+## Rust
+
+### Rust答疑
+
+Rust 1.44更新日志中有这么一段：
+
+[Special cased vec![] to map directly to Vec::new(). This allows vec![] to be able to be used in const contexts.](https://github.com/rust-lang/rust/pull/70632)
+
+PR description中有大量的`IR`缩写，请问IR指的是什么？
+
+---
+
+## ByteDance
+
+### 算法题侧重点
+
+1. Easy或Medium难度就够了
+
+2. 树/图这种考的少，数组/dp/双指针/逻辑(智商题)这种可能考的比较多
+
+以下是bytedance某员工对我简历版本(c6c730bdf714fd544af589580ec3e0c25c13f470)的review建议
+
+### 博客和leetcode要不要写
+
+简历里千万不要出现刷题的经历或leetcode项目
+
+个人博客算是亮点，放到联系方式里，后者在自我介绍中加上，不要单独写成一个项目
+
+### 开源项目参与
+
+如果开源项目投入度/参与度不高，只是一些边边角角的PR，可以穿插进项目经历中，或者放在简历最后独立写
 
 ---
 
@@ -130,3 +170,12 @@ TODO
 比如说：CAP 定理
 ......
 
+## 其它
+
+### 相比Ruby，Rust的优势是
+
+1. 没有不能编译的第三方库，Ruby的话一言难尽，例如passgen编译失败、某些依赖llvm编译的库也会失败等等
+    Rust的很多第三方库的安装不依赖于各种系统包例如libxxx、llvm等等
+2. Rust的第三方库不依赖Rustc的版本，不像Ruby的httparty，
+    在Ruby2.6.1版本上能发www-form的POST请求，
+    在Ruby2.5.0版本发送的www-form的POST请求是错误的(非标准格式)
