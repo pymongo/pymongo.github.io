@@ -145,13 +145,30 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 　　　　   2. 学会区分HTTP携带参数的几种方式，rails处理POST请求，参数放在body或url上都能解析是一个UB
 　　　　   3. 简单了解了Rust一些多线程技术，例如：Mutex、RwLock、Once、Atomic
     </pre>
-    <pre class="deprecated">[项目收获]</pre>
     <pre class="deprecated">全角空格[　]</pre>
     <pre class="deprecated">
-        [项目介绍]撮合引擎有几个概念，一是交易对，交易对也叫市场，指的是以ask_unit和bid_unit组成的一个市场，例如BTC/USDT交易对中ask_unit就是左边的BTC，
-        交易对或市场的bid_unit通常是价格波动不大稳定货币，例如BTCUSDT交易对中bid_unit是USDT泰达币，与美元挂钩价格稳定，俗称美金币/美元币。
-        币圈中币价的单位通常都是USDT，例如比特币现在的价格是9500，就是指一个比特币可以在交易所卖成9500个USDT，然后再通过OTC法币交易换成约9500个美元。
-        币币交易的买单指的是用户想用稳定的USDT美元币去买比特币
+[项目介绍]
+    撮合引擎有几个概念，一是交易对，交易对也叫市场，指的是以ask_unit和bid_unit组成的一个市场，例如BTC/USDT交易对中ask_unit就是左边的BTC，
+    交易对或市场的bid_unit通常是价格波动不大稳定货币，例如BTCUSDT交易对中bid_unit是USDT泰达币，与美元挂钩价格稳定，俗称美金币/美元币。
+    币圈中币价的单位通常都是USDT，例如比特币现在的价格是9500，就是指一个比特币可以在交易所卖成9500个USDT，然后再通过OTC法币交易换成约9500个美元。
+    币币交易的买单指的是用户想用稳定的USDT美元币去买比特币
+老的撮合引擎项目经历文案：
+    基于Rust版币币交易撮合引擎，添加杠杠交易的支持，理解杠杠交易做空做多原理
+    尝试使用RPC技术替代RESTful API
+        交易所的撮合引擎的功能是将价格相近的买单和买单匹配在一起进行成交
+        负责项目技术选型，调研了Go和Rust，理解旧版Ruby撮合引擎代码和其它交易所(如火币)的撮合流程
+        重写后的撮合引擎相比Ruby撮合引擎，性能从每秒处理25个下单请求提升到550个，性能提升25倍以上
+        早期版本的技术栈是actix+diesel，diesel遇到数据库死锁的问题，所以换成actix+tokio+sqlx
+        攻克rust异步环境下多线程共享变量的死锁问题，通过anyhow优雅地处理了Rust错误传递的过程
+        使用了两台redis和多台MySQL(主从关系)，使用内存变量的方式缓存数据库的订单数据减少SQL查询
+        负责项目技术选型，调研Go/Rust等高性能语言，项目中途将数据库框架更换为性能更好的sqlx
+        耗时一个半月从零学习Rust语言，一边学新语言一边重写旧版Ruby撮合引擎，技术栈是actix+sqlx
+        学新语言的同时重写旧版Ruby撮合引擎，遇到问题时通过翻issue/查文档/读源码得到解决
+        作为项目负责人，制定每日开发目标/TODO List，编写项目文档，提前交付项目
+        使用MySQL的slow_log/general_log排查与调试性能问题，通过添加索引等方式提高性能
+        订单撮合过程中用for update悲观锁确保用户账户变动是安全的
+        项目中主要用到的actix框架，除了阅读源码我还给actix开源项目贡献了PR
+        我发现关闭服务器Example中有两个无用的变量，为actix开源项贡献了Pull Request
     </pre>
 
     <h3 class="header3">
@@ -269,69 +286,15 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 [主要工作] 二次开发野火IM的服务端+安卓端，提PR将聊天RecyclerView仅用于UI预览下的文案改成tools:text属性
     </pre>
     <pre class="deprecated">
-        [项目背景] 其它备选方案是telegram、tinode
+[项目背景] 其它备选方案是telegram、tinode
+[老版项目经历的文案]
+独自负责野火IM后端和安卓端的开发维护，基于野火开源部分和付费购买的多人视频SDK二次开发
+部署coturn服务器，实现两个客户端之间NAT内网穿透从而进行P2P视频通话
+自学maven，发现spring官方教程中集成测试代码Demo中有一处错误(详见我博客)
+给野火IM安卓端提PR，与野火技术支持沟通，改善了语音消息的音质
     </pre>
-    <hr class="divider">
 
     <!--
-    <div class="wrapper">
-        <div class="left-title-wrapper">
-            <span class="title bold">项目经验</span>
-        </div>
-        <div class="right-wrapper">
-            <div class="title-row">
-                <div style="display: flex">
-                    <div class="project-title">杠杠交易撮合引擎</div>
-                    <div class="project-link">项目链接：http://vue-trading.testcadae.top</div>
-                </div>
-                <div class="flex-right">
-                    <div class="time-range">20.05.26 - 至今</div>
-                </div>
-            </div>
-            <div class="row-padding-lv1">・基于Rust版币币交易撮合引擎，添加杠杠交易的支持，理解杠杠交易做空做多原理</div>
-            <div class="row-padding-lv1">・将用户的账户拆分成币币、杠杠等账户避免爆仓所有资产，根据账户修改重写了对账系统的逻辑</div>
-            <div class="row-padding-lv1 deprecated">・尝试使用RPC技术替代RESTful API</div>
-
-            <div class="title-row">
-                <div style="display: flex">
-                    <div class="project-title">币币交易订单撮合引擎</div>
-                    <div class="project-link">项目链接：http://vue-trading.testcadae.top</div>
-                </div>
-                <div class="flex-right">
-                    <div class="time-range">20.04.16 - 20.05.25</div>
-                </div>
-            </div>
-            <div class="row-padding-lv1">・交易所的撮合引擎的功能是将价格相近的买单和买单匹配在一起进行成交</div>
-            <div class="row-padding-lv1">・负责项目技术选型，调研了Go和Rust，理解旧版Ruby撮合引擎代码和其它交易所(如火币)的撮合流程</div>
-            <div class="row-padding-lv1">・重写后的撮合引擎相比Ruby撮合引擎，性能从每秒处理25个下单请求提升到550个，性能提升25倍以上</div>
-            <div class="row-padding-lv1">・早期版本的技术栈是actix+diesel，diesel遇到数据库死锁的问题，所以换成actix+tokio+sqlx</div>
-            <div class="row-padding-lv1">・攻克rust异步环境下多线程共享变量的死锁问题，通过anyhow优雅地处理了Rust错误传递的过程</div>
-            <div class="row-padding-lv1">・使用了两台redis和多台MySQL(主从关系)，使用内存变量的方式缓存数据库的订单数据减少SQL查询</div>
-
-            <div class="row-padding-lv1 deprecated">・负责项目技术选型，调研Go/Rust等高性能语言，项目中途将数据库框架更换为性能更好的sqlx</div>
-            <div class="row-padding-lv1 deprecated">・耗时一个半月从零学习Rust语言，一边学新语言一边重写旧版Ruby撮合引擎，技术栈是actix+sqlx</div>
-            <div class="row-padding-lv1 deprecated">・学新语言的同时重写旧版Ruby撮合引擎，遇到问题时通过翻issue/查文档/读源码得到解决</div>
-            <div class="row-padding-lv1 deprecated">・作为项目负责人，制定每日开发目标/TODO List，编写项目文档，提前交付项目</div>
-            <div class="row-padding-lv1 deprecated">・使用MySQL的slow_log/general_log排查与调试性能问题，通过添加索引等方式提高性能</div>
-            <div class="row-padding-lv1 deprecated">・订单撮合过程中用for update悲观锁确保用户账户变动是安全的</div>
-            <div class="row-padding-lv1 deprecated">・项目中主要用到的actix框架，除了阅读源码我还给actix开源项目贡献了PR</div>
-            <div class="row-padding-lv1 deprecated">・我发现关闭服务器Example中有两个无用的变量，为actix开源项贡献了Pull Request</div>
-
-
-            <div class="title-row deprecated">
-                <div style="display: flex">
-                    <div class="project-title">野火聊天二次开发</div>
-                    <div class="project-link">项目链接：https://docs.wildfirechat.cn/</div>
-                </div>
-                <div class="flex-right">
-                    <div class="time-range">20.03.09 - 至今</div>
-                </div>
-            </div>
-            <div class="row-padding-lv1">・独自负责野火IM后端和安卓端的开发维护，基于野火开源部分和付费购买的多人视频SDK二次开发</div>
-            <div class="row-padding-lv1">・部署coturn服务器，实现两个客户端之间NAT内网穿透从而进行P2P视频通话</div>
-            <div class="row-padding-lv1">・自学maven，发现spring官方教程中集成测试代码Demo中有一处错误(详见我博客)</div>
-            <div class="row-padding-lv1">・给野火IM安卓端提PR，与野火技术支持沟通，改善了语音消息的音质</div>
-
             <div class="title-row">
                 <div style="display: flex">
                     <div class="project-title">交易所安卓端APP</div>
@@ -491,49 +454,6 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
             <div class="row-padding-lv1">・修复了因公司网站没有https的原因导致所有外链都无法点击的Bug，添加了中英文支持</div>
             <div class="row-padding-lv1">・通过ffmpeg命令剪辑与压缩美工制作的公司首页视频，将视频压制到800k提高网站访问速度</div>
 
-        </div>
-    </div>
-    -->
-
-    <!--
-    <div class="wrapper">
-        <div class="left-title-wrapper">
-            <span class="title bold">个人作品</span>
-        </div>
-        <div class="right-wrapper">
-            <div class="title-row">
-                <div style="display: flex">
-                    <div class="project-title">个人技术博客</div>
-                    <div class="project-link" style="font-size: 16px">项目链接：https://pymongo.github.io</div>
-                </div>
-                <div class="flex-right">
-                    <div class="time-range">18.08.16 - 至今</div>
-                </div>
-            </div>
-            <div class="row-padding-lv1">・本人的技术博客/个人网站，用的是docsif框架的SPA应用</div>
-
-            <div class="title-row">
-                <div style="display: flex">
-                    <div class="project-title">leetcode</div>
-                    <div class="project-link">项目链接：https://github.com/pymongo/rust_leetcode</div>
-                </div>
-                <div class="flex-right">
-                    <div class="time-range">20.04.05 - 至今</div>
-                </div>
-            </div>
-            <div class="row-padding-lv1">・使用Rust/Go/Java语言解LeetCode上的题，追求一题多解，每种解法都有单元测试</div>
-            <div class="row-padding-lv1">・现阶段主要用Rust解题，将来打算用C/C++解决部分经典题</div>
-
-            <div class="title-row">
-            <div style="display: flex">
-            <div class="project-title">rust教程</div>
-            <div class="project-link">项目链接：https://rusttu.github.io</div>
-            </div>
-            <div class="flex-right">
-            <div class="time-range">20.04.09 - 至今</div>
-            </div>
-            </div>
-            <div class="row-padding-lv1">・我编写的面向有经验开发者的rust教程</div>
         </div>
     </div>
     -->
