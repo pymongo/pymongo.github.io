@@ -68,7 +68,6 @@
             font-family: Times, serif;
             font-size: 14px;
             width: 120px;
-            /*text-align: right;*/
         }
         /* 在mac的chrome上，pre标签默认字体是monospace */
         pre.project-details {
@@ -79,29 +78,28 @@
 
 <body>
 
-<!-- TODO 自我介绍草稿
-为了避免 失联招聘，Boss直拒，前程堪忧/无一job，58同骗/58不成，扫大街网，拉钩上吊。努力刷题吧！
-===
+<!-- 自我介绍等面试常见问题的草稿
+
 ## 自我介绍
-我任职威中杰公司技术部门的全栈开发岗位，主要负责是虚拟货币交易所的开发与维护，主要负责币币交易/杠杠交易订单撮合引擎的开发(Rust语言)、WebSocket维护、安卓端的维护。
-由于项目进度过于安逸，工作没有太大的挑战性，我想跳出舒适区。
+我任职威中杰公司技术部的全栈开发岗位，主要负责是虚拟货币交易所的币币/杠杠交易订单撮合引擎的开发(Rust语言)、WebSocket维护、安卓端的维护。
+由于项目进度过于安逸，工作没有太大的挑战性，我想跳出舒适区。我很喜欢字节跳动"与优秀的人一起做有挑战的事"的slogan
 
 ## 个人评价
+对提高生产力有极大热情，为了提升中文文案或写作效率，我学会小鹤双拼输入，打字速度能达到以前全拼输入的2-3倍。
 -->
 
-<!--
+<!-- 项目经历修改框架
 STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)；
 对于写简历来说，99%的人所犯的错误都是仅仅写了“任务task”，也就是仅罗列“干了什么”。
 
-好的项目经历，应该包含：项目名称、项目角色、项目周期、项目简介/介绍/描述、项目背景、项目架构、主要工作、个人收获/项目收获
+好的项目经历，应该包含：项目名称-项目角色-项目周期、项目简介/介绍/描述、项目背景、项目架构、主要工作、开源贡献(穿插)、个人收获/项目收获
 -->
 
 <div class="page-container">
-    <!-- 头部部分 -->
+    <!-- 标题+联系方式 -->
     <h1 class="header1 resume-title">应聘Rust工程师/C++工程师(北京)_吴翱翔的简历</h1>
     <div class="center">17150313884| me@tute.edu.cn| 男/1997/本科</div>
     <div class="center"><span class="bold">技术博客</span>:pymongo.github.io| Github:pymongo</div>
-    <div class="center deprecated"><span class="bold">求职意向</span>:全栈开发工程师| 男/1997/本科</div>
     <hr class="divider">
 
     <h2 class="header2">工作经历</h2>
@@ -120,77 +118,6 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <p>・业务是汽车ECU(电子控制器)的功能测试，以日方提供的脚本语言进行编程，调试</p>
     <hr class="divider">
 
-    <!--
-    <div class="wrapper">
-        <div class="right-wrapper">
-            <div class="title-row">
-                <div style="display: flex">
-                    <div class="project-link">海南自贸区威中杰信息技术有限公司</div>
-                    <div style="width: 150px">全栈开发工程师</div>
-                </div>
-                <div class="flex-right">
-                    <div class="time-range">2019.10 - 至今</div>
-                </div>
-            </div>
-            <div class="row-padding-lv1">
-                ・主要负责交易所订单撮合引擎的开发(Rust)、WebSocket维护、安卓端的维护、后台管理系统的开发
-            </div>
-            <div class="title-row">
-                <div style="display: flex">
-                    <div class="project-link">北京邦友科技开发有限公司</div>
-                    <div style="width: 150px">软件测试工程师</div>
-                </div>
-                <div class="flex-right">
-                    <div class="time-range">2018.11 - 2019.10</div>
-                </div>
-            </div>
-            <div class="row-padding-lv1">
-                ・业务是汽车ECU(电子控制器)的功能测试，以日方提供的脚本语言进行编程，调试
-            </div>
-        </div>
-    </div>
-    -->
-
-    <h2 class="header2">开源社区代码贡献</h2>
-    <h3 class="header3">
-        <span class="project-title">开源项目sqlx</span>
-        <span class="project-role">contributor</span>
-        <span class="project-cycle">2020.05 - 至今</span>
-    </h3>
-    <pre class="project-details">
-[PR链接]  https://github.com/launchbadge/sqlx/pull/319
-[项目介绍] 与Go的sqlx类似，Rust的sqlx也是一个轻量的高性能数据库工具
-[主要工作] 我阅读sqlx的MySQL源码时发现docstring中有一个typo(单词拼写错误)，我提交PR修复了该错误
-    </pre>
-
-    <h3 class="header3">
-        <span class="project-title">开源项目actix</span>
-        <span class="project-role">contributor</span>
-        <span class="project-cycle">2020.04 - 至今</span>
-    </h3>
-    <pre class="project-details">
-[PR链接]  https://github.com/actix/examples/pull/298
-[项目介绍] actix是一款Rust语言Actor框架，actix/examples代码仓库主要是actix-web框架的一些例子
-[主要工作] 删掉了关闭服务器代码例子中两个无用变量
-    </pre>
-
-    <h3 class="header3">
-        <span class="project-title">开源项目野火IM</span>
-        <span class="project-role">Java后端开发+安卓开发</span>
-        <span class="project-cycle">2020.04 - 至今</span>
-    </h3>
-    <pre class="project-details">
-[PR链接]  https://github.com/wildfirechat/android-chat/pull/330
-[项目介绍] 野火IM是一款仿微信的聊天软件，我参与了安卓端的开发
-[项目背景] 基于野火二次开发，将交易所的聊天功能拆分成独立APP，由于视频会议效果不佳，目前项目处于暂停状态
-[项目架构] 安卓端的主要技术栈是jetpack MVVM，服务端的技术栈是maven+spring，聊天协议部分没有开源
-[主要工作] 二次开发野火IM的服务端+安卓端，提PR将聊天RecyclerView仅用于UI预览下的文案改成tools:text属性
-    </pre>
-    <pre class="deprecated">
-        [项目背景] 其它备选方案是telegram、tinode
-    </pre>
-    <hr class="divider">
-
     <h2 class="header2">项目经历</h2>
     <h3 class="header3">
         <span class="project-title">币币/杠杠交易订单撮合引擎</span>
@@ -202,10 +129,10 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 [项目介绍] 虚拟货币交易所的撮合引擎的功能是将价格相近的买单和买单匹配在一起进行成交
 [项目背景] 老版撮合引擎是用Ruby单线程框架写的，创建一个订单耗时40ms，与一流交易所的撮合引擎性能差距太大
 [项目成绩] Rust重写的撮合引擎创建一个订单耗时1~2ms，Apache Benchmark并发10的测试结果是每秒处理1100个请求
-[项目架构] 1. Rust技术栈主要是：actix-web+tokio+sqlx，除了初始化调用的方法是同步的，其余所有方法都是异步的
+[项目架构] 1. Rust技术栈主要是：actix-web+tokio+sqlx，除了初始化App的方法，其余所有方法都是异步的(async)
 　　　　   2. 一个进程只负责一个交易对，所有进程都是共用一个二进制运行文件，通过环境变量/命令行参数
 　　　　      区分交易对，例如请求'/btcusdt/create_order'会被nginx转发到负责btcusdt交易对的撮合进程
-　　　　      老版撮合是用四级域名作不同交易对的分发，域名暴露在公网不利用防火墙的配置
+　　　　      老版撮合是用四级域名作不同交易对的分发，域名暴露在公网无法配置防火墙
 　　　　   3. 服务器启动时将数据库的订单、交易对数据加载成Rust全局变量，减少了每次撮合时订单数据的SQL查询
 　　　　   4. 项目早期用的是diesel ORM，遇到高并发下MySQL FOR UPDATE锁超时后换成sqlx
 　　　　   5. 不同服务器，不同Ruby/Rust项目之间共用一个redis服务器，利用redis pubsub机制实现通信
@@ -305,6 +232,46 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 　　　　   3. 添加部分I18n英文和俄文的国际化支持，通过参数merge解决了切换语言时GET请求参数被覆盖的问题
 [项目收获] 入门了Ruby on Rails，了解风控系统、赌场的用户画像系统
     </pre>
+
+    <h2 class="header2">开源社区代码贡献</h2>
+    <h3 class="header3">
+        <span class="project-title">开源项目sqlx</span>
+        <span class="project-role">contributor</span>
+        <span class="project-cycle">2020.05 - 至今</span>
+    </h3>
+    <pre class="project-details">
+[PR链接]  https://github.com/launchbadge/sqlx/pull/319
+[项目介绍] 与Go的sqlx类似，Rust的sqlx也是一个轻量的高性能数据库工具
+[主要工作] 我阅读sqlx的MySQL源码时发现docstring中有一个typo(单词拼写错误)，我提交PR修复了该错误
+    </pre>
+
+    <h3 class="header3">
+        <span class="project-title">开源项目actix</span>
+        <span class="project-role">contributor</span>
+        <span class="project-cycle">2020.04 - 至今</span>
+    </h3>
+    <pre class="project-details">
+[PR链接]  https://github.com/actix/examples/pull/298
+[项目介绍] actix是一款Rust语言Actor框架，actix/examples代码仓库主要是actix-web框架的一些例子
+[主要工作] 删掉了关闭服务器代码例子中两个无用变量
+    </pre>
+
+    <h3 class="header3">
+        <span class="project-title">开源项目野火IM</span>
+        <span class="project-role">Java后端开发+安卓开发</span>
+        <span class="project-cycle">2020.04 - 至今</span>
+    </h3>
+    <pre class="project-details">
+[PR链接]  https://github.com/wildfirechat/android-chat/pull/330
+[项目介绍] 野火IM是一款仿微信的聊天软件，我参与了安卓端的开发
+[项目背景] 基于野火二次开发，将交易所的聊天功能拆分成独立APP，由于视频会议效果不佳，目前项目处于暂停状态
+[项目架构] 安卓端的主要技术栈是jetpack MVVM，服务端的技术栈是maven+spring，聊天协议部分没有开源
+[主要工作] 二次开发野火IM的服务端+安卓端，提PR将聊天RecyclerView仅用于UI预览下的文案改成tools:text属性
+    </pre>
+    <pre class="deprecated">
+        [项目背景] 其它备选方案是telegram、tinode
+    </pre>
+    <hr class="divider">
 
     <!--
     <div class="wrapper">
