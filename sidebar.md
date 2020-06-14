@@ -1,4 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
+- **20年6月**
+    - [类型丰富语言](/2020/06/type_rich_language.md)
 - **20年5月**
     - [技术面试复习大纲](/2020/05/interview_notes.md)
     - [redis切换数据库](/2020/05/redis_select_db_index.md)

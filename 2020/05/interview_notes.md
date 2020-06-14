@@ -42,7 +42,9 @@ futures do nothing unless polled or await
 
 例如Java，有符号的无符号的整数都叫int或long，在python里就只是一个Number
 
-但是在Rust/Go/C/C++中，整数还分u8、u32......
+C/C+还将整形
+
+但是在Rust/Go/+中，整数还分u8、u32......
 
 ---
 
