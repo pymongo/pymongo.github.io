@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年6月**
+    - [mac/Ubuntu上安装pyenv和pipenv](/2020/06/install_pyenv_and_pipenv.md)
     - [Atomic无锁编程](/2020/06/atomic_lock_freedom.md)
     - [类型丰富语言](/2020/06/type_rich_language.md)
 - **20年5月**
