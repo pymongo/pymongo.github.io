@@ -3,7 +3,6 @@
     - [Atomic无锁编程](/2020/06/atomic_lock_freedom.md)
     - [类型丰富语言](/2020/06/type_rich_language.md)
 - **20年5月**
-    - [技术面试复习大纲](/2020/05/interview_notes.md)
     - [redis切换数据库](/2020/05/redis_select_db_index.md)
     - [异步时死锁的解决办法](/2020/05/async_mutex_deadlock.md)
     - [sqlx教程](/2020/05/sqlx_tutorial.md)
