@@ -1,6 +1,9 @@
 - [归档 - 吴翱翔的博客](/)
+- **20年7月**
+    - [Rust进程间通信](/2020/07/rust_ipc.md)
 - **20年6月**
     - [mac/Ubuntu上安装pyenv和pipenv](/2020/06/install_pyenv_and_pipenv.md)
+    - [解决no field on type `&T`](/2020/06/generic_error_no_field_on_type_t.md)
     - [Atomic无锁编程](/2020/06/atomic_lock_freedom.md)
     - [类型丰富语言](/2020/06/type_rich_language.md)
 - **20年5月**
