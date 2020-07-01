@@ -63,3 +63,29 @@ where
 可以通过derive过程宏，以元编程的方式自动生成这些Boilerplate code
 
 [可以看Rust反序列化库作者写的derive过程宏Example](https://github.com/dtolnay/syn/tree/master/examples/heapsize)
+
+## 知识补充: Rust函数重载
+
+下面这段Rust代码，实现了类似Java函数重载(overload)的效果
+
+```rust
+impl From<(BigInt, i64)> for BigDecimal {
+    #[inline]
+    fn from((int_val, scale): (BigInt, i64)) -> Self {
+        BigDecimal {
+            int_val: int_val,
+            scale: scale,
+        }
+    }
+}
+
+impl From<BigInt> for BigDecimal {
+    #[inline]
+    fn from(int_val: BigInt) -> Self {
+        BigDecimal {
+            int_val: int_val,
+            scale: 0,
+        }
+    }
+}
+```
