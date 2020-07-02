@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年7月**
+    - [异步线程安全地操作redis](/2020/07/async_redis.md)
     - [thread has overflowed可能的原因](/2020/07/fix_thread_has_overflowed.md)
     - [Rust进程间通信](/2020/07/rust_ipc.md)
 - **20年6月**
@@ -8,7 +9,6 @@
     - [Atomic无锁编程](/2020/06/atomic_lock_freedom.md)
     - [类型丰富语言](/2020/06/type_rich_language.md)
 - **20年5月**
-    - [redis切换数据库](/2020/05/redis_select_db_index.md)
     - [异步时死锁的解决办法](/2020/05/async_mutex_deadlock.md)
     - [sqlx教程](/2020/05/sqlx_tutorial.md)
     - [sqlx项目提PR修正文档](/2020/05/pr_to_sqlx_document.md)

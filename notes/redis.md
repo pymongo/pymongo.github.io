@@ -18,6 +18,8 @@ redis_url中斜杠后面的数字表示db_index默认情况下redis连接的是0
 
 只能在连上redis之后发送SELECT命令更换数据库，类型MySQL的use xxx
 
+![](redis_select_db_index.png)
+
 ### MONITOR(类似打log)
 
 redis不像关系型数据库那样有log，所以需要monitor这样的命令去监控当前数据库执行的redis命令

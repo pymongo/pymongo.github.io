@@ -186,8 +186,7 @@ sso/cas 单点登录
 [主要工作] 1. 早期负责技术选型，调研并学习了Go和Rust，根据老版Ruby撮合的代码和测试用例用Rust重写一遍
 　　　　   2. 为了支持杠杠交易要对账户进行拆分，给订单、账户表等设计新字段，同时修改老版撮合去兼容新字段
 [项目收获] 1. 异步环境下要用异步的Mutex锁，不能用std::sync::Mutex，否则在高并发请求时容易发生死锁
-　　　　   2.
-　　　　   3. 用Mutex锁实现了幂等性
+　　　　   2. redis的pubsub机制实现跨语言跨进程数据共享的性能较差，调研了TcpStream或UnixStream等方案
     </pre>
     <pre class="deprecated">全角空格[　]</pre>
     <pre class="deprecated">
