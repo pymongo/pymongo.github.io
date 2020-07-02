@@ -29,6 +29,22 @@ ruby本身就对非UnixLike系统不友好，windows只能用官方推荐的【r
 
 关于标准指法，根据typeclub.com的测试结果我标准指法只有7WPM的速度，而同样100%正确率自己习惯的打法速度在50-60WPM之间，而且我能盲打很熟悉每个键的位置，参考[v2ex.com/t/221161](https://www.v2ex.com/t/221161)，指法问题先放下。
 
+## ruby元编程API
+
+### define_method
+
+TODO
+
+### send API
+
+send的作用是将字符串的运算符给eval了，
+
+例如：
+
+> 1.send ">", 2 # false
+ 
+> 1.send "<", 2 # true 
+
 ## ruby运算回顾
 
 ruby的多行注释是在=begin和=end之间

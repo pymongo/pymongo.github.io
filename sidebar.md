@@ -31,7 +31,6 @@
     - [浏览器运行Rust编译的wasm](/2020/04/rust_wasm.md)
     - [websocket心跳包与断线重连](/2020/04/websocket_heartbeat.md)
     - [Rust解决一个moved案例](/2020/04/rust_use_of_moved_value.md)
-    - [redis-cli订阅频道](/2020/04/redis_cli_subscribe.md)
     - [actix日志拦截器对性能的影响](/2020/04/actix_logger_performance.md)
     - [Ubuntu18上部署rust项目](/2020/04/ubuntu_18_deploy_rust.md)
     - [diesel的CRUD教程(Rust-ORM)](/2020/04/diesel_orm.md)
@@ -68,7 +67,6 @@
     - [Android底部导航栏](/2020/01/bottom_navigation.md)
     - [Java的volley网络请求库](/2020/01/volley.md)
     - [Android - ListView](/2020/01/list_view.md)
-    - [redis存储时效性短的数据(如每日申诉次数)](/2020/01/redis_count_user_daily_data.md)
     - [运维 - 服务器硬盘满了——列出最大文件](/2020/01/linux_list_largest_files.md)
 - **1912下旬**
     - [2019年下旬的codeReview总结](/2019/12_2/code_review.md)
