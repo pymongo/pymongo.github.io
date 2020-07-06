@@ -99,6 +99,14 @@ k线数据在redis中是通过一种类似队列或者叫list的数据结构去�
 
 TODO
 
+## commands issued
+
+在redis-async库中首次接触这个概念，redis-async库有两种建立连接的方式，其中一个区别就是对commands issued的处理
+
+我查阅资料后了解到commands issued相当于「事务处理」的失败情况?
+
+非关系型数据库例如redis的事务处理的稳定性不如MySQL，所以redis的事务处理算是不稳定的不能依赖的
+
 ## KEYS *
 
 列出当前db的所有key
