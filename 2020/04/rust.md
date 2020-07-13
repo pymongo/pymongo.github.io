@@ -1,45 +1,24 @@
 # [Rust入门](/2020/04/rust.md)
 
-ruby/rails的性能不能满足实时性很强的需求(股票交易所)，于是尝试下[据说世界第一快的API框架](https://www.techempower.com/benchmarks/)
-rust/actix
+ruby/rails的性能不能满足实时性很强的需求(股票交易所)，于是尝试下actix-web，[据说世界第一快的Web框架](https://www.techempower.com/benchmarks/)
 
-## rustup切换版本
+Rust社区同样优秀的Web框架是Rocket，二者最大差别在于actix是异步框架，而Rocket则不是
 
-查看已安装的所有rust toolchain版本
+## 官方版本管理工具rustup
 
-```
-ws-MacBook-Pro:~ w$ rustup toolchain list
-stable-x86_64-apple-darwin
-nightly-x86_64-apple-darwin
-1.40.0-x86_64-apple-darwin (default)
-1.43.0-x86_64-apple-darwin
-```
+推荐用官方的sh脚本安装rustup，不建议用brew或apt(Ubuntu就没有rustup这个包)
 
-通过项目文件夹根目录内的`rust-toolchain`文件可以指定项目的rust版本
+常用rustup命令是rustup override set nightly(rocket项目必用命令git )和rustup show
 
-rustup没有rbenv那么方便，可以设置local和global的版本，rustup只能通过default设置global版本
+通过项目文件夹根目录内的`rust-toolchain`文件可以指定项目的rust版本(参考diesel项目)
 
-stable默认指向最高版本的rust
+通过rustup show可以查看当前文件夹的rust版本；rustup override设定当前文件夹的rust版本
 
-如果想要从1.43.0切换到1.40.0，首先rustup install 1.40.0然后rustup default 1.40.0
+如果想要从1.43.0切换到1.40.0，首先rustup install 1.40.0然后rustup override set 1.40.0
 
-如果发现切换到1.40.0后没有cargo命令，可能由于网络原因没将1.40版本下载完整，卸载了重装即可(建议开ExpressVPN安装，下载速度快)
+如果发现切换到1.40.0后没有cargo命令，可能由于网络原因没将1.40版本下载完整，卸载了重装即可
 
-## rustup与cargo
-
-rustup好像类似于brew，用于升级rust；cargo就等同于npm，比如cargo run = npm run
-
-<i class="fa fa-hashtag"></i>
-用rustup安装不要用brew/apt
-
-rust官方不推荐使用homebrew/apt-get的包管理工具去安装，建议使用rustup(类似npm)
-
-> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-按1选择默认的安装路径
-
-<i class="fa fa-hashtag"></i>
-环境变量
+## rust环境变量问题
 
 ```
 github.com/rust-lang/rustup 文档的第1~2段话
@@ -48,7 +27,11 @@ $HOME/.cargo/bin will be in your $PATH environment variable, which means you can
 Open a **new shell** and type the following:
 ```
 
-意思是安装完后打开一个新的terminal就能
+意思是rustup安装完后打开一个新的terminal就能
+
+但是在Ubuntu系统下，通过session连接服务器时可能会找不到cargo，需要`source ~/.cargo/env`，例如用Capistrano就需要先source一下
+
+---
 
 <i class="fa fa-hashtag"></i>
 Intellij创建Rust项目

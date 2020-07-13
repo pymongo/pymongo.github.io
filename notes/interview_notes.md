@@ -206,9 +206,111 @@ TODO
 
 FFI编程相关，C语言宏在 Rust 中会实现为 #[inline] 函数
 
+### cargo工具链
+
+#### cargo tree解决第三方库版本问题
+
+```
+root@remote-server:~/app# cargo tree -d | grep md-5
+└── md-5 v0.9.0
+└── md-5 v0.9.0 (*)
+```
+
+#### cargo expand(宏展开)
+
+推荐在一个子文件夹内(就一个lib.rs)使用cargo expand，否则将项目的所有rust源文件都展开的话，输出结果长得没法看完
+
+#### cargo alias
+
+在项目根目录新建一个文件 .cargo/config 就能实现类似npm run scripts的效果
+
+IDEA运行同一个文件的多个单元测试函数时，默认是多线程的，建议加上--test-threads=1参数避免单元测试之间的数据竞争
+
+```
+[alias]
+myt = "test -- --test-threads=1 --show-output --color always"
+matcher_helper_test = "test --test matcher_helper_test -- --test-threads=1 --show-output --color always"
+run_production = "cargo run --release"
+```
+
+运行某个单元测试文件中的某个测试函数
+
+> cargo test --test filename function_name -- --test-threads=1 --show-output
+
 ---
 
 ## Java
+
+### 为什么需要Interface
+
+1. (Java特有)实现code block传参，代码块或函数指针做完函数的入参或返回值。应用：不同Activity和Fragment页面对同一个WebSocket连接返回的数据，
+需要做不同的处理会在onResume时产生不同的处理，例如首页只需要监听Ws频道1。实现代码是在Activity的onResume回调时定义当前页面的对Ws的onResponse的回调方法
+离开页面时将onResponse回调设为null，等待新的页面重新设定Ws的onResponse
+
+```java
+  @Override
+  public void onResume() {
+    super.onResume();
+    WebSocketConnection.getInstance().connect(message -> {
+      // ...
+    });
+    WebSocketConnection.getInstance().subscribe(channel);
+  }
+```
+
+```java
+public final class WebSocket extends WebSocketClient {
+  private static WebSocket instance;
+
+  public interface onMessageListener {
+    void onMessageCallback(String message);
+  }
+
+  /**
+   * BottomNavigationView切换Fragment时流程有点「特殊」，例如页面1->页面2时流程如下
+   * 1. 页面2.onCreateView
+   * 2. 页面2.onResume
+   * 3. 页面1.onPause
+   * 所以不能在页面1的onPause中清空回调监听，不然会把页面2辛辛苦苦设好的listener清掉
+   * 首页三个Tab页都是共用market_list频道，不需要在Fragment切换时取消订阅
+   * 只需在离开MainActivity时取消订阅所有频道即可
+   */
+  public void setListener(onMessageListener listener) {
+    this.listener = listener;
+  }
+
+  private onMessageListener listener;
+
+  public static onMessageListener emptyCallback = message -> {};
+
+  public static WebSocket getInstance() {
+    if (instance == null) {
+      try {
+        instance = new WebSocket(new URI(Urls.WEBSOCKET_SERVER));
+        // 每隔5秒向服务器发送一次ping消息，如果收不到pong则说明已掉线
+        instance.setConnectionLostTimeout(0); // 永不掉线
+      } catch (URISyntaxException e) {
+        Log.e(TAG, "WebSocket getInstance: " + Log.getStackTraceString(e));
+      }
+    }
+    return instance;
+  }
+
+  private WebSocket(URI serverUri) {
+    super(serverUri);
+  }
+
+  @Override
+  public void onMessage(ByteBuffer bytes) {
+    Log.i(TAG, "onMessage: " + gzipDecompress(bytes.array()));
+    listener.onMessageCallback(gzipDecompress(bytes.array()));
+  }
+}
+```
+
+2. (可能是Rust特有)泛型入参
+
+3. 多继承/多范式
 
 ### 单例模式
 
@@ -235,6 +337,40 @@ https://www.zhihu.com/question/391694703/answer/1207383438
 如果你觉得在Rust里创建一个单例对象很复杂，那是因为它本来就很复杂，其他语言中忽略的潜在错误，你都得显式地考虑，而我也不觉得这是Rust的缺点。
 
 原生方法：全局函数不就可以做到了？一个atomic bool记录是否第一次初始化，如果是，就执行特定逻辑
+
+---
+
+## MySQL
+
+### 数据库连接池使用SELECT 1保持连接
+
+我发现diesel::r2d2的查询日志中有大量的SELECT 1语句，
+
+SELECT 1是用来保持数据库连接的吗？
+
+获取连接和释放连接心跳检测：建议全部关闭，否则每个数据库访问指令会对数据库生产额外的两条心跳检测的指令，增加数据库的负载
+
+连接有效性的检查改用后台空闲连接检查
+
+### \[性能调优]确定只返回一条数据加LIMIT 1
+
+你知道只有一条结果，但数据库并不知道，LIMIT 1让数据库主动停止游标移动
+
+### 索引
+
+#### 布尔值不用索引
+
+经验上，能过滤80%数据时就可以使用索引。对于订单状态，如果状态值很少，不宜使用索引，如果状态值很多，能够过滤大量数据，则应该建立索引。
+
+性别只有男，女，每次过滤掉的数据很少，不宜使用索引。
+
+#### 不要过度索引
+
+加索引会影响「写」的性能，索引多了mysql也可能不知道第一时间选用哪个索引于是去遍历索引方案，导致读的性能也变慢
+
+#### NULL值影响索引
+
+Nullable的列的单列索引可能不生效
 
 ---
 
