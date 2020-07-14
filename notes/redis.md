@@ -91,9 +91,13 @@ redis不像关系型数据库那样有log，所以需要monitor这样的命令�
 
 通过管道加 grep -iE '关键词' 能过滤monitor的滚屏内容，只保留想要看到的部分
 
-## redis队列?
+## redis数据结构
+
+### redis队列?
 
 k线数据在redis中是通过一种类似队列或者叫list的数据结构去存储
+
+### HSET/HGET HashMap
 
 ## CLUSTER(集群)
 

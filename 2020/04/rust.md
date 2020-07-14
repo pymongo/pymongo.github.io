@@ -8,7 +8,7 @@ Rust社区同样优秀的Web框架是Rocket，二者最大差别在于actix是�
 
 推荐用官方的sh脚本安装rustup，不建议用brew或apt(Ubuntu就没有rustup这个包)
 
-常用rustup命令是rustup override set nightly(rocket项目必用命令git )和rustup show
+常用rustup命令是rustup override set nightly(rocket项目必用命令git)和rustup show
 
 通过项目文件夹根目录内的`rust-toolchain`文件可以指定项目的rust版本(参考diesel项目)
 
