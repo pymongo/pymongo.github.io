@@ -12,4 +12,6 @@
 
 ## succeeding后继地
 
+链表之类数据结构中常用单词，pred=predecessor, succ=successor
+
 来源: [rust的日期时间库chrono中获取明天日期的API](https://docs.rs/chrono/0.3.0/chrono/date/struct.Date.html#method.succ)

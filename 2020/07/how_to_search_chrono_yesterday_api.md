@@ -31,6 +31,10 @@ Weekday的pred描述是previous day，而chrono::Date的pred的描述是prior da
 
 查询文档发现其实还有第三种思路，全局按`previous day`关键字搜索代码的docstring，也能找到pred API
 
+## predecessor, successor
+
+链表之类数据结构中常用单词，pred=predecessor, succ=successor
+
 ---
 
 如何pred可以理解成previous day的缩写
