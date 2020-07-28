@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年7月**
+    - [async fn的展开写法](/2020/07/async_fn.md)
     - [2020年7月近况分享](/2020/07/recent_study_plan.md)
     - [关键字搜索chrono获取昨天的API](/2020/07/how_to_search_chrono_yesterday_api.md)
     - [异步线程安全地操作redis](/2020/07/async_redis.md)

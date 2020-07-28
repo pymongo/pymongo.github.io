@@ -4,6 +4,10 @@
 
 > sudo du -a / | sort -n -r | head -n 20
 
+du -h --max-depth=1 /data | grep G | sort -n
+
+du -a -h --max-depth=1 /opt/app | sort -n -r | head -n 20
+
 于是查出上述命名，列出硬盘里最大的20个文件/文件夹
 
 排第一的是`/opt/app/rails_api/releases/xxx/nohup.out`
