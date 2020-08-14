@@ -120,6 +120,26 @@ C/C+还将整形
 
 但是在Rust/Go/+中，整数还分u8、u32......
 
+## Internet
+
+### OSI model
+
+Open Systems Interconnection model 7 layer:
+
+1. Physical
+2. Data-Link(contains MAC layer): Wi-Fi, Ethernet
+3. Network: route
+4: Transport: UDP(User Datagram Protocol), TCP(Transmission Control Protocol)
+5. Session(full-duplex/half-duplex/simplex): RPC 
+6. Presentation: ASCII-encoded
+7. Application: HTTP
+
+
+My database password contains char `$`(encoded `%24`), 
+
+auth success in sqlx v0.3.5, but auth failure in v0.4.0-beta.1
+
+
 ---
 
 ## Rust
