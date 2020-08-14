@@ -177,7 +177,3 @@
     - [谷歌的文字冒险游戏](/unarchived/google_text_adventure.md)
     - [CSS/HTML小知识(如CSS权重)](/unarchived/css_html_notes.md)
     - [博客新插件/样式测试](/unarchived/test.md)
-<!--
-- **联系我**
-    - [我的简历](/redirect/resume.html)
--->
