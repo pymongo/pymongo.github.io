@@ -101,6 +101,11 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 具体、量化、有说服力，是技术简历特别需要注重的地方。
 -->
 
+<!--
+为了保护公司隐私，以下两个域名不公开
+testcadae[.]top => ca***.com
+trading.sctajik[.]com => sc***.com
+-->
 <div class="page-container">
     <h1 class="header1 resume-title">应聘Rust工程师/C++工程师(北京/杭州)_吴翱翔的简历</h1>
     <div style="text-align: center">17150313884| me@tute.edu.cn| 男/1997/本科</div>
@@ -136,7 +141,7 @@ sso/cas 单点登录
         <span class="project-cycle">2020.07 - 至今</span>
     </h3>
     <pre class="project-details">
-[项目链接] wss://ws-rust.testcadae.top.top/
+[项目链接] wss://ws-rust.ca***.com
 [项目背景] 老的Ruby版WebSocket服务器负载高内存泄露严重，需要每隔5分钟去重启一次去释放资源
 [技术架构] 1. 服务器不生产任何数据，每个WebSocket频道各有一个Ruby脚本通过进程通信每隔2秒推数据给服务器
 　　　　   2. 弃用老版基于redis pubsub的进程间通信方式，改用效率更高性能更好UDP socket进行通信
@@ -163,7 +168,7 @@ sso/cas 单点登录
     <pre class="deprecated">解决了函数中泛型入参直接获取结构体字段会报错的问题，学会用Rust泛型实现mixin编程范式</pre>
     <pre class="deprecated">　　　　   2. 重新设计股票订单相关表的表结构，设计股票交易的账户对账计算方式</pre>
     <pre class="project-details">
-[项目链接] http://trading.sctajik.com/
+[项目链接] http://trading.sc***.com
 [项目介绍] 塔吉克证券是一个用塔国货币索莫尼进行股票交易的平台，撮合引擎负责集合竞价和成交价格相近的订单
 [项目背景] 基于数字货币交易所进行二次开发，参照上交所添加了涨跌停机制、T+1交易方式、集合竞价等功能
 [技术架构] 1. 开发了一个proc_macro_derive(过程宏)，可以给不同的表单结构体生成实现某个Trait的代码
@@ -201,7 +206,7 @@ sso/cas 单点登录
     <pre class="deprecated">不同服务器，不同Ruby/Rust项目之间共用一个redis服务器，利用redis pubsub机制实现通信</pre>
     <pre class="deprecated">项目早期用的是diesel ORM，遇到高并发下MySQL FOR UPDATE锁超时后换成sqlx</pre>
     <pre class="project-details">
-[项目链接] http://trading-account-type.testcadae.top/margin/omgusdt
+[项目链接] http://trading.ca***.com
 [项目介绍] 虚拟货币交易所的撮合引擎的功能是将价格相近的买单和买单匹配在一起进行成交
 [项目背景] 老版撮合引擎是用Ruby单线程框架写的，创建一个订单耗时40ms，与一流交易所的撮合引擎性能差距太大
 　　　　   Ruby撮合引擎CPU/内存负载很高，空闲时30%负载，并发量高时负载会暴涨到90%需要重启去释放资源
@@ -265,7 +270,7 @@ sso/cas 单点登录
         <span class="project-cycle">2019.12 - 2020.04</span>
     </h3>
     <pre class="project-details">
-[项目链接] http://v-api.testcadae.top/api/v2/swagger_doc
+[项目链接] http://v-api.ca***.com/api/v2/swagger_doc
 [项目介绍] 该项目作用是给交易所移动端APP提供API和WebSocket数据
 [项目架构] 1. 践行TDD，使用REST API框架grape，了解RPC，通过单元测试/swagger/postman调试接口
 　　　　   2. 对于时效性短的数据，存入redis减轻MySQL负载，例如当日取消订单3次就禁止交易的功能
@@ -283,7 +288,7 @@ sso/cas 单点登录
         <span class="project-cycle">2019.11 - 2020.12</span>
     </h3>
     <pre class="project-details">
-[项目链接] http://k-line-drawer.testcadae.top
+[项目链接] http://k-line-drawer.ca***.com
 [项目介绍] 小交易所有很多交易对都没有真实用户下单，K线画线工具帮组运营人员手工画k线进行数据造假
 [项目架构] 1. 前端是Vue+element-ui的UI组件，后端是rails API框架
 　　　　   2. 避免用户重复点击发起多个请求的解决方案：发起请求前禁用按钮，请求response时恢复按钮
@@ -314,7 +319,7 @@ sso/cas 单点登录
         <span class="project-cycle">2019.11 - 2020.01</span>
     </h3>
     <pre class="project-details">
-[项目链接] http://new-gly.testcadae.top
+[项目链接] http://new-gly.ca***.com
 [项目介绍] rails后台管理系统类似jsp前后端不分离的系统，网页端主要给运营/客服人员使用
 [项目架构] 后台管理系统主要负责所有项目/子系统共用数据库的迁移管理
 [主要工作] 1. 开发了用户支付方式、运营统计、数据图表、安卓版本管理等约15~20个页面
@@ -432,7 +437,7 @@ sso/cas 单点登录
             <div class="title-row">
                 <div style="display: flex">
                     <div class="project-title">交易所移动端API接口</div>
-                    <div class="project-link">项目链接：<br>http://v-api.testcadae.top/api/v2/swagger_doc</div>
+                    <div class="project-link">项目链接：<br>http://v-api.ca***.com/api/v2/swagger_doc</div>
                 </div>
                 <div class="flex-right">
                     <div class="time-range">19.12.03 - 20.04.03</div>
@@ -449,7 +454,7 @@ sso/cas 单点登录
             <div class="title-row deprecated">
                 <div style="display: flex">
                     <div class="project-title">运营系统-法币交易数据图表</div>
-                    <div class="project-link">项目链接：http://gly.testcadae.top/chart/otc</div>
+                    <div class="project-link">项目链接：http://gly.ca***.com/chart/otc</div>
                 </div>
                 <div class="flex-right">
                     <div class="time-range">19.11.20 - 19.12.03</div>
@@ -462,7 +467,7 @@ sso/cas 单点登录
             <div class="title-row">
                 <div style="display: flex">
                     <div class="project-title">k线画线工具</div>
-                    <div class="project-link">项目链接：http://k-line-drawer.testcadae.top</div>
+                    <div class="project-link">项目链接：http://k-line-drawer.ca***.com</div>
                 </div>
                 <div class="flex-right">
                     <div class="time-range">19.11.18 - 19.12.01</div>
@@ -492,7 +497,7 @@ sso/cas 单点登录
             <div class="title-row deprecated">
                 <div style="display: flex">
                     <div class="project-title">vue-otc(法币交易系统)</div>
-                    <div class="project-link">项目链接：http://vue-otc.testcadae.top</div>
+                    <div class="project-link">项目链接：http://vue-otc.ca***.com</div>
                 </div>
                 <div class="flex-right">
                     <div class="time-range">19.11.18 - 20.01.06</div>
@@ -517,7 +522,7 @@ sso/cas 单点登录
             <div class="title-row">
                 <div style="display: flex">
                     <div class="project-title">交易所后台管理系统</div>
-                    <div class="project-link">项目链接：http://gly.testcadae.top</div>
+                    <div class="project-link">项目链接：http://gly.ca***.com</div>
                 </div>
                 <div class="flex-right">
                     <div class="time-range">19.11.01 - 20.01.16</div>
@@ -534,16 +539,14 @@ sso/cas 单点登录
             <div class="title-row deprecated">
                 <div style="display: flex">
                     <div class="project-title">威中杰公司官网</div>
-                    <div class="project-link">项目链接：http://wzj.testcadae.top/</div>
+                    <div class="project-link">项目链接：http://wzj.ca***.com/</div>
                 </div>
                 <div class="flex-right">
                     <div class="time-range">19.12.02 - 19.12.12</div>
                 </div>
             </div>
-            <div class="row-padding-lv1">・使用wget把tencent.com扒下来，修改网站文案，换上了公司的LOGO</div>
             <div class="row-padding-lv1">・修复了因公司网站没有https的原因导致所有外链都无法点击的Bug，添加了中英文支持</div>
             <div class="row-padding-lv1">・通过ffmpeg命令剪辑与压缩美工制作的公司首页视频，将视频压制到800k提高网站访问速度</div>
-
         </div>
     </div>
     -->
@@ -556,7 +559,6 @@ sso/cas 单点登录
         </div>
     </div>
     -->
-
 </div>
 
 </body>

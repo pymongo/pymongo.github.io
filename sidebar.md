@@ -126,7 +126,6 @@
     - [rails步骤记录](/2019/10/rails_step.md)
     - [再次学习Ruby](/2019/10/ruby_restudy.md)
     - [chrome78开始支持darkmode](/2019/10/chrome-dark-mode.md)
-<!-- archive -->
 - **Leetcode**
     - [062 走格子最短路径](/archive/leetcode/062_dp_unique_paths.md)
     - [066 plus one](/archive/leetcode/066-plus-one.md)
@@ -168,7 +167,6 @@
     - [多表查询](/archive/database/join.md)
     - [sql分组与聚合函数](/archive/database/sql_group.md)
     - [增删改,约束与事务处理](/archive/database/sql_update.md)
-<!-- /archive -->
 - **个人作品**
     - [【智能家居】平板电脑控制电灯](/unarchived/rpi_gpio.md)
 - **old**
