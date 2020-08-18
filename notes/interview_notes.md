@@ -4,76 +4,6 @@
 
 学有余力的话，还可以学下底层理论(按列遍历二维数组不能命中CPU三级缓存)
 
-## System Design
-
-### 如何防止用户重复点击导致表单重复提交
-
-category: 分布式、防重入、幂等性(Idempotence)
-
-#### 为什么需要防重入
-
-假如售票网站只有一张火车票，结果用户鼠标重复点击买到了10张票
-
-又例如微博点赞系统、淘宝好评系统，不希望一个用户就能刷好多个好评
-
-#### 前端应对措施
-
-用户点击按钮发送表单请求后，将表单按钮「禁用」掉Vue或安卓的按钮都用disable(属性)
-
-等到网络请求(一般都是异步的)的response回调中将按钮恢复
-
-以js的fetch API为例，调用fetch()的上一行禁用按钮，在`.then(response`时恢复
-
-```js
-button.disabled = true;
-return new Promise((resolve, reject) => {
-    fetch(url, {
-        body: "user_id=1",
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-    }).then(response => {
-        console.info(response)
-        if (response.status !== 200) {
-            console.error(`HTTP status_code(${response.status}) != 200`)
-            reject(new Error(`HTTP status_code(${response.status}) != 200`))
-        }
-        response.json().then(data => {
-            console.log(`== [on response]${url}`)
-            console.info(data)
-            button.disabled = false;
-            resolve(data)
-        })
-    }).catch((e) => {
-        console.error(e)
-        reject(e)
-    })
-})
-```
-
-这样处理之后，每个client在同一时间只能发起一个请求
-
-但是仅靠前端作防止重复提交的处理是不够的，防不了使用爬虫或其他HTTP客户端发起的请求
-
-#### 后端应对
-
-所谓幂等性，在编程领域指的是`对同一个系统，使用同样的条件，一次请求和重复的多次请求对系统资源的影响是一致的`
-
-方法一：请求携带token参数
-
-每一次操作生成一个唯一性的token，一个token在操作的每一个阶段只有一次执行权
-
-以电商应用为例，用户购买商品可分为 订单表创建一条订单记录、商品的库存减少、锁定优惠券、支付 等等
-
-例如用户下单后因余额不足而支付失败，用户请求的token就卡在了支付的阶段，再次发起请求时不会走前面的流程，只会从支付开始走
-
-具体的代码实现可以使用状态机或状态转移图的编程范式
-
-方法二：数据库，一张临时性的去重表，用户ID和订单ID字段是unique的，每次下单请求都往去重表写一次，支付/库存减少的操作就只看去重表的数据，不看请求的数据
-
-方法三：共享变量/数据库的相关加锁，让相同的请求必须以严格的先后顺序逐个处理
-
 ## 编程范式
 
 ### Actor
@@ -138,19 +68,6 @@ Open Systems Interconnection model 7 layer:
 My database password contains char `$`(encoded `%24`), 
 
 auth success in sqlx v0.3.5, but auth failure in v0.4.0-beta.1
-
-
----
-
-## Rust
-
-### Rust答疑
-
-Rust 1.44更新日志中有这么一段：
-
-[Special cased vec![] to map directly to Vec::new(). This allows vec![] to be able to be used in const contexts.](https://github.com/rust-lang/rust/pull/70632)
-
-PR description中有大量的`IR`缩写，请问IR指的是什么？
 
 ---
 
@@ -219,45 +136,6 @@ TODO
 ### 虚析构函数
 
 TODO
-
----
-
-## Rust
-
-### inline函数
-
-FFI编程相关，C语言宏在 Rust 中会实现为 #[inline] 函数
-
-### cargo工具链
-
-#### cargo tree解决第三方库版本问题
-
-```
-root@remote-server:~/app# cargo tree -d | grep md-5
-└── md-5 v0.9.0
-└── md-5 v0.9.0 (*)
-```
-
-#### cargo expand(宏展开)
-
-推荐在一个子文件夹内(就一个lib.rs)使用cargo expand，否则将项目的所有rust源文件都展开的话，输出结果长得没法看完
-
-#### cargo alias
-
-在项目根目录新建一个文件 .cargo/config 就能实现类似npm run scripts的效果
-
-IDEA运行同一个文件的多个单元测试函数时，默认是多线程的，建议加上--test-threads=1参数避免单元测试之间的数据竞争
-
-```
-[alias]
-myt = "test -- --test-threads=1 --show-output --color always"
-matcher_helper_test = "test --test matcher_helper_test -- --test-threads=1 --show-output --color always"
-run_production = "cargo run --release"
-```
-
-运行某个单元测试文件中的某个测试函数
-
-> cargo test --test filename function_name -- --test-threads=1 --show-output
 
 ---
 
@@ -470,13 +348,3 @@ TODO
 比如说：分布式的软件系统，会碰到哪些【根本性的困难】
 比如说：CAP 定理
 ......
-
-## 其它
-
-### 相比Ruby，Rust的优势是
-
-1. 没有不能编译的第三方库，Ruby的话一言难尽，例如passgen编译失败、某些依赖llvm编译的库也会失败等等
-    Rust的很多第三方库的安装不依赖于各种系统包例如libxxx、llvm等等
-2. Rust的第三方库不依赖Rustc的版本，不像Ruby的httparty，
-    在Ruby2.6.1版本上能发www-form的POST请求，
-    在Ruby2.5.0版本发送的www-form的POST请求是错误的(非标准格式)
