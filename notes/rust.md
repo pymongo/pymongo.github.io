@@ -10,6 +10,8 @@ PR description中有大量的`IR`缩写，请问IR指的是什么？
 
 ### PhantomData
 
+---
+
 ## 概述
 
 ### Rust一些优点
@@ -21,6 +23,12 @@ PR description中有大量的`IR`缩写，请问IR指的是什么？
 - Rust的第三方库不依赖Rustc的版本，不像Ruby的httparty，
   在Ruby2.6.1版本上能发www-form的POST请求，
   在Ruby2.5.0版本发送的www-form的POST请求是错误的(非标准格式)
+
+#### 脚本语言的一些劣势
+
+服务器过载情况下 latency 和超时率，脚本类语言在负载范围的时候感觉不出来
+
+一旦服务器过载性能急剧下降，或者抖动特别厉害
 
 ### Rust的缺点
 
@@ -37,6 +45,25 @@ tokio和actix_rt异步运行时
 #### 缺点.过度依赖宏
 
 宏带来可读性差、静态检查等问题，现阶段IDE不支持宏的语法高亮等
+
+---
+
+## Trait
+
+### Ord & PartialOrd
+
+这两个 Traits 的名称实际上来自于抽象代数中的「等价关系」和「局部等价关系」
+
+二者的都实现了
+
+- 对称性(Symmetry): a==b可推出b==a
+- 传递性(Transitivity): a==b,b==c可推出a==c
+
+Eq多实现了反身性(Reflexivity): a==a
+
+为什么PartialOrd的返回值是Option<T>? 是为了考虑lhs是None的情况
+
+---
 
 ## 编译器相关
 
