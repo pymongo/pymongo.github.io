@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=UTF-8>
-    <title>应聘Rust工程师/C++工程师(北京)_吴翱翔的简历</title>
+    <title>应聘Rust开发工程师_吴翱翔的简历</title>
     <style>
         .page-container {
             /* 820≈A4_width_2480x0.33 */
@@ -101,13 +101,16 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 具体、量化、有说服力，是技术简历特别需要注重的地方。
 -->
 
-<!--
-为了保护公司隐私，以下两个域名不公开
-testcadae[.]top => ca***.com
-trading.sctajik[.]com => sc***.com
+<!-- 自我介绍
+我叫吴翱翔，负责的是股票交易所和数字货币交易所的订单撮合系统，以及Orderbook和深度图数据推送系统的开发。
+我司老版的撮合系统、WebSocket服务器使用的是Ruby语言，我用Rust重写以后，通过ab命令测试结果显示性能提升在15-20倍左右，CPU/内存负载从30%-40%降低到%1以内。
+我成功地解决了老版的Ruby WebSocket服务器存在严重内存泄露的问题导致服务器必须每隔5-10分钟重启一次的Bug。
+我在业余时间主要参与Rust社区sqlx库的开发，已经贡献了多个PR，目前在sqlx的贡献者中排名23，正在攻克的是sqlx 0.4版本引入query logger之后带来的查询变慢问题。
+我的自我介绍完毕，谢谢。
 -->
+
 <div class="page-container">
-    <h1 class="header1 resume-title">应聘Rust工程师/C++工程师(北京/杭州)_吴翱翔的简历</h1>
+    <h1 class="header1 resume-title">应聘Rust开发工程师_吴翱翔的简历</h1>
     <div style="text-align: center">17150313884| me@tute.edu.cn| 男/1997/本科</div>
     <div style="text-align: center"><span class="bold">技术博客</span>:pymongo.github.io| Github:pymongo</div>
     <hr class="divider">
@@ -118,7 +121,7 @@ trading.sctajik[.]com => sc***.com
         <span class="project-role">全栈开发工程师</span>
         <span class="project-cycle">2019.10 - 至今</span>
     </h3>
-    <p>・主要负责交易所订单撮合引擎的开发(Rust)、WebSocket维护、安卓端的维护、后台管理系统的开发</p>
+    <p>・主要负责交易所订单撮合系统、WebSocket服务器、Orderbook和深度图数据推送系统的开发</p>
 
     <h3 class="header3">
         <span class="project-title">北京邦友科技开发有限公司</span>
@@ -128,8 +131,7 @@ trading.sctajik[.]com => sc***.com
     <p>・业务是汽车ECU(电子控制器)的功能测试，以日方提供的脚本语言进行编程，调试</p>
     <hr class="divider">
 
-<!--
-项目经验的高逼格术语
+<!-- 项目经验的高逼格术语
 锁的粒度、具效化、go/anlylize 静态分析
 sso/cas 单点登录
 -->
@@ -141,18 +143,19 @@ sso/cas 单点登录
         <span class="project-cycle">2020.07 - 至今</span>
     </h3>
     <pre class="project-details">
-[项目链接] wss://ws-rust.ca***.com
+[项目链接] wss://ws.cadex.top
 [项目背景] 老的Ruby版WebSocket服务器负载高内存泄露严重，需要每隔5分钟去重启一次去释放资源
+[项目成绩] Rust版WebSocket服务器，空闲时CPU/内存负载从32%/0.9%降低到0.7%/0.0%
 [技术架构] 1. 服务器不生产任何数据，每个WebSocket频道各有一个Ruby脚本通过进程通信每隔2秒推数据给服务器
 　　　　   2. 弃用老版基于redis pubsub的进程间通信方式，改用效率更高性能更好UDP socket进行通信
 　　　　   3. 用的是actix框架，主要有两种Actor，一个是跟每个客户端一对一的SessionActor
 　　　　      另一个Actor是UDP socket Listener兼任存储每个频道有哪些客户端订阅
 　　　　      UdpActor会缓存其它Ruby脚本发来的上一条推送数据，一旦客户端订阅频道就立即推送缓存的数据
 　　　　      SessionActor的析构函数中会通知UdpActor删掉所有频道的订阅列表中已断开连接的Actor地址
-[主要工作] 1. 用Rust重写老版WebSocket服务器，空闲时CPU/内存负载从16%/0.9%降低到0.7%/0.0%
-　　　　   2. 将所有WebSocket频道数据推送的Ruby脚本改成通过socket给服务器推送数据
-　　　　   3. 用Rust重写负载很高的聊天数据推送脚本、账户余额变动推送脚本
-[项目收获] 1. 在Actor的同步Handler函数中使用async code block
+[主要工作] 1. 将所有WebSocket频道数据推送的Ruby脚本改成通过socket给服务器推送数据
+　　　　   2. 设计WebSocket断线重连/心跳包机制，用Rust重写负载较高的聊天应用中WebSocket数据推送脚本
+[项目收获] 1. 静态区间和数据用前缀和，动态区间和数据用线段树；静态排序数据用快排，动态排序数据用堆
+　　　　   2. 在Actor的同步Handler同步的函数中嵌入异步的代码块
     </pre>
 
     <h3 class="header3">
@@ -160,21 +163,27 @@ sso/cas 单点登录
         <span class="project-role">Rust开发</span>
         <span class="project-cycle">2020.06 - 至今</span>
     </h3>
-    <pre class="deprecated">ASE是我司研发的交易所去掉虚拟货币，与上交所深交所看齐的正规股票交易所，也是我司合法化转型，转型正规军的尝试</pre>
-    <pre class="deprecated">ASE交易所主要是帮助国内盈利没达到新三板/上交所的企业也能融资上市(或从事博彩黑产的企业)</pre>
+    <pre class="deprecated"></pre>
+    <pre class="deprecated">[线段树很难增删，ACM竞赛难度，不可能用线段树实现订单增删后深度图变化]</pre>
+    <pre class="deprecated">用Rust重写OrderBook和深度图的推送脚本，老系统是每2秒查询数据库计算前缀和，无法实时更新且MySQL负载高</pre>
+    <pre class="deprecated">我用「线段树」实现订单深度的「实时更新」，而且查询和更新订单深度线段树都不需要查询数据库</pre>
+    <pre class="deprecated">使用线段树优化股票K线图数据的区间查询和归并的速度，提升分钟k线柱子归并为时、日、月k线柱子的速度</pre>
+    <pre class="deprecated">[线段树像堆一样，只能从最大值/最小值/区间和三选一]1. 使用线段树优化股票K线图数据的区间查询和归并的速度，提升分钟k线柱子归并为时、日、月k线柱子的速度</pre>
+    <pre class="deprecated">ASE是我司研发的交易所去掉数字货币，与上交所深交所看齐的正规股票交易所，也是我司合法化转型，转型正规军的尝试</pre>
     <pre class="deprecated">为什么股票交易所的交易数量是整数？招股书的最小单位就是1股</pre>
     <pre class="deprecated">通过一个线程每隔0.5秒轮询当前时间判断是开盘或休盘或去修改相应的全局AtomicBool变量</pre>
     <pre class="deprecated">3. 掌握了一些Rust语言线程安全地共享变量的解决方案</pre>
     <pre class="deprecated">解决了函数中泛型入参直接获取结构体字段会报错的问题，学会用Rust泛型实现mixin编程范式</pre>
-    <pre class="deprecated">　　　　   2. 重新设计股票订单相关表的表结构，设计股票交易的账户对账计算方式</pre>
+    <pre class="deprecated">2. 重新设计股票订单相关表的表结构，设计股票交易的账户对账计算方式</pre>
+    <pre class="deprecated">由于内存订单数据使用到了堆，所以删除操作是lazy_delete的</pre>
     <pre class="project-details">
-[项目链接] http://trading.sc***.com
+[项目链接] http://trading.sctajik.com
 [项目介绍] 塔吉克证券是一个用塔国货币索莫尼进行股票交易的平台，撮合引擎负责集合竞价和成交价格相近的订单
 [项目背景] 基于数字货币交易所进行二次开发，参照上交所添加了涨跌停机制、T+1交易方式、集合竞价等功能
 [技术架构] 1. 开发了一个proc_macro_derive(过程宏)，可以给不同的表单结构体生成实现某个Trait的代码
 　　　　      通过过程宏提取了一些公共字段例如lang的getter方法、以及根据参数生成接口签名校验的方法
 　　　　   2. 使用泛型函数复用了检查不同表单的参数是否合法的代码，多个接口共用一部分代码降低了维护成本
-　　　　   3. 将未完成的订单数据用<b>优先队列</b>BinaryHeap的数据结构持久化存储在内存中，减少SQL查询
+　　　　   3. 将未完成的订单数据用「优先队列」BinaryHeap的数据结构持久化存储在内存中，减少SQL查询
 　　　　   4. 通过Mutex锁实现了系统的幂等性，用降低锁的粒度或无锁编程的方式去优化性能
 　　　　   5. 根据做市团队的需求，用Rust的Rocket框架还开发了一个市场监控的系统，具有躲单、下单报警等功能
 　　　　   6. 集合竞价、开收盘等时间段的切换的方案是，通过tokio异步线程内轮询时间判断时间段是否需要切换
@@ -188,6 +197,7 @@ sso/cas 单点登录
 [项目收获] 1. 学会管理一个Rust项目内部有多个子项目(lib crate)、多个Cargo.toml之间依赖的处理
 　　　　   2. 发现了thread::spawn内打印log(日志)会运行时异常，而用tokio::spawn则不会发生该错误
 　　　　   3. 解决了获取到的时区会受到夏令时影响的问题，学会使用impl Fn和impl Future传递同步/异步的代码块
+　　　　   4. 发现了rust_decimal库，不仅内存大小只有bigdecimal-rs的1/4，而且运算速度是bigdecimal的2-3倍
     </pre>
 
     <h3 class="header3">
@@ -206,8 +216,8 @@ sso/cas 单点登录
     <pre class="deprecated">不同服务器，不同Ruby/Rust项目之间共用一个redis服务器，利用redis pubsub机制实现通信</pre>
     <pre class="deprecated">项目早期用的是diesel ORM，遇到高并发下MySQL FOR UPDATE锁超时后换成sqlx</pre>
     <pre class="project-details">
-[项目链接] http://trading.ca***.com
-[项目介绍] 虚拟货币交易所的撮合引擎的功能是将价格相近的买单和买单匹配在一起进行成交
+[项目链接] http://trading.cadex.top
+[项目介绍] 数字货币交易所的撮合引擎的功能是将价格相近的买单和买单匹配在一起进行成交
 [项目背景] 老版撮合引擎是用Ruby单线程框架写的，创建一个订单耗时40ms，与一流交易所的撮合引擎性能差距太大
 　　　　   Ruby撮合引擎CPU/内存负载很高，空闲时30%负载，并发量高时负载会暴涨到90%需要重启去释放资源
 [项目成绩] Rust重写的撮合引擎创建一个订单耗时1~2ms，Apache Benchmark并发10的测试结果是每秒处理1100个请求
@@ -246,14 +256,14 @@ sso/cas 单点登录
     我发现关闭服务器Example中有两个无用的变量，为actix开源项贡献了Pull Request
     </pre>
 
+    <!-- [项目链接] http://app-download.cadex.top -->
     <h3 class="header3">
         <span class="project-title">交易所安卓端APP</span>
         <span class="project-role">安卓开发</span>
         <span class="project-cycle">2020.01 - 2020.04</span>
     </h3>
     <pre class="project-details">
-[项目链接] https://github.com/wildfirechat/android-chat/pull/330
-[项目背景] 由于安卓开发的同事离职，我接手安卓项目继续开发与维护
+[项目背景] 由于安卓开发的同事离职，我接手安卓项目继续开发与维护了一段时间
 [项目架构] 1. 一些新需求用到的库只有androidx版本，我将安卓项目升级为androidx架构
 　　　　   2. 老的Activity/Fragment页面保持MVP模式不变，新页面尝试使用新技术MVVM
 　　　　   3. 通过Parcelable序列化/反序列化接口实现两个页面之间传递Java实例对象
@@ -270,7 +280,7 @@ sso/cas 单点登录
         <span class="project-cycle">2019.12 - 2020.04</span>
     </h3>
     <pre class="project-details">
-[项目链接] http://v-api.ca***.com/api/v2/swagger_doc
+[项目链接] http://new-api.cadex.top/api/v2/swagger_doc
 [项目介绍] 该项目作用是给交易所移动端APP提供API和WebSocket数据
 [项目架构] 1. 践行TDD，使用REST API框架grape，了解RPC，通过单元测试/swagger/postman调试接口
 　　　　   2. 对于时效性短的数据，存入redis减轻MySQL负载，例如当日取消订单3次就禁止交易的功能
@@ -339,7 +349,7 @@ sso/cas 单点登录
     </h3>
     <pre class="project-details">
 [PR链接]  https://github.com/akubera/bigdecimal-rs/pull/66
-[项目介绍] 类似Python内置的Decimal, bigdecimal是Rust解决浮点数运算精度丢失的库
+[项目介绍] bigdecimal-rs是Rust社区一个适用于较大数据之间精准运算的库
 [主要工作] 我实现了四舍五入的round API并提供了16个测试用例，round最大可支持i128范围内的Decimal数据
     </pre>
 
@@ -350,7 +360,7 @@ sso/cas 单点登录
 <!--        <span class="project-cycle">2020.05 - 至今</span>-->
     </h3>
     <pre class="project-details">
-[项目介绍] 与Go的sqlx类似，Rust的sqlx也是一个轻量的高性能数据库工具
+[项目介绍] 与Go的sqlx类似，Rust的sqlx也是一个轻量的数据库工具
 [PR#581] Remove decimal feature unnecessary dependency num-traits
 [PR#319,PR#592] 我阅读sqlx的MySQL源码时发现docstring中有一个typo(单词拼写错误)，我提交PR修复了该错误
     </pre>
@@ -366,7 +376,6 @@ sso/cas 单点登录
 [主要工作] 删掉了关闭服务器代码例子中两个无用变量
     </pre>
 
-    <!--
     <h3 class="header3">
         <span class="project-title">开源项目野火IM</span>
         <span class="project-role">Java后端开发+安卓开发</span>
@@ -387,7 +396,6 @@ sso/cas 单点登录
 自学maven，发现spring官方教程中集成测试代码Demo中有一处错误(详见我博客)
 给野火IM安卓端提PR，与野火技术支持沟通，改善了语音消息的音质
     </pre>
-    -->
 
     <!--
             <div class="title-row">
