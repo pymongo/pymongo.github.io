@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年8月**
+    - [Rust读牛客网编程题stdin](/2020/08/newcoder_stdin.md)
     - [emacs初体验](/2020/08/emacs_first_attemp.md)
     - [直线方程与N皇后问题](/2020/08/n_queens.md)
 - **20年7月**
