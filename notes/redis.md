@@ -1,5 +1,13 @@
 # redis技术积累
 
+## 削峰
+
+通过消息队列(生产者/消费者)削峰解决redis和MySQL速度差距过大的问题
+
+## redis+LUA
+
+通过LUA脚本验证超卖问题
+
 ## 为什么要用redis
 
 某些业务需求下，读写速度比MySQL快
@@ -93,11 +101,7 @@ redis不像关系型数据库那样有log，所以需要monitor这样的命令�
 
 ## redis数据结构
 
-### redis队列?
-
-k线数据在redis中是通过一种类似队列或者叫list的数据结构去存储
-
-### HSET/HGET HashMap
+LIST是双向链表
 
 ## CLUSTER(集群)
 

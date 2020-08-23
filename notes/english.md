@@ -37,3 +37,7 @@
 ## adjacent_matrix邻接矩阵
 
 ## laying off employees裁员
+
+## aggregate合计
+
+## shrinks收缩
