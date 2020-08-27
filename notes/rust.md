@@ -70,6 +70,12 @@ Mutex/RwLock
 
 一般用Atomic或ARC套Mutex/RwLock
 
+## Rust如何实现多态？
+
+TODO
+
+## Rust
+
 ## RC和ARC的区别
 
 RC是单线程共享内存，ARC是多线程共享，ARC中的A全称是Atomic
