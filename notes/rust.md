@@ -8,6 +8,72 @@ Rust 1.44更新日志中有这么一段：
 
 PR description中有大量的`IR`缩写，请问IR指的是什么？
 
+## 智能指针
+
+如果程序员忘记在调用完temp_ptr之后删除temp_ptr，那么会造成一个悬挂指针(dangling pointer)
+
+迷途指针/悬空指针/野指针指的是指针指向的对象free之后，没有回收指针变量的现象，容易造成used after free
+
+scoped_ptr: 所指向的对象在作用域之外会自动得到析构
+
+不要拿C++11的智能指针去类比Rust的智能指针
+
+要记住Rust的智能指针远远不只不只三种，这种类比是不准确的
+
+具体看[Rust Memory Container Cheat-sheet](https://github.com/usagi/rust-memory-container-cs)
+
+### Cell和RefCell
+
+共同点: 让结构体的某个字段mut，形象比喻是给结构体打一个孔，让某一部分变得mutable
+
+不同点: Cell<T>建议用于Copy-Type
+
+解释:
+
+Cell provides you values, RefCell with references(所以内存体积较大的结构体类型还是用RefCell)
+
+Cell never panics, RefCell can panic
+
+知识扩展: OnceCell建议用于non-Copy-Type
+
+在C++11中，会有三种智能指针
+
+- unique_ptr: 独占内存，不共享。在Rust中是: std::boxed::Box
+- shared_ptr: 以引用计数的方式共享内存。在Rust中是: std::rc::Rc
+- weak_ptr: 不以引用计数的方式共享内存。在Rust中是: std::rc::Weak
+
+### 单线程独占内存
+
+C++是unique_ptr TODO 为何摒弃了auto_ptr(因为unique_ptr更优，为什么更优?) 
+
+Rust独占堆内存不共享: Box
+
+注意: RefCell、Cell、Box只能用于单线程
+
+例如Rust的链表节点的next字段的类型是 Option<Box<ListNode<T>>>
+
+### 单线程共享内存
+
+C++ shared_ptr(实际上是引用计数)、weak_ptr(不以引用计数的方式共享内存)
+
+Rust与之对应的是Rc和Weak
+
+例如Rust二叉树节点中的left字段类型是 Option<Rc<RefCell<TreeNode>>>
+
+需要注意的是Rc和Box不能同时使用
+
+### 多线程独占内存
+
+Mutex/RwLock
+
+### 多线程共享内存
+
+一般用Atomic或ARC套Mutex/RwLock
+
+## RC和ARC的区别
+
+RC是单线程共享内存，ARC是多线程共享，ARC中的A全称是Atomic
+
 ### PhantomData
 
 ---

@@ -98,14 +98,6 @@ MySQL虽有Bit的数据类型，但是Bit类型至少也要占1Byte的内存，�
 
 C51单片机有Bit类型，但由于51单片机(8位机)的寄存器的也是8bit的，所以我推测C51的Bit类型最低也占1Byte的内存
 
-### 智能指针
-
-在C++11中，会有三种智能指针
-
-- unique_ptr: 独占内存，不共享。在Rust中是: std::boxed::Box
-- shared_ptr: 以引用计数的方式共享内存。在Rust中是: std::rc::Rc
-- weak_ptr: 不以引用计数的方式共享内存。在Rust中是: std::rc::Weak
-
 ---
 
 ## C/C++
