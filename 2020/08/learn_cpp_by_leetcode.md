@@ -102,6 +102,18 @@ queue.push_back(node);
 queue.push_back(NULL);
 ```
 
+## auto自动类型推断
+
+在C++14版本，auto可以做增强型for循环或函数返回值类型的type inference
+
+所以`for (Node* each : node->children)`可以写成:
+
+`for (auto each : node->children)`
+
+还有`int fn()`可以写成`auto fn() -> int`或`auto fn()`
+
+这里的-> int更像是Python的typehint，不会影响编译器编译g
+
 ---
 
 最终的代码如下，击败了98%的C++记录
