@@ -43,7 +43,7 @@ You should stop it and try again.
 
 vue的文档使用的是hexo框架，没有热重载的功能，不用担心热重载端口冲突
 
-```bash
+```
 git clone https://github.com/vuejs/vuejs.org
 cd vuejs
 npm install

@@ -14,7 +14,7 @@ PR description中有大量的`IR`缩写，请问IR指的是什么？
 
 迷途指针/悬空指针/野指针指的是指针指向的对象free之后，没有回收指针变量的现象，容易造成used after free
 
-scoped_ptr: 所指向的对象在作用域之外会自动得到析构
+scoped_ptr: 所指向的对象在作用域之外会自动得到析构，intrusive_ptr实际工作中用不到...
 
 不要拿C++11的智能指针去类比Rust的智能指针
 

@@ -46,7 +46,7 @@ ab的测试结果主要是看 Time per request: (mean, across all concurrent req
 
 ### 步骤1.1: 编辑Gemfile
 
-```bash
+```
 # Gemfile 1st edit
 source 'https://gems.ruby-china.com'
 ruby '2.5.0'
@@ -76,7 +76,7 @@ git push
 
 ## 步骤2: 新建config.ru并启动服务器
 
-```bash
+```
 # config.ru 1st edit
 run Proc.new { |env| ['200', {'Content-Type' => 'text/html'}, ['hellow rack']] }  
 ```
@@ -93,7 +93,7 @@ git commit -m "添加了config.ru, 测试了rackup"
 
 [脱离Rails使用acticerecord - 大师的博客](http://siwei.me/blog/posts/origin_from_javaeye_533)
 
-```bash
+```
 # Gemfile 2st edit
 source 'https://gems.ruby-china.com'
 ruby '2.5.0'

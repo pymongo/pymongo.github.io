@@ -81,7 +81,7 @@ TODO:好像没有必要启用root
 
 brew install nvm完后在.bash_profile加入以下三行
 
-```bash
+```
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -105,7 +105,7 @@ npm install -g @vue/cli
 
 ## ruby
 
-```bash
+```
 brew install rbenv # 注意rbenv不能与rvm共存
 # 在.bash_profile里加入上
 eval "$(rbenv init -)"
@@ -141,7 +141,7 @@ TODO：补充我的个人偏好设置
 
 ## ~~Mysql@5.7安装~~
 
-```bash
+```
 brew install mysql@5.7
 # 将mysql的bin文件夹加到环境变量PATH
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
@@ -168,7 +168,7 @@ brew services start mysql # 设置开机启动mysql
 
 全部软件安装完毕后我的bash配置如下
 
-```bash
+```
 alias v=vim                                                                     
 alias caps="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierM
 alias ms="mysql -u root --password=asdf"

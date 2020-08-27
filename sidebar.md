@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年8月**
+    - [通过N叉树最大深度一题复习C++](/2020/08/learn_cpp_by_leetcode.md)
     - [Rust读牛客网编程题stdin](/2020/08/newcoder_stdin.md)
     - [emacs初体验](/2020/08/emacs_first_attemp.md)
     - [直线方程与N皇后问题](/2020/08/n_queens.md)
@@ -130,7 +131,6 @@
     - [chrome78开始支持darkmode](/2019/10/chrome-dark-mode.md)
 - **Leetcode**
     - [062 走格子最短路径](/archive/leetcode/062_dp_unique_paths.md)
-    - [066 plus one](/archive/leetcode/066-plus-one.md)
     - [070 爬楼梯动态规划](/archive/leetcode/070_dp_climbing_stairs.md)
     - [118 pascal tria:ngle(杨辉三角)](/archive/leetcode/118-pascal-triangle.md)
     - [leetcode简单题/API题](/archive/leetcode/leetcode-easy.md)
