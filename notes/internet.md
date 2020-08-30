@@ -15,3 +15,5 @@ Open Systems Interconnection model 7 layer:
 ## TCP三次握手和四次握手
 
 建立连接3次握手，终止连接4次握手
+
+Physics

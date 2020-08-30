@@ -114,6 +114,33 @@ queue.push_back(NULL);
 
 这里的-> int更像是Python的typehint，不会影响编译器编译g
 
+## Cmake多个可执行文件
+
+cmake编译器就选g++就行了，因为g++还能编译C语言代码，但是gcc不能编译C++的代码
+
+```
+add_executable(combinations leetcode/backtracking/combinations.cpp)
+add_executable(transpose_matrix leetcode/easy/transpose_matrix.cpp)
+add_library(
+        leetcode/backtracking/combinations.cpp
+        leetcode/easy/transpose_matrix.cpp
+#        leetcode/linked_list/linked_list.hpp
+)
+
+target_link_libraries(combinations my_lib)
+target_link_libraries(transpose_matrix my_lib)
+```
+
+以上配置可以让CLion识别多个cpp文件的main函数，缺点是源文件会编译两次(好在C++编译速度快)
+
+.h和.hpp文件可以不加到add_library中
+
+## g++指定C++版本
+
+mac系统的g++默认是不支持一些C++11以后的feature，所以可能需要指定c++的版本才能编译通过
+
+> g++ -std=c++11 remove_duplicates_from_sorted_list.cpp linked_list.hpp
+
 ---
 
 最终的代码如下，击败了98%的C++记录

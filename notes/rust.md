@@ -26,6 +26,8 @@ scoped_ptr: 所指向的对象在作用域之外会自动得到析构，intrusiv
 
 共同点: 让结构体的某个字段mut，形象比喻是给结构体打一个孔，让某一部分变得mutable
 
+但Cell和RefCell除了可以让结构体部分可变，也可以让结构体整体可变，要灵活使用
+
 不同点: Cell<T>建议用于Copy-Type
 
 解释:
@@ -68,25 +70,43 @@ Mutex/RwLock
 
 ### 多线程共享内存
 
-一般用Atomic或ARC套Mutex/RwLock
-
-## Rust如何实现多态？
-
-TODO
-
-## Rust
+一般用Atomic或ARC套Mutex/RwLock/Atomic
 
 ## RC和ARC的区别
 
 RC是单线程共享内存，ARC是多线程共享，ARC中的A全称是Atomic
 
-### PhantomData
+## Rust如何实现多态？
+
+TODO
+
+## trait和generic的关系和区别
+
+The Rust Programming有一章专门将trait和generic的关系
+
+## Fn、FnMut、FnOnce的区别
+
+## Send和Sync Trait
+
+TODO
+
+## Clone和Copy的区别
+
+## 你知道std::marker::Sized是什么吗
+
+Types with a constant size known at compile time
+
+## rust编译过程中LLVM的作用
+
+rustc类似前端，LLVM会将rust编译的结果变成不同target平台的机器码
+
+## PhantomData
+
+TODO
 
 ---
 
-## 概述
-
-### Rust一些优点
+## Rust一些优点
 
 - 部署简单
 - derive过程宏相比反射机制性能更好
@@ -96,25 +116,25 @@ RC是单线程共享内存，ARC是多线程共享，ARC中的A全称是Atomic
   在Ruby2.6.1版本上能发www-form的POST请求，
   在Ruby2.5.0版本发送的www-form的POST请求是错误的(非标准格式)
 
-#### 脚本语言的一些劣势
+### 脚本语言的一些劣势
 
 服务器过载情况下 latency 和超时率，脚本类语言在负载范围的时候感觉不出来
 
 一旦服务器过载性能急剧下降，或者抖动特别厉害
 
-### Rust的缺点
+## Rust的缺点
 
-#### 缺点.异步生态不统一
+### 缺点.异步生态不统一
 
 tokio和async_std之争，不支持async triat但Actor里所有通信操作都是异步的需要在同步的函数里写异步的代码块
 
 tokio和actix_rt异步运行时
 
-#### 缺点.不能处理内存分配失败的情况(C语言可以)
+### 缺点.不能处理内存分配失败的情况(C语言可以)
 
-#### 缺点.不支持const generic
+### 缺点.不支持const generic
 
-#### 缺点.过度依赖宏
+### 缺点.过度依赖宏
 
 宏带来可读性差、静态检查等问题，现阶段IDE不支持宏的语法高亮等
 
