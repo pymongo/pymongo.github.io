@@ -72,6 +72,10 @@ Mutex/RwLock
 
 一般用Atomic或ARC套Mutex/RwLock/Atomic
 
+## std::lazy::OnceCell
+
+rust-analyzer作者写的OnceCell已加入Rust的nightly版本中
+
 ## RC和ARC的区别
 
 RC是单线程共享内存，ARC是多线程共享，ARC中的A全称是Atomic
