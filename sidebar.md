@@ -1,4 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
+- **20年9月**
+    - [Rust通过dyn实现多态](/2020/09/rust_polymorphism.md)
 - **20年8月**
     - [Rust编译成安卓/IOS库](/2020/08/rust_to_android_ios_mac.md)
     - [通过N叉树最大深度一题复习C++](/2020/08/learn_cpp_by_leetcode.md)
