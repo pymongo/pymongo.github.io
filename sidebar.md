@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年9月**
+    - [Vue页面跳转时携带参数](/2020/09/vue_router_params.md)
     - [CMake引入boost库](/2020/09/cmake_import_boost.md)
     - [Rust通过dyn实现多态](/2020/09/rust_polymorphism.md)
 - **20年8月**
