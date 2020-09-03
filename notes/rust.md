@@ -80,14 +80,6 @@ rust-analyzer作者写的OnceCell已加入Rust的nightly版本中
 
 RC是单线程共享内存，ARC是多线程共享，ARC中的A全称是Atomic
 
-## Rust如何实现多态？
-
-TODO
-
-## trait和generic的关系和区别
-
-The Rust Programming有一章专门将trait和generic的关系
-
 ## Fn、FnMut、FnOnce的区别
 
 TODO
@@ -132,64 +124,61 @@ rustc类似前端，LLVM会将rust编译的结果变成不同target平台的机�
 
 TODO
 
----
+## Rust如何避免内存错误
 
-## Rust一些优点
-
-- 部署简单
-- derive过程宏相比反射机制性能更好
-- 没有不能编译的第三方库，Ruby的话一言难尽，例如passgen编译失败、某些依赖llvm编译的库也会失败等等
-
-- Rust的第三方库不依赖Rustc的版本，不像Ruby的httparty，
-  在Ruby2.6.1版本上能发www-form的POST请求，
-  在Ruby2.5.0版本发送的www-form的POST请求是错误的(非标准格式)
-
-### 脚本语言的一些劣势
-
-服务器过载情况下 latency 和超时率，脚本类语言在负载范围的时候感觉不出来
-
-一旦服务器过载性能急剧下降，或者抖动特别厉害
-
-## Rust的缺点
-
-### 缺点.异步生态不统一
-
-tokio和async_std之争，不支持async triat但Actor里所有通信操作都是异步的需要在同步的函数里写异步的代码块
-
-tokio和actix_rt异步运行时
-
-### 缺点.不能处理内存分配失败的情况(C语言可以)
-
-### 缺点.不支持const generic
-
-### 缺点.过度依赖宏
-
-宏带来可读性差、静态检查等问题，现阶段IDE不支持宏的语法高亮等
+- deref空指针 -> Option<T>
+- 使用未初始化的内存 -> 编译器检查
+- 悬垂指针(use after free) -> Ownership+liftime
+- 缓冲区溢出(例如数组越界) -> 数组编译时检查越界，vector运行时越界会panic，不会像C/C++那样越界也能继续访问
+- 多次free -> 编译器检查
 
 ---
 
-## Trait
+## Rust如何实现无GC的内存管理
 
-### Ord & PartialOrd
+### ★类似C++的RAII
 
-这两个 Traits 的名称实际上来自于抽象代数中的「等价关系」和「局部等价关系」
+Resource Acquire Is Initialize
 
-二者的都实现了
+用局部变量管理资源(有限的资源例如内存、套接字)
 
-- 对称性(Symmetry): a==b可推出b==a
-- 传递性(Transitivity): a==b,b==c可推出a==c
+例如Mutex管理的内存资源，在Rust中.lock()之后无需unlock，MutexGuard离开当前作用域后会「自动析构」
 
-Eq多实现了反身性(Reflexivity): a==a
+### ★胖指针(Fat Pointer)
 
-为什么PartialOrd的返回值是Option<T>? 是为了考虑lhs是None的情况
+Fat Pointer由两部分组成，一部分是指针，另一部分是长度
+
+例如&str就是一个胖指针，同时保存长度信息和堆内存的指针
 
 ---
 
-## 编译器相关
+## ★Rust编译原理
 
-### inline函数
+中介码 aka IR(Intermediate representation)
 
-FFI编程相关，C语言宏在 Rust 中会实现为 #[inline] 函数
+LLVM can provide the middle layers of a complete compiler system, taking intermediate representation (IR) code from a compiler and emitting an optimized IR.
+
+This new IR can then be converted and linked into machine-dependent assembly language code for a target platform
+
+rustc将rust源码经过分词和解析生成AST(抽象语法树)，再进一步处理为HIR -> MIR(Middle IR)，最终得到LLVM IR，让LLVM生成各个平台的机器码
+
+miri是一个Rust的MIR解释器
+
+## Rust琐碎知识
+
+### Affine types
+
+type can only move not copy
+
+### 字面量
+
+10为int类型的字面量
+
+### never类型
+
+never类型完善了Rust的类型系统，将一些没有返回值的例如panic情况也纳入了类型系统
+
+例如break/continue也是never类型，保证了if/match语句每个分支的类型都一致
 
 ## Cargo相关
 
@@ -222,3 +211,34 @@ run_production = "cargo run --release"
 
 `cargo test --test filename function_name -- --test-threads=1 --show-output`
 
+## Rust一些优点
+
+- 部署简单
+- derive过程宏相比反射机制性能更好
+- 没有不能编译的第三方库，Ruby的话一言难尽，例如passgen编译失败、某些依赖llvm编译的库也会失败等等
+
+- Rust的第三方库不依赖Rustc的版本，不像Ruby的httparty，
+  在Ruby2.6.1版本上能发www-form的POST请求，
+  在Ruby2.5.0版本发送的www-form的POST请求是错误的(非标准格式)
+
+### 脚本语言的一些劣势
+
+服务器过载情况下 latency 和超时率，脚本类语言在负载范围的时候感觉不出来
+
+一旦服务器过载性能急剧下降，或者抖动特别厉害
+
+## Rust的缺点
+
+### 缺点.异步生态不统一
+
+tokio和async_std之争，不支持async triat但Actor里所有通信操作都是异步的需要在同步的函数里写异步的代码块
+
+tokio和actix_rt异步运行时
+
+### 缺点.不能处理内存分配失败的情况(C语言可以)
+
+### 缺点.不支持const generic
+
+### 缺点.过度依赖宏
+
+宏带来可读性差、静态检查等问题，现阶段IDE不支持宏的语法高亮等

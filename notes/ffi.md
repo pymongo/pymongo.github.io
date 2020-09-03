@@ -45,3 +45,7 @@ extern "system"，通常类似extern "C"，但在 Win32 平台上，它是"stdca
 ## UNIX环境高级编程
 
 如果不了解Unix环境系统编程的基础知识的话，FFI编程会看的云里雾里的
+
+### inline函数
+
+FFI编程相关，C语言宏在 Rust 中会实现为 #\[inline] 函数
