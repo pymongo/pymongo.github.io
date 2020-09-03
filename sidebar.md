@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年9月**
+    - [CMake引入boost库](/2020/09/cmake_import_boost.md)
     - [Rust通过dyn实现多态](/2020/09/rust_polymorphism.md)
 - **20年8月**
     - [Rust编译成安卓/IOS库](/2020/08/rust_to_android_ios_mac.md)
