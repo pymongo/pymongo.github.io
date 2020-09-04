@@ -100,7 +100,7 @@ Rust的编译器在编译时就不知道函数最后要返回要返回引用a还
 
 ## Send和Sync Trait
 
-TODO
+为了线程同步的Trait? TODO
 
 ## Clone和Copy的区别
 

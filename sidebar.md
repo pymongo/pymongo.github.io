@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年9月**
+    - [Rust编程之道读书笔记1: 泛型多态](/notes/trait_and_generic.md)
     - [readelf查看编译生成文件符号表](/2020/09/readelf.md)
     - [Vue页面跳转时携带参数](/2020/09/vue_router_params.md)
     - [CMake引入boost库](/2020/09/cmake_import_boost.md)
