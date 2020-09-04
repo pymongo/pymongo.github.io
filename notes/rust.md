@@ -1,13 +1,5 @@
 # Rust笔记
 
-## 等待答疑
-
-Rust 1.44更新日志中有这么一段：
-
-[Special cased vec![] to map directly to Vec::new(). This allows vec![] to be able to be used in const contexts.](https://github.com/rust-lang/rust/pull/70632)
-
-PR description中有大量的`IR`缩写，请问IR指的是什么？
-
 ## 智能指针
 
 如果程序员忘记在调用完temp_ptr之后删除temp_ptr，那么会造成一个悬挂指针(dangling pointer)

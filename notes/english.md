@@ -41,3 +41,7 @@
 ## aggregate合计
 
 ## shrinks收缩
+
+## IR(Intermediate representation)
+
+## CI(Continuous Integration)
