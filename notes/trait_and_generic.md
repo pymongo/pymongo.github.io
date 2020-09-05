@@ -12,6 +12,8 @@
 
 ### generic trait bound
 
+泛型在编译时通过单态化分别生成具体类型的实例
+
 而参数化多态依赖于trait去实现，trait简单来说是对类型行为的抽象，trait可以为泛型添加约束条件和行为，也就是trait bound
 
 如果一个泛型就一个光秃秃的T，没有任何trait bound，那它也不算泛型了，因为「啥也干不了」
@@ -22,31 +24,21 @@
 
 例如actix想要有不同类型的HTTP Response，可以通过Box<dyn Trait>或impl Responder实现
 
-简单来说trait是对类型行为的抽象
-
 ## dogmatic dispatch
 
 ### &dyn Trait/Box<dyn Trait>
 
-Rust没有继承的概念，Rust实现多态的过程跟Java的向上塑型(upcast)不太一样
+Rust没有继承的概念，Rust实现动态分发多态的过程跟Java的向上塑型(upcast)不太一样
 
 多态本身也是泛型的一种实现，Rust通过dyn关键字去定义一个实现了某个trait的类型，例如函数的入参里可以通过dyn Animal表示该参数必须实现了Animal Trait
 
-除了dyn，也可以通过泛型T: Animal去实现多态
-
 这提现了Rust 组合(mixin)优于继承、面向接口编程的编程思想
-
-(当然dyn的缺点也有，运行时查表带来额外的性能开销，例如额外的存储空间，而且let语句也不能自动推断类型)
 
 ## 静态分发和动态分发的优缺点
 
-静态分发: (优点)零额外开销的抽象，(缺点)二进制文件体积变大
+静态分发: (优点)zero cost abstract，(缺点)二进制文件体积变大
 
-动态分发: (优点)?，(缺点)运行时查虚表带来性能开销而且需要额外的内存去存储虚表
-
----
-
-# trait琐碎知识
+动态分发: (优点)函数的返回值可以是不同类型(好像静态分发的impl Trait写法也能实现?)，(缺点)运行时查虚表带来性能开销而且需要额外的内存去存储虚表，还有一个缺点是不能自动类型推断
 
 ## Trait Object
 
@@ -58,13 +50,43 @@ Rust的类型可以看作是语言允许的最小集合，而trait bound可以�
 
 traitObject包含两个指针: data指针和vtable指针，vtable包含了析构函数、大小、对齐和方法等信息
 
-当trait作为traitObject去使用时，其内部类型就默认是Unsize(?Sized)类型，也就是动态类型大小
-
-只是将其置于编译时可确定大小的胖指针的背后，以供运行时动态调用
+当trait作为traitObject去使用时，其内部类型就默认是Unsize(?Sized)类型，也就是动态类型大小，只是将其置于编译时可确定大小的胖指针的背后，以供运行时动态调用
 
 所以给traitObject加上Sized后，就会陷入薛定谔的类型: 既能确定大小又不能确定大小
 
-所以多态分发时不要去加上Sized的约束
+!> 要想实现(dynamic?)多态就必须用「对象安全」的trait object
+
+或者说trait Object必须是对象安全的
+
+### trait对象安全的要求
+
+Understanding Traits and Object Safety
+
+1. trait本身没有bound Sized
+2. 所有方法的返回值不是Self
+3. 所有方法中不包含泛型参数
+
+解释第1点要求: trait对象是一个胖指针，是类似&str那样动态类型大小的，不能约束为Sized
+
+解释第2点要求: trait对象类似Java向上塑型忘记了Self是什么，所以不能在trait对象的任何方法里返回Self
+
+解释第3点要求: 由于trait对象忘记了类型信息，所以无法确认方法中泛型类型究竟是什么
+
+所以`Box<dyn Clone>`会报错因为Clone trait不是对象安全的，因此不能作为trait object
+
+以上3点要求来源于《Rust权威指南》
+
+但是在《Rust编程之道》中对要求2又有不同的定义
+
+2.1 第一个参数必须是self类型或可以解引用为self类型，例如self, &self, &mut self, self: Box<self>(TODO 待勘误)
+
+也就是第一个参数必须是"实例对象的this指针"?
+
+2.2 Self不能出现在除了第一个参数位置以外的地方，包括返回值
+
+---
+
+# trait系统的不足
 
 ## trait的孤儿规则
 
@@ -72,10 +94,57 @@ traitObject包含两个指针: data指针和vtable指针，vtable包含了析构
 
 例如Add和u32都在std里定义，如果没有孤儿规则的限制，std库u32的Add的实现就会被篡改产生难以意料的Bug
 
-### trait对象安全
+缺点: 上游库在设计trait时还要考虑要不要实现一个生命周期版本之类的，如果下游的调用者不满意，需要自己重新包装成本地类型才能做修改
 
-1. 方法受到Self: Sized约束
-2. 
+特例: 有#\[fundamental]标记都无视孤儿规则
+
+在Rust 1.46.0版本中，无视孤儿规则分别是:
+
+- Sized
+- Box
+- Pin(固定指针，直到UnPin前指向的内存内容都不会被moved)
+- Generator
+- Fn/FnMut/FnOnce
+
+## 不可重叠规则
+
+例如`impl<T: Copy> A for T`和`impl<T: i32> A for T`不能同时出现
+
+因为Copy包含了i32，不可重叠规则和孤儿规则一样，为了保证trait的一致性，避免发生混乱
+
+但是重叠规则带来了两个问题:
+
+- 代码难以复用
+- 性能问题
+
+### 不可重叠规则的性能问题
+
+```rust
+// 例如为所有类型重载 += 运算符
+impl <RHS, T: Add<RHS> + Clone> AddAssign<RHS> for T {
+    fn add_assign(&mut self, rhs: RHS) {
+        *self = self.clone() + rhs;
+    }
+}
+```
+
+上面这段代码中，并不是所有类型都需要性能开销大的clone，因为受到不可重叠规则的限制，不能为一些类型单独去实现(例如上面T: i32和T: Copy的例子)
+
+所以在标准库中，为了更好的性能，只好每种类型单独实现一次(通过宏简化代码)；不能让所有类型实现后，挑出几个「特例」去单独实现
+
+在nightly版本中，推出`specialization (RFC 1210)`去缓解这种现象
+
+特化功能有点像OOP的继承中，通过override重写父类方法，也就是我Copy已经实现了一套A trait，但是我i32可以「override」掉
+
+## Rust缺陷: 迭代器只能按值迭代
+
+例如迭代器读std::io::Lines时只能每次读一行分配到String中，不能重用内部缓冲区，通过引用来复原原始数据
+
+这个问题可以在RFC中搜索: Generic Associated Type，很可惜nightly中也没能实现出来
+
+---
+
+# trait琐碎知识
 
 ## Haskell typeclass
 
@@ -93,6 +162,12 @@ trait借鉴了很多Haskell的typeclass的概念，可以静态生成，也可�
 Eq多实现了反身性(Reflexivity): a==a
 
 为什么PartialOrd的返回值是Option<T>? 是为了考虑lhs是None的情况
+
+## Copy, Clone
+
+实现Copy的同时必须实现Clone，实现Clone的同时必须实现Sized
+
+所以像String实现了Clone又不一定需要实现Copy
 
 ---
 

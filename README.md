@@ -50,28 +50,9 @@ scoop是一款windows系统的包管理工具，类似mac的homebrew或Linux的a
 - FYI: For Your Information
 - AFAICT: As Far As I Can Tell
 
-## 高频英语单词
-
-- retrieve: 恢复
-- Boilerplate code: 样板代码
-- middleware: 中间件
-- Primitive type: 原始类型(例如Java的int等等)
-- implicitly: 隐含地
-
 ## README常见短语
 
 - In a nutshell: 简而言之
-
-您好，我注意到【飞书】项目组最近在急招(有大量HC)，我想投递Rust相关的岗位，可是飞书只有「资深Rust工程师」的岗位，
-而且招聘截止日期写的是6月30日。还有没有要求相对较低的Rust岗位(北京)
-
-您好，我想投递Rust相关的岗位，地点北京，时间10月前
-
-可是贵司大部分Rust相关的岗位都是「Rust工程师/C++工程师」
-所以我除了Rust还要复习C++？我C++没有做过商业项目
-我现在的学习计划是leetcode用Rust刷题，阅读Rust英文书籍
-
-我注意到【飞书】项目组最近在急招(大量HC)，截止日期6月30日，投递飞书相关的Rust岗位会不会容易点？
 
 ## 常用的又没背下来的命令
 

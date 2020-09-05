@@ -42,6 +42,36 @@
 
 ## shrinks收缩
 
-## IR(Intermediate representation)
-
 ## CI(Continuous Integration)
+
+## hilarious欢闹地
+
+## pervade弥漫
+
+---
+
+## 短语收集
+
+## 系统编程/安全领域高频词
+
+- intrinsic: 内在地
+- vulnerable to xxx: 易于收到xxx的攻击
+- evolved from xxx: 从xxx发展而来 
+
+## 技术类高频词
+
+- retrieve: 恢复
+- Boilerplate code: 样板代码
+- Primitive type: 原始类型(例如Java的int等等)
+- implicitly: 隐含地
+- explicitly: 显示的
+
+### 已掌握的技术类高频词
+
+- middleware: 中间件
+
+---
+
+## Rust RFC高频词
+
+- IR(Intermediate representation): rust_code -> HIR -> MIR -> LLVM IR -> LLVM IR optimize -> target_plaform_machine_code
