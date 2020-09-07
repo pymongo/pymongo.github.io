@@ -46,7 +46,8 @@
 
 ## hilarious欢闹地
 
-## pervade弥漫
+- pervade: 弥漫
+- cafeteria: 自助餐厅
 
 ---
 
@@ -57,6 +58,7 @@
 - intrinsic: 内在地
 - vulnerable to xxx: 易于收到xxx的攻击
 - evolved from xxx: 从xxx发展而来 
+- sabotage: 破坏
 
 ## 技术类高频词
 
@@ -65,6 +67,18 @@
 - Primitive type: 原始类型(例如Java的int等等)
 - implicitly: 隐含地
 - explicitly: 显示的
+- intentional: 故意的
+- elision: 省略
+- sentinel: 哨兵(sentinel value for NULL)
+
+
+manipulation: 操作行为  
+corresponding: 一致的
+
+Rust map.entry() API
+
+> Gets the given key's corresponding entry in the map for in-place manipulation
+
 
 ### 已掌握的技术类高频词
 

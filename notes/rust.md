@@ -1,77 +1,5 @@
 # Rust笔记
 
-## 智能指针
-
-如果程序员忘记在调用完temp_ptr之后删除temp_ptr，那么会造成一个悬挂指针(dangling pointer)
-
-迷途指针/悬空指针/野指针指的是指针指向的对象free之后，没有回收指针变量的现象，容易造成used after free
-
-scoped_ptr: 所指向的对象在作用域之外会自动得到析构，intrusive_ptr实际工作中用不到...
-
-不要拿C++11的智能指针去类比Rust的智能指针
-
-要记住Rust的智能指针远远不只不只三种，这种类比是不准确的
-
-具体看[Rust Memory Container Cheat-sheet](https://github.com/usagi/rust-memory-container-cs)
-
-### Cell和RefCell
-
-共同点: 让结构体的某个字段mut，形象比喻是给结构体打一个孔，让某一部分变得mutable
-
-但Cell和RefCell除了可以让结构体部分可变，也可以让结构体整体可变，要灵活使用
-
-不同点: Cell<T>建议用于Copy-Type
-
-解释:
-
-Cell provides you values, RefCell with references(所以内存体积较大的结构体类型还是用RefCell)
-
-Cell never panics, RefCell can panic
-
-知识扩展: OnceCell建议用于non-Copy-Type
-
-在C++11中，会有三种智能指针
-
-- unique_ptr: 独占内存，不共享。在Rust中是: std::boxed::Box
-- shared_ptr: 以引用计数的方式共享内存。在Rust中是: std::rc::Rc
-- weak_ptr: 不以引用计数的方式共享内存。在Rust中是: std::rc::Weak
-
-### 单线程独占内存
-
-C++是unique_ptr TODO 为何摒弃了auto_ptr(因为unique_ptr更优，为什么更优?) 
-
-Rust独占堆内存不共享: Box
-
-注意: RefCell、Cell、Box只能用于单线程
-
-例如Rust的链表节点的next字段的类型是 Option<Box<ListNode<T>>>
-
-### 单线程共享内存
-
-C++ shared_ptr(实际上是引用计数)、weak_ptr(不以引用计数的方式共享内存)
-
-Rust与之对应的是Rc和Weak
-
-例如Rust二叉树节点中的left字段类型是 Option<Rc<RefCell<TreeNode>>>
-
-需要注意的是Rc和Box不能同时使用
-
-### 多线程独占内存
-
-Mutex/RwLock
-
-### 多线程共享内存
-
-一般用Atomic或ARC套Mutex/RwLock/Atomic
-
-## std::lazy::OnceCell
-
-rust-analyzer作者写的OnceCell已加入Rust的nightly版本中
-
-## RC和ARC的区别
-
-RC是单线程共享内存，ARC是多线程共享，ARC中的A全称是Atomic
-
 ## Fn、FnMut、FnOnce的区别
 
 TODO
@@ -92,11 +20,60 @@ Rust为了避免多个引用指向相同内存内容带来的数据竞争、数�
 
 Rust的编译器在编译时就不知道函数最后要返回要返回引用a还是返回引用b，这时候需要程序员通过生命周期标记告诉编译器引用a和b的生命周期是什么
 
+简单来说返回两个字符串中较长字符串的函数就「不能省略生命周期标记」
+
 其中一种生命周期是'static 表示引用指向的内存跟程序的生命周期一样长
 
 但是生命周期也不能滥用，如果违反了实际的生命周期，编译器还是会报错
 
 如果是结构体内某字段是一个引用，那么结构体的生命周期<=字段引用的内存变量的生命周期
+
+标记生命周期并不能改变引用实际的生命周期，只是帮组编译器检查悬垂指针，但是使用了错误的生命周期时依然会报错
+
+### NLL问题
+
+Non-Lexical Lifetimes (NLL): 非词法作用域生命周期
+
+举例子:
+
+```rust
+fn main() {
+    let mut scores = vec![1, 2, 3];
+    let score = &scores[0];
+    scores.push(4);
+}
+```
+
+```
+error[E0502]: cannot borrow `scores` as mutable because it is also borrowed as immutable
+ --> src/main.rs:4:5
+  |
+3 |     let score = &scores[0];
+  |                  ------ immutable borrow occurs here
+4 |     scores.push(4);
+  |     ^^^^^^ mutable borrow occurs here
+5 | }
+  | - immutable borrow ends here
+```
+
+代码里的score明明没有用到，为什么不让借用，因为编译器堆score的作用域检查理解的是main函数的score内
+
+现在可以在nightly中使用`#![feature(nll)]`去启用nll
+
+还有一个例子撮合引擎的订单优先队列中，我的&mut orders和orders.peek_mut()两个指针「不能同时出现」，可能我只是改了堆顶订单，没有修改堆，但是编译器不允许
+
+所以现阶段我只能先将堆顶订单弹出后才能操作
+
+再举一个NLL问题的例子:
+
+```rust
+let x = "a".to_string();
+let z;
+let y = "bb".to_string();
+z = longer(&x, &y);
+```
+
+由于z借用了y，所以z的生命周期必须比出借方y短，但实际上xyz在同一个作用域，原因是Rust借用的检查机制
 
 ## Send和Sync Trait
 
@@ -130,7 +107,41 @@ TODO
 - 使用未初始化的内存 -> 编译器检查
 - 悬垂指针(use after free) -> Ownership+liftime
 - 缓冲区溢出(例如数组越界) -> 数组编译时检查越界，vector运行时越界会panic，不会像C/C++那样越界也能继续访问
-- 多次free -> 编译器检查
+- double free -> 编译器检查
+
+## Rust解决野指针三大成因
+
+- 指针变量未初始化: 编译器检查
+- 指针指向内存释放后未讲置空: Rust的析构会把指针变量也析构了
+- deref操作超过变量作用域: 借用检查+生命周期 
+
+而C++尝试move掉unique_ptr智能指针时编译不会报错
+
+---
+
+# 析构函数
+
+由于栈内存的特性，Rust的析构顺序正好跟let语句定义变量的顺序相反
+
+## ✭内存泄露三大原因
+
+- 线程panic，析构函数没法调用
+- 使用Rc时不当造成循环引用(例如双向链表中头尾互连)
+- 调用mem::forget函数主动泄露
+
+循环引用引起的内存泄露问题还可以使用Arena模式来解决，简单来说就是利用线性数组来模拟节点之间的关系，可以有效避免循环引用
+
+### forget存在的意义
+
+FFI编程与外部函数打交道时，例如FFI编程把值交给C语言处理，Rust要使用forget防止析构被调用
+
+## drop-flag
+
+TODO
+
+## shadowing不会调用析构，不等于生命周期提前结束
+
+## Copy Type没必要存在析构函数
 
 ---
 
@@ -170,6 +181,10 @@ arean则采用内存池思想堆内存区域进行了合理划分和管理，在
 
 即便堆内存的分配算法再好，访问性能也不如栈内存，堆内存需要通过栈上的指针去访问，这就多了一层内存访问的跳转，所以能用栈内存就尽量用
 
+### static变量存在哪
+
+既不在堆内存也不在栈内存，而是和程序代码一起存在静态存储区，Rust字符串的字面量也是在静态存储区
+
 ### CPU的字长
 
 CPU能在单位时间内(一个时钟周期内?)处理的数据大小称为字长，例如32位CPU字长是32，那么32位CPU的寄存器是不是都是32位呢
@@ -180,19 +195,13 @@ CPU能在单位时间内(一个时钟周期内?)处理的数据大小称为字�
 
 例如有个结构体由u8,u16,u32三个字段组成，为了让32位CPU能在2个单位时间内读取完，需要给u8附近补一个没用的字节去实现内存对齐
 
-### ★类似C++的RAII
+### valgrind工具检查堆内存泄露
 
-Resource Acquire Is Initialize
+例如Rust/C++编译生成的二进制文件是a.out，直接用valigrind a.out就能检查
 
-用局部变量管理资源(有限的资源例如内存、套接字)
+### 浅复制和深复制
 
-例如Mutex管理的内存资源，在Rust中.lock()之后无需unlock，MutexGuard离开当前作用域后会「自动析构」
-
-### ★胖指针(Fat Pointer)
-
-Fat Pointer由两部分组成，一部分是指针，另一部分是长度
-
-例如&str就是一个胖指针，同时保存长度信息和堆内存的指针
+按位复制=栈复制=浅复制，而深复制指的是栈上数据和指向的堆数据一起复制
 
 ---
 

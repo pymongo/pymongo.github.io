@@ -1,5 +1,17 @@
 # 数据库笔记
 
+## 复习连接
+
+例如 xxx join on a.id = b.id
+
+本质上都是将两个表通过笛卡尔积合并成一个表后，再根据join on约束条件筛掉一些记录
+
+内连接: a表找不到b.id或b表找不到a.id的记录会被过滤掉
+
+外连接: LEFT/RIGHT/FULL三种，画卡诺图就懂了
+
+相比内连接，左连接保留了b表找不到a.id的记录
+
 ## SQL查询优化
 
 ### LIMIT 1
@@ -34,3 +46,13 @@ INET_ATON('127.0.0.1') = 2130706433
 INET_NTOA(2130706433) = '127.0.0.1'
 
 N表示u32整形，A表示字符串格式的IP地址，所以主要看N在那边去记忆转换的方向
+
+### OR会使索引失效应该用UNION
+
+[参考leetcode这道数据库题的题解](https://leetcode-cn.com/problems/big-countries/solution/da-de-guo-jia-by-leetcode/)
+
+使用UNION，如果有一条记录同时满足两种条件，会不会被选择两次呢？
+
+union有distinct默认带功能,union all是不筛选重复,会有两条重复记录
+
+但是由于union去重会消耗性能，所以要根据实际情况去分析，如果or之间重复项不多，就用union，否则用or

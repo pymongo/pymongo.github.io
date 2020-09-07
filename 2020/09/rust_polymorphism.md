@@ -95,3 +95,51 @@ fn main() {
 所以陈皓博客上《Rust的编程范式文章》里提到`让 IShape 继承于 Any`是不准确的
 
 而且介绍Rust的upcast实现多态也很多余，通过dyn实现多态多简单啊
+
+## 使用valgrind检查内存泄露
+
+```
+root@iZ2zeeb8mcpt9xrj6zqa9pZ:~/polymorphism# valgrind ./a.out 
+==6789== Memcheck, a memory error detector
+==6789== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==6789== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==6789== Command: ./a.out
+==6789== 
+Cat is eating
+Dog is eating
+==6789== 
+==6789== HEAP SUMMARY:
+==6789==     in use at exit: 0 bytes in 0 blocks
+==6789==   total heap usage: 2 allocs, 2 frees, 73,728 bytes allocated
+==6789== 
+==6789== All heap blocks were freed -- no leaks are possible
+==6789== 
+==6789== For counts of detected and suppressed errors, rerun with: -v
+==6789== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+
+root@iZ2zeeb8mcpt9xrj6zqa9pZ:~/polymorphism# valgrind ./rust_poly 
+==6801== Memcheck, a memory error detector
+==6801== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==6801== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==6801== Command: ./rust_poly
+==6801== 
+Cat is eating
+[rust_poly.rs:4] std::any::type_name::<Self>() = "rust_poly::Cat"
+[rust_poly.rs:5] std::mem::size_of::<&Self>() = 8
+[rust_poly.rs:6] std::mem::size_of_val(&self) = 8
+Dog is eating
+[rust_poly.rs:4] std::any::type_name::<Self>() = "rust_poly::Dog"
+[rust_poly.rs:5] std::mem::size_of::<&Self>() = 8
+[rust_poly.rs:6] std::mem::size_of_val(&self) = 8
+==6801== 
+==6801== HEAP SUMMARY:
+==6801==     in use at exit: 0 bytes in 0 blocks
+==6801==   total heap usage: 19 allocs, 19 frees, 3,473 bytes allocated
+==6801== 
+==6801== All heap blocks were freed -- no leaks are possible
+==6801== 
+==6801== For counts of detected and suppressed errors, rerun with: -v
+==6801== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+```

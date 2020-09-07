@@ -26,6 +26,10 @@ host(主动调用方，例如Java/Android)
 
 ## Rust FFI编程关键字
 
+### raw identifier
+
+
+
 ### no_mangle
 
 禁用编译时混淆函数名，防止host语言想调用是找不到相应的函数名
