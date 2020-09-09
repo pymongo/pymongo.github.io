@@ -24,6 +24,8 @@
 
 例如actix想要有不同类型的HTTP Response，可以通过Box<dyn Trait>或impl Responder实现
 
+但是impl Trait目前不支持「turbofish语法」(例如query::<u32>)，不如泛型
+
 ## dogmatic dispatch
 
 ### &dyn Trait/Box<dyn Trait>
@@ -146,6 +148,30 @@ impl <RHS, T: Add<RHS> + Clone> AddAssign<RHS> for T {
 
 # trait琐碎知识
 
+## Fn/FnMut/FnOnce
+
+当前版本Rust的闭包实现: 通过Fn/FnMut/FnOnce三个trait将「函数调用」变为「可重载的操作符」
+
+(trait所谓的实例方法x.func等于Trait::func(&x))
+
+例如func(x)变成
+
+- Fn::call(&func, (x,))
+- FnMut::call_mut(&mut func, (x,))
+- FnOnce::call_once(func, (x,)) // 因为take了ownership所以只能调用一次?
+
+如何才能知道自己写出来的闭包被编译器默认实现了哪个Trait?
+
+- Fn: 闭包以borrow的方式捕获外部作用域的变量，同时表示该闭包没有改变环境的能力，并且可以调用多次，对应&self
+- FnMut: 闭包以borrow_mut的方式捕获外部作用域的变量，并且可以调用多次，对应 &mut self
+- FnOnce: 闭包以move的方式捕获外部作用域的遍历(闭包的move关键字?)，因为该闭包会消耗自身，所以只能调用一次，对应self
+
+!> 闭包会根据需要捕获的外部作用域的类型(例如Copy Type)来决定实现哪个Trait
+
+如果闭包捕获的变量是Copy Type，那么即便调用了FnOnce之后，也能再次调用该闭包
+
+### std::thread::spawn的参数要求FnOnce
+
 ## Haskell typeclass
 
 trait借鉴了很多Haskell的typeclass的概念，可以静态生成，也可以动态调用
@@ -168,6 +194,12 @@ Eq多实现了反身性(Reflexivity): a==a
 实现Copy的同时必须实现Clone，实现Clone的同时必须实现Sized
 
 所以像String实现了Clone又不一定需要实现Copy
+
+## 内部为空的trait
+
+use std::marker::{Copy, Send, Sync, Sized, Unpin};
+
+Rust标准库的所有类型几乎都实现了Unpin
 
 ---
 

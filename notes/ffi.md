@@ -28,7 +28,7 @@ host(主动调用方，例如Java/Android)
 
 ### raw identifier
 
-
+如果C语言的函数是Rust的关键字怎么办？例如有个match函数可以定义成`r#match`
 
 ### no_mangle
 
