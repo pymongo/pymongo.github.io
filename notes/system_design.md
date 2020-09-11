@@ -2,7 +2,7 @@
 
 ## 防重入/超卖问题(如何防止用户重复点击导致表单重复提交)
 
-category: 分布式、防重入、幂等性(Idempotence)
+category: 分布式、防 重入(reentrant)、幂等性(Idempotence)
 
 ### 为什么需要防重入
 

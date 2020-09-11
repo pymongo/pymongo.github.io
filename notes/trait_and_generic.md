@@ -1,3 +1,5 @@
+- [Rust编程之道读书笔记1: 泛型多态](/notes/trait_and_generic.md)
+
 # trait dispatch
 
 ## Rust如何实现多态?trait和泛型和多态概述
@@ -170,6 +172,40 @@ impl <RHS, T: Add<RHS> + Clone> AddAssign<RHS> for T {
 
 如果闭包捕获的变量是Copy Type，那么即便调用了FnOnce之后，也能再次调用该闭包
 
+1. 如果闭包没有捕获变量，则默认实现Fn
+
+2. 如果闭包捕获了move语义的变量
+
+2.1 如果不需要修改变量，无论是否使用move关键字均会自动实现Fn
+
+2.2 如果需要修改变量，则自动实现FnMut
+
+3. 如果闭包捕获了Copy语义的变量
+
+3.1.1 如果不需要修改变量，没有使用move关键字，则自动实现FnOnce
+
+3.1.2 如果不需要修改变量，但是使用move关键字，则自动实现FnOnce
+
+3.2 如果需要修改变量，则自动实现Fn
+
+"逃逸闭包"指的是函数返回值返回的闭包函数，带着它捕获到的变量逃离了栈帧，也就是利用闭包实现类似全局变量去保存状态，闭包保存状态
+
+例如`fn outer{ let i=0; return fn inner{}; }` 
+
+所以move的关键字的作用是强制编译器让闭包执行某个确定的捕获变量的方式
+
+### std::boxed::FnBox
+
+想将FnOnce的闭包函数Box<self>移出来调用因为编译时无法确定大小所以无法获取到self，解决方案是FnBox或impl Trait
+
+FnBox貌似在1.46版本已被弃用
+
+### 高阶生命周期for<>
+
+闭包的高阶生命周期: Higher-ranked lifetime，也叫higher-ranked trait bound
+
+解决例如逃逸闭包带走的是变量的指针这种情况
+
 ### std::thread::spawn的参数要求FnOnce
 
 ## Haskell typeclass
@@ -200,6 +236,12 @@ Eq多实现了反身性(Reflexivity): a==a
 use std::marker::{Copy, Send, Sync, Sized, Unpin};
 
 Rust标准库的所有类型几乎都实现了Unpin
+
+## IntoIter/Iter/IterMut
+
+区别 self/&self/&mut self，例如for num in nums会将vec的所有权move给IntoIter
+
+Map可以认为是Adapter设计模式
 
 ---
 

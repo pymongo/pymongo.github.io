@@ -18,6 +18,24 @@
 
 ## 编程范式
 
+### 设计模式(Design Pattern)
+
+- Adapter: RecyclerView.Adapter, 
+- Builder: OkHttp, AlertDialog.Builder, sqlx::MySQLPool
+- Data Access Object: (Android)Room
+- Decorator
+- Delegate(TODO Rust标准库在哪用到了委托模式?)
+- Dependency Injection: dagger2
+- Future
+- Iterator
+- Model View Controller
+- Model View ViewModel
+- Observer: (Android)LiveData
+- Singleton(Only exist in language without pointer)
+- Visitor: serde
+
+serde_json的Visitor模式: 分离变与不变，为统一的JSON数据结构提供不同的操作
+
 ### Actor
 
 <i class="fa fa-hashtag"></i>
@@ -309,7 +327,6 @@ TODO
 比如说：进程的内存布局
 比如说：虚拟内存的原理
 比如说：各种缓存机制
-比如说：并发相关的一些机制
 ......
 
 编程语言的底层
@@ -320,7 +337,6 @@ TODO
 ......
 
 数据库的底层
-（如果你开发的软件涉及数据库，这方面也需要懂一些）
 比如说：查询语句的不同学法，性能差异如何（单单这条，就足以写一本书）
 比如说：索引的类型及原理（包括：不同类型业务数据，如何影响索引的性能）
 比如说：事务的原理，事务如何达到 ACID（很多程序员连事务的 ACID 都没听说过）
@@ -328,7 +344,6 @@ TODO
 ......
 
 网络的底层
-（如果你开发的软件涉及网络，这方面也需要懂一些）
 比如说：你用到的网络协议的规格
 比如说：分布式的软件系统，会碰到哪些【根本性的困难】
 比如说：CAP 定理

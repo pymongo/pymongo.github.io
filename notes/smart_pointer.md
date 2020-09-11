@@ -70,15 +70,17 @@ Rust与之对应的是Rc和Weak
 
 ## 多线程独占内存
 
-Mutex/RwLock
+thread_local!
 
 ## 多线程共享内存
 
-一般用Atomic或ARC套Mutex/RwLock/Atomic
+一般用Atomic<T: Copy> 或 ARC<Mutex/RwLock/Atomic> 或SyncOnceCell<Mutex/RwLock/Atomic>
 
 ### AtomicPtr建议使用Copy类型
 
 Atomic相当于线程安全版的Cell
+
+单线程Cell: RefCellOnceCell
 
 ## 相似智能指针之间的区别
 

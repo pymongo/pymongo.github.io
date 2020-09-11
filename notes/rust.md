@@ -109,6 +109,8 @@ TODO
 - 缓冲区溢出(例如数组越界) -> 数组编译时检查越界，vector运行时越界会panic，不会像C/C++那样越界也能继续访问
 - double free -> 编译器检查
 
+线程崩溃时会触发提前析构
+
 ## Rust解决野指针三大成因
 
 - 指针变量未初始化: 编译器检查
@@ -216,6 +218,10 @@ This new IR can then be converted and linked into machine-dependent assembly lan
 rustc将rust源码经过分词和解析生成AST(抽象语法树)，再进一步处理为HIR -> MIR(Middle IR)，最终得到LLVM IR，让LLVM生成各个平台的机器码
 
 miri是一个Rust的MIR解释器
+
+Rust源码编译生成的二进制文件在build/x86_64-unknown-linux-gnu/stage2/bin内
+
+迭代器的Fuse适配器: 遇到一个None就提前结束
 
 ## Rust琐碎知识
 
