@@ -42,7 +42,7 @@
 
 ## shrinks收缩
 
-## CI(Continuous Integration)
+## CI/CD(Continuous Integration/Deployment)
 
 ## hilarious欢闹地
 

@@ -233,7 +233,7 @@ Eq多实现了反身性(Reflexivity): a==a
 
 ## 内部为空的trait
 
-use std::marker::{Copy, Send, Sync, Sized, Unpin};
+use std::marker::{Copy, Send, Sync, Sized, Unpin, PhantomData(用于Unsafe领域的型变特性)};
 
 Rust标准库的所有类型几乎都实现了Unpin
 

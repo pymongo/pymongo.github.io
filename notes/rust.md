@@ -223,6 +223,10 @@ Rust源码编译生成的二进制文件在build/x86_64-unknown-linux-gnu/stage2
 
 迭代器的Fuse适配器: 遇到一个None就提前结束
 
+### 自制编译器插件
+
+[rust compiler plugin](https://doc.rust-lang.org/1.5.0/book/compiler-plugins.html)
+
 ## Rust琐碎知识
 
 ### Affine types
@@ -242,6 +246,12 @@ never类型完善了Rust的类型系统，将一些没有返回值的例如panic
 ### Union类型
 
 跟C/C++的union一样，所有字段都共享一段内存，但是Rust的Union用起来需要各种unsafe
+
+union类型在Rust中的应用: std::mem::ManuallyDrop
+
+ManuallyDrop是一个联合体，所有字段共享内存，不能随便被析构，所以Rust不会自动为联合体实现析构函数
+
+我们可以通过ManuallyDrop自定义析构顺序，mem::forgot()内部就是通过ManuallyDrop去实现
 
 ## Cargo相关
 
@@ -309,3 +319,29 @@ tokio和actix_rt异步运行时
 ### 缺点.trait的孤儿规则和不可重叠规则
 
 ### 缺点.过于复杂的生命周期嵌套+组合
+
+### Go的缺点
+
+Go很难去做performance critical的应用场景，主要有两个原因
+
+一、GC机制
+
+tikv底层用的是LSM tree数据结构，不是一个「GC友好的pattern/数据结构」
+
+这种数据结构在内存中有个类似LRU小对象的缓存池，小对象会经常换入换出使得GC的压力很大
+
+二、Go屏蔽了system thread，封装成goroutinue
+
+Go把操作系统线程相关的API都抹掉了，中间加了一个Go调度器实现系统线程和Go协程的调度
+
+Go协程开的多时，协程上下文切换带来的开销比操作系统线程切换要大，而且Go的CPU平均负载要比C++高20%
+
+### PingCap为什么不用C++14
+
+CTO维护大型C++项目例如前端hybrid时用到了chrome源码，内存管理坑，可以让自己团队高要求避免内存泄露，但是也防不住第三方库是猪队友，第三方库智能指针传染等问题
+
+缺乏包管理和生态
+
+### Rust适合应用的场景
+
+非得用Rust不可的场景: 存储层(榨干操作系统的性能)、操作系统内核/驱动、浏览器内核

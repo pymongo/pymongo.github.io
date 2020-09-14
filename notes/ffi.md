@@ -53,3 +53,22 @@ extern "system"，通常类似extern "C"，但在 Win32 平台上，它是"stdca
 ### inline函数
 
 FFI编程相关，C语言宏在 Rust 中会实现为 #\[inline] 函数
+
+## 静态链接和动态链接库
+
+编译器除了可以生成可执行文件，还能生成动态/静态链接库
+
+静态库在编译链接时将引用的代码和数据复制到二进制文件中，只是一种简单的拼接，静态库的缺点是浪费内存空间
+
+但是有些情况，例如mac交叉编译linux时没有linux的libssl，可以通过静态链接crate的ssl库而非系统的ssl库解决交叉文件中动态库找不到的问题
+
+动态库可以将链接的过程延迟到运行时执行，比如重定位发生在运行时而非编译时
+
+Rust编译器一共支持生成4种库:
+
+- 静态库: dylib, cdylib
+- 动态库: rlib, staticlib
+
+可以通过命令行参数或toml文件配置指定默认的编译产物，例如 --crate-type=bin/lib(默认是rlib) 去指定编译生成可执行文件还是库文件
+
+staticlib在Linux/Mac上会创建成.a文件(IOS/mac)
