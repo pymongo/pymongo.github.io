@@ -1,8 +1,14 @@
 # Rust笔记
 
-## Fn、FnMut、FnOnce的区别
+## Rust保留关键字
 
-TODO
+Reserved keyword表示将来会用于新feature的关键字，例如2015版的dyn就在2018转正了
+
+我比较好奇的关键字: abstract/become/default/do/final/override/priv/typeof/unsized/virtual
+
+## Rust的一些思考和抉择
+
+既然std::env::var也可以实现全局共享变量，那么我用OnceCell共享一个字符串呢还是用env::var?
 
 ## ✭生命周期
 
@@ -207,7 +213,7 @@ CPU能在单位时间内(一个时钟周期内?)处理的数据大小称为字�
 
 ---
 
-## ★Rust编译原理
+## ★Rust编译原理/编译过程
 
 中介码 aka IR(Intermediate representation)
 
@@ -215,7 +221,7 @@ LLVM can provide the middle layers of a complete compiler system, taking interme
 
 This new IR can then be converted and linked into machine-dependent assembly language code for a target platform
 
-rustc将rust源码经过分词和解析生成AST(抽象语法树)，再进一步处理为HIR -> MIR(Middle IR)，最终得到LLVM IR，让LLVM生成各个平台的机器码
+rustc将rust源码经过分词和解析生成TokenStream, 再转为AST(抽象语法树)，再进一步简化处理为HIR -> MIR(Middle IR)，最终得到LLVM IR，让LLVM生成各个平台的机器码
 
 miri是一个Rust的MIR解释器
 
@@ -228,6 +234,40 @@ Rust源码编译生成的二进制文件在build/x86_64-unknown-linux-gnu/stage2
 [rust compiler plugin](https://doc.rust-lang.org/1.5.0/book/compiler-plugins.html)
 
 ## Rust琐碎知识
+
+### 注释
+
+Rust中注释可以分为三类: 普通注释、文档注释、module文档注释
+
+普通的//和/**/就不讲了，文档注释下面必须要有语言项目，module注释只能出现于文件头部
+
+#### module注释中的两个叹号
+
+文档注释中，两个叹号表示接着上一行内容，会显示在同一行中(同一个p标签中)
+
+//! 第一行
+
+//!! 还是第一行
+
+#### 语言项的文档注释
+
+/// 语言项的单行文档注释
+
+/** */ 语言项的多行文档注释
+
+#### 运行文档中的代码块
+
+在lib.rs中加上`#![doc(html_playground_url = "https://play.rust-lang.org/")]` 即可自动识别代码块，并网页每个代码块的右上角加上Run的按钮
+
+在rust文档中并不需要将\```写成\```才会被识别为Rust代码并可以被执行
+
+即便markdown的code block上加上了no_run，代码块的右上角依然会显示run
+
+推荐用`cargo doc --no-deps`生成不含第三方crate依赖的项目文档
+
+### CTFE机制
+
+Compile Time Fuction Execution: 例如const fn就用到了CTFE机制
 
 ### Affine types
 

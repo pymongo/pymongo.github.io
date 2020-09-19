@@ -30,7 +30,15 @@ TODO:好像没有必要启用root
 
 ### gcc/cli_tools
 
+`sudo DevToolsSecurity -enable # Developer mode is now enabled`
+
+> sudo mount -uw /	# 根目录挂载为可读写，否则无法在/usr/下建立文件，本修改重启前有效。
+
+推荐看mac编译PHP等项目时找不到库文件的解决方法的[文章](https://zhile.io/2018/09/26/macOS-10.14-install-sdk-headers.html)
+
 > xcode-select --install
+
+建议直接安装Xcode，解决很多库和SDK找不到的问题，可以直接跑一下同事的IOS代码，也能用Rust开发IOS的库
 
 直接输入gcc也能自动安装，不过我不知道为什么gcc安装失败了
 

@@ -72,3 +72,5 @@ Rust编译器一共支持生成4种库:
 可以通过命令行参数或toml文件配置指定默认的编译产物，例如 --crate-type=bin/lib(默认是rlib) 去指定编译生成可执行文件还是库文件
 
 staticlib在Linux/Mac上会创建成.a文件(IOS/mac)
+
+cdylib: windows上生成dll, mac生成.dylib, Linux下生成so

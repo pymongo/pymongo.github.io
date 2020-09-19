@@ -4,7 +4,7 @@
 
 variance定义: 根据原始类型的子类型关系(例如Cat和Animal)确定复杂类型(例如Vec<Cat>)的子类型关系的规则
 
-variance(型变)一般可以分为三类:
+variance一般可以分为三类:
 
 - 协变(covariant): Vec<Cat>也是Vec<Animal>的子类型
 - 逆变(contravariant): 反过来Vec<Animal>是Vec<Cat>的子类型

@@ -1,4 +1,4 @@
-# [Rust入门](/2020/04/rust.md)
+# [Rust入门](/2020/04/first_time_learn_rust.md)
 
 ruby/rails的性能不能满足实时性很强的需求(股票交易所)，于是尝试下actix-web，[据说世界第一快的Web框架](https://www.techempower.com/benchmarks/)
 

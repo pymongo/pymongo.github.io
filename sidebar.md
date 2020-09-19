@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年9月**
+    - [MySQL general log](/2020/09/mysql_general_log.md)
     - [同步forked的sqlx项目](/2020/09/sync_forked_repo.md)
     - [mac交叉编译Rust到Linux](/2020/09/mac_cross_compile_rust_to_linux.md)
     - [RefCell实现lazy_static](/2020/09/refcell_impl_lazy_static.md)
@@ -53,7 +54,7 @@
     - [diesel的CRUD教程(Rust-ORM)](/2020/04/diesel_orm.md)
     - [国产安卓机UI测试的坑](/2020/04/domestic_can_not_run_ui_test.md)
     - [底部导航栏页面切换的坑(socket)](/2020/04/navigation_lifecircle.md)
-    - [Rust入门](/2020/04/rust.md)
+    - [Rust入门](/2020/04/first_time_learn_rust.md)
     - [编写安卓测试用例](/2020/04/android_test.md)
     - [2020年第二季度英语积累](/2020/04/quarterly_english.md)
 - **20年3月**

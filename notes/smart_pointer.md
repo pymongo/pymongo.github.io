@@ -20,6 +20,12 @@ RAII = Resource Acquire Is Initialize, 源于C++
 
 例如Mutex管理的内存资源，在Rust中.lock()之后无需unlock，MutexGuard离开当前作用域后会「自动析构」
 
+## 自引用类型和Pin
+
+所谓自引用类型就是一个结构体内有指向自身的指针
+
+### Pin/UnPin/!Unpin的区别
+
 ## ★胖指针(Fat Pointer)
 
 Fat Pointer由两部分组成，一部分是指针，另一部分是长度
