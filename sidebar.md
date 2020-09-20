@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年9月**
+    - [Rust实现并查集](/2020/09/rust_impl_union_find.md)
     - [MySQL general log](/2020/09/mysql_general_log.md)
     - [同步forked的sqlx项目](/2020/09/sync_forked_repo.md)
     - [mac交叉编译Rust到Linux](/2020/09/mac_cross_compile_rust_to_linux.md)
