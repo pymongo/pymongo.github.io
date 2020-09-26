@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年9月**
+    - [Rust protobuf](/2020/09/rust_protobuf.md)
     - [RwLock死锁导致sqlx卡死](/2020/09/rwlock_dead_lock_affect_sqlx.md)
     - [Rust实现并查集](/2020/09/rust_impl_union_find.md)
     - [MySQL general log](/2020/09/mysql_general_log.md)
