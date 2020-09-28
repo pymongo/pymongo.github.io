@@ -36,6 +36,25 @@ Rust的编译器在编译时就不知道函数最后要返回要返回引用a还
 
 标记生命周期并不能改变引用实际的生命周期，只是帮组编译器检查悬垂指针，但是使用了错误的生命周期时依然会报错
 
+### clippy误报
+
+```rust
+impl<'a> MyTrait for MyHandler<'a> {
+    fn handle(&mut self, bytes: &[u8]) {
+```
+
+以上代码在clippy中会误报生命周期不能省略
+
+```
+warning: explicit lifetimes given in parameter types where they could be elided (or replaced with `'_` if needed by type declaration)
+   = note: `#[warn(clippy::needless_lifetimes)]` on by default
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes
+```
+
+要解决这个警告，需要用到一个trick: 改成`fn handle<'b>(&'b mut self, bytes: &[u8])`
+
+
+
 ### NLL问题
 
 Non-Lexical Lifetimes (NLL): 非词法作用域生命周期
