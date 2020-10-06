@@ -6,9 +6,17 @@ Reserved keyword表示将来会用于新feature的关键字，例如2015版的dy
 
 我比较好奇的关键字: abstract/become/default/do/final/override/priv/typeof/unsized/virtual
 
-## Rust的一些思考和抉择
+## self-referential structs(自引用类型)
 
-既然std::env::var也可以实现全局共享变量，那么我用OnceCell共享一个字符串呢还是用env::var?
+一个结构体的某个字段是指向自身的引用
+
+## static and const
+
+Constants are inlined at compilation, which means they're copied to every location they're used, and thus are usually more efficient, 
+
+while statics refer to a unique location in memory and are more like global variables.
+
+const/const fn在编译的MIR解释器阶段，会进行内联(c/c++ inline keyword)优化(简单来说就会把用到const常量的语句替换为相应值/字面量)
 
 ## ✭生命周期
 
@@ -346,7 +354,7 @@ run_production = "cargo run --release"
 ## Rust一些优点
 
 - 部署简单
-- derive过程宏相比反射机制性能更好
+- derive过程宏相比反射机制性能更好(建议用darling过程宏而不是错误提示少的syn)
 - 没有不能编译的第三方库，Ruby的话一言难尽，例如passgen编译失败、某些依赖llvm编译的库也会失败等等
 
 - Rust的第三方库不依赖Rustc的版本，不像Ruby的httparty，

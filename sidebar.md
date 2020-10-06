@@ -1,5 +1,8 @@
 - [归档 - 吴翱翔的博客](/)
+- **20年10月**
+    - [tide的异步运行时](/2020/10/tide_async_runtime.md)
 - **20年9月**
+    - [Rust读配置文件的思考](/2020/09/rust_best_practise_load_config_file.md)
     - [systemd部署/重启Rust项目](/2020/09/systemd_deploy_rust_exec_file.md)
     - [Rust protobuf](/2020/09/rust_protobuf.md)
     - [RwLock死锁导致sqlx卡死](/2020/09/rwlock_dead_lock_affect_sqlx.md)

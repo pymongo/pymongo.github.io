@@ -21,7 +21,7 @@ async fn get_index() -> String {
 Description=actix_web_basic
 
 [Service]
-User=centos
+Environment="DATABASE_URL=sqlite://db.sqlite"
 WorkingDirectory=/home/centos/actix-web
 ExecStart=/home/centos/actix-web/target/debug/examples/basic
 
@@ -42,7 +42,7 @@ sudo systemctl enable actix_web_basic.service
 
 > systemctl list-unit-files | grep enabled
 
-systemctl restart启动服务器后，可以通过systemctl status看到服务器启动时的STDOUT/STDERR
+systemctl restart启动服务器后，可以通过systemctl status看到服务器启动时的stdout/stderr
 
 `curl localhost:8080`后发现，接口返回的`env::current_dir()`数据跟service配置文件的`WorkingDirectory`配置项完全一致
 
@@ -53,6 +53,8 @@ sudo systemctl restart actix_web_basic
 # Optional, check whether server restart is ok, print server start's stdout/stderr 
 sudo systemctl status actix_web_basic
 ```
+
+由于systemctl status只能看一小部分的stdout，所以最佳实践还是不往stdout里写任何内容，将全部日志写到一个log文件上
 
 ## 如何删除一个service
 
@@ -65,3 +67,30 @@ sudo rm /etc/systemd/system/actix_web_basic.service
 sudo systemctl daemon-reload
 sudo systemctl reset-failed
 ```
+
+## 可执行文件有dynamically linked导致service无法启动
+
+```
+● matcher.service - matcher
+   Loaded: loaded (/etc/systemd/system/matcher.service; enabled; vendor preset: enabled)
+   Active: inactive (dead)
+
+9月 29 09:56:24 my_server systemd[1]: /etc/systemd/system/matcher.service:9: Executable path is not absolute: cargo build --release
+9月 29 09:58:44 my_server systemd[1]: /etc/systemd/system/matcher.service:9: Executable path is not absolute: ~/.cargo/bin/cargo build --release
+9月 29 09:58:44 my_server systemd[1]: /etc/systemd/system/matcher.service:9: Executable path is not absolute: ~/.cargo/bin/cargo build --release
+```
+
+因为systemd配置文件的所有二进制文件只能用「绝对路径」，而可执行文件头部信息的cargo是基于$HOME的相对路径，有两种解决思路:
+
+一是加上环境变量`RUSTFLAGS="-C target-feature=+crt-static"`强制rustc编译时使用静态链接库
+
+二是在.cargo/config.toml中加上配置
+
+```
+[target.x86_64-unknown-linux-gnu]
+rustflags = ["-C", "target-feature=+crt-static"]
+```
+
+但是Debug后发现，并不是systemd的问题，而是service配置文件修改后不生效，即便我删掉第9行，还是提示第9行报错
+
+原来是systemctl status命令的stdout没更新，其实配置文件是没问题的
