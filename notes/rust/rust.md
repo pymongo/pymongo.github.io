@@ -1,5 +1,17 @@
 # Rust笔记
 
+元组只有一个元素时，需要在末尾加逗号方便Rust编译器区分单元素元组和括号操作符
+
+## Compile Time
+
+### const propagation
+
+常量传播，例如会把3+4内联优化为7
+
+### sha2_const
+
+不仅是Rust，C语言也有很多加密运算的算法库都写成宏以便CTFE提高性能
+
 ## Rust保留关键字
 
 Reserved keyword表示将来会用于新feature的关键字，例如2015版的dyn就在2018转正了
@@ -129,10 +141,6 @@ Types with a constant size known at compile time
 ## rust编译过程中LLVM的作用
 
 rustc类似前端，LLVM会将rust编译的结果变成不同target平台的机器码
-
-## PhantomData
-
-TODO
 
 ## Rust如何避免内存错误
 

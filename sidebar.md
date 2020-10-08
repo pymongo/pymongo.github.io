@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年10月**
+    - [翻译RFC2000 const generic](/2020/10/rfc_const_generics.md)
     - [tide的异步运行时](/2020/10/tide_async_runtime.md)
 - **20年9月**
     - [Rust读配置文件的思考](/2020/09/rust_best_practise_load_config_file.md)

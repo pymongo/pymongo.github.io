@@ -247,6 +247,8 @@ Map可以认为是Adapter设计模式
 
 # generic
 
+所谓泛型，就是参数化类型
+
 ## const generic
 
 Rust暂不支持，所以数组不支持impl <T, const N> for \[T; N]

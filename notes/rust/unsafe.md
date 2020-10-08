@@ -14,6 +14,7 @@ Rust中大部分结构体默认都是协变的
 
 ### PhantomData
 
+主要为了让Unsafe Rust中占位(类似maybe uninit)
 
 ## std::mem::transmute
 
