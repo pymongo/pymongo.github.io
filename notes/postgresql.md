@@ -42,3 +42,12 @@ sqlx的compile-time sql check用的是CTFE技术(sqlx用的是describe/explain�
 ## postgres没有UPDATE/DELETE LIMIT 1的语句
 
 postgres只有select才能搭配limit子句
+
+## timescaledb
+
+### first/last API
+
+> select last(media_count,created_at) from igb_user;
+
+first/last(normal_field, timestamp_field)
+

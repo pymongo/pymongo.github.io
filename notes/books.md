@@ -4,8 +4,10 @@
 
 ## 9月读书计划
 
-- [ ] (一刷)Rust编程之道第一版 (200903~)
+
 - [ ] Advanced Programming in the UNIX Environment
+
+## 
 
 ---
 

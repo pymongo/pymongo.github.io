@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年10月**
+    - [type constructor and mir](/2020/10/enum_type_constructor_mir.md)
     - [翻译RFC2000 const generic](/2020/10/rfc_const_generics.md)
     - [tide的异步运行时](/2020/10/tide_async_runtime.md)
 - **20年9月**
