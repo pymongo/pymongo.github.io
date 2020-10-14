@@ -1,10 +1,11 @@
 [归档 - 吴翱翔的博客](/)
 
+<!--
 [我的简历](/redirect/resume.html)
-
 原始博客站点：[pymongo.github.io](https://pymongo.github.io)
 镜像1：[wuaoxiang.github.io](https://wuaoxiang.github.io)
 镜像2：[aoxiangwu.github.io](https://aoxiangwu.github.io)
+-->
 
 ## 我在开源社区上的贡献(PR)
 
@@ -38,9 +39,9 @@ scoop是一款windows系统的包管理工具，类似mac的homebrew或Linux的a
 
 ---
 
-## Github老外常见英文缩写
+## Github社区常见英文缩写
 
-公司没有code review，学习全靠开源社区(PR/issue/读源码)，
+公司业务/项目代码通常是很简单的，要参与开源项目Application、Web Framework、Library等类型的开源项目去提升自我竞争力
 
 经过不断地学习我成功在actix项目组中贡献了自己的[PR](https://github.com/actix/examples/pull/298)😄
 
@@ -49,12 +50,10 @@ scoop是一款windows系统的包管理工具，类似mac的homebrew或Linux的a
 - AKA: Also Known As
 - FYI: For Your Information
 - AFAICT: As Far As I Can Tell
-
-## README常见短语
-
+- LGTM: An acronym(首字母缩写) for "Looks Good To Me"
 - In a nutshell: 简而言之
 
-## 常用的又没背下来的命令
+## 常用的又没背下来的linux command trick
 
 - find ~ -iname '*.apk'
 - lsof -i :8080
