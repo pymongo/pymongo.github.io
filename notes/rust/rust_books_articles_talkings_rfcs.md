@@ -1,6 +1,10 @@
 # 我读过的Rust相关的books/articles/rfc/issues/PR/talking/podcast
 
-## Rust in curl with hyper
+===
+
+## 没什么营养的英文文章
+
+### Rust in curl with hyper
 
 [curl的HTTP和TLS将用基于Hyper的Rust重写](https://twitter.com/upsuper/status/1314560605622210561)
 

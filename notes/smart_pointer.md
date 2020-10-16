@@ -38,6 +38,16 @@ Fat Pointer由两部分组成，一部分是指针，另一部分是长度
 
 Rust官方建议用于*mut T原始指针的安全的替代品，一定非空而且遵循生命周期的协变规则
 
+## 染色指针
+
+64位操作系统的指针大小都是8 bytes，实际上4bytes可以索引4G内存，5-6bytes都足够用了(指针用48bit寻址够用了)，所以可以让将少量额外的信息存储在指针上
+
+业界通用的做法是64bit中取16bit来存储额外信息，提供内存利用率
+
+例如Rust的tagged enum(编译器打洞)，size of enum
+
+可以让enum的tag塞到染色指针存储信息的16bit中
+
 ### String和Vec<u8>的区别
 
 String是一段合法的UTF-8编码的u8序列，可以安全地转为一段合法的字符串
@@ -66,6 +76,10 @@ Cell never panics, RefCell can panic
 
 知识扩展: OnceCell建议用于non-Copy-Type
 
+!> 我很赞同这个观点: RefCell is lie to the compiler
+
+滥用RefCell/OnceCell会觉得自己的代码lie to compiler
+
 ## 单线程独占内存
 
 C++是unique_ptr TODO 为何摒弃了auto_ptr(因为unique_ptr更优，为什么更优?) 
@@ -90,9 +104,18 @@ Rust与之对应的是Rc和Weak
 
 thread_local!
 
-## 多线程共享内存
+## 多线程共享内存(ARC)
 
 一般用Atomic<T: Copy> 或 ARC<Mutex/RwLock/Atomic> 或SyncOnceCell<Mutex/RwLock/Atomic>
+
+但是有人说ARC是一条错误道路，还不如GC:
+
+1. Arc容易循环引用
+2. 额外的运行时开销: extra overhead，在一些performance critical场景影响大
+
+对于无状态的服务/server，完全可以等内存/CPU负载到一定程度自动重启，有可能性能更好，因为(C++)delete操作还是比较慢的
+
+再配上容器，杀掉旧的负载高server进程前，把新的容器启动起来，新的启动起来，旧的下线
 
 ### AtomicPtr建议使用Copy类型
 

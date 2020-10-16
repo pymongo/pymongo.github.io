@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年10月**
+    - [vscode配置Rust开发环境](/2020/10/vscode_setup_rust.md)
     - [bigger-endian and little-endian](/2020/10/little_endian_big_endian_byte_order.md)
     - [type constructor and mir](/2020/10/enum_type_constructor_mir.md)
     - [翻译RFC2000 const generic](/2020/10/rfc_const_generics.md)
@@ -7,7 +8,7 @@
 - **20年9月**
     - [Rust读配置文件的思考](/2020/09/rust_best_practise_load_config_file.md)
     - [systemd部署/重启Rust项目](/2020/09/systemd_deploy_rust_exec_file.md)
-    - [Rust protobuf](/2020/09/rust_protobuf.md)
+    - [Rust protobuf](/2020/09/protobuf.md)
     - [RwLock死锁导致sqlx卡死](/2020/09/rwlock_dead_lock_affect_sqlx.md)
     - [Rust实现并查集](/2020/09/rust_impl_union_find.md)
     - [MySQL general log](/2020/09/mysql_general_log.md)
