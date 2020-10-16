@@ -86,6 +86,55 @@ Rust map.entry() API
 
 ---
 
+## 软件工程和软件版本相关
+
+[This seems to be a regression from #214.](https://github.com/launchbadge/sqlx/pull/630)
+
+上下文: sqlx在一次重构url parser的commit后，db_url中不能携带non-ASCII的字符，老版本还是可以的，作者认为PR#214对db_url密码的解析是一种(regression倒退)
+
+---
+
 ## Rust RFC高频词
 
 - IR(Intermediate representation): rust_code -> HIR -> MIR -> LLVM IR -> LLVM IR optimize -> target_plaform_machine_code
+
+
+#[derive(serde::Deserialize)]
+struct CommitInfo {
+    hash: String,
+    date: String,
+}
+
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let cmd_output = std::process::Command::new("git")
+        .arg("log")
+        .arg("-1")
+        .arg("--pretty=format:{ \"hash\":\"%h\", \"date\":\"%ad\" }")
+        .output()?;
+    let commit_str = String::from_utf8(cmd_output.stdout)?;
+    let commit: CommitInfo = serde_json::from_str(&commit_str)?;
+    // send env-var COMMIT_HASH and COMMIT_DATE to compile-time, receive by src/logger.rs
+    println!("cargo:rustc-env={}={}", "COMMIT_HASH", commit.hash);
+    println!("cargo:rustc-env={}={}", "COMMIT_DATE", commit.date);
+    Ok(())
+}
+
+
+
+#!/bin/bash
+
+set -o xtrace # print command before execute
+declare -a folders=("igb-db" "igb-common" "igb-tests" "igb-server" "igb-helper-bot" "igb-bot-server")
+for folder in "${folders[@]}"
+do
+  # using a subshell to avoid having to cd back
+  (
+    cd "$folder" || exit # exit if cd failed
+    cargo fmt
+    cargo build
+    cargo clippy
+    cargo udeps
+    #cargo build --release
+    #cargo udeps --release
+  )
+done

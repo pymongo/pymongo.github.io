@@ -1,5 +1,7 @@
 [归档 - 吴翱翔的博客](/)
 
+Contact me: os.popen@gmail.com
+
 <!--
 [我的简历](/redirect/resume.html)
 原始博客站点：[pymongo.github.io](https://pymongo.github.io)

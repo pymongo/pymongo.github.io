@@ -129,7 +129,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
         <span class="project-role">中级服务器程序员</span>
         <span class="project-cycle">2020.10 - 至今</span>
     </h3>
-    <p>・主要WebSocket+Protobuf的API服务器的开发，业务是Instagram/Twitter等社交平台的数据分析服务</p>
+    <p>・Protobuf, GraphQL的API服务器的开发，业务是Instagram/Twitter等社交平台的数据分析服务</p>
 
     <h2 class="header2">工作经历</h2>
     <h3 class="header3">
@@ -168,6 +168,21 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 [项目收获] 1. 在Actor Handler的同步函数中嵌入异步的代码块的两种方法
     </pre>
 
+    <!--
+    <h3 class="header3">
+        <span class="project-title">WebSocket服务器</span>
+        <span class="project-role">Rust开发</span>
+        <span class="project-cycle">2020.07 - 至今</span>
+    </h3>
+    <pre class="deprecated">Actix同步函数嵌入异步代码有两种，一种类似js的promise，另一种是用特殊的Actor包起来</pre>
+    <pre class="project-details">
+[项目链接] wss://business.igrow.ai/ws
+[技术架构] 1. 曾用websocket+protobuf
+[主要工作] 1. 
+[项目收获] 1. 
+    </pre>
+    -->
+
     <h3 class="header3">
         <span class="project-title">数字货币交易所订单撮合引擎</span>
         <span class="project-role">Rust开发</span>
@@ -190,26 +205,13 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 　　　　      区分交易对，例如请求'/btcusdt/create_order'会被nginx转发到负责btcusdt交易对的撮合进程
 [主要工作] 1. 设计Rust项目的部署方案，因配置文件编译前常量内联优化到可执行文件中无法交叉编译，通过systemctl重启服务器
 　　　　   2. 通过Mutex锁实现了系统的幂等性，尝试降低锁的粒度或无锁编程的方式去优化性能
-　　　　   3. 通过Mutex锁实现了系统的幂等性，尝试降低锁的粒度或无锁编程的方式去优化性能
 [项目收获] 1. 区分了Rust编译时和运行时环境变量，通过leetcode、reddit等渠道从零学习Rust语言
 　　　　   2. 掌握用cargo workspace管理多个子crate/package，了解darling过程宏库
 　　　　   3. 异步runtime下要用tokio或async-std的Mutex锁，用std::sync::Mutex在高并发时容易发生死锁
 　　　　   2. 简单了解了Rust和C++的多态/泛型/虚函数表，以及Rust如何实现静态分发和动态分发(dynmatic dispatch)
     </pre>
     <pre class="deprecated">全角空格[　]</pre>
-    <pre class="deprecated">
-[项目介绍]
-    撮合引擎有几个概念，一是交易对，交易对也叫市场，指的是以ask_unit和bid_unit组成的一个市场，例如BTC/USDT交易对中ask_unit就是左边的BTC，
-    交易对或市场的bid_unit通常是价格波动不大稳定货币，例如BTCUSDT交易对中bid_unit是USDT泰达币，与美元挂钩价格稳定，俗称美金币/美元币。
-    币圈中币价的单位通常都是USDT，例如比特币现在的价格是9500，就是指一个比特币可以在交易所卖成9500个USDT，然后再通过OTC法币交易换成约9500个美元。
-    币币交易的买单指的是用户想用稳定的USDT美元币去买比特币
-【deprecated】老的撮合引擎项目经历文案：
-    基于Rust版币币交易撮合引擎，添加杠杠交易的支持，理解杠杠交易做空做多原理
-    早期版本的技术栈是actix+diesel，diesel遇到数据库死锁的问题，所以换成actix+tokio+sqlx
-    攻克rust异步环境下多线程共享变量的死锁问题，通过anyhow优雅地处理了Rust错误传递的过程
-    学新语言的同时重写旧版Ruby撮合引擎，遇到问题时通过翻issue/查文档/读源码得到解决
-    使用MySQL的slow_log/general_log排查与调试性能问题，通过添加索引等方式提高性能
-    </pre>
+    <pre class="deprecated">diesel遇到数据库死锁的问题，使用MySQL的slow_log/general_log排查与调试性能问题，通过添加索引等方式提高性能</pre>
 
     <h3 class="header3">
         <span class="project-title">股票交易所撮合引擎</span>
@@ -217,10 +219,9 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
         <span class="project-cycle">2020.06 - 至今</span>
     </h3>
     <pre class="deprecated">静态区间和数据用前缀和，动态区间和数据用线段树；静态排序数据用快排，动态排序数据用堆</pre>
-    <pre class="deprecated">将所有WebSocket频道数据推送的Ruby脚本改成通过socket给服务器推送数据</pre>
     <pre class="deprecated">用Rust重写OrderBook和深度图的推送脚本，老系统是每2秒查询数据库计算前缀和，无法实时更新且MySQL负载高</pre>
     <pre class="deprecated">通过一个线程每隔0.5秒轮询当前时间判断是开盘或休盘或去修改相应的全局AtomicBool变量</pre>
-    <pre class="deprecated">由于内存订单数据使用到了堆，所以删除操作是lazy_delete的</pre>
+    <pre class="deprecated">由于内存订单数据使用到了堆，所以删除操作是lazy_delete的</pre>1. 发现了thread::spawn内打印log(日志)会运行时异常，而用tokio::spawn则不会发生该错误
     <pre class="project-details">
 [项目链接] http://trading.sctajik.com
 [项目介绍] 塔吉克证券是一个用塔国货币索莫尼进行股票交易的平台，撮合引擎负责集合竞价和成交价格相近的订单
@@ -234,7 +235,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 　　　　   2. 根据做市团队的需求，用Rust的Rocket框架还开发了一个市场监控的系统，具有躲单、下单报警等功能
 　　　　   3. 实现了当日加权平均成交收盘价的自动更新，解决了股票订单成交后账户余额会变负数的问题
 　　　　   4. 接口添加了中英俄语言的国际化支持，用Python调用谷歌翻译API将中文文案翻译成多国语言的json文件
-[项目收获] 1. 发现了thread::spawn内打印log(日志)会运行时异常，而用tokio::spawn则不会发生该错误
+[项目收获] 
 　　　　   2. 解决了获取到的时区会受到夏令时影响的问题，学会使用impl Fn和impl Future传递同步/异步的代码块
 　　　　   3. 发现了rust_decimal库，不仅内存大小只有bigdecimal-rs的1/4，而且运算速度是bigdecimal的2-3倍
     </pre>
@@ -254,7 +255,6 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 　　　　   3. 新增了SQLite数据库(Room API)缓存WebSocket数据
     </pre>
     <pre class="deprecated">[项目背景] 由于安卓开发的同事离职，我接手安卓项目继续开发与维护了一段时间</pre>
-    <pre class="deprecated">1. 参考PC端法币交易系统的聊天功能，开发安卓端的聊天功能</pre>
 
     <h3 class="header3">
         <span class="project-title">交易所移动端API接口</span>
@@ -275,15 +275,12 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <!--
     <h3 class="header3">
         <span class="project-title">k线画线工具</span>
-        <span class="project-role">Vue前端开发+Ruby开发</span>
-        <span class="project-cycle">2019.11 - 2020.12</span>
     </h3>
     <pre class="project-details">
-[项目链接] http://k-line-drawer.testcadae.com
 [项目架构] 1. 前端是Vue+element-ui的UI组件，后端是rails API框架
 　　　　   2. 避免用户重复点击发起多个请求的解决方案：发起请求前禁用按钮，请求response时恢复按钮
 [主要工作] 开发了两个新接口：一个用来给k线编辑器读取配置，另一个是保存配置
-[项目收获] 简单入门了Vue，了解v-for列表渲染，Vue如何发起网络请求
+[项目收获] vue-router/props携带参数地在页面中跳转，简单入门了Vue，了解v-for列表渲染，Vue如何发起网络请求
     </pre>
     -->
 
@@ -311,8 +308,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 [项目架构] 后台管理系统主要负责所有项目/子系统共用数据库的迁移管理
 [主要工作] 1. 开发了用户支付方式、运营统计、数据图表、安卓版本管理等约15~20个页面
 　　　　   2. 为所有导出csv下载的链接添加参数过滤(params.slice)，防止携带参数跳转时「无关的数据被暴露」
-　　　　   3. 添加部分I18n英文和俄文的国际化支持，通过参数merge解决了切换语言时GET请求参数被覆盖的问题
-[项目收获] 入门了Ruby on Rails，了解风控系统、赌场的用户画像系统
+　　　　   3. 添加部分I18n英文和俄文的国际化支持，通过参数merge解决了切换语言时GET请求参数被覆盖的问题，了解风控系统、赌场的用户画像系统
     </pre>
     -->
     <hr class="divider">
@@ -325,7 +321,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     </h3>
     <pre class="project-details">
 [项目链接] https://github.com/pymongo/pg_client
-[项目介绍] 没有任何第三方库，纯Rust实现的postgreSQL协议解析器和client
+[项目介绍] 没有任何第三方库，纯Rust实现的postgres数据库协议解析器和client
 [项目收货] 学习了字节序little/bigger/naive endian，并掌握查询所用操作系统字节序的方法
     </pre>
 

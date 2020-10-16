@@ -51,3 +51,10 @@ postgres只有select才能搭配limit子句
 
 first/last(normal_field, timestamp_field)
 
+## 配置文件和log
+
+### mac
+
+配置文件路径: /usr/local/var/postgres/postgresql.conf
+
+log路径: tail -f /usr/local/var/log/postgres.log

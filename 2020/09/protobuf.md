@@ -1,4 +1,4 @@
-# [Rust protobuf](/2020/09/rust_protobuf.md)
+# [protobuf](/2020/09/protobuf.md)
 
 protobuf是一种Google发布的一种数据传输协议/序列化格式，无论是服务端或前端序列化反序列化的性能以及压缩率都要比json优秀
 
@@ -21,6 +21,12 @@ optional修饰的字段在字段为None时并不会像json那样设为null，而
 当然也可以手动指定optional为None时的默认值，例如`optional int32 user_id = 1 [default = -1]`
 
 谷歌的protobuf文档才看了20%，应该足够看懂项目
+
+## protobuf的字段名和序号
+
+Protobuf的Message字段名可以随意改，在传输层真正有用的是「字段序号」和「字段类型」
+
+Google这种巧妙的设计让js/java等camcel_case命名 和 rust这样snake_case命名 即使两端字段名不同也能公用同一个proto文件
 
 ## codegen的两种方法
 

@@ -94,3 +94,13 @@ rustflags = ["-C", "target-feature=+crt-static"]
 但是Debug后发现，并不是systemd的问题，而是service配置文件修改后不生效，即便我删掉第9行，还是提示第9行报错
 
 原来是systemctl status命令的stdout没更新，其实配置文件是没问题的
+
+## systemctl status启用CPU/Memory的使用率
+
+vim /etc/systemd/system.conf
+
+> DefaultMemoryAccounting=yes
+
+然后重新让systemctl重新加载配置文件:
+
+systemctl daemon-reexec
