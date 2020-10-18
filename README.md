@@ -95,3 +95,5 @@ Host *
 
 3. `ssh-agent -s`启动开发环境的ssh-agent process
 4. `ssh-add ~/.ssh/id_rsa`将密钥加到ssh-agent中
+
+配置完上述操作后，即便ssh-agent没有开启，ssh -a时也会自动启动`/usr/bin/ssh-agent -l`
