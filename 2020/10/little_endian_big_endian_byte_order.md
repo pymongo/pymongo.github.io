@@ -1,4 +1,4 @@
-# [bigger-endian and little-endian](/2020/10/little_endian_big_endian_byte_order.md)
+# [bigger/little/naive endian](/2020/10/little_endian_big_endian_byte_order.md)
 
 最近我在用Rust写一个postgreSQL的client，client要发的第一条消息是StartupMessage，StartupMessage的body中第一个字节是通信协议版本
 
