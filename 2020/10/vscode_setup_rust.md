@@ -1,5 +1,12 @@
 # [vscode配置Rust开发环境](/2020/10/vscode_setup_rust.md)
 
+---
+description: >-
+  This book aims to explain green threads by using a small example where we
+  implement a simple but working program where we use our own green threads to
+  execute code.
+---
+
 我目前只用rust和rust-analyer两个插件，连project的tasks.json和laugh.json都不用设置就能用了codelen
 
 插件安装要有先后顺序(rust依赖rust-analyzer)

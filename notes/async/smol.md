@@ -1,0 +1,9 @@
+# 阅读smol源码
+
+smol是stjp自己搞的一套轻量的异步生态，可以通过tokio02或tokio03 feature兼容tokio的库，现今版本的async-std使用了smol的若干个子crate作为executor等
+
+smol的源码一定要去看早期版本的0.1.x的，或者看最后一个不拆分成多个create的版本
+
+当前版本的smol已被stjp拆成10-20个子create，阅读源码变得很困难，看早期版本所有源文件都放在src文件夹内没有子文件夹的smol更容易理解
+
+
