@@ -104,3 +104,7 @@ vim /etc/systemd/system.conf
 然后重新让systemctl重新加载配置文件:
 
 systemctl daemon-reexec
+
+## systemd service消除zombile thread/process
+
+以前玩具式的做法kill parent, kill child, 容易产生大量的zombie thread/process

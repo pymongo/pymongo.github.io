@@ -1,4 +1,4 @@
-# 为什么异步要用轻量级线程
+# [为什么异步要用轻量级线程](/notes/async/green_thread_and_coroutinue.md)
 
 ## system call fork child process
 

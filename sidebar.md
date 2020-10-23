@@ -1,7 +1,8 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年10月**
+    - [为什么异步要用轻量级线程](/notes/async/green_thread_and_coroutinue.md)
     - [Postgres协议解析器/client](/2020/10/pg_protocol.md)
-    - [vscode配置Rust开发环境](/2020/10/vscode_setup_rust.md)
+    - [vscode配置Rust开发环境](/archive/vscode/vscode_setup_rust.md)
     - [bigger/little/naive endian](/2020/10/little_endian_big_endian_byte_order.md)
     - [type constructor and mir](/2020/10/enum_type_constructor_mir.md)
     - [翻译RFC2000 const generic](/2020/10/rfc_const_generics.md)
