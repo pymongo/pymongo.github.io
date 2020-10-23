@@ -2,6 +2,10 @@
 
 元组只有一个元素时，需要在末尾加逗号方便Rust编译器区分单元素元组和括号操作符
 
+## Cargo.lock
+
+cargo workspace是library用的比较多的，cargo lib是不加Cargo.lock到版本管理的，cargo bin是必加Cargo.lock到版本管理内
+
 ## Compile Time
 
 nightly的最大问题是有些!#feature可能将来会被删掉

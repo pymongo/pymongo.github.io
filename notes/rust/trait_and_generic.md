@@ -88,6 +88,14 @@ Understanding Traits and Object Safety
 
 2.2 Self不能出现在除了第一个参数位置以外的地方，包括返回值
 
+#### trait方法object safe
+
+方法有Self: Sized约束，或者同时满足非静态方法+除self以外的参数和返回值无Self+无泛型参数
+
+#### trait object safe rfc
+
+trait没有Self: Sized的约束 且 trait所有方法都是object safe
+
 ---
 
 # trait系统的不足

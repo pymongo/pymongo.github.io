@@ -258,18 +258,28 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 
     <h2 class="header2">个人项目</h2>
     <h3 class="header3">
-        <span class="project-title">pg_client</span>
+        <span class="project-title">pg_client(postgres协议解析器)</span>
         <span class="project-role">owner</span>
         <span class="project-cycle"></span>
     </h3>
     <pre class="project-details">
 [项目链接] https://github.com/pymongo/pg_client
-[项目介绍] 没有任何第三方库，纯Rust实现的postgres数据库协议解析器和client
+[项目介绍] 没有任何第三方库，纯Rust实现的postgres数据库协议解析器和client，暂不支持异步
 [项目收货] 1. 学习了字节序little/bigger/naive endian，并掌握查询所用操作系统字节序的方法
 　　　　   2. 读写pg消息中的std::ffi::CStr类型，了解通过Cursor读取输入缓冲区中多条消息的方法
     </pre>
 
     <h2 class="header2">Rust开源社区贡献</h2>
+
+    <h3 class="header3">
+        <span class="project-title">rust-postgres(tokio-postgres)</span>
+        <span class="project-role">contributor</span>
+        <span class="project-cycle"></span>
+    </h3>
+    <pre class="project-details">
+[PR链接] https://github.com/sfackler/rust-postgres/pull/669
+[主要工作] Make postgres protocol version value more readable
+    </pre>
 
     <h3 class="header3">
         <span class="project-title">sqlx</span>
@@ -279,16 +289,6 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <pre class="project-details">
 [PR#581] Remove decimal feature unnecessary dependency num-traits
 [PR#319,PR#592] 我阅读sqlx的MySQL源码时发现docstring中有一个typo(单词拼写错误)，我提交PR修复了该错误
-    </pre>
-
-    <h3 class="header3">
-        <span class="project-title">rust-postgres</span>
-        <span class="project-role">contributor</span>
-        <span class="project-cycle"></span>
-    </h3>
-    <pre class="project-details">
-[PR链接] https://github.com/sfackler/rust-postgres/pull/669
-[主要工作] Make postgres protocol version value more readable
     </pre>
 
     <h3 class="header3">
@@ -344,9 +344,6 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <div class="row-padding-lv1">・将OkHTTP的websocket重构为java-websocket，基于心跳包实现了断线重连和保持连接功能</div>
     <div class="row-padding-lv1">・尝试基于开源的野火IM进行二次开发，将聊天功能抽取成单独的APP，服务端用的是maven+spring</div>
     <div class="row-padding-lv1 deprecated">・因服务端使用的MySQL版本过低无法存储Emoji表情包，安卓聊天输入框设置了emoji过滤器</div>
-
-    <div class="project-title">服务器监控(安卓+后端)</div>
-    <div class="row-padding-lv1">・项目中用到了安卓底部导航栏、带参数的页面跳转、本地存储、按键绑定等安卓基础知识</div>
 
     <div class="project-title">交易所移动端API接口</div>
     <div class="row-padding-lv1">・给所有接口加上数字签名校验，解决「N+1查询」问题，通过ab命令测试接口性能</div>

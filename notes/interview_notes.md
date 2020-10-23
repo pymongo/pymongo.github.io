@@ -23,6 +23,7 @@
 - Adapter: RecyclerView.Adapter, 
 - Builder: OkHttp, AlertDialog.Builder, sqlx::MySQLPool
 - Data Access Object: (Android)Room
+- Domain-Driven Design(前端/后端/数据库尽快定下一套Domain/Entity数据，不用管数据库表字段和domain的映射/反序列化，先定下业务逻辑domain的哪个字段最终会显示到前端的哪一个页面的哪一个部分)
 - Decorator
 - Delegate(TODO Rust标准库在哪用到了委托模式?)
 - Dependency Injection: dagger2
@@ -113,10 +114,6 @@ C/C+还将整形
 ### Atomic原子序
 
 TODO
-
-### 全局变量和单例模式
-
-### 多线程的单例模式
 
 ---
 
@@ -216,32 +213,6 @@ public final class WebSocket extends WebSocketClient {
 2. (可能是Rust特有)泛型入参
 
 3. 多继承/多范式
-
-### 单例模式
-
-懒汉、饿汉、双重校验锁、静态内部类
-
-延迟加载问题、多线程的单例模式问题
-
-Java把其它语言用指针/闭包就能做到的事情 抽象成更复杂的「设计模式」...
-
-https://www.zhihu.com/question/391694703/answer/1207383438
-
-你不会真的认为Java中那中全是boilerplate code的单例模式是什么值得借鉴的语言精华吧，
-
-那不过就是成功克服了别的语言中不存在的困难而已。
-
-还有很多人，一个例对象的创建搞的那么复杂，各种锁，double check。那如果真的有这种需求，
-
-是不是最起码得保证单例对象的各种操作也是线程安全的，不然也没法用在多线程的场景，有什么意义？
-
-那随便调用一下一个方法，开销就比创建对象大了，搞什么double check来优化性能的意义何在？
-
-说白了还是那些低等的语言太惯着使用者了，随便就能让你写出线程不安全的代码。
-
-如果你觉得在Rust里创建一个单例对象很复杂，那是因为它本来就很复杂，其他语言中忽略的潜在错误，你都得显式地考虑，而我也不觉得这是Rust的缺点。
-
-原生方法：全局函数不就可以做到了？一个atomic bool记录是否第一次初始化，如果是，就执行特定逻辑
 
 ---
 
