@@ -1,5 +1,9 @@
 # redis技术积累
 
+## telnet 127.0.0.1 6379
+
+除了redis-cli客户端，redis通信协议类似HTTP1.0多行文本的形式，所以用telnet连上redis后，client可以直接输入redis命令例如INFO
+
 ## 削峰
 
 通过消息队列(生产者/消费者)削峰解决redis和MySQL速度差距过大的问题

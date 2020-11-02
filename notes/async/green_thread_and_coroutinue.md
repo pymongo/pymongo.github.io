@@ -1,4 +1,4 @@
-# [为什么异步要用轻量级线程](/notes/async/green_thread_and_coroutinue.md)
+# [为什么异步要用轻量级线程](/notes/async/green_thread_and_coroutine.md)
 
 ## system call fork child process
 
@@ -9,6 +9,10 @@ master-worker模式(例如puma)需要创建子进程去占满CPU资源(我个人
 有些语言的多线程并不安全，所以就用多进程了
 
 Rust标准库没有提供fork系统调用去创建子进程，因为不需要，子进程会把主进程数据状态都复制一遍，效率太低
+
+现在的软件/server用子进程的并不多，在2021年+，仍然用到多个子进程的应用例子是chrome浏览器
+
+可以用htop命令查看每个进程开辟的线程数
 
 ## 为什么要异步
 
@@ -25,7 +29,7 @@ Rust标准库没有提供fork系统调用去创建子进程，因为不需要，
 
 ## green thread, coroutine
 
-更常见的叫法是"轻量级线程"或woker thread，不太常见的叫法: 纤程(Fiber)
+更常见的叫法是"轻量级线程"或worker thread，不太常见的叫法: 纤程(Fiber)
 
 相比于naive thread的(1:1对应)，green thread模型(有栈协程)做到了(N:M对应)，既N个green threads运行在M个kernel threads中
 

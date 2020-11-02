@@ -32,7 +32,7 @@ https://www.zhihu.com/question/391694703/answer/1207383438
 
 确实对于像Rust这样编译型语言，有指针而且强烈区分了static静态数据区的概念，就没有Java上述的双重校验锁单例等复杂设计
 
-## lazy static的应用
+## lazy_static/OnceCell的应用
 
 - 1个或若干个函数内使用的固定正则表达式，例如密码强度校验的业务，这种使用不算单例模式，只是数据运行时加载/懒加载
 - 在标准库的io模块，stdout和stdin等都使用了OnceCell，让stdout的文件描述符作为单例模式

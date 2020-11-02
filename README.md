@@ -9,6 +9,10 @@ Contact me: os.popen@gmail.com
 镜像2：[aoxiangwu.github.io](https://aoxiangwu.github.io)
 -->
 
+[解决Haskell插件报错: `class java.util.LinkedHashMap cannot be cast to class java.lang.String`](https://github.com/rikvdkleij/intellij-haskell/issues/325#issuecomment-676561010)
+
+
+
 ## 我在开源社区上的贡献(PR)
 
 ### https://github.com/launchbadge/sqlx
@@ -22,12 +26,6 @@ sqlx 是Rust语言一款数据库工具，我参与了sqlx的MySQL相关文档�
 actix/examples 是actix_web的样例代码仓库
 
 - [PR#298](https://github.com/actix/examples/pull/298) 删掉了关闭服务器example中两个未使用的变量，避免内存浪费
-
-### wildfirechat/android-chat
-
-野火IM是一款仿微信的聊天软件，我参与了安卓端的开发
-
-- [PR#330](https://github.com/wildfirechat/android-chat/pull/330) 将聊天消息RecyclerView仅用于UI预览下显示部分设为tools:text
 
 ### lukesampson/scoop
 
@@ -54,6 +52,7 @@ scoop是一款windows系统的包管理工具，类似mac的homebrew或Linux的a
 - AFAICT: As Far As I Can Tell
 - LGTM: An acronym(首字母缩写) for "Looks Good To Me"
 - In a nutshell: 简而言之
+- TLDR: Too Long Didn't Read
 
 ## 常用的又没背下来的linux command trick
 

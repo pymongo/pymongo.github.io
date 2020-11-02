@@ -35,8 +35,13 @@
 ## 将来看
 
 - [book: Programming Rust 1st edition](https://www.oreilly.com/library/view/programming-rust/9781491927274/)
+- [mdbook: Rust Cookbook](https://rust-lang-nursery.github.io/rust-cookbook/)
+edition-guide
 - [mdbook: Green Threads Explained in 200 Lines of Rust](https://cfsamson.gitbook.io/green-threads-explained-in-200-lines-of-rust/)
 - [mdbook: Exploring Async Basics with Rust](https://cfsamson.github.io/book-exploring-async-basics/)
+- rustquiz
+- cppquiz
+- rustling?
 - mdbook: Rust死灵书
 
 ## Rust实战项目

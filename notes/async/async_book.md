@@ -187,7 +187,9 @@ FusedFuture还有一个作用是通过terminated相关的API可以做到在loop 
 
 ### FuturesUnordered
 
-FuturesUnordered: many copies of the same future need to be run simultaneously
+~~FuturesUnordered: many copies of the same future? need to be run simultaneously~~
+
+还没用
 
 ## 递归Future
 

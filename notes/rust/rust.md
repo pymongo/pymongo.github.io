@@ -152,11 +152,13 @@ rustc类似前端，LLVM会将rust编译的结果变成不同target平台的机�
 
 - deref空指针 -> Option<T>
 - 使用未初始化的内存 -> 编译器检查
-- 悬垂指针(use after free) -> Ownership+liftime
-- 缓冲区溢出(例如数组越界) -> 数组编译时检查越界，vector运行时越界会panic，不会像C/C++那样越界也能继续访问
+- 悬垂指针(use after free) -> ownership+liftime
+- 缓冲区溢出(例如数组越界) -> 编译时简单检查越界，运行时越界会提前panic，不会像C/C++那样下标越界也能可能会继续运行
 - double free -> 编译器检查
 
 线程崩溃时会触发提前析构
+
+当然Rust编译时静态并不能完全检查出所有dangling pointer，例如self-referential时没用Pin，自引用指针指向的字段被move掉容易出现悬垂指针
 
 ## Rust解决野指针三大成因
 

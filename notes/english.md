@@ -70,6 +70,7 @@
 - intentional: 故意的
 - elision: 省略
 - sentinel: 哨兵(sentinel value for NULL)
+- first-class citizen: 一等公民
 
 
 manipulation: 操作行为  

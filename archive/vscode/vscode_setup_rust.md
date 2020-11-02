@@ -8,7 +8,7 @@
 2. CodeLLDB(debugger)
 3. rust
 
-## rust-analyer安装
+## rust-analyzer安装
 
 由于rls(rust language server)依赖nightly，建议开发环境rustup default nightly
 
@@ -20,7 +20,7 @@
 
 ```
 $ git clone https://github.com/rust-analyzer/rust-analyzer.git && cd rust-analyzer
-$ cargo xtask install
+$ cargo xtask install # cargo xtask是ra代码仓库的一个cargo alias命令
 ```
 
 然后在全局的settings.json中添加`"rust-analyzer.serverPath": "~/.cargo/bin/rust-analyzer",`

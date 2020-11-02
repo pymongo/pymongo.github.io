@@ -1,5 +1,11 @@
 # Pin in Future
 
+## Pin的其它应用
+
+Example: intrusive doubly-linked list(侵入式链表)，C++/Rust标准库都是non-intrusive
+
+侵入式链表优点内存效率高，缺点实现代码难懂+指针的生命周期管理过于复杂
+
 ## Immovable objects
 
 Future的poll方法中，Context参数保存了self指针，类似于结构体的字段B是字段A的指针(自引用?)，

@@ -2,19 +2,13 @@
 
 话说测试服务器的硬盘空间又满了，没法git pull、bash自动补全、Web服务器没法上传文件等等
 
-> sudo du -a / | sort -n -r | head -n 20
-
-du -h --max-depth=1 /data | grep G | sort -n
-
-du -a -h --max-depth=1 /opt/app | sort -n -r | head -n 20
+> du -d 1 -h . | sort -n -r | head -n 20
 
 于是查出上述命名，列出硬盘里最大的20个文件/文件夹
 
-排第一的是`/opt/app/rails_api/releases/xxx/nohup.out`
+排第一的是`~/app/rails_api/releases/xxx/nohup.out`
 
-排第二的是`xxx/websocket-server/log/puma.stdout.log`
-
-排第三的是`/var`，数据库就存在这里，此时想起v2ex上某帖把/var删了...
+排第二的是`/var`，数据库就存在这里，此时想起v2ex上某帖把/var删了...
 
 ---
 

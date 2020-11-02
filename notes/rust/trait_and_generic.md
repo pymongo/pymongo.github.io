@@ -118,7 +118,7 @@ trait没有Self: Sized的约束 且 trait所有方法都是object safe
 - Generator
 - Fn/FnMut/FnOnce
 
-## 不可重叠规则
+## 不可重叠规则(所以要引入特化)
 
 例如`impl<T: Copy> A for T`和`impl<T: i32> A for T`不能同时出现
 
@@ -129,7 +129,7 @@ trait没有Self: Sized的约束 且 trait所有方法都是object safe
 - 代码难以复用
 - 性能问题
 
-### 不可重叠规则的性能问题
+### 不可重叠规则的性能问题(所以要引入特化)
 
 ```rust
 // 例如为所有类型重载 += 运算符

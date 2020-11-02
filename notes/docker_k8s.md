@@ -68,6 +68,10 @@ TODO
 
 ## Kubernetes
 
-谐音k8s，k和s中间有8个字母。k8s是docker集群的监控编排管理软件，
+谐音k8s，k和s中间有8个字母。k8s是docker集群的监控编排管理软件。
+
+根据codeforces这题[71A - Way Too Long Words](https://codeforces.com/problemset/problem/71/A)的题目描述，
+
+英文世界对于超过10个字母的单词，通常缩写成开头字母+中间几个字母+结尾字母，例如著名的`internationalization`会缩写成`i18n`
 
 提供负载均衡、自动扩容缩容、自我修复等功能，运维再也不需要因为某个container挂了或硬盘满了需要扩容而半夜爬起来
