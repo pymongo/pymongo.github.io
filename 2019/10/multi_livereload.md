@@ -1,4 +1,4 @@
-# 同时热重载(livereload)多个网页
+# [同时热重载(livereload)多个网页](/2019/10/multi_livereload.md)
 
 ## 需求
 

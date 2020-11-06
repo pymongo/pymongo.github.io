@@ -377,7 +377,7 @@ run_production = "cargo run --release"
 - derive过程宏相比反射机制性能更好(建议用darling过程宏而不是错误提示少的syn)
 - 没有不能编译的第三方库，Ruby的话一言难尽，例如passgen编译失败、某些依赖llvm编译的库也会失败等等
 
-- Rust的第三方库不依赖Rustc的版本，不像Ruby的httparty，
+- Rust的第三方库不依赖rustc的版本，不像Ruby的httparty，
   在Ruby2.6.1版本上能发www-form的POST请求，
   在Ruby2.5.0版本发送的www-form的POST请求是错误的(非标准格式)
 

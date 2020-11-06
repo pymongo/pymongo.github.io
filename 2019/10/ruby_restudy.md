@@ -148,28 +148,6 @@ hash1.each { |key, value|
 }
 ```
 
-
-### case-when-end
-
-1..4  = [1,2,3,4]
-1...4 = [1,2,3]
-
-unless=if not
-until=while not
-
-```ruby
-case age
-  when 0..3
-    puts "Baby"
-  when 4..17
-    puts "Kids"
-  when 60,65
-    puts "Pension"
-  else
-    puts "Adult"
-end
-```
-
 ## ruby匿名函数
 
 > arr.select(&:odd?) == arr.select{|each| each.reverse}
@@ -243,5 +221,3 @@ p3 = -> {puts 'hello3'}
 puts p3
 say_hello3 p3
 ```
-
-

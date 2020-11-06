@@ -53,7 +53,7 @@
     - [Go语言研究](/2020/04/golang.md)
     - [chrome导出插件](/2020/04/chrome_export_extension.md)
     - [抄底BTC成功案例分析](/2020/04/case_study_buy_low_sell_high_on_btc.md)
-    - [复盘第一次rebase](/2020/04/git_rebase)
+    - [复盘第一次rebase](/2020/04/git_rebase.md)
     - [算法 - 等比级数](/2020/04/geometric_series.md)
     - [ab测试工具的极限](/2020/04/limit_of_apache_ab.md)
     - [diesel映射datetime、decimal类型](/2020/04/diesel_datetime_decimal.md)
@@ -99,7 +99,6 @@
     - [Android底部导航栏](/2020/01/bottom_navigation.md)
     - [Java的volley网络请求库](/2020/01/volley.md)
     - [Android - ListView](/2020/01/list_view.md)
-    - [运维 - 服务器硬盘满了——列出最大文件](/2020/01/linux_list_largest_files.md)
 - **1912下旬**
     - [2019年下旬的codeReview总结](/2019/12_2/code_review.md)
     - [rspec只运行一个it/example/case](/2019/12_2/rspec_single_it.md)
@@ -147,12 +146,12 @@
     - [admin项目的配置与工作](/2019/11_1/project-admin.md)
     - [初始化base-api遇到的各种报错](/2019/11_1/base-api-error.md)
 - **1910**
-    - [mac init(配置等)](/2019/10/mac-init.md)
-    - [同时热重载(livereload)多个网页](/2019/10/multi-livereload.md)
-    - [仿京东的vueAPP中遇到的问题](/2019/10/jd-vue-problem.md)
+    - [mac init(配置等)](/2019/10/mac_init.md)
+    - [同时热重载(livereload)多个网页](/2019/10/multi_livereload.md)
+    - [仿京东移动端网页中遇到的问题](/2019/10/jd_vue_problem.md)
     - [rails步骤记录](/2019/10/rails_step.md)
     - [再次学习Ruby](/2019/10/ruby_restudy.md)
-    - [chrome78开始支持darkmode](/2019/10/chrome-dark-mode.md)
+    - [chrome78开始支持dark mode](/2019/10/chrome_dark_mode.md)
 - **VIM**
     - [vim复习](/archive/vim/vim_review.md)
     - [cursor(光标移动)](/archive/vim/cursor.md)

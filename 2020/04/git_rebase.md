@@ -1,4 +1,4 @@
-# [复盘第一次rebase](/2020/04/git_rebase)
+# [复盘第一次rebase](/2020/04/git_rebase.md)
 
 老大曾经教过我，不要用rebase，使用rebase会破坏以前commit的时间戳，会破坏历史记录等等。
 
