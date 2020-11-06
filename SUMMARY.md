@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年11月**
+    - [Rust2018新增的mod文件夹写法](/2020/11/rust_2018_folder_module_mount.md)
     - [no_std中实现printf](/2020/11/impl_printf_in_no_std.md)
 - **20年10月**
     - [为什么异步要用轻量级线程](/notes/async/green_thread_and_coroutinue.md)

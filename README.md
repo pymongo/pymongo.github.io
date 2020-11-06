@@ -26,9 +26,7 @@ Contact me: os.popen@gmail.com
 - In a nutshell: 简而言之
 - TLDR: Too Long Didn't Read
 
-## Rust社区代码中常见缩写
-
-我个人不喜欢变量命名中将单词缩写的习惯，不过有些缩写还是要记一下免得看不懂别人代码
+## 代码中常见缩写
 
 - srv -> server
 - conn -> connection
