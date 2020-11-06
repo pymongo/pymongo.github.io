@@ -1,4 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
+- **20年11月**
+    - [no_std中实现printf](/2020/11/impl_printf_in_no_std.md)
 - **20年10月**
     - [为什么异步要用轻量级线程](/notes/async/green_thread_and_coroutinue.md)
     - [Postgres协议解析器/client](/2020/10/pg_protocol.md)

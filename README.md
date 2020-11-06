@@ -9,34 +9,6 @@ Contact me: os.popen@gmail.com
 镜像2：[aoxiangwu.github.io](https://aoxiangwu.github.io)
 -->
 
-[解决Haskell插件报错: `class java.util.LinkedHashMap cannot be cast to class java.lang.String`](https://github.com/rikvdkleij/intellij-haskell/issues/325#issuecomment-676561010)
-
-
-
-## 我在开源社区上的贡献(PR)
-
-### https://github.com/launchbadge/sqlx
-
-sqlx 是Rust语言一款数据库工具，我参与了sqlx的MySQL相关文档的修正
-
-- [PR#391](https://github.com/launchbadge/sqlx/pull/319) Fix a misspelling in MySQL types document
-
-### actix/examples
-
-actix/examples 是actix_web的样例代码仓库
-
-- [PR#298](https://github.com/actix/examples/pull/298) 删掉了关闭服务器example中两个未使用的变量，避免内存浪费
-
-### lukesampson/scoop
-
-scoop是一款windows系统的包管理工具，类似mac的homebrew或Linux的apt-get
-
-当时的scoop基本靠人工发现软件新版本，然后手动更新bucket文件，我参与更新了7zip/sqlite的版本
-
-不过现在scoop通过爬虫脚本自动抓取软件的最新版本，基本不需要人工更新bucket文件了
-
-- [pull#2945](https://github.com/lukesampson/scoop/pull/2945) 更新windows系统包管理器工具scoop中7zip的版本号
-
 ---
 
 ## Github社区常见英文缩写
@@ -54,20 +26,7 @@ scoop是一款windows系统的包管理工具，类似mac的homebrew或Linux的a
 - In a nutshell: 简而言之
 - TLDR: Too Long Didn't Read
 
-## 常用的又没背下来的linux command trick
-
-- find ~ -iname '*.apk'
-- lsof -i :8080
-- fuser 80/tcp
-- netstat -nlp | grep :80
-
-## 技术术语缩写
-
-[RPC](https://zhuanlan.zhihu.com/p/36427583): Remote Procedure Call
-
-分布式系统中，调用远程服务器的某个类方法，比Restful API更高效 
-
-## 名词缩写
+## Rust社区代码中常见缩写
 
 我个人不喜欢变量命名中将单词缩写的习惯，不过有些缩写还是要记一下免得看不懂别人代码
 

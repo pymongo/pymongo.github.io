@@ -2,9 +2,13 @@
 
 元组只有一个元素时，需要在末尾加逗号方便Rust编译器区分单元素元组和括号操作符
 
-## Cargo.lock
+## Rust编译时静态分析无法排查，需要人脑判断的错误
 
-cargo workspace是library用的比较多的，cargo lib是不加Cargo.lock到版本管理的，cargo bin是必加Cargo.lock到版本管理内
+- 无限递归
+- 不兼容的async runtime
+- 复杂的多线程数据竞争问题(Send和Sync只能解决偏初级的并发安全问题，不保证完全安全)，举个例子我以前遇过的actix_web::Data用错会存在数据竞争
+
+## lib版本管理不加lock文件，bin版本管理必加lock文件
 
 ## Compile Time
 
