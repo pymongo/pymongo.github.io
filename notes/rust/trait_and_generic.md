@@ -251,6 +251,10 @@ Rust标准库的所有类型几乎都实现了Unpin
 
 Map可以认为是Adapter设计模式
 
+## Sized?
+
+!Sized表示编译时不能确定大小，?Sized?等于Sized和!Sized也就是能不能确定大小都行，Dynamic Sized Type
+
 ---
 
 # generic

@@ -142,12 +142,6 @@ pub unsafe auto trait Send {
 }
 ```
 
-## Clone和Copy的区别
-
-## 你知道std::marker::Sized是什么吗
-
-Types with a constant size known at compile time
-
 ## rust编译过程中LLVM的作用
 
 rustc类似前端，LLVM会将rust编译的结果变成不同target平台的机器码
@@ -340,43 +334,11 @@ ManuallyDrop是一个联合体，所有字段共享内存，不能随便被析�
 
 我们可以通过ManuallyDrop自定义析构顺序，mem::forgot()内部就是通过ManuallyDrop去实现
 
-## Cargo相关
-
-#### cargo tree解决第三方库版本问题
-
-```
-root@remote-server:~/app# cargo tree -d | grep md-5
-└── md-5 v0.9.0
-└── md-5 v0.9.0 (*)
-```
-
-#### cargo expand(宏展开)
-
-推荐在一个子文件夹内(就一个lib.rs)使用cargo expand，否则将项目的所有rust源文件都展开的话，输出结果长得没法看完
-
-#### cargo alias
-
-在项目根目录新建一个文件 .cargo/config 就能实现类似npm run scripts的效果
-
-IDEA运行同一个文件的多个单元测试函数时，默认是多线程的，建议加上--test-threads=1参数避免单元测试之间的数据竞争
-
-```
-[alias]
-myt = "test -- --test-threads=1 --show-output --color always"
-matcher_helper_test = "test --test matcher_helper_test -- --test-threads=1 --show-output --color always"
-run_production = "cargo run --release"
-```
-
-#### 单线程运行单元测试
-
-`cargo test --test filename function_name -- --test-threads=1 --show-output`
-
 ## Rust一些优点
 
-- 部署简单
-- derive过程宏相比反射机制性能更好(建议用darling过程宏而不是错误提示少的syn)
-- 没有不能编译的第三方库，Ruby的话一言难尽，例如passgen编译失败、某些依赖llvm编译的库也会失败等等
+~~derive过程宏相比反射机制性能更好(建议用darling过程宏而不是错误提示少的syn)~~
 
+- 没有不能编译的第三方库，Ruby的话一言难尽，例如passgen编译失败
 - Rust的第三方库不依赖rustc的版本，不像Ruby的httparty，
   在Ruby2.6.1版本上能发www-form的POST请求，
   在Ruby2.5.0版本发送的www-form的POST请求是错误的(非标准格式)

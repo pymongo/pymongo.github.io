@@ -42,3 +42,5 @@ ag -G '\.rs$' 'dyn ' .  0.05s user 0.08s system 113% cpu 0.115 total
 - fuser 80/tcp
 - netstat -nlp | grep :80
 - ps ef | grep 80
+
+curl -X POST -H "Content-Type: application/json" -H "token: fake" -d '{queryInstagramProfileViewsAndClicks(since:"123",until:"1123"){profileViews{currentTimeframeValue}}}' http://localhost:7000
