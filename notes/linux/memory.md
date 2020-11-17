@@ -1,4 +1,4 @@
-# Linux笔记
+# Linux内存管理笔记
 
 操作系统以页为单位管理内存，linux的PageSize=4Kb
 

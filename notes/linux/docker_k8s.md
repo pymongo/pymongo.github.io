@@ -38,6 +38,10 @@ docker安装的精简版的ubuntu，并没有lsb_release命令去查看ubuntu版
 
 `cat /proc/version /etc/issue /etc/lsb-release`
 
+或者用systemd的hostnamectl工具查看系统信息
+
+std::net::IpAddr
+
 然后安装一些必备软件:
 
 `apt update && apt install -y curl git gcc g++ vim`

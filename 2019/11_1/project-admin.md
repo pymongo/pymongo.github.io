@@ -12,15 +12,11 @@ www项目是普通用户的前端页面,cms项目是帮助文档及用户社区,
 
 后台管理是这几个项目中最复杂的,提交次数也是最多的
 
-## 软件版本
+## ruby版本和gem版本
 
-### 查看ruby版本
+.ruby-version记录了rvm设置的local_directory_ruby_version
 
-> cat .ruby-version
-
-### 查看bundle版本
-
-> tail Gemfile.lock
+Gemfile.lock文件的最后一行记录了
 
 ## 配置文件
 

@@ -1,5 +1,10 @@
 # Cargo相关
 
+[Why do binaries have Cargo.lock in version control, but not libraries?]
+(https://doc.rust-lang.org/cargo/faq.html#why-do-binaries-have-cargolock-in-version-control-but-not-libraries)
+
+简单来说作为executable项目需要记录上次成功编译时所有crate依赖的版本信息，而lib项目是被其它项目引用的，各个crate版本信息需要弹性处理不能依赖Cargo.lock文件
+
 ## 好用的cargo插件/第三方静态分析工具
 
 ### cargo udeps: 检查未使用的依赖(第三方crate)

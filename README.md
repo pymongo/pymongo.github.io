@@ -50,6 +50,10 @@ Host *
 ```
 
 3. `ssh-agent -s`启动开发环境的ssh-agent process
-4. `ssh-add ~/.ssh/id_rsa`将密钥加到ssh-agent中
+4. [可选?]`ssh-add ~/.ssh/id_rsa`将密钥加到ssh-agent中
 
 配置完上述操作后，即便ssh-agent没有开启，ssh -a时也会自动启动`/usr/bin/ssh-agent -l`
+
+
+
+/data/acme_sh/acme.sh --install-cert -d business-stg.igrow.ai --key-file /etc/nginx/certs/business-stg.igrow.ai-key.pem --fullchain-file /etc/nginx/certs/business-stg.igrow.ai-cert.pem --reloadcmd "/usr/bin/sudo /usr/bin/chown $USER:nginx /etc/nginx/certs/business-stg.igrow.ai-*.pem && /usr/bin/sudo /usr/bin/chmod 640 /etc/nginx/certs/business-stg.igrow.ai-*.pem"

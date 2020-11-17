@@ -1,4 +1,4 @@
-# 从Linux创建进程到进入Rust可执行文件的main函数的过程
+# [Linux创建进程到进入Rust可执行文件的main函数的过程](/notes/linux/from_fork_exec_to_rust_main.md)
 
 之前看了篇[文章](https://mp.weixin.qq.com/s/YsqoIfFZkHw1pEzsdkfo9Q)，介绍Linux系统从创建进程到C语言可执行文件的过程，我试试用Rust走一遍文章的步骤
 

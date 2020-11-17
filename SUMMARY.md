@@ -1,5 +1,7 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年11月**
+    - [运维 - systemd部署项目](/notes/linux/systemd.md)
+    - [Linux创建进程到进入Rust可执行文件的main函数的过程](/notes/linux/from_fork_exec_to_rust_main.md)
     - [Rust2018新增的mod文件夹写法](/2020/11/rust_2018_folder_module_mount.md)
     - [no_std中实现printf](/2020/11/impl_printf_in_no_std.md)
 - **20年10月**
@@ -12,7 +14,6 @@
     - [tide的异步运行时](/2020/10/tide_async_runtime.md)
 - **20年9月**
     - [Rust读配置文件的思考](/2020/09/rust_best_practise_load_config_file.md)
-    - [systemd部署/重启Rust项目](/2020/09/systemd_deploy_rust_exec_file.md)
     - [Rust protobuf](/2020/09/protobuf.md)
     - [RwLock死锁导致sqlx卡死](/2020/09/rwlock_dead_lock_affect_sqlx.md)
     - [Rust实现并查集](/2020/09/rust_impl_union_find.md)
