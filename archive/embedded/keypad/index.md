@@ -58,7 +58,7 @@
 
 ## 程序代码(不含数据处理部分)
 
-```c
+```cpp
 typedef unsigned char byte;
 void keyscan() {
   byte nop=10, row, colum;
@@ -93,7 +93,7 @@ void keyscan() {
 
 C语言又没有Python字典，还是switch语句算了
 
-```c
+```cpp
 char keyscan() {
   byte nop=10, colum, key;
   if (P2 != 0x0f) {

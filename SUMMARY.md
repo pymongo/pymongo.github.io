@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年11月**
+    - [运维 - tmux会话管理](/2020/11/tumx.md)
     - [运维 - systemd部署项目](/notes/linux/systemd.md)
     - [Linux创建进程到进入Rust可执行文件的main函数的过程](/notes/linux/from_fork_exec_to_rust_main.md)
     - [Rust2018新增的mod文件夹写法](/2020/11/rust_2018_folder_module_mount.md)
