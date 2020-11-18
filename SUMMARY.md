@@ -1,6 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年11月**
-    - [运维 - tmux会话管理](/2020/11/tumx.md)
+    - [运维 - tmux会话管理](/2020/11/tmux.md)
     - [运维 - systemd部署项目](/notes/linux/systemd.md)
     - [Linux创建进程到进入Rust可执行文件的main函数的过程](/notes/linux/from_fork_exec_to_rust_main.md)
     - [Rust2018新增的mod文件夹写法](/2020/11/rust_2018_folder_module_mount.md)
@@ -48,7 +48,6 @@
     - [sqlx教程](/2020/05/sqlx_tutorial.md)
     - [sqlx项目提PR修正文档](/2020/05/pr_to_sqlx_document.md)
     - [Go/Rust语言工具介绍](/2020/05/go_rust_toolchain.md)
-    - [Go项目文件结构](/2020/05/go_file_structure.md)
     - [chrono不能连用两个local](/2020/05/rust_chrono_dual_local_ub.md)
     - [rust BigDecimal最佳实践](/2020/05/rust_bigdecimal.md)
     - [diesel给mysql加锁](/2020/05/diesel_mysql_lock.md)

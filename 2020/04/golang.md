@@ -71,11 +71,9 @@ Rust从Debug版编译换成release版编译加上一些编译优化后，性能�
 
 Rust编译器选项里可以把默认的内存管理器换成FreeBSD的jemalloc或者微软的mimalloc，具体效果如何我没尝试了。
 
-我mac电脑ab命令最多开到5000并发，开1万或2万并发会提示socket地址不够用了，可能我之前不小心用chown改了文件权限，也可能是端口本来就不够用。
+我mac电脑ab命令最多开到5000并发，开1万或2万并发会提示socket地址不够用了，可能我之前不小心用chown改了文件权限，也可能是端口本来就不够用，所以测试结果仅供参考
 
-我在Ubuntu测试服务器上ab命令能开到2万并发，所以测试结果仅供参考
-
-## Go包管理工具
+## Go包管理工具(go mod)
 
 在官方没有推出go-modules包管理工具时，有一些第三方的包管理解决方案，如go-vendor
 
@@ -99,64 +97,14 @@ Rust编译器选项里可以把默认的内存管理器换成FreeBSD的jemalloc�
 
 [golang-standards/project-layout](https://github.com/golang-standards/project-layout)
 
-我非常喜欢Rust语言在一个项目里能定义多个bin，以及多个examples的特性，写完一个函数就能直接运行的爽快体验
+我非常喜欢Rust语言在一个项目里能编译多个bin(可执行文件)，以及多个examples的特性，写完一个函数就能直接运行的爽快体验
 
 [How to structure Go application to produce multiple binaries?](https://stackoverflow.com/questions/50904560/how-to-structure-go-application-to-produce-multiple-binaries/50904959)
 
 [golang 的编译没有 debug release 之分吗？](https://www.v2ex.com/t/561636)
 
-让我感到难受的是，go构建项目还得「背下」go build命令「参数的先后顺序」
-
 > go build -o ${output} {source.go}
-
-## Go可能不合理的设计
-
-本文不希望是踩Go来吹捧别的语言，这样做很无聊也没有意义，我希望研究Go是如何解决计算机的各种问题的，
-
-所以本章节只是挑几个我不喜欢Go的地方，不会过多抨击Go
-
-<i class="fa fa-hashtag"></i>
-驼峰式变量命名
-
-I like snake case rather than camcelcase.
-
-驼峰式命名变量的单词数少于3个还好，要是变量名是3个或以上的单词组成，用snake case可读性会好很多
-
-而且我个人很不喜欢Go或Rust社区将单词缩写的风格，例如server缩写成srv、context缩写成ctx
-
-看Rust Actix时各种ctx缩写让人有歧义，Actix有WebSocket的Context也有各种各样的Context，都写成ctx为了省几个字母，都没讲清楚指的是什么context
-
-<!--
-<i class="fa fa-hashtag"></i>
-枚举类型可读性查
-
-```go
-const (
-	gender_male = iota
-	gender_femail = iota
-)
-
-const (
-	trade_type_buy = iota
-	trade_type_sell
-)
-
-func main() {
-	gender := gender_femail
-	trade_type := trade_type_sell
-	fmt.Println(gender) // 1
-	fmt.Println(trade_type) // 1
-}
-```
-
-我还是喜欢Rust/Java的使用枚举类型的语句Gender.MALE，而不是go这样又是iota又没有命名空间的枚举
--->
-
-<i class="fa fa-hashtag"></i>
-编译时不检查unused的变量/函数
-
-我个人还是很喜欢Rust语言严格的unused检查
 
 ---
 
-在下一篇文章中，我再仔细研究/分析Go的杀手锏——channel
+我还是比较欣赏Go会对unsed variables/import给出编译错误，但是Rust那样可以通过配置unused警告是否升级为Error更灵活
