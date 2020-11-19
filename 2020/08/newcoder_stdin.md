@@ -32,13 +32,6 @@ fn main() {
 如果用的是Python语言则准备下面这个模板
 
 ```python
-def parse_stdin():
-    input_data = []
-    for line in sys.stdin.readlines():
-        input_data.append(line.rstrip('\n'))
-    nums = [int(s) for s in input_data[0].split()]
-    print(nums)
-    print(input_data)
 ```
 
 print!("Enter a number: "); std::io::stdout().flush().unwrap();

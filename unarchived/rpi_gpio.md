@@ -1,4 +1,4 @@
-# [【智能家居】平板电脑控制电灯](/unarchived/rpi_gpio.md)
+# [智能家居 - 平板电脑控制电灯](/unarchived/rpi_gpio.md)
 
 > [!TIP|label:Surface平板电脑控制电灯]
 > 如图，把电灯换成继电器就能控制任意220V的家用电器了

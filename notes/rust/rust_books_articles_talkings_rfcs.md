@@ -1,5 +1,9 @@
 # 我读过的Rust相关的books/articles/rfc/issues/PR/talking/podcast
 
+超喜欢`rustup doc --book`这个命令直接在浏览器打开the book书籍进行阅读，全套书籍目录请直接rustup doc或rustup doc --help
+
+在飞机上或火车上，没网的环境下静下心来好好看Rust的这些书籍，不仅有Rust官方出品的10来本高质量书籍，还有尽情阅读标准库文档和源码
+
 ## 看完的(不完全统计)
 
 - [article: Dining Philosophers(Mutex解哲学家进餐问题) - 1.2.0 book](https://doc.rust-lang.org/1.2.0/book/dining-philosophers.html)
@@ -49,6 +53,11 @@ edition-guide
 - [postgres数据库客户端/协议解析器]()
 
 ---
+
+## 准备看的其它CS学习资料
+
+- [ ] Advanced Programming in the UNIX Environment
+- [ ] 清华大学-操作系统(RISC-V)(2020秋)
 
 ---
 

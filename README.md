@@ -25,9 +25,6 @@ Contact me: os.popen@gmail.com
 - LGTM: An acronym(首字母缩写) for "Looks Good To Me"
 - In a nutshell: 简而言之
 - TLDR: Too Long Didn't Read
-
-## 代码中常见缩写
-
 - srv -> server
 - conn -> connection
 
@@ -53,3 +50,27 @@ Host *
 4. [可选?]`ssh-add ~/.ssh/id_rsa`将密钥加到ssh-agent中
 
 配置完上述操作后，即便ssh-agent没有开启，ssh -a时也会自动启动`/usr/bin/ssh-agent -l`
+
+
+```
+#[tokio::test]
+async fn test_find_user_by_id() -> Result<(), Box<dyn std::error::Error>> {
+    let db = mongodb::Client::with_uri_str("mongodb://igb:igb@localhost:27017")
+        .await?
+        .database("fpweb");
+
+    let doc = db
+        .collection(COLLECTION_NAME)
+        .find_one(
+            doc! { "_id": ObjectId::with_string("5face57900fa3dc400228344")?},
+            FindOneOptions::builder()
+                .projection(doc! { "_id": 0, "email": 1 })
+                .build(),
+        )
+        .await?;
+    if let Some(doc) = doc {
+        dbg!(doc.get_str("email")?);
+    }
+    Ok(())
+}
+```

@@ -10,7 +10,7 @@
 
 tail_f_nginx会话看nginx error log:
 
-```bash
+```
 tmux new -s tail_f_nginx
 tail -f /var/log/nginx/error.log
 # Ctrl+b, d 暂时退出当前tmux会话
@@ -20,7 +20,7 @@ tail -f /var/log/nginx/error.log
 
 tail_f_nginx会话启动python3 http.server:
 
-```bash
+```
 tmux new -s server
 python3 -m http.server 8080
 # 离开: Ctrl+b, d

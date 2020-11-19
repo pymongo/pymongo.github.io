@@ -72,7 +72,6 @@
     - [底部导航栏页面切换的坑(socket)](/2020/04/navigation_lifecircle.md)
     - [Rust入门](/2020/04/first_time_learn_rust.md)
     - [编写安卓测试用例](/2020/04/android_test.md)
-    - [2020年第二季度英语积累](/2020/04/quarterly_english.md)
 - **20年3月**
     - [安卓搜索栏SearchView](/2020/03/search_view.md)
     - [parcelable页面间传递实例对象](/2020/03/parcelable_serializable.md)
@@ -92,7 +91,7 @@
     - [安卓显示loading动画](/2020/02/android_loading_spinner.md)
     - [2020年2月英语积累](/2020/02/monthly_english.md)
     - [安卓虚拟机将App快捷方式添加到桌面](/2020/02/avd_add_app_shortcut_to_home.md)
-    - [安卓websocket研究](/2020/02/android_websocket.md)
+    - [安卓WebSocket研究](/2020/02/android_websocket.md)
 - **20年1月**
     - [安卓读写SQLite数据库](/2020/01/android_sqlite.md)
     - [安卓笔记](/2020/01/android_notes.md)
@@ -190,7 +189,7 @@
     - [sql分组与聚合函数](/archive/database/sql_group.md)
     - [增删改,约束与事务处理](/archive/database/sql_update.md)
 - **个人作品**
-    - [【智能家居】平板电脑控制电灯](/unarchived/rpi_gpio.md)
+    - [智能家居 - 平板电脑控制电灯](/unarchived/rpi_gpio.md)
 - **old**
     - [给开源项目(scoop)提交代码](/unarchived/pull_request_to_scoop/index.md)
     - [chrome恐龙奔跑游戏中作弊](/unarchived/chrome_game_cheat/index.md)
