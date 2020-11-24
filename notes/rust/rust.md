@@ -1,14 +1,10 @@
 # Rust笔记
 
-元组只有一个元素时，需要在末尾加逗号方便Rust编译器区分单元素元组和括号操作符
-
 ## Rust编译时静态分析无法排查，需要人脑判断的错误
 
 - 无限递归
 - 不兼容的async runtime
 - 复杂的多线程数据竞争问题(Send和Sync只能解决偏初级的并发安全问题，不保证完全安全)，举个例子我以前遇过的actix_web::Data用错会存在数据竞争
-
-## lib版本管理不加lock文件，bin版本管理必加lock文件
 
 ## Compile Time
 
@@ -82,8 +78,6 @@ warning: explicit lifetimes given in parameter types where they could be elided 
 ```
 
 要解决这个警告，需要用到一个trick: 改成`fn handle<'b>(&'b mut self, bytes: &[u8])`
-
-
 
 ### NLL问题
 
@@ -276,35 +270,7 @@ Rust源码编译生成的二进制文件在build/x86_64-unknown-linux-gnu/stage2
 
 ## Rust琐碎知识
 
-### 注释
-
-Rust中注释可以分为三类: 普通注释、文档注释、module文档注释
-
-普通的//和/**/就不讲了，文档注释下面必须要有语言项目，module注释只能出现于文件头部
-
-#### module注释中的两个叹号
-
-文档注释中，两个叹号表示接着上一行内容，会显示在同一行中(同一个p标签中)
-
-//! 第一行
-
-//!! 还是第一行
-
-#### 语言项的文档注释
-
-/// 语言项的单行文档注释
-
-/** */ 语言项的多行文档注释
-
-#### 运行文档中的代码块
-
-在lib.rs中加上`#![doc(html_playground_url = "https://play.rust-lang.org/")]` 即可自动识别代码块，并网页每个代码块的右上角加上Run的按钮
-
-在rust文档中并不需要将\```写成\```才会被识别为Rust代码并可以被执行
-
-即便markdown的code block上加上了no_run，代码块的右上角依然会显示run
-
-推荐用`cargo doc --no-deps`生成不含第三方crate依赖的项目文档
+元组只有一个元素时，需要在末尾加逗号方便Rust编译器区分单元素元组和括号操作符
 
 ### CTFE机制
 

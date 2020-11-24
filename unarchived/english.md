@@ -142,9 +142,6 @@ deprecated
 - n. Medical Prescription 处方
 - adv. explicitly 明白地/明确地\[高频，第2次出现]
 
-- Parse Error: There was a problem parsing the package
-- 解析安装包时出错
-
 ---
 
 > 2020年4月

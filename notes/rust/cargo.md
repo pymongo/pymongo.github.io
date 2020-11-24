@@ -1,15 +1,12 @@
 # Cargo相关
 
-[Why do binaries have Cargo.lock in version control, but not libraries?]
-(https://doc.rust-lang.org/cargo/faq.html#why-do-binaries-have-cargolock-in-version-control-but-not-libraries)
+[Why do binaries have Cargo.lock in version control, but not libraries?](https://doc.rust-lang.org/cargo/faq.html#why-do-binaries-have-cargolock-in-version-control-but-not-libraries)
 
 简单来说作为executable项目需要记录上次成功编译时所有crate依赖的版本信息，而lib项目是被其它项目引用的，各个crate版本信息需要弹性处理不能依赖Cargo.lock文件
 
 ## 好用的cargo插件/第三方静态分析工具
 
 ### cargo udeps: 检查未使用的依赖(第三方crate)
-
-这个工具比较智能，能
 
 ### cargo audit: 检查一些库的漏洞或是否过时
 
@@ -131,3 +128,37 @@ run_production = "cargo run --release"
 ### 单线程运行单元测试
 
 `cargo test --test filename function_name -- --test-threads=1 --show-output`
+
+---
+
+## cargo文档工具
+
+#### 运行文档中的代码块
+
+在lib.rs中加上`#![doc(html_playground_url = "https://play.rust-lang.org/")]` 即可自动识别代码块，并网页每个代码块的右上角加上Run的按钮
+
+在rust文档中并不需要将\```写成\```才会被识别为Rust代码并可以被执行
+
+即便markdown的code block上加上了no_run，代码块的右上角依然会显示run
+
+推荐用`cargo doc --no-deps`生成不含第三方crate依赖的项目文档
+
+### 注释
+
+Rust中注释可以分为三类: 普通注释、文档注释、module文档注释
+
+普通的//和/**/就不讲了，文档注释下面必须要有语言项目，module注释只能出现于文件头部
+
+#### module文档注释中的两个叹号
+
+文档注释中，两个叹号表示接着上一行内容，会显示在同一行中(同一个p标签中)
+
+//! 第一行
+
+//!! 还是第一行
+
+#### 语言项的文档注释
+
+/// 语言项的单行文档注释
+
+/** */ 语言项的多行文档注释
