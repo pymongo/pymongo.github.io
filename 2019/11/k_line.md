@@ -1,8 +1,6 @@
-# [k线画图工具(基于vue)](2019/11_2/k-line-vue)
+# [怎么看懂k线图](/2019/11/k_line.md)
 
-## 股票k线图知识
-
-[维基百科]()搜索`Candlestick Charts`可以找到相关词条
+维基百科搜索`Candlestick Charts`可以找到相关词条
 
 以[火币的币币交易](https://www.huobi.com/en-us/exchange/)为模板进行讲解
 
@@ -26,7 +24,11 @@
 
 - MA=Moving Average
 
-## vue.config.js::devServer.proxy
+---
+
+由于要接手公司某个k线图相关的项目，所以要临时补下k线图相关知识
+
+vue.config.js::devServer.proxy
 
 > [!NOTE|label:作用]
 > 将 没匹配到静态文件的请求 代理到该字段指向的地方
@@ -46,7 +48,5 @@ module.exports = {
   }
 }
 ```
-
-## $http
 
 在main.js中引入 vue-resource 就可以全局使用$http

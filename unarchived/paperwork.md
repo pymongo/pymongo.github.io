@@ -11,8 +11,9 @@
 
 ## RustConf2020 topic
 
-Topic 名称: Play Rust with leetcode (TODO?)
-Topic 简介: TODO
+Topic 中文名称: 浅谈Rust在算法题和竞赛中的应用 
+Topic 英文名称: Play Rust in programming competition
+Topic 简介: Rust工程性和开发效率会给codeforces上刷算法题或leetcode周赛竞赛中的带来哪些优势？
 Speaker 名称: 吴翱翔
 Speaker 简介: tokio-postgres,sqlx,bigdecimal-rs等库的代码贡献者，saks库的作者，leetcode刷题量400+
 Speaker 公司: Rust中文社区

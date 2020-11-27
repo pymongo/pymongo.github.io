@@ -97,4 +97,4 @@ DataGrip中cmd+Alt+O能搜索表的字段名，不过不能区分表名
 
 ## idea无法识别message.rs文件
 
-参考 [rubymine无法识别ruby文件](/2019/11_2/rubymine_not_recognize_rb.md)0.0n
+参考 [rubymine无法识别ruby文件](/2019/11/rubymine_not_recognize_rb.md)0.0n

@@ -1,4 +1,4 @@
-# [禁用option/alt键的特殊符号](/2019/11_2/ukelele/disable_alt_symbol_ukelele.md)
+# [禁用option/alt键的特殊符号](/2019/11/ukelele/disable_alt_symbol_ukelele.md)
 
 相关文章 - [mac init(配置等)](2019/10/mac-init)
 

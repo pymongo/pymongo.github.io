@@ -1,25 +1,12 @@
-# [再次学习Ruby](/2019/10/ruby_restudy.md)
+# [再次学习Ruby](/2019/10/learn_ruby.md)
 
-以前在soloLearn上面学过一次ruby，虽然后面mixin等学得一知半解。
+以前在soloLearn上面学过一次ruby，虽然后面mixin等学得一知半解，而且也没metaprogramming, unittest等高级内容的介绍
 
-很多ruby岗位的JD上面都提到metaprogramming(元编程)，好像soloLearn的课程没有介绍
+如今由于工作需要再次学习rails(以前看软件那些事的视频曾经学过一次)
 
-如今由于工作需要再次学习rails，回顾一下曾经用过的资料：
-
-- 官方API文档
-- 软件那些事出过的几集ruby视频
-- 台湾高見龍的「為你自己學 Ruby on Rails」
-- https://guides.rubyonrails.org/getting_started.html
+现在回头来看还是高見龍的「為你自己學 Ruby on Rails」讲的最好
 
 打算就先按高見龍的教程过一遍，等我熟悉rails后再把默认的模板引擎换成vuejs
-
-## 试着用scoop安装rails
-
-scoop就不适合安装这种依赖复杂的cli软件，毕竟scoop安装ruby的时候就提示我要额外安装这个那个的依赖
-
-ruby本身就对非UnixLike系统不友好，windows只能用官方推荐的【rubyInstaller】进行安装
-
-而且安装完后win10还会有gem install sqlite的问题，可以参照[medium上这篇文章去解决](https://medium.com/@declancronje/installing-and-troubleshooting-ruby-on-rails-sqlite3-windows-10-fix-87c8886d03b)
 
 ## 学习目标
 
@@ -29,25 +16,23 @@ ruby本身就对非UnixLike系统不友好，windows只能用官方推荐的【r
 
 关于标准指法，根据typeclub.com的测试结果我标准指法只有7WPM的速度，而同样100%正确率自己习惯的打法速度在50-60WPM之间，而且我能盲打很熟悉每个键的位置，参考[v2ex.com/t/221161](https://www.v2ex.com/t/221161)，指法问题先放下。
 
+---
+
 ## ruby元编程API
 
 ### define_method
 
-TODO
+个人感觉不如Rust普通宏定义方法来的灵活
 
 ### send API
 
-send的作用是将字符串的运算符给eval了，
+send能将入参字符串当作运算符给eval了
 
-例如：
+例如：1.send ">", 2 # false
 
-> 1.send ">", 2 # false
- 
-> 1.send "<", 2 # true 
+---
 
 ## ruby运算回顾
-
-ruby的多行注释是在=begin和=end之间
 
 ```ruby
 # ruby常量ID以大写字母开头
@@ -120,18 +105,6 @@ ruby的class method的前缀是self.
 
 常量以大写字母开头，內容是可以修改的，
 
-```ruby
-age = 18
-
-def age
-  20
-end
-
-# 局部变量和方法名冲突时，优先局部变量
-puts age # 18
-puts age # 20
-```
-
 ### hash and symbol
 
 ruby的键通常都用不可变immutable字符串Symbols表示，如:age  
@@ -154,20 +127,6 @@ hash1.each { |key, value|
 
 ### ruby.block-yield
 
-如果想要讓附掛的 Block 執行，可使用 yield 方法，暫時把控制權交棒給 Block，
-等 Block 執行結束後再把控制權交回來：
-```ruby
-  def say_hello
-    puts "開始"
-    yield 123     # 把控制權暫時讓給 Block，並且傳數字 123 給 Block
-    puts "結束"
-  end
-
-  say_hello { |x| # 這個 x 是來自 yield 方法
-    puts "這裡是 Block，我收到了 #{x}"
-  }
-```
-
 ```ruby
 #自己实现.select方法/过滤器
   def pick(list)
@@ -177,10 +136,6 @@ hash1.each { |key, value|
     end
     result
   end
-
-  p pick([*1..10]) { |x| x % 2 == 0 }    # => [2, 4, 6, 8, 10]
-  p pick([*1..10]) { |x| x < 5 }         # => [1, 2, 3, 4]
-
 ```
 
 p([*1..10].map) do |i| i * 2 end

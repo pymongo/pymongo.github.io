@@ -1,6 +1,6 @@
 # [mac init(配置等)](/2019/10/mac_init.md)
 
-相关文章 - [禁用option/alt键的特殊符号](/2019/11_2/ukelele/disable_alt_symbol_ukelele)
+相关文章 - [禁用option/alt键的特殊符号](/2019/11/ukelele/disable_alt_symbol_ukelele)
 
 公司给我配的mbp到了，记录下配置开发环境的过程
 
@@ -14,11 +14,9 @@
 
 主题改为pro，字体大小改为16，设置选项里`Use Option As Metakey`
 
-### ~~启用root用户
+### ~~启用root用户~~
 
-mac和linux的权限管理不太一样，mac10.15的普通用户在terminal上加上sudo就够用了，没必要创建root用户
-
-~~[HowtoGeek的启用root用户教程](https://www.howtogeek.com/howto/35132/how-to-enable-the-root-user-in-mac-os-x/)~~
+sudo基本能解决99%需要root权限的场合，没必要启用root用户
 
 ### gcc/cli_tools
 
@@ -45,10 +43,6 @@ mac和linux的权限管理不太一样，mac10.15的普通用户在terminal上�
 现在系统设置的图标上面有红色数字1的恼人显示，英文叫red badge alert
 
 > defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
-
-> killall Dock
-
-但这个不是最有效的方法，根本上停止更新可通过ignore
 
 #### ignore Update
 

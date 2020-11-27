@@ -8,7 +8,7 @@
 
 ## 搜索文本
 
-> ag -G '\.rs$' 'dyn ' [.]
+> ag -G '\.rs$' 'dyn ' .
 
 > grep -r --include=\*.rs 'dyn ' .
 

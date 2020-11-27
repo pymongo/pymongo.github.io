@@ -5,6 +5,7 @@
 - conn -> connection
 - ret -> return_value, 常见于leetcode题解，题解的返回值的变量名通常都用ret或ans，用res容易和Rust的Result产生歧义
 - _ext suffix: ext=extension, 例如futures_ext crate，例如B和C结构体"继承"了A，而且B和C在A的字段基础上多了一些字段，此时可以将B和C命名为A的a_ext
+- COMM -> command, 例如I2C通信协议的命令COMMAND: TM1637_I2C_COMM1
 
 ### _opt suffix
 

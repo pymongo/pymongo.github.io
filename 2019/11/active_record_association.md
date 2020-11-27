@@ -1,4 +1,4 @@
-# [ActiveRecord关联的命名约定/规范](/2019/11_2/active_record_association.md)
+# [ActiveRecord关联的命名约定/规范](/2019/11/active_record_association.md)
 
 ¶ [belongs_to - apidock](https://apidock.com/rails/ActiveRecord/Associations/ClassMethods/belongs_to)
 

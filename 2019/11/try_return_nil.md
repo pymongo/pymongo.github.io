@@ -1,4 +1,4 @@
-# [返回CSV更友好的nil如果对象不存在](/2019/11_2/try_return_nil.md)
+# [返回CSV更友好的nil如果对象不存在](/2019/11/try_return_nil.md)
 
 常用的判断对象/属性存在的方法：
 
