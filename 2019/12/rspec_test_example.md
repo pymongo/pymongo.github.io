@@ -1,4 +1,4 @@
-# [构建接口测试样例数据](/2019/12_1/rspec_test_example.md)
+# [构建接口测试样例数据](/2019/12/rspec_test_example.md)
 
 不想再用swagger/postman人肉地点击POST/GET，低效且测试得
 

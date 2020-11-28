@@ -1,4 +1,4 @@
-# [Android学习路线](/2019/12_2/android_learn_step.md)
+# [Android学习路线](/2019/12/android_learn_step.md)
 
 教科书：developer.android.com
 

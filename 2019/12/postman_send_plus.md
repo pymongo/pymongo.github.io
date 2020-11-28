@@ -1,4 +1,4 @@
-# [postman发送字符串+和发送文件的方法](/2019/12_2/postman_send_plus.md)
+# [postman发送字符串+和发送文件的方法](/2019/12/postman_send_plus.md)
 
 ## postman环境与变量
 

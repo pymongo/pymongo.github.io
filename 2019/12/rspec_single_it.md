@@ -1,4 +1,4 @@
-# [rspec只运行一个it/example/case](/2019/12_2/rspec_single_it.md)
+# [rspec只运行一个it/example/case](/2019/12/rspec_single_it.md)
 
 这个技巧我在写单元测试时常常用到，确保我刚写的before hooks和FactoryBot能用
 

@@ -1,4 +1,4 @@
-# [Rails跳转到页面特定位置(id,anchor,location)](/2019/12_2/redirect_to_anchor.md)
+# [Rails跳转到页面特定位置(id,anchor,location)](/2019/12/redirect_to_anchor.md)
 
 例如页面有个标题是`\<h2 id="help-title">Help</h2>`
 

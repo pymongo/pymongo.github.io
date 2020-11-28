@@ -1,4 +1,4 @@
-# [MySQL按日期分组](/2019/12_2/mysql_group_by_date.md)
+# [MySQL按日期分组](/2019/12/mysql_group_by_date.md)
 
 老板给出需求，要用图表显示**每日**注册用户数、每日交易量之类的
 

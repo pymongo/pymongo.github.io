@@ -8,16 +8,6 @@
 
 打算就先按高見龍的教程过一遍，等我熟悉rails后再把默认的模板引擎换成vuejs
 
-## 学习目标
-
-最终完成一个Rails+Vue的在线做题网站，数据库就用SQLite就行了。
-
-试用期内要达到公司提的要求是（Rails，Vue，vim，标准指法，普通话）。
-
-关于标准指法，根据typeclub.com的测试结果我标准指法只有7WPM的速度，而同样100%正确率自己习惯的打法速度在50-60WPM之间，而且我能盲打很熟悉每个键的位置，参考[v2ex.com/t/221161](https://www.v2ex.com/t/221161)，指法问题先放下。
-
----
-
 ## ruby元编程API
 
 ### define_method
@@ -29,6 +19,10 @@
 send能将入参字符串当作运算符给eval了
 
 例如：1.send ">", 2 # false
+
+### constantize(rails扩展API)
+
+能对`Color::Red`这样的常量进行eval
 
 ---
 

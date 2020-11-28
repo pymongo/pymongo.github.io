@@ -1,4 +1,4 @@
-# [Android Debug](/2019/12_2/android_debug.md)
+# [Android Debug](/2019/12/android_debug.md)
 
 <i class="fa fa-hashtag"></i>
 debuggable true

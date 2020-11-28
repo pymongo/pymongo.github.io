@@ -88,11 +88,11 @@ Manager有多个Operation,每个Operation属于一个Manager，
 
 写上这两句就能以`xxx.sender_member.name`访问发件人的姓名
 
-[includes同一个表两次的解决方案(不完美)](/2019/12_2/includes_same_table_twice.md)
+[includes同一个表两次的解决方案(不完美)](/2019/12/includes_same_table_twice.md)
 
 ---
 
-## [不通过主键(id)进行关联](/2019/12_2/association_without_primary_key.md)
+## [不通过主键(id)进行关联](/2019/12/association_without_primary_key.md)
 
 ---
 
@@ -108,6 +108,6 @@ has_many through:
 
 **相关文章**
 
-- [不通过主键(id)进行关联](/2019/12_2/association_without_primary_key.md)
+- [不通过主键(id)进行关联](/2019/12/association_without_primary_key.md)
 
-- [includes同一个表两次的解决方案(不完美)](/2019/12_2/includes_same_table_twice.md)
+- [includes同一个表两次的解决方案(不完美)](/2019/12/includes_same_table_twice.md)

@@ -1,4 +1,4 @@
-# [guard statement](/2019/12_2/guard_statement.md)
+# [guard statement](/2019/12/guard_statement.md)
 
 ![guard statement](guard_statement.png)
 

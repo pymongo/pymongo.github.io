@@ -1,4 +1,4 @@
-# [2019年下旬的codeReview总结](/2019/12_2/code_review.md)
+# [2019年下旬的codeReview总结](/2019/12/code_review.md)
 
 ## HTTP请求一定要加Timeout参数
 
@@ -16,4 +16,4 @@
 
 如果写接口时我就在文档说清楚有歧义的入参和返回值，就能提高团队的开发效率了
 
-## [guard statement](/2019/12_2/guard_statement.md)
+## [guard statement](/2019/12/guard_statement.md)

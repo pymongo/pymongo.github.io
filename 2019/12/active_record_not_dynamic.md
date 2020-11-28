@@ -1,4 +1,4 @@
-# [ActiveRecord的值并不是动态的](/2019/12_2/active_record_not_dynamic.md)
+# [ActiveRecord的值并不是动态的](/2019/12/active_record_not_dynamic.md)
 
 例如在第一行中 `account = Account.where(...).first`
 

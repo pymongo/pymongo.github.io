@@ -1,4 +1,4 @@
-# [except数组内包含特定哈希](/2019/12_1/except_array_include_hash.md)
+# [except数组内包含特定哈希](/2019/12/except_array_include_hash.md)
 
 业务需求：我的订单列表的单元测试
 

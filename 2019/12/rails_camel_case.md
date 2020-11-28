@@ -1,4 +1,4 @@
-# [rails变量命名驼峰式与小写下划线互相转换](/2019/12_1/rails_camel_case.md)
+# [rails变量命名驼峰式与小写下划线互相转换](/2019/12/rails_camel_case.md)
 
 > "active_record".`camelize` => "ActiveRecord"  
 > "ActiveRecord".`underscore` => "active_record"

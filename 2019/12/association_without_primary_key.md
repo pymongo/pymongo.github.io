@@ -1,4 +1,4 @@
-# [不通过主键(id)进行关联](/2019/12_2/association_without_primary_key.md)
+# [不通过主键(id)进行关联](/2019/12/association_without_primary_key.md)
 
 <i class="fa fa-hashtag"></i>
 相关文章

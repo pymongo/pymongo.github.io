@@ -1,4 +1,4 @@
-# [puma与rackup服务器](/2019/12_2/puma_rackup.md)
+# [puma与rackup服务器](/2019/12/puma_rackup.md)
 
 很奇怪的是，使用rackup启动服务器时不能存在`config/puma.rb`文件
 

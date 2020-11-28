@@ -1,4 +1,4 @@
-# [includes同一个表两次的解决方案(不完美)](/2019/12_2/includes_same_table_twice.md)
+# [includes同一个表两次的解决方案(不完美)](/2019/12/includes_same_table_twice.md)
 
 <i class="fa fa-hashtag"></i>
 相关文章

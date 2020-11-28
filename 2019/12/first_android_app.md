@@ -1,4 +1,4 @@
-# [我的第一个Android APP](/2019/12_2/first_android_app.md)
+# [我的第一个Android APP](/2019/12/first_android_app.md)
 
 ## 知识盲区
 
