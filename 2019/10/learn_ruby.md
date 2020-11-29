@@ -26,19 +26,6 @@ send能将入参字符串当作运算符给eval了
 
 ---
 
-## ruby运算回顾
-
-```ruby
-# ruby常量ID以大写字母开头
-class Calc
-  PI = 3.14
-end
-puts Calc::PI
-```
-
-nil≈null,nil is a instance of NilClass  
-没有返回值的表达式会在irb上显示=>nil
-
 .reverse! 逆序并改变值 感叹号表示這個方法會有「副作用」  
 字符串常用方法.include?、.empty?、.gsub(replace)
 
