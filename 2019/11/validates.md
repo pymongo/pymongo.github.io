@@ -1,4 +1,4 @@
-# [model数据验证与消息闪现(flash)](/2019/11_1/validates.md)
+# [model数据验证与消息闪现(flash)](/2019/11/validates.md)
 
 相关文章 - [jQuery验证checkbox](/2019/11/checkbox_jquery_validate.md)
 

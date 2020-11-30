@@ -1,3 +1,5 @@
+# postgres note
+
 brew安装完pg以后，默认会创建一个跟系统登录用户名一样的pg用户`brew services postgresql restart`去启动服务器
 
 可以先不创建pg的super user，先用`psql --list`查看有哪些数据库(类似MySQL show databases)，然后用`psql postgres`连接pg数据库
@@ -9,6 +11,24 @@ pg必须要求连上数据库后才能进psql，进去以后可以用 \c或\conn
 \dt = show tables, \d+或\d = desc/describle/.schema(SQLite)
 
 dx命令可以检查已安装的插件，以此排查插件是否安装上的问题
+
+## Linux postgres初始化
+
+1. su - postgres
+2. psql
+3. CREATE USER username WITH PASSWORD 'password';
+4. ALTER ROLE username WITH CREATEDB(or SUPERUSER); 
+
+## mac postgres初始化
+
+mac10.14.6系统下brew安装的postgres12.2一直连不上，
+
+于是只好使用Postgres.app了。嘿嘿，不用的时候把App关掉就好了，还能节约内存，不像MySQL一直在后台占用内存
+
+卸载了brew的postgres之后要重启才能正常使用。[将psql添加到PATH的方法](https://postgresapp.com/documentation/cli-tools.html)
+
+1. CREATE USER username WITH PASSWORD 'password';
+2. ALTER ROLE username WITH CREATEDB(or SUPERUSER); 
 
 ## 开发环境运行pg项目的错误排查
 
