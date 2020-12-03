@@ -26,17 +26,20 @@ send能将入参字符串当作运算符给eval了
 
 ---
 
-.reverse! 逆序并改变值 感叹号表示這個方法會有「副作用」  
-字符串常用方法.include?、.empty?、.gsub(replace)
-
-实现列表追加，可以用<< OR + OR  逻辑或|
+## Ruby一些有意思的API
 
 ### [reduce]ruby从1加到100
 
 (1..100).to_a.each ==  [*1..100].each
 
-> puts [*1..100].reduce(:+) # 星号跟python中一样能把一个list拆开
+> puts [*1..100].reduce(:+) # 星号把1..100的迭代器拆开?
 
+### camel和snake_case互转(rails扩展API)
+
+```ruby
+"active_record".camelize # "ActiveRecord"
+"ActiveRecord".underscore # "active_record"  
+```
 
 ### ruby.随机数
 

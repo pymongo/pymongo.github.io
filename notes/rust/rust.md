@@ -62,68 +62,6 @@ Rust的编译器在编译时就不知道函数最后要返回要返回引用a还
 
 标记生命周期并不能改变引用实际的生命周期，只是帮组编译器检查悬垂指针，但是使用了错误的生命周期时依然会报错
 
-### clippy误报
-
-```rust
-impl<'a> MyTrait for MyHandler<'a> {
-    fn handle(&mut self, bytes: &[u8]) {
-```
-
-以上代码在clippy中会误报生命周期不能省略
-
-```
-warning: explicit lifetimes given in parameter types where they could be elided (or replaced with `'_` if needed by type declaration)
-   = note: `#[warn(clippy::needless_lifetimes)]` on by default
-   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes
-```
-
-要解决这个警告，需要用到一个trick: 改成`fn handle<'b>(&'b mut self, bytes: &[u8])`
-
-### NLL问题
-
-Non-Lexical Lifetimes (NLL): 非词法作用域生命周期
-
-举例子:
-
-```rust
-fn main() {
-    let mut scores = vec![1, 2, 3];
-    let score = &scores[0];
-    scores.push(4);
-}
-```
-
-```
-error[E0502]: cannot borrow `scores` as mutable because it is also borrowed as immutable
- --> src/main.rs:4:5
-  |
-3 |     let score = &scores[0];
-  |                  ------ immutable borrow occurs here
-4 |     scores.push(4);
-  |     ^^^^^^ mutable borrow occurs here
-5 | }
-  | - immutable borrow ends here
-```
-
-代码里的score明明没有用到，为什么不让借用，因为编译器堆score的作用域检查理解的是main函数的score内
-
-现在可以在nightly中使用`#![feature(nll)]`去启用nll
-
-还有一个例子撮合引擎的订单优先队列中，我的&mut orders和orders.peek_mut()两个指针「不能同时出现」，可能我只是改了堆顶订单，没有修改堆，但是编译器不允许
-
-所以现阶段我只能先将堆顶订单弹出后才能操作
-
-再举一个NLL问题的例子:
-
-```rust
-let x = "a".to_string();
-let z;
-let y = "bb".to_string();
-z = longer(&x, &y);
-```
-
-由于z借用了y，所以z的生命周期必须比出借方y短，但实际上xyz在同一个作用域，原因是Rust借用的检查机制
-
 ## Send和Sync Trait
 
 借助这两个Trait实现编译时数据竞争问题的检查
@@ -141,6 +79,8 @@ pub unsafe auto trait Send {
 rustc类似前端，LLVM会将rust编译的结果变成不同target平台的机器码
 
 ## Rust如何避免内存错误
+
+TODO 以下每个例子都在我learn_cpp中加上错误标注
 
 - deref空指针 -> Option<T>
 - 使用未初始化的内存 -> 编译器检查
@@ -280,7 +220,7 @@ Compile Time Fuction Execution: 例如const fn就用到了CTFE机制
 
 type can only move not copy
 
-### 字面量
+### 字面量(liter)
 
 10为int类型的字面量
 
@@ -300,62 +240,23 @@ ManuallyDrop是一个联合体，所有字段共享内存，不能随便被析�
 
 我们可以通过ManuallyDrop自定义析构顺序，mem::forgot()内部就是通过ManuallyDrop去实现
 
-## Rust一些优点
-
-~~derive过程宏相比反射机制性能更好(建议用darling过程宏而不是错误提示少的syn)~~
+### 脚本语言的一些劣势
 
 - 没有不能编译的第三方库，Ruby的话一言难尽，例如passgen编译失败
-- Rust的第三方库不依赖rustc的版本，不像Ruby的httparty，
-  在Ruby2.6.1版本上能发www-form的POST请求，
-  在Ruby2.5.0版本发送的www-form的POST请求是错误的(非标准格式)
+- 在Ruby2.6.1版本上能发www-form的POST请求，
+  在Ruby2.5.0版本发送的www-form的POST请求是错误的(非标准格式，不被actix-web解析)
 
-### 脚本语言的一些劣势
+~~derive过程宏相比反射机制性能更好(建议用darling过程宏而不是错误提示少的syn)~~
 
 服务器过载情况下 latency 和超时率，脚本类语言在负载范围的时候感觉不出来
 
 一旦服务器过载性能急剧下降，或者抖动特别厉害
 
-## Rust的缺点
-
-### 缺点.异步生态不统一
-
-tokio和async_std之争，不支持async triat但Actor里所有通信操作都是异步的需要在同步的函数里写异步的代码块
-
-tokio和actix_rt异步运行时
-
-### 缺点.不能处理内存分配失败的情况(C语言可以)
-
-### 缺点.不支持const generic
-
-### 缺点.过度依赖宏
-
-宏带来可读性差、静态检查等问题，现阶段IDE不支持宏的语法高亮等
-
-### 缺点.trait的孤儿规则和不可重叠规则
-
-### 缺点.过于复杂的生命周期嵌套+组合
-
-### Go的缺点
-
-Go很难去做performance critical的应用场景，主要有两个原因
-
-一、GC机制
-
-tikv底层用的是LSM tree数据结构，不是一个「GC友好的pattern/数据结构」
-
-这种数据结构在内存中有个类似LRU小对象的缓存池，小对象会经常换入换出使得GC的压力很大
-
-二、Go屏蔽了system thread，封装成goroutinue
-
-Go把操作系统线程相关的API都抹掉了，中间加了一个Go调度器实现系统线程和Go协程的调度
-
-Go协程开的多时，协程上下文切换带来的开销比操作系统线程切换要大，而且Go的CPU平均负载要比C++高20%
-
 ### PingCap为什么不用C++14
 
-CTO维护大型C++项目例如前端hybrid时用到了chrome源码，内存管理坑，可以让自己团队高要求避免内存泄露，但是也防不住第三方库是猪队友，第三方库智能指针传染等问题
+CTO维护大型C++项目例如前端hybrid时用到了chrome源码，内存管理坑，可以让自己团队高要求避免内存泄露，
 
-缺乏包管理和生态
+但是也防不住第三方库是猪队友，第三方库智能指针传染等问题，缺乏包管理和生态
 
 ### Rust适合应用的场景
 

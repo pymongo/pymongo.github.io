@@ -4,21 +4,48 @@
 
 虽然标准库内部大量使用了libc的源码，不知道为什么不集成到core里，所以我想在no_std内实现print方法就被迫引入唯一一个"第三方"库libc
 
-```rust
-#[no_std]
+完整源码及测试代码: https://github.com/pymongo/impl_println_in_no_std
 
-fn print(bytes: &[u8]) {
-    const STDOUT: i32 = 1;
-    let bytes_c_void_ptr = bytes.as_ptr() as *const core::ffi::c_void;
-    unsafe {
-        // system call `ssize_t write(int fd, const void *buf, size_t count);` in `unistd.h`
-        let write_len = libc::write(STDOUT, bytes_c_void_ptr, bytes.len());
-        assert_eq!(write_len, bytes.len() as isize);
+实现代码我参考了`libc-print`这个crate的源码，注意no_std环境下的libc库要把std feature关掉
+
+```rust
+#![no_std]
+use core::fmt::Write;
+
+pub struct StdoutWriter;
+
+impl core::fmt::Write for StdoutWriter {
+    fn write_str(&mut self, s: &str) -> core::fmt::Result {
+        const STDOUT_FD: libc::c_int = 1;
+        unsafe {
+            libc::write(STDOUT_FD, s.as_ptr() as *const core::ffi::c_void, s.len());
+        }
+        Ok(())
     }
 }
 
-fn main() {
-    print(b"Hello World!\n");
+impl StdoutWriter {
+    #[inline]
+    pub fn write_fmt_helper(&mut self, args: core::fmt::Arguments) {
+        core::fmt::Write::write_fmt(self, args).unwrap()
+    }
+
+    #[inline]
+    pub fn write_str_helper(&mut self, s: &str) {
+        self.write_str(s).unwrap()
+    }
+}
+
+#[macro_export]
+macro_rules! my_println {
+    () => { $crate::my_println!("") };
+    ($($arg:tt)*) => {
+        {
+            let mut writer = $crate::StdoutWriter;
+            writer.write_fmt_helper(format_args!($($arg)*));
+            writer.write_str_helper("\n");
+        }
+    };
 }
 ```
 

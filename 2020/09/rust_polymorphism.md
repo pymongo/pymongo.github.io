@@ -55,8 +55,13 @@ Rust没有继承, trait A : B 实际上是给A加上一个约束条件: implemen
 所以Rust实现多态是以下方式:
 
 ```rust
-trait Animal: Any {
+trait Animal {
     fn eat(&self);
+    fn print_type_name(&self) {
+        dbg!(std::any::type_name::<Self>());
+        dbg!(std::mem::size_of::<&Self>());
+        dbg!(std::mem::size_of_val(&self));
+    }
 }
 
 struct Cat;
@@ -67,6 +72,7 @@ impl Animal for Cat {
     }
 }
 
+
 struct Dog;
 
 impl Animal for Dog {
@@ -75,20 +81,21 @@ impl Animal for Dog {
     }
 }
 
-fn make_animal_eating(animal: &dyn Animal) {
-    animal.eat();
+fn static_eat<T: Animal>(a: &T) {
+    a.eat();
+    a.print_type_name();
+}
+
+fn dyn_eat(a: &dyn Animal) {
+    a.eat();
+    a.print_type_name();
 }
 
 fn main() {
-    make_animal_eating(&Cat{});
-    make_animal_eating(&Dog{});
-    // cat和dog实例需要分配在堆内存中才能装入Vec，否则会报错: Sized is not known at compile time
-    let cat = Box::new(Cat{});
-    let dog = Box::new(Dog{});
-    let animals: Vec<Box<dyn Animal>> = vec![cat, dog];
-    for animal in animals {
-        animal.eat();
-    }
+    let cat = Cat;
+    let dog = Dog;
+    static_eat(&cat);
+    dyn_eat(&dog);
 }
 ```
 
@@ -142,4 +149,65 @@ Dog is eating
 ==6801== 
 ==6801== For counts of detected and suppressed errors, rerun with: -v
 ==6801== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+```
+
+## readelf查看dyn trait符号表
+
+我在[C++20 & Rust on Static vs Dynamic Generics](https://www.youtube.com/watch?v=olM7o_oYML0)
+这个视频中学会了用readelf查看vtable的符号表
+
+上面这段Rust静态分发和动态分发的代码通过`readelf -a rust_poly | grep rust_poly`能得到以下符号:
+
+```
+    61: 0000000000005950    78 FUNC    LOCAL  DEFAULT   14 _ZN52_$LT$rust_poly..Cat$
+    62: 00000000000059a0    78 FUNC    LOCAL  DEFAULT   14 _ZN52_$LT$rust_poly..Dog$
+    63: 00000000000059f0    21 FUNC    LOCAL  DEFAULT   14 _ZN9rust_poly10static_eat
+    64: 0000000000005a40    42 FUNC    LOCAL  DEFAULT   14 _ZN9rust_poly4main17h6ae5
+    65: 0000000000004d30  1539 FUNC    LOCAL  DEFAULT   14 _ZN9rust_poly6Animal15pri
+    66: 0000000000005340  1539 FUNC    LOCAL  DEFAULT   14 _ZN9rust_poly6Animal15pri
+    67: 0000000000005a10    35 FUNC    LOCAL  DEFAULT   14 _ZN9rust_poly7dyn_eat17hf
+```
+
+再举一个C++的例子，下面是一段多态的代码
+
+```cpp
+#include <iostream>
+using std::cout;
+
+struct Animal {
+	virtual void eat() = 0;
+};
+
+struct Dog: Animal {
+	void eat() override {
+		cout << "Dog is eating\n";
+	}	
+};
+
+struct Cat: Animal {
+	void eat() override {
+		cout << "Cat is eating\n";
+	}	
+};
+
+void dyn_eat(Animal& a) {
+	a.eat();
+}
+
+int main() {
+	Cat cat;
+	Dog dog;
+	dyn_eat(cat);
+	dyn_eat(dog);
+	return 0;
+}
+```
+
+`readelf -a a.out | grep eat`之后能得到
+
+```
+    39: 0000000000000af5    21 FUNC    LOCAL  DEFAULT   14 _GLOBAL__sub_I__Z7dyn_eat
+    54: 0000000000000a2a    34 FUNC    GLOBAL DEFAULT   14 _Z7dyn_eatR6Animal
+    64: 0000000000000b2c    34 FUNC    WEAK   DEFAULT   14 _ZN3Cat3eatEv
+    84: 0000000000000b0a    34 FUNC    WEAK   DEFAULT   14 _ZN3Dog3eatEv
 ```

@@ -1,4 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
+- **20年12月**
+    - [g++或cmake导入第三方库boost](/2020/12/c_compile_third_party_lib_boost.md)
 - **20年11月**
     - [diesel CRUD示例](/2020/11/diesel_crud.md)
     - [运维 - tmux会话管理](/2020/11/tmux.md)
@@ -23,9 +25,7 @@
     - [同步forked的sqlx项目](/2020/09/sync_forked_repo.md)
     - [mac交叉编译Rust到Linux](/2020/09/mac_cross_compile_rust_to_linux.md)
     - [RefCell实现lazy_static](/2020/09/refcell_impl_lazy_static.md)
-    - [readelf查看编译生成文件符号表](/2020/09/readelf.md)
     - [Vue页面跳转时携带参数](/2020/09/vue_router_params.md)
-    - [CMake引入boost库](/2020/09/cmake_import_boost.md)
     - [Rust通过dyn实现多态](/2020/09/rust_polymorphism.md)
 - **20年8月**
     - [Rust编译成安卓/IOS库](/2020/08/rust_to_android_ios_mac.md)
@@ -60,7 +60,6 @@
     - [ab测试工具的极限](/2020/04/limit_of_apache_ab.md)
     - [WebSocket中broker、Actor等概念](/2020/04/mq_broker_actor.md)
     - [win和mac共享文件夹](/2020/04/win_mac_share_files.md)
-    - [cmake体验](/2020/04/cmake.md)
     - [浏览器运行Rust编译的wasm](/2020/04/rust_wasm.md)
     - [websocket心跳包与断线重连](/2020/04/websocket_heartbeat.md)
     - [Rust解决一个moved案例](/2020/04/rust_use_of_moved_value.md)
@@ -104,8 +103,7 @@
     - [postman发送字符串+和发送文件的方法](/2019/12/postman_send_plus.md)
     - [安卓通过sharedPreference切换主题](/2019/12/android_change_theme.md)
     - [MySQL按日期分组](/2019/12/mysql_group_by_date.md)
-    - [Android Debug](/2019/12/android_debug.md)
-    - [Activity Lifecycle](/2019/12/Activity_Lifecycle.md)
+    - [Activity Lifecycle](/2019/12/activity_lifecycle.md)
     - [Rails跳转到页面特定位置(id,anchor,location)](/2019/12/redirect_to_anchor.md)
     - [ActiveRecord的值并不是动态的](/2019/12/active_record_not_dynamic.md)
     - [Android学习路线](/2019/12/android_learn_step.md)
@@ -118,8 +116,7 @@
     - [测试mysql对emoji的测试](/2019/12/mysql_emoji.md)
     - [except数组内包含特定哈希](/2019/12/except_array_include_hash.md)
     - [构建接口测试样例数据](/2019/12/rspec_test_example.md)
-    - [rails变量命名驼峰式与小写下划线互相转换](/2019/12/rails_camel_case.md)
-- **1911下旬**   
+- **1911下旬**
     - [返回CSV更友好的nil如果对象不存在](/2019/11/try_return_nil.md)
     - [禁用option/alt键的特殊符号](/2019/11/ukelele/disable_alt_symbol_ukelele.md)
     - [puma服务器生产环境与开发环境的区别](/2019/11/puma_production.md)

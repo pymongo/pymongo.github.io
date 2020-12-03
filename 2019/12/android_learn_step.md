@@ -24,3 +24,15 @@
 - [ ] 修改安卓style(先不学)
 - [ ] ~~(毕业DEMO)加入数字签名打包APK，上架一款SQLite CRUD相关APP到Google Play~~
 - [ ] 可以进项目练手了
+
+---
+
+## 零散的Android笔记
+
+### debuggable true
+
+## 开关代理可能导致无法Debug/连虚拟机
+
+Debug和AVD虚拟机都是通过socket与AS连接
+
+如果开着AS的途中网络代理发生变化，会导致无法Debug或连接AVD

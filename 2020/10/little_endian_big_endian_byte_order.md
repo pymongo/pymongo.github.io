@@ -14,6 +14,8 @@
 
 ## 注意transmute默认用naive-endian
 
+Linux的字节序默认使用LSB=little-endian(LSB first)
+
 ```rust
 const POSTGRES_PROTOCOL_VERSION_3: i32 = 0x00_03_00_00;
 const RAW_BYTES: [u8; 4] = [0, 3, 0, 0];
