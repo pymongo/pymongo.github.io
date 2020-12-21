@@ -1,39 +1,35 @@
-# [vscode配置Rust开发环境](/2020/10/vscode_setup_rust.md)
+# [vscode配置Rust开发环境](/archive/vscode/vscode_setup_rust.md)
 
-我目前只用rust和rust-analyer两个插件，连project的tasks.json和laugh.json都不用设置就能用了codelen
+vscode的Rust插件是Rust官方维护的，功能非常棒，codelen支持(Run/Debug灰色提示，点一下就能运行代码)就跟IDEA一样方便
 
 插件安装要有先后顺序(rust依赖rust-analyzer)
 
-1. rust-analyzer
-2. CodeLLDB(debugger)
-3. rust
+1. rustup添加所需组件并编译rust-analyzer源码成可执行文件
+2. 安装rust-analyzer插件
+2. 安装CodeLLDB(开启debug功能)插件
+4. 安装Rust插件
 
-## rust-analyzer安装
+## 1. 编译rust-analyzer源码
 
-由于rls(rust language server)依赖nightly，建议开发环境rustup default nightly
-
-> rustup component add rls
-
-> rustup component add rust-analysis
-
-由于vscode下载rust-analyzer的链接404了，所以被迫去github上拉源码去编译
+由于ra依赖rls，而rls(rust language server)依赖nightly，rustup需要先安装一个nightly版本的Rust
 
 ```
-$ git clone https://github.com/rust-analyzer/rust-analyzer.git && cd rust-analyzer
-$ cargo xtask install # cargo xtask是ra代码仓库的一个cargo alias命令
+rustup default nightly
+rustup component add rls
+rustup component add rust-analysis
 ```
 
-然后在全局的settings.json中添加`"rust-analyzer.serverPath": "~/.cargo/bin/rust-analyzer",`
+git clone完ra源码后，`cat .cargo/config`发现repo提供了一个`cargo xtask install`的命令alias帮助将ra编译成cargo install那样的binary格式
 
-===
+编译完后再去vscode全局的settings.json中添加一行配置手动指定ra二进制文件的路径:
 
-我对vscode的Rust插件生态还是非常满意的，按照上述安装完后就自动有codelen(也就是在单元测试和main函数上有个Run|Debug的按钮)
+> "rust-analyzer.serverPath": "~/.cargo/bin/rust-analyzer"
 
-vscode的python插件死活都不给出codelen，还要手工写各种json才能一键运行
+然后按照上述步骤2~4即可完成vscode的Rust环境的安装
 
-rust-analyzer基本满足了像Intelij-Rust那样的灰色字提示类型、错误检查
+---
 
-相比intelij-rust, rust-analyzer的优缺点结论:
+rust-analyzer相比Intellij-rust的优劣势(个人看法):
 
 ```
 + 支持非cargo workspace多个Rust子文件夹的检查

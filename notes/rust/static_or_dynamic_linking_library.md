@@ -39,7 +39,8 @@ executable:
 - cpp: cpp main.c > main.i 能expand macros and headers file
 - as: 将`cpp c.c > c.i && gcc -S c.i`生成的c.s文件`as c.s -o c.o`继续生成为.o文件，再通过很长的ld命令将.o生成为可执行文件
 - ld: linker, 现在的gcc都比较方便自动链接，不用去敲[像文章里很长的ld命令](https://cs-fundamentals.com/c-programming/how-to-compile-c-program-using-gcc.php#Linking)
-- ar: pack multi .o file to single .a SLL file 
+- ar: pack multi .o file to single .a SLL file
+- strip: 减少可执行文件的体积，去掉可执行文件中symbol等方便Debug的信息
 
 ### objdump disassemble
 

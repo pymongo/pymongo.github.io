@@ -12,6 +12,12 @@
 
 > grep -r --include=\*.rs 'dyn ' .
 
+## 清理所有node_modules和target文件夹
+
+brew install trash
+
+> find . -name node_modules -type d -prune -exec trash {} +
+
 ### ag和grep的性能对比
 
 PWD=~/.rustup/toolchains/nightly-x86_64-apple-darwin

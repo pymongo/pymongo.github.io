@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **20年12月**
+    - [leetcode上Rust调用C函数](/2020/12/leetcode_rust_call_c_function.md)
     - [g++或cmake导入第三方库boost](/2020/12/c_compile_third_party_lib_boost.md)
 - **20年11月**
     - [diesel CRUD示例](/2020/11/diesel_crud.md)
@@ -42,7 +43,7 @@
 - **20年6月**
     - [mac/Ubuntu上安装pyenv和pipenv](/2020/06/install_pyenv_and_pipenv.md)
     - [解决no field on type `&T`](/2020/06/generic_error_no_field_on_type_t.md)
-    - [Atomic无锁编程](/2020/06/atomic_lock_freedom.md)
+    - [初窥Atomic无锁编程](/2020/06/atomic_lock_freedom.md)
     - [类型丰富语言](/2020/06/type_rich_language.md)
 - **20年5月**
     - [异步时死锁的解决办法](/2020/05/async_mutex_deadlock.md)
@@ -67,7 +68,6 @@
     - [国产安卓机UI测试的坑](/2020/04/domestic_can_not_run_ui_test.md)
     - [底部导航栏页面切换的坑(socket)](/2020/04/navigation_lifecircle.md)
     - [Rust入门](/2020/04/first_time_learn_rust.md)
-    - [编写安卓测试用例](/2020/04/android_test.md)
 - **20年3月**
     - [安卓搜索栏SearchView](/2020/03/search_view.md)
     - [parcelable页面间传递实例对象](/2020/03/parcelable_serializable.md)
@@ -99,7 +99,6 @@
 - **1912下旬**
     - [2019年下旬的codeReview总结](/2019/12/code_review.md)
     - [rspec只运行一个it/example/case](/2019/12/rspec_single_it.md)
-    - [guard statement](/2019/12/guard_statement.md)
     - [postman发送字符串+和发送文件的方法](/2019/12/postman_send_plus.md)
     - [安卓通过sharedPreference切换主题](/2019/12/android_change_theme.md)
     - [MySQL按日期分组](/2019/12/mysql_group_by_date.md)

@@ -1,73 +1,45 @@
 # [Rust入门](/2020/04/first_time_learn_rust.md)
 
-ruby/rails的性能不能满足实时性很强的需求(股票交易所)，于是尝试下actix-web，[据说世界第一快的Web框架](https://www.techempower.com/benchmarks/)
+ruby的性满足不了实时性很强的需求(股票交易所)，于是尝试下Rust语言曾经在techempower屠榜的actix-web框架
 
-Rust社区同样优秀的Web框架是Rocket，二者最大差别在于actix是异步框架，而Rocket则不是
+Rust安装类似Haskell要先装ghcup，rustup是强大的Rust工具链管理工具，通过rustup去安装其他工具
 
-## 官方版本管理工具rustup
+## rustup版本管理工具
 
-推荐用官方的sh脚本安装rustup，不建议用brew或apt(Ubuntu就没有rustup这个包)
+`rustup override`类似`rbenv local`，设置项目文件夹的Rust版本
 
-常用rustup命令是rustup override set nightly(rocket项目必用命令git)和rustup show
+或者通过用rust-toolchain文件来设置项目的Rust版本
 
-通过项目文件夹根目录内的`rust-toolchain`文件可以指定项目的rust版本(参考diesel项目)
+通过session连接服务器时(例如Capistrano不是)可能会找不到cargo，需要`source ~/.cargo/env`
 
-通过rustup show可以查看当前文件夹的rust版本；rustup override设定当前文件夹的rust版本
+## Rust开发环境推荐
 
-如果想要从1.43.0切换到1.40.0，首先rustup install 1.40.0然后rustup override set 1.40.0
+### IntellijRust和VScode
 
-如果发现切换到1.40.0后没有cargo命令，可能由于网络原因没将1.40版本下载完整，卸载了重装即可
+- CLion EAP: 只有Clion上的Rust插件支持debugger和profiler，用IDEA或Pycharm CE也ok，毕竟我在工作中极少用断点调试
+- vscode: Rust官方维护的vscode插件的codelen(Run/Debug提示)太棒了，就是ra反应有点慢负载高
+- evcxr REPL: Rust运行单元测试那么方便(加个#[test]就能让IDE直接运行该方法，像脚本语言一样方便)，REPL意义不大
+- jupyter notebook: 意义不大，理由同上
 
-## rust环境变量问题
+关于vscode可以看我这篇文章: [vscode配置Rust开发环境](/archive/vscode/vscode_setup_rust.md)
 
-```
-github.com/rust-lang/rustup 文档的第1~2段话
-$HOME/.cargo/bin will be in your $PATH environment variable, which means you can run them from the shell without further configuration.
-
-Open a **new shell** and type the following:
-```
-
-意思是rustup安装完后打开一个新的terminal就能
-
-但是在Ubuntu系统下，通过session连接服务器时可能会找不到cargo，需要`source ~/.cargo/env`，例如用Capistrano就需要先source一下
-
----
-
-<i class="fa fa-hashtag"></i>
-Intellij创建Rust项目
-
-!> 只有Clion上才有debugger和profiler，建议使用CLion
-
-设置`Toolchain location`: /Users/w/.cargo/bin 之后 Intellij会提示
-
-`Download Standard Library via rustup`
-
-然后帮我把rust标准库下载到
-
-> /Users/w/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
-
-> [!TIP]
-> 推荐新手使用IDEA的「Rust REPL」工具，类似python或irb的shell环境学习Rust
+以下是evcxr REPL的演示:
 
 ![](rust_repl.png)
 
-<i class="fa fa-hashtag"></i>
-Cargo创建Rust项目
+## 创建一个Rust项目
 
-> cargo new ${projectName} --bin
+如果熟悉gcc/g++/make/cmake整套工具链，简单的项目大可不用cargo构建，直接用Makefile和rustc去编译链接
 
---bin表示项目是一个application而不是library
+cargo和其它构建工具类似，cargo new --lib ${name}新建一个名为name的lib项目，或者在空文件夹内cargo init也行
 
-然后通过cargo run运行代码(也可以通过rustc把代码编译成可执行文件)
+### 添加一个第三方库依赖
 
-<i class="fa fa-hashtag"></i>
-添加一个第三方库
-
-在`Cargo.toml`下加上一行`rand = "0.7.3"`，然后 cargo build
-
-所有第三方库都在crates.io上托管
+cargo官方目前还没有像npm add那样的命令，不过可以安装`cargo add`插件，cargo add rand自动将最新版的rand加到toml文件中，很方便
 
 > cargo update: ignore the lock, figure out all the latest version
+
+## 看官方the book学Rust
 
 <i class="fa fa-hashtag"></i>
 Rust Book的前两个Demo
@@ -87,61 +59,14 @@ let handles: Vec<_> = philosophers.into_iter().map(|p| {
     // thread::spawn function takes a closure as an argument
     // and executes that closure in a new thread
     thread::spawn(move || {
-        // annotation move to indicate that
-        // the closure is going to
+        // annotation move to indicate that the closure is going to
         // take ownership of the values it’s capturing
         p.eat();
     })
 }).collect();
 ```
 
-## Rust一些知识
-
-<i class="fa fa-hashtag"></i>
-Rust的下划线(underscore in rust)
-
-_ is a type placeholder 可以认为是自动类型推断占位符
-
-> let books: Vec<_> = xxx.map(...).collect();
-
-上面这行代码的type placeholder会根据collect返回类型将Vec设为一样的类型
-
-下划线还有以下的用法，我就不是很理解了
-
-```rust
-match read_line(&mut input) {
-  // 在这里_我的理解是不管这个输入变量是什么
-  Ok(_) => do_some_thing,
-  Err(e) => println!("{}". e)
-}
-```
-
-下划线的第三种用法：
-
-```rust
-fn get_gender(gender: &str) -> Option<&str> {
-  match gender {
-    "Male" => Some("return male"),
-    "Female" => Some("return female"),
-    _ => None
-  }
-}
-```
-
-<i class="fa fa-hashtag"></i>
-.collect()
-
-能把iter类型转为vector
-
-## rust句尾/句末的问号?
-
-[参考](https://doc.rust-lang.org/edition-guide/rust-2018/error-handling-and-panics/the-question-mark-operator-for-easier-error-handling.html)
-try!(foo()) 等于 foo()?
-?类似unwrap，但unwrap和try!是不一样的
-
 ## Rust学习资料
-
-# 学习资料
 
 - [Rust Book猜数字和哲学家进餐问题的项目式教学](https://doc.rust-lang.org/1.0.0/book/dining-philosophers.html)
 - [YouTube上dcode的rust入门教程(42集)](https://www.youtube.com/watch?v=vOMJlQ5B-M0&list=PLVvjrrRCBy2JSHf9tGxGKJ-bYAN_uDCUL)

@@ -1,4 +1,4 @@
-# [Atomic无锁编程](/2020/06/atomic_lock_freedom.md)
+# [初窥Atomic无锁编程](/2020/06/atomic_lock_freedom.md)
 
 今天阅读了几篇「无锁编程」的文章(虽然没怎么看懂，尤其是陈皓写的)，
 
