@@ -18,6 +18,8 @@ brew install trash
 
 > find . -name node_modules -type d -prune -exec trash {} +
 
+> find . -name target -type d -prune -exec trash {} +
+
 ### ag和grep的性能对比
 
 PWD=~/.rustup/toolchains/nightly-x86_64-apple-darwin

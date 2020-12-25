@@ -4,9 +4,9 @@ vscode的Rust插件是Rust官方维护的，功能非常棒，codelen支持(Run/
 
 插件安装要有先后顺序(rust依赖rust-analyzer)
 
-1. rustup添加所需组件并编译rust-analyzer源码成可执行文件
-2. 安装rust-analyzer插件
-2. 安装CodeLLDB(开启debug功能)插件
+1. 安装CodeLLDB(开启Rust的debug功能)插件
+2. rustup添加所需组件并编译rust-analyzer源码成可执行文件
+3. 安装rust-analyzer插件
 4. 安装Rust插件
 
 ## 1. 编译rust-analyzer源码
