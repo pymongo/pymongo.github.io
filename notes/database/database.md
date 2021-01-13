@@ -1,5 +1,17 @@
 # 数据库笔记
 
+## 数据库(database)和数据仓库(data warehouse)的区别
+
+数据仓库data_warehouse的特点是读取速度快，很少写入，适用于大数据分析，例如: clickhouse, tensorbase, Amazon Redshift, Hive
+
+关系型数据库: 例如mysql, pg
+
+kv型数据库: 关键词Spanner/F1论文、LSM tree
+
+常见kv存储引擎是rocksdb和leveldb
+
+(redis的完整的数据库)
+
 ## 复习连接
 
 例如 xxx join on a.id = b.id

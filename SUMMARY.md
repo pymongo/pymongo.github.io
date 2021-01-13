@@ -1,4 +1,5 @@
 - [归档 - 吴翱翔的博客](/)
+- **2021年1月**
 - **20年12月**
     - [leetcode上Rust调用C函数](/2020/12/leetcode_rust_call_c_function.md)
     - [g++或cmake导入第三方库boost](/2020/12/c_compile_third_party_lib_boost.md)
@@ -12,7 +13,7 @@
 - **20年10月**
     - [为什么异步要用轻量级线程](/notes/async/green_thread_and_coroutinue.md)
     - [Postgres协议解析器/client](/2020/10/pg_protocol.md)
-    - [vscode配置Rust开发环境](/archive/vscode/vscode_setup_rust.md)
+    - [vscode配置Rust环境](/archive/vscode/vscode_setup_rust.md)
     - [bigger/little/naive endian](/2020/10/little_endian_big_endian_byte_order.md)
     - [type constructor and mir](/2020/10/enum_type_constructor_mir.md)
     - [翻译RFC2000 const generic](/2020/10/rfc_const_generics.md)
@@ -154,16 +155,21 @@
     - [find & replace](/archive/vim/find.md)
     - [bookmark & macro & collapse](archive/vim/bookmark.md)
     - [plugin & Vimium](archive/vim/plugin.md)
-- **Intellij IDEA**
+- **idea_vscode**
     - [IDEA Vim](/archive/intellij_idea/idea_vim.md)
     - [jetbrainsIDE通用技巧](/archive/intellij_idea/idea.md)
     - [DataGrip - 最好用的数据库工具](/archive/intellij_idea/datagrip.md)
     - [Android Studio](/archive/intellij_idea/android_studio.md)
-- **vscode**
-    - [vscode添加切换terminal tab的快捷键](/archive/vscode/switch_terminal_tab.md)
-    - [vscode技巧,正则表达式置换等](/archive/vscode/index.md)
-- **性能优化**
-    - [谷歌字体库被墙的解决方案](/unarchived/google_font_block_solution.md)
+    - [vscode技巧快捷键笔记](/archive/vscode/vscode.md)
+    - [vscode配置Rust环境](/archive/vscode/vscode_setup_rust.md)
+- **before 2019**
+    - [智能家居 - 平板电脑控制电灯](/uncategorized/rpi_gpio.md)
+    - [谷歌字体库被墙的解决方案](/uncategorized/google_font_block_solution.md)
+    - [给开源项目(scoop)提交代码](/uncategorized/pull_request_to_scoop/index.md)
+    - [chrome恐龙奔跑游戏中作弊](/uncategorized/chrome_game_cheat/index.md)
+    - [谷歌的文字冒险游戏](/uncategorized/google_text_adventure.md)
+    - [CSS/HTML小知识(如CSS权重)](/uncategorized/css_html_notes.md)
+    - [博客新插件/样式测试](/uncategorized/test.md)
 - **单片机嵌入式**
     - [以中断方式读轻触按键](/archive/embedded/button-interrupt/index.md)
     - [矩阵键盘(keypad)](/archive/embedded/keypad/index.md)
@@ -180,11 +186,4 @@
     - [多表查询](/archive/database/join.md)
     - [sql分组与聚合函数](/archive/database/sql_group.md)
     - [增删改,约束与事务处理](/archive/database/sql_update.md)
-- **个人作品**
-    - [智能家居 - 平板电脑控制电灯](/unarchived/rpi_gpio.md)
-- **old**
-    - [给开源项目(scoop)提交代码](/unarchived/pull_request_to_scoop/index.md)
-    - [chrome恐龙奔跑游戏中作弊](/unarchived/chrome_game_cheat/index.md)
-    - [谷歌的文字冒险游戏](/unarchived/google_text_adventure.md)
-    - [CSS/HTML小知识(如CSS权重)](/unarchived/css_html_notes.md)
-    - [博客新插件/样式测试](/unarchived/test.md)
+ 
