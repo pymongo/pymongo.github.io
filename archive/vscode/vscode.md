@@ -1,5 +1,22 @@
 # vscode技巧快捷键笔记
 
+## code snippet
+
+搜索`User snippet` command，然后新建一个rust专用的snippet，输入以下内容
+
+```json
+{
+	"log::info": {
+		"scope": "rust",
+		"description": "log::info",
+		"prefix": "logi",
+		"body": "log::info(\"$0\");",
+	}
+}
+```
+
+虽然ra也提供`"".logi`的自动补全，但还是不如直接输入logi方便
+
 ## 快捷键
 
 ### vscode和idea快捷键对照表(mac)
@@ -13,6 +30,8 @@
 |find class| cmd+t(cmd+p,#) | cmd+o |
 |find symbol| cmd+shift+o(cmd+p,@) | cmd+alt+o |
 |code action| cmd+. | alt+enter |
+|navigate back| ctrl+-| cmd+[ |
+|navigate forward| ctrl+shift+-| cmd+] |
 |navigate to file tab 1| ctrl+1 | custom |
 |navigate next error| alt+F2 | F2 |
 

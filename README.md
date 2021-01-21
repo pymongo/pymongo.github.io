@@ -13,7 +13,7 @@ Author of saks crate, contributor of sqlx, tokio-postgres, bigdecimal-rs
 
 ## My talking or live coding
 
-### 《Rust唠嗑》第14期 - Rust写流水灯和数码管时钟(live coding)
+### 《Rust唠嗑》第14期 - Rust写流水灯和数码管时钟
 
 2020.11.24, 直播录像(b站搜`Rust唠嗑14期`)
 

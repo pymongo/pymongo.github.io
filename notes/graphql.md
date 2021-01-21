@@ -19,9 +19,6 @@ class HttpClient:
     def __init__(self, url: str):
         self.conn = http.client.HTTPConnection(url, timeout=8)
 
-    def __del__(self):
-        self.conn.close()
-
     def send_req(self, query: str, variables: Optional[Dict[str, Any]] = None):
         # 不确定request body是否需要json.dumps
         body = json.dumps({
@@ -42,13 +39,10 @@ class HttpClient:
 
 graphql和Restful的最大区别在于，可以一次请求无数个query/mutation/subscription
 
-例如一次请求注册三个账号的示例
+例如一次请求注册两个个账号的示例
 
 ```
 mutation($email: String!, $password: String!) {
-    signUp(email: $email, password: $password) {
-        email
-    }
     signUp(email: $email, password: $password) {
         email
     }

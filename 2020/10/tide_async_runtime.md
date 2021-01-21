@@ -1,4 +1,4 @@
-# [tide的异步运行时](/2020/10/tide_async_runtime.md)
+# [tide如何兼容tokio](/2020/10/tide_async_runtime.md)
 
 我个人用过Rust社区的actix-web、rocket、tide框架， 我认为学Rust的web框架的话只学routes、app_state、middleware这三板斧，Rust社区的所有Web框架必有这三项内容而且附带了examples供你学习。
 

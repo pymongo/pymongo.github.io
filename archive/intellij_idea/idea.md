@@ -1,5 +1,13 @@
 # [idea/jetbrains全家桶通用技巧](/archive/intellij_idea/idea.md)
 
+## 「生产力」code snippet/template
+
+Android Studio里可以用logi生成一行打log的语句，ra也可以"".logi生成打log的语句
+
+打开idea的live template设置，在Rust分组下面新建一条代码模板，$END$表示打完logi后光标会移动到的位置
+
+> log::info!("$END$");
+
 ## 「生产力」打开粘贴板历史
 
 cmd+shift+v
