@@ -28,7 +28,13 @@
 
 但是impl Trait目前不支持「turbofish语法」(例如query::<u32>)，不如泛型
 
-## dogmatic dispatch
+## enum_dispatch
+
+enum_dispatch是一个旨在提升动态分发性能的库，例如代码里用到Box<dyn Trait>这种动态分发的变量
+
+可以考虑换成enum_dispatch去提升性能，具体原理就是把运行时查表v-table换成match，enum当然也是动态的，毕竟要运行时才知道是Some还是None
+
+## dynamic dispatch
 
 ### &dyn Trait/Box<dyn Trait>
 

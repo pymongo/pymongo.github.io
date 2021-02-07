@@ -88,7 +88,7 @@ systemd的配置文件只能用绝对路径，Rust的可执行文件的ELF信息
 ## 如何删除一个systemd service
 
 ```
-sudo systemtcl stop web_server
+sudo systemctl stop web_server
 sudo systemctl disable web_server # Removed symlink /etc/systemd/system/multi-user.target.wants/web_server.service.
 sudo rm /etc/systemd/system/web_server.service
 sudo systemctl daemon-reload
