@@ -12,6 +12,13 @@
 
 > grep -r --include=\*.rs 'dyn ' .
 
+## 打印某文件的绝对路径
+
+```bash
+[w@w-manjaro samba]$ readlink -f smb.conf 
+/etc/samba/smb.conf
+```
+
 ## 清理所有node_modules和target文件夹
 
 brew install trash

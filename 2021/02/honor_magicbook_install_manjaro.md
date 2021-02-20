@@ -44,9 +44,9 @@ nightshfit(色温)在display_and_monitor里，然后关掉长时间不用电脑�
 
 吐槽下KDE并不会像win10一样动动鼠标屏幕就恢复成原来亮度，一旦待机过久屏幕变暗只能手动把亮度调回去，不像win10从待机恢复时亮度也会恢复
 
-dark_mode要把Appearance->Theme改成BreeezeDark，还要把application_style->gnome/gtk_application_style的theme改成dark
+dark_mode要把Appearance->Theme改成BreeezeDark，还要把application_style->gnome/gtk_application_style的theme改成dark(改完后才能让vscode和chrome的菜单栏也变成黑暗主题)
 
-## manjaro安装gcc和rust
+## 安装gcc和rustup
 
 建议先更新glibc，否则gcc安装后会提示glibc版本太低，但是更新glibc会同时更新gtk,KDE等，可能在安装KDE的更新时图形界面会没掉然后黑屏，切换到cli模式再sudo reboot即可
 
@@ -62,7 +62,7 @@ sudo pacman -S binutils gcc make cmake # 安装gcc/g++, binutils等build_tools
 1. cargo/rustup的路径在/usr/bin，rust-analyzer的路径还在~/.cargo/bin
 2. pacman的rustup不能self update，需要pacman进行更新
 
-## manjaro卸载steam
+## 卸载steam
 
 我用Linux又不玩游戏，manjaro KDE完整版内置了steam我不能接受，不小心点开steam又继续下载安装一堆垃圾
 
@@ -72,15 +72,15 @@ cd ~ && rm -rf .steam .steampath .steampid
 rm -rf ~/.local/share/Steam`````
 ```
 
-## manjaro安装chrome
+## 安装chrome
 
 ```
 sudo pacman -S fakeroot # 构建chrome所需工具
 sudo pacman -S yay
 yay -S google-chrome
-yay
 ```
 
+通过`yay -Ql google-chrome`得知chrome安装到了`/opt/google/chrome/`，而pacman的包一般都安装在`/usr/share`
 
 ---
 
@@ -96,16 +96,18 @@ yay
 
 以下快捷键都是我在KDE桌面验证过的，未在Ubuntu/GNOME下试过，可能是KDE专用快捷键吧
 
+- win+q: 切换activity(每个activity下面可以有多个workspace)
+- Ctrl+F1: 切换到workspace1
 - win+1: 切换到任务栏位置1的应用，跟windows的win+1快捷键功能一样
-- alt+1: 切换到tab 1
-- alt+`: 同一个应用的多个窗口间切换  
+- alt+1: 同一个应用内切换到tab 1
+- alt+`: 同一个应用内多个窗口间切换  
 - win+tab: switch workspace
 - win+w/F11: 全屏/撤销全屏(KDE/plasma的Meta键是win键的意思，在mac系统meta是alt)
 - F12: 开/关yakuake下拉式terminal
 - alt+F1: 在开始菜单中搜索
 - win+e: 开文件浏览器
+- Ctrl+; 粘贴板，功能类似IDEA的cmd+shift+v，可以挑选最近几次复制内容进行粘贴
 - (fn)F1/F2: 屏幕亮度
 - (fn)F3: 键盘背光开关
 - (fn)F10: 系统设置
 - (fn)F11: 截屏
-

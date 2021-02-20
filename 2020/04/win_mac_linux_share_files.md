@@ -30,6 +30,26 @@ System Preferences(系统设置)->Sharing，打开file sharing，注意开放读
 
 ![](linux_create_smb_user.png)
 
+!> 建议不要linux用文件浏览器共享，很容易报错，直接改配置文件开systemd相关服务
+
+![](dolphin_file_sharing_smb_error.png)
+
+在文件浏览器dolphin建好smb帐号后，立刻关掉共享，然后改配置文件`/etc/samba/smb.conf`
+
+smb.conf底下加上以下内容
+
+```
+[Downloads]
+   comment = Downloads
+   path = /home/w/Downloads
+   browseable = yes
+   read only = no
+   create mask = 0700
+   directory mask = 0700
+```
+
+然后Android的network_browser要选择Manual Connection手动填上用户名密码才能连上
+
 ---
 
 ## 连接smb_server
@@ -39,7 +59,9 @@ System Preferences(系统设置)->Sharing，打开file sharing，注意开放读
 - windows: 直接在文件浏览器的路径栏中输入`\\192.168.1.3`
 - mac: finder(访达)菜单栏->Go->Connected Servers，然后输入`smb://192.168.1.3`
 - linux: 在file_manager(文件浏览器)地址栏输入`smb://192.168.1.3`
-- android: 推荐谷歌商店的network_browser(连不了linux的smb_server)
+- android: 推荐谷歌商店network_browser
+  
+注意安卓的network_browser连linux要manual_connect，自动连不会弹出用户名密码输入框)
 
 !> 注意删除smb共享文件夹内的文件不会进入回收站而是直接删除
 
@@ -65,4 +87,4 @@ Android的FTP client就只能商店随便找个了，而且我找的ftp_client�
 
 ## Linux开启FTP server
 
-TODO
+由于我没解决vsftpd启动报错的原因，故放弃
