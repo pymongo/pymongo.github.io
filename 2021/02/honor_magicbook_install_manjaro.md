@@ -82,6 +82,49 @@ yay -S google-chrome
 
 通过`yay -Ql google-chrome`得知chrome安装到了`/opt/google/chrome/`，而pacman的包一般都安装在`/usr/share`
 
+## 右键菜单context_menu设置
+
+dolphin's settings->services 中可以关闭部分context_menu的一级菜单，这部分配置在文件系统的:
+
+> /usr/share/kservices5/ServiceMenus
+
+右键菜单的create_new内新建各种libreoffice文件的配置文件在:
+
+> /usr/share/templates
+
+删掉或重命名那几个libreoffice相关的desktop文件就能在右键新建菜单中看不到了
+
+## 双拼输入法安装
+
+请看我这篇文章: [manjaro/KDE安装小鹤双拼](/2021/02/manjaro_linux_fcitx5_xiaohe_shuangpin.md)
+
+## git和ssh-agent配置
+
+```
+git config --global user.name "w"
+git config --global user.email "w@example.com"
+git config --global pull.rebase false
+git config --global credential.helper store 
+```
+
+## idea配置
+
+idea和pycharm这类有免费的社区版的软件用pacman安装即可，像CLion这样的就得AUR或者官网下载
+
+由于我2年的mac开发习惯上90%的时间用idea，10%的时间用vscode，所以idea熟悉了macOS keymap实在改不了，只好把mac上idea的配置
+
+linux下的idea首先要安装官方的mac_keymap插件才能导入mac的配置
+
+然后就Help->Edit Custom Properties中加入以下配置允许以win键为modifier的快捷键
+
+> keymap.windows.as.meta=true
+
+我的经验是只备份一个idea的keymap和general(字体大小)的配置文件，然后所有jetbrains全家桶共同使用这一个按键配置
+
+## vscode配置
+
+TODO
+
 ---
 
 ## Linux桌面快捷键
