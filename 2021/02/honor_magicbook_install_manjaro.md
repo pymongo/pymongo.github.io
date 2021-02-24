@@ -46,6 +46,22 @@ nightshfit(色温)在display_and_monitor里，然后关掉长时间不用电脑�
 
 dark_mode要把Appearance->Theme改成BreeezeDark，还要把application_style->gnome/gtk_application_style的theme改成dark(改完后才能让vscode和chrome的菜单栏也变成黑暗主题)
 
+如果外接4k屏，记得用HDMI2.0的线，笔记本HDMI接口支持输出4k@60fps的画面，此时需要将KDE的global scale设为200%
+
+也就是js的`window.devicePixelRatio`属性值，这样用4k屏会将4个像素点当一个去用
+
+## KDE任务栏配置
+
+右键任务栏或开始菜单选择alternative即可更换组件，也可以右键任务栏edit panel去掉无用的trash等widget
+
+![](kde_task_manager.png)
+
+## 摄像头/指纹锁驱动检查
+
+荣耀magicbook的摄像头可以用VLC打开，没什么问题
+
+指纹锁(Fingerprint)的话只有win10和Ubuntu系统才有相关设置，我暂时不想用第三方的，KDE 5.21内置了指纹锁的设置菜单(现在manjaro用的还是5.20)
+
 ## 安装gcc和rustup
 
 建议先更新glibc，否则gcc安装后会提示glibc版本太低，但是更新glibc会同时更新gtk,KDE等，可能在安装KDE的更新时图形界面会没掉然后黑屏，切换到cli模式再sudo reboot即可
@@ -53,6 +69,8 @@ dark_mode要把Appearance->Theme改成BreeezeDark，还要把application_style->
 ```
 sudo pacman -Su glibc # 更新glibc
 sudo pacman -S binutils gcc make cmake # 安装gcc/g++, binutils等build_tools
+sudo pacman -S pkgconf # Rust编译actix-web之类的需要pkg-config去寻找openssl动态链接库
+# openssl在archlinux一般都自带了，无需额外安装
 ```
 
 由于arch上面的软件包版本都很新，如果不想影响系统的glibc依赖组件，可以拉源码自行安装gcc
@@ -61,16 +79,6 @@ sudo pacman -S binutils gcc make cmake # 安装gcc/g++, binutils等build_tools
 
 1. cargo/rustup的路径在/usr/bin，rust-analyzer的路径还在~/.cargo/bin
 2. pacman的rustup不能self update，需要pacman进行更新
-
-## 卸载steam
-
-我用Linux又不玩游戏，manjaro KDE完整版内置了steam我不能接受，不小心点开steam又继续下载安装一堆垃圾
-
-```
-sudo pacman -Rns steam-manjaro
-cd ~ && rm -rf .steam .steampath .steampid 
-rm -rf ~/.local/share/Steam`````
-```
 
 ## 安装chrome
 
@@ -81,6 +89,25 @@ yay -S google-chrome
 ```
 
 通过`yay -Ql google-chrome`得知chrome安装到了`/opt/google/chrome/`，而pacman的包一般都安装在`/usr/share`
+
+## 卸载无用的系统自带
+
+我用Linux又不玩游戏，manjaro KDE完整版内置了steam我不能接受，不小心点开steam又继续下载安装一堆垃圾
+
+```
+sudo pacman -Rns steam-manjaro
+cd ~ && rm -rf .steam .steampath .steampid 
+rm -rf ~/.local/share/Steam
+```
+
+除了steam，无用的系统内置包还有:
+
+- firefox(用chrome就够了)
+- cantata(音乐播放器，功能与VLC重复)
+- k3b(都2021年了谁还用光驱啊)
+- kget(用浏览器下载文件就够了，不需要下载工具)
+- thunderbrid(工作不用邮件，不需要邮件客户端)
+- hp device manager(没有打印机)
 
 ## 右键菜单context_menu设置
 
@@ -98,7 +125,28 @@ dolphin's settings->services 中可以关闭部分context_menu的一级菜单，
 
 请看我这篇文章: [manjaro/KDE安装小鹤双拼](/2021/02/manjaro_linux_fcitx5_xiaohe_shuangpin.md)
 
-## git和ssh-agent配置
+## 安装微信
+
+首先需要安装以下字体避免微信中的中文字体乱码
+
+> yay -S wqy-microhei wqy-zenhei
+
+然后再安装deepin包装过的wine套壳微信
+
+> yay -S deepin-wine-wechat
+
+wine-微信故障排除参考了[这篇文章](https://blog.csdn.net/CHAOS_ORDER/article/details/105419366)
+
+## 全局emacs布局?
+
+工作机从mac换成linux后最不习惯的是不能用Ctrl+F/B/P/N上下左右移动光标
+
+往以下两个gtk/gnome应用的配置文件添加`gtk-key-theme-name="Emacs"`的配置项，如果应用支持emacs keymap就会优先选用emacs布局
+
+- ~/.config/gtk-3.0/settings.ini
+- ~/.gtkrc-2.0
+
+## git
 
 ```
 git config --global user.name "w"
@@ -106,6 +154,18 @@ git config --global user.email "w@example.com"
 git config --global pull.rebase false
 git config --global credential.helper store 
 ```
+
+## ssh-agent配置
+
+1. ssh-keygen
+2. github账户的密钥管理中加上步骤1生成的公钥
+3. (可选)ssh -T git@github.com # 检查步骤2是否成功
+4. eval `ssh-agent -s` # 一定要eval执行ssh-agent输出的几个修改环境变量的命令
+5. ssh-add # 第一次用ssh-agent需要将本机的公钥添加到agent中
+
+然后就可以`ssh -A example.com`在云主机上使用开发机的github_ssh密钥进行pull/push私有仓库代码
+
+上述配置完后，只要ssh-agent还在后台进程中，远程云主机拉代码时就能使用开发机的密钥，做到服务器不存储任何git密钥(安全)
 
 ## idea配置
 
@@ -123,7 +183,37 @@ linux下的idea首先要安装官方的mac_keymap插件才能导入mac的配置
 
 ## vscode配置
 
-TODO
+不习惯Ctrl+f/b/n/p没法移动光标，所以我改成了emacs keymapping
+
+```
+{
+    "files.autoSave": "afterDelay",
+    "window.zoomLevel": 1,
+    "terminal.integrated.macOptionIsMeta": true,
+    "rust-analyzer.server.path": "~/.cargo/bin/rust-analyzer",
+    "rust-analyzer.updates.channel": "nightly",
+    "rust-analyzer.cargo.allFeatures": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ]
+}
+```
+
+## mongodb安装
+
+照着mongodb的arch wiki，安装编译好的二进制分发，然后改下mongodb的systemd ExecStart配置即可使用
+
+## dolphin文件管理器刷新
+
+注意KDE并不会像mac/windows那样real-time刷新文件列表，如果找不到某个文件，可以按F5刷新
 
 ---
 

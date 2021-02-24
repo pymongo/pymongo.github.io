@@ -56,4 +56,16 @@ ag -G '\.rs$' 'dyn ' .  0.05s user 0.08s system 113% cpu 0.115 total
 - lsof -i :8080
 - fuser 80/tcp
 - netstat -nlp | grep :80
-- ps ef | grep 80
+- ps ef | pgrep ssh-agent
+
+## Linux查看硬件信息相关命令
+
+lshw(ubuntu), mhwd(manjaro)
+
+### 查看电脑的制造商
+
+> sudo dmidecode | grep -B1 -A2 "Manufacturer: HUAWEI"
+
+### 查看SSD读写次数
+
+> sudo smartctl -a /dev/nvme0n1p2

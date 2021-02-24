@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **21年2月**
+    - [荣耀magicbook安装linux系统](/2021/02/honor_magicbook_install_manjaro.md)
     - [manjaro/KDE安装小鹤双拼](/2021/02/manjaro_linux_fcitx5_xiaohe_shuangpin.md)
     - [各平台小鹤双拼解决方案](/2021/02/xiaohe_scheme_solutions.md)
     - [刷欧版MIUI教程](/2021/02/miui_eu.md)
