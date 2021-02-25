@@ -102,3 +102,16 @@ wifi和升降式摄像头都是装好系统就能用，
 至于指纹解锁，我用的KDE 5.20还没相关设置，不想下第三方的Fingerprint，等5.21版本内置指纹设置再试试。
 或者有机会我再装个win10或Ubuntu试试指纹解锁
 我笔记本大部分时间都是合起来然后外接显示器，想用指纹锁还得掀开笔记本，没用过指纹解锁
+
+### KDE emacs shortcuts
+
+KDE好像没办法全局emacs like keymap，从mac转linux不太习惯不能用Ctrl+F移动光标了
+例如chrome输入网址后没法按Ctrl+N/P上下挑选了，krunner也不能像spotlight按Ctrl+N往下挑选
+加了gtk-key-theme-name="Emacs"的配置也没用
+只有vscode和idea可以改成emacs或macOS的keymap，其它应用就没办法了
+
+自从同事教会我用手掌按左Ctrl后(英雄联盟加点时小指指腹按Ctrl,小指按q,这样能最快加完q并释放q技能)，
+我就觉得Ctrl是最好按的组合键，手掌稍微往下就按上
+如果caps改键ctrl反而违反标准指法，只能小指按caps,无名指按q
+
+superuser上Ctrl怎么按的最佳回答就是用手掌按

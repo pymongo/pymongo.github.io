@@ -43,7 +43,7 @@ C-u 286 M-g M-g will jump to line number 286
 - C-l: 屏幕居中到光标所在行
 - C-y: paste
 - C-x,u|C-/|C-_: undo
-- M--: redo(Alt+-)
+- M--|C-g,C-/: redo(Alt+-)
 - C-d: 向右删除一个字符
 - M-Del/d: 向左/向右剪切一个单词
 - M-k: 剪切光标到句尾

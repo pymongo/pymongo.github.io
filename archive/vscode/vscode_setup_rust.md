@@ -7,6 +7,8 @@ vscode的Rust插件是Rust官方维护的，支持codelen功能(可执行函数�
 3. 编译rust-analyzer(以下简称ra)源码，仅编译ra可执行文件
 4. vscode安装ra插件
 
+manjaro/arch_linux系统可以用pacman安装官方源的rust-analyzer
+
 *注3: 编译ra源码的补充，看源码的`.cargo/config`文件可知通过`cargo xtask install --server`可以仅编译ra可执行文件，不编译安装ra的vscode插件
 
 ## vscode的setting.json中ra相关配置

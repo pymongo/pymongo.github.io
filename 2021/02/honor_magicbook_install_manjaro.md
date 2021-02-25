@@ -54,6 +54,8 @@ dark_mode要把Appearance->Theme改成BreeezeDark，还要把application_style->
 
 右键任务栏或开始菜单选择alternative即可更换组件，也可以右键任务栏edit panel去掉无用的trash等widget
 
+我更换默认的开始菜单和任务栏后，把开始菜单+任务栏从像win10改成像win7
+
 ![](kde_task_manager.png)
 
 ## 摄像头/指纹锁驱动检查
@@ -61,6 +63,15 @@ dark_mode要把Appearance->Theme改成BreeezeDark，还要把application_style->
 荣耀magicbook的摄像头可以用VLC打开，没什么问题
 
 指纹锁(Fingerprint)的话只有win10和Ubuntu系统才有相关设置，我暂时不想用第三方的，KDE 5.21内置了指纹锁的设置菜单(现在manjaro用的还是5.20)
+
+## 上网工具
+
+上网工具指的就是能上某些海外网站你懂的工具啦，我个人更喜欢透明代理，懒得改成国内archlinuxcn的镜像源
+
+我习惯于用以下两款上网工具client(可以用atob函数进行解码)
+
+1. c3VkbyBwYWNtYW4gLVMgdHJvamFu
+2. eWF5IC1TIGV4cHJlc3N2cG4=
 
 ## 安装gcc和rustup
 
@@ -70,15 +81,22 @@ dark_mode要把Appearance->Theme改成BreeezeDark，还要把application_style->
 sudo pacman -Su glibc # 更新glibc
 sudo pacman -S binutils gcc make cmake # 安装gcc/g++, binutils等build_tools
 sudo pacman -S pkgconf # Rust编译actix-web之类的需要pkg-config去寻找openssl动态链接库
+sudo pacman -S rust-analyzer
 # openssl在archlinux一般都自带了，无需额外安装
 ```
-
-由于arch上面的软件包版本都很新，如果不想影响系统的glibc依赖组件，可以拉源码自行安装gcc
 
 通过包管理pacman安装的rustup和rustup.rs的rustup安装脚本的区别在于
 
 1. cargo/rustup的路径在/usr/bin，rust-analyzer的路径还在~/.cargo/bin
 2. pacman的rustup不能self update，需要pacman进行更新
+
+我最近开发的项目主要用mondb，照着mongodb的arch wiki，安装编译好的二进制分发，
+
+然后改下mongodb的systemd ExecStart配置即可使用，实在启动失败就用docker的mongodb
+
+## 安装docker
+
+TODO
 
 ## 安装chrome
 
@@ -108,6 +126,7 @@ rm -rf ~/.local/share/Steam
 - kget(用浏览器下载文件就够了，不需要下载工具)
 - thunderbrid(工作不用邮件，不需要邮件客户端)
 - hp device manager(没有打印机)
+- manjaro-hello
 
 ## 右键菜单context_menu设置
 
@@ -123,7 +142,7 @@ dolphin's settings->services 中可以关闭部分context_menu的一级菜单，
 
 ## 双拼输入法安装
 
-请看我这篇文章: [manjaro/KDE安装小鹤双拼](/2021/02/manjaro_linux_fcitx5_xiaohe_shuangpin.md)
+请看我另一篇文章: [manjaro/KDE安装小鹤双拼](/2021/02/manjaro_linux_fcitx5_xiaohe_shuangpin.md)
 
 ## 安装微信
 
@@ -136,6 +155,12 @@ dolphin's settings->services 中可以关闭部分context_menu的一级菜单，
 > yay -S deepin-wine-wechat
 
 wine-微信故障排除参考了[这篇文章](https://blog.csdn.net/CHAOS_ORDER/article/details/105419366)
+
+wine应用在高分屏(4k屏)下需要整体缩放成2倍
+
+> WINEPREFIX=~/.deepinwine/Deepin-WeChat/ winecfg
+
+打开deepin-wine-wechat的wine容器设置，将显示字体DPI从96改成192就是整体缩放两倍了
 
 ## 全局emacs布局?
 
@@ -175,7 +200,7 @@ idea和pycharm这类有免费的社区版的软件用pacman安装即可，像CLi
 
 linux下的idea首先要安装官方的mac_keymap插件才能导入mac的配置
 
-然后就Help->Edit Custom Properties中加入以下配置允许以win键为modifier的快捷键
+然后就`Help->Edit Custom Properties`中加以下配置，允许以win键为modifier的快捷键
 
 > keymap.windows.as.meta=true
 
@@ -183,14 +208,16 @@ linux下的idea首先要安装官方的mac_keymap插件才能导入mac的配置
 
 ## vscode配置
 
-不习惯Ctrl+f/b/n/p没法移动光标，所以我改成了emacs keymapping
+不要装code-OSS那个，会少emacs/remote_ssh等众多插件和配置(因为很多插件都是不开源的license)
+
+要装`visual-studio-bin`这个包，不习惯Ctrl+f/b/n/p没法移动光标，所以我改成了emacs keymapping
 
 ```
 {
     "files.autoSave": "afterDelay",
     "window.zoomLevel": 1,
     "terminal.integrated.macOptionIsMeta": true,
-    "rust-analyzer.server.path": "~/.cargo/bin/rust-analyzer",
+    "rust-analyzer.server.path": "/usr/bin/rust-analyzer",
     "rust-analyzer.updates.channel": "nightly",
     "rust-analyzer.cargo.allFeatures": true,
     "vim.insertModeKeyBindings": [
@@ -207,13 +234,11 @@ linux下的idea首先要安装官方的mac_keymap插件才能导入mac的配置
 }
 ```
 
-## mongodb安装
+## 文件管理器F5刷新
 
-照着mongodb的arch wiki，安装编译好的二进制分发，然后改下mongodb的systemd ExecStart配置即可使用
+注意KDE(dolphin)并不会像mac/windows那样real-time刷新文件列表，如果找不到某个文件，可以按F5刷新
 
-## dolphin文件管理器刷新
-
-注意KDE并不会像mac/windows那样real-time刷新文件列表，如果找不到某个文件，可以按F5刷新
+另外一个dolphin常用快捷键是`alt+.`可以开关隐藏文件的显示
 
 ---
 
