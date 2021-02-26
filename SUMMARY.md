@@ -1,24 +1,24 @@
 - [归档 - 吴翱翔的博客](/)
-- **21年2月**
+- **2021-02**
     - [戴尔2415输出4k@60](/2021/02/dell_p2415q_enable_hdmi2.md)
     - [荣耀magicbook安装linux系统](/2021/02/honor_magicbook_install_manjaro.md)
     - [manjaro/KDE安装小鹤双拼](/2021/02/manjaro_linux_fcitx5_xiaohe_shuangpin.md)
     - [各平台小鹤双拼解决方案](/2021/02/xiaohe_scheme_solutions.md)
     - [刷欧版MIUI教程](/2021/02/miui_eu.md)
     - [leetcode用racket](/2021/02/leetcode_racket.md)
-- **21年1月**
+- **2021-01**
     - [PR: sqlx sqlite编译时死循环](/2021/01/sqlx_sqlite_group_by_infinite_loop.md)
-- **20年12月**
+- **2020-12**
     - [leetcode上Rust调用C函数](/2020/12/leetcode_rust_call_c_function.md)
     - [g++或cmake导入第三方库boost](/2020/12/c_compile_third_party_lib_boost.md)
-- **20年11月**
+- **2020-11**
     - [diesel CRUD示例](/2020/11/diesel_crud.md)
     - [运维 - tmux会话管理](/2020/11/tmux.md)
     - [运维 - systemd部署项目](/notes/linux/systemd.md)
     - [Linux创建进程到进入Rust可执行文件的main函数的过程](/notes/linux/from_fork_exec_to_rust_main.md)
     - [Rust2018新增的mod文件夹写法](/2020/11/rust_2018_folder_module_mount.md)
     - [no_std中实现printf](/2020/11/impl_printf_in_no_std.md)
-- **20年10月**
+- **2020-10**
     - [为什么异步要用轻量级线程](/notes/async/green_thread_and_coroutinue.md)
     - [Postgres协议解析器/client](/2020/10/pg_protocol.md)
     - [vscode配置Rust环境](/archive/vscode/vscode_setup_rust.md)
@@ -26,7 +26,7 @@
     - [type constructor and mir](/2020/10/enum_type_constructor_mir.md)
     - [翻译RFC2000 const generic](/2020/10/rfc_const_generics.md)
     - [tide如何兼容tokio](/2020/10/tide_async_runtime.md)
-- **20年9月**
+- **2020-09**
     - [Rust读配置文件的思考](/2020/09/rust_best_practise_load_config_file.md)
     - [Rust protobuf](/2020/09/protobuf.md)
     - [RwLock死锁导致sqlx卡死](/2020/09/rwlock_dead_lock_affect_sqlx.md)
@@ -37,31 +37,31 @@
     - [RefCell实现lazy_static](/2020/09/refcell_impl_lazy_static.md)
     - [Vue页面跳转时携带参数](/2020/09/vue_router_params.md)
     - [Rust通过dyn实现多态](/2020/09/rust_polymorphism.md)
-- **20年8月**
+- **2020-08**
     - [Rust编译成安卓/IOS库](/2020/08/rust_to_android_ios_mac.md)
     - [通过N叉树最大深度一题复习C++](/2020/08/learn_cpp_by_leetcode.md)
     - [Rust读牛客网编程题stdin](/2020/08/newcoder_stdin.md)
     - [emacs初体验](/2020/08/emacs_first_attemp.md)
     - [直线方程与N皇后问题](/2020/08/n_queens.md)
-- **20年7月**
+- **2020-07**
     - [async fn的展开写法](/2020/07/async_fn.md) <!-- [2020年7月近况分享](/2020/07/recent_study_plan.md) -->
     - [关键字搜索chrono获取昨天的API](/2020/07/how_to_search_chrono_yesterday_api.md)
     - [异步线程安全地操作redis](/2020/07/async_redis.md)
     - [thread has overflowed可能的原因](/2020/07/fix_thread_has_overflowed.md)
     - [Rust进程间通信](/2020/07/rust_ipc.md)
-- **20年6月**
+- **2020-06**
     - [mac/Ubuntu上安装pyenv和pipenv](/2020/06/install_pyenv_and_pipenv.md)
     - [解决no field on type `&T`](/2020/06/generic_error_no_field_on_type_t.md)
     - [初窥Atomic无锁编程](/2020/06/atomic_lock_freedom.md)
     - [类型丰富语言](/2020/06/type_rich_language.md)
-- **20年5月**
+- **2020-05**
     - [异步时死锁的解决办法](/2020/05/async_mutex_deadlock.md)
     - [sqlx教程](/2020/05/sqlx_tutorial.md)
     - [sqlx项目提PR修正文档](/2020/05/pr_to_sqlx_document.md)
     - [chrono不能连用两个local](/2020/05/rust_chrono_dual_local_ub.md)
     - [rust BigDecimal最佳实践](/2020/05/rust_bigdecimal.md)
     - [diesel给mysql加锁](/2020/05/diesel_mysql_lock.md)
-- **20年4月**
+- **2020-04**
     - [Go语言学习](/2020/04/golang.md)
     - [chrome导出插件](/2020/04/chrome_export_extension.md)
     - [抄底BTC成功案例分析](/2020/04/case_study_buy_low_sell_high_on_btc.md)
@@ -75,7 +75,7 @@
     - [国产安卓机UI测试的坑](/2020/04/domestic_can_not_run_ui_test.md)
     - [底部导航栏页面切换的坑(socket)](/2020/04/navigation_lifecircle.md)
     - [Rust入门](/2020/04/first_time_learn_rust.md)
-- **20年3月**
+- **2020-03**
     - [安卓搜索栏SearchView](/2020/03/search_view.md)
     - [parcelable页面间传递实例对象](/2020/03/parcelable_serializable.md)
     - [安卓每月小知识积累](/2020/03/monthly_android_note.md)
@@ -87,7 +87,7 @@
     - [spring官方集成测试Demo的错误](/2020/03/spring_integration_test_error.md)
     - [spring boot部署与体验](/2020/03/spring_boot_quickstart.md)
     - [安卓解决重命名包名后IDE报错的办法](/2020/03/android_rename_package.md)
-- **20年2月**
+- **2020-02**
     - [recyclerView正确的渲染方法](/2020/02/recycler_view_inflate.md)
     - [魅族所有等级的日志输出](/2020/02/meizu_enable_debug_log_level.md)
     - [charles抓包笔记](/2020/02/charles.md)
@@ -95,7 +95,7 @@
     - [2020年2月英语积累](/2020/02/monthly_english.md)
     - [安卓虚拟机将App快捷方式添加到桌面](/2020/02/avd_add_app_shortcut_to_home.md)
     - [安卓WebSocket研究](/2020/02/android_websocket.md)
-- **20年1月**
+- **2020-01**
     - [安卓读写SQLite数据库](/2020/01/android_sqlite.md)
     - [安卓笔记](/2020/01/android_notes.md)
     - [adb从手机中导出apk](/2020/01/adb_export_apk.md)
@@ -103,7 +103,7 @@
     - [Android底部导航栏](/2020/01/bottom_navigation.md)
     - [Java的volley网络请求库](/2020/01/volley.md)
     - [Android - ListView](/2020/01/list_view.md)
-- **1912下旬**
+- **2019-12**
     - [2019年下旬的codeReview总结](/2019/12/code_review.md)
     - [rspec只运行一个it/example/case](/2019/12/rspec_single_it.md)
     - [postman发送字符串+和发送文件的方法](/2019/12/postman_send_plus.md)
@@ -117,12 +117,11 @@
     - [puma与rackup服务器](/2019/12/puma_rackup.md)
     - [includes同一个表两次的解决方案(不完美)](/2019/12/includes_same_table_twice.md)
     - [不通过主键(id)进行关联](/2019/12/association_without_primary_key.md)
-- **1912上旬**
     - [Mysql正则表达式-记一次清理脏数据的过程](/2019/12/mysql_regexp.md)
     - [测试mysql对emoji的测试](/2019/12/mysql_emoji.md)
     - [except数组内包含特定哈希](/2019/12/except_array_include_hash.md)
     - [构建接口测试样例数据](/2019/12/rspec_test_example.md)
-- **1911下旬**
+- **2019-11**
     - [返回CSV更友好的nil如果对象不存在](/2019/11/try_return_nil.md)
     - [禁用option/alt键的特殊符号](/2019/11/ukelele/disable_alt_symbol_ukelele.md)
     - [puma服务器生产环境与开发环境的区别](/2019/11/puma_production.md)
@@ -138,20 +137,27 @@
     - [crontab定时任务](/2019/11/crontab.md)
     - [如何打彩色log与单步调试](/2019/11/rails-debug-log.md)
     - [Add Default Constraint](/2019/11/add-default-constraint.md)
-- **1911上旬**
     - [grape接口服务器](/2019/11/grape.md)
     - [提高百万行记录count的速度](2019/11/millions-count.md)
     - [测量数据库查询时间](/2019/11/measure-qurey-time.md)
     - [model数据验证与消息闪现(flash)](/2019/11/validates.md)
     - [admin项目的配置与工作](/2019/11/project-admin.md)
     - [初始化base-api遇到的各种报错](/2019/11/base-api-error.md)
-- **1910**
+- **2019-10**
     - [mac init(配置等)](/2019/10/mac_init.md)
     - [同时热重载(livereload)多个网页](/2019/10/multi_livereload.md)
     - [仿京东移动端网页中遇到的问题](/2019/10/jd_vue_problem.md)
     - [rails步骤记录](/2019/10/rails_step.md)
     - [再次学习Ruby](/2019/10/learn_ruby.md)
     - [chrome78开始支持dark mode](/2019/10/chrome_dark_mode.md)
+- **before 2019**
+    - [智能家居 - 平板电脑控制电灯](/uncategorized/rpi_gpio.md)
+    - [谷歌字体库被墙的解决方案](/uncategorized/google_font_block_solution.md)
+    - [给开源项目(scoop)提交代码](/uncategorized/pull_request_to_scoop/index.md)
+    - [chrome恐龙奔跑游戏中作弊](/uncategorized/chrome_game_cheat/index.md)
+    - [谷歌的文字冒险游戏](/uncategorized/google_text_adventure.md)
+    - [CSS/HTML小知识(如CSS权重)](/uncategorized/css_html_notes.md)
+    - [博客新插件/样式测试](/uncategorized/test.md)
 - **电脑技术干货**
     - [刷欧版MIUI教程](/2021/02/miui_eu.md)
     - [win/mac/linux共享文件夹](/2020/04/win_mac_linux_share_files.md)
@@ -171,14 +177,6 @@
     - [Android Studio](/archive/intellij_idea/android_studio.md)
     - [vscode技巧快捷键笔记](/archive/vscode/vscode.md)
     - [vscode配置Rust环境](/archive/vscode/vscode_setup_rust.md)
-- **before 2019**
-    - [智能家居 - 平板电脑控制电灯](/uncategorized/rpi_gpio.md)
-    - [谷歌字体库被墙的解决方案](/uncategorized/google_font_block_solution.md)
-    - [给开源项目(scoop)提交代码](/uncategorized/pull_request_to_scoop/index.md)
-    - [chrome恐龙奔跑游戏中作弊](/uncategorized/chrome_game_cheat/index.md)
-    - [谷歌的文字冒险游戏](/uncategorized/google_text_adventure.md)
-    - [CSS/HTML小知识(如CSS权重)](/uncategorized/css_html_notes.md)
-    - [博客新插件/样式测试](/uncategorized/test.md)
 - **单片机嵌入式**
     - [以中断方式读轻触按键](/archive/embedded/button-interrupt/index.md)
     - [矩阵键盘(keypad)](/archive/embedded/keypad/index.md)
