@@ -1,4 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
+- **2021-03**
+    - [dataloader解决重复查询](/2021/03/dataloader.md)
 - **2021-02**
     - [戴尔2415输出4k@60](/2021/02/dell_p2415q_enable_hdmi2.md)
     - [荣耀笔记本装linux](/2021/02/honor_magicbook_install_manjaro.md)
