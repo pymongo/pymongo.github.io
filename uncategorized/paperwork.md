@@ -29,7 +29,29 @@ Rust大会2020的收获:
 - RISC-V用插件扩展指令集，可禁用MMU
 - 私有crates.io和cargo yank
 
-3. 相比
+## 我对知乎上有人点评我topic的回复
+
+作为该topic的speaker，首先很感谢您这么细致观看我的分享内容，这也是对我工作的认可。
+
+1. PeekableIterator
+这是用来解决特定问题的数据结构，我在工作中仅用过一次，leetcode上也有一题让你实现PeekableIterator(可惜不支持Rust)
+
+4. IpAddr
+这个题不能用标准库解析IP地址的原因是，leetcode官方说明了这题的输入「不是标准POSIX socket地址格式」
+我这里主要演示Rust的模式匹配写法比较优雅
+
+5. Rust调用C函数
+虽然leetcode仅允许rand一个第三方库，但是我更希望题解不依赖任何第三方库，这样就能在坐飞机时离线编译
+Rust调用汇编和C语言解题也算我准备这个topic中的一些亮点，因为我看了其它Rust的提交记录，没有人在leetcode上用Rust调用C语言函数
+希望社区能发掘更多Rust调用C语言解题的题解
+
+6. String::into_bytes
+leetcode/codeforces上面的字符串基本都是字母+数字(ASCII码范围内)，用Vec<u8>的读写效率比String高
+
+8. 其实用#[deny(warnings)]让clippy警告时编译不通过用的更多
+
+也感谢您在几道题中给出了更简短的题解，我的分享里还有个亮点是codeforces这种传统ACM从stdin中读数据的刷题/竞赛网站要怎样进行单元测试。
+我个人也希望leetcode周赛排行榜上能看到Rust的提交，虽然我每次周赛只能完成2-3道题，作为没受过系统的算法竞赛训练工作后才刷题的我，周赛就只能止步于1000多名了
 
 ## mac keymap vscode+ra and intellij+rust
 
