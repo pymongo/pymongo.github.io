@@ -37,7 +37,13 @@ int main() {
 
 用法非常简单，第一个参数是i32类型的日志级别，第二个参数是字符串CStr
 
-## pkgconf链接systemd
+## 链接systemd库
+
+云主机上的centos默认没有`/usr/lib/libsystemd.so.0`，去安装<var class="mark">systemd-devel</var>这个包
+
+> sudo yum install systemd-devel
+
+根据Ubuntu的dylib包名命名规则，Ubuntu如果没有就去装`libsystemd-dev`这个包，我manjaro系统比较新自带了这个库
 
 最简单的编译方法是通过-l动态链接systemd库 `gcc -lsystemd main.c`
 
@@ -56,6 +62,10 @@ $ file /usr/bin/pkg-config
 /usr/bin/pkg-config: symbolic link to pkgconf
 ```
 
+只要linux系统装了libsystemd，Rust的链接就很简单在build.rs中加上一行(因为默认只会链接glibc这个C语言的dylib)
+
+> println!("cargo:rustc-link-lib=dylib=systemd");
+
 ## journal_print的水土不服
 
 用C语言调用`sd_journal_print`时会发现会把C语言的宏信息__FILE__, __FUNC__, __LINE__等信息也记录下来
@@ -71,10 +81,6 @@ Rust是通过log::Record的结构体去记录，所以最佳实践是Rust将行�
 要想去掉强行加上去的文件名，Rust就只能调用`sd_journal_send`和`sd_journal_sendv`
 
 ## ★as_str导致sendv调用失败
-
-首先要在build.rs中加上一行(默认只会链接glibc这个C语言的dylib)
-
-> println!("cargo:rustc-link-lib=dylib=systemd");
 
 ```rust
 use std::os::raw::{c_int, c_void};
