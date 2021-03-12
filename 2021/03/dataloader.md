@@ -41,6 +41,56 @@ query($user_id: Int!) {
 
 ## async_graphql缓存方案
 
+```rust
+// tide listener/unix_listener.rs
+// server will accept connections when bind()
+// handle_unix is referenced/usage in accept()
+fn handle_unix<State: Clone + Send + Sync + 'static>(app: Server<State>, stream: UnixStream) {
+    task::spawn(async move {
+        let local_addr = unix_socket_addr_to_string(stream.local_addr());
+        let peer_addr = unix_socket_addr_to_string(stream.peer_addr());
+
+        let fut = async_h1::accept(stream, |mut req| async {
+            req.set_local_addr(local_addr.as_ref());
+            req.set_peer_addr(peer_addr.as_ref());
+            app.respond(req).await
+        });
+
+        if let Err(error) = fut.await {
+            log::error!("async-h1 error", { error: error.to_string() });
+        }
+    });
+}
+
+// tide server.rs
+pub async fn respond<Req, Res>(&self, req: Req) -> http_types::Result<Res>
+where
+    Req: Into<http_types::Request>,
+    Res: From<http_types::Response>,
+{
+    let req = req.into();
+    let Self {
+        router,
+        state,
+        middleware,
+    } = self.clone();
+
+    let method = req.method().to_owned();
+    let Selection { endpoint, params } = router.route(&req.url().path(), method);
+    let route_params = vec![params];
+    let req = Request::new(state, req, route_params);
+
+    let next = Next {
+        endpoint,
+        next_middleware: &middleware,
+    };
+
+    let res = next.run(req).await;
+    let res: http_types::Response = res.into();
+    Ok(res.into())
+}
+```
+
 以我阅读tide源码的经验来看，Rust的所有web框架在server启动前都会创建一个app_data或app_context
 
 用作"全局"变量，例如数据库连接池就会放在app_data中，app_data则要求里面的成员必须实现Clone
@@ -62,6 +112,8 @@ query($user_id: Int!) {
 既然app_data会"克隆"一份，所以一次请求的多个函数间共享缓存的解决方案是可以使用app_data
 
 因为app_data每次请求都会克隆，克隆后的app_data用一些特殊可变数据结构作为缓存层，隔离开原版app_data，这样克隆后的app_data怎么乱改都不会影响原版app_data
+
+但是async_graphql更像是所有请求通过不可变指针/引用的方式共用app_data，达到共享内存的效果，跟tide对Arc的app_data进行clone有点不同
 
 以下是async_graphql关于app_data的部分源码
 
@@ -181,7 +233,7 @@ impl BatchFn<u64, DbResult<User>> for UserLoader {
 
 要么出错不返回，要么全部正确，而且代码中document的所有权被消耗去序列化，后续再拿document去记录id是很麻烦而且带来额外的开销
 
-dataloader-rs源码(也就500行)读完的我此时更相信async-graphql的实现了，不仅无缓存而且还返回值带上错误处理
+dataloader-rs源码(也就500行)读完的我此时更相信async-graphql的实现了，不仅无缓存(无状态)而且还返回值带上错误处理
 
 而且老大还说项目的并发访问量不大，没必要上缓存，所以我果断改用async_graphql::dataloader::Loader了
 

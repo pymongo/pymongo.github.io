@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-03**
+    - [systemd API段错误](/2021/03/libsystemd_segfault.md)
     - [dataloader解决重复查询](/2021/03/dataloader.md)
 - **2021-02**
     - [戴尔2415输出4k@60](/2021/02/dell_p2415q_enable_hdmi2.md)
@@ -16,7 +17,7 @@
 - **2020-11**
     - [diesel CRUD示例](/2020/11/diesel_crud.md)
     - [运维 - tmux会话管理](/2020/11/tmux.md)
-    - [运维 - systemd部署项目](/notes/linux/systemd.md)
+    - [systemd部署管理项目进程](/2020/11/systemd.md)
     - [Linux创建进程到进入Rust可执行文件的main函数的过程](/notes/linux/from_fork_exec_to_rust_main.md)
     - [Rust2018新增的mod文件夹写法](/2020/11/rust_2018_folder_module_mount.md)
     - [no_std中实现printf](/2020/11/impl_printf_in_no_std.md)
@@ -160,6 +161,10 @@
     - [谷歌的文字冒险游戏](/uncategorized/google_text_adventure.md)
     - [CSS/HTML小知识(如CSS权重)](/uncategorized/css_html_notes.md)
     - [博客新插件/样式测试](/uncategorized/test.md)
+- 技术文章分类
+- **systemd系列**
+    - [systemd部署管理项目进程](/2020/11/systemd.md)
+    - [systemd API段错误](/2021/03/libsystemd_segfault.md)
 - **电脑技术干货**
     - [刷欧版MIUI教程](/2021/02/miui_eu.md)
     - [win/mac/linux共享文件夹](/2020/04/win_mac_linux_share_files.md)

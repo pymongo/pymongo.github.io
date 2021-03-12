@@ -1,4 +1,4 @@
-# [运维 - systemd部署项目](/notes/linux/systemd.md)
+# [systemd部署管理项目进程](/2020/11/systemd.md)
 
 ## systemd简介
 
@@ -27,6 +27,8 @@
 
 > 程序员经常kill parent, kill child, 产生大量的zombie
 
+用Linux系统的同学可以在`KSysGuard`应用中查看zombie进程，KDE会标注哪些进程是zombie
+
 那么用systemd管理项目应用进程带来的好处是: 
 
 1. systemd重启/停止进程能解决kill杀进程可能遗留僵尸进程/线程问题
@@ -51,32 +53,51 @@
 
 以下是一个名为web_server的Rust项目应用的安装/更新systemd service的脚步示例
 
-```
-#!/bin/bash
+```bash
+#!/usr/bin/bash
 set -x
-declare service_name="web_server"
-sudo tee /etc/systemd/system/"$service_name".service <<EOF >/dev/null
+
+# check env var
+if [ -z "$repo_dir" ]
+then
+    echo "error: env var \$repo_dir is empty!"
+    echo "hints: repo_dir is a relative path"
+    echo "usage: repo_dir=. bash $0"
+    exit
+fi
+
+# concat from env var, get absolute path $repo_dir
+declare repo_dir="$(pwd)/$repo_dir"
+declare repo_dir=$(realpath $repo_dir) # normalized path string(translate all `..`)
+echo "\$repo_dir=$repo_dir"
+
+# install all services
+declare -a services=("api" "message_queue")
+for service in "${services[@]}"
+do
+sudo tee /etc/systemd/system/$service.service <<EOF >/dev/null
 [Unit]
-Description=${service_name}
+Description=$service
 
 [Service]
-WorkingDirectory=/home/ubuntu/web_server # 极其重要，这是进程的PWD环境变量
-ExecStart=/home/ubuntu/web_server/target/release/web_server
-Restart=always # 不管什么原因，只要项目应用停掉了就立刻重启
+WorkingDirectory=$repo_dir
+ExecStart=$repo_dir/target/release/$service -f $service/config/$service.toml
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
 EOF
-sudo systemctl reload "${service_name}".service # or sudo systemctl daemon-reload
-sudo systemctl enable "${service_name}".service
-sudo systemctl status "${service_name}" # or sudo systemctl show "${service_name}"
+sudo systemctl reload $service.service # or sudo systemctl daemon-reload
+sudo systemctl enable $service.service # run service after boot(其实enable就是开机启动该service的意思)
+sudo systemctl status $service # sudo systemctl show $service"
+done
 ```
 
 配置好service之后，我们Rust项目的重启脚本两行就够了:
 
 ```
-sudo systemctl restart web_server
-sudo systemctl status web_server
+sudo systemctl restart api
+sudo systemctl status api
 ```
 
 !> 注意不要再重启脚本里加入编译命令，我们希望更细粒度的控制，有时候只需重启不需要编译
