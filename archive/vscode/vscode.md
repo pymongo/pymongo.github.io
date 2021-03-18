@@ -33,7 +33,7 @@
 |navigate back| ctrl+-| cmd+[ |
 |navigate forward| ctrl+shift+-| cmd+] |
 |navigate to file tab 1| ctrl+1 | custom |
-|navigate next error| alt+F2 | F2 |
+|navigate next error/problem| alt+F2 | F2 |
 
 - find symbol时@后输入一个:可以对symbol按类别进行分组
 

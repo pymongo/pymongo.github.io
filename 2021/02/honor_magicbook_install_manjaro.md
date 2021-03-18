@@ -187,6 +187,9 @@ smb协议是一种跨平台文件共享协议(win/mac都内置)，由于linux自
 - thunderbrid(工作不用邮件，不需要邮件客户端)
 - hp device manager(没有打印机)
 - manjaro-hello
+- konversation(没用过Internet Relay Chat)
+- qbittorrent(好久没用BT下载海盗湾的盗版电影了)
+- manjaro-documentation-en(manjaro user guide)
 
 卸载steam后需要清理以下残留文件
 
@@ -297,12 +300,9 @@ linux下的idea首先要安装官方的mac_keymap插件才能导入mac的配置
 
 ```
 {
-    "files.autoSave": "afterDelay",
-    "window.zoomLevel": 1,
     "terminal.integrated.macOptionIsMeta": true,
     "rust-analyzer.server.path": "/usr/bin/rust-analyzer",
     "rust-analyzer.updates.channel": "nightly",
-    "rust-analyzer.cargo.allFeatures": true,
     "vim.insertModeKeyBindings": [{
         "before": ["j", "j"],
         "after": ["<Esc>"]

@@ -71,8 +71,18 @@ idea则是alt+enter的code_action里可以展开宏
 
 ![](rust_analyzer_code_snippet_completion.gif)
 
-## Rust趣学指南(有趣的学习资料)
+## vscode Rust插件推荐
 
+- CodeLLDB: Rust或rust-analyzer依赖插件，用于打断点调试
+- rust-analyzer: Rust官方插件的替代品，必装
+- crates: 类似cargo-outdated静态分析工具，提示Cargo.toml中哪些第三方库可以更新
+- better_toml: toml文件高亮
+- code_spell_checker: typo检查，毕竟参与开源项目时第一个PR也就只能修修typo再慢慢参与更核心部分的修改
+- Bookmarks: 类似idea的书签功能，方便读源码时记录关键位置，方便跳转
+
+## Rust有趣的学习资料
+
+- (入门)[一个内嵌playground的多国语言Rust教程](https://tourofrust.com/00_zh-cn.html)
 - (入门)rustlings: rustlings watch可以监控exercises文件夹的变化，一共有多个例如编译报错这样练习题，让你逐个修改源文件进行闯关n
 - (较难)[rust-quiz](https://dtolnay.github.io/rust-quiz)
 - (较难)cppquiz.org

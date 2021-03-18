@@ -126,6 +126,16 @@ fn test_sd_journal_sendv() {
 
 我看rust-systemd源码中也没有用as_str()而是用AsRef将String转&str
 
+我在[rustcc社区上发帖请教](https://rustcc.cn/article?id=ba5b8ae1-407c-4cfb-886d-d37dec0fd888)
+
+有人的回复挺中肯，这可能就是Bug的原因吧:
+
+> 你的iovec是引用format之后生成的String，这个String在执行完这条语句之后便释放了。而第二种用的是static str，这个不存在释放，所以结果正确，所以是一个经典的UAF问题
+
+虽然Rust的静态分析能提示`borrow value not live long enough`提示String::as_str()在某些场合会有UAF问题
+
+但是Rust的静态分析并不能分析unsafe例如FFI调用C语言函数这样的场合，
+
 ## ★send segfault段错误
 
 我不太喜欢sd_journal_sendv这个方法需要将字符串指针转成不透明指针void *，于是发现了更便利的sd_journal_send
@@ -212,9 +222,12 @@ https://github.com/pymongo/logger
 
 但我觉得最佳方法还是得限制每个systemd unit的日志大小，例如超过10G就自动删掉旧的日志
 
+!> 警告: 重启systemd-journald会丢失重启前的日志(因为默认journal存到内存中)
+
 ```
 $ sudo emacs /etc/systemd/journald.conf
 
+Storage=persistent
 SystemMaxUse=10G
 SystemKeepFree=20G
 

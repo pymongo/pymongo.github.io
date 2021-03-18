@@ -27,3 +27,8 @@ fcitx5的皮肤试了好久都没法弄成黑暗主题，最后照着fcitx5-mate
 遗憾1: 云拼音远不如搜狗拼音的好用
 
 遗憾2: 使用idea/jetbrains全家桶时，输入法候选框永远在左下角。fcitx5在arch linux wiki上也有提到这个Bug，可能是java应用都有的问题
+
+## fcitx5内置输入法的一些技巧
+
+- 默认下"]"键可以输入直角括号「」
+- 为了照顾emcas`C-space`进入选中文本模式，我把输入法切换的快捷键改成alt+shift

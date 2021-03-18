@@ -15,10 +15,8 @@ const TEST_CASE: [(&[i32], bool); 1] = [
 
 fn main() {
     let mut input: Vec<String> = vec![];
-    for line in std::io::stdin().lock().lines() {
-        if let Ok(str) = line {
-            input.push(str);
-        }
+    for line in std::io::stdin().lock().lines().flatten() {
+        input.push(str);
     }
     let nums: Vec<i32> = input[0]
         .split_whitespace()
@@ -29,9 +27,4 @@ fn main() {
 }
 ```
 
-如果用的是Python语言则准备下面这个模板
-
-```python
-```
-
-print!("Enter a number: "); std::io::stdout().flush().unwrap();
+更建议多加练习codeforces，熟悉的从不同stdin中读取数据并解析
