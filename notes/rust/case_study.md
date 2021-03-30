@@ -38,9 +38,56 @@
 教训: 出生产事务时应立即停止吃饭去回滚代码，leader没吃午饭在Debug的时候，我居然有时间去吃饭，自己写错代码害得leader背锅没吃午饭
 ```
 
-## 时区和夏令时(daynight saving time)问题 - 夏令时问题导致数据库写入数据的时间不对
+## 夏令时(daylight saving time)问题(感谢两位推友帮我解决了两个夏令时问题)
 
-TODO
+笔记: 首先中文把dst(daylight_saving_time)翻译成夏令时+冬令时是不太准确的
+
+首先可以说美国就没有冬令时，或者说冬令时就是标准时间，而夏令时就是把时间调快1小时
+
+因为C语言的strut tm的isdst字段也就一个bool,所以只有是夏令时和不是夏令时，没有冬令时的说法
+
+案例发生时间: 2020年6月
+案例问题: 撮合引擎创建的很多订单，在网页上查询订单创建时间都多了1小时
+严重性和损失预估: 因为trades表订单的created_at变快1小时，导致k线图全乱了(生产事故)，要靠人工改数据库trades表问题订单的created_at才解决，降低了领导对Rust项目的信心
+原因: 因为我们MySQL表上created_at等时间戳字段是存入服务器当地时间的信息的，所以actix_web启动前要先用chrono API获取到当地时区
+然后让sqlx每次写数据时都加上
+解决问题的commit: tase-matcher 855ba28da9e2ca791a32962d128e15941a5cbc32
+
+Rust嵌入式大佬王momo的提示： https://twitter.com/andelf/status/1276470803387740160
+
+```
+你这个用错了。如果获取 unix timestamp=0 的话，那么会收到夏时的影响。所以需要明确“当前时差”和“历史某一时刻时差” 的影响， 所以需要用 offset_from_utc_date ，传递 now()  做参数。 像BJT/CST这种没有夏时制影响的时区实在太惯着程序员的
+```
+
+听从建议后我的代码改动如下
+
+```
+-    let timezone = chrono::Local.timestamp(0, 0).offset().to_string();
++    let timezone = chrono::Local::now().offset().to_string();
+```
+
+但如今我回头看，依赖chrono去查时区是不可靠的，文档上也没太多介绍某某api会不会受到夏令时影响
+
+更好的解决方案是用C语言的localtime_r或gmtime都可以获取时区，还有isdst字段判断获取的时区有没有受到夏令时影响
+
+最好的解决方案是既然sqlx和active_record等连接池默认都是UTC时区，那数据库的datetime类型就不要存入时区信息，用类似postgres或sqlite的datetime_without_timezone
+
+---
+
+案例发生时间: 2021年3月底
+案例问题: instagram的api为什么会在2021-03-15这天发生时间戳变化?
+严重性和损失预估: 因为assert了每天都会有24小时的online_followers数据，冬令时->夏令时切换那天返回的数据长度时23导致线程panic
+```
+https://twitter.com/ospopen/status/1376708885260554241
+多谢提醒，facebook把Daylight Saving Time也算进时间戳
+api的服务器在UTC-8时区，每天在硅谷当地时间0点采集数据
+
+所以3月14日时间戳是08:00(因为还没到当天凌晨2点切换成夏令时)，到了3月13日时间戳是07:00(夏令时调快1小时)
+online_followers每小时采集一次的数据在3月15日只有23个小时数据
+最近遇到该接口返回长度不等于24导致panic
+```
+
+解决方案: 测下online_followers API传入数据长度为23和25的数据会不会报错
 
 ## 集成测试不发短信和邮件 - 乱发邮件容易提高Amazon SES拒信率
 

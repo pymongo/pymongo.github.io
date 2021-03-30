@@ -20,7 +20,7 @@
 
 此时需要jupyter默认的python3 kernel的位置，如果不在用户文件夹内则会报错
 
-> [Errno 13] Permission denied:’/usr/local/share/jupyter’
+> [Errno 13] Permission denied:/usr/local/share/jupyter
 
 以上是ubuntu的报错，arch的报错则是/usr/share/jupyter没权限
 
