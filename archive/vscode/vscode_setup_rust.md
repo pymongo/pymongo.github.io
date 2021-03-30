@@ -2,6 +2,8 @@
 
 vscode的Rust插件是Rust官方维护的，支持codelen功能(可执行函数附近会有Run/Debug提示，就像IDEA在main()左边会有个绿色的运行按钮)
 
+首先要保证系统装好了C/C++的工具链(gcc的gdb+clang的lldb)，archlinux可以装base-devel+cmake+clang三个包
+
 1. 安装CodeLLDB插件(开启Rust单步调试功能)
 2. 修改vscode全局setting.json的ra相关可执行文件路径配置项
 3. 编译rust-analyzer(以下简称ra)源码，仅编译ra可执行文件

@@ -87,26 +87,35 @@ win10的建议是1080P屏幕用125%的缩放，mac的建议是4k屏用200%的缩
 
 ## 常用软件安装
 
-### 安装gcc和rustup
+### 安装C/C++工具链
 
 建议先更新glibc，否则gcc安装后会提示glibc版本太低，但是更新glibc会同时更新gtk,KDE等，可能在安装KDE的更新时图形界面会没掉然后黑屏，切换到cli模式再sudo reboot即可
 
 ```
-sudo pacman -Su glibc # 更新glibc
-sudo pacman -S binutils gcc make cmake # 安装gcc/g++, binutils等build_tools
-sudo pacman -S pkgconf # Rust编译actix-web之类的需要pkg-config去寻找openssl动态链接库
-sudo pacman -S rust-analyzer
-# openssl在archlinux一般都自带了，无需额外安装
+# sudo pacman -Su glibc # 更新glibc，建议先用pacman更新所有软件(会自动更新glibc)
+
+# 由于vscode上Rust的codelldb单步调试插件依赖clang生态的lldb，所以要把clang也装了
+# openssl的动态链接库在archlinux一般都自带了，无需额外安装
+sudo pacman -S base-devel cmake clang # 安装gcc/g++, binutils, pkgconf等build_tools
+
+#sudo pacman -S rust-analyzer
 ```
+
+### C/C++工具生态
+
+QA: cargo fmt alternative in C/C++: ???
+
+- 构建工具: cmake
+- 包管理工具: pacman:)
+- 静态分析/lint: cppcheck, clang的clang-tidy和clazy-standalone
+- 堆内存泄漏检查工具: valgrind(也能用来分析Rust应用)
+
+### Rust静态分析工具
 
 通过包管理pacman安装的rustup和rustup.rs的rustup安装脚本的区别在于
 
 1. cargo/rustup的路径在/usr/bin，rust-analyzer的路径还在~/.cargo/bin
 2. pacman的rustup不能self update，需要pacman进行更新
-
-我项目里数据库主要用mongodb和redis，照着mongodb的arch wiki教程装完后改下systemd配置文件的ExecStart即可启动
-
-至于docker安装可以参考[这篇文章](https://github.com/vkill/Archlinux/blob/master/Docker.md)
 
 cargo install以下几款常用Rust代码静态分析工具
 
@@ -115,6 +124,12 @@ cargo install以下几款常用Rust代码静态分析工具
 - cargo-udeps(检查未使用的依赖，超赞)
 - cargo-audit(检查第三方库所用版本的是否存在已通报的漏洞)
 - cargo-outdated(类似vscode_crates插件，但不如crates好用)
+
+---
+
+我项目里数据库主要用mongodb和redis，照着mongodb的arch wiki教程装完后改下systemd配置文件的ExecStart即可启动
+
+至于docker安装可以参考[这篇文章](https://github.com/vkill/Archlinux/blob/master/Docker.md)
 
 ### java版本切换
 
@@ -194,6 +209,12 @@ smb协议是一种跨平台文件共享协议(win/mac都内置)，由于linux自
 卸载steam后需要清理以下残留文件
 
 > rm -rf .steam .steampath .steampid ~/.local/share/Steam
+
+### linux应用推荐
+
+task_manager/todo_list: gnome-todo(虽不如mac的todo,但还算凑合)
+C++ develop: cppcheck, root, qtcreator, kdevelop
+教学演示工具: screenkey
 
 ---
 
@@ -337,6 +358,7 @@ linux下的idea首先要安装官方的mac_keymap插件才能导入mac的配置
 - F12: 开/关yakuake下拉式terminal
 - alt+F1: 在开始菜单中搜索
 - win+e: 开文件浏览器
+- alt+.: 文件管理器开关隐藏文件的显示
 - win+.: emoji picker
 - Ctrl+; 粘贴板，功能类似IDEA的cmd+shift+v，可以挑选最近几次复制内容进行粘贴
 - (fn)F1/F2: 屏幕亮度

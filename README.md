@@ -19,4 +19,4 @@ Author of saks crate, contributor of sqlx, tokio-postgres, bigdecimal-rs
 
 ### Play Rust with leetcode - [RustConf_2020_ShenZhen](https://2020conf.rustcc.cn/schedule.html)
 
-2020,.12.27
+talking on Rust China conf

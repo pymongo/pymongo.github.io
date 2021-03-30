@@ -62,6 +62,17 @@ $ file /usr/bin/pkg-config
 /usr/bin/pkg-config: symbolic link to pkgconf
 ```
 
+bash的`statement`的意思是statement语句进行eval求值
+
+例如linux desktop notification的gio库，使用pkgconf进行搜索gio能展开成以下内容
+
+```
+$ pkg-config --cflags --libs gio-2.0
+-I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/libmount -I/usr/include/blkid -lgio-2.0 -lgobject-2.0 -lglib-2.0 
+```
+
+所以pkgconf方便去找某个库并且生成gcc编译链接该库的参数
+
 只要linux系统装了libsystemd，Rust的链接就很简单在build.rs中加上一行(因为默认只会链接glibc这个C语言的dylib)
 
 > println!("cargo:rustc-link-lib=dylib=systemd");
