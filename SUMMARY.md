@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-03**
+    - [no_std binary(static link)](/2021/03/statically_linked_executable.md)
     - [尝试用emacs配rust lsp](/2020/03/emacs_setup_rust.md)
     - [cling C++ repl](/2021/03/cling_cpp_repl.md)
     - [systemd API段错误](/2021/03/libsystemd_segfault.md)
