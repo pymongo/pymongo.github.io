@@ -1,4 +1,4 @@
-# [manjaro/KDE安装小鹤双拼](/2021/02/manjaro_linux_fcitx5_xiaohe_shuangpin.md)
+# [manjaro/KDE安装小鹤双拼](/2021/02/manjaro_kde_fcitx5_xiaohe_shuangpin.md)
 
 由于rime的配置过于麻烦，后来我发现fcitx5已经自带小鹤双拼，而且还能内嵌到KDE的设置菜单内，那就用fcitx吧
 

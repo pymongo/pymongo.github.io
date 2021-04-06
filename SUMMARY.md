@@ -1,4 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
+- **2021-04**
+    - [logrotate和user service](/2021/04/logrotate_and_systemd_user_service.md)
 - **2021-03**
     - [no_std binary(static link)](/2021/03/statically_linked_executable.md)
     - [尝试用emacs配rust lsp](/2020/03/emacs_setup_rust.md)
@@ -7,8 +9,8 @@
     - [dataloader解决重复查询](/2021/03/dataloader.md)
 - **2021-02**
     - [戴尔2415输出4k@60](/2021/02/dell_p2415q_enable_hdmi2.md)
-    - [荣耀笔记本装linux](/2021/02/honor_magicbook_install_manjaro.md)
-    - [manjaro/KDE安装小鹤双拼](/2021/02/manjaro_linux_fcitx5_xiaohe_shuangpin.md)
+    - [荣耀笔记本装linux](/2021/02/manjaro_kde_config.md)
+    - [manjaro/KDE安装小鹤双拼](/2021/02/manjaro_kde_fcitx5_xiaohe_shuangpin.md)
     - [各平台小鹤双拼解决方案](/2021/02/xiaohe_scheme_solutions.md)
     - [刷欧版MIUI教程](/2021/02/miui_eu.md)
     - [leetcode用racket](/2021/02/leetcode_racket.md)

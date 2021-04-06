@@ -1,4 +1,6 @@
-# [荣耀笔记本装linux](/2021/02/honor_magicbook_install_manjaro.md)
+# [荣耀笔记本装linux](/2021/02/manjaro_kde_config.md)
+
+## 为什么选择荣耀笔记本
 
 苦于13年款的mac_air屏幕太小只有11寸，分辨率1368*768看的眼睛难受，而我之前买过的thinkpad因识别不到电池开不了机，surface_pro因未知原因变砖开不了机也进不了BIOS
 
@@ -87,6 +89,10 @@ win10的建议是1080P屏幕用125%的缩放，mac的建议是4k屏用200%的缩
 
 ## 常用软件安装
 
+vscode微软官方的cmake+c/c++插件很棒，go插件应付go开发，ra应对Rust开发，基本vscode一个就够了
+
+我还装了qt_creator应对qt开发和idea想体验下Intellij-Rust
+
 ### 安装C/C++工具链
 
 建议先更新glibc，否则gcc安装后会提示glibc版本太低，但是更新glibc会同时更新gtk,KDE等，可能在安装KDE的更新时图形界面会没掉然后黑屏，切换到cli模式再sudo reboot即可
@@ -109,6 +115,7 @@ QA: cargo fmt alternative in C/C++: ???
 - 包管理工具: pacman:)
 - 静态分析/lint: cppcheck, clang的clang-tidy和clazy-standalone
 - 堆内存泄漏检查工具: valgrind(也能用来分析Rust应用)
+- C/C++解释器: root/cling
 
 ### Rust静态分析工具
 
@@ -139,7 +146,7 @@ Ubuntu则通过`update-java-alternatives`工具管理多个java版本
 
 ### 上网工具
 
-上网工具指的就是能上某些海外网站你懂的工具啦，我个人更喜欢透明代理，懒得改成国内archlinuxcn的镜像源
+上网工具指的就是能上某些海外网站你懂的工具啦，个人更喜欢路由器透明代理，懒得改成国内archlinuxcn的镜像源
 
 我习惯于用以下两款上网工具client(可以用atob函数进行解码)
 
@@ -220,9 +227,15 @@ C++ develop: cppcheck, root, qtcreator, kdevelop
 
 ## 系统设置
 
+### 自动记住Wifi密码
+
+system_settings->network->connections->wifi_security_tab->storage_password_for_all_users
+
 ### terminal(kconsole)
 
 取消行数上限: profile->edit->scrolling->unlimit
+
+如果鼠标往上滚动时，terminal不会翻页，输入`reset`重置下就好了
 
 ### ~/.bashrc
 
@@ -231,11 +244,7 @@ C++ develop: cppcheck, root, qtcreator, kdevelop
 HISTSIZE= 
 HISTFILESIZE=
 export PATH="$PATH:~/.cargo/bin"
-
-setxkbmap -option caps:backspace
-xmodmap -e "clear lock" # enable caps continus bachspace
-
-alias emac="emacs -nw"
+alias caps="setxkbmap -option caps:backspace && xmodmap -e 'clear lock'" # enable caps continus bachspace
 ```
 
 ### git config
@@ -295,7 +304,7 @@ dolphin's settings->services 中可以关闭部分context_menu的一级菜单，
 
 screen_edge设置里鼠标移到右上角就显示show desktops这个没用
 
-不需要cmd+l键锁屏(mac的chrome cmd+l是光标移到网址，总是误按)，用krunner输入lock the screen进行锁屏
+不需要cmd+L键锁屏(mac的chrome cmd+L是光标移到网址，总是误按)，用krunner输入lock the screen进行锁屏
 
 ## idea配置
 
@@ -323,11 +332,6 @@ linux下的idea首先要安装官方的mac_keymap插件才能导入mac的配置
 {
     "terminal.integrated.macOptionIsMeta": true,
     "rust-analyzer.server.path": "/usr/bin/rust-analyzer",
-    "rust-analyzer.updates.channel": "nightly",
-    "vim.insertModeKeyBindings": [{
-        "before": ["j", "j"],
-        "after": ["<Esc>"]
-    }]
 }
 ```
 

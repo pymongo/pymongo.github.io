@@ -106,6 +106,10 @@ sudo systemctl status api
 
 systemd的配置文件只能用绝对路径，Rust的可执行文件的ELF信息中有动态链接库的相对路径？不过倒是不影响运行
 
+systemd的service默认会把STDOUT和STDERR以INFO级别的日志打到journal，可以通过`[Service]`的
+
+`StandardOutput=journal`这项配置去改
+
 ## 如何删除一个systemd service
 
 ```

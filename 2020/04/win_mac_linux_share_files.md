@@ -48,6 +48,8 @@ smb.conf底下加上以下内容
    directory mask = 0700
 ```
 
+> sudo systemctl enable smb
+
 然后Android的network_browser要选择Manual Connection手动填上用户名密码才能连上
 
 ---

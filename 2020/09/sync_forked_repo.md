@@ -37,6 +37,18 @@ sqlx是我提PR数量最多的开源项目，bigdecimal-rs算我目前提过的P
 
 > git push origin --delete feature/mssql
 
+## squash(压缩) commits when PR
+
+PR时给RustMagazine时，例如编辑要求你在中文和英文之间加上空格
+
+所以你多commit了一次去消除空格，但是这样就会出现一个PR多个commits,应该squash成一个commit
+
+例如将最近两个commit合并成1个的步骤:
+
+1. git reset --soft HEAD~2
+2. git commit -m "add article no_std_binary"
+3. git push --force
+
 ---
 
 最后回到为什么rust_decimal会报错的问题，我通过cargo tree -d命令发现rust_decimal用的是1.8版本，但是sqlx用的是1.7版本
