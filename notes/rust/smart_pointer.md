@@ -52,6 +52,12 @@ Rust官方建议用于*mut T原始指针的安全的替代品，一定非空而�
 
 可以让enum的tag塞到染色指针存储信息的16bit中
 
+## 指针的大小一定是usize吗？
+
+在冯诺依曼架构的CPU上一定是，在哈佛架构的CPU上不一定，例如gcc-avr
+
+哈佛架构的instruction_memory和data_memory的位宽可能不一样
+
 ### String和Vec<u8>的区别
 
 String是一段合法的UTF-8编码的u8序列，可以安全地转为一段合法的字符串

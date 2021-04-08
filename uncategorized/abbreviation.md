@@ -22,6 +22,7 @@ Example: chrono::NaiveDateTime::from_timestamp_opt
 - LGTM: An acronym(首字母缩写) for "Looks Good To Me"
 - In a nutshell(简而言之)
 - TLDR: Too Long Didn't Read
+- wip: working in progress
 
 ## Rust的PR/issue常见缩写
 

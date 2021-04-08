@@ -28,6 +28,12 @@ fcitx5的皮肤试了好久都没法弄成黑暗主题，最后照着fcitx5-mate
 
 遗憾2: 使用idea/jetbrains全家桶时，输入法候选框永远在左下角。fcitx5在arch linux wiki上也有提到这个Bug，可能是java应用都有的问题
 
+## 禁用Ctrl+.切换半角全角的快捷键
+
+因与vscode的quick_fix快捷键是Ctrl+.冲突(类似idea的Alt+Enter code_action)，需要禁用掉半角全角切换的快捷键
+
+具体的设置项在 fcitx5的Punctuation addons里
+
 ## fcitx5内置输入法的一些技巧
 
 - 默认下"]"键可以输入直角括号「」

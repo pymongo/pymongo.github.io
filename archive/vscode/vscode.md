@@ -29,11 +29,15 @@
 |find files| cmd+p | cmd+shift+o |
 |find class| cmd+t(cmd+p,#) | cmd+o |
 |find symbol| cmd+shift+o(cmd+p,@) | cmd+alt+o |
-|code action| cmd+. | alt+enter |
+|quick fix/code action| ctrl+. | alt+enter |
 |navigate back| ctrl+-| cmd+[ |
 |navigate forward| ctrl+shift+-| cmd+] |
 |navigate to file tab 1| ctrl+1 | custom |
 |navigate next error/problem| alt+F2 | F2 |
+
+vscode快捷键补充:
+- view next problem: (emacs) C-x, `
+- Ctrl+; 自动补全建议
 
 - find symbol时@后输入一个:可以对symbol按类别进行分组
 

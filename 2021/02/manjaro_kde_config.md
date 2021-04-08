@@ -102,10 +102,18 @@ vscode微软官方的cmake+c/c++插件很棒，go插件应付go开发，ra应对
 
 # 由于vscode上Rust的codelldb单步调试插件依赖clang生态的lldb，所以要把clang也装了
 # openssl的动态链接库在archlinux一般都自带了，无需额外安装
-sudo pacman -S base-devel cmake clang # 安装gcc/g++, binutils, pkgconf等build_tools
+sudo pacman -S base-devel cmake clang gdb # 安装gcc/g++, binutils, pkgconf等build_tools
 
 #sudo pacman -S rust-analyzer
 ```
+
+gcc和llvm是两个比较常用的编译器后端，例如clang就是llvm C++的前端
+
+gcc可以通过输入的文件后缀名区分用哪一个编程语言的前端，所以gcc可以同时编译C和汇编
+
+gccrs项目就希望开发一个gcc的Rust前端，可以把Rust代码通过gcc后端进行编译
+
+本身Rust也提供了rust-gdb和rust-lldb工具兼顾gcc和llvm
 
 ### C/C++工具生态
 
@@ -144,14 +152,9 @@ cargo install以下几款常用Rust代码静态分析工具
 
 Ubuntu则通过`update-java-alternatives`工具管理多个java版本
 
-### 上网工具
+### proxy代理工具
 
-上网工具指的就是能上某些海外网站你懂的工具啦，个人更喜欢路由器透明代理，懒得改成国内archlinuxcn的镜像源
-
-我习惯于用以下两款上网工具client(可以用atob函数进行解码)
-
-1. c3VkbyBwYWNtYW4gLVMgdHJvamFu
-2. eWF5IC1TIGV4cHJlc3N2cG4=
+详见我另一篇文章: [manjaro KDE proxy setting](/2021/04/manjaro_kde_proxy.md)
 
 ### 安装chrome
 

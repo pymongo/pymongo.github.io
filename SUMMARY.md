@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-04**
+    - [manjaro KDE proxy setting](/2021/04/manjaro_kde_proxy.md)
     - [logrotate和user service](/2021/04/logrotate_and_systemd_user_service.md)
 - **2021-03**
     - [no_std binary(static link)](/2021/03/statically_linked_executable.md)
