@@ -4,13 +4,15 @@ ruby的性满足不了实时性很强的需求(股票交易所)，于是尝试�
 
 Rust安装类似Haskell要先装ghcup，rustup是强大的Rust工具链管理工具，通过rustup去安装其他工具
 
-## rustup版本管理工具
+## 设置项目repo的rust版本
 
-`rustup override`类似`rbenv local`，设置项目文件夹的Rust版本
+1. 项目文件夹内放一个`rust-toolchain.toml`
+2. `rustup override set nightly-2021-04-08`类似`rbenv local 2.5.1`
+3. `rustup run nightly cargo`能暂时调用nighly版本的cargo命令
 
-或者通过用rust-toolchain文件来设置项目的Rust版本
+`rustup override set ni`类似`rbenv local`，设置项目文件夹的Rust版本
 
-通过session连接服务器时(例如Capistrano不是)可能会找不到cargo，需要`source ~/.cargo/env`
+通过session连接服务器时(例如Capistrano)可能会找不到cargo命令，需要`source ~/.cargo/env`
 
 ## Rust开发环境推荐
 

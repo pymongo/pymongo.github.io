@@ -1,41 +1,63 @@
 # [vscode配置Rust环境](/archive/vscode/vscode_setup_rust.md)
 
-vscode的Rust插件是Rust官方维护的，支持codelen功能(可执行函数附近会有Run/Debug提示，就像IDEA在main()左边会有个绿色的运行按钮)
+vscode的Rust插件和rust-analyzer(以下简称ra)插件会冲突，都支持codelen功能(可执行函数附近会有Run/Debug提示，就像IDEA在main()左边会有个绿色的运行按钮)，建议只用ra插件
 
-首先要保证系统装好了C/C++的工具链(gcc的gdb+clang的lldb)，archlinux可以装base-devel+cmake+clang三个包
+## 安装ra插件的三个步骤
 
-1. 安装CodeLLDB插件(开启Rust单步调试功能)
-2. 修改vscode全局setting.json的ra相关可执行文件路径配置项
-3. 编译rust-analyzer(以下简称ra)源码，仅编译ra可执行文件
-4. vscode安装ra插件
-
-manjaro/arch_linux系统可以用pacman安装官方源的rust-analyzer
+1. 安装base-devel和clang等llvm调试工具，才能安装CodeLLDB插件(开启Rust单步调试功能)
+2. 获取ra可执行文件 并 修改vscode全局setting.json的ra相关可执行文件路径配置项
+3. vscode安装ra插件
 
 *注3: 编译ra源码的补充，看源码的`.cargo/config`文件可知通过`cargo xtask install --server`可以仅编译ra可执行文件，不编译安装ra的vscode插件
 
-## vscode的setting.json中ra相关配置
+## 获取ra可执行文件的N种方法
+
+1. vscode装ra插件时自动去github下载，但是会出现github链接404错误或vscode需要存储github_token等问题
+2. 自行去ra的github仓库的release页面下载相应操作系统编译好的二进制可执行文件分发
+3. git clone ra源码进行编译
+4. sudo pacman -S rust-analyzer
+5. rustup component add rust-analyzer-preview
+
+由于ra更新推送速度上 rustup > archlinux源 > manjaro源，建议用第五种方法安装并管理ra的更新
+
+运行rust-analyzer可执行文件的方法
+
+> rustup run nightly rust-analyzer --version
+
+vscode的setting.json中ra相关配置
 
 ```json
-{
-    "rust-analyzer.updates.channel": "nightly",
-    "rust-analyzer.server.path": "~/.cargo/bin/rust-analyzer",
-    "rust-analyzer.cargo.allFeatures": true
-}
+{ "rust-analyzer.server.path": "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rust-analyzer" }
 ```
 
 ## 为什么不建议用源码编译的dev版ra插件
 
-主要是dev版ra插件会有报错提示:
+dev版也就是nightly版插件要配合vscode的ra插件启用一些配置项才能使用，不太方便，而且dev版ra插件会有报错提示:
 
 > Extension 'matklad.rust-analyzer cannot use PROPOSED API
 
-源码编译ra插件需要nodejs环境以及vscode add to path
+而且从源码编译ra插件需要nodejs环境
 
 ## 为什么不用官方的Rust插件+rls
 
 1. rls官方维护的不勤快，不支持2021年以后的nightly版本，Rust插件需要rustup额外安装rls和rust-analysis两个component
 2. 官方的Rust插件近一年都没更新，不像ra插件频繁维护
 3. 同时安装Rust和ra插件时，ra插件会提示冲突you must disable one of them
+
+## Rust静态分析工具推荐
+
+通过包管理pacman安装的rustup和rustup.rs的rustup安装脚本的区别在于
+
+1. cargo/rustup的路径在/usr/bin，rust-analyzer的路径还在~/.cargo/bin
+2. pacman的rustup不能self update，需要pacman进行更新
+
+cargo install以下几款常用Rust代码静态分析工具
+
+- rust-analyzer
+- cargo-all-features(好像是检查unused features，但是运行时报错)
+- cargo-udeps(检查未使用的依赖，超赞)
+- cargo-audit(检查第三方库所用版本的是否存在已通报的漏洞)
+- cargo-outdated(类似vscode_crates插件，但不如crates好用)
 
 ## code snippet/completion
 
@@ -78,7 +100,6 @@ idea则是alt+enter的code_action里可以展开宏
 - CodeLLDB: Rust或rust-analyzer依赖插件，用于打断点调试
 - rust-analyzer: Rust官方插件的替代品，必装
 - crates: 类似cargo-outdated静态分析工具，提示Cargo.toml中哪些第三方库可以更新
-- better_toml: toml文件高亮
 - code_spell_checker: typo检查，毕竟参与开源项目时第一个PR也就只能修修typo再慢慢参与更核心部分的修改
 - Bookmarks: 类似idea的书签功能，方便读源码时记录关键位置，方便跳转
 

@@ -103,8 +103,6 @@ vscode微软官方的cmake+c/c++插件很棒，go插件应付go开发，ra应对
 # 由于vscode上Rust的codelldb单步调试插件依赖clang生态的lldb，所以要把clang也装了
 # openssl的动态链接库在archlinux一般都自带了，无需额外安装
 sudo pacman -S base-devel cmake clang gdb # 安装gcc/g++, binutils, pkgconf等build_tools
-
-#sudo pacman -S rust-analyzer
 ```
 
 gcc和llvm是两个比较常用的编译器后端，例如clang就是llvm C++的前端
@@ -125,20 +123,21 @@ QA: cargo fmt alternative in C/C++: ???
 - 堆内存泄漏检查工具: valgrind(也能用来分析Rust应用)
 - C/C++解释器: root/cling
 
-### Rust静态分析工具
+### pacman的rustup
 
-通过包管理pacman安装的rustup和rustup.rs的rustup安装脚本的区别在于
+pacman安装的rustup的一个好处是可以不把`~/.cargo/bin`加到PATH环境变量中(只要没用cargo audit等第三方cargo子命令或可执行文件)
 
-1. cargo/rustup的路径在/usr/bin，rust-analyzer的路径还在~/.cargo/bin
-2. pacman的rustup不能self update，需要pacman进行更新
+另外一个好处则是隔离了rust自带的可执行文件和自己装第三方可执行文件
 
-cargo install以下几款常用Rust代码静态分析工具
+> _binlinks=('cargo' 'rustc' 'rustdoc' 'rust-gdb' 'rust-lldb' 'rls' 'rustfmt' 'cargo-fmt' 'cargo-clippy' 'clippy-driver' 'cargo-miri')
 
-- rust-analyzer
-- cargo-all-features(好像是检查unused features，但是运行时报错)
-- cargo-udeps(检查未使用的依赖，超赞)
-- cargo-audit(检查第三方库所用版本的是否存在已通报的漏洞)
-- cargo-outdated(类似vscode_crates插件，但不如crates好用)
+如果用rustup装，cargo-fmt和cargo-audit混在了`~/.carbo/bin`一个文件夹内
+
+pacman装的/usr/bin/rustc等可执行文件其实是个/usr/bin/rustup的软链接，
+
+pacman的rustup会将`/usr/bin/rustc`转换为`rustup run nightly rustc`去执行
+
+ra等工具链的安装和配置请看我另一篇文章: [vscode配置Rust环境](/archive/vscode/vscode_setup_rust.md)
 
 ---
 
