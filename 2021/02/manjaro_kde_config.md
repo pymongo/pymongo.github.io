@@ -127,7 +127,7 @@ QA: cargo fmt alternative in C/C++: ???
 
 pacman安装的rustup的一个好处是可以不把`~/.cargo/bin`加到PATH环境变量中(只要没用cargo audit等第三方cargo子命令或可执行文件)
 
-另外一个好处则是隔离了rust自带的可执行文件和自己装第三方可执行文件
+另外一个好处则是隔离了rust自带的可执行文件和自己装第三方可执行文件，如果没cargo install其它可执行文件，不需要把`~/.cargo/bin`加到PATH中
 
 > _binlinks=('cargo' 'rustc' 'rustdoc' 'rust-gdb' 'rust-lldb' 'rls' 'rustfmt' 'cargo-fmt' 'cargo-clippy' 'clippy-driver' 'cargo-miri')
 
