@@ -22,3 +22,4 @@ rustup安装ra有几点好处:
 > rustup run nightly-2021-04-12 rust-analyzer
 
 虽然toolchain是04-12版本，但是实际上ra会用距离04-12最近的一个stable release也就是ra的04-05版本
+djtt

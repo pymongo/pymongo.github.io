@@ -36,6 +36,5 @@ markets表没有一个外键是currencies表的外键，好在belongs_to有选�
 <i class="fa fa-hashtag"></i>
 参考链接
 
-[https://stackoverflow.com/questions/16071735/active-record-association-without-using-id](https://stackoverflow.com/questions/16071735/active-record-association-without-using-id)
-
-[https://stackoverflow.com/questions/21466726/rails-has-many-relationship-without-using-id](https://stackoverflow.com/questions/21466726/rails-has-many-relationship-without-using-id)
+- <https://stackoverflow.com/questions/16071735/active-record-association-without-using-id>
+- <https://stackoverflow.com/questions/21466726/rails-has-many-relationship-without-using-id>

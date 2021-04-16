@@ -11,4 +11,4 @@
 <i class="fa fa-hashtag"></i>
 参考链接
 
-[https://stackoverflow.com/questions/13791556/how-to-redirect-to-a-certain-location-in-a-page](https://stackoverflow.com/questions/13791556/how-to-redirect-to-a-certain-location-in-a-page)
+<https://stackoverflow.com/questions/13791556/how-to-redirect-to-a-certain-location-in-a-page>

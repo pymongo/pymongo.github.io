@@ -14,7 +14,7 @@ Oracle的服务进程是开机自动启动的, 而且很占内存
 
 OEM(Oracle Enterprise Manager)是Oracle数据库的Web端管理软件
 
-网址是:[https://localhost:1158/em](https://localhost:1158/em)
+网址是: <https://localhost:1158/em>
 
 注意只能用https协议访问，由于无SSL证书，需要浏览器单独允许
 

@@ -38,7 +38,7 @@ public static HomeFragment newInstance() {
 
 一个TextView+ImageView可以写成一个TextView(加上一个drawable属性)，而且渲染性能更好
 
-[https://stackoverflow.com/questions/3214424/android-layout-this-tag-and-its-children-can-be-replaced-by-one-textview-and](https://stackoverflow.com/questions/3214424/android-layout-this-tag-and-its-children-can-be-replaced-by-one-textview-and)
+<https://stackoverflow.com/questions/3214424/android-layout-this-tag-and-its-children-can-be-replaced-by-one-textview-and>
 
 ## Snackbar
 

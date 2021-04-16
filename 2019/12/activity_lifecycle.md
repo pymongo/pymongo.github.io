@@ -1,6 +1,6 @@
 # [Activity Lifecycle](/2019/12/activity_lifecycle.md)
 
-[https://developer.android.com/guide/components/activities/activity-lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle)
+<https://developer.android.com/guide/components/activities/activity-lifecycle>
 
 <i class="fa fa-hashtag"></i>
 英文专业名词

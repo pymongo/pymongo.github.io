@@ -16,5 +16,5 @@ expect(response_body["data"])
 <i class="fa fa-hashtag"></i>
 参考链接
 
-- [https://stackoverflow.com/questions/52000714/rspec-check-if-array-contains-element-with-specified-id](https://stackoverflow.com/questions/52000714/rspec-check-if-array-contains-element-with-specified-id)
-- [https://stackoverflow.com/questions/23815944/rspec-match-array-of-hashes](https://stackoverflow.com/questions/23815944/rspec-match-array-of-hashes)
+- <https://stackoverflow.com/questions/52000714/rspec-check-if-array-contains-element-with-specified-id>
+- <https://stackoverflow.com/questions/23815944/rspec-match-array-of-hashes>

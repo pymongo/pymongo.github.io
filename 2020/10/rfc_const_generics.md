@@ -2,7 +2,7 @@
 
 我的翻译并不会按原文顺序逐字翻译，因为除了RFC的网页，还涉及相关PR和issues，以下是我对RFC#2000 const generic个人理解下的翻译
 
-[https://rust-lang.github.io/rfcs/2000-const-generics.html](https://rust-lang.github.io/rfcs/2000-const-generics.html)
+<https://rust-lang.github.io/rfcs/2000-const-generics.html>
 
 首先动态语言为什么没有常量，因为常量是编译时编译器将常量的字面量替换到使用该常量的地方，这也叫「内联优化」
 

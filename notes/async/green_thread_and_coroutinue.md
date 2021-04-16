@@ -103,6 +103,6 @@ sync blocking IO可能大学教科书里较多，现实工程中，Go/Ruby语言
 
 ### async evented non-blocking IO
 
-nginx, Node.js， 在await没出现时，js的异步写法容易陷入回调函数地狱(callback hell)[http://callbackhell.com/]
+nginx, Node.js， 在await没出现时，js的异步写法容易陷入回调函数地狱<http://callbackhell.com>
 
 后来回调地狱改成了ES6的promise语法，不停的.then，但是不会像回调那样多层嵌套
