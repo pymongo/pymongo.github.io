@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-04**
+    - [compile nginx-rtmp](/2021/04/compile_nginx_rtmp_source.md)
     - [rustup install rust-analyzer](/2021/04/rustup_install_rust_analyzer.md)
     - [smarctl ssd lifespan](/2021/04/smartctl_ssd_lifespan.md)
     - [manjaro KDE proxy setting](/2021/04/manjaro_kde_proxy.md)

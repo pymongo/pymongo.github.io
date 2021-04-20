@@ -262,86 +262,75 @@ rustc-dev component 会提供 rustc-src 也就是 rustc 源码
 
 ### /usr/share/dict/words
 
-mac 和树莓派的 respbian 系统都内置了英语语料库，方便系统预装的记事本等应用进行拼写错误检查
+mac 和树莓派的 raspbian 系统都在 `/usr/share/dict/words` 存放英语语料库，用于系统预装的记事本等应用进行拼写错误检查
 
-ubuntu 等 linux 系统可以装 gnu 的 aspell 获取常用英语单词的语料库，archlinux 用户可以装 `sudo pacman -S words` 这个包
+像 ubuntu_desktop 或 raspbian 这种带图形桌面环境的 linux 发行版一般会在 `/usr/share/dict/words` 内置语料库
+
+如果没有找到语料库，可以通过 `sudo apt install wbritish` 或 `sudo pacman -S words` 进行安装
 
 除了用操作系统自带的语料库，还可以选用 github 的 [english-words](https://github.com/dwyl/english-words) 仓库作为语料库
 
-### 语料库用 Rust 什么数据结构去存
+---
 
+## 拼写错误检查器 trait
 
-
-### 拼写错误建议的设计思路
-
-看 rustup 源码发现，输入一个错误的单词会从候选词中返回最近的几个词，
-
-在 rustup 源码中一般 2 个参数控制返回的候选词，一个参数决定 edit_distance 小于多少的候选词会被选中，这个参数在 rustup 源码中是个常量
-
-另一个参数则是决定需要返回几个候选词
-
-所以代码实现也很简单，将 40 万个单词从 txt 文件中读取，再存储成`Vec<String>`，然后将拼写错误的单词跟语料库的单词挨个计算 edit_distance，然后返回 edit_distance 最接近的 5 个词作为建议
-
-### 初版拼写检查工具的不足
-
-按照上述的设计思路很容易就写出了以下拼写检查工具，输入一个错误单词能找出最接近的 5 个正确单词
+为了方便更换语料库存储的数据结构，需要先对语料库的行为抽象出一个 trait，便于重构或复用代码
 
 ```rust
-#![feature(rustc_private)]
-extern crate rustc_span;
+trait TypoSuggestion {
+    /** OS_DICTIONARY_PATH
+    macos/raspbian: os built-in diction
+    ubuntu: sudo apt install wbritish
+    archlinux: sudo pacman -S words
+    */
+    const OS_DICTIONARY_PATH: &'static str = "/usr/share/dict/words";
+    const MAX_EDIT_DISTANCE: usize = 1;
+    const NUMBER_OF_SUGGESTIONS: usize = 5;
+    fn new() -> Self;
+    fn is_typo(&self, input_word: &str) -> bool;
+    fn typo_suggestions(&self, input_word: &str) -> Vec<String>;
+}
+```
 
-type MyResult<T> = Result<T, Box<dyn std::error::Error>>;
+trait TypoSuggestion 核心就两个函数: `fn is_typo()` 判断输入的单词是否在语料库中， `fn typo_suggestions()` 如果输入的单词拼写错误才返回若干个最相似的候选词建议
 
-struct TypoChecker {
-    /// TODO use tire(prefix tree) data structure to store words for better performance
+## Vec<String> 实现候选词建议
+
+既然操作系统语料库是个每行都是一个单词的文本文件，很容易想到用 `Vec<String>` 去存储每个单词，我将这个实现命名为: VecStringTypoChecker
+
+```rust
+pub struct VecStringTypoChecker {
     words: Vec<String>,
 }
 
-#[allow(dead_code)]
-impl TypoChecker {
+impl TypoSuggestion for VecStringTypoChecker {
     fn new() -> Self {
-        use std::io::{BufRead, BufReader, Write};
-        const WORDS_FILENAME: &str = "english_words.txt";
-
-        fn download_words_list() -> MyResult<()> {
-            let mut http_response = Vec::new();
-            let mut easy = curl::easy::Easy::new();
-            // english words corpus: github.com/dwyl/english-words
-            easy.url(
-                "https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt",
-            )?;
-            let mut transfer = easy.transfer();
-            transfer.write_function(|data| {
-                http_response.extend_from_slice(data);
-                Ok(data.len())
-            })?;
-            transfer.perform()?;
-            drop(transfer);
-            // cache words list to file
-            let mut file = std::fs::File::create(WORDS_FILENAME)?;
-            file.write_all(&http_response)?;
-            Ok(())
-        }
-
-        if !std::path::Path::new(WORDS_FILENAME).exists() {
-            download_words_list().unwrap();
-        }
+        use std::io::{BufRead, BufReader};
         let mut words = vec![];
-        let word_file = BufReader::new(std::fs::File::open(WORDS_FILENAME).unwrap());
-        for line in word_file.lines().flatten() {
-            words.push(line);
+        let word_file = BufReader::new(std::fs::File::open(Self::OS_DICTIONARY_PATH).unwrap());
+        for word in word_file.lines().flatten() {
+            words.push(word);
         }
         Self { words }
     }
 
-    fn typo_suggestions(&self, input: &str) -> Vec<String> {
+    fn is_typo(&self, input_word: &str) -> bool {
+        dbg!(self.words.len());
+        unsafe { dbg!(heapsize::heap_size_of(&self.words as *const Vec<String>)) };
+        !self.words.contains(&input_word.to_string())
+    }
+
+    fn typo_suggestions(&self, input_word: &str) -> Vec<String> {
+        if !self.is_typo(&input_word.to_string()) {
+            return vec![];
+        }
         let mut suggestions = vec![];
         for word in self.words.iter() {
-            let edit_distance = rustc_span::lev_distance::lev_distance(input, word);
-            if edit_distance < 2 {
+            let edit_distance = rustc_span::lev_distance::lev_distance(input_word, word);
+            if edit_distance <= Self::MAX_EDIT_DISTANCE {
                 suggestions.push(word.clone());
             }
-            if suggestions.len() > 5 {
+            if suggestions.len() > Self::NUMBER_OF_SUGGESTIONS {
                 break;
             }
         }
@@ -350,17 +339,17 @@ impl TypoChecker {
 }
 ```
 
-测试代码如下:
+VecStringTypoChecker 的测试代码如下:
 
 ```rust
 #[test]
 fn test_typo_checker() {
-    let typo_checker = TypoChecker::new();
-    let input = "doo";
+    let typo_checker = VecStringTypoChecker::new();
+    let input_word = "doo";
     println!(
         "Unknown word `{}`, did you mean one of {:?}?",
-        input,
-        typo_checker.typo_suggestions(input)
+        input_word,
+        typo_checker.typo_suggestions(input_word)
     );
 }
 ```
@@ -369,20 +358,60 @@ fn test_typo_checker() {
 
 > Unknown word `doo`, did you mean one of ["boo", "coo", "dao", "do", "doa", "dob"]?
 
-其实用长度为 40 多万的数组去存储语料库的每个单词的内存利用率是很低的，很多单词都是重复部分很多
+### VecStringTypoChecker 的时间复杂度
 
-于是业界用 trie 的数据结构去存单词，也叫前缀树，广泛用于输入法，搜索引擎候选词，代码自动补全等领域
+is_typo 要遍历整个数组判断输入单词是否在单词表里，显然时间复杂度是 O(n)
+
+假设单词表中平均单词长度为 k，输入单词的长度为 L，typo_suggestions 的时间复杂度则要 O(n\*L\*k)
+
+### valgrind 和 memusage 测量堆内存使用
+
+其实用数组去存储语料库的每个单词的内存利用率是很低的，很多单词都是重复部分很多
+
+以作者的电脑为例，存储在操作系统硬盘上的单词表有 11 万个单词，占据硬盘空间 1.2M
+
+> [w@w-manjaro ~]$ du -h `readlink -f /usr/share/dict/words`
+> 
+> 1.2M    /usr/share/dict/american-english
+
+那 1.2M 的单词文件以 `Vec<String>` 的数据结构在内存中需要占用多少空间呢？
+
+由于 Rust 标准库的 `std::mem::size_of` 只能测量栈上的空间，标准库没有测量智能指针在堆上占用空间的方法
+
+所以只能借助可执行文件的内存分析工具 `valgrind --tool=massif` 或 `memusage`
+
+```rust
+#[test]
+fn test_vec_string_typo_checker() {
+    let _ = VecStringTypoChecker::new();
+}
+```
+
+在 memusage 工具内运行上述单元测试，测试内只进行将操作系统语料库读取成 `Vec<String>` 的操作
+
+> memusage cargo test test_vec_string_typo_checker
+
+这里只关注 memeusage 输出结果的**堆内存**峰值信息:
+
+> Memory usage summary: heap total: 4450158, heap peak: 4409655, stack peak: 8800
+
+`VecStringTypoChecker::new()` 过程的堆内存峰值 大约是 4.2 MB，可能有些 Rust内部对象 堆内存使用会影响结果
+
+所以我效仿称重是要「去皮」的操作，让 memusage 测量一个 Rust 空函数的运行时堆内存峰值，空函数的堆内存峰值是 2-3 kb
+
+Rust 其它的一些堆内存使用相比 `VecStringTypoChecker::new()` 的 4.2 MB 小到可以忽略不计
+
+## Trie 前缀树/字典树
+
+1.2M 大约 11 万个单词用 `Vec<String>` 去存储大约需要 4.2M 的堆空间，显然不是很高效
 
 例如 doc, dot, dog 三个单词，如果用 `Vec<String>` 去存储，大约需要 9 个字节
 
 但是如果用"链表"去存储，这三个单词链表的前两个节点 'd' 和 'o' 可以共用，这样只需要 5 个链表节点大约 5 个字节的内存空间
 
-现在只需要解决两个问题就可以优化拼写检查的过程
+这样像链表一样共用单词的共同前缀的数据结构叫 **trie**，广泛用于输入法，搜索引擎候选词，代码自动补全等领域
 
-1. 前缀树存储语料库的实现
-2. (重点)针对前缀树数据结构的 edit_distance 算法
-
-### trie 前缀树的实现
+### 前缀树的插入和搜索
 
 正好 leetcode 上也有 [Implement Trie (Prefix Tree) 这种实现 trie 的算法题](https://leetcode.com/problems/implement-trie-prefix-tree/)
 
@@ -423,3 +452,31 @@ impl Trie {
     }
 }
 ```
+
+解读下 Trie 数据结构的 `children: [Option<Box<Trie>>; 26]` 字段
+
+26 表示当前节点往下延伸一共能扩展出 26 个小写字母，注意数组成员的类型是 `Option<Box<Trie>>`
+
+参考 Rust 单链表的实现，我们希望树的节点能分配到堆内存上，否则编译器会报错 `Recursive data type`
+
+想更深入探讨 Rust 链表相关问题的读者可以自行阅读 [too-many-lists](https://rust-unofficial.github.io/too-many-lists/) 系列文章
+
+Trie 的 is_word 字段表示从根节点到当前节点的路径能组成一个单词
+
+如果没有这个 is_word 标注，那么插入一个 apple 单词时，无法得知 apple 路径上的 app 是不是也是一个单词
+
+
+
+
+
+
+
+
+
+
+
+
+现在只需要解决两个问题就可以优化拼写检查的过程
+
+1. 前缀树存储语料库的实现
+2. (重点)针对前缀树数据结构的 edit_distance 算法
