@@ -2,6 +2,10 @@
 
 protobuf是一种Google发布的一种数据传输协议/序列化格式，无论是服务端或前端序列化反序列化的性能以及压缩率都要比json优秀
 
+我对protobuf的简评: 前后端共用一套数据结构，相比我之前做过的rails+android_gson的项目来说，protobuf基本不会遇到反序列化失败、参数字段缺失等问题，解析protobuf比解析json出错更少，配合rust的模式匹配+错误处理几乎能穷举所有可能的错误
+
+当前protobuf的不足: Rust的类型系统要比protobuf还有丰富，例如Rust的Result在protobuf中没有更接近的表达
+
 ## protobuf的类型
 
 为了跨语言跨平台，protobuf是没有u8、i16这些类型的，最低支持32位整数，如有需要则可以自行定义message type
@@ -72,4 +76,4 @@ protoc能静态检查proto文件的语法错误，而protobuf-codegen-pure构建
 
 > Field number 1 has already been used in "User" by field "id"
 
-但是使用protobuf-codegen-pure时则是在运行时decode会panic: "WireError(UnexpectedWireType(WireTypeLengthDelimited)"
+以上报错用 protobuf-codegen-pure在编译时不会报错，vi 时则是在运行时decode会panic: "WireError(UnexpectedWireType(WireTypeLengthDelimited)"

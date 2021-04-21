@@ -1,17 +1,5 @@
 # [用 rustc 源码实现拼写错误候选词建议](/2021/04/rustc_edit_distance_and_typo_checker.md)
 
----
-pub_date: Sat, 27 Mar 2021 16:00:00 GMT
-description: Executable file under `no_std` environment
-
----
-
-# 用 rustc 源码实现拼写错误候选词建议
-
-作者: 吴翱翔@pymongo
-
-> 原文: [用 rustc 源码实现拼写错误候选词建议](https://pymongo.github.io/#/2021/04/rustc_edit_distance_and_typo_checker.md)
-
 最近想给一个聊天应用的聊天消息输入框加上拼写错误检查，毕竟 word, keynote 等涉及文本输入的软件都有拼写错误检查和纠错功能
 
 于是想到开发中经常用的 rustup, cargo, rustc 不就内置了拼写错误时纠错建议的功能么?
@@ -84,6 +72,8 @@ rustup的 `damerau_levenshtein` 来自 ***strsim*** 库，除了 rustup, darling
 rustc 源码会尽量不用第三方库，所以我猜测 rustc 不会像 rustup 那样用 strsim 源码，那就看看 rustc 的实现会不会更好
 
 在 Rust 的 github 仓库中搜索`edit distance`关键字能找到[Make the maximum edit distance of typo suggestions](https://github.com/rust-lang/rust/commit/93d01eb443d0f871716c9d7faa3b69dc49662663) 的 commit
+
+typo 就是单词拼写错误的意思，本文也会将单词拼写错误简称为 typo
 
 顺着这个 commit 的改动在 `find_best_match_for_name` 函数内调用了 `lev_distance` 函数去计算两个字符串的编辑距离
 
@@ -223,7 +213,7 @@ nm: sanitizer_netbsd.cpp.o: no symbols
 extern crate rustc_span;
 ```
 
-### rust-analyzer 对 rustc 源码静态分析
+### rust-analyzer 对 rustc 静态分析
 
 然后在 Cargo.toml 中加入以下内容，
 
@@ -236,7 +226,7 @@ rustc_private = true
 
 然后参考 rust-analyzer 的这两个 [#6714](https://github.com/rust-analyzer/rust-analyzer/issues/6714), [#7589](https://github.com/rust-analyzer/rust-analyzer/issues/7589)
 
-想让 rust-analyzer 对 rustc 的使用进行静态分析，需要设置 rustc 源码的路径:
+想让 rust-analyzer 对 rustc 函数的使用进行静态分析，需要设置 rustc 源码的路径:
 
 > "rust-analyzer.rustcSource": "/home/w/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_driver/Cargo.toml"
 
@@ -277,18 +267,31 @@ mac 和树莓派的 raspbian 系统都在 `/usr/share/dict/words` 存放英语�
 为了方便更换语料库存储的数据结构，需要先对语料库的行为抽象出一个 trait，便于重构或复用代码
 
 ```rust
-trait TypoSuggestion {
-    /** OS_DICTIONARY_PATH
-    macos/raspbian: os built-in diction
-    ubuntu: sudo apt install wbritish
-    archlinux: sudo pacman -S words
-    */
-    const OS_DICTIONARY_PATH: &'static str = "/usr/share/dict/words";
+pub trait TypoSuggestion: Sized + Default {
     const MAX_EDIT_DISTANCE: usize = 1;
     const NUMBER_OF_SUGGESTIONS: usize = 5;
-    fn new() -> Self;
-    fn is_typo(&self, input_word: &str) -> bool;
-    fn typo_suggestions(&self, input_word: &str) -> Vec<String>;
+    fn insert(&mut self, word: String);
+    fn read_os_dictionary(&mut self) {
+        /** OS_DICTIONARY_PATH
+        macos/raspbian: os built-in diction
+        ubuntu: sudo apt install wbritish
+        archlinux: sudo pacman -S words
+        */
+        const OS_DICTIONARY_PATH: &str = "/usr/share/dict/words";
+        use std::io::{BufRead, BufReader};
+        let word_file = BufReader::new(std::fs::File::open(OS_DICTIONARY_PATH).unwrap());
+        for word in word_file.lines().flatten() {
+            self.insert(word)
+        }
+    }
+    /// return type Self must bound Sized
+    fn new() -> Self {
+        let mut typo_checker = Self::default();
+        typo_checker.read_os_dictionary();
+        typo_checker
+    }
+    fn is_typo(&self, word: &str) -> bool;
+    fn typo_suggestions(&self, word: &str) -> Vec<String>;
 }
 ```
 
@@ -296,37 +299,31 @@ trait TypoSuggestion 核心就两个函数: `fn is_typo()` 判断输入的单词
 
 ## Vec<String> 实现候选词建议
 
-既然操作系统语料库是个每行都是一个单词的文本文件，很容易想到用 `Vec<String>` 去存储每个单词，我将这个实现命名为: VecStringTypoChecker
+既然操作系统语料库是个每行都是一个单词的文本文件，很容易想到用 `Vec<String>` 去存储每个单词，我将这个实现命名为: VecTypoChecker
 
 ```rust
-pub struct VecStringTypoChecker {
+#[derive(Default)]
+pub struct VecTypoChecker {
     words: Vec<String>,
 }
 
-impl TypoSuggestion for VecStringTypoChecker {
-    fn new() -> Self {
-        use std::io::{BufRead, BufReader};
-        let mut words = vec![];
-        let word_file = BufReader::new(std::fs::File::open(Self::OS_DICTIONARY_PATH).unwrap());
-        for word in word_file.lines().flatten() {
-            words.push(word);
-        }
-        Self { words }
+impl TypoSuggestion for VecTypoChecker {
+    fn insert(&mut self, word: String) {
+        self.words.push(word);
     }
 
-    fn is_typo(&self, input_word: &str) -> bool {
-        dbg!(self.words.len());
-        unsafe { dbg!(heapsize::heap_size_of(&self.words as *const Vec<String>)) };
-        !self.words.contains(&input_word.to_string())
+    fn is_typo(&self, word: &str) -> bool {
+        !self.words.contains(&word.to_string())
     }
 
-    fn typo_suggestions(&self, input_word: &str) -> Vec<String> {
-        if !self.is_typo(&input_word.to_string()) {
+    fn typo_suggestions(&self, word: &str) -> Vec<String> {
+        let input_word = word.to_string();
+        if !self.is_typo(&input_word) {
             return vec![];
         }
         let mut suggestions = vec![];
         for word in self.words.iter() {
-            let edit_distance = rustc_span::lev_distance::lev_distance(input_word, word);
+            let edit_distance = rustc_span::lev_distance::lev_distance(&input_word, word);
             if edit_distance <= Self::MAX_EDIT_DISTANCE {
                 suggestions.push(word.clone());
             }
@@ -339,12 +336,12 @@ impl TypoSuggestion for VecStringTypoChecker {
 }
 ```
 
-VecStringTypoChecker 的测试代码如下:
+VecTypoChecker 的测试代码如下:
 
 ```rust
 #[test]
 fn test_typo_checker() {
-    let typo_checker = VecStringTypoChecker::new();
+    let typo_checker = VecTypoChecker::new();
     let input_word = "doo";
     println!(
         "Unknown word `{}`, did you mean one of {:?}?",
@@ -358,7 +355,7 @@ fn test_typo_checker() {
 
 > Unknown word `doo`, did you mean one of ["boo", "coo", "dao", "do", "doa", "dob"]?
 
-### VecStringTypoChecker 的时间复杂度
+### VecTypoChecker 的时间复杂度
 
 is_typo 要遍历整个数组判断输入单词是否在单词表里，显然时间复杂度是 O(n)
 
@@ -368,13 +365,17 @@ is_typo 要遍历整个数组判断输入单词是否在单词表里，显然时
 
 其实用数组去存储语料库的每个单词的内存利用率是很低的，很多单词都是重复部分很多
 
-以作者的电脑为例，存储在操作系统硬盘上的单词表有 11 万个单词，占据硬盘空间 1.2M
+先用 wc 和 du 命令查看操作系统单词表的收录的单词数和占用硬盘空间大小
 
-> [w@w-manjaro ~]$ du -h `readlink -f /usr/share/dict/words`
-> 
+> [w@w-manjaro ~]$ wc -l /usr/share/dict/words
+>
+> 123115 /usr/share/dict/words
+>
+> [w@w-manjaro ~]$ du -h \`readlink -f /usr/share/dict/words\`
+>
 > 1.2M    /usr/share/dict/american-english
 
-那 1.2M 的单词文件以 `Vec<String>` 的数据结构在内存中需要占用多少空间呢？
+那 12 万个单词 1.2M 的单词文件以数组的数据结构在内存中需要占用多少空间呢？
 
 由于 Rust 标准库的 `std::mem::size_of` 只能测量栈上的空间，标准库没有测量智能指针在堆上占用空间的方法
 
@@ -382,101 +383,420 @@ is_typo 要遍历整个数组判断输入单词是否在单词表里，显然时
 
 ```rust
 #[test]
-fn test_vec_string_typo_checker() {
-    let _ = VecStringTypoChecker::new();
+fn test_vec_typo_checker() {
+    let _ = VecTypoChecker::new();
 }
 ```
 
 在 memusage 工具内运行上述单元测试，测试内只进行将操作系统语料库读取成 `Vec<String>` 的操作
 
-> memusage cargo test test_vec_string_typo_checker
+> memusage cargo test test_vec_typo_checker
 
 这里只关注 memeusage 输出结果的**堆内存**峰值信息:
 
 > Memory usage summary: heap total: 4450158, heap peak: 4409655, stack peak: 8800
 
-`VecStringTypoChecker::new()` 过程的堆内存峰值 大约是 4.2 MB，可能有些 Rust内部对象 堆内存使用会影响结果
+`VecTypoChecker::new()` 过程的堆内存峰值 大约是 4.2 MB，可能有些 Rust内部对象 堆内存使用会影响结果
 
 所以我效仿称重是要「去皮」的操作，让 memusage 测量一个 Rust 空函数的运行时堆内存峰值，空函数的堆内存峰值是 2-3 kb
 
-Rust 其它的一些堆内存使用相比 `VecStringTypoChecker::new()` 的 4.2 MB 小到可以忽略不计
+Rust 其它的一些堆内存使用相比 `VecTypoChecker::new()` 的 4.2 MB 小到可以忽略不计
 
 ## Trie 前缀树/字典树
 
-1.2M 大约 11 万个单词用 `Vec<String>` 去存储大约需要 4.2M 的堆空间，显然不是很高效
+1.2M 大约 12 万个单词用数组去存储大约需要 4.2M 的堆空间，显然不是很高效
 
-例如 doc, dot, dog 三个单词，如果用 `Vec<String>` 去存储，大约需要 9 个字节
+例如 doc, dot, dog 三个单词，如果用 Vec 数组去存储，大约需要 9 个字节
 
 但是如果用"链表"去存储，这三个单词链表的前两个节点 'd' 和 'o' 可以共用，这样只需要 5 个链表节点大约 5 个字节的内存空间
 
 这样像链表一样共用单词的共同前缀的数据结构叫 **trie**，广泛用于输入法，搜索引擎候选词，代码自动补全等领域
 
-### 前缀树的插入和搜索
+### 前缀树的数据结构
 
 正好 leetcode 上也有 [Implement Trie (Prefix Tree) 这种实现 trie 的算法题](https://leetcode.com/problems/implement-trie-prefix-tree/)
 
 ```rust
 #[derive(Default)]
-struct Trie {
-    children: [Option<Box<Trie>>; 26],
-    is_word: bool,
+pub struct TrieTypoChecker {
+    children: [Option<Box<Self>>; 26],
+    is_word: bool
 }
+```
 
-impl Trie {
-    fn new() -> Self {
-        Self::default()
-    }
+解读下前缀树数据结构的 `children: [Option<Box<Self>>; 26]` 字段
 
+26 表示当前节点往下延伸一共能扩展出 26 个小写字母，用 Option 表达了某个小写字母的子节点是否存在
+
+用 Box 是因为参考了 Rust 单链表的实现，我们希望树的节点能分配到堆内存上，否则编译器会报错 `recursive type has infinite size`
+
+想更深入探讨 Rust 链表相关问题的读者可以自行阅读 [too-many-lists](https://rust-unofficial.github.io/too-many-lists/) 系列文章
+
+前缀树的 is_word 字段表示从根节点到当前节点的路径能组成一个单词
+
+如果没有这个 is_word 标注，那么插入一个 apple 单词时，无法得知 apple 路径上的 app 是不是也是一个单词
+
+`#[derive(Default)]`的目的是方便创建一个子节点全为 None 的前缀树节点
+
+### 前缀树的路径压缩
+
+实际生产环境中前缀树实现会比上述实现要复杂得多，要考虑类似「**并查集**」的「**路径压缩**」
+
+例如有个单词是`aaaaa`，那么插入到前缀树就会形成深度为 5 层的树
+
+树的深度过深不够"饱满"，这样内存利用率不高，需要把树 ***压扁*** (路径压缩)
+
+### 前缀树的插入
+
+```rust
+impl TypoSuggestion for TrieTypoChecker {
     fn insert(&mut self, word: String) {
-        let mut node = self;
+        let mut curr_node = self;
         for letter in word.into_bytes().into_iter().map(|ch| (ch - b'a') as usize) {
-            node = node.children[letter].get_or_insert_with(|| Box::new(Trie::default()))
+            curr_node = curr_node.children[letter].get_or_insert_with(|| Box::new(Self::default()))
         }
-        node.is_word = true;
-    }
-
-    fn find_node(&self, word: &str) -> Option<&Self> {
-        let mut node = self;
-        for letter in word.into_iter().map(|ch| (ch - b'a') as usize) {
-            node = node.children[letter].as_ref()?;
-        }
-        Some(node)
-    }
-
-    fn search(&self, word: String) -> bool {
-        self.find_node(&word).map_or(false, |node| node.is_word)
-    }
-
-    fn starts_with(&self, prefix: String) -> bool {
-        self.find_node(&prefix).is_some()
+        curr_node.is_word = true;
     }
 }
 ```
 
-解读下 Trie 数据结构的 `children: [Option<Box<Trie>>; 26]` 字段
+但上述前缀树的插入方法，在读取操作系统的自带的单词表时会 `panicked at 'attempt to subtract with overflow'`
 
-26 表示当前节点往下延伸一共能扩展出 26 个小写字母，注意数组成员的类型是 `Option<Box<Trie>>`
+原因是操作系统的单词表中除了小写字母还有大写字母和单引号
 
-参考 Rust 单链表的实现，我们希望树的节点能分配到堆内存上，否则编译器会报错 `Recursive data type`
+为了简便我们把单词表中的大写字母转为小写再去掉除小写字母以外的字符，这样就能把单词表转为前缀树
 
-想更深入探讨 Rust 链表相关问题的读者可以自行阅读 [too-many-lists](https://rust-unofficial.github.io/too-many-lists/) 系列文章
+```rust
+fn insert(&mut self, word: String) {
+    let word = word
+        .into_bytes()
+        .into_iter()
+        .map(|ch| ch.to_ascii_lowercase())
+        .filter(|ch| matches!(ch, b'a'..=b'z'))
+        .collect::<Vec<u8>>();
+    let mut curr_node = self;
+    for letter in word.into_iter().map(|ch| (ch - b'a') as usize) {
+        curr_node = curr_node.children[letter].get_or_insert_with(|| Box::new(Self::default()))
+    }
+    curr_node.is_word = true;
+}
+```
 
-Trie 的 is_word 字段表示从根节点到当前节点的路径能组成一个单词
+再写个构造前缀树并读取操作系统单词表的测试用例，跟数组的实现对比下空间复杂度
 
-如果没有这个 is_word 标注，那么插入一个 apple 单词时，无法得知 apple 路径上的 app 是不是也是一个单词
+```rust
+#[test]
+fn test_trie_typo_checker() {
+    let _ = TrieTypoChecker::new();
+}
+```
 
+> memusage cargo test test_trie_typo_checker
 
+memusage 测试结果显示，前缀树存储 12 万 个单词只需要花 784 kb 的堆内存空间
 
+相比单词表磁盘文件占用 1.2M 硬盘空间，用前缀树存储只 700 多 kb 确实有「**压缩**」的效果
 
+相比用数组存储单词表消耗 4.2M 内存，前缀树在*空间复杂度*上大约有 80% 的提升
 
+再写一个性能测试对比数组和前缀树读取单词表的时间复杂度
 
+```rust
+#![feature(test)]
+extern crate test;
+use typo_checker::{TypoSuggestion, VecTypoChecker, TrieTypoChecker};
 
+#[bench]
+fn bench_vec_read_dictionary(bencher: &mut test::Bencher) {
+    bencher.iter(|| {
+        VecTypoChecker::new();
+    });
+}
 
+#[bench]
+fn bench_trie_read_dictionary(bencher: &mut test::Bencher) {
+    bencher.iter(|| {
+        TrieTypoChecker::new();
+    });
+}
+```
 
+benchmark 的运行结果:
 
+```
+     Running unittests (target/release/deps/bench-c073956b9e337dbe)
 
+running 2 tests
+test bench_trie_read_dictionary ... bench:  39,724,024 ns/iter (+/- 2,954,476)
+test bench_vec_read_dictionary  ... bench:  11,928,761 ns/iter (+/- 386,083)
+```
 
-现在只需要解决两个问题就可以优化拼写检查的过程
+发现前缀树插入 12 万个单词比数组快 3 倍，而且前缀树插入单词时还有「**去重**」的功能，数组插入单词想去重还要额外的性能开销
 
-1. 前缀树存储语料库的实现
-2. (重点)针对前缀树数据结构的 edit_distance 算法
+小结: 前缀树读单词表，时间复杂度上比数组快 3 倍多，空间复杂度上比数组节约 80%
+
+### 前缀树的查询
+
+查询某个单词是否在前缀树内，其实就是前文提到的 TypoSuggestion trait 的 is_typo 函数
+
+```rust
+fn is_typo(&self, word: &str) -> bool {
+    let word = word.as_bytes();
+    let mut curr_node = self;
+    for letter in word {
+        let index = (letter - b'a') as usize;
+        match curr_node.children[index] {
+            Some(ref child_node) => {
+                curr_node = child_node.as_ref();
+            }
+            None => {
+                return true;
+            }
+        }
+    }
+    !curr_node.is_word
+}
+```
+
+再写一个 benchmark 对比数组和前缀树的查询功能
+
+```rust
+#[bench]
+fn bench_vec_search(bencher: &mut test::Bencher) {
+    let typo_checker = VecTypoChecker::new();
+    bencher.iter(|| {
+        assert_eq!(typo_checker.is_typo("doo"), true);
+        assert_eq!(typo_checker.is_typo("lettuce"), false);
+    });
+}
+
+#[bench]
+fn bench_trie_search(bencher: &mut test::Bencher) {
+    let typo_checker = TrieTypoChecker::new();
+    bencher.iter(|| {
+        assert_eq!(typo_checker.is_typo("doo"), true);
+        assert_eq!(typo_checker.is_typo("lettuce"), false);
+    });
+}
+```
+
+查询功能的测试结果:
+
+```
+test bench_trie_search          ... bench:           8 ns/iter (+/- 2)
+test bench_vec_search           ... bench:     351,254 ns/iter (+/- 176,276)
+```
+
+小结: 查询某个单词是否在前缀树比数组快了 5 个数量级
+
+---
+
+## 前缀树的编辑距离
+
+虽说前缀树的插入和查询都比数组快，但前缀树的删除比数组要难，前缀树编辑距离的实现更是非常难(需要记忆化深度优先搜索等诸多复杂算法)
+
+知乎上有个相关的提问: [鹅厂面试题，英语单词拼写检查算法 - 知乎](https://www.zhihu.com/question/29592463)
+
+很多回答都引用了[这篇文章](http://norvig.com/spell-correct.html)
+
+说实话最佳回答或上述文章都大量使用了 Python 的字符串拼接，每次拼接操作都会 new 一块字符串的堆内存
+
+这样频繁字符串拼接操作性能开销大，不能让我满意
+
+```rust
+impl TypoSuggestion for TrieTypoChecker {
+    fn typo_suggestions(&self, word: &str) -> Vec<String> {
+        let mut dfs_helper = DfsHelper {
+            suggestions: vec![],
+            path: vec![],
+            typo_checker: &self,
+        };
+        dfs_helper.dfs(&self);
+        dfs_helper.suggestions
+    }
+}
+
+/// 为了偷懒，把dfs一些不关键的递归间全局共享的状态放到一个结构体
+struct DfsHelper<'a> {
+    /// 返回值
+    suggestions: Vec<String>,
+    /// 当前深度优先搜索，从根节点到当前节点的遍历路径
+    path: Vec<u8>,
+    typo_checker: &'a TrieTypoChecker,
+}
+
+impl<'a> DfsHelper<'a> {
+    fn dfs(&mut self, curr_node: &TrieTypoChecker) {
+
+    }
+}
+```
+
+由于搜索的是前缀树内相似的单词，所以不适合用广度优先搜索去遍历，用递归实现深度优先搜索比较方便
+
+为了减少 dfs 函数传参个数以及便于增删和管理递归函数的「无需**回溯**」的入参，我定义了一个 DfsHelper
+
+首先由于前缀树整体是个树，不方便像数组实现遍历所有单词挨个与输入单词之间计算编辑距离
+
+虽然较难前缀树的编辑距离实现难度很高，但是还是先写出**单元测试**，以 TDD 的方式开发逐渐迭代和逼近正确的实现代码
+
+```rust
+
+#[test]
+fn test_trie_typo_checker() {
+    const TEST_CASES: [(&str, &[&str]); 1] = [
+        ("doo", &["boo", "coo", "dao", "do", "doa", "dob"])
+    ];
+    let typo_checker = TrieTypoChecker::new();
+    for (input, output) in std::array::IntoIter::new(TEST_CASES) {
+        assert_eq!(typo_checker.typo_suggestions(input), output);
+    }
+}
+```
+
+### 递归的结束条件
+
+由于前文中的 trait TypoSuggestion 的 NUMBER_OF_SUGGESTIONS 参数默认为 5
+
+所以很容易想到一个递归结束条件就是 当前深度优先搜索已经找到 5 个 候选词了
+
+另一个递归结束条件就是输入单词已经被扫描完了
+
+### 深度优先搜索的剪枝
+
+如果当前遍历到的单词跟输入的单词的编辑距离超过 1,就可以进行「剪枝」
+
+这样能大大减少遍历前缀树的节点数量，作者水平有限，可能还有其它递归结束条件和剪枝条件没能想到
+
+### 简陋的编辑距离搜索
+
+```rust
+impl TypoSuggestion for TrieTypoChecker {
+    // ...
+    fn typo_suggestions(&self, word: &str) -> Vec<String> {
+        let mut dfs_helper = DfsHelper {
+            input_word: word.as_bytes().to_vec(),
+            input_word_len: word.len(),
+            output_suggestions: vec![],
+            path: vec![],
+        };
+        dfs_helper.dfs(&self, 0, 1);
+        dfs_helper.output_suggestions
+    }
+}
+
+struct DfsHelper {
+    /// 输入的单词
+    input_word: Vec<u8>,
+    input_word_len: usize,
+    /// 返回值
+    output_suggestions: Vec<String>,
+    /// 当前深度优先搜索，从根节点到当前节点的路径(path root to curr_node)
+    path: Vec<u8>,
+}
+
+impl DfsHelper {
+    fn dfs(&mut self, curr_node: &TrieTypoChecker, input_word_index: usize, edit_times: i32) {
+        if edit_times < 0 {
+            return;
+        }
+
+        if input_word_index == self.input_word_len {
+            if curr_node.is_word {
+                self.output_suggestions.push(unsafe { String::from_utf8_unchecked(self.path.clone()) });
+            }
+            if edit_times == 0 {
+                return;
+            }
+            // 输入单词遍历遍历完了，如果还有编辑次数可用，则用剩余的编辑次数给当前dfs遍历路径组成的单词词尾巴追加字母
+            // 例如 input_word="do", trie从根到当前节点的路径d->o遍历完还剩余1次编辑次数，则可以用做增加操作，把g加到当前路径中
+            for (i, child_node_opt) in curr_node.children.iter().take(26).enumerate() {
+                if let Some(child_node) = child_node_opt {
+                    self.path.push(b'a' + i as u8);
+                    self.dfs(child_node, input_word_index, edit_times-1);
+                    self.path.pop().unwrap();
+                }
+            }
+            return;
+        }
+
+        if self.output_suggestions.len() >= TrieTypoChecker::NUMBER_OF_SUGGESTIONS {
+            return;
+        }
+
+        let curr_letter_index = (self.input_word[input_word_index] - b'a') as usize;
+        for (i, child_node_opt) in curr_node.children.iter().take(26).enumerate() {
+            if let Some(child_node) = child_node_opt {
+                if i == curr_letter_index {
+                    self.path.push(self.input_word[input_word_index]);
+                    self.dfs(child_node, input_word_index+1, edit_times);
+                    self.path.pop().unwrap();
+                } else {
+                    // replace
+                    self.path.push(b'a' + i as u8);
+                    self.dfs(child_node, input_word_index+1, edit_times-1);
+                    self.path.pop().unwrap();
+                }
+            }
+        }
+
+    }
+}
+```
+
+输出看上去很接近拼写错误单词:
+
+> Unknown word `doo`, did you mean one of ["boo", "coo", "doa", "dob", "doc", "dod", "doe", "dog", "don", "doom", "door", "dos", "dot", "dow", "doz"]?
+
+遗憾的是还未能实现编辑距离的删除操作，相比知乎上那个最佳回答还少了很多情况的判断
+
+再看看单元测试的情况:
+
+```
+thread 'test_trie_typo_checker' panicked at 'assertion failed: `(left == right)`
+  left: `["boo", "coo", "doa", "dob", "doc", "dod", "doe", "dog", "don", "doom", "door", "dos", "dot", "dow", "doz"]`,
+ right: `["boo", "coo", "dao", "do", "doa", "dob"]`', src/lib.rs:182:9
+```
+
+首先肉眼看错误单词 doo 返回的候选词基本满足，期望返回 5 个候选词，结果超过返回超过 5 个
+
+但是没有将 do 收录进候选词，因为上述代码还没支持编辑距离的删除操作
+
+其次候选词的排序似乎跟数组的实现不一样，原因是这个前缀树的遍历并不是跟数组按字母顺序遍历单词表一样
+
+准确的说法是**26 叉树的深度优先回溯搜索**，类似的算法可以参考 [leetcode lexicographical 一题](https://leetcode.com/problems/lexicographical-numbers/)
+
+所以单元测试的期待值校验应该改成，遍历每一个候选词用 rustc_span::lev_distance::lev_distance 去计算跟输入单词之间的编辑距离
+
+如果全部候选词的编辑距离小于等于 1 则测试通过
+
+### 简陋编辑距离实现的不足
+
+1. 还没支持字符串编辑距离的删除操作
+2. 没有测试入参 edit_times >= 2 的情况
+3. 应该用迭代模拟递归，递归代码对编译器不友好，难优化
+4. 应当做成 iterator 或 generator 可以逐个输出值，返回值要实现标准库相关的 Iter trait
+5. 改良测试用例的期待值校验方法
+
+---
+
+## 单词拼写检查器还能干什么
+
+作者一开始参与 sqlx 项目也是只能提 PR 修些 `typo` (typo 就是单词拼写错误的意思)
+
+通过修 typo 的过程更仔细的阅读了多遍源码，更深入理解 sqlx 的架构，日后渐渐修复了 sqlx sqlite 部分的几个 Bug
+
+本文讲述的这个拼写检查器，还可以用来检查开源项目的一些 typo
+
+Rust 2021 年 4 月的这个 [PR](https://github.com/rust-lang/rust/pull/84334/files)
+ 只是修复些拼写错误，但也算对 Rust 的开源社区做出贡献
+
+希望更多人能像作者这样从修复 typo 开始参与开源项目，慢慢能解决更困难的 issue，逐渐为开源社区做出更大的贡献
+
+## 项目的 github 链接与总结
+
+拼写错误候选词建议源码的 github 仓库链接: <https://github.com/pymongo/typo_checker> (持续更新，欢迎 star)
+
+总的来说前缀树存储单词表性能会比数组优秀太多，后续打算添加一个检查一篇文章的单词拼写错误例子
+
+然后再加一个实时检测 android 的 EditText 文本输入组件的单词拼写错误的示例
