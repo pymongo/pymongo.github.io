@@ -308,6 +308,10 @@ screen_edge设置里鼠标移到右上角就显示show desktops这个没用
 
 不需要cmd+L键锁屏(mac的chrome cmd+L是光标移到网址，总是误按)，用krunner输入lock the screen进行锁屏
 
+### 启用spell check
+
+详细过程看我另一篇文章: [解决 KDE spell check 报错](/2021/04/manjaro_kde_spell_check.md)
+
 ## idea配置
 
 idea和pycharm这类有免费的社区版的软件用pacman安装即可，像CLion这样的就得AUR或者官网下载

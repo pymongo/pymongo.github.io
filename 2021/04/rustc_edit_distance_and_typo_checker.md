@@ -87,6 +87,8 @@ edit_distance 是个动态规划算法或字符串算法的经典问题，果然
 
 原因是 strsim 的 edit_distance 算法动态规划的空间复杂度是 O(n^2)，而 rustc 的实现空间复杂度是 O(n)
 
+leetcode edit_distance 更多解法可以参考[我的题解](https://github.com/pymongo/leetcode-rust/blob/master/src/dp/edit_distance.rs)
+
 ### edit_distance 算法
 
 从 rustc 源码的 lev_distance 函数签名 `fn lev_distance(a: &str, b: &str) -> usize` 来看
@@ -257,6 +259,8 @@ mac 和树莓派的 raspbian 系统都在 `/usr/share/dict/words` 存放英语�
 像 ubuntu_desktop 或 raspbian 这种带图形桌面环境的 linux 发行版一般会在 `/usr/share/dict/words` 内置语料库
 
 如果没有找到语料库，可以通过 `sudo apt install wbritish` 或 `sudo pacman -S words` 进行安装
+
+KDE 想让系统应用启用拼写检查功能，需要安装拼写检查相关的动态链接库和词典，详细过程可以看我的这篇文章: [解决 KDE spell check 报错](/2021/04/manjaro_kde_spell_check.md)
 
 除了用操作系统自带的语料库，还可以选用 github 的 [english-words](https://github.com/dwyl/english-words) 仓库作为语料库
 
