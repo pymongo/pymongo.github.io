@@ -339,6 +339,12 @@ linux下的idea首先要安装官方的mac_keymap插件才能导入mac的配置
 
 ---
 
+## 千万不要 sudo reboot
+
+一定要执行 sync 命令后再 sudo reboot
+
+或者用 sudo shutdown -R，否则一旦内核更新但没装载到硬盘，一旦reboot图形界面就挂了
+
 ## Linux桌面快捷键
 
 像`Alt+F2`和`Ctrl+Alt+F1`等等都是所有Linux桌面都有的快捷键

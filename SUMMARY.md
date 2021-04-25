@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-04**
+    - [linux ntfsfix](/2021/04/ntfsfix.md)
     - [用 rustc 源码实现拼写错误候选词建议](/2021/04/rustc_edit_distance_and_typo_checker.md)
     - [compile nginx-rtmp](/2021/04/compile_nginx_rtmp_source.md)
     - [rustup install rust-analyzer](/2021/04/rustup_install_rust_analyzer.md)

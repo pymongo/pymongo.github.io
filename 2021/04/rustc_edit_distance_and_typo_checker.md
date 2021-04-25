@@ -800,3 +800,7 @@ Rust 2021 年 4 月的这个 [PR](https://github.com/rust-lang/rust/pull/84334/f
 总的来说前缀树存储单词表性能会比数组优秀太多，后续打算添加一个检查一篇文章的单词拼写错误例子
 
 然后再加一个实时检测 android 的 EditText 文本输入组件的单词拼写错误的示例
+
+## 参考链接
+
+<https://wilbeibi.com/2015/05/2015-05-09-K_edit_distances/>

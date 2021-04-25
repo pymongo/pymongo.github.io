@@ -33,6 +33,8 @@ Apr 08 13:10:58 systemd[1]: trojan.service: Failed with result 'exit-code'.
 
 在需要走代理的命令前面加上`ALL_PROXY=socks5://127.0.0.1:1080`就行了
 
+或者加上 `socks_proxy=127.0.0.1:1080`
+
 如下所示(IP地址已打码)，加上代理后curl能访问ifconfig.me，但是不加代理直到10秒TIMEOUT都连不上ifconfig.me
 
 ```
