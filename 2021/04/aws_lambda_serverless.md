@@ -8,7 +8,15 @@
 
 我学到了 broker=券商 的术语，但我质疑了 PPT 中 orderbook 用 BTreeMap 存储 peek/poll 操作的时间复杂度不是 O(1)
 
-TODO Java/Rust 的 TreeMap 的 firstEntry 的时间复杂度
+## TreeMap firstEntry 的时间复杂度
+
+<https://stackoverflow.com/questions/11836373/what-is-the-runtime-complexity-in-big-o-of-the-java-treemap-firstentry-method>
+
+BTreeMap的first_leaf_edge函数跟上述Java first_entry类似，每次迭代能前往二叉树的下一层
+
+一次迭代能前往二叉树的下一层，假设二叉树的节点有n个，最坏情况下每层一个节点，这first_entry()就要O(n)的时间复杂度
+
+但是BTreeMap可能用的是红黑树?B+树?，二叉树会尽量排满的，假如二叉树每层都排满，n个节点的二叉树，高度就只有logn层，所以用O(logn)就能到最底层
 
 ## 什么是 serverless
 

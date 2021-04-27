@@ -143,7 +143,7 @@ ra等工具链的安装和配置请看我另一篇文章: [vscode配置Rust环�
 
 我项目里数据库主要用mongodb和redis，照着mongodb的arch wiki教程装完后改下systemd配置文件的ExecStart即可启动
 
-至于docker安装可以参考[这篇文章](https://github.com/vkill/Archlinux/blob/master/Docker.md)
+至于docker安装可以参考 <https://github.com/vkill/Archlinux/blob/master/Docker.md>
 
 ### java版本切换
 
@@ -328,20 +328,11 @@ linux下的idea首先要安装官方的mac_keymap插件才能导入mac的配置
 
 还是建议尽早适应emacs布局，mac布局cmd+鼠标左键还是不能跳到方法定义，得用super(meta)+b
 
-## vscode配置
+## vscode别装OSS版本
 
-不要装code-OSS那个，会少emacs/remote_ssh等众多插件和配置(因为很多插件都是不开源的license)
+不要装`code-OSS`那个包，会少emacs/remote_ssh等众多插件和配置(因为很多插件都是不开源的license)
 
 要装`visual-studio-bin`这个包，不习惯Ctrl+f/b/n/p没法移动光标，所以我改成了emacs keymapping
-
-```
-{
-    "terminal.integrated.macOptionIsMeta": true,
-    "rust-analyzer.server.path": "/usr/bin/rust-analyzer",
-}
-```
-
----
 
 ## 千万不要 sudo reboot
 
@@ -376,6 +367,6 @@ linux下的idea首先要安装官方的mac_keymap插件才能导入mac的配置
 - win+e: 开文件浏览器
 - alt+.: 文件管理器开关隐藏文件的显示
 - win+.: emoji picker
-- Ctrl+; 粘贴板，功能类似IDEA的cmd+shift+v，可以挑选最近几次复制内容进行粘贴
+- Ctrl+; fcitx粘贴板，功能类似IDEA的cmd+shift+v，可以挑选最近几次复制内容进行粘贴
 - (fn)F1/F2: 屏幕亮度
 - (fn)F3: 键盘背光开关

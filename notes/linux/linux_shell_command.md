@@ -53,10 +53,13 @@ ag -G '\.rs$' 'dyn ' .  0.05s user 0.08s system 113% cpu 0.115 total
 
 ## 查看某个端口被哪个进程占用
 
+> sudo netstat -nlp | grep :6379
+
+不推荐用 lsof, centos 上没有 lsof 指令
+
 - lsof -i :8080
 - fuser 80/tcp
 - netstat -nlp | grep :80
-- ps ef | pgrep ssh-agent
 
 ## Linux查看硬件信息相关命令
 

@@ -1,4 +1,4 @@
-# [解决 KDE spell check 报错](/2021/04/manjaro_kde_spell_check.md)
+# [解决KDE spell check报错](/2021/04/manjaro_kde_spell_check.md)
 
 带图形桌面的操作系统例如 raspbian, manjaro_kde, macos 都会内置 spell_check 以便系统预装应用可以进行拼写检查
 
@@ -33,6 +33,8 @@ KDE 用的是 sonnect 作为拼写检查的框架，需要安装以下三个动�
 设置完成后 kate 就能像 windows 的 office 那样在拼写错误的单词下标注红线并给出候选词建议
 
 ![](kate_spell_check.png)
+
+除了 kate 用到了拼写检查, dolphin 重命名文件时也会进行拼写检查
 
 ## Kate 的一些技巧
 
