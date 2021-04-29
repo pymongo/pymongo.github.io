@@ -68,9 +68,11 @@ fn main() {
 
 另一种方法是`brew install protobuf`然后给protoc安装Rust插件`cargo install protobuf-codegen`
 
+archlinux 安装 android-studio 时会自动装上 `protobuf` 这个包
+
 protoc工具的用法如下
 
-> protoc --rust_out . user.proto
+> protoc --rust_out ~/temp user.proto
 
 protoc能静态检查proto文件的语法错误，而protobuf-codegen-pure构建则不能，例如以下错误protoc在构建时会报错
 

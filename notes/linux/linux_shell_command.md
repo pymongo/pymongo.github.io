@@ -55,11 +55,7 @@ ag -G '\.rs$' 'dyn ' .  0.05s user 0.08s system 113% cpu 0.115 total
 
 > sudo netstat -nlp | grep :6379
 
-不推荐用 lsof, centos 上没有 lsof 指令
-
-- lsof -i :8080
-- fuser 80/tcp
-- netstat -nlp | grep :80
+不推荐用 `lsof -i :8080`, centos 上没有 lsof 指令
 
 ## Linux查看硬件信息相关命令
 

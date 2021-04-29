@@ -770,7 +770,7 @@ thread 'test_trie_typo_checker' panicked at 'assertion failed: `(left == right)`
 
 准确的说法是**26 叉树的深度优先回溯搜索**，类似的算法可以参考 [leetcode lexicographical 一题](https://leetcode.com/problems/lexicographical-numbers/)
 
-所以单元测试的期待值校验应该改成，遍历每一个候选词用 rustc_span::lev_distance::lev_distance 去计算跟输入单词之间的编辑距离
+所以单元测试的期待值校验应该改成，遍历每一个候选词用 `rustc_span::lev_distance::lev_distance` 去计算跟输入单词之间的编辑距离
 
 如果全部候选词的编辑距离小于等于 1 则测试通过
 
@@ -807,4 +807,5 @@ Rust 2021 年 4 月的这个 [PR](https://github.com/rust-lang/rust/pull/84334/f
 
 ## 参考链接
 
-<https://wilbeibi.com/2015/05/2015-05-09-K_edit_distances/>
+- <https://wilbeibi.com/2015/05/2015-05-09-K_edit_distances/>
+- <https://www.zhihu.com/question/29592463>

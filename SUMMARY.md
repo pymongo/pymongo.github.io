@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-04**
+    - [manjaro 切换内核](/2021/04/manjaro_kde_switch_kernel.md)
     - [KDE禁用鼠标中键粘贴](/2021/04/manjaro_kde_middle_button_paste.md)
     - [解决KDE spell check报错](/2021/04/manjaro_kde_spell_check.md)
     - [AWS lambda serverless](/2021/04/aws_lambda_serverless.md)
