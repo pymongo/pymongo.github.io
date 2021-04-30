@@ -145,6 +145,24 @@ ra等工具链的安装和配置请看我另一篇文章: [vscode配置Rust环�
 
 至于docker安装可以参考 <https://github.com/vkill/Archlinux/blob/master/Docker.md>
 
+### MySQL安装
+
+```bash
+sudo pacman -S mysql
+sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+sudo systemctl start mysqld
+sudo mysql -uroot -p
+
+mysql> CREATE USER 'me'@'localhost' IDENTIFIED BY 'me';
+mysql> GRANT ALL PRIVILEGES ON mydb.* TO 'me'@'localhost';
+mysql> FLUSH PRIVILEGES;
+mysql> quit
+
+mysql -ume -pme
+mysql> select current_user();
+mysql> show databases;
+```
+
 ### java版本切换
 
 安装完idea后就自动会装上jdk11，可以通过`archlinux-jshell status`管理多个java版本
