@@ -24,6 +24,8 @@ sqlx是我提PR数量最多的开源项目，bigdecimal-rs算我目前提过的P
 
 后来我通过以下操作实现了forked repo强制同步sqlx的官方repo:
 
+(常见于你提PR后，upstream先合了另一个PR再合你的PR)
+
 1. git pull sqlx master
 2. git rebase sqlx/master
 3. (此时出现一个both edit，我跳过了)git rebase --skip

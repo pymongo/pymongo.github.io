@@ -28,4 +28,10 @@ Example: chrono::NaiveDateTime::from_timestamp_opt
 
 - MIR/HIR: LLVM中间语言，Rust编译过程简单来说从AST到High-Level IR再到MIR再到LLVM IR(Intermediate Representation)
 - GAT: generic associated types
-- ICE(Internal Compiler Errors): rustc编译器内部出错 
+- ICE(Internal Compiler Errors): rustc编译器内部出错
+- MMU(Memory Manage Unit)
+- OOM(Out Of Memory): <https://github.com/rust-lang/rust/pull/84266>
+
+## 互联网公司术语缩写
+
+- SAW: Security Access Workstation 公司内只有这种电脑能访问生产环境

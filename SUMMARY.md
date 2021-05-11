@@ -1,4 +1,7 @@
 - [归档 - 吴翱翔的博客](/)
+- **2021-05**
+    - [clippy开启pedantic模式](/2021/05/clippy_pedantic.md)
+    - [blanket implementations](/2021/05/blanket_implementations.md)
 - **2021-04**
     - [rust加快编译速度](/2021/04/rust_replace_ld_to_lld_speedup_linking.md)
     - [manjaro 切换内核](/2021/04/manjaro_kde_switch_kernel.md)
