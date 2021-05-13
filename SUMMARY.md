@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-05**
+    - [借鉴数据库缓存解决动态规划困难题](/2021/05/cache_and_recursion_memoization.md)
     - [clippy开启pedantic模式](/2021/05/clippy_pedantic.md)
     - [blanket implementations](/2021/05/blanket_implementations.md)
 - **2021-04**

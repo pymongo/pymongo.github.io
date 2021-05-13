@@ -79,3 +79,11 @@ protoc能静态检查proto文件的语法错误，而protobuf-codegen-pure构建
 > Field number 1 has already been used in "User" by field "id"
 
 以上报错用 protobuf-codegen-pure在编译时不会报错，vi 时则是在运行时decode会panic: "WireError(UnexpectedWireType(WireTypeLengthDelimited)"
+
+## prost和rust-protobuf
+
+同事review代码时讨论了「该用哪个protobuf库」
+rust-protobuf的优点是会派生serde序列化的trait，但生成的冗余代码多编译慢
+prost的好处是编译快(改个字母都能瞬间编完)生成的代码少
+实现serde可以转json或包进另一个序列化结构体内
+但现只用于websocket binary_message传输的话也不需要serde的序列化
