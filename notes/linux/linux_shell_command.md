@@ -70,3 +70,29 @@ lshw(ubuntu), mhwd(manjaro)
 ### 查看SSD读写次数
 
 > sudo smartctl -a /dev/nvme0n1p2
+
+### 数据库文件夹迁移
+
+需求: 系统盘只有30G,aws挂载了一块500G的超好性能SSD放数据库文件，这个挂载盘可以随时挂载到其它机器，便携性好
+
+reference: <https://github.com/vkill/VPS/blob/main/Redis.md>
+
+> sudo rsync -aqxP /var/lib/redis/ /data/redis
+
+用rsync比`cp -r`的好处是「能复制文件的权限」
+
+最后删掉/var/lib/redis文件夹并换成软链接指向 /data/redis，这样
+
+例如mongodb的数据文件的权限都是 mongod:mongod，rsync会把权限复制过去
+
+好像`cp -rp`也能保持权限地复制
+
+## 括号内的nohup
+
+通常我们都用systemd部署项目进程，避免ssh shell内执行的`cargo run &`在离开会话或网络中断时不会因为父进程shell结束而结束
+
+```
+(nohup command </dev/null &>/dev/null &)
+# or
+(command &)
+```

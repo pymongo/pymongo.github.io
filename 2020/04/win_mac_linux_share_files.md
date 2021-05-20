@@ -20,37 +20,54 @@ System Preferences(系统设置)->Sharing，打开file sharing，注意开放读
 
 ![](mac_smb_enable_windows_file_sharing.png)
 
-## linux开启smb_server
+## **linux配置smb**
 
-大部分的linux桌面发行版都没有预装smbd的systemd service，以我用的manjaro/KDE为例:
+manjaro_kde都预装了samba的package，samba的核心是smb和nmb两个systemd service
 
-> pamac install samba kdenetwork-filesharing manjaro-settings-samba
+<https://wiki.manjaro.org/index.php/Using_Samba_in_your_File_Manager>
 
-安装完重启后，在KDE的文件浏览器里，点开文件夹属性就能看到共享选项了，第一次共享需要创建smb账号
+假设系统用户名是w
+
+1. 安装manjaro-settings-samba包，里面包含创建samba用户组等操作的安装脚本
+2. (参考下图)右键Download文件夹点share再点创建samba用户w密码跟系统用户相同
+3. 检查groups w中是否包含sambashare用户组
+4. 检查`sudo pdbedit -L`中是否包含samba用户w
+5. 将smb.conf改成以下无需密码的配置
+6. ***重启***
 
 ![](linux_create_smb_user.png)
 
-!> 建议不要linux用文件浏览器共享，很容易报错，直接改配置文件开systemd相关服务
+修改`/etc/samba/smb.conf`前建议**备份**manjaro-settings-samba脚本配的默认smb配置
 
-![](dolphin_file_sharing_smb_error.png)
+根据<https://askubuntu.com/questions/724916/can-read-but-cannot-write-to-samba-share>
 
-在文件浏览器dolphin建好smb帐号后，立刻关掉共享，然后改配置文件`/etc/samba/smb.conf`
-
-smb.conf底下加上以下内容
+share的名字跟文件夹的名字不能是一样的，否则和遇到无法写入的问题
 
 ```
-[Downloads]
-   comment = Downloads
-   path = /home/w/Downloads
-   browseable = yes
-   read only = no
-   create mask = 0700
-   directory mask = 0700
+[global]
+    log file = /var/log/samba/log.%m
+    guest ok = yes
+
+[home_w]
+    path = /home/w
+    read only = yes
+
+[download]
+    path = /home/w/Downloads
+    writable = yes
 ```
 
-> sudo systemctl enable smb
+!> 步骤2只建议在UI上操作，用命令行创建的samba用户可能有各种问题!
 
-然后Android的network_browser要选择Manual Connection手动填上用户名密码才能连上
+(可选)如果连接时无限报错认证失败且日志报错权限不足，则参考linux文档可能是samba没有读取系统用户的权限
+
+!> sudo smbpasswd -a w
+
+¶ 无密码登陆仅在两端都是linux时才行?
+
+可能manjaro的samba版本太高，只有两端都是manjaro时才能无密码登陆
+
+所以别加`guest only`的配置项，让非linux的设备通过用户名登陆
 
 ---
 
@@ -63,7 +80,7 @@ smb.conf底下加上以下内容
 - linux: 在file_manager(文件浏览器)地址栏输入`smb://192.168.1.3`
 - android: 推荐谷歌商店network_browser
   
-注意安卓的network_browser连linux要manual_connect，自动连不会弹出用户名密码输入框)
+注意安卓的network_browser连linux要manual_connect且输入用户名密码不能无密码登陆)
 
 !> 注意删除smb共享文件夹内的文件不会进入回收站而是直接删除
 
@@ -73,7 +90,7 @@ smb.conf底下加上以下内容
 
 ---
 
-由于smbd的设置导致Android连接Linux的smb_server不会弹出登录窗口，我思考了用FTP进行文件分享的备用方案
+除了samba的方案我还考虑了FTP,但是远不如samba方便
 
 ## Android开启FTP server
 

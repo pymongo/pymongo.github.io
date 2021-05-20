@@ -18,10 +18,6 @@ mac不支持lld可以用类似的zld
 
 linux可以直接装lld也可以`rustup component add llvm-tools-preview`+`cargo binutlis`获取`rust-lld`可执行文件再写个软链接把rust-lld改名成lld
 
-## 不能将全局的~/.cargo/config配置成lld
-
-如果将全局的cargo配置`~/.cargo/config`配置成lld，那rust-analyzer会卡死在`Index 0 of xxx`
-
 ## 适用于linux的加速编译配置
 
 ```toml
@@ -74,8 +70,14 @@ split-debuginfo = "unpacked"
 ## 最终版的linux编译加快配置
 
 ```toml
+# https://bevyengine.org/learn/book/getting-started/setup/#enable-fast-compiles-optional
 [target.x86_64-unknown-linux-gnu]
-rustflags = ["-Clink-arg=-fuse-ld=lld", "-Zshare-generics=y"]
+rustflags = ["-Clink-arg=-fuse-ld=lld", "-Zshare-generics=y", "-Ctarget-cpu=znver3"]
+
+# rustup component add llvm-tools-preview && cargo install binutils
+[target.x86_64-pc-windows-msvc]
+linker = "rust-lld.exe"
+rustflags = ["-Zshare-generics=y"]
 
 [profile.dev]
 split-debuginfo = "unpacked"
@@ -87,99 +89,3 @@ split-debuginfo = "unpacked"
 ## 注意用lld跟ld链接生成的文件会不一样!
 
 虽然lld兼容gcc后端，但我们生产环境依然用GNU的ld
-
-
-```
-INFO [5/6/2021, 9:31:45 PM]: Using configuration {
-  cargoRunner: null,
-  runnableEnv: {
-    RUST_BACKTRACE: 'full',
-    API_CONFIG_PATH: '/home/w/repos/company_repos/IgBusiness/api/config/api.toml',
-    TEST_MONGODB_URL: 'mongodb://127.0.0.1:27017'
-  },
-  inlayHints: {
-    enable: true,
-    smallerHints: true,
-    chainingHints: true,
-    maxLength: 25,
-    parameterHints: true,
-    typeHints: true
-  },
-  updates: { channel: 'stable', askBeforeDownload: true },
-  server: { path: '/home/w/.cargo/bin/rust-analyzer', extraEnv: null },
-  trace: { server: 'off', extension: false },
-  debug: {
-    engine: 'auto',
-    sourceFileMap: {
-      '/rustc/<id>': '${env:USERPROFILE}/.rustup/toolchains/<toolchain-id>/lib/rustlib/src/rust'
-    },
-    openDebugPane: false,
-    engineSettings: {}
-  },
-  assist: {
-    importMergeBehavior: 'full',
-    importPrefix: 'plain',
-    importGroup: true
-  },
-  callInfo: { full: true },
-  cargo: {
-    autoreload: true,
-    allFeatures: false,
-    features: [],
-    runBuildScripts: true,
-    useRustcWrapperForBuildScripts: true,
-    noDefaultFeatures: false,
-    target: null,
-    noSysroot: false
-  },
-  checkOnSave: {
-    enable: true,
-    allFeatures: null,
-    allTargets: true,
-    command: 'check',
-    noDefaultFeatures: null,
-    target: null,
-    extraArgs: [],
-    features: null,
-    overrideCommand: null
-  },
-  completion: {
-    addCallArgumentSnippets: true,
-    addCallParenthesis: true,
-    postfix: { enable: true },
-    autoimport: { enable: true }
-  },
-  diagnostics: {
-    enable: true,
-    enableExperimental: true,
-    disabled: [],
-    remapPrefix: {},
-    warningsAsHint: [],
-    warningsAsInfo: []
-  },
-  files: { watcher: 'client', excludeDirs: [] },
-  hoverActions: {
-    debug: true,
-    enable: true,
-    gotoTypeDef: true,
-    implementations: true,
-    run: true,
-    linksInHover: true
-  },
-  lens: {
-    debug: true,
-    enable: true,
-    implementations: true,
-    run: true,
-    methodReferences: true,
-    references: true
-  },
-  linkedProjects: [],
-  lruCapacity: null,
-  notifications: { cargoTomlNotFound: true },
-  procMacro: { enable: true, server: null },
-  runnables: { overrideCargo: null, cargoExtraArgs: [] },
-  rustcSource: '/home/w/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/rustc-src/rust/compiler/rustc_driver/Cargo.toml',
-  rustfmt: { extraArgs: [], overrideCommand: null }
-}
-```

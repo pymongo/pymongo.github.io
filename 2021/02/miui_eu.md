@@ -49,7 +49,7 @@ C:\Users\w\AppData\Local\Android\Sdk\platform-tools>fastboot reboot
 
 ## 第三步: twrp内完成卡刷
 
-首先要点wipe清除手机数据，然后手机就能被windows电脑识别成内部存储器，可以将xiaomi.eu上下载的zip包复制进去，
+首先要点wipe清除手机数据，然后手机就能被windows电脑识别成内部存储器，可以将xiaomi.eu上下载的zip包**复制进去**，
 
 如果wipe后电脑识别不到手机，则需要在twrp的设置里启用mount
 

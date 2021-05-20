@@ -13,7 +13,7 @@ opt=Option, usually use in function_indentation means the output of function_nam
 
 Example: chrono::NaiveDateTime::from_timestamp_opt 
 
-## 英文社区(github/reddit)常见英文口语缩写
+## 英文技术社区(github/reddit)常见英文口语缩写
 
 - feat: feature
 - AKA: Also Known As
@@ -23,6 +23,7 @@ Example: chrono::NaiveDateTime::from_timestamp_opt
 - In a nutshell(简而言之)
 - TLDR: Too Long Didn't Read
 - wip: working in progress
+- CVE: Common Vulnerabilities and Exposures
 
 ## Rust的PR/issue常见缩写
 

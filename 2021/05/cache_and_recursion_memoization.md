@@ -1,4 +1,4 @@
-# [借鉴数据库缓存解决动态规划困难题](/2021/05/cache_and_recursion_memoization.md)
+# [缓存解决动态规划难题](/2021/05/cache_and_recursion_memoization.md)
 
 分享下 leetcode 困难题[停在原地的方案数](https://leetcode-cn.com/problems/number-of-ways-to-stay-in-the-same-place-after-some-steps/)
 不断推敲和优化逐步通过题目的过程
@@ -364,4 +364,4 @@ fn test_num_ways() {
 
 记忆化搜索另一种好处就是，可以快速写出简单的无缓存版本，再慢慢优化解决超时问题，而迭代的动态规划写法起步就很难
 
-所以我个人更推荐大家多练习记忆化搜索解动态规划，这种借鉴数据库缓存的思路还是很简单的，面试中也能在 10-20 内写完
+所以我个人更推荐大家多练习记忆化搜索解动态规划，这种借鉴数据库缓存的思路还是很简单的，面试中遇到不熟悉的动态规划题可以先试着用记忆化搜索去解决
