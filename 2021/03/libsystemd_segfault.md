@@ -47,7 +47,7 @@ int main() {
 
 最简单的编译方法是通过-l动态链接systemd库 `gcc -lsystemd main.c`
 
-也可以使用pkgconf工具: 
+也可以使用pkgconf工具搜索动态链接库: 
 
 > gcc `pkg-config --cflags --libs libsystemd` main.c
 

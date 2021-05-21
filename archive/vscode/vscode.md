@@ -62,7 +62,17 @@ https://stackoverflow.com/questions/44065101/vs-code-key-binding-for-quick-switc
 
 [egghead.io](http://egghead.io)上面现在有VScode的教程，等我看完后再更新本文吧...
 
-### F2 refactor/rename
+### 一些比较重要的vscode快捷键名称
+
+§ quickOpenNavigateNext
+
+功能: 按`Ctrl+P`类似命令的弹窗中光标往下，必须改成Ctrl+N
+
+§ selectNextSuggestion
+
+功能: 代码补全建议弹窗中往下选择，必须改成Ctrl+N
+
+---
 
 ## 用正则筛出html文本批量替换
 
