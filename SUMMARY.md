@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-05**
+    - [Nvidia CUDA](/2021/05/nvidia_cuda.md)
     - [amd超频的尝试](/2021/05/amd_overclock.md)
     - [解决aur包gpg no name错误](/2021/05/gpg_keyserver_no_name.md)
     - [缓存解决动态规划难题](/2021/05/cache_and_recursion_memoization.md)
