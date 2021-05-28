@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-05**
+    - [linux远程控制](/2021/05/manjaro_kde_vnc_screen_share.md)
     - [Nvidia CUDA](/2021/05/nvidia_cuda.md)
     - [amd超频的尝试](/2021/05/amd_overclock.md)
     - [解决aur包gpg no name错误](/2021/05/gpg_keyserver_no_name.md)
@@ -95,7 +96,7 @@
     - [算法 - 等比级数](/2020/04/geometric_series.md)
     - [ab测试工具的极限](/2020/04/limit_of_apache_ab.md)
     - [WebSocket中broker、Actor等概念](/2020/04/mq_broker_actor.md)
-    - [win/mac/linux共享文件夹](/2020/04/win_mac_linux_share_files.md)
+    - [win/mac/linux共享文件夹](/2020/04/win_mac_linux_samba_smb_share_files.md)
     - [浏览器运行Rust编译的wasm](/2020/04/rust_wasm.md)
     - [websocket心跳包与断线重连](/2020/04/websocket_heartbeat.md)
     - [国产安卓机UI测试的坑](/2020/04/domestic_can_not_run_ui_test.md)
@@ -190,7 +191,7 @@
     - [systemd API段错误](/2021/03/libsystemd_segfault.md)
 - **电脑技术干货**
     - [刷欧版MIUI教程](/2021/02/miui_eu.md)
-    - [win/mac/linux共享文件夹](/2020/04/win_mac_linux_share_files.md)
+    - [win/mac/linux共享文件夹](/2020/04/win_mac_linux_samba_smb_share_files.md)
 - **VIM**
     - [vim复习](/archive/vim/vim_review.md)
     - [cursor(光标移动)](/archive/vim/cursor.md)

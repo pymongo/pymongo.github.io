@@ -36,3 +36,4 @@ Example: chrono::NaiveDateTime::from_timestamp_opt
 ## 互联网公司术语缩写
 
 - SAW: Security Access Workstation 公司内只有这种电脑能访问生产环境
+- BI: Business Intelligence(例如神策公司的产品)

@@ -39,3 +39,7 @@ Unpin means it's OK for this type to be moved even when pinned, so Pin will have
 但是有的exector内允许用Unpin type去方便的修改自身，但是切记手写Future代码的poll方法中不要出现mem::swap,replace等操作，
 
 可以局部修改某字段，但不要replace，否则编译器也不会检查出来的悬垂指针UB
+
+## Pin reference
+
+floyd.com的文章

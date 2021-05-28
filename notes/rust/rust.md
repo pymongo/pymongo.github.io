@@ -38,6 +38,10 @@ const/const fn在编译的MIR解释器阶段，会进行内联(c/c++ inline keyw
 
 ## ✭生命周期
 
+50岁以上的人群「包含」70岁以上的人群
+
+从集合角度上看，寿命长的/生命周期长的是生命周期短的子类型,所以才有 lifetime bound: 'static: 'a
+
 'long: 'short, 'static: 'a, (early bound, generic is early bound单态化)
 
 思考题: rust-quiz-11，late bound的生命周期参数不能用turbofish操作符指定生命周期，应让编译器随机标记上生命周期

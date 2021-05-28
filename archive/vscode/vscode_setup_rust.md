@@ -103,6 +103,14 @@ idea则是alt+enter的code_action里可以展开宏
 - code_spell_checker: typo检查，毕竟参与开源项目时第一个PR也就只能修修typo再慢慢参与更核心部分的修改
 - Bookmarks: 类似idea的书签功能，方便读源码时记录关键位置，方便跳转
 
+## ra和intellij-Rust的比较
+
+ra的不足:
+- .into()只能跳转到std的into trait,不能像idea那样跳到相应的类型转行代码
+
+intellij-Rust的不足:
+- 不支持rustc源码的静态分析
+
 ## Rust有趣的学习资料
 
 - (入门)[一个内嵌playground的多国语言Rust教程](https://tourofrust.com/00_zh-cn.html)

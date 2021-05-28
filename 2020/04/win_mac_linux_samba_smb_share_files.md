@@ -1,4 +1,4 @@
-# [win/mac/linux共享文件夹](/2020/04/win_mac_linux_share_files.md)
+# [win/mac/linux共享文件夹](/2020/04/win_mac_linux_samba_smb_share_files.md)
 
 同一个网络下多个设备间的文件共享，可以`python3 -m http.server 80`开启一个static_file_server，也可以通过蓝牙传输文件
 
@@ -28,46 +28,65 @@ manjaro_kde都预装了samba的package，samba的核心是smb和nmb两个systemd
 
 假设系统用户名是w
 
-1. 安装manjaro-settings-samba包，里面包含创建samba用户组等操作的安装脚本
-2. (参考下图)右键Download文件夹点share再点创建samba用户w密码跟系统用户相同
-3. 检查groups w中是否包含sambashare用户组
-4. 检查`sudo pdbedit -L`中是否包含samba用户w
-5. 将smb.conf改成以下无需密码的配置
-6. ***重启***
+0. 禁用KDE wallet并`rm -rf ~/.local/share/keyrings`然后在seahorse配一个无密码默认keyring
+1. sudo rm -rf /var/lib/samba && sudo rm /etc/samba/smb.conf
+2. 安装manjaro-settings-samba包，里面包含创建samba用户组等操作的安装脚本
+3. 备份后编辑/etc/samba/smb.conf(如果关了kde_wallet用简洁版配置即可)
+4. ~~检查groups w中是否包含sambashare用户组~~
+5. 创建samba用户w: `sudo pdbedit -a w`
+6. 检查`sudo pdbedit -L`中是否包含samba用户w
+7. sudo systemctl restart smb nmb
+8. linux客户端第一次用用户w登陆并记住auth信息
 
-![](linux_create_smb_user.png)
+!> 如果是min版的manjaro,似乎smb.conf的配置「一定不能有`guess ok=yes`」
 
-修改`/etc/samba/smb.conf`前建议**备份**manjaro-settings-samba脚本配的默认smb配置
+```
+[global]
+   log file = /var/log/samba/log.%m
+   #guest ok = yes
+
+[home_w]
+   path = /home/w
+   read only = yes
+
+[download]
+   path = /home/w/Downloads
+   writable = yes
+```
 
 根据<https://askubuntu.com/questions/724916/can-read-but-cannot-write-to-samba-share>
 
 share的名字跟文件夹的名字不能是一样的，否则和遇到无法写入的问题
 
-```
-[global]
-    log file = /var/log/samba/log.%m
-    guest ok = yes
-
-[home_w]
-    path = /home/w
-    read only = yes
-
-[download]
-    path = /home/w/Downloads
-    writable = yes
-```
+![](linux_create_smb_user.png)
 
 !> 步骤2只建议在UI上操作，用命令行创建的samba用户可能有各种问题!
-
-(可选)如果连接时无限报错认证失败且日志报错权限不足，则参考linux文档可能是samba没有读取系统用户的权限
-
-!> sudo smbpasswd -a w
 
 ¶ 无密码登陆仅在两端都是linux时才行?
 
 可能manjaro的samba版本太高，只有两端都是manjaro时才能无密码登陆
 
 所以别加`guest only`的配置项，让非linux的设备通过用户名登陆
+
+## 启用KDEwallet可能导致登陆失败
+
+## 密码输对还弹窗认证失败
+
+用manjaro默认的配置(正确的配置)，然后加一个自己共享文件夹的配置
+
+另一台linux机器连进来时用用户w进行登陆，下次连接是似乎就能记住密码了
+
+简单来说用正确的配置让client记住auth信息，然后下次用自己随意的连接时可以
+
+或者禁用掉KDE wallet
+
+## 没有写入权限
+
+可能是默认的guess用户是nobody对应系统用户nobody是所有文件只读权限
+
+server端注释掉`guess ok = yes`，似乎linux会保存某个服务器
+
+总结manjaro的samba版本4.0+太高了，对无密码登陆很不友好，所以基本就用密码登陆然后保存登陆信息吧
 
 ---
 

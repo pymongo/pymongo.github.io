@@ -199,6 +199,10 @@ Ubuntu用**update-java-alternatives**切换java版本，而arch则使用**archli
 
 ### 必装yay和chrome
 
+需要先禁用KDE wallet再装chrome(keyring相关应用)
+
+否则keyring出问题的话，chrome保存的密码就为空，需要signout后delete_account再改好keyring后登陆chrome才能显示密码
+
 ```
 # yay 依赖base-devel的fakeroot
 sudo pacman -S yay # 用类似的aur_helper工具yaourt也行
@@ -263,19 +267,59 @@ wine应用在高分屏(4k屏)下没有缩放，会显得非常小，以下命令
 - sunloginclient(远程桌面、远程控制)
 - filelight: 磁盘使用分析工具
 
-### 必装必配samba
-
-smb协议是一种跨平台文件共享协议(win/mac都内置)，由于linux自带那个ftpd不知道怎么用，看教程安装的vsftpd也启动失败
-
-安装smb的过程可以看我另一篇文章: [win/mac/linux共享文件夹](/2020/04/win_mac_linux_share_files.md)
-
 ### 安装spell check
 
 详细过程看我另一篇文章: [解决 KDE spell check 报错](/2021/04/manjaro_kde_spell_check.md)
 
+### 必装必配samba
+
+!> 必须要先禁用kde wallet，才能更好配置samba
+
+smb协议是一种跨平台文件共享协议(win/mac都内置)，由于linux自带那个ftpd不知道怎么用，看教程安装的vsftpd也启动失败
+
+安装smb的过程可以看我另一篇文章: [win/mac/linux共享文件夹](/2020/04/win_mac_linux_samba_smb_share_files.md)
+
+### 必装vnc server
+
+具体看我另一篇文章: [linux远程控制](/2021/05/manjaro_kde_vnc_screen_share.md)
+
 ---
 
 ## 系统设置
+
+### keyrings和禁用KDE wallet
+
+禁用掉KDE wallet的**副作用***就是不能记住wifi密码，要按我以下的设置才能重新记住wifi密码
+
+去掉`rm -rf ~/.local/share/keyrings`能让mongodb-compass进入时不再提示输入密码的对话框
+
+但是可能会弹出需要创建keyring的对话框
+
+这时候就需要安装`seahorse`，删掉所有keyrings后在seahorse软件内添加一个`password keyring`并`Set as default`
+
+这时候mongodb-compass就没有keyring相关弹窗了，再查看新建的默认keyring文件发现已经把compass加进去了
+
+```
+[w@ww keyrings]$ pwd
+/home/w/.local/share/keyrings
+[w@ww keyrings]$ tree
+.
+├── default
+└── Default.keyring
+[w@ww keyrings]$ cat default
+Default[w@ww keyrings]$ cat Default.keyring
+[keyring]
+display-name=Default
+ctime=1621935951
+mtime=0
+lock-on-idle=false
+lock-after=false
+// ...
+display-name=MongoDB Compass/Connections/f123634e-b97c-4ac4-b030-6fd8f56ddf6c
+//...
+```
+
+Reference: https://askubuntu.com/questions/65281/how-to-recover-reset-forgotten-gnome-keyring-password
 
 ### 自动记住Wifi密码
 
@@ -335,6 +379,9 @@ dolphin's settings->services 中可以关闭部分context_menu的一级菜单，
 screen_edge设置里鼠标移到右上角就显示show desktops这个没用
 
 不需要cmd+L键锁屏(mac的chrome cmd+L是光标移到网址，总是误按)，用krunner输入lock the screen进行锁屏
+
+- 删掉启动krunner的alt+F2，让vscode/idea用这个快捷键
+- application_launcher的Alt+F1改成Alt+F6(不能删掉，否则按win不能弹出开始菜单)
 
 ### idea配置
 
