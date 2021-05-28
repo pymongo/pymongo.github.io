@@ -30,6 +30,8 @@ vnc_client: krdc, realvnc-vnc-viewer
 
 如果系统没有启用KDE wallet，可以在设置中禁用`store password using KDE wallet`
 
+!> 注意krdp启动后「会闪退到右下角的任务栏图标」，要从任务栏中打开窗口
+
 krdp是KDE全家桶中的Desktop Sharing的server端应用，使用方法很简单，client输入server的IP和密码
 
 server端点接受被远程控制就行了
@@ -50,7 +52,9 @@ realvnc client鼠标很流畅，但是画质略微差点
 
 画质较差，比krdc差点，尤其是浏览器鼠标滚动上下翻页时，就会像显卡驱动坏掉那样一帧帧的，从上到下一条横线缓慢的更新画面
 
-而且realvnc还不能调整画质，例如内网使用可以把画质调高也不行
+而且realvnc画质调整选项少(在options->expert里)，例如内网使用可以把画质调高也不行
+
+最大优点: 画面缩放完美
 
 ### tigervnc client
 
@@ -60,9 +64,23 @@ tigervnc居然可以把画质压缩关掉，画质最好，甚至比krdc还要�
 
 而且延迟低的好处是中文输入法候选词几乎瞬间出现，不会像realvnc那样等一会才能看到候选词，体验极好
 
-唯一缺点: 画面不能缩放，4K屏看1080P的笔记本画面有的不友好
+唯一缺点: 画面不能缩放，4K屏看1080P的笔记本画面有的不友好(12寸屏看1080P的感觉)
 
 其它缺点: Bug `<` is map to `>`
+
+### imac连4k显示的linux
+
+imac_2017款分辨率是4096*2304默认用200%的scale
+
+但是苹果默认只能调几种scale,不能像windows或KDE那样自定义scale
+
+自定义scale还需要在「App Store」安装「Display Menu」
+
+如果imac在默认scale下tigerVNC连4K显示的linux,只能显示1/4的画面，「需要拖动滚动条」才能看完整个屏幕画面
+
+原来是tigerVNC是java应用，在mac默认接受系统的scale认为分辨率只有2048*1152(就像OBS默认也是这个分辨率)
+
+当我用display_menu调成100% scale时，tigerVNC看4k画面全屏时就能居中完美显示了
 
 ## Reference:
 
