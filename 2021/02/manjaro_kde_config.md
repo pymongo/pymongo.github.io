@@ -74,7 +74,7 @@ xfce的文件浏览器居然不支持new tab，都2021年了还跟windows那个f
 
 例如amd的核显「只能选open_source_driver」
 
-***只有N卡才选proprietary_driver***
+**只有N卡才选proprietary_driver**
 
 如果N卡点open_source_driver进入系统加载都慢的要死，而且画面还卡
 
@@ -88,6 +88,33 @@ xfce的文件浏览器居然不支持new tab，都2021年了还跟windows那个f
 
 由于full版多了太多类似steam这种***垃圾***包，所以「**强烈建议安装min版**」
 
+### 解决min版emoji显示成方框
+
+min版没装emoji的字体，导致crates插件emoji图标全乱码，务必安装`noto-fonts-emoji`字体
+
+### 卸载min版自带软件
+
+noto是manjaro_kde默认字体，ttf-dejavu和adobe-source-code-pro-fonts提供了sans字体，是必须的
+
+dejavu让vscode的英文字体非常好看
+
+- manjaro-hello manjaro-application-utility manjaro-documentation-en # 要一起卸载，因为互相依赖
+- okular # poppler-data删掉后每次开机都会提醒很烦，use chrome to view PDF
+- kdeconnect sshfs
+- kinfocenter # powerdevil optional require
+- kaccounts-providers
+- kwallet-pam kwalletmanager # turnof kwallet first, kwallet can't delete
+- kcalc firefox konversation
+- terminus-font(没啥用也不好看)
+- adobe-source-han-sans-jp-fonts
+- adobe-source-han-sans-kr-fonts
+- adobe-source-han-sans-cn-fonts(纯英文工作机用)
+- ruby
+- inxi partitionmanager
+- tlp powerdevil powertop # linux laptop energy saving
+
+software token由于opennetwork依赖故无法删除
+
 ### 卸载full版无用的系统自带
 
 full版manjaro无用的自带包举例:
@@ -98,12 +125,6 @@ full版manjaro无用的自带包举例:
 卸载manjaro-steam后需要清理以下残留文件
 
 > rm -rf .steam .steampath .steampid ~/.local/share/Steam
-
-### 卸载min版无用的系统自带
-
-manjaro-hello之类的全家桶就暂且留着
-
-> sudo pacman -Rns kcalc firefox konversation
 
 ---
 
@@ -327,6 +348,12 @@ system_settings->network->connections->wifi_security_tab->storage_password_for_a
 
 ### terminal(kconsole)
 
+安装类似zsh-completion可以补全命令的参数，但不如zsh强大到能补全systemd的unit名称
+
+注意用zsh的话不要设置`HISTSIZE=`这样会让zsh的历史功能崩掉
+
+> sudo pacman -S bash-completion
+
 取消行数上限: profile->edit->scrolling->unlimit
 
 如果鼠标往上滚动时，terminal不会翻页，输入`reset`重置下就好了
@@ -336,8 +363,9 @@ system_settings->network->connections->wifi_security_tab->storage_password_for_a
 ```
 git config --global user.name "w"
 git config --global user.email "w@example.com"
-git config --global pull.rebase false
 git config --global credential.helper store 
+#git config --global pull.rebase true # 如果公司严格要求所有commit都是直线不能分叉，那就建议先fetch再slash push/pop和fetch
+#https://twitter.com/hayahayayoo/status/1398234421417811969
 ```
 
 ### ssh-agent配置

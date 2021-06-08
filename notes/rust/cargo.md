@@ -4,13 +4,19 @@
 
 简单来说作为executable项目需要记录上次成功编译时所有crate依赖的版本信息，而lib项目是被其它项目引用的，各个crate版本信息需要弹性处理不能依赖Cargo.lock文件
 
+## cargo patch
+
+发现bson库有bug(日期没截断成i64序列化panic),fork一份改了，但是mongodb等等众多库也依赖bson
+
+难道还要fork一份mongodb改掉bson依赖链接？
+
+建议在workspace的Cargo.toml中加上 [patch.crates-io] 这样其它依赖bson的库就会去我fork的repo找bson而非crates.io
+
 ## 好用的cargo插件/第三方静态分析工具
 
-### cargo metadata
-
-### cargo udeps: 检查未使用的依赖(第三方crate)
-
-### cargo audit: 检查一些库的漏洞或是否过时
+- cargo metadata
+- cargo udeps: 检查未使用的依赖(第三方crate)
+- cargo audit: 检查一些库的漏洞或是否过时
 
 ```
 $ cargo audit
@@ -41,46 +47,6 @@ futures-util 0.3.6
 │       └── sqlx-macros 0.4.0-beta.1
 └── futures 0.3.6
 
-Crate:         block-cipher
-Version:       0.7.1
-Warning:       unmaintained
-Title:         crate has been renamed to `cipher`
-Date:          2020-10-15
-ID:            RUSTSEC-2020-0057
-URL:           https://rustsec.org/advisories/RUSTSEC-2020-0057
-Dependency tree: 
-block-cipher 0.7.1
-├── aesni 0.7.0
-│   └── aes 0.4.0
-│       └── aes-gcm 0.6.0
-│           └── cookie 0.14.2
-│               └── http-types 2.5.0
-│                   ├── tide 0.13.0
-│                   │   └── matcher 0.0.1
-│                   ├── http-client 6.1.0
-│                   │   └── tide 0.13.0
-│                   ├── async-sse 4.0.1
-│                   │   └── tide 0.13.0
-│                   └── async-h1 2.1.2
-│                       └── tide 0.13.0
-├── aes-soft 0.4.0
-│   └── aes 0.4.0
-├── aes-gcm 0.6.0
-└── aes 0.4.0
-
-Crate:         net2
-Version:       0.2.35
-Warning:       unmaintained
-Title:         `net2` crate has been deprecated; use `socket2` instead
-Date:          2020-05-01
-ID:            RUSTSEC-2020-0016
-URL:           https://rustsec.org/advisories/RUSTSEC-2020-0016
-Dependency tree: 
-net2 0.2.35
-├── miow 0.2.1
-...
-└── mio 0.6.22
-
 Crate:         stdweb
 Version:       0.4.20
 Warning:       unmaintained
@@ -93,7 +59,7 @@ stdweb 0.4.20
 └── time 0.2.22
 
 error: 1 vulnerability found!
-warning: 3 allowed warnings found
+warning: 1 allowed warnings found
 ```
 
 ## 内置的部分cargo命令介绍

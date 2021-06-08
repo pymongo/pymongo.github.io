@@ -26,6 +26,14 @@ sensors命令工具的输出中， k10temp-pci是amd的CPU温度传感器
 
 可以用`watch sensors`实时监控CPU温度
 
+或者使用`watch inxi --sensors`实时监控CPU温度
+
+## 监控CPU频率
+
+watch inxi --flags # CPU flags
+
+watch "cat /proc/cpuinfo | grep MHz"
+
 ## 内存频率
 
 想着CPU默频是3700所以额外加钱买了3600的内存条

@@ -106,10 +106,11 @@ idea则是alt+enter的code_action里可以展开宏
 ## ra和intellij-Rust的比较
 
 ra的不足:
-- .into()只能跳转到std的into trait,不能像idea那样跳到相应的类型转行代码
+- .into()只能跳转到std的into trait,不能像idea那样User::default()跳到相应的类型转行代码(最新的idea into/default 90%都是跳转到标准库，也变得不好使了)
 
 intellij-Rust的不足:
 - 不支持rustc源码的静态分析
+- 在返回值是复杂的impl范型中(例如warp)，容易误报unresolved reference
 
 ## Rust有趣的学习资料
 
