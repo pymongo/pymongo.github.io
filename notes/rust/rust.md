@@ -46,7 +46,7 @@ const/const fn在编译的MIR解释器阶段，会进行内联(c/c++ inline keyw
 
 思考题: rust-quiz-11，late bound的生命周期参数不能用turbofish操作符指定生命周期，应让编译器随机标记上生命周期
 
-late bound: `fn<a', b'>`要在具体代码内将生命周期范型实例化
+late bound: `fn<a', b'>`要在具体代码内将生命周期泛型实例化
 
 Rust为了避免多个引用指向相同内存内容带来的数据竞争、数据同步问题
 

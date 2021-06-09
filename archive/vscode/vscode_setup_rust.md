@@ -110,7 +110,7 @@ ra的不足:
 
 intellij-Rust的不足:
 - 不支持rustc源码的静态分析
-- 在返回值是复杂的impl范型中(例如warp)，容易误报unresolved reference
+- 在返回值是复杂的impl泛型中(例如warp)，容易误报unresolved reference
 
 ## vscode debug rust经验
 
