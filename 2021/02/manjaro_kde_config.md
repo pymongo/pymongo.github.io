@@ -111,7 +111,7 @@ dejavu让vscode的英文字体非常好看
 - adobe-source-han-sans-cn-fonts(纯英文工作机用)
 - ruby
 - inxi partitionmanager
-- tlp powerdevil powertop # linux laptop energy saving
+- tlp powerdevil powertop # 笔记本不要卸载，否则休眠后锁屏界面可能卡死
 
 software token由于opennetwork依赖故无法删除
 

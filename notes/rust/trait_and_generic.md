@@ -76,11 +76,13 @@ Understanding Traits and Object Safety
 2. 所有方法的返回值不是Self
 3. 所有方法中不包含泛型参数
 
-解释第1点要求: trait对象是一个胖指针，是类似&str那样动态类型大小的，不能约束为Sized
+解释第1点要求: trait对象是一个胖指针，是类似Vec智能指针那样堆内存动态类型大小的，不能约束为Sized
 
 解释第2点要求: trait对象类似Java向上塑型忘记了Self是什么，所以不能在trait对象的任何方法里返回Self
 
-解释第3点要求: 由于trait对象忘记了类型信息，所以无法确认方法中泛型类型究竟是什么
+`Box<dyn std::error::Error>`的类型要运行时动态查虚表，所以所有方法的返回值不能有Self
+
+解释第3点要求: 由于trait对象忘记了类型信息/不携带，所以无法确认方法中泛型类型究竟是什么
 
 所以`Box<dyn Clone>`会报错因为Clone trait不是对象安全的，因此不能作为trait object
 

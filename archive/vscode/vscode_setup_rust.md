@@ -112,13 +112,37 @@ intellij-Rust的不足:
 - 不支持rustc源码的静态分析
 - 在返回值是复杂的impl范型中(例如warp)，容易误报unresolved reference
 
+## vscode debug rust经验
+
+IntellijRust断点调试我不怎么用，先不介绍
+
+### StackOverflow的调试
+
+栈溢出在Rust中一般只有递归调用才会出现(例如我自动补全时不小心写错了)
+
+栈溢出时日志或STDERR不会打印panic的行号，这时候vscode就能派上用场了
+
+就算不打任何断点，lldb也会默认捕获panic
+
+这时候只要运行代码vscode就会定位到栈溢出前的那一行代码
+
+### 一般的断点调试流程
+
+step_into基本不用，栈帧容易进入汇编代码
+
+一般只有「打断点」和「继续运行」两个按钮，Rust/C的watch变量如果是智能指针基本看不到数据，不像Python/Go那样能看到Vector内的值
+
+通常都是「一边运行同时打断点」，Android等应用代码调试也是这样
+
+一开始把断点打到问题函数的入口，客户端请求后程序就停在问题函数第一行
+
+假设此时接下来有个 if else 代码，我们可以在if else 每个分支内的第一行各打上一个断点
+
+然后可以点继续运行，观察程序进入了哪一个if分支，往后的调试以此类推  
+
 ## Rust有趣的学习资料
 
 - (入门)[一个内嵌playground的多国语言Rust教程](https://tourofrust.com/00_zh-cn.html)
 - (入门)rustlings: rustlings watch可以监控exercises文件夹的变化，一共有多个例如编译报错这样练习题，让你逐个修改源文件进行闯关n
 - (较难)[rust-quiz](https://dtolnay.github.io/rust-quiz)
 - (较难)cppquiz.org
-
----
-
-总之Rust的开发环境用 vscode+ra 或 idea_ce(社区版)+Rust插件 这两个方案都不错(配置超简单，功能强，开发者频繁维护/迭代)
