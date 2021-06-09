@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh">
-
 <head>
     <meta charset=UTF-8>
     <title>应聘Rust开发_吴翱翔</title>
@@ -10,17 +9,14 @@
             width: 820px;
             margin: 0 auto;
         }
-
         * {
             margin: 0;
             padding: 0;
             font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
         }
-
         .deprecated {
             display: none;
         }
-
         .divider {
             margin-top: 6px;
             margin-bottom: 6px;
@@ -29,19 +25,16 @@
             border-left: none;
             border-right: none;
         }
-
         .header1.resume-title {
             font-size: 22px;
             font-weight: 500;
             text-align: center;
         }
-
         /* 二级标题，如工作经历、项目经验 */
         .header2 {
             font-size: 16px;
             font-weight: normal;
         }
-
         /* 三级标题，如工作经历的公司名称、项目经验的项目名称。三级标题不会独占一行，项目标题、项目角色、项目周期共用一行。例如：后台管理系统 全栈开发 2019.11-至今 */
         .header3 {
             font-weight: normal;
@@ -65,177 +58,145 @@
             font-size: 14px;
             width: 120px;
         }
-        /* 在mac的chrome上，pre标签默认字体是monospace */
         pre.project-details {
             font-family: "Microsoft Yahei", Times, sans-serif;
         }
     </style>
 </head>
-
 <body>
-
 <!--
 ## 项目经历修改框架
 STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)；
-对于写简历来说，99%的人所犯的错误都是仅仅写了“任务task”，也就是仅罗列“干了什么”。
+对于写简历来说，99%的人所犯的错误都是仅仅写了"任务task"，也就是仅罗列"干了什么"。
 
 好的项目经历，应该包含：项目名称-项目角色-项目周期、项目简介/介绍/描述、项目背景、项目架构、主要工作、开源贡献(穿插)、个人收获/项目收获
-（F，是什么，这部分是大家都会写的）
-2006 年，参与了手机XX网发布系统 WAPCMS 的开发。
-（F，这部分是很多同学忘掉的，细化具体工作，要写出你在这个项目中具体负责的部分，以及你贡献出来的价值）
-作为核心程序员，不但完成了网站界面、调度队列的开发工作，更提出了高效的组件级缓存系统，通过碎片化缓冲有效的提升了系统的渲染效率。
-（A，通过量化的数字进行对比）
-在该系统上线后，Web前端性能从 10QPS 提升到 200QPS，服务器由 10 台减少到 3 台。
-（B，你能带给前雇主的价值，也就是你能带给新雇主的价值）
-2008 年，升任 WAPCMS 项目负责人，带领一个 3 人小组支持着每天超过 2 亿的 PV。
+不但完成了网站界面、调度队列的开发工作，更提出了高效的组件级缓存系统，通过碎片化缓冲有效的提升了系统的渲染效率。（F，这部分是很多同学忘掉的，细化具体工作，要写出你在这个项目中具体负责的部分，以及你贡献出来的价值）
+在该系统上线后，Web前端性能从 10QPS 提升到 200QPS，服务器由 10 台减少到 3 台。（A，通过量化的数字进行对比）
+2008 年，升任 WAPCMS 项目负责人，带领一个 3 人小组支持着每天超过 2 亿的 PV。（B，你能带给前雇主的价值，也就是你能带给新雇主的价值）
 
-有同学问，如果我在项目里边没有那么显赫的成绩可以说怎么办？
-讲不出成绩时，就讲你的成长。因为学习能力也是每家公司都看中的东西。
-你可以写你在这个项目里边遇到了一个什么样的问题，
-别人怎么解决的，你怎么解决的，【你的方案好在什么地方】，最终这个方案的效果如何。
-具体、量化、有说服力，是技术简历特别需要注重的地方。
-
-## 自我介绍
-我叫吴翱翔，负责的是股票交易所和数字货币交易所的订单撮合系统，以及Orderbook和深度图数据推送系统的开发。
-我司老版的撮合系统、WebSocket服务器使用的是Ruby语言，我用Rust重写以后，通过ab命令测试结果显示性能提升在15-20倍左右，CPU/内存负载从30%-40%降低到%1以内。
-我成功地解决了老版的Ruby WebSocket服务器存在严重内存泄露的问题导致服务器必须每隔5-10分钟重启一次的Bug。
-我在业余时间主要参与Rust社区sqlx库的开发，已经贡献了多个PR，目前在sqlx的贡献者中排名23，正在攻克的是sqlx 0.4版本引入query logger之后带来的查询变慢问题。
-我的自我介绍完毕，谢谢。
+讲不出成绩时，就讲你的成长。因为学习能力也是每家公司都看中的东西。你可以写你在这个项目里边遇到了一个什么样的问题，
+别人怎么解决的，你怎么解决的，【你的方案好在什么地方】，最终这个方案的效果如何。具体、量化、有说服力，是技术简历特别需要注重的地方。
 -->
 
 <div class="page-container">
     <h1 class="header1 resume-title">应聘Rust开发_吴翱翔</h1>
     <div style="text-align: center">17150313884| os.popen@gmail.com| 男/1997</div>
     <div style="text-align: center"><span class="bold">技术博客</span>: pymongo.github.io| Github账号: pymongo</div>
-    <div style="text-align: center">leetcode账号: leetcode-cn.com/u/user0772-d</div>
+    <!-- <div style="text-align: center">leetcode账号: leetcode-cn.com/u/user0772-d</div> -->
     <hr class="divider">
 
-    <h2 class="header2">教育经历</h2>
+    <!--
+    <h2 class="header2">§ 教育经历</h2>
     <h3 class="header3">
         <span class="project-title">天津职业技术师范大学(本科)</span>
         <span class="project-role" style="font-size: 15px">电子信息工程</span>
         <span class="project-cycle" style="font-size: 16px">2015 - 2019</span>
     </h3>
     <hr class="divider">
+    -->
 
-    <h2 class="header2">工作经历</h2>
+    <h2 class="header2">§ 工作经历</h2>
     <h3 class="header3">
         <span class="project-title">北京范高科技有限公司</span>
-        <span class="project-role">中级服务器程序员</span>
+        <span class="project-role">中级服务器开发</span>
         <span class="project-cycle">2020.9 - 至今</span>
     </h3>
-    <p>・负责Rust/C++相关的后端开发，主要业务是Instagram等社交帐号的数据分析应用</p>
+    <p>・负责Rust protobuf/graphql服务端开发，主要业务是Instagram数据分析</p>
     <h3 class="header3">
         <span class="project-title">海南自贸区威中杰信息技术有限公司</span>
         <span class="project-role">全栈开发工程师</span>
         <span class="project-cycle">2019.10 - 2020.9</span>
     </h3>
-    <p>・主要负责数字货币交易所订单撮合引擎、WebSocket服务器、安卓端APP、PC端Vue页面的开发</p>
+    <p>・负责数字货币交易所订单撮合引擎,后端，以及交易所安卓端/web前端Vue开发</p>
+    <hr class="divider">
 
     <!--
     <h3 class="header3">
         <span class="project-title">北京邦友科技开发有限公司</span>
-        <span class="project-role">软件测试工程师</span>
         <span class="project-cycle">18.10-19.10(含实习)</span>
     </h3>
     <p>・业务是汽车ECU(电子控制器)的功能测试，以日方提供的脚本语言进行编程，调试</p>
-    <hr class="divider">
     -->
 
-<!-- 一些草案或TODO List想法
-## Algorithm
-    leetcode-rust: 我的leetcode/codeforces算法题和周赛题解，已刷420+题，全国排名8000+
-## DataStructure
-    typeid_key_hashmap: 类似actix_web::web::Data，key是类型支持存储任意类型的HashMap
-    lock_free_concurrency_hashmap(TODO): 并发无锁HashMap，参考dashmap
-## Driver
-    saks: 树莓派瑞士军刀扩展版驱动，已完成74HC595和数码管等硬件的驱动
-## Network:
-    pg_client: Rust实现的postgres数据库协议解析器及client
-## Infrastructure
-    logger: 针对systemd部署的Rust项目设计的一款高性能logger，支持按时间范围查询日志
+    <!-- 项目经验的高逼格术语: 锁的粒度、具效化, sso/cas 单点登录, more fine-grained control in exchange(进行更细粒度的控制) -->
+    <h2 class="header2">§ 项目经历</h2>
 
----
+    <h3 class="header3">
+        <span class="project-title">Ig Analyzer</span>
+        <span class="project-role">Rust开发</span>
+        <span class="project-cycle">2020.12 - 至今</span>
+    </h3>
+    <pre class="project-details">
+[项目背景] 公司先前Ins分析App因私有API和隐私问题被下架，尝试移植到Web绕过苹果审核
+[技术架构] warp+graphql+mongodb
+[主要工作] 1. Facebook oauth授权token的权限检查
+　　　　   2. Instagram粉丝国家/城市/年龄/性别分布等统计数据的接口
+[项目收获] 1. 通过动态链接库libsystemd.so将Rust的log映射成journalctl的日志
+　　　　   2. 掌握FFI调用Rust绑定C的不透明指针类型，了解isahc对libcurl.so回调函数的binding
+　　　　   3. 学习ssh -L隧道将远程服务器db端口映射到本地，方便mongodb compass查询浏览数据
+　　　　   4. 能熟练使用vscode的lldb对panic的调试，能在linux开发机重现远程服务器的问题
+　　　　   5. 熟悉管理单元测试环境变量和配置的各种方法
+　　　　   6. 学习lld和march=znver3加速Rust编译，学会开启clippy::pedantic更严格的代码检查
+    </pre>
 
-我提过的PR有点多啊，要不要渲染成一个table这样信息更密集，也能节约版面
--->
-
-    <!-- 项目经验的高逼格术语: 锁的粒度、具效化、go/anlylize静态分析, sso/cas 单点登录, more fine-grained control in exchange(进行更细粒度的控制) -->
-    <h2 class="header2">项目经历</h2>
+    <h3 class="header3">
+        <span class="project-title">Iga business</span>
+        <span class="project-role">Rust开发</span>
+        <span class="project-cycle">2020.09 - 2020.11</span>
+    </h3>
+    <pre class="project-details">
+[技术架构] tokio+WebSocket+protobuf,用sqlx确保编译时对postgres SQL的检查
+[主要工作] 了解时序数据和pg的Timescale插件，对业务的时序数据进行建模和抽象
+[项目收获] 1. 加深对tokio::select!和event_loop的理解
+　　　　   2. 熟悉协程间通信，能在20分钟内写完tokio聊天服务器(b站直播录像BV1QK4y1G7ao)
+    </pre>
 
     <h3 class="header3">
         <span class="project-title">WebSocket服务器</span>
         <span class="project-role">Rust开发</span>
         <span class="project-cycle">2020.07 - 至今</span>
     </h3>
-    <pre class="deprecated">Actix同步函数嵌入异步代码有两种，一种类似js的promise，另一种是用特殊的Actor包起来</pre>
+    <pre class="deprecated"></pre>
     <pre class="project-details">
-[项目链接] wss://ws.cadex.top
 [项目背景] 老的Ruby版WebSocket服务器负载高内存泄露严重，严重到需要每隔5分钟自动或手动重启去释放资源
-　　　　   除此之外项目间用redis pubsub机制进行进程间通信，很低效，我说服其它同事改用UDP socket进行通信
-[技术架构] 1. 用的是actix框架，主要有两种Actor，一个是跟每个客户端一对一的SessionActor
-　　　　      另一个Actor是UDP socket Listener兼任存储每个频道有哪些客户端订阅
-　　　　      UdpActor会缓存其它Ruby脚本发来的上一条推送数据，一旦客户端订阅频道就立即推送缓存的数据
-　　　　      SessionActor的析构回调中会通知UdpActor删掉所有频道的订阅列表中已断开连接的Actor地址
-[主要工作] 1. 设计WebSocket断线重连/心跳包机制，用Rust重写负载较高的聊天应用中WebSocket数据推送脚本
-[项目收获] 1. 在Actor Handler的同步函数中嵌入异步的代码块的两种方法
+[技术架构] 用的是actix框架，一种Actor管理长链接，另一种Actor监听UDP且存储每个频道的客户端订阅
+　　　　   UdpActor会缓存其它Ruby脚本发来的上一条推送数据，一旦客户端订阅频道就立即推送缓存的数据
+　　　　   SessionActor的析构回调中会通知UdpActor删掉所有频道的订阅列表中已断开连接的Actor地址
+[主要工作] 用actix-web重写交易所场外交易WebSocket聊天部分以及行情推送
+[项目收获] 学习actix AsyncContext::spawn在同步的handler中嵌入异步的代码的方法
     </pre>
-
-    <!--
-    <h3 class="header3">
-        <span class="project-title">WebSocket服务器</span>
-        <span class="project-role">Rust开发</span>
-        <span class="project-cycle">2020.07 - 至今</span>
-    </h3>
-    <pre class="deprecated">Actix同步函数嵌入异步代码有两种，一种类似js的promise，另一种是用特殊的Actor包起来</pre>
-    <pre class="project-details">
-[项目链接] wss://business.igrow.ai/ws
-[技术架构] 1. 曾用websocket+protobuf
-[主要工作] 1. 
-[项目收获] 1. 
-    </pre>
-    -->
 
     <h3 class="header3">
         <span class="project-title">数字货币交易所订单撮合引擎</span>
         <span class="project-role">Rust开发</span>
-        <span class="project-cycle">2020.04 - 至今</span>
+        <span class="project-cycle">2020.04 - 2020.07</span>
     </h3>
     <pre class="deprecated">全角空格[　]</pre>
-    <pre class="deprecated">3. 使用泛型复用了所有接口表单中公共参数的校验，例如检查lang字段合法就是通过泛型实现</pre>
-    <pre class="deprecated">rails处理POST请求，参数放在body或url上都能解析是一个UB</pre>
+    <pre class="deprecated">使用泛型复用了所有接口表单中公共参数的校验，例如检查lang字段合法就是通过泛型实现</pre>
     <pre class="deprecated">diesel遇到数据库死锁的问题，使用MySQL的slow_log/general_log排查与调试性能问题，通过添加索引等方式提高性能</pre>
     <pre class="deprecated">静态区间和数据用前缀和，动态区间和数据用线段树；静态排序数据用快排，动态排序数据用堆</pre>
-    <pre class="deprecated">通过一个线程每隔0.5秒轮询当前时间判断是开盘或休盘或去修改相应的全局AtomicBool变量</pre>
-    <pre class="deprecated">由于内存订单数据使用到了堆，所以删除操作是lazy_delete的，1. 发现了thread::spawn内打印log(日志)会运行时异常，而用tokio::spawn则不会发生该错误</pre>
+    <pre class="deprecated">由于内存订单数据使用到了堆，所以删除操作是lazy_delete的，发现了thread::spawn内打印log(日志)会运行时异常，而用tokio::spawn则不会发生该错误</pre>
     <pre class="project-details">
-[项目链接] http://trading.cadex.top
 [项目介绍] 数字货币交易所的撮合引擎的功能是将价格相近的买单和买单匹配在一起进行成交
-[项目成绩] 经ab工具测试，Rust版每秒能处理下单请求的个数是Ruby版的15-25倍，CPU/内存负载比Ruby版低2个数量级
+[项目成绩] 经ab工具测试，Rust版每秒处理请求数是Ruby版的15-25倍，CPU/内存负载比Ruby版低2个数量级
 [技术架构] 1. 技术栈是: tide+sqlx+async-redis，曾经用过actix-web+diesel
 　　　　   2. 撮合引擎本质上是一个API服务器，主要由创建订单/撤单/撤销全部三个接口组成
 　　　　      三个接口都需要将各参数按字典序加private_key算出数字签名，我开发了一个derive过程宏
 　　　　      不仅可以让每个表单在编译时自动实现参数验证的方法，还能用泛型复用三个接口
 　　　　   3. 将未完成的订单数据用「优先队列/堆」的数据结构持久化存储在内存中，减少MySQL的负载
 　　　　      撮合引擎的买单和卖单本质上是个有序数组，动态有序数据用堆，静态用快排
-　　　　   4. 刚开始为了偷懒函数少传参数，大量使用std::lazy::SyncOnceCell作为static全局变量
-　　　　      后来领悟到用web框架自带的app_state就可以实现task::spawn线程和web框架内共享数据
-　　　　      只要app_state是Arc类型，在main函数定义，分别给task::spawn和app clone一份引用即可
-　　　　   5. 一个进程只负责一个交易对，所有进程都是共用一个二进制运行文件，通过环境变量/命令行参数
-　　　　      区分交易对，例如请求'/btcusdt/create_order'会被nginx转发到负责btcusdt交易对的撮合进程
+　　　　   4. 一个进程只负责一个交易对，所有进程都是共用一个可执行文件，通过环境变量/命令行参数区分交易对
 [主要工作] 1. 除了数字货币所的撮合引擎还做了一套仿上交所的塔吉克证券交易所撮合引擎，
 　　　　      股票撮合引擎的区别是订单的数量单位是一股一手，而且有休盘时间和节假日
 　　　　   2. 设计节假日的数据结构，做完了开休盘时间段切换、工作日/节假日切换的功能
-　　　　   3. 实现了股票撮合引擎当日加权平均成交收盘价的自动更新，解决了股票订单成交后账户余额会变负数的问题
+　　　　   3. 实现了股票撮合引擎当日加权平均成交收盘价的自动更新，解决了股票成交后账户余额可能变负数的问题
 　　　　   4. 设计Rust项目的部署方案，因配置文件编译前常量内联优化到可执行文件中无法交叉编译，通过systemctl重启服务器
 　　　　   5. 通过Mutex锁实现了系统的幂等性，尝试降低锁的粒度或无锁编程的方式去优化性能
-　　　　   6. 集合竞价、开收盘等时间段的切换的方案是，通过轻量级线程task::spawn内轮询时间判断时间段是否需要切换
-　　　　      如需切换则修改相应的全局AtomicBool，缺点是多个股票进程没有共用一个判断时间的线程
-[项目收获] 1. 区分了Rust编译时和运行时环境变量，通过leetcode、reddit等渠道从零学习Rust语言
-　　　　   2. 掌握用cargo workspace管理多个子crate/package，了解darling过程宏库
-　　　　   3. 异步runtime下要用tokio或async-std的Mutex锁，用std::sync::Mutex在高并发时容易发生死锁
-　　　　   4. 简单了解了Rust和C++的多态/泛型/虚函数表，以及Rust如何实现静态分发和动态分发(dynmatic dispatch)
-　　　　   5. 发现了rust_decimal库，不仅内存大小只有bigdecimal-rs的1/4，而且运算速度是bigdecimal的2-3倍
+[项目收获] 1. 异步runtime下要用tokio或async-std的Mutex锁，用std::sync::Mutex在高并发时容易发生死锁
+　　　　   2. 熟悉Rust全局共享可变和不可变数据的各种方法
+　　　　      在main中创建app_state往后层层传递到各个协程，比OnceCell或Lazy更利于静态分析
+　　　　   3. 区分了Rust编译时(env!宏)和运行时环境变量，了解build.rs的工作原理
+　　　　   4. 发现rust_decimal库不仅内存大小只有bigdecimal-rs的1/4，而且运算比bigdecimal快2-3倍
     </pre>
 
     <h3 class="header3">
@@ -243,15 +204,82 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
         <span class="project-role">安卓开发</span>
         <span class="project-cycle">2020.01 - 2020.04</span>
     </h3>
-    <pre class="deprecated">[项目背景] 由于安卓开发的同事离职，我接手安卓项目继续开发与维护了一段时间</pre>
     <pre class="project-details">
-[项目架构] 1. 一些新需求用到的库只有androidx版本，我将安卓项目升级为androidx架构
-　　　　   2. 老的Activity/Fragment页面保持MVP模式不变，新页面尝试使用新技术MVVM
-　　　　   3. 通过Parcelable序列化/反序列化接口实现两个页面之间传递Java实例对象
+[项目架构] 1. 老的Activity/Fragment页面保持MVP模式不变，新页面尝试使用新技术MVVM
+　　　　   2. 通过Parcelable序列化/反序列化接口实现两个页面之间传递Java实例对象
 [主要工作] 1. 我做了币币订单列表、法币广告列表、邀请返佣等共计15~20个页面，集成了友盟SDK
-　　　　   2. 开发WebSocket工具类，包含断线重连恢复订阅等功能，通过SQLite(Room API)缓存WebSocket数据
+    </pre>
+    <hr class="divider">
+
+    <h2 class="header2">§ 个人开源项目</h2>
+    <h3 class="header3">
+        <span class="project-title">WebSocket聊天</span>
+        <span class="project-role">Rust/Java/C</span>
+        <span class="project-cycle"></span>
+    </h3>
+    <pre class="project-details">
+[项目链接] https://github.com/pymongo/chat_server
+[项目介绍] 后端tokio，web端用Vue，mac桌面端用gtk，安卓端用Java，不定期在b站和飞书直播写
+[项目收获] 学习gtk的Entry, TreeView, ListStore等组件，理解gtk-rs组件的引用计数和消息传递
     </pre>
 
+    <h3 class="header3">
+        <span class="project-title">postgres协议解析器</span>
+        <span class="project-role">Rust</span>
+        <span class="project-cycle"></span>
+    </h3>
+    <pre class="project-details">
+[项目链接] https://github.com/pymongo/pg_client
+[项目介绍] 没有任何第三方库，纯Rust实现的postgres数据库协议解析器和client，暂不支持异步
+[项目收获] 1. 学习了字节序little/bigger/naive endian，并掌握查询所用操作系统字节序的方法
+　　　　   2. 读写pg消息中的std::ffi::CStr类型，了解通过Cursor读取输入缓冲区中多条消息的方法
+    </pre>
+    <h3 class="header3">
+        <span class="project-title">个人开源的一些库</span>
+    </h3>
+    <pre class="project-details">
+数据结构相关库:
+- ypeid_key_hashmap: 类似actix_web::web::Data，key是类型支持存储任意类型的HashMap
+驱动类相关库:
+- saks(已上传crates.io): 树莓派瑞士军刀扩展版驱动，已完成74HC595和数码管等硬件的驱动
+基础设施相关库:
+- logger: 针对systemd部署的Rust项目设计的一款高性能logger，支持按时间范围查询日志
+    </pre>
+
+    <h2 class="header2">§ 开源社区贡献PR</h2>
+    <p>每年平均贡献20-30个PR,主要关注数据库、数值计算、无锁数据结构等领域的开源库</p>
+    <p>¶ 数据库相关的PR</p>
+    <pre class="project-details">
+- mongodb/bson-rust#260: 我优化了bson::DateTime::now()，性能提升70%
+- rust-postgres#669: make postgres protocol version value more readable
+- sqlx(rust)#319,#581,#592,#1002: 解决了sqlx的Bug#981编译时SQL检查可能hang
+- tikv/agatedb#104: 修复了一些clippy的lints
+- tensorbase/tensorbase#115: tensorbase是Rust写的类似clickhouse的data warehouse
+    </pre>
+
+    <p>¶ 数据结构相关的PR</p>
+    <pre class="project-details">
+- bigdecimal-rs#66: 我实现了四舍五入的round方法并提供了相关的16个测试用例
+    </pre>
+
+    <p>¶ 网络和基础设施相关的PR</p>
+    <pre class="project-details">
+- actix/examples#298: 删掉了actix-web关闭服务器代码例子中两个无用变量
+- BinChengZhao/delay-timer#1: 改进了文档
+    </pre>
+
+    <p>¶ 区块链相关的PR</p>
+    <pre class="project-details">
+- Phala-Network/phala-blockchain#172: use is_empty() to check str/vec whether empty
+    </pre>
+
+    <p>¶ 应用相关的PR</p>
+    <pre class="project-details">
+- wildfirechat/android-chat#330: 野火聊天安卓端，我将一些文案改成tools:text属性(仅preview可见)
+- uinb/galois#7,#12: galois是一个股票撮合引擎，基于我之前撮合开发的经验改良了配置文件
+    </pre>
+
+    <!--
     <h3 class="header3">
         <span class="project-title">交易所移动端API接口</span>
         <span class="project-role">Ruby开发</span>
@@ -265,145 +293,39 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 [主要工作] 1. 维护老的API接口，为APP的新页面开发接口，我参与开发了30~40个接口以及相应的单元测试
 　　　　   2. 分析多表联查时出现N+1查询的原因，通过加单向/双向关联和includes语句解决N+1查询问题
     </pre>
-    <pre class="deprecated">3. 解决多个「N+1查询」问题</pre>
-
-    <hr class="divider">
-
-    <h2 class="header2">个人项目</h2>
-    <h3 class="header3">
-        <span class="project-title">pg_client(postgres协议解析器)</span>
-        <span class="project-role">owner/maintainer</span>
-        <span class="project-cycle"></span>
-    </h3>
-    <pre class="project-details">
-[项目链接] https://github.com/pymongo/pg_client
-[项目介绍] 没有任何第三方库，纯Rust实现的postgres数据库协议解析器和client，暂不支持异步
-[项目收货] 1. 学习了字节序little/bigger/naive endian，并掌握查询所用操作系统字节序的方法
-　　　　   2. 读写pg消息中的std::ffi::CStr类型，了解通过Cursor读取输入缓冲区中多条消息的方法
-    </pre>
-
-    <h2 class="header2">开源贡献(Pull Request)</h2>
-
-    <h3 class="header3">
-        <span class="project-title">rust-postgres(tokio-postgres)</span>
-        <span class="project-role">contributor</span>
-        <span class="project-cycle"></span>
-    </h3>
-    <pre class="project-details">
-[PR链接] https://github.com/sfackler/rust-postgres/pull/669
-[主要工作] Make postgres protocol version value more readable
-    </pre>
-
-    <h3 class="header3">
-        <span class="project-title">sqlx</span>
-        <span class="project-role">contributor</span>
-        <span class="project-cycle"></span>
-    </h3>
-    <pre class="project-details">
-[PR#581] Remove decimal feature unnecessary dependency num-traits
-[PR#319,PR#592] 我阅读sqlx的MySQL源码时发现docstring中有一个typo(单词拼写错误)，我提交PR修复了该错误
-    </pre>
-
-    <h3 class="header3">
-        <span class="project-title">bigdecimal-rs</span>
-        <span class="project-role">contributor</span>
-        <span class="project-cycle"></span>
-    </h3>
-    <pre class="project-details">
-[PR链接]  https://github.com/akubera/bigdecimal-rs/pull/66
-[项目介绍] bigdecimal-rs是Rust社区一个适用于较大数据之间精准运算的库
-[主要工作] 我实现了四舍五入的round API并提供了16个测试用例，round最大可支持i128范围内的Decimal数据
-    </pre>
-
-    <h3 class="header3">
-        <span class="project-title">actix</span>
-        <span class="project-role">contributor</span>
-        <span class="project-cycle"></span>
-    </h3>
-    <pre class="project-details">
-[PR链接]  https://github.com/actix/examples/pull/298
-[主要工作] 删掉了actix-web关闭服务器代码例子中两个无用变量
-    </pre>
-
-    <!--
-    <h3 class="header3">
-        <span class="project-title">开源项目野火IM</span>
-        <span class="project-role">Java后端开发+安卓开发</span>
-        <span class="project-cycle"></span>
-    </h3>
-    <pre class="project-details">
-[PR链接]  https://github.com/wildfirechat/android-chat/pull/330
-[项目介绍] 野火IM是一款仿微信的聊天软件，我参与了安卓端的开发
-[项目背景] 基于野火二次开发，将交易所的聊天功能拆分成独立APP，由于视频会议效果不佳，目前项目处于暂停状态
-[项目架构] 安卓端的主要技术栈是jetpack MVVM，服务端的技术栈是maven+spring，聊天协议部分没有开源
-[主要工作] 二次开发野火IM的服务端+安卓端，提PR将聊天RecyclerView仅用于UI预览下的文案改成tools:text属性
-    </pre>
-    <pre class="deprecated">
-[项目背景] 其它备选方案是telegram、tinode
-独自负责野火IM后端和安卓端的开发维护，基于野火开源部分和付费购买的多人视频SDK二次开发
-部署coturn服务器，实现两个客户端之间NAT内网穿透从而进行P2P视频通话
-自学maven，发现spring官方教程中集成测试代码Demo中有一处错误(详见我博客)
-给野火IM安卓端提PR，与野火技术支持沟通，改善了语音消息的音质
-    </pre>
 
     <div class="project-title">交易所安卓端APP</div>
     <div class="row-padding-lv1">・开发了OkHttpHelper，为每个请求加上签名校验和设备信息(如机型,安卓版本)等参数，方便后端统计</div>
-    <div class="row-padding-lv1">・实现了java websocket client，包括断线重连、恢复订阅、取消全部订阅等功能</div>
-    <div class="row-padding-lv1">・了解jetpack MVVM架构，项目中用的了viewModel、DataBinding等新技术</div>
     <div class="row-padding-lv1">・将项目升级为androidx，用navigation-graph重构了底部导航栏，了解dagger2依赖注入</div>
-    <div class="row-padding-lv1">・从WebSocket获取数据的RecyclerView改为用SQLite的数据(Room ORM)进行初始化</div>
-
-    <div class="project-title">安卓聊天功能</div>
-    <div class="row-padding-lv1">・将OkHTTP的websocket重构为java-websocket，基于心跳包实现了断线重连和保持连接功能</div>
-    <div class="row-padding-lv1">・尝试基于开源的野火IM进行二次开发，将聊天功能抽取成单独的APP，服务端用的是maven+spring</div>
-    <div class="row-padding-lv1 deprecated">・因服务端使用的MySQL版本过低无法存储Emoji表情包，安卓聊天输入框设置了emoji过滤器</div>
+    <div class="row-padding-lv1">・从WebSocket获取数据的RecyclerView改为用SQLite的数据(Room ORM)进行初始化,WebSocket恢复订阅功能</div>
 
     <div class="project-title">交易所移动端API接口</div>
     <div class="row-padding-lv1">・给所有接口加上数字签名校验，解决「N+1查询」问题，通过ab命令测试接口性能</div>
     <div class="row-padding-lv1">・对于时效性短的数据，存入redis减轻MySQL负载，如当日取消订单3次限制交易的功能通过redis实现</div>
-    <div class="row-padding-lv1 deprecated">・在before :each的hooks将本次用到的相关数据表情况，确保每个test case/example做到数据上的解耦</div>
-    <div class="row-padding-lv1 deprecated">・将每个接口中的每个if else都进行测试，将复杂if语句重构为guard statement</div>
-
-    <div class="project-title">运营系统-法币交易数据图表</div>
-    <div class="row-padding-lv1">・前端图表库使用echart.js，MySQL通过按日期和按币种两次分组，完成查询</div>
-    <div class="row-padding-lv1">・通过bootstrap的nav-tab实现柱状图(每日交易量)和扇形图(总交易量)的图表模式切换</div>
 
     <div class="project-title">k线画线工具</div>
-    [项目架构] 1. 前端是Vue+element-ui的UI组件，后端是rails API框架
-　　　　       2. 避免用户重复点击发起多个请求的解决方案：发起请求前禁用按钮，请求response时恢复按钮
-    [主要工作] 开发了两个新接口：一个用来给k线编辑器读取配置，另一个是保存配置
-    [项目收获] vue-router/props携带参数地在页面中跳转，简单入门了Vue，了解v-for列表渲染，Vue如何发起网络请求
+[项目架构] 「防重入」避免用户重复点击发起多个请求的解决方案：发起请求前禁用按钮，请求response时恢复按钮
+[主要工作] 开发读取配置保存配置两个接口，vue-router/props携带参数地在页面中跳转，简单入门了Vue，了解v-for列表渲染，Vue如何发起网络请求
     <div class="row-padding-lv1">・该工具用于绘制低交易量交易对的K线图，是交易所交易数据造假的工具之一</div>
 
     <div class="project-title">锁仓利息与佣金计算脚本</div>
     <pre class="project-details">
 [项目介绍] 很多交易所定期都会推广锁仓活动，锁仓一定数量的币，每天都有利息收益，推荐他人锁仓能获得佣金
-[项目收获] 1. 涉及钱或需要精准计算的数据要用BigDecimal类型，避免浮点数计算时的精度丢失问题
-　　　　   2. 浮点数转BigDecimal时只能传字符串的构造方法，Python中BigDecimal的构造方法入参浮点数会精度丢失
-　　　　   3. 对数据库进行金钱变动操作时要加上事务处理和FOR UPDATE悲观锁避免数据竞争
+[项目收获] 1. 浮点数转BigDecimal时只能传字符串的构造方法，Python中BigDecimal的构造方法入参浮点数会精度丢失
+　　　　   2. 对数据库进行金钱变动操作时要加上事务处理和FOR UPDATE悲观锁避免数据竞争
     </pre>
-    <div class="row-padding-lv1">・用Ruby<b>元编程</b>(define_method)简化了佣金计算部分的代码，通过<b>「crontab」</b>每日定时执行该脚本</div>
-    <div class="row-padding-lv1">・学习建立User表与Account表之间的<b>「双向关联」</b>，简化操作代码</div>
-    <div class="row-padding-lv1">・在ActiveRecord的before_update「hook/callback」给用户钱包余额加了非负验证</div>
+    <div class="row-padding-lv1">・学习crontab定时任务，建立User表与Account表之间的<b>「双向关联」</b>，简化操作代码</div>
 
     <div class="project-title">站内转账按邮箱查询功能</div>
     <div class="row-padding-lv1">・需求是同时按转账发起人邮箱和转账接收人邮箱进行查询，转账记录表需要join用户表两次</div>
     <div class="row-padding-lv1">・在ActiveRecord转账记录表上建立了sender/receiver_user_id外键关联</div>
-    <div class="row-padding-lv1">・遇到rails的设计缺陷，两次includes同一个用户表时无法辨别是发起者还是接收者</div>
-    <div class="row-padding-lv1">・最后用混合ORM和原生SQL实现查询，总结整理出多篇ActiveRecord相关文章发布在我的个人博客</div>
 
     <div class="project-title">交易所后台管理系统</div>
-    <div class="row-padding-lv1">・新增了其它交易所数据爬虫机器人的管理的CRUD页面，使用jQueryValidate进行表单验证</div>
     <div class="row-padding-lv1">・为所有导出csv下载的链接添加参数过滤(params.slice)，防止携带参数跳转时「无关的数据被暴露」</div>
-    <div class="row-padding-lv1">・添加部分I18n英文和俄文的国际化支持，通过参数merge解决了切换语言时GET请求参数被覆盖的问题</div>
-    <div class="row-padding-lv1 deprecated">・使用select2.js库给选择币种下拉菜单组件添加上搜索框，美化了搜索框</div>
-    [项目架构] 后台管理系统主要负责所有项目/子系统共用数据库的迁移管理
-    [主要工作] 1. 为所有导出csv下载的链接添加参数过滤(params.slice)，防止携带参数跳转时「无关的数据被暴露」
-    　　　　   2. 通过参数merge解决了切换语言时GET请求参数被覆盖的问题，了解风控系统、赌场的用户画像系统
+    <div class="row-padding-lv1">・select2.js添加搜索框，通过参数merge解决了切换语言时GET请求参数被覆盖的问题</div>
+    [主要工作] 为所有导出csv下载的链接添加参数过滤(params.slice)，防止携带参数跳转时「无关的数据被暴露」
     -->
-
 </div>
 
 </body>
-
 </html>
