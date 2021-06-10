@@ -111,7 +111,7 @@ dejavu让vscode的英文字体非常好看
 - adobe-source-han-sans-cn-fonts(纯英文工作机用)
 - ruby
 - inxi partitionmanager
-- tlp powerdevil powertop # 笔记本不要卸载，否则休眠后锁屏界面可能卡死
+- tlp powerdevil powertop # 笔记本不要卸载，否则休眠后唤醒可能卡死
 
 software token由于opennetwork依赖故无法删除
 
@@ -411,9 +411,9 @@ screen_edge设置里鼠标移到右上角就显示show desktops这个没用
 - 删掉启动krunner的alt+F2，让vscode/idea用这个快捷键
 - application_launcher的Alt+F1改成Alt+F6(不能删掉，否则按win不能弹出开始菜单)
 
-### idea配置
+### idea配置()
 
-建议用toolbox安装idea更好(通过idea-eval-resetter应该能用上CLion)，因为manjaro源的更新落后arch好几周
+建议用toolbox安装idea更好(通过idea-eval-resetter用上CLion)，因为manjaro源的更新落后arch好几周
 
 linux下的idea首先要安装官方的mac_keymap插件才能导入mac的配置
 
@@ -422,6 +422,25 @@ linux下的idea首先要安装官方的mac_keymap插件才能导入mac的配置
 > keymap.windows.as.meta=true
 
 我的经验是只备份一个idea的keymap和general(字体大小)的配置文件，然后所有jetbrains全家桶共同使用这一个按键配置
+
+### jetbrains-toolbox
+
+jetbranins-toolbox's settings:
+- disable auto update: use yay to update, do not update toolbox self update!
+- disable tools auto update: 不需要频繁启动, manually update all tools/plugins once a week
+- enable keep only the latest version: I wish keep only latest version toolbox
+- apperance_theme_dark
+- disable apperance_run_at_login
+
+**Do not open toolbox with start_menu or krunner!**
+
+start_menu's toolbox is `/home/w/.local/share/applications/jetbrains-toolbox.desktop`
+
+which refer to `Exec=/home/w/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox`
+
+when I yay update toolbox, start_menu's toolbox still refer to old_version
+
+best_practice: open toolbox by `/usr/bin/jetbrains-toolbox`
 
 ### vscode要装aur的
 

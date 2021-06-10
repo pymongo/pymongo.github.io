@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-06**
+    - [mongodb dump](/2021/06/mongodb_dump.md)
     - [tensorbase](/2021/06/tensorbase.md)
 - **2021-05**
     - [linux远程控制](/2021/05/manjaro_kde_vnc_screen_share.md)
