@@ -165,7 +165,7 @@ ENGINE = BaseStorage
 
 So I use `FORMAT CSV` to insert
 
-clickhouse-client --port 9528 --query "INSERT INTO cell_towers.cell_towers FORMAT CSV" < cell_towers.csv
+clickhouse-client --port 9528 --query "INSERT INTO cell_towers.cell_towers FORMAT CSV" < cell_towers_no_headers.csv
 
 ---
 

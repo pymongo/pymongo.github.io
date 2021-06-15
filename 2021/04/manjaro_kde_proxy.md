@@ -4,13 +4,36 @@ TODO KDE怎么把VPN共享到wifi热点，好让android_setup_wizard时可以走
 
 有空可以参考下这篇文章: [Sharing VPN connection on Linux](https://kamranzafar.org/2012/08/16/sharing-vpn-connection-on-linux/)
 
-## expressvpn`
+## expressvpn
 
 expressvpn用的openVPN协议，默认就是「全局代理」，系统设置成**no_proxy**就行了
 
-## trojan/ss/ssr
+## shadowsocks
 
-### archlinux trojan
+> sudo pacman -S shadowsocks-libev shadowsocks-v2ray-plugin
+
+sudo vim /etc/shadowsocks/1080.json
+
+```
+{
+    "server": "TODO",
+    "server_port": 443,
+    "local_address": "0.0.0.0",
+    "local_port": 1080,
+    "password": "TODO",
+    "timeout": 300,
+    "method": "xchacha20-ietf-poly1305",
+    "fast_open": true,
+    "plugin": "v2ray-plugin",
+    "plugin_opts": "TODO"
+}
+```
+
+> sudo systemctl start shadowsocks-libev@1080
+
+shadowsocks-libev是用C写的，会比shadowsocks这个Python写的性能要好
+
+## trojan
 
 systemd那个trojan service无法打开配置文件就很奇怪，所以只能手动`trojan config.json`或自己写个systemd的user service去管理trojan进程
 
@@ -21,15 +44,13 @@ Apr 08 13:10:58 systemd[1]: trojan.service: Main process exited, code=exited, st
 Apr 08 13:10:58 systemd[1]: trojan.service: Failed with result 'exit-code'.
 ```
 
-### chrome使用trojan代理
+## manjaro系统代理配置
 
 系统设置的proxy设置，选用 use_system_proxy 或 use_manually_specified_proxy 都能让trojan在chrome上生效，如图
 
 ![](use_system_proxy.png)
 
 ![](use_manually_specified_proxy.png)
-
-### terminal使用trojan代理
 
 在需要走代理的命令前面加上`ALL_PROXY=socks5://127.0.0.1:1080`就行了
 

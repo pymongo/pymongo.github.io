@@ -34,6 +34,10 @@ watch inxi --flags # CPU flags
 
 watch "cat /proc/cpuinfo | grep MHz"
 
+## GPU memory usage
+
+> watch nvidia-smi
+
 ## 内存频率
 
 想着CPU默频是3700所以额外加钱买了3600的内存条
