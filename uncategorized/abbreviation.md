@@ -32,6 +32,8 @@ Example: chrono::NaiveDateTime::from_timestamp_opt
 - ICE(Internal Compiler Errors): rustc编译器内部出错
 - MMU(Memory Manage Unit)
 - OOM(Out Of Memory): <https://github.com/rust-lang/rust/pull/84266>
+- MSRV(minimum supported Rust version): https://github.com/rust-lang/rust-clippy/blob/master/doc/adding_lints.md
+
 
 ## 互联网公司术语缩写
 

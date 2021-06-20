@@ -126,6 +126,14 @@ full版manjaro无用的自带包举例:
 
 > rm -rf .steam .steampath .steampid ~/.local/share/Steam
 
+### 获取linux系统的安装时间
+
+> head /var/log/pacman.log
+
+或者查看硬盘文件系统创建时间
+
+> sudo tune2fs -l /dev/nvme0n1p1 | grep "Filesystem created"
+
 ---
 
 ## KDE显示与驱动
@@ -219,6 +227,10 @@ ra等工具链的安装和配置请看我另一篇文章: [vscode配置Rust环�
 Ubuntu用**update-java-alternatives**切换java版本，而arch则使用**archlinux-java**
 
 ### 必装yay和chrome
+
+#### 获取pacman的历史操作
+
+> cat /var/log/pacman.log | grep "\[PACMAN\]"
 
 需要先禁用KDE wallet再装chrome(keyring相关应用)
 
