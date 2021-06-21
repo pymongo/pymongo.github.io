@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-06**
+    - [custom Rust lint](/2021/06/custom_clippy_lint.md)
     - [glommio io_uring runtime](/2021/06/glommio_io_uring_runtime.md)
     - [ssh forward remote db](/2021/06/ssh_tunnel_forward_remote_db_port.md)
     - [mongodb dump](/2021/06/mongodb_dump.md)
