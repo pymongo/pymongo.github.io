@@ -96,12 +96,9 @@ Rust编译器选项里可以把默认的内存管理器换成FreeBSD的jemalloc�
 
 ## Go语言吐槽
 
-我还是比较欣赏Go会对unsed variables/import给出编译错误，但是Rust那样可以通过配置unused警告是否升级为Error更灵活
+我还是比较欣赏Go会对unused variables/import给出编译错误，但是Rust那样可以通过配置unused警告是否升级为Error更灵活
 
 - Go无法拿到/直接控制naive/o thread，中间多了层Go调度器实现os thread和协程的调度，协程数量多时，协程间上下文切换开销可能会很大
 - GC机制对「非GC友好的pattern/数据结构」例如TiKV底层的LSM tree在在内存中有个类似LRU小对象的缓存池，小对象会经常换入换出使得GC的压力很大
 - 没有迭代器、生成器、map、for_each、reduce等函数式API(for_each/map是写业务代码数据转换的极其重要API，例如将结构体map为json/protobuf之类的)
 - 字符处理不统一，没有统一成Unicode(没有处理C语言遗留的w_char问题)
-- 错误处理很傻很简单粗暴(至少也比wiringpi里C语言的错误处理强多了，Go错误处理比C有进步)
-- 没有模式匹配
-- 工程上: 包管理不好用，没有区分构建工具(cargo)和编译工具(rustc)，没有cargo init/new等初始化项目的文件结构，构建难

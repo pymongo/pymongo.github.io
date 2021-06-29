@@ -165,8 +165,6 @@ ENGINE = BaseStorage
 
 So I use `FORMAT CSV` to insert
 
-clickhouse-client --port 9528 --query "INSERT INTO cell_towers.cell_towers FORMAT CSV" < cell_towers_no_headers.csv
+clickhouse-client --compression true --port 9528 --query "INSERT INTO cell_towers.cell_towers FORMAT CSV" < cell_towers_no_headers.csv
 
----
-
-Block on tensorbase insert csv data failed issue
+for clickhouse-client version >= 21.5, need to add `--compression true` arg to make INSERT statement successful

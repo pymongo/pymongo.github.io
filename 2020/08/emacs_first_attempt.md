@@ -1,4 +1,4 @@
-# [emacs初体验](/2020/08/emacs_first_attemp.md)
+# [emacs初体验](/2020/08/emacs_first_attempt.md)
 
 尝试了emacs以后，让我IDEA系列软件的快捷键布局都改成了emacs再加上ideaVim
 

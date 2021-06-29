@@ -94,7 +94,7 @@ TODO 以下每个例子都在我learn_cpp中加上错误标注
 
 - deref空指针 -> Option<T>
 - 使用未初始化的内存 -> 编译器检查
-- 悬垂指针(use after free) -> ownership+liftime
+- 悬垂指针(use after free) -> ownership+lifetime
 - 缓冲区溢出(例如数组越界) -> 编译时简单检查越界，运行时越界会提前panic，不会像C/C++那样下标越界也能可能会继续运行
 - double free -> 编译器检查
 

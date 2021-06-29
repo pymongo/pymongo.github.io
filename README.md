@@ -74,7 +74,7 @@
     - [Rust编译成安卓/IOS库](/2020/08/rust_to_android_ios_mac.md)
     - [通过N叉树最大深度一题复习C++](/2020/08/learn_cpp_by_leetcode.md)
     - [Rust读牛客网编程题stdin](/2020/08/newcoder_stdin.md)
-    - [emacs初体验](/2020/08/emacs_first_attemp.md)
+    - [emacs初体验](/2020/08/emacs_first_attempt.md)
     - [直线方程与N皇后问题](/2020/08/n_queens.md)
 - **2020-07**
     - [async fn的展开写法](/2020/07/async_fn.md) <!-- [2020年7月近况分享](/2020/07/recent_study_plan.md) -->
@@ -164,7 +164,7 @@
     - [统计有记录的交易对](/2019/11/select-distinct.md)
     - [linear-gradient](/2019/11/linear-gradient-warn.md)
     - [link_to merge参数时报错DEPRECATION](/2019/11/link_to-merge-warning.md)
-    - [涉及钱的操作要加事务处理和线程锁](/2019/11/data-lock.md)
+    - [涉及钱的操作要加事务处理和线程锁](/2019/11/active_record_with_lock.md)
     - [怎么看懂k线图](/2019/11/k_line.md)
     - [account.first](/2019/11/account_first.md)
     - [crontab定时任务](/2019/11/crontab.md)

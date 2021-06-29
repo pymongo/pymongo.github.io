@@ -84,7 +84,7 @@ ruby的class method的前缀是self.
 ### ruby.variable
 
 种类:local/global/instance/class variabl  
-举例:$gloabl=100,@@class=nil,@instance=nil  
+举例:$global=100,@@class=nil,@instance=nil  
 在irb直接操作类变量会有warning: class variable access from toplevel  
 
 常量以大写字母开头，內容是可以修改的，

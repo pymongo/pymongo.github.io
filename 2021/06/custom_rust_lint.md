@@ -161,6 +161,28 @@ clippy 的 CONTRIBUTE.md 的 `How clippy works` 和 `Syncing changes between Cli
 
 该方法我一直报错: `Warning: No libraries were found`，故放弃
 
+## early/late lint 的概念
+
+按照 [Overview of the Compiler - rustc-dev-guide](https://rustc-dev-guide.rust-lang.org/overview.html) 的介绍
+
+我把 Rust 编译过程大致概括为以下流程: 
+
+(rustc_args_and_env -rustc_driver-> rustc_interface::Config)
+1. source_code_text(bytes) -rustc_lexer-> TokenStream
+2. TokenStream -rustc_parse-> AST
+3. AST analysis: macro_expand, name_resolution, feature_gating, checking/early_lint
+4. AST convert to HIR
+5. HIR analysis: type/trait checking, late_lint
+6. HIR convert to MIR
+7. MIR analysis: ownership/lifetime/borrow checking
+8. MIR Optimizations
+9. MIR convert to LLVM IR
+10. LLVM backend compile LLVM IR to executable or library
+
+所以 early_lint 能分析 AST 代码， late_lint 则是分析 HIR 代码
+
+宏和过程宏则是输入 token_stream ，宏输出则是展开后的 token_stream (参考 [heapsize 过程宏](https://github.com/dtolnay/syn/blob/master/examples/heapsize/heapsize_derive/src/lib.rs))
+
 ## dylint 添加新的 lint
 
 假设公司需要一个 lint，函数名字带 todo 的都要抛出警告
@@ -189,11 +211,7 @@ rustc_session::declare_lint! {
 rustc_session::declare_lint_pass!(FnNameContainsTodo => [FN_NAME_CONTAINS_TODO]);
 ```
 
-由于分析变量名或函数名只需要 Rust 编译的早期阶段，不需要知道表达式和类型信息，也就是对 AST(抽象语法树) 进行分析即可
-
-所以我们只需用 `rustc_lint::EarlyLintPass` 足够了
-
-至于 `rustc_lint::LateLintPass` 则是对 HIR(高级中间语言) 代码进行分析，例如分析枚举成员的内存对齐
+由于分析变量名或函数名只需要 AST 就足够了，不需要带类型信息的 HIR，因此只用 early lint
 
 ```rust
 impl rustc_lint::EarlyLintPass for FnNameContainsTodo {
@@ -274,10 +292,12 @@ warning: 1 warning emitted
 
 ## 禁止递归代码的 lint
 
-由于自己对 AST/TokenStream/HIR 解析不是很熟练，我参考了以下代码:
+由于自己对 AST/HIR 解析不是很熟练，我参考了以下代码:
 
 - rustc_lint::builtin::UNCONDITIONAL_RECURSION: 没找到实现代码(好像在MIR)
 - clippy 的 main_recursion lint
+
+我只能找到份 Rust 2015 年 UNCONDITIONAL_RECURSION 的源码: <https://www.cs.brandeis.edu/~cs146a/rust/doc-02-21-2015/src/rustc/lint/builtin.rs.html#1720>
 
 仿照 main_recursion 不难写出静态分析检测递归的代码:
 
@@ -305,7 +325,7 @@ impl rustc_lint::LateLintPass<'_> for MyLintRecursiveCode {
 }
 ```
 
-遗憾的是还不能检测a调用b且b调用a这种函数循环调用导致的无限递归
+遗憾的是还不能检测 a 调用 b 且 b 调用 a 这种函数循环调用导致的无限递归
 
 在 Rust 官方的 issue 57965, 70727 中也在讨论编译期要如何检测跨函数调用导致的无限递归
 
@@ -327,6 +347,6 @@ impl rustc_lint::LateLintPass<'_> for MyLintRecursiveCode {
 
 ## 结束语
 
-得益于 强大的调试宏 dbg! 和 AST/TokenStream/HIR 优秀的结构体设计，像作者这样非计算机专业没学过编译原理课程的水平也能轻松定制静态分析
+得益于 强大的调试宏 dbg! 和 AST/HIR 优秀的结构体设计，像作者这样非计算机专业没学过编译原理课程的水平也能轻松定制静态分析
 
 本文的源码仓库: <https://github.com/pymongo/my_lints> ，欢迎大家能贡献代码检查的需求或想法

@@ -99,7 +99,7 @@ noto是manjaro_kde默认字体，ttf-dejavu和adobe-source-code-pro-fonts提供�
 dejavu让vscode的英文字体非常好看
 
 - manjaro-hello manjaro-application-utility manjaro-documentation-en # 要一起卸载，因为互相依赖
-- okular # poppler-data删掉后每次开机都会提醒很烦，use chrome to view PDF
+- okular asciidoc colord # optional dep poppler-data不能删，删掉后每次开机都会提醒很烦
 - kdeconnect sshfs
 - kinfocenter # powerdevil optional require
 - kaccounts-providers
@@ -113,6 +113,8 @@ dejavu让vscode的英文字体非常好看
 - inxi partitionmanager
 - tlp powerdevil powertop # 笔记本不要卸载，否则休眠后唤醒可能卡死
 
+通过 `pacman -Qdtq` 能找到最近没用过的 package，然后可以卸载
+
 software token由于opennetwork依赖故无法删除
 
 ### 卸载full版无用的系统自带
@@ -120,7 +122,7 @@ software token由于opennetwork依赖故无法删除
 full版manjaro无用的自带包举例:
 
 - 外设类: 打印机、扫描机(skanlite)、光驱(k3b)
-- 无用的网络工具: kget(下载器)、thunderbrid(邮件客户端)、konversation(Internet Relay Chat)
+- 无用的网络工具: kget(下载器)、thunderbrid(邮件客户端)
 
 卸载manjaro-steam后需要清理以下残留文件
 
@@ -360,11 +362,9 @@ system_settings->network->connections->wifi_security_tab->storage_password_for_a
 
 ### terminal(kconsole)
 
-安装类似zsh-completion可以补全命令的参数，但不如zsh强大到能补全systemd的unit名称
+manjaro其实自带zsh，如果常用systemd建议上zsh自动补全service名字
 
-注意用zsh的话不要设置`HISTSIZE=`这样会让zsh的历史功能崩掉
-
-> sudo pacman -S bash-completion
+注意用zsh的话不要设置`HISTSIZE=`(无穷大)这样会让zsh的历史功能崩掉
 
 取消行数上限: profile->edit->scrolling->unlimit
 
@@ -441,8 +441,8 @@ jetbranins-toolbox's settings:
 - disable auto update: use yay to update, do not update toolbox self update!
 - disable tools auto update: 不需要频繁启动, manually update all tools/plugins once a week
 - enable keep only the latest version: I wish keep only latest version toolbox
-- apperance_theme_dark
-- disable apperance_run_at_login
+- appearance_theme_dark
+- disable appearance_run_at_login
 
 **Do not open toolbox with start_menu or krunner!**
 

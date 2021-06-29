@@ -99,13 +99,13 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <h3 class="header3">
         <span class="project-title">北京范高科技有限公司</span>
         <span class="project-role">中级服务端开发</span>
-        <span class="project-cycle">2020.9 - 至今</span>
+        <span class="project-cycle">2020.10 - 至今</span>
     </h3>
     <p>・负责Rust protobuf/graphql服务端开发，主要业务是Instagram数据分析</p>
     <h3 class="header3">
         <span class="project-title">海南自贸区威中杰信息技术有限公司</span>
         <span class="project-role">全栈开发工程师</span>
-        <span class="project-cycle">2019.10 - 2020.9</span>
+        <span class="project-cycle">2019.10 - 2020.10</span>
     </h3>
     <p>・负责数字货币交易所订单撮合引擎,后端，以及交易所安卓端/web前端Vue开发</p>
     <hr class="divider">
@@ -124,33 +124,24 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <h3 class="header3">
         <span class="project-title">Ig Analyzer</span>
         <span class="project-role">Rust开发</span>
-        <span class="project-cycle">2020.12 - 至今</span>
+        <span class="project-cycle">2020.11 - 至今</span>
     </h3>
     <pre class="project-details">
-[项目背景] 公司先前Ins分析App因私有API和隐私问题被下架，尝试移植到Web绕过苹果审核
-[技术架构] warp+graphql+mongodb
-[主要工作] 1. Facebook oauth授权token的权限检查
+[项目介绍] Instagram/Facebook/Twitter等社交平台的post/粉丝数的数据分析应用
+[技术架构] tokio+WebSocket+protobuf, warp+Graphql+mongodb
+[主要工作] 1. Instagram Post点赞评论互动率等时序数据的存储统计和分析
 　　　　   2. Instagram粉丝国家/城市/年龄/性别分布等统计数据的接口
-[项目收获] 1. 通过动态链接库libsystemd.so将Rust的log映射成journalctl的日志
-　　　　   2. 掌握FFI调用Rust绑定C的不透明指针类型，了解isahc对libcurl.so回调函数的binding
-　　　　   3. 学习ssh -L隧道将远程服务器db端口映射到本地，方便mongodb compass查询浏览数据
-　　　　   4. 能熟练使用vscode的lldb对panic的调试，能在linux开发机重现远程服务器的问题
-　　　　   5. 熟悉管理单元测试环境变量和配置的各种方法
-　　　　   6. 学习lld和march=znver3加速Rust编译，学会开启clippy::pedantic更严格的代码检查
+　　　　   3. 通过engagement等信息分析用户最佳发布Post的时间
+[项目收获] 1. 使用archlinux作为开发机模拟服务器环境，学会ssh隧道映射服务器db端口方便本地调试
+　　　　   2. Linux系统调用常见errno及错误调试，了解man7.org文档的阅读方法
+　　　　   3. FFI调用绑定C的不透明opaque指针类型，了解isahc对libcurl.so回调函数的binding
+　　　　   4. 了解基于io_uring的glommio异步运行时，了解Linux系统的几种IO模型
+　　　　   5. 通过动态链接库libsystemd.so将Rust的log映射成journalctl的日志
+　　　　   6. 熟悉协程间通信，能在20分钟内写完tokio聊天服务器(b站直播录像BV1QK4y1G7ao)
+　　　　   7. 了解postgres数据库的时序数据插件Timescale
     </pre>
 
-    <h3 class="header3">
-        <span class="project-title">Iga business</span>
-        <span class="project-role">Rust开发</span>
-        <span class="project-cycle">2020.09 - 2020.11</span>
-    </h3>
-    <pre class="project-details">
-[技术架构] tokio+WebSocket+protobuf,用sqlx确保编译时对postgres SQL的检查
-[主要工作] 了解时序数据和pg的Timescale插件，对业务的时序数据进行建模和抽象
-[项目收获] 1. 加深对tokio::select!和event_loop的理解
-　　　　   2. 熟悉协程间通信，能在20分钟内写完tokio聊天服务器(b站直播录像BV1QK4y1G7ao)
-    </pre>
-
+<!--
     <h3 class="header3">
         <span class="project-title">WebSocket服务器</span>
         <span class="project-role">Rust开发</span>
@@ -165,6 +156,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 [主要工作] 用actix-web重写交易所场外交易WebSocket聊天部分以及行情推送
 [项目收获] 学习actix AsyncContext::spawn在同步的handler中嵌入异步的代码的方法
     </pre>
+-->
 
     <h3 class="header3">
         <span class="project-title">数字货币交易所订单撮合引擎</span>
@@ -199,6 +191,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 　　　　   4. 发现rust_decimal库不仅内存大小只有bigdecimal-rs的1/4，而且运算比bigdecimal快2-3倍
     </pre>
 
+    <!--
     <h3 class="header3">
         <span class="project-title">交易所安卓端APP</span>
         <span class="project-role">安卓开发</span>
@@ -210,6 +203,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 [主要工作] 1. 我做了币币订单列表、法币广告列表、邀请返佣等共计15~20个页面，集成了友盟SDK
     </pre>
     <hr class="divider">
+    -->
 
     <h2 class="header2">§ 个人开源项目</h2>
     <h3 class="header3">
@@ -247,6 +241,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 - Rust管道进程间通信: https://www.bilibili.com/video/BV1Lv411W7nX
 CI/CD相关库:
 - typo_checker: 基于rustc私有API和前缀树的拼写错误检查应用
+- my_lints: 静态分析lint工具，包含禁止使用递归代码，精度丢失等代码质量检查lint规则
 数据结构相关库:
 - ypeid_key_hashmap: 类似actix_web::web::Data，key是类型支持存储任意类型的HashMap
 驱动类相关库:

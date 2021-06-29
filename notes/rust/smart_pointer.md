@@ -116,7 +116,9 @@ thread_local!
 
 ## 多线程共享内存(ARC)
 
-一般用Atomic<T: Copy> 或 ARC<Mutex/RwLock/Atomic> 或SyncOnceCell<Mutex/RwLock/Atomic>
+一般用`Atomic<T: Copy>` 或 `Arc<Mutex/RwLock/Atomic>` 或 `SyncOnceCell<Mutex/RwLock/Atomic>`
+
+或者用 crossbeam::scope(以前在标准库，后来因内存泄漏被删)，scope可以保证子线程比父线程活短避免父线程变量传入子线程而父线程先析构从而悬垂指针
 
 但是有人说ARC是一条错误道路，还不如GC:
 

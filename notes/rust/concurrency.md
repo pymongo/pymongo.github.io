@@ -93,7 +93,7 @@ MPMS channel请用crossbeam库
 
 ## 线程池
 
-[Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html)
+article: Java线程池实现原理及其在美团业务中的实践
 
 池化技术的应用: 内存池、数据库连接池、实例对象池、线程池
 
