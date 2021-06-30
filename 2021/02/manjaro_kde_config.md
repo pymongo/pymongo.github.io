@@ -88,7 +88,9 @@ xfce的文件浏览器居然不支持new tab，都2021年了还跟windows那个f
 
 由于full版多了太多类似steam这种***垃圾***包，所以「**强烈建议安装min版**」
 
-### 解决min版emoji显示成方框
+### 字体相关问题
+
+#### 解决min版emoji显示成方框
 
 min版没装emoji的字体，导致crates插件emoji图标全乱码，务必安装`noto-fonts-emoji`字体
 
@@ -370,6 +372,10 @@ manjaro其实自带zsh，如果常用systemd建议上zsh自动补全service名�
 
 如果鼠标往上滚动时，terminal不会翻页，输入`reset`重置下就好了
 
+zsh除了补全的插件很强，另一个优势就是man打开的文档是有颜色的可以区分重点标记
+
+zsh技巧: 如果出现灰字则可以按 `方向键右`或`Ctrl+f` 补全
+
 ### git config
 
 ```
@@ -380,7 +386,13 @@ git config --global credential.helper store
 #https://twitter.com/hayahayayoo/status/1398234421417811969
 ```
 
-### ssh-agent配置
+### 「重要」ssh-agent配置
+
+根据github官方宣布: <https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/>
+
+2021年8月开始将禁止密码auth，强制使用SSH key或token进行auth
+
+所以建议除了只读的公开repos，其余repos的remote url都改成`git@github.com:`前缀从而强制使用SSH key进行auth
 
 1. ssh-keygen
 2. github账户的密钥管理中加上步骤1生成的公钥
