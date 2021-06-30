@@ -1,4 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
+- **2021-07**
+    - [BLP读书笔记2](/2021/07/beginning_linux_programming_2.md)
 - **2021-06**
     - [BLP读书笔记1](/2021/06/beginning_linux_programming_1.md) 
     - [custom Rust lint](/2021/06/custom_clippy_lint.md)

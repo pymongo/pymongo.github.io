@@ -6,7 +6,7 @@
 
 文件导航栏要选默认的Android，如果用Project(也就是真实的文件结构)，
 
-资源文件夹会很乱，[mipmap folder - stackoverflow](https://stackoverflow.com/questions/43184727/seperate-mipmap-folders-in-android-studio)
+资源文件夹会很乱，参考: separate-mipmap-folders-in-android-studio - stackoverflow
 
 UI布局的XML文件最下方可以在Text和Design间切换，我还是习惯看纯文本的xml
 

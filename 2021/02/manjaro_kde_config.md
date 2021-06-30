@@ -106,7 +106,7 @@ dejavu让vscode的英文字体非常好看
 - kinfocenter # powerdevil optional require
 - kaccounts-providers
 - kwallet-pam kwalletmanager # turnof kwallet first, kwallet can't delete
-- kcalc firefox konversation
+- kcalc firefox (k)conversation
 - terminus-font(没啥用也不好看)
 - adobe-source-han-sans-jp-fonts
 - adobe-source-han-sans-kr-fonts
@@ -372,7 +372,10 @@ manjaro其实自带zsh，如果常用systemd建议上zsh自动补全service名�
 
 如果鼠标往上滚动时，terminal不会翻页，输入`reset`重置下就好了
 
-zsh除了补全的插件很强，另一个优势就是man打开的文档是有颜色的可以区分重点标记
+zsh的优点:
+1. 补全插件超强，比bash那个强太多，能补全systemd service名称
+2. `which read` 能提示 shell built-in command，而 bash 不能提示某个命令工具是不是bash函数
+3. man打开的文档是有颜色的可以区分重点标记
 
 zsh技巧: 如果出现灰字则可以按 `方向键右`或`Ctrl+f` 补全
 
