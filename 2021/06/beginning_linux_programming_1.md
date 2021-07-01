@@ -26,11 +26,11 @@ Linux的API是遵循POSIX标准的，自行谷歌什么叫POSIX。Linux下程序
 
 1. Beginning linux programming 4th edition
 2. The Linux programming interface(man7.org文档网站的作者，1600多页，类似APUE)
-3. Advance programming in the Unix environment
-4. Linux system programming
-5. Unix Network Programming The Sockets Networking API
-6. Unix Network Programming Interprocess Communications
-7. TCP/IP Illustrate Volume 1
+3. Advance programming in the Unix environment 3th edition
+4. Unix Network Programming The Sockets Networking API 3th edition
+5. Unix Network Programming Interprocess Communications 2th edition
+6. TCP/IP Illustrate Volume 1
+7. Linux system programming
 
 以后我把Beginning linux programming书名缩写成BLP，其它书名也类似的缩写
 
