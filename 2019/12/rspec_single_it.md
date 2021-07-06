@@ -14,12 +14,12 @@
 
 `rspec spec/xxx_spec.rb:10:20`
 
-<i class=“fa fa-hashtag"></i>
+<i class="fa fa-hashtag"></i>
 Rubymine中的运行设置
 
 ![rspec_single_it](rspec_single_it.png)
 
-<i class=“fa fa-hashtag"></i>
+<i class="fa fa-hashtag"></i>
 相关链接
 
 [rspec值运行某个test case](http://siwei.me/blog/posts/ruby-rspec-test-case)

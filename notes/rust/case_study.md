@@ -58,7 +58,7 @@
 Rust嵌入式大佬王momo的提示： https://twitter.com/andelf/status/1276470803387740160
 
 ```
-你这个用错了。如果获取 unix timestamp=0 的话，那么会收到夏时的影响。所以需要明确“当前时差”和“历史某一时刻时差” 的影响， 所以需要用 offset_from_utc_date ，传递 now()  做参数。 像BJT/CST这种没有夏时制影响的时区实在太惯着程序员的
+你这个用错了。如果获取 unix timestamp=0 的话，那么会收到夏时的影响。所以需要明确"当前时差"和"历史某一时刻时差" 的影响， 所以需要用 offset_from_utc_date ，传递 now()  做参数。 像BJT/CST这种没有夏时制影响的时区实在太惯着程序员的
 ```
 
 听从建议后我的代码改动如下

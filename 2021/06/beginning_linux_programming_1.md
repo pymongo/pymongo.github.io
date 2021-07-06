@@ -63,6 +63,7 @@ TODO 找张老师要一个Rust重写linux各种命令的清单?
 - sed -> sd
 - grep -> ripgrep
 - diff -> delta
+- cd -> zoxide
 
 ## BLP的学习目标
 
@@ -83,8 +84,14 @@ TODO 找张老师要一个Rust重写linux各种命令的清单?
 
 从 2021/06/29 开始读：
 - 2021/06/29: 28-64
-- 2021/06/30: 65-100
-- 2021/07/01: 101-
+- 2021/06/30: 65-100r
+- 2021/07/01: 101-121
+- 2021/07/02: 121-141
+- 2021/07/03: 142-142
+- 2021/07/04: 143-157
+- 2021/07/05: 158-162
+- 2021/07/06: 163-
+
 
 我从 28/819 Introduction 开始细看 BLP
 
@@ -94,12 +101,15 @@ TODO 找张老师要一个Rust重写linux各种命令的清单?
 - vice versa: 反之亦然
 
 有意思的词:
+- implicit: 潜在
 - phenomenon: 现象
 - preceding: 先前的
 - subsequent: 后一个, e.g: subsequent editions of the book
 - POSIX-compliant： 兼容POSIX标准
+- eliminate: 消除
 
 有意思的短语:
+- consumed virtually all the CPU time: 几乎占满了CPU时间
 - brush up: 复习，重新学习
 - be wary of: 谨慎
 
@@ -159,13 +169,14 @@ info命令比man的优点在于联网浏览最新文档以及支持跳转
 - 像重定向或管道符号其实都是源于bash语言
 - export command 是为了set env_var in subshells, `set -a`会export当前所有变量
 - 编写bash脚本的好习惯是最后一行加上`exit 0`
-- `1+1`会提示command not found，要用`expr 1+1`将其识别为表达式
+- `1+1`会提示command not found，要用`expr 1 + 1`将其识别为表达式，注意expr命令的加号和数字间要空格隔离开
 
 疑问:
 - set-group-id/set-gid和set-user-id/set-uid bit_flag
 
-### 常用bash变量
+### 「重要」常用bash $变量
 
+- `$?`上个命令的exit_code
 - `$_`表示上一个命令的最后一个参数，类似`Esc+.`
 - `$$`当前当前进程的PID,常用于创建临时的sock文件例如`/tmp/pid_$$.sock`
 - `$#`表示当前进程的参数个数
@@ -263,6 +274,8 @@ Beginning Linux Programming的作者内容编排真的用心
 
 wall命令的消息推送比`echo -e "\a"`强大多了
 
+说到消息推送，linux 还有一个 `notify-send "hello"` 推送消息功能
+
 ![](linux_wall_command_notify.png)
 
 ### shift - args.pop(0)
@@ -287,7 +300,7 @@ after shift : $1=Jun, $#(args.len()-=1)
 
 特别是大量or或and条件并列时更需要加括号来避免歧义
 
-> \(-newer X -or -name “_*“ \)
+> \(-newer X -or -name "_*" \)
 
 find 用上通配符时尽量用双引号包起来，否则可能参数解析失败
 

@@ -105,8 +105,7 @@ A sidewalk circles around a palm tree.
 
 You see a map on a bench.  Type "grab" to pick it up.
 
-你在长凳上看到一张地图。输入“抓取”来捡起它。
-
+你在长凳上看到一张地图。输入"抓取"来捡起它。
 
 ## 谷歌搜索的游戏
 

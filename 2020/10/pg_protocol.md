@@ -22,7 +22,7 @@ pg的协议基于TCP/IP，目前我用的pg12/13都是3.0版本的protocol，cli
 
 类似actix-web的WebSocket API，pg server对每个client连接都会有一个类似WsSession去管理各自的负责的client
 
-> the server launches a new “backend” child process for each client
+> the server launches a new "backend" child process for each client
 
 There are a few cases (such as NOTIFY) wherein the backend will send unsolicited(未经同意的；自发的) messages, 
 but for the most part this portion of a session is driven by frontend requests.

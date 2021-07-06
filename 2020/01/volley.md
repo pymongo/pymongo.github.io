@@ -6,7 +6,7 @@
 
 ## 导入包后要"npm install"(sync)
 
-<i class=“fa fa-hashtag"></i>
+<i class="fa fa-hashtag"></i>
 导入volley步骤1：
 
 `app/build.gradle`的`dependencies`项目中加入一行
@@ -19,7 +19,7 @@
 
 还需要第二步<var class="mark">npm install</var>才能把新的包下载到项目里
 
-<i class=“fa fa-hashtag"></i>
+<i class="fa fa-hashtag"></i>
 导入volley步骤2：
 
 `./gradlew --recompile-scripts` sync without building anything
@@ -32,7 +32,7 @@ list task `./gradlew tasks`
 
 可以暂时的把gradle理解为rake(task) + Gemfile的结合体 
 
-<i class=“fa fa-hashtag"></i>
+<i class="fa fa-hashtag"></i>
 导入volley步骤3：允许app访问网络与允许明文的网络请求(如HTTP)
 
 `AndroidManifest.xml`加入APP允许访问网络的权限配置，与application平级，在application上面
@@ -55,7 +55,7 @@ JSONObject.toString方法的第一个参数是indentSpaces，用于pretty print 
 
 ---
 
-<i class=“fa fa-hashtag"></i>
+<i class="fa fa-hashtag"></i>
 volley的优点
 
 1. 代码里少，可读性强(缺点是配置项不多)

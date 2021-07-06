@@ -38,6 +38,11 @@ Fat Pointer由两部分组成，一部分是指针，另一部分是长度
 
 Rust官方建议用于*mut T原始指针的安全的替代品，一定非空而且遵循生命周期的协变规则
 
+## C restrict pointer / pointer aliasing
+
+- [如何理解C语言的restrict关键词](https://www.zhihu.com/question/41653775)
+- <https://stackoverflow.com/questions/57259126/why-does-the-rust-compiler-not-optimize-code-assuming-that-two-mutable-reference>
+
 ## 染色指针和64位寻址
 
 64位计算基本还是有用，但是64位寻址是否有必要真的存疑，很多实际场景和benchmark表明，指针宽度扩大一倍对lcache绝对不是好事

@@ -84,8 +84,6 @@ Rust编译器选项里可以把默认的内存管理器换成FreeBSD的jemalloc�
 
 [golang-standards/project-layout](https://github.com/golang-standards/project-layout)
 
-我非常喜欢Rust语言在一个项目里能编译多个bin(可执行文件)，以及多个examples的特性，写完一个函数就能直接运行的爽快体验
-
 [How to structure Go application to produce multiple binaries?](https://stackoverflow.com/questions/50904560/how-to-structure-go-application-to-produce-multiple-binaries/50904959)
 
 [golang 的编译没有 debug release 之分吗？](https://www.v2ex.com/t/561636)

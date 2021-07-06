@@ -2,7 +2,7 @@
 
 [Save key-value data - developer.android.com](https://developer.android.com/training/data-storage/shared-preferences)
 
-安卓改变主题的方法<var class=“mark”>setTheme</var>必须放在**View**被渲染之前
+安卓改变主题的方法<var class="mark">setTheme</var>必须放在**View**被渲染之前
 
 也就是在`super.onCreate`与`setContentView`之间
 

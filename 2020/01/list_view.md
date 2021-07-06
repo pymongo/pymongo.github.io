@@ -23,7 +23,7 @@ LinearLayout中：`or` => android:orientation
 
 所有自动生成组件的代码都是通过左尖括号+组件名
 
-<i class=“fa fa-hashtag"></i>
+<i class="fa fa-hashtag"></i>
 给ListView添加子布局文件row.xml
 
 ## 淘宝订单详情页面(flex-grow: 1)
