@@ -73,6 +73,12 @@ TODO 找张老师要一个Rust重写linux各种命令的清单?
 
 最重要的是想解决: 英语句子中每个单词都看似认识，可是连起来就看不懂句子的意思
 
+## BLP的不足
+
+1. 各个标准跟windows之间的对比太浪费篇幅，对GNU描述过多
+2. 1998年左右写的书，甚至还有读磁带这种上古外设，有的系统调用没更新成C99标准(例如gmtime书上还保留0-61闰秒)
+leap second跟闰年没关系，以前原子钟跟太阳时有误差用来修正用的
+
 ## 读书的方法
 
 1. 直接跳过前言、推荐序、关于作者、版权信息都无关内容，直接从目录开始看
@@ -84,21 +90,26 @@ TODO 找张老师要一个Rust重写linux各种命令的清单?
 
 从 2021/06/29 开始读：
 - 2021/06/29: 28-64
-- 2021/06/30: 65-100r
+- 2021/06/30: 65-100
 - 2021/07/01: 101-121
 - 2021/07/02: 121-141
 - 2021/07/03: 142-142
 - 2021/07/04: 143-157
 - 2021/07/05: 158-162
-- 2021/07/06: 163-
-
+- 2021/07/06: 163-178
+- 2021/07/07: 179-193
+- 2021/07/08: 194-302
+- 2021/07/09: 303-
 
 我从 28/819 Introduction 开始细看 BLP
 
 高频词:
 - facilities: 设施/工具
-- errata：书籍的勘误表
+- preemptive: 抢占式
 - vice versa: 反之亦然
+- simultaneous: 同时的
+- advisory: 咨询，例如 Advisory lock (advisory表示不限制其它进程读写，并非强制执行的意思)
+- errata：书籍的勘误表
 
 有意思的词:
 - implicit: 潜在
@@ -107,8 +118,10 @@ TODO 找张老师要一个Rust重写linux各种命令的清单?
 - subsequent: 后一个, e.g: subsequent editions of the book
 - POSIX-compliant： 兼容POSIX标准
 - eliminate: 消除
+- inevitable: 不可避免的/必然的
 
-有意思的短语:
+短语:
+- **early hours: 凌晨**
 - consumed virtually all the CPU time: 几乎占满了CPU时间
 - brush up: 复习，重新学习
 - be wary of: 谨慎
@@ -269,6 +282,8 @@ Beginning Linux Programming的作者内容编排真的用心
 我读了50多页介绍不同的Linux命令就有30多个，新的代码例子都用新介绍linux命令去演示
 
 例如我刚刚学到的wall命令可以向/dev/pts/中所有shell发送通知(如图)
+
+> 可以通过 `ps -a` 查看所有 terminal (TTY)类型的process，也就是 wall 会给 `ps -a` 的所有进程发通知
 
 我读第二章的最大收获就是bash test函数，test检查文件类型跟stat系统调用高度一致
 

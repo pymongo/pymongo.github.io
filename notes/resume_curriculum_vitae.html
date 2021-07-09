@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset=UTF-8>
-    <title>应聘Rust开发_吴翱翔</title>
+    <title>应聘 Rust 开发_吴翱翔</title>
     <style>
         .page-container {
             /* 820≈A4_width_2480x0.33 */
@@ -101,13 +101,13 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
         <span class="project-role">中级服务端开发</span>
         <span class="project-cycle">2020.10 - 至今</span>
     </h3>
-    <p>・负责Rust protobuf/graphql服务端开发，主要业务是Instagram数据分析</p>
+    <p>・负责 protobuf/graphql Rust 服务端开发，主要业务是 Instagram 数据分析</p>
     <h3 class="header3">
         <span class="project-title">海南自贸区威中杰信息技术有限公司</span>
         <span class="project-role">全栈开发工程师</span>
         <span class="project-cycle">2019.10 - 2020.10</span>
     </h3>
-    <p>・负责数字货币交易所订单撮合引擎,后端，以及交易所安卓端/web前端Vue开发</p>
+    <p>・负责数字货币交易所订单撮合引擎和后端，及交易所安卓端/网页端开发</p>
     <hr class="divider">
 
     <!--
@@ -118,33 +118,34 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <p>・业务是汽车ECU(电子控制器)的功能测试，以日方提供的脚本语言进行编程，调试</p>
     -->
 
-    <!-- 项目经验的高逼格术语: 锁的粒度、具效化, sso/cas 单点登录, more fine-grained control in exchange(进行更细粒度的控制) -->
+    <!-- 项目经验的高逼格术语: 锁的粒度、具效化, sso/cas 单点登录, more fine-grained control(进行更细粒度的控制) -->
     <h2 class="header2">§ 项目经历</h2>
 
     <h3 class="header3">
         <span class="project-title">Ig Analyzer</span>
-        <span class="project-role">Rust开发</span>
+        <span class="project-role">Rust 开发</span>
         <span class="project-cycle">2020.11 - 至今</span>
     </h3>
+    <!--
+　　　　   6. 了解 postgres 数据库的时序数据插件 Timescale
+    -->
     <pre class="project-details">
-[项目介绍] Instagram/Facebook/Twitter等社交平台的post/粉丝数的数据分析应用
+[项目介绍] Instagram/Twitter 等社交平台的推文/粉丝数的数据分析应用
 [技术架构] tokio+WebSocket+protobuf, warp+Graphql+mongodb
-[主要工作] 1. Instagram Post点赞评论互动率等时序数据的存储统计和分析
-　　　　   2. Instagram粉丝国家/城市/年龄/性别分布等统计数据的接口
-　　　　   3. 通过engagement等信息分析用户最佳发布Post的时间
-[项目收获] 1. 使用archlinux作为开发机模拟服务器环境，学会ssh隧道映射服务器db端口方便本地调试
-　　　　   2. Linux系统调用常见errno及错误调试，了解man7.org文档的阅读方法
-　　　　   3. FFI调用绑定C的不透明opaque指针类型，了解isahc对libcurl.so回调函数的binding
-　　　　   4. 了解基于io_uring的glommio异步运行时，了解Linux系统的几种IO模型
-　　　　   5. 通过动态链接库libsystemd.so将Rust的log映射成journalctl的日志
-　　　　   6. 熟悉协程间通信，能在20分钟内写完tokio聊天服务器(b站直播录像BV1QK4y1G7ao)
-　　　　   7. 了解postgres数据库的时序数据插件Timescale
+[主要工作] 1. Instagram Post 点赞评论互动率等时序数据的存储统计和分析
+　　　　   2. Instagram 粉丝国家/城市/年龄/性别分布等统计数据的接口
+　　　　   3. 分析用户最佳发布 Post 的时间，参与定时发布 post 接口开发
+[项目收获] 1. 使用 archlinux 作为开发机模拟服务器环境，学会隧道映射服务器数据库端口方便本地调试
+　　　　   2. Linux 系统调用常见 errno 及错误调试，了解 man7.org 文档的阅读方法
+　　　　   3. FFI 调用绑定 C 的不透明 opaque 指针类型，了解 libcurl.so 回调函数的 binding
+　　　　   4. 了解基于 io_uring 的 glommio 异步运行时，了解 Linux 系统的几种IO模型
+　　　　   5. 使用 syslog/libsystemd.so 等日志系统调用，熟悉 journalctl 日志工具
     </pre>
 
 <!--
     <h3 class="header3">
-        <span class="project-title">WebSocket服务器</span>
-        <span class="project-role">Rust开发</span>
+        <span class="project-title">WebSocket 服务器</span>
+        <span class="project-role">Rust 开发</span>
         <span class="project-cycle">2020.07 - 至今</span>
     </h3>
     <pre class="deprecated"></pre>
@@ -170,7 +171,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <pre class="deprecated">由于内存订单数据使用到了堆，所以删除操作是lazy_delete的，发现了thread::spawn内打印log(日志)会运行时异常，而用tokio::spawn则不会发生该错误</pre>
     <pre class="project-details">
 [项目介绍] 数字货币交易所的撮合引擎的功能是将价格相近的买单和买单匹配在一起进行成交
-[项目成绩] 经ab工具测试，Rust版每秒处理请求数是Ruby版的15-25倍，CPU/内存负载比Ruby版低2个数量级
+[项目成绩] 经工具测试，Rust 版每秒处理请求数是 Ruby 版的 15-25 倍，CPU 负载比老版低 2 个数量级
 [技术架构] 1. 技术栈是: tide+sqlx+async-redis，曾经用过actix-web+diesel
 　　　　   2. 撮合引擎本质上是一个API服务器，主要由创建订单/撤单/撤销全部三个接口组成
 　　　　      三个接口都需要将各参数按字典序加private_key算出数字签名，我开发了一个derive过程宏
@@ -187,8 +188,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 [项目收获] 1. 异步runtime下要用tokio或async-std的Mutex锁，用std::sync::Mutex在高并发时容易发生死锁
 　　　　   2. 熟悉Rust全局共享可变和不可变数据的各种方法
 　　　　      在main中创建app_state往后层层传递到各个协程，比OnceCell或Lazy更利于静态分析
-　　　　   3. 区分了Rust编译时(env!宏)和运行时环境变量，了解build.rs的工作原理
-　　　　   4. 发现rust_decimal库不仅内存大小只有bigdecimal-rs的1/4，而且运算比bigdecimal快2-3倍
+　　　　   3. 发现rust_decimal库不仅内存大小只有bigdecimal-rs的1/4，而且运算比bigdecimal快2-3倍
     </pre>
 
     <!--
@@ -207,54 +207,58 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 
     <h2 class="header2">§ 个人开源项目</h2>
     <h3 class="header3">
-        <span class="project-title">WebSocket聊天</span>
+        <span class="project-title">WebSocket 聊天</span>
         <span class="project-role">Rust/Java/C</span>
         <span class="project-cycle"></span>
     </h3>
     <pre class="project-details">
 [项目链接] https://github.com/pymongo/chat_server
-[项目介绍] 后端tokio，web端用Vue，mac桌面端用gtk，安卓端用Java，不定期在b站和飞书直播写
-[项目收获] 学习gtk的Entry, TreeView, ListStore等组件，理解gtk-rs组件的引用计数和消息传递
+[项目介绍] 后端 tokio，桌面端用 gtk 的聊天应用
+[项目收获] 学习 gtk 的 Entry, ListStore 等组件，理解 gtk-rs 组件的引用计数和消息传递
     </pre>
 
     <h3 class="header3">
-        <span class="project-title">postgres协议解析器</span>
-        <span class="project-role">Rust</span>
+        <span class="project-title">linux_commands_rewritten_in_rust</span>
+        <span class="project-role"></span>
         <span class="project-cycle"></span>
     </h3>
     <pre class="project-details">
-[项目链接] https://github.com/pymongo/pg_client
-[项目介绍] 没有任何第三方库，纯Rust实现的postgres数据库协议解析器和client，暂不支持异步
-[项目收获] 1. 学习了字节序little/bigger/naive endian，并掌握查询所用操作系统字节序的方法
-　　　　   2. 读写pg消息中的std::ffi::CStr类型，了解通过Cursor读取输入缓冲区中多条消息的方法
+[项目链接] https://github.com/pymongo/linux_commands_rewritten_in_rust
+[项目介绍] 用 Rust 重写所有 Linux 命令 
+[项目收获] 1. 
     </pre>
+
     <h3 class="header3">
         <span class="project-title">个人的演讲/讲课视频/开源库</span>
     </h3>
     <pre class="project-details">
 演讲:
-- Rust唠嗑室14期-树莓派流水灯和时钟驱动: https://www.bilibili.com/video/BV1UV411a78t
-- 2020Rust中国大会-Rust在算法上的应用: https://youtu.be/-yqlhg7Pows
-- 2021Rust成都meetup-md5生态和openssl绑定: https://www.bilibili.com/video/BV1Y54y1j7za?p=4
+- Rust 唠嗑室14期: 树莓派流水灯和时钟驱动(https://bilibili.com/video/BV1UV411a78t)
+- 2020 RustConf: Rust 在算法上的应用(https://youtu.be/-yqlhg7Pows)
+- 2021 Rust 成都 meetup: md5/openssl 生态和绑定(https://bilibili.com/video/BV1Y54y1j7za?p=4)
 教学视频:
 - 20分钟写个聊天服务器: https://www.bilibili.com/video/BV1QK4y1G7ao/
 - Rust管道进程间通信: https://www.bilibili.com/video/BV1Lv411W7nX
 CI/CD相关库:
 - typo_checker: 基于rustc私有API和前缀树的拼写错误检查应用
 - my_lints: 静态分析lint工具，包含禁止使用递归代码，精度丢失等代码质量检查lint规则
-数据结构相关库:
-- ypeid_key_hashmap: 类似actix_web::web::Data，key是类型支持存储任意类型的HashMap
-驱动类相关库:
-- saks(已上传crates.io): 树莓派瑞士军刀扩展版驱动，已完成74HC595和数码管等硬件的驱动
 基础设施相关库:
 - logger: 针对systemd部署的Rust项目设计的一款高性能logger，支持按时间范围查询日志
+数据结构相关库:
+- ypeid_key_hashmap: 类似actix_web::web::Data，key是类型支持存储任意类型的HashMap
+数据库相关库:
+- mmap_read_write_struct_to_database_file: 基于mmap实现的单文件数据库，暂不支持插入和删除
+- pg_client: postgres协议解析器/客户端，学习了大端序和little/naive endian以及cursor读数据
+驱动类相关库:
+- saks(已上传crates.io): 树莓派瑞士军刀扩展版驱动，已完成74HC595和数码管等硬件的驱动
     </pre>
 
     <h2 class="header2">§ 开源社区贡献PR</h2>
     <p>每年平均贡献20-30个PR,主要关注数据库、数值计算、无锁数据结构等领域的开源库</p>
     <p>¶ 数据库相关的PR</p>
     <pre class="project-details">
-- mongodb/bson-rust#260: 我优化了bson::DateTime::now()，性能提升70%
+- mongodb/bson-rust#260: 我优化了bson::DateTime::now()，官方人员称赞性能提升70%
+- mongodb/bson-rust#277: 重构RFC3389时间字符串的解析，重构chrono feature将chrono设成可选依赖
 - rust-postgres#669: make postgres protocol version value more readable
 - sqlx(rust)#319,#581,#592,#1002: 解决了sqlx的Bug#981编译时SQL检查可能hang
 - tikv/agatedb#104: 修复了一些clippy的lints

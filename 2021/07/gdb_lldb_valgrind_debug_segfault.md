@@ -51,7 +51,7 @@ Segmentation fault (core dumped)
 CONFIG_COREDUMP=y
 ```
 
-由于 `/proc/config.gz` 是二进制格式而非文本格式，所以要用 `zcat` 而非 `cat` 去打印
+由于 `/proc/config.gz` 是 *gzip* 二进制格式而非文本格式，所以要用 `zcat` 而非 `cat` 去打印
 
 > coredumpctl list
 

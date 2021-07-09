@@ -1,5 +1,8 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-07**
+    - [错误绑定dylib的例子](2021/07/bad_example_in_dylib_linking.md)
+    - [BLP读书笔记4](/2021/07/beginning_linux_programming_4.md)
+    - [linux_desktop_notification](/2021/07/linux_desktop_notification.md)
     - [gdb/lldb 调试 segfault](2021/07/gdb_lldb_debug_segfault.md)
     - [BLP读书笔记3](/2021/07/beginning_linux_programming_3.md)
     - [BLP读书笔记2](/2021/07/beginning_linux_programming_2.md)
