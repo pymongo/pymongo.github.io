@@ -1,4 +1,4 @@
-# [错误绑定dylib的例子](2021/07/bad_example_in_dylib_linking.md)
+# [错误绑定 dylib 的例子](2021/07/bad_example_in_dylib_linking.md)
 
 看了 [Target auto-discovery](https://doc.rust-lang.org/cargo/reference/cargo-targets.html#target-auto-discovery)
 

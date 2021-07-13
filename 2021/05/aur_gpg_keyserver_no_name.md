@@ -1,8 +1,8 @@
-# [解决aur包gpg no name错误](/2021/05/gpg_keyserver_no_name.md)
+# [解决 aur 包 gpg no name 错误](/2021/05/aur_gpg_keyserver_no_name.md)
 
-最近在新配的台式机安装mongodb-bin时出现gpg报错
+最近在新配的台式机安装 mongodb-bin 时出现gpg报错
 
-原因是mongodb-bin依赖的aur包libopenssl-1.0安装时报错:
+原因是 mongodb-bin 依赖的 aur 包 libopenssl-1.0 安装时报错:
 
 > gpg: keyserver receive failed: No name
 

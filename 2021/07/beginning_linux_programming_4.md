@@ -1,4 +1,4 @@
-# [BLP读书笔记4](/2021/07/beginning_linux_programming_4.md)
+# [BLP 读书笔记 4](/2021/07/beginning_linux_programming_4.md)
 
 ## ch05 terminal part2
 
@@ -270,4 +270,125 @@ git patch -R 表示回滚变更
 
 由于 gdb 超级重要，所以单独建了一个 `gdb.md` 记录 gdb 经验
 
+### 「重要」C/C++工具生态(非静态分析)
 
+- 开源IDE: qt_creator, kdeveloper
+- cargo-fmt: clang-format
+- repl/jit: root/cling
+
+### 「重要」C/C++静态分析工具
+
+- splint, Linux version of Unix lint
+- clang-tidy/clazy-standalone(llvm): clang-tidy在CLion中广泛使用
+- ctags: 寻找函数/变量定义，帮助emacs/IDE跳转到函数定义
+- cxref: 寻找 #define 等符号的定义
+- cflow: **callgraph** 打印「静态」函数调用树(function call tree)
+- cppcheck
+- prof/gprof
+
+### ctags列出所有ident的定义处
+
+```
+[w@ww chapter10]$ ctags -x debug0.c 
+__anon113c782d0108 struct        1 debug0.c         /* 1 */ typedef struct {
+array            variable      6 debug0.c         /* 6 */ item array[] = {
+data             member        2 debug0.c         /* 2 */ char *data;
+item             typedef       4 debug0.c         /* 4 */ } item;
+key              member        3 debug0.c         /* 3 */ int key;
+main             function     34 debug0.c         /* 34 */ main()
+sort             function     14 debug0.c         /* 14 */ sort(a,n)
+```
+
+### cflow print callgraph
+
+```
+[w@ww chapter10]$ cflow debug0.c 
+main() <main () at debug0.c:34>:
+    sort() <sort (a, n) at debug0.c:14>
+```
+
+### 「重要」gprof动态分析工具
+
+gcc 或 clang 的 `-pg` 参数能像依赖注入一样注入一些监控的代码，例如监控函数调用次数，运行耗时
+
+> gcc -pg main.c
+> 
+> ./main # mon.out is generate after run
+> 
+> gprof
+
+注意要程序运行后才会生成 monitor data `mon.out`，或者直接用 `gprof ./a.out`
+
+Rust 有一个部分支持 gprof 的 [PR: Add -Z instrument-mcount](https://github.com/rust-lang/rust/pull/57220)
+
+很可惜即便 LLVM 的 clang 支持 -pg 参数，Rust 加上类似的参数运行后也不能生成 mon.out 分析数据
+
+想让 Rust 兼容 gprof 的项目有很多，但是目前来看只有 uftrace 比较可行
+
+### 「重要」uftrace
+
+> yay -S uftrace-git
+
+> rustc -g -Z instrument-mcount main.rs
+
+uftrace 用法一: 追踪可执行文件的函数调用耗时
+
+> uftrace ${executable_filename}
+
+```
+[w@ww chapter10]$ uftrace ./main
+# DURATION     TID     FUNCTION
+            [841769] | std::rt::lang_start() {
+            [841769] |   std::rt::lang_start::_{{closure}}() {
+            [841769] |     std::sys_common::backtrace::__rust_begin_short_backtrace() {
+            [841769] |       core::ops::function::FnOnce::call_once() {
+            [841769] |         main::main() {
+            [841769] |           main::fib() {
+            [841769] |             main::fib() {
+            [841769] |               main::fib() {
+            [841769] |                 main::fib() {
+   0.070 us [841769] |                   main::fib();
+   0.040 us [841769] |                   main::fib();
+```
+
+uftrace 用法二: 先 record 保存数据，再导出成不同格式
+
+> uftrace record ./main
+
+然后可以看看函数调用树 **callgraph**
+
+注意这是程序动态的函数调用树会有虚函数这样动态的调用，比 `cflow` 这种纯静态分析函数调用树真实多了
+
+有了 uftrace record 数据后，可以转换成以下三种格式
+
+#### graphviz 格式
+
+> sudo pacman -S xdot # gnome/gtk graphviz render tool
+
+> uftrace dump --graphviz > ~/temp/uftrace_graphviz.dot && xdot ~/temp/uftrace_graphviz.dot
+
+#### chrome://tracing json 格式
+
+> uftrace dump --chrome > ~/temp/uftrace_chrome_tracing.json
+
+然后在 `chrome://tracing` 页面导入刚刚 uftrace 生成的 json 文件
+
+#### 火焰图格式
+
+> yay -S flamegraph-git
+
+> uftrace dump --flame-graph | flamegraph > ~/temp/uftrace_flamegraph.svg && google-chrome-stable ~/temp/uftrace_flamegraph.svg
+
+---
+
+```
+总结 火焰图分析 Rust 程序的流程:
+
+安装所需工具:
+yay -S uftrace-git flamegraph-git
+
+运行步骤:
+1. rustc -g -Z instrument-mcount main.rs
+2. uftrace record ./main
+3. uftrace dump --flame-graph | flamegraph > ~/temp/uftrace_flamegraph.svg && google-chrome-stable ~/temp/uftrace_flamegraph.svg
+```

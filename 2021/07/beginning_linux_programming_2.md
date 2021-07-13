@@ -1,4 +1,4 @@
-# [BLP读书笔记2](/2021/07/beginning_linux_programming_2.md)
+# [BLP 读书笔记 2](/2021/07/beginning_linux_programming_2.md)
 
 ## 复习正则表达式
 

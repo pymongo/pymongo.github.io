@@ -202,16 +202,6 @@ gcc可以通过输入的文件后缀名区分用哪一个编程语言的前端�
 
 gccrs项目就希望开发一个gcc的Rust前端，可以把Rust代码通过gcc后端进行编译
 
-本身Rust也提供了rust-gdb和rust-lldb工具兼顾gcc和llvm
-
-¶ C/C++工具生态
-
-- qt专用IDE: qt_creator
-- fmt工具: clang-format
-- 静态分析/lint: cppcheck, clang的clang-tidy和clazy-standalone
-- 堆内存泄漏检查工具: valgrind(也能用来分析Rust应用)
-- C/C++解释器: root/cling
-
 ¶ pacman的rustup
 
 pacman安装的rustup的一个好处是可以不把`~/.cargo/bin`加到PATH环境变量中(只要没用cargo audit等第三方cargo子命令或可执行文件)

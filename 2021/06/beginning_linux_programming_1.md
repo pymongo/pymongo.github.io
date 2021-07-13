@@ -1,4 +1,4 @@
-# [BLP读书笔记1](/2021/06/beginning_linux_programming_1.md)
+# [BLP 读书笔记 1](/2021/06/beginning_linux_programming_1.md)
 
 ## 为什么说我基础太差
 
@@ -169,7 +169,7 @@ Introduction章节的一些疑问:
 
 同事说过C语言不容易基于AST跳转代码定义，一般都靠全文搜索或者全文正则搜索
 
-ctags看上去像一个辅助C语言查找代码定义的一个工具
+ctags是个帮助跳转函数定义的静态分析工具
 
 ### 类似man的info命令
 

@@ -74,26 +74,6 @@ End with a line saying just "end".
 >end
 ```
 
-运行效果示例:
-
-```
-Breakpoint 1, sort (a=0x555555558060 <array>, n=5) at debug4.c:21
-21      /*  21  */              s = 0;
-1: array[0]@5 = {{data = "bill", '\000' <repeats 4091 times>, key = 3}, {data = "neil", '\000' <repeats 4091 times>, key = 4}, {
-    data = "john", '\000' <repeats 4091 times>, key = 2}, {data = "rick", '\000' <repeats 4091 times>, key = 5}, {
-    data = "alex", '\000' <repeats 4091 times>, key = 1}}
-
-Breakpoint 1, sort (a=0x555555558060 <array>, n=4) at debug4.c:21
-21      /*  21  */              s = 0;
-1: array[0]@5 = {{data = "bill", '\000' <repeats 4091 times>, key = 3}, {data = "john", '\000' <repeats 4091 times>, key = 2}, {
-    data = "neil", '\000' <repeats 4091 times>, key = 4}, {data = "alex", '\000' <repeats 4091 times>, key = 1}, {
-    data = "rick", '\000' <repeats 4091 times>, key = 5}}
-
-Breakpoint 1, sort (a=0x555555558060 <array>, n=3) at debug4.c:21
-21      /*  21  */              s = 0;
-// ...
-```
-
 通过display+command发现这个冒泡排序错误示例2(错误示例1，我肉眼看出来的index out of range)
 
 很明显的问题就是冒泡排序循环次数少了一次，最后一次应该是array[0]和array[1]的比较
@@ -118,7 +98,7 @@ Num     Type           Disp Enb Address            What
 
 类似 vscode breakpoints 面板开关某一个断点 (checkbox)
 
-### patching when debugging
+### 「重要」一边调试修改栈上数据(set variable)
 
 虽然之前同事教过我可以一边 Debug 一边加新的断点，看过 gdb 断点相关命令后我才明白其中的原理
 
@@ -126,9 +106,71 @@ Num     Type           Disp Enb Address            What
 
 应该是运行时修改栈帧变量的数值，所以不需要重新编译
 
-### vscode debug 界面和 gdb 的对应
+```
+(gdb) commands 2
+Type commands for breakpoint(s) 2, one per line.
+End with a line saying just "end".
+>set variable n=n+1
+>continue
+>end
+(gdb) run
+```
+
+虽然不能边调试边修改代码，但是可以在gdb修改栈上的n变量的值，从而「抵消掉」`n -= ` 这行 Bug 代码的影响
+
+类似 vscode 在调试时，把 variables 面板的局部变量 n 的值改掉
+
+但又不能像 gdb command 这样设置到达某个断点后自动改
+
+明白了 **set variable** 命令后，以后 vscode 调试数据又多了一个新技巧——修改栈上的值
+
+### Rust 调试时修改堆栈
+
+用 rustc 编译时要加上 debuginfo 参数
+
+> rustc -Cdebuginfo=2 r.rs
+
+```
+>set var n=n-1
+>cont
+>end
+(gdb) run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /home/w/Downloads/blp_all_sources/chapter10/r 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+
+Breakpoint 1, r::main () at r.rs:5
+5               n += 2;
+thread 'main' panicked at 'attempt to add with overflow', r.rs:5:9
+```
+
+gdb 的 `set var` 只能支持一些字面量的修改(数值修改)，不能进行函数调用
+
+我的断点打在 `n+=2` 这行，可见 command 的 n=n-1 先执行再执行断点处代码 n+=2 ，导致usize往下溢出
+
+```rust
+fn main() {
+    let a = [0; 3];
+    let mut n = 0;
+    for _ in 0..a.len() {
+        n += 2;
+        a[n]; 
+    }
+}
+```
+
+### 高级断点功能
+
+例如 设置只触发一次的断点，例如硬件断点
+
+---
+
+## vscode debug 界面和 gdb 的对应
 - variables: `(gdb) info locals`, ...
 - watch: `(gdb) watch`, `(gdb) display`
 - call_stack: `(gdb) backtrace`, `(gdb) frame {n}`
 - breakpoints: `(gdb) info break`, `(gdb) enable break {n}`, ...
 - modules: (gdb)???
+- debug_console: lldb prompt
