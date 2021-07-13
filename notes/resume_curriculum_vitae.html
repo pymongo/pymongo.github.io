@@ -247,22 +247,24 @@ CI/CD相关库:
 数据结构相关库:
 - ypeid_key_hashmap: 类似actix_web::web::Data，key是类型支持存储任意类型的HashMap
 数据库相关库:
-- mmap_read_write_struct_to_database_file: 基于mmap实现的单文件数据库，暂不支持插入和删除
+- gdbm_compat(已上传crates.io): key-value 数据库 dbm 的 FFI 绑定库，还提供了增删改查的示例
 - pg_client: postgres协议解析器/客户端，学习了大端序和little/naive endian以及cursor读数据
 驱动类相关库:
 - saks(已上传crates.io): 树莓派瑞士军刀扩展版驱动，已完成74HC595和数码管等硬件的驱动
     </pre>
 
     <h2 class="header2">§ 开源社区贡献PR</h2>
-    <p>每年平均贡献20-30个PR,主要关注数据库、数值计算、无锁数据结构等领域的开源库</p>
     <p>¶ 数据库相关的PR</p>
     <pre class="project-details">
-- mongodb/bson-rust#260: 我优化了bson::DateTime::now()，官方人员称赞性能提升70%
-- mongodb/bson-rust#277: 重构RFC3389时间字符串的解析，重构chrono feature将chrono设成可选依赖
+- mongodb/bson-rust#260: 我优化了 bson::DateTime::now() 官方人员称性能提升约 70%
+- mongodb/bson-rust#277: 重构 RFC3389 时间字符串的解析和 chrono feature
 - rust-postgres#669: make postgres protocol version value more readable
-- sqlx(rust)#319,#581,#592,#1002: 解决了sqlx的Bug#981编译时SQL检查可能hang
+- sqlx(rust)#319,#581,#592,#1002: 解决了 sqlx 的 issue#981 编译时 SQL 检查可能 hang
+- tensorbase/tensorbase#115,#197:
+    tensorbase 是 Rust 写的类似 clickhouse 的数据仓库
+    我用 tmpfile 系统调用优化了临时文件的创建，还负责在 ARM 架构硬件的测试
 - tikv/agatedb#104: 修复了一些clippy的lints
-- tensorbase/tensorbase#115: tensorbase是Rust写的类似clickhouse的data warehouse
+
     </pre>
 
     <p>¶ 数据结构相关的PR</p>

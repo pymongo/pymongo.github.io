@@ -38,6 +38,10 @@ Fat Pointer由两部分组成，一部分是指针，另一部分是长度
 
 Rust官方建议用于*mut T原始指针的安全的替代品，一定非空而且遵循生命周期的协变规则
 
+## unaligned pointers
+
+std::ptr::read_unaligned
+
 ## C restrict pointer / pointer aliasing
 
 - [如何理解C语言的restrict关键词](https://www.zhihu.com/question/41653775)
@@ -47,9 +51,7 @@ Rust官方建议用于*mut T原始指针的安全的替代品，一定非空而�
 
 64位计算基本还是有用，但是64位寻址是否有必要真的存疑，很多实际场景和benchmark表明，指针宽度扩大一倍对lcache绝对不是好事
 
-所以
-
-64位操作系统的指针大小都是8 bytes，实际上4bytes可以索引4G内存，5-6bytes都足够用了(指针用48bit寻址够用了)，所以可以让将少量额外的信息存储在指针上
+所以64位操作系统的指针大小都是8 bytes，实际上4bytes可以索引4G内存，5-6bytes都足够用了(指针用48bit寻址够用了)，所以可以让将少量额外的信息存储在指针上
 
 业界通用的做法是64bit中取16bit来存储额外信息，提供内存利用率
 

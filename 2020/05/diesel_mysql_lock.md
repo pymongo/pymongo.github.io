@@ -13,16 +13,18 @@ diesel和rails类似([参考rails的悲观锁](http://siwei.me/blog/posts/databa
 
 rails会将SQL语句输出，而diesel只有Postgres支持，所以只能开启MySQL的Log去确认是否加锁了。
 
-## Mysql开启general_log
+## Mysql 开启 general_log
 
 [参考Stack Overflow](https://stackoverflow.com/questions/303994/log-all-queries-in-mysql)
 
 ```
-sudo touch /var/log/mysql_general_log.log
-sudo chmod 333 /var/log/mysql_general_log.log
+sudo mkdir /var/log/mysql
+sudo touch /var/log/mysql/general_log
+sudo chown mysql:mysql /var/log/mysql
+sudo chown mysql:mysql /var/log/mysql/general_log
 
 mysql> SET GLOBAL general_log = 'ON';
-mysql> SET GLOBAL general_log_file = '/var/log/mysql_general_log.log';
+mysql> SET GLOBAL general_log_file = '/var/log/mysql/general_log';
 ```
 
 Rust代码，完整代码请看[diesel PR#2381](https://github.com/diesel-rs/diesel/pull/2381)

@@ -246,20 +246,20 @@ sudo pacman -S yay # 用类似的aur_helper工具yaourt也行
 yay -S google-chrome
 ```
 
-### 安装MySQL
+### 安装MySQL(mariadb)
 
 ```bash
-sudo pacman -S mysql
+sudo pacman -S mariadb
 sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-sudo systemctl start mysqld
+sudo systemctl start mariadb
 sudo mysql -uroot -p
 
-mysql> CREATE USER 'me'@'localhost' IDENTIFIED BY 'me';
-mysql> GRANT ALL PRIVILEGES ON mydb.* TO 'me'@'localhost';
+mysql> CREATE USER 'w'@'localhost' IDENTIFIED BY 'w';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'w'@'localhost';
 mysql> FLUSH PRIVILEGES;
 mysql> quit
 
-mysql -ume -pme
+mysql -uw -pw
 mysql> select current_user();
 mysql> show databases;
 ```

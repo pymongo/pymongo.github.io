@@ -72,7 +72,6 @@
     - [Rust protobuf](/2020/09/protobuf.md)
     - [RwLock死锁导致sqlx卡死](/2020/09/rwlock_dead_lock_affect_sqlx.md)
     - [Rust实现并查集](/2020/09/rust_impl_union_find.md)
-    - [MySQL general log](/2020/09/mysql_general_log.md)
     - [同步forked的sqlx项目](/2020/09/sync_forked_repo.md)
     - [mac交叉编译Rust到Linux](/2020/09/mac_cross_compile_rust_to_linux.md)
     - [RefCell实现lazy_static](/2020/09/refcell_impl_lazy_static.md)

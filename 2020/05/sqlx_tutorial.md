@@ -8,12 +8,9 @@ sqlx不是一款ORM持久层框架，使用sqlx的好处是能充分利用MySQL/
 
 苦于sqlx官方文档都是以postgres为准，本文将以MySQL为例介绍sqlx。
 
-<i class="fa fa-hashtag"></i>
-MySQL开启log
+先把MySQL的general_log、slow_log、error_log开启了方便Debug:
 
-<details>
-    <summary>先把MySQL的general_log、slow_log、error_log开启了方便Debug</summary>
-    <pre>mysql SHOW GLOBAL VARIABLES LIKE '%general%';
+```
 +------------------+--------------------------------+
 | Variable_name    | Value                          |
 +------------------+--------------------------------+
@@ -40,7 +37,7 @@ mysql SHOW GLOBAL VARIABLES LIKE '%slow%';
 | slow_query_log_file       | /var/log/mysql_slow_log.log |
 +---------------------------+-----------------------------+
 5 rows in set (0.00 sec)</pre>
-</details>
+```
 
 ## 创建数据库连接(池)
 

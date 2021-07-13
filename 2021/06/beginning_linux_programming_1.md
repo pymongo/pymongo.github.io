@@ -50,12 +50,10 @@ Linux的API是遵循POSIX标准的，自行谷歌什么叫POSIX。Linux下程序
 
 同事建议说学操作系统或Linux编程建议重写linux大部分命令工具，这样能深入熟悉一些系统调用
 
-TODO 找张老师要一个Rust重写linux各种命令的清单?
-
 <https://zaiste.net/posts/shell-commands-rust/>
 
 - du -> du-dust // ncdu(C)
-- top -> bottom/ytop
+- top -> bottom, ytop
 - cat -> bat
 - ls -> exa
 - find -> fd
@@ -64,6 +62,7 @@ TODO 找张老师要一个Rust重写linux各种命令的清单?
 - grep -> ripgrep
 - diff -> delta
 - cd -> zoxide
+- fcp -> Svetlitski/fcp
 
 ## BLP的学习目标
 
@@ -89,7 +88,7 @@ leap second跟闰年没关系，以前原子钟跟太阳时有误差用来修正
 2021/06/29开始每天看30+页的英文书籍、游泳1km、大门关闭前前离开办公楼、11点半前入睡...
 
 从 2021/06/29 开始读：
-- 2021/06/29: 28-64
+- 2021/06/29: 28-64 # 内容比较水，所以我看的快
 - 2021/06/30: 65-100
 - 2021/07/01: 101-121
 - 2021/07/02: 121-141
@@ -98,8 +97,12 @@ leap second跟闰年没关系，以前原子钟跟太阳时有误差用来修正
 - 2021/07/05: 158-162
 - 2021/07/06: 163-178
 - 2021/07/07: 179-193
-- 2021/07/08: 194-302
-- 2021/07/09: 303-
+- 2021/07/08: 194-302 # ch05/ch06前面1-2代码例子还能敲，后面的坐标操作terminal都快速跳过
+- 2021/07/09: 303-316
+- 2021/07/10: 317-324
+- 2021/07/11: 325-376 # MySQL基础知识，内容比较水，所以我看的快
+- 2021/07/12: 377-477 # ch09除了make快速扫过
+- 2021/07/13:
 
 我从 28/819 Introduction 开始细看 BLP
 
@@ -125,6 +128,8 @@ leap second跟闰年没关系，以前原子钟跟太阳时有误差用来修正
 - consumed virtually all the CPU time: 几乎占满了CPU时间
 - brush up: 复习，重新学习
 - be wary of: 谨慎
+- comprised of: 包含
+- composed of: 由...组成
 
 ---
 

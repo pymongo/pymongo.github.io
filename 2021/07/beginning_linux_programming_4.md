@@ -113,4 +113,161 @@ l_type字段有三种状态：无锁、写锁(所有权的独占引用,exclusive
 
 ### dbm数据库的应用
 
-RedHet/CentOS/OpenSUSE发行版的rpm格式二进制包分发
+dbm是一个单文件的key-value数据库，RedHet/CentOS/OpenSUSE发行版的rpm格式二进制包分发，具体例子看我代码示例
+
+---
+
+## ch08 mysql
+
+安装mysql和创建用户看我manjao_kde_config.md的文章
+
+### 查看mysql服务器信息
+
+> mysql -? # 最详细的服务器信息
+
+或
+
+> mysql> \s
+
+或
+
+> sudo mysqladmin -uroot -p version
+
+查看mysql运行参数和当前配置: `sudo mysqladmin variables | more`
+
+### mysql配置文件路径
+
+> /etc/my.conf.d
+
+### mysql -uroot -ppassword为什么不安全
+
+其它用户可以通过 bash history 查看你输入的密码，很不安全
+
+### 子网掩码mask
+
+> mysql> GRANT ALL ON *.* TO ethernet@'192.168.1.0/255.255.255.0' IDENTIFIED BY 'password';
+
+'192.168.1.0/255.255.255.0' 表示 192.168.1.* 网段的客户端可以用 ethernet 的用户名登陆，密码是 password
+
+'%.example.com' 表示 *.example.com 的域名
+
+In SQL syntax, the special character % is a wildcard character, much the same as * in a shell
+
+### mysqlshow 快速查看表结构
+
+mysqlshow跟上auth相关信息后，可以加 数据库名-表名字-字段名参数
+
+> mysqlshow -uw -pw mysql user user
+
+如果只加数据库名，就列出数据库的所有表，以此类推
+
+### GRANT语句的字符串不要带下划线
+
+`%`类似`*`表示匹配任意字符，GRANT语句的`_`能匹配一个任意字符
+
+跟 grant 命令相对的是 revoke 去除权限
+
+---
+
+## ch09 development tools
+
+### make
+
+make 构建工具主要解决构建多源文件的 C 项目、编译中间产物、编译顺序、编译依赖和增量编译等问题
+
+make 不加任何参数时默认会构建 Makefile 中的第一个 target
+
+大伙有个约定就是第一个 target 一定是 all
+
+#### 「重要」make宏文本替换
+
+语法和用法类似 bash 类似，原理就是 C 语言 #define 那样的文本替换
+
+make 能根据编译源文件和编译产物的后缀名自动生成编译命令
+
+```
+$target = debug (or release)
+
+build: src/main.rs
+    cargo b --$(target)
+```
+
+类似 bash 自带的几个 $ 变量，make 也有几个:
+- $?: list all prerequisites
+- $@: name of the current target(output filename)
+- $<: name of the current prerequisites(input filename)
+- $*: name of the current prerequisites without any suffix
+
+#### 「重要」make的`@`和`-`和`\`
+
+- `\`: 由于make每个命令都会开新的子shell,如果命令前后有依赖关系则用 `\` 连起来保证在同一个shell中执行(all passed together to a single invocation of the shell for execution)
+- `@`: 类似 bash `set +o xtrace`
+- `-`: 隐藏错误
+
+`chmod og-rwx`中的o表示other,g表示group
+
+make install想要装到其它目录时要用
+
+#### 「重要」gcc的-MM参数
+
+列出gcc入参之间的依赖(供make使用)
+
+```
+$ gcc -MM main.c 2.c 3.c
+main.o: main.c a.h
+2.o:2.c a.h b.h
+3.o: 3.c b.h c.h
+```
+
+### 编写man文档
+
+my_command.1 的`.1`后缀表示是 man section 1 分类的文档
+
+```
+.TH MYAPP 1
+.SH SEE ALSO
+rust
+```
+
+渲染man格式文档的命令groff:
+
+> groff -Tascii -man my_command.1
+
+```
+MYAPP(1)                    General Commands Manual                   MYAPP(1)
+
+
+
+SEE ALSO
+       rust
+```
+
+可以把文档文件放在这个目录就能被man命令识别`/usr/share/man/man1/`
+
+### 「重要」patch命令
+
+类似git patch能根据git diff文件进行代码改动
+
+git patch -R 表示回滚变更
+
+### 「重要」tar命令
+
+参数很多，建议只用记两个，tar打包后自行再用gzip命令去压缩，gzip -r 解压
+
+首先-f参数是必加的，表示打包和解包对象都是文件
+
+> tar cf pwd.tar . # 打包: c表示create
+> 
+> tar xf pwd.tar # 解包: x表示Extracts
+
+参数v只是用来显示打包时包含的文件，不要记那么复杂
+
+只用记打包用c解包用x,f都要加
+
+---
+
+## ch010 debugging
+
+由于 gdb 超级重要，所以单独建了一个 `gdb.md` 记录 gdb 经验
+
+
