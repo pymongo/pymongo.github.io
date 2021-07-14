@@ -1,11 +1,12 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-07**
+    - [调试/动态分析/性能分析工具](2021/07/debug_and_dynamic_analyzing_tools.md)
+    - [BLP 读书笔记 5: 进程](/2021/07/beginning_linux_programming_5.md)
     - [aur 回滚包/指定安装版本/链接 404 等问题](/2021/07/aur_gpg_keyserver_no_name.md)
     - [gdb](/2021/07/gdb.md)
     - [错误绑定 dylib 的例子](2021/07/bad_example_in_dylib_linking.md)
     - [BLP 读书笔记 4](/2021/07/beginning_linux_programming_4.md)
     - [linux_desktop_notification](/2021/07/linux_desktop_notification.md)
-    - [gdb/lldb 调试 segfault](2021/07/gdb_lldb_debug_segfault.md)
     - [BLP 读书笔记 3](/2021/07/beginning_linux_programming_3.md)
     - [BLP 读书笔记 2](/2021/07/beginning_linux_programming_2.md)
 - **2021-06**

@@ -235,11 +235,8 @@ rust
 
 ```
 MYAPP(1)                    General Commands Manual                   MYAPP(1)
-
-
-
+// ...
 SEE ALSO
-       rust
 ```
 
 可以把文档文件放在这个目录就能被man命令识别`/usr/share/man/man1/`
@@ -284,7 +281,8 @@ git patch -R 表示回滚变更
 - cxref: 寻找 #define 等符号的定义
 - cflow: **callgraph** 打印「静态」函数调用树(function call tree)
 - cppcheck
-- prof/gprof
+- 「重要」yay -S electricfence: 运行时检查malloc?发生内存越界访问时中止程序并提示行号
+- 「重要」prof/gprof
 
 ### ctags列出所有ident的定义处
 
@@ -392,3 +390,70 @@ yay -S uftrace-git flamegraph-git
 2. uftrace record ./main
 3. uftrace dump --flame-graph | flamegraph > ~/temp/uftrace_flamegraph.svg && google-chrome-stable ~/temp/uftrace_flamegraph.svg
 ```
+
+### assert.h
+
+编译期参数加上 `-DNDEBUG` 或 `#define NDEBUG` 可以禁用 assert 宏
+
+用 assert 可以提前检查浮点数是否为负数，避免 sqrt(-1) 得到 NaN (Not a Number)
+
+### 「重要」yay -S electricfence
+
+编译时加上 -lefence 就能替换所有 malloc 函数变成 efence 提供的更安全的 malloc
+
+一旦发生越界访问 malloc 的内存，就能提前中止进程，并且 gdb 调试时提示报错行号和原因
+
+假设以下 C 程序通过 malloc 申请了 [u8, 1024] 长度的内存，再尝试越界访问偏移为 1024 的内存
+
+```cpp
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char *ptr = (char *) malloc(1024);
+    ptr[0] = 0;
+
+    /* Now write beyond the block */
+    ptr[1024] = 0;
+    exit(0);
+}
+```
+
+此时编译不会报错，splint 等工具检查也没错，运行时也正常退出
+
+但是如果编译时动态链接上 efence 越界访问 malloc 的内存时就会报错
+
+```
+[w@ww chapter10]$ gcc -lefence -g efence.c 
+[w@ww chapter10]$ ./a.out 
+
+  Electric Fence 2.2 Copyright (C) 1987-1999 Bruce Perens <bruce@perens.com>
+Segmentation fault (core dumped)
+```
+
+此时用 gdb 调试程序，libefence.so 会提供更多的有用报错信息
+
+```
+(gdb) run
+Starting program: /home/w/Downloads/blp_all_sources/chapter10/a.out 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+
+  Electric Fence 2.2 Copyright (C) 1987-1999 Bruce Perens <bruce@perens.com>
+
+Program received signal SIGSEGV, Segmentation fault.
+main () at efence.c:10
+10          ptr[1024] = 0;
+(gdb)
+```
+
+工作原理可能是维护一个运行时内存检查工具，每次申请内存时都用 HashSet 记下合法的内存地址
+
+当解引用 越界的内存时，electricfence 就立即中止程序
+
+可惜 electricfence 不能检测 Rust 的 libc::malloc 内存问题
+
+### orphaned block
+
+指的是内存泄漏，例如所有指向该内存的指针都被设成 NULL,那么这段内存就是 orphaned block

@@ -1,21 +1,37 @@
-# [gdb/lldb 调试 segfault](2021/07/gdb_lldb_debug_segfault.md)
+# [调试/动态分析/性能分析工具](2021/07/debug_and_dynamic_analyzing_tools.md)
 
-## 目录
+相比静态分析工具例如 clippy/ra，动态分析工具则需要程序运行才能进行分析，例如官方的 bench, test
 
-首先通过一个 segfault 的案例，介绍以下工具如何分析该案例的内存错误:
+## 为什么需要动态分析
+
+![](flamegraph.png)
+
+以上是某个 Rust 程序**动态分析**生成的火焰图，通过火焰图可以很清晰的看到程序的性能瓶颈在频繁 alloc 分配内存
+
+借助动态分析不仅能发现程序性能瓶颈，还能调试运行时的内存错误，也可以生成函数调用树让团队新成员能快速读懂项目代码
+
+## 目录 - 动态分析工具
+
+1. 常用调试工具和内存检测工具:
+首先通过一个 segfault 案例，介绍常用调试工具如何检测该案例的内存错误:
 - coredumpctl
-- dmesg
 - valgrind
 - gdb
-- lldb
-- vscode-lldb
-- Intellij-Rust
+- lldb/vscode-lldb/Intellij-Rust
 
-然后介绍上述工具再分析几个内存错误案例:
+2. 火焰图/函数调用树等性能分析工具(profile)
+- dmesg
+- pref(CLion use perf as default profiler)
+- cargo-flamegraph
+- KCachegrind
+- gprof
+- uftrace
+
+3. 最后通过上述工具再分析几个内存错误案例:
 - SIGABRT/double-free
 - (TODO)SIGABRT/free-dylib-mem
 
-## segfault 案例和调试工具
+## segfault 案例和常用调试工具
 
 以下是我重写 ls 命令的部分源码(以下简称`ls 应用`)，完整源码在[这个代码仓库](https://github.com/pymongo/linux_commands_rewritten_in_rust/blob/main/examples/sigsegv_opendir_open_null.rs)
 
@@ -86,12 +102,6 @@ CONFIG_COREDUMP=y
 `coredumpctl gdb 358976` 或者 `coredumpctl debug 358976`
 
 参考: [core dump - wiki](https://wiki.archlinux.org/title/Core_dump)
-
-### dmesg 查看 segfault 记录
-
-`sudo dmesg` 能查看最近几十条内核消息，发生 segfault 后能看到这样的消息:
-
-> [73815.701427] ls[165042]: segfault at 4 ip 00007fafe9bb5904 sp 00007ffd78ff8510 error 6 in libc-2.33.so[7fafe9b14000+14b000]
 
 ### valgrind 检查内存错误
 
@@ -260,7 +270,103 @@ Debug 运行直接能跳转到问题代码的所在行，并提示 `libc::readdi
 
 ---
 
-熟悉上述调试工具，可以接下来看几个内存错误的案例
+## 性能分析工具
+
+### dmesg 查看 segfault 记录
+
+`sudo dmesg` 能查看最近几十条内核消息，发生 segfault 后能看到这样的消息:
+
+> [73815.701427] ls[165042]: segfault at 4 ip 00007fafe9bb5904 sp 00007ffd78ff8510 error 6 in libc-2.33.so[7fafe9b14000+14b000]
+
+### perf 函数调用树
+
+#### 检查 perf 配置
+
+首先通过 `perf record` 测试下 perf 的配置能否读取系统事件，如果返回 Error 则修改以下配置文件
+
+> sudo vim /etc/sysctl.d/sysctl.conf
+
+在 sysctl.conf 配置文件下加上一行:
+
+> kernel.perf_event_paranoid = -1
+
+然后重启 sysctl 进程重新加载配置:
+
+> sudo systemctl restart systemd-sysctl.service
+
+#### perf call-graph
+
+用 perf-record 记录 Rust 程序的调用信息:
+
+> perf record -a --call-graph dwarf ./target/debug/tree
+
+Rust 程序运行结束后，会在当前目录生成 perf.data 数据文件
+
+perf-report 会默认打开当前目录的 perf.data 文件，也可以通过 -i 参数制定数据文件
+
+用 perf-report 解析 Rust 程序的函数调用树，会进入一个类似 htop 的界面:
+
+> perf report --call-graph
+
+![](perf.png)
+
+可以选中 tree::main 的函数符号按下回车，选择 `zoom into tree thread` 来展示 main 函数的子函数调用树
+
+主要浏览方法是通过上下左右方向键移动光标，再通过**+**按键展开或折叠光标所在行的函数调用树
+
+#### Clion perf
+
+在作者的电脑上，Clion 默认的 profiler(性能探测器)就用的 perf
+
+### cargo-flamegraph
+
+cargo-flamegraph 需要系统已装 perf ，能将 perf 数据渲染成火焰图
+
+### KCachegrind
+
+> valgrind --tool=callgrind ./target/debug/tree
+
+通过 valgrind 生成 callgrind.out.887505 数据( 887505 是 PID )，再通过 KCachegrind 打开进行可视化
+
+![](https://aws1.discourse-cdn.com/business5/uploads/rust_lang/original/3X/3/1/311bcd6f2cf22c1ac9fe9e23bb6801f2cde80deb.png)
+
+参考: https://users.rust-lang.org/t/is-it-possible-to-print-the-callgraph-of-a-cargo-workspace/50369/6
+
+### gprof
+
+gcc/clang 加上 `-pg` 参数，会在运行程序结束后生成监控数据文件 `mon.out`
+
+然后 gprof 对 mon.out 文件进行分析，可惜 Rust 没有部分支持
+
+### uftrace
+
+为了支持数据通过火焰图格式可视化，安装 utftrace 的同时也把火焰图装了:
+
+> yay -S uftrace-git flamegraph-git
+
+跟 grpof/KCachegrind 类似，也是要收集数据，数据可视化分两步走
+
+首先 Rust 编译程序时要加上类似 gcc 的 -pg 的参数:
+
+> rustc -g -Z instrument-mcount main.rs
+
+或者用 gccrs 或 gcc 后端进行编译
+
+> gccrs -g -pg main.rs
+
+然后 uftrace 开始记录数据:
+
+uftrace record ./main
+
+本文篇幅有限只介绍 uftrace 通过火焰图进行可视化的方式:
+
+
+
+
+
+---
+
+熟悉上述工具后，可以接下来看几个内存错误的案例
 
 ## SIGABRT/double-free 案例分享
 
@@ -354,7 +460,6 @@ dirp = std::ptr::null_mut();
 > one reason malloc failed is the memory structures have been corrupted, When this happens, the program may not terminate immediately
 
 感兴趣的读者可以看这本书: *Beginning Linux Programming 4th edition* 的 260 页
-
 
 
 

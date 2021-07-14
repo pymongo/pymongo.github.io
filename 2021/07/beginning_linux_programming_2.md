@@ -81,9 +81,9 @@ done
 ### set调试bash程序
 
 - set -x 或 bash -x 可以在执行前打印每行语句
-- set -u 或 bash -u 可以在遇到「undefined variable」时报错
+- set -u 或 bash -u 可以在遇到「undefined variable/null」时报错
 
-`set -o xtrace`比`set -x`更详细，可以在问题代码附近开启xtrace，问题代码结束时`set +o xtrace`关闭xtrace
+`set -o xtrace` 比 `set -x` 更详细，可以在问题代码附近开启xtrace，问题代码结束时`set +o xtrace`关闭xtrace
 
 ### 「有趣」dialog命令行图形工具
 
