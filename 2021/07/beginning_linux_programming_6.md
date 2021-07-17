@@ -322,3 +322,31 @@ System V 的 message queue 更像是 mpsc channel 多个生产者，一个消费
 一旦用成 spmc 则只有一个 receiver 会收到数据，其余的 receiver 会报错:
 
 > Identifier removed (os error 43)
+
+## 「重要」ipcs 命令查看所有 System V IPC
+
+```
+$ /usr/share/man/man2  ipcs
+
+------ Message Queues --------
+key        msqid      owner      perms      used-bytes   messages    
+0x000004d2 57         w          666        0            0           
+0x000010e1 58         w          666        0            0           
+
+------ Shared Memory Segments --------
+key        shmid      owner      perms      bytes      nattch     status      
+0x00000000 3801097    w          600        524288     2          dest         
+0x51210027 15         w          600        8          1                      
+
+------ Semaphore Arrays --------
+key        semid      owner      perms      nsems     
+0x51210023 0          w          600        1         
+```
+
+可以通过 **ipcrm** 命令删除未被程序回收的 IPC key
+
+### System V IPC 不同发行版使用情况
+
+- manjaro: shared_memory 和 semaphore 各用了 4-5 个
+- 纯 cli 版 centos: 完全没用
+- 纯 cli 版 ubuntu: 完全没用

@@ -2,17 +2,16 @@
 <html lang="zh">
 <head>
     <meta charset=UTF-8>
-    <title>应聘 Rust 开发_吴翱翔</title>
+    <title>吴翱翔的简历 - 应聘 Rust 微服务架构研发工程师</title>
     <style>
         .page-container {
-            /* 820≈A4_width_2480x0.33 */
-            width: 820px;
+            width: 820px; /* 820≈A4_width_2480x0.33 */
             margin: 0 auto;
         }
         * {
             margin: 0;
             padding: 0;
-            font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
+            /* font-family: "Microsoft Yahei", "PingFang SC", sans-serif; */
         }
         .deprecated {
             display: none;
@@ -65,7 +64,6 @@
 </head>
 <body>
 <!--
-## 项目经历修改框架
 STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)；
 对于写简历来说，99%的人所犯的错误都是仅仅写了"任务task"，也就是仅罗列"干了什么"。
 
@@ -151,10 +149,9 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 [项目收获] 学习actix AsyncContext::spawn在同步的handler中嵌入异步的代码的方法
     </pre>
 -->
-
     <h3 class="header3">
         <span class="project-title">数字货币交易所订单撮合引擎</span>
-        <span class="project-role">Rust开发</span>
+        <span class="project-role">Rust 开发</span>
         <span class="project-cycle">2020.04 - 2020.07</span>
     </h3>
     <pre class="deprecated">使用泛型复用了所有接口表单中公共参数的校验，例如检查lang字段合法就是通过泛型实现</pre>
@@ -193,7 +190,6 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     </pre>
     <hr class="divider">
     -->
-
     <h2 class="header2">§ 个人开源项目</h2>
     <h3 class="header3">
         <span class="project-title">WebSocket 聊天</span>
@@ -215,35 +211,36 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 [项目链接] https://github.com/pymongo/linux_commands_rewritten_in_rust
 [项目介绍] Rust 系统编程、数据库驱动开发和用 Rust 重写所有 Linux 命令 
 [项目收获] 1. System V message queue, semaphores, shared memory
-　　　　   2. 积累 FFI 调用代码中 SIGABRT/SIGSEGV/ 等内存错误的案例分析和调试经验
+　　　　   2. 积累 FFI 调用代码中 SIGABRT/SIGSEGV/SIGBUG/SIGRET 等内存错误的案例分析和调试经验
     </pre>
 
     <h2 class="header2">§ 个人的演讲/教学视频/开源库</h2>
     <pre class="project-details">
 ¶ 演讲:
-- Rust 唠嗑室14期: 树莓派流水灯和时钟驱动(https://bilibili.com/video/BV1UV411a78t)
+- Rust 唠嗑室 14 期: 树莓派流水灯和时钟驱动(https://bilibili.com/video/BV1UV411a78t)
 - 2020 RustConf: Rust 在算法上的应用(https://youtu.be/-yqlhg7Pows)
 - 2021 Rust 成都 meetup: md5/openssl 生态和绑定(https://bilibili.com/video/BV1Y54y1j7za?p=4)
 ¶ 教学视频:
-- 20分钟写个聊天服务器: https://www.bilibili.com/video/BV1QK4y1G7ao/
-- Rust管道进程间通信: https://www.bilibili.com/video/BV1Lv411W7nX
+- 20 分钟写个聊天服务器: https://www.bilibili.com/video/BV1QK4y1G7ao/
+- Rust 管道进程间通信: https://www.bilibili.com/video/BV1Lv411W7nX
 ¶ CI/CD相关库:
-- typo_checker: 基于rustc私有API和前缀树的拼写错误检查应用
-- my_lints: 静态分析lint工具，包含禁止使用递归代码，精度丢失等代码质量检查lint规则
+- typo_checker: 基于 rustc 私有API和前缀树的拼写错误检查应用
+- my_lints: 静态分析 lint 工具，包含禁止使用递归代码，精度丢失等代码质量检查lint规则
 ¶ 基础设施相关库:
-- logger: 针对systemd部署的Rust项目设计的一款高性能logger，支持按时间范围查询日志
+- logger: 针对systemd 部署的 Rust项目设计的一款高性能 logger，支持按时间范围查询日志
 ¶ 数据结构相关库:
-- ypeid_key_hashmap: 类似actix_web::web::Data，key是类型支持存储任意类型的HashMap
+- ypeid_key_hashmap: 类似 actix_web::web::Data，key 是类型支持存储任意类型的 HashMap
 ¶ 数据库相关库:
 - gdbm_compat(已上传crates.io): key-value 数据库 dbm 的 FFI 绑定库，还提供了增删改查的示例
-- pg_client: postgres协议解析器/客户端，学习了大端序和little/naive endian以及cursor读数据
+- pg_client: postgres 协议解析器/客户端，学习了 little/naive endian 以及 cursor 读数据
 ¶ 驱动类相关库:
-- saks(已上传crates.io): 树莓派瑞士军刀扩展版驱动，已完成74HC595和数码管等硬件的驱动
+- saks(已上传crates.io): 针对 BCM2711 芯片手册研发的瑞士军刀扩展版驱动，使用 mmap 读写寄存器 
     </pre>
 
-    <h2 class="header2">§ 开源社区贡献PR</h2>
+    <!-- BinChengZhao/delay-timer#1: 解决文档中 Rust 代码渲染高亮失败的问题 -->
+    <h2 class="header2">§ 开源社区贡献 PR</h2>
     <pre class="project-details">
-¶ 数据库相关的 PR
+¶ 数据库相关 PR
 - mongodb/bson-rust#260: 我优化了 bson::DateTime::now() 官方人员称性能提升约 70%
 - mongodb/bson-rust#277: 重构 RFC3389 格式时间字符串的解析和 chrono feature
 - rust-postgres#669: make postgres protocol version value more readable
@@ -251,15 +248,15 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 - tensorbase#115,#153,#197:
     tensorbase 是 Rust 写的类似 clickhouse 的数据仓库
     我用 tmpfile 系统调用优化了临时文件的创建，还负责在 ARM 架构硬件的测试
-- tikv/agatedb#104: 修复了一些clippy的lints
-¶ 数据结构相关的PR
-- bigdecimal-rs#66: 我实现了四舍五入的round方法并提供了相关的16个测试用例
-¶ 网络和基础设施相关的PR
-- actix/examples#298: 删掉了actix-web关闭服务器代码例子中两个无用变量
-- BinChengZhao/delay-timer#1: 改进了文档
-¶ 区块链相关的PR
-- Phala-Network/phala-blockchain#172: use is_empty() to check str/vec whether empty
-¶ 应用相关的PR
+- tikv/agatedb#104: 修复了一些 clippy 的 lints
+¶ 数据结构相关 PR
+- bigdecimal-rs#66: 我实现了四舍五入的 round 方法并贡献了 16 个测试用例
+¶ 基础设施/操作系统工具相关 PR
+- polyverse/rmesg#11： 这是用 Rust 重写内核信息查看工具 dmesg ，我增加了 sudo 权限的帮助提示
+- actix/examples#298: 删掉了 actix-web 关闭服务器代码例子中两个无用变量
+¶ 区块链相关 PR
+- Phala-Network/phala-blockchain#172: use is_empty() to check str/vec empty
+¶ 应用相关 PR
 - wildfirechat/android-chat#330: 野火聊天安卓端，我将一些文案改成 tools:text 属性(仅预览下可见)
 - uinb/galois#7,#12: galois 是一个股票撮合引擎，基于我之前撮合开发的经验改良了配置文件
     </pre>
@@ -297,4 +294,3 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 
 </body>
 </html>
-
