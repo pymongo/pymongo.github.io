@@ -52,6 +52,8 @@ Rust没有继承的概念，Rust实现动态分发多态的过程跟Java的向�
 
 ## Trait Object
 
+示例: `Box<dyn Any>`, 然后 downcast 成其它类型
+
 Rust的类型可以看作是语言允许的最小集合，而trait bound可以对这些类型进行「组合」，也就是求交集
 
 所以也可以认为trait也是一种类型，是一种方法的集合，或者说一种行为的集合

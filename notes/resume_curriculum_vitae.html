@@ -79,9 +79,9 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 -->
 
 <div class="page-container">
-    <h1 class="header1 resume-title">应聘Rust开发_吴翱翔</h1>
-    <div style="text-align: center">17150313884| os.popen@gmail.com| 男/1997</div>
-    <div style="text-align: center"><span class="bold">技术博客</span>: pymongo.github.io| Github账号: pymongo</div>
+    <h1 class="header1 resume-title">应聘 Rust 微服务架构研发工程师-吴翱翔</h1>
+    <div style="text-align: center">17150313884| os.popen@gmail.com</div>
+    <div style="text-align: center"><span class="bold">技术博客</span>: pymongo.github.io| Github: pymongo</div>
     <!-- <div style="text-align: center">leetcode账号: leetcode-cn.com/u/user0772-d</div> -->
     <hr class="divider">
 
@@ -118,7 +118,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <p>・业务是汽车ECU(电子控制器)的功能测试，以日方提供的脚本语言进行编程，调试</p>
     -->
 
-    <!-- 项目经验的高逼格术语: 锁的粒度、具效化, sso/cas 单点登录, more fine-grained control(进行更细粒度的控制) -->
+    <!-- 项目经验的高逼格术语: 具效化, sso/cas 单点登录, more fine-grained control(进行更细粒度的控制) -->
     <h2 class="header2">§ 项目经历</h2>
 
     <h3 class="header3">
@@ -126,20 +126,15 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
         <span class="project-role">Rust 开发</span>
         <span class="project-cycle">2020.11 - 至今</span>
     </h3>
-    <!--
-　　　　   6. 了解 postgres 数据库的时序数据插件 Timescale
-    -->
     <pre class="project-details">
 [项目介绍] Instagram/Twitter 等社交平台的推文/粉丝数的数据分析应用
 [技术架构] tokio+WebSocket+protobuf, warp+Graphql+mongodb
-[主要工作] 1. Instagram Post 点赞评论互动率等时序数据的存储统计和分析
-　　　　   2. Instagram 粉丝国家/城市/年龄/性别分布等统计数据的接口
-　　　　   3. 分析用户最佳发布 Post 的时间，参与定时发布 post 接口开发
-[项目收获] 1. 使用 archlinux 作为开发机模拟服务器环境，学会隧道映射服务器数据库端口方便本地调试
-　　　　   2. Linux 系统调用常见 errno 及错误调试，了解 man7.org 文档的阅读方法
-　　　　   3. FFI 调用绑定 C 的不透明 opaque 指针类型，了解 libcurl.so 回调函数的 binding
-　　　　   4. 了解基于 io_uring 的 glommio 异步运行时，了解 Linux 系统的几种IO模型
-　　　　   5. 使用 syslog/libsystemd.so 等日志系统调用，熟悉 journalctl 日志工具
+[主要工作] 1. Instagram 粉丝国家/城市/年龄/性别分布等时序数据的统计和分析接口
+　　　　   2. 分析用户最佳发布 Post 的时间，参与定时发布 post 接口开发
+　　　　   3. 将 syslog/libsystemd.so 等操作系统日志函数跟 Rust 应用对接
+[项目收获] 1. 熟练 archlinux 作为开发机模拟服务器环境，学会隧道映射服务器数据库端口进行调试
+　　　　   2. FFI 调用绑定 C 的不透明 opaque 指针类型，了解 libcurl.so 回调函数的 binding
+　　　　   3. 了解基于 io_uring 的 glommio 异步运行时库 defer, detached 等概念
     </pre>
 
 <!--
@@ -148,9 +143,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
         <span class="project-role">Rust 开发</span>
         <span class="project-cycle">2020.07 - 至今</span>
     </h3>
-    <pre class="deprecated"></pre>
     <pre class="project-details">
-[项目背景] 老的Ruby版WebSocket服务器负载高内存泄露严重，严重到需要每隔5分钟自动或手动重启去释放资源
 [技术架构] 用的是actix框架，一种Actor管理长链接，另一种Actor监听UDP且存储每个频道的客户端订阅
 　　　　   UdpActor会缓存其它Ruby脚本发来的上一条推送数据，一旦客户端订阅频道就立即推送缓存的数据
 　　　　   SessionActor的析构回调中会通知UdpActor删掉所有频道的订阅列表中已断开连接的Actor地址
@@ -164,31 +157,29 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
         <span class="project-role">Rust开发</span>
         <span class="project-cycle">2020.04 - 2020.07</span>
     </h3>
-    <pre class="deprecated">全角空格[　]</pre>
     <pre class="deprecated">使用泛型复用了所有接口表单中公共参数的校验，例如检查lang字段合法就是通过泛型实现</pre>
     <pre class="deprecated">diesel遇到数据库死锁的问题，使用MySQL的slow_log/general_log排查与调试性能问题，通过添加索引等方式提高性能</pre>
     <pre class="deprecated">静态区间和数据用前缀和，动态区间和数据用线段树；静态排序数据用快排，动态排序数据用堆</pre>
     <pre class="deprecated">由于内存订单数据使用到了堆，所以删除操作是lazy_delete的，发现了thread::spawn内打印log(日志)会运行时异常，而用tokio::spawn则不会发生该错误</pre>
-    <pre class="project-details">
-[项目介绍] 数字货币交易所的撮合引擎的功能是将价格相近的买单和买单匹配在一起进行成交
-[项目成绩] 经工具测试，Rust 版每秒处理请求数是 Ruby 版的 15-25 倍，CPU 负载比老版低 2 个数量级
-[技术架构] 1. 技术栈是: tide+sqlx+async-redis，曾经用过actix-web+diesel
+    <pre class="deprecated">
+        　3. 实现了股票撮合引擎当日加权平均成交收盘价的自动更新，解决了股票成交后账户余额可能变负数的问题
 　　　　   2. 撮合引擎本质上是一个API服务器，主要由创建订单/撤单/撤销全部三个接口组成
 　　　　      三个接口都需要将各参数按字典序加private_key算出数字签名，我开发了一个derive过程宏
 　　　　      不仅可以让每个表单在编译时自动实现参数验证的方法，还能用泛型复用三个接口
-　　　　   3. 将未完成的订单数据用「优先队列/堆」的数据结构持久化存储在内存中，减少MySQL的负载
-　　　　      撮合引擎的买单和卖单本质上是个有序数组，动态有序数据用堆，静态用快排
 　　　　   4. 一个进程只负责一个交易对，所有进程都是共用一个可执行文件，通过环境变量/命令行参数区分交易对
-[主要工作] 1. 除了数字货币所的撮合引擎还做了一套仿上交所的塔吉克证券交易所撮合引擎，
-　　　　      股票撮合引擎的区别是订单的数量单位是一股一手，而且有休盘时间和节假日
-　　　　   2. 设计节假日的数据结构，做完了开休盘时间段切换、工作日/节假日切换的功能
-　　　　   3. 实现了股票撮合引擎当日加权平均成交收盘价的自动更新，解决了股票成交后账户余额可能变负数的问题
-　　　　   4. 设计Rust项目的部署方案，因配置文件编译前常量内联优化到可执行文件中无法交叉编译，通过systemctl重启服务器
-　　　　   5. 通过Mutex锁实现了系统的幂等性，尝试降低锁的粒度或无锁编程的方式去优化性能
-[项目收获] 1. 异步runtime下要用tokio或async-std的Mutex锁，用std::sync::Mutex在高并发时容易发生死锁
-　　　　   2. 熟悉Rust全局共享可变和不可变数据的各种方法
-　　　　      在main中创建app_state往后层层传递到各个协程，比OnceCell或Lazy更利于静态分析
-　　　　   3. 发现rust_decimal库不仅内存大小只有bigdecimal-rs的1/4，而且运算比bigdecimal快2-3倍
+    </pre>
+    <pre class="project-details">
+[项目介绍] 数字货币交易所的撮合引擎的功能是将价格相近的买单和买单匹配在一起进行成交
+[项目成绩] 我用 Rust 重写后每秒处理请求数是 Ruby 版的 15-25 倍，CPU 负载比老版低很多
+[技术架构] 1. 技术栈是: tide+sqlx+async-redis，曾经用过 actix-web+diesel
+　　　　   2. 将未完成的订单数据用「优先队列/堆」的数据结构持久化存储在内存中，减少 MySQL 的负载
+　　　　      撮合引擎的买单和卖单本质上是个有序数组，动态有序数据用堆，静态用快排
+[主要工作] 1. 开发下单/撤单/撤销全部挂单三个接口，完成手续费业务逻辑，确保买卖双方和交易所构成零和游戏
+　　　　   2. 解决多线程环境下内存撮合过程中买单卖单成交操作的原子性，确保交易所对账准确无误
+[项目收获] 1. 异步 runtime 用 sync::Mutex 会卡死线程，要改用 async Mutex
+　　　　   2. 熟悉 Rust 全局共享可变和不可变数据的各种方法，摸索出比 OnceCell 或 LazyStatic 更佳的
+　　　　      共享数据方式: 在 main 中创建 state 往后层层传递到各个协程
+　　　　   3. 发现 rust_decimal 性能比 bigdecimal-rs 好得多，适用于金融计算的业务
     </pre>
 
     <!--
@@ -198,9 +189,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
         <span class="project-cycle">2020.01 - 2020.04</span>
     </h3>
     <pre class="project-details">
-[项目架构] 1. 老的Activity/Fragment页面保持MVP模式不变，新页面尝试使用新技术MVVM
-　　　　   2. 通过Parcelable序列化/反序列化接口实现两个页面之间传递Java实例对象
-[主要工作] 1. 我做了币币订单列表、法币广告列表、邀请返佣等共计15~20个页面，集成了友盟SDK
+　　　　   1. 通过Parcelable序列化/反序列化接口实现两个页面之间传递Java实例对象，友盟 SDK
     </pre>
     <hr class="divider">
     -->
@@ -224,69 +213,55 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     </h3>
     <pre class="project-details">
 [项目链接] https://github.com/pymongo/linux_commands_rewritten_in_rust
-[项目介绍] 用 Rust 重写所有 Linux 命令 
-[项目收获] 1. 
+[项目介绍] Rust 系统编程、数据库驱动开发和用 Rust 重写所有 Linux 命令 
+[项目收获] 1. System V message queue, semaphores, shared memory
+　　　　   2. 积累 FFI 调用代码中 SIGABRT/SIGSEGV/ 等内存错误的案例分析和调试经验
     </pre>
 
-    <h3 class="header3">
-        <span class="project-title">个人的演讲/讲课视频/开源库</span>
-    </h3>
+    <h2 class="header2">§ 个人的演讲/教学视频/开源库</h2>
     <pre class="project-details">
-演讲:
+¶ 演讲:
 - Rust 唠嗑室14期: 树莓派流水灯和时钟驱动(https://bilibili.com/video/BV1UV411a78t)
 - 2020 RustConf: Rust 在算法上的应用(https://youtu.be/-yqlhg7Pows)
 - 2021 Rust 成都 meetup: md5/openssl 生态和绑定(https://bilibili.com/video/BV1Y54y1j7za?p=4)
-教学视频:
+¶ 教学视频:
 - 20分钟写个聊天服务器: https://www.bilibili.com/video/BV1QK4y1G7ao/
 - Rust管道进程间通信: https://www.bilibili.com/video/BV1Lv411W7nX
-CI/CD相关库:
+¶ CI/CD相关库:
 - typo_checker: 基于rustc私有API和前缀树的拼写错误检查应用
 - my_lints: 静态分析lint工具，包含禁止使用递归代码，精度丢失等代码质量检查lint规则
-基础设施相关库:
+¶ 基础设施相关库:
 - logger: 针对systemd部署的Rust项目设计的一款高性能logger，支持按时间范围查询日志
-数据结构相关库:
+¶ 数据结构相关库:
 - ypeid_key_hashmap: 类似actix_web::web::Data，key是类型支持存储任意类型的HashMap
-数据库相关库:
+¶ 数据库相关库:
 - gdbm_compat(已上传crates.io): key-value 数据库 dbm 的 FFI 绑定库，还提供了增删改查的示例
 - pg_client: postgres协议解析器/客户端，学习了大端序和little/naive endian以及cursor读数据
-驱动类相关库:
+¶ 驱动类相关库:
 - saks(已上传crates.io): 树莓派瑞士军刀扩展版驱动，已完成74HC595和数码管等硬件的驱动
     </pre>
 
     <h2 class="header2">§ 开源社区贡献PR</h2>
-    <p>¶ 数据库相关的PR</p>
     <pre class="project-details">
+¶ 数据库相关的 PR
 - mongodb/bson-rust#260: 我优化了 bson::DateTime::now() 官方人员称性能提升约 70%
-- mongodb/bson-rust#277: 重构 RFC3389 时间字符串的解析和 chrono feature
+- mongodb/bson-rust#277: 重构 RFC3389 格式时间字符串的解析和 chrono feature
 - rust-postgres#669: make postgres protocol version value more readable
 - sqlx(rust)#319,#581,#592,#1002: 解决了 sqlx 的 issue#981 编译时 SQL 检查可能 hang
-- tensorbase/tensorbase#115,#197:
+- tensorbase#115,#153,#197:
     tensorbase 是 Rust 写的类似 clickhouse 的数据仓库
     我用 tmpfile 系统调用优化了临时文件的创建，还负责在 ARM 架构硬件的测试
 - tikv/agatedb#104: 修复了一些clippy的lints
-
-    </pre>
-
-    <p>¶ 数据结构相关的PR</p>
-    <pre class="project-details">
+¶ 数据结构相关的PR
 - bigdecimal-rs#66: 我实现了四舍五入的round方法并提供了相关的16个测试用例
-    </pre>
-
-    <p>¶ 网络和基础设施相关的PR</p>
-    <pre class="project-details">
+¶ 网络和基础设施相关的PR
 - actix/examples#298: 删掉了actix-web关闭服务器代码例子中两个无用变量
 - BinChengZhao/delay-timer#1: 改进了文档
-    </pre>
-
-    <p>¶ 区块链相关的PR</p>
-    <pre class="project-details">
+¶ 区块链相关的PR
 - Phala-Network/phala-blockchain#172: use is_empty() to check str/vec whether empty
-    </pre>
-
-    <p>¶ 应用相关的PR</p>
-    <pre class="project-details">
-- wildfirechat/android-chat#330: 野火聊天安卓端，我将一些文案改成tools:text属性(仅preview可见)
-- uinb/galois#7,#12: galois是一个股票撮合引擎，基于我之前撮合开发的经验改良了配置文件
+¶ 应用相关的PR
+- wildfirechat/android-chat#330: 野火聊天安卓端，我将一些文案改成 tools:text 属性(仅预览下可见)
+- uinb/galois#7,#12: galois 是一个股票撮合引擎，基于我之前撮合开发的经验改良了配置文件
     </pre>
 
     <!--
@@ -296,36 +271,23 @@ CI/CD相关库:
         <span class="project-cycle">2019.12 - 2020.04</span>
     </h3>
     <pre class="project-details">
-[项目链接] http://new-api.cadex.top/api/v2/swagger_doc
 [项目架构] 1. 对于时效性短的数据，存入redis减轻MySQL负载，例如当日取消订单3次就禁止交易的功能
 　　　　   2. 使用FactoryBot库结合Faker库通过工厂模式生成测试数据，借助单元测试进行代码重构
 [主要工作] 1. 维护老的API接口，为APP的新页面开发接口，我参与开发了30~40个接口以及相应的单元测试
 　　　　   2. 分析多表联查时出现N+1查询的原因，通过加单向/双向关联和includes语句解决N+1查询问题
     </pre>
 
-    <div class="project-title">交易所安卓端APP</div>
     <div class="row-padding-lv1">・开发了OkHttpHelper，为每个请求加上签名校验和设备信息(如机型,安卓版本)等参数，方便后端统计</div>
     <div class="row-padding-lv1">・将项目升级为androidx，用navigation-graph重构了底部导航栏，了解dagger2依赖注入</div>
     <div class="row-padding-lv1">・从WebSocket获取数据的RecyclerView改为用SQLite的数据(Room ORM)进行初始化,WebSocket恢复订阅功能</div>
-
-    <div class="project-title">交易所移动端API接口</div>
-    <div class="row-padding-lv1">・给所有接口加上数字签名校验，解决「N+1查询」问题，通过ab命令测试接口性能</div>
     <div class="row-padding-lv1">・对于时效性短的数据，存入redis减轻MySQL负载，如当日取消订单3次限制交易的功能通过redis实现</div>
-
-    <div class="project-title">k线画线工具</div>
 [项目架构] 「防重入」避免用户重复点击发起多个请求的解决方案：发起请求前禁用按钮，请求response时恢复按钮
 [主要工作] 开发读取配置保存配置两个接口，vue-router/props携带参数地在页面中跳转，简单入门了Vue，了解v-for列表渲染，Vue如何发起网络请求
     <div class="row-padding-lv1">・该工具用于绘制低交易量交易对的K线图，是交易所交易数据造假的工具之一</div>
-
-    <div class="project-title">锁仓利息与佣金计算脚本</div>
 [项目收获] 浮点数转BigDecimal时只能传字符串的构造方法, 对数据库进行金钱变动操作时要加上事务处理和FOR UPDATE悲观锁避免数据竞争
-    </pre>
     <div class="row-padding-lv1">・学习crontab定时任务，建立User表与Account表之间的<b>「双向关联」</b>，简化操作代码</div>
-
-    <div class="project-title">站内转账按邮箱查询功能</div>
     <div class="row-padding-lv1">・需求是同时按转账发起人邮箱和转账接收人邮箱进行查询，转账记录表需要join用户表两次</div>
     <div class="row-padding-lv1">・在ActiveRecord转账记录表上建立了sender/receiver_user_id外键关联</div>
-
     <div class="project-title">交易所后台管理系统</div>
     <div class="row-padding-lv1">・为所有导出csv下载的链接添加参数过滤(params.slice)，防止携带参数跳转时「无关的数据被暴露」</div>
     <div class="row-padding-lv1">・select2.js添加搜索框，通过参数merge解决了切换语言时GET请求参数被覆盖的问题</div>
@@ -335,3 +297,4 @@ CI/CD相关库:
 
 </body>
 </html>
+

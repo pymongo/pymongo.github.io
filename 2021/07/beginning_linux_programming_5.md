@@ -1,19 +1,31 @@
 # [BLP 读书笔记 5: 进程](/2021/07/beginning_linux_programming_5.md)
 
-## 「重要」ch11 process and signals
+「重要」ch11 process and signals
 
-### How to define a process
+## How to define a process
 
 > an **address** space with one or **more threads executing** within that address space, and the required system **resources** for those threads
 
 resources eg. DLLs(dylib), open_files, env_var, data_section_of_excutable_file...
 
-### 为什么线程也有 PID? 
+## 为什么线程也有 PID? 
 
-在 Linux 内核**源码中进程和线程是同一个结构体**，这也是为什么线程的 ID 也叫 PID
+在 Linux 内核**源码中进程和线程是同一个结构体 thread_struct/task_struct**，这也是为什么线程的 ID 也叫 PID
+
+<https://github.com/raspberrypi/linux/blob/92b2be8dd281ce4189569617f39ebdab91188005/arch/arm/include/asm/processor.h#L31>
+
+<https://github.com/torvalds/linux/blob/8096acd7442e613fad0354fc8dfdb2003cceea0b/arch/x86/include/asm/processor.h#L467>
+
+CPU调度和执行的最小单位是线程，每个线程创建时都叫 kernel-thread, 线程创建后跟具体的进程上下文绑定后变成 user-thread
+
+进程的第一个线程叫 main-thread，主线程创建好后(这也是进程的PID等于主线程PID的原因，其实进程只是抽象概念，实际上只有线程)
+
+主线程创建好后会创建用户空间共享主线程的fd/dylib等等"进程"资源，这时候可以创建用户线程
+
+所以进程是一个很虚的概念，像个虚拟容器管理一个主线程和多个用户线程
 
 <!-- ### gettid() 和 getpid() 是一样的 -->
-### **check PID is a thread or subprocess**
+## **check PID is a thread or subprocess**
 
 child process 特点:
 1. gettid() 和 getpid() (在我 5900X CPU 上 fork 出来的 subprocess 确实如此)
@@ -65,7 +77,7 @@ PPid:   1059080
 1059133 # ls /proc/$PID/task
 ```
 
-### ps/top STAT column
+## ps/top STAT column
 
 ```
 $ ps -ax | less
@@ -98,7 +110,7 @@ ps 列表出现频率高的几种状态: S(Sleeping), I(Idle kernel thread), <(H
 
 PID=1 init is all processes's ancestor
 
-#### **multithreaded process example**
+### **multithreaded process example**
 
 > ls /proc/$(pidof sddm)/task
 > 
@@ -110,9 +122,9 @@ PID=1 init is all processes's ancestor
 > 
 > 653
 
-### process scheduling and CPU time slice
+## process scheduling and CPU time slice
 
-#### preemptively multitasked
+### preemptively multitasked
 
 > process can't overrun their allocated time slice.
 > 
@@ -124,7 +136,7 @@ PID=1 init is all processes's ancestor
 1. 抢占式(linux): 优先度高的分配到更多的时间片(time slice)
 2. 协作式(yield): 当前进程需要显式 yield 交出 CPU 的控制权，才能切换到其它进程工作
 
-#### ps -axl NI column (nice value)
+### ps -axl NI column (nice value)
 
 术语:
 - hog the processor: 占用处理器
@@ -136,6 +148,8 @@ PID=1 init is all processes's ancestor
 § increase priority of waiting user input process
 
 > system increase its priority so when user input complete and it's ready to resume, 
+
+## create child process
 
 ### system API
 
@@ -175,7 +189,11 @@ Done.
 
 注意 exec 之前要么关闭所有已经打开的文件，要么给文件加上 close on exec flag
 
-### fork
+### fork/clone
+
+除了 fork 还有一个 clone 系统调用也能创建 child process ，而且是"轻量级"的子进程
+
+vfork 则是创建完子进程后把父进程 block 掉
 
 dup current process and create a child process
 
@@ -255,7 +273,7 @@ if zombie process's parent is terminate abnormal, then zombie process get PID=1 
 
 until PID=1 init cleanup, zombie waste a lot system resource
 
-### **signal**
+## **signal**
 
 some signal:
 
@@ -277,15 +295,15 @@ if process received a signal and without caught it, process would terminate with
 - SIGSTOP: stop executing, can't be caught or ignored
 - SIGCHLD: child process has stopped and exited
 
-#### raise syscall send signal
+### raise syscall send signal
 
-#### kill command send signal
+### kill command send signal
 
 > kill -HUP 512
 
 kill send signal SIGHUP to PID=512
 
-#### **reload config file by signal**
+### **reload config file by signal**
 
 需求: 如何不重启服务进程的前提下重新加载业务的配置文件?
 
@@ -293,11 +311,19 @@ kill send signal SIGHUP to PID=512
 
 而不需要像 log4rs 那样轮询配置文件改动
 
-### **signal callback/handler**
+#### **busy-wait** 浪费 CPU 性能
+
+不要写出 loop {} ，轮询之类浪费 CPU 性能的代码
+
+例如r公司uby那些脚本一堆loop，业务空闲时都能100%占满CPU,又例如Rust写的那个APP消息推送
+
+## **signal callback/handler**
 
 `chapter11/ctrlc1.c` 示例中第一次处理 SIGINT 信号时打印一句话，并将回调设成默认
 
 所以要在第二次 Ctrl+C 时才能将进程中止
+
+!> 注意进程的所有线程共享信号处理函数
 
 由于 SIGINT 处理回调是模拟硬件中断的软中断，可以了解下 arduino 硬件中断文档
 
@@ -313,13 +339,13 @@ signal 函数的返回值是该信号上一个回调函数，就有点像 swap_a
 
 > last_handler = signale(SIGINT, curr_handler);
 
-#### kill syscall send signal
+### kill syscall send signal
 
 由于线程也有唯一的 PID ，所以 kill 能给进程或线程发信号
 
 一般只能给同一个 UID 的进程(同一个用户进程/线程)发信号，例如用户进程想发 SIGINT 给 root 用户的 PID=1(init) 进程是没有权限的
 
-#### alarm syscall similar JS setTimeout
+### alarm syscall similar JS setTimeout
 
 > unsigned int alarm(unsigned int seconds);
 
@@ -331,7 +357,7 @@ signal 函数的返回值是该信号上一个回调函数，就有点像 swap_a
 
 注意同一个 PID 的进程/线程只能设置一个 alarm ，重复设置会覆盖上一个 alarm() 设置
 
-#### pause/sigsuspend suspend process/thread wait signal
+### pause/sigsuspend suspend process/thread wait signal
 
 ```
 Using signals and suspending execution is an important part of Linux programming.
@@ -341,7 +367,7 @@ It means that a program need not necessarily run all the time.
 Rather than run in a loop continually checking whetheran event has occurred, it can wait for an event to happen.
 ```
 
-#### sigaction, better signal syscall
+### sigaction, better signal syscall
 
 > int sigaction(int sig, const struct sigaction *act, struct sigaction *oact);
 
@@ -351,13 +377,13 @@ if act arg is null reset to default handler
 
 same to signal, EINVALif may invalid arg or catch SIGKILL/SIGSTOP(uncatchable signal)
 
-#### Ctrl+\ send SIGQUIT
+### Ctrl+\ send SIGQUIT
 
 if Ctrl+C SIGINT handler is change, you can use Ctrl+Q send SIGQUIT to terminate program
 
-#### be careful data race in signal
+### be careful data race in signal
 
-#### SA_RESETHAND sa_flag
+### SA_RESETHAND sa_flag
 
 reset to default handler after custom_handler end
 

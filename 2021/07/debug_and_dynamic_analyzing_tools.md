@@ -21,11 +21,12 @@
 
 2. 火焰图/函数调用树等性能分析工具(profile)
 - dmesg
-- pref(CLion use perf as default profiler)
+- pref(CLion use perf on my computer)
 - cargo-flamegraph
 - KCachegrind
 - gprof
 - uftrace
+- ebpf
 
 3. 最后通过上述工具再分析几个内存错误案例:
 - SIGABRT/double-free
@@ -314,8 +315,6 @@ perf-report 会默认打开当前目录的 perf.data 文件，也可以通过 -i
 
 主要浏览方法是通过上下左右方向键移动光标，再通过**+**按键展开或折叠光标所在行的函数调用树
 
-#### Clion perf
-
 在作者的电脑上，Clion 默认的 profiler(性能探测器)就用的 perf
 
 ### cargo-flamegraph
@@ -360,9 +359,18 @@ uftrace record ./main
 
 本文篇幅有限只介绍 uftrace 通过火焰图进行可视化的方式:
 
+> uftrace dump --flame-graph | flamegraph > ~/temp/uftrace_flamegraph.svg && google-chrome-stable ~/temp/uftrace_flamegraph.svg
 
+uftrace 记录参数:
 
+- --no-libcall: uftrace 可以加上 --no-libcall 参数不记录系统调用
+- --nest-libcall: 例如 new() 函数记录上内置的 malloc()
+- --kernel(need sudo): trace kernel function
+- --no-event: 不记录线程调度
 
+### ebpf
+
+ebpf 分析 Rust 程序应该是可行的，作者还没试过
 
 ---
 
@@ -461,10 +469,9 @@ dirp = std::ptr::null_mut();
 
 感兴趣的读者可以看这本书: *Beginning Linux Programming 4th edition* 的 260 页
 
-
-
-
 ## 更多的内存错误调试案例
+
+TODO WIP
 
 可以关注作者的 linux_commands_rewritten_in_rust 项目的 src/examples 文件夹
 

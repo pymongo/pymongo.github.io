@@ -38,6 +38,12 @@ Fat Pointer由两部分组成，一部分是指针，另一部分是长度
 
 Rust官方建议用于*mut T原始指针的安全的替代品，一定非空而且遵循生命周期的协变规则
 
+## 险象指针 hazard pointer
+
+解决 x86 架构(ARM没有) atomic cas(compare_and_swap) 的 aba 问题
+
+或者用 crossbean-epoch (分代回收) 来解决 aba 问题
+
 ## unaligned pointers
 
 std::ptr::read_unaligned
