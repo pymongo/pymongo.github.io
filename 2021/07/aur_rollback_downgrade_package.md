@@ -1,4 +1,4 @@
-# [aur 回滚包/指定安装版本/链接 404 等问题](/2021/07/aur_gpg_keyserver_no_name.md)
+# [aur 回滚包/指定安装版本/404 等问题](/2021/07/aur_rollback_downgrade_package.md)
 
 mongodb-compass 1.28.0-1 版有 Bug 在 archlinux 上启动时会卡死
 

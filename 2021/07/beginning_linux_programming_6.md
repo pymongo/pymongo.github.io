@@ -311,6 +311,10 @@ Linux 系统上有两种 MQ 的 API:
 - System V: msgsnd/msgrec
 - POSIX: mq_send/mq_receive
 
+### POSIX mq
+
+具体文档介绍看 man mq_overview
+
 ### 一个 sender 多个 receiver 会报错
 
 System V 的 message queue 更像是 mpsc channel 多个生产者，一个消费者
@@ -318,4 +322,3 @@ System V 的 message queue 更像是 mpsc channel 多个生产者，一个消费
 一旦用成 spmc 则只有一个 receiver 会收到数据，其余的 receiver 会报错:
 
 > Identifier removed (os error 43)
-

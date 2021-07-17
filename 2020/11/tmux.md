@@ -1,4 +1,4 @@
-# [运维 - tmux会话管理](/2020/11/tmux.md)
+# [运维-tmux会话管理](/2020/11/tmux.md)
 
 在开发过程中，经常需要Terminal开多个tab SSH连测试服务器，一个tab实时滚屏看nginx log，一个看server log，一个打开vim ......
 
