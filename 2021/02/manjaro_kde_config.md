@@ -398,6 +398,16 @@ git config --global credential.helper store
 
 然后就可以`ssh -A example.com`在云主机上使用开发机的github_ssh密钥进行pull/push私有仓库代码
 
+(推荐) 或者将 keychain(要安装) 加到 xprofile 里开机只运行一次:
+
+```
+[w@ww ~]$ cat ~/.xprofile 
+export GTK_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx5
+export XMODIFIERS=@im=fcitx5
+eval $(keychain --eval --quiet ~/.ssh/id_rsa)
+```
+
 ### 右键菜单context_menu设置
 
 dolphin's settings->services 中可以关闭部分context_menu的一级菜单，这部分配置在文件系统的:

@@ -36,6 +36,10 @@ Read:
 println!("[{}]", unsafe { &*WORKDAYS.load(atomic::Ordering::SeqCst) });
 ```
 
+## atomic 和 ptr::read_volatile
+
+volatile 保证触发读写，跟 atomic 应该是正交的
+
 ## 原子序
 
 苦于不懂计算机相关理论，只好将Atomic当RwLock用

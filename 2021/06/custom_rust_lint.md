@@ -168,12 +168,12 @@ clippy 的 CONTRIBUTE.md 的 `How clippy works` 和 `Syncing changes between Cli
 我把 Rust 编译过程大致概括为以下流程: 
 
 (rustc_args_and_env -rustc_driver-> rustc_interface::Config)
-1. source_code_text(bytes) -rustc_lexer-> TokenStream
-2. TokenStream -rustc_parse-> AST
+1. fn rustc_lexer(source_code_text: `Vec<u8>`) -> TokenStream
+2. fn rustc_parser(tt :TokenStream) -> AST
 3. AST analysis: macro_expand, name_resolution, feature_gating, checking/early_lint
 4. AST convert to HIR
 5. HIR analysis: type/trait checking, late_lint
-6. HIR convert to MIR
+6. HIR convert to typed HIR, then convert to MIR
 7. MIR analysis: ownership/lifetime/borrow checking
 8. MIR Optimizations
 9. MIR convert to LLVM IR
@@ -181,7 +181,34 @@ clippy 的 CONTRIBUTE.md 的 `How clippy works` 和 `Syncing changes between Cli
 
 所以 early_lint 能分析 AST 代码， late_lint 则是分析 HIR 代码
 
-宏和过程宏则是输入 token_stream ，宏输出则是展开后的 token_stream (参考 [heapsize 过程宏](https://github.com/dtolnay/syn/blob/master/examples/heapsize/heapsize_derive/src/lib.rs))
+声明宏和过程宏则是输入 token_stream ，宏输出则是展开后的 token_stream (参考 [heapsize 过程宏](https://github.com/dtolnay/syn/blob/master/examples/heapsize/heapsize_derive/src/lib.rs))
+
+声明宏可以帮助像系统调用返回-1就panic last_os_error 的代码，毕竟没有类型可以限定返回值可能是-1,参数还能任意的函数
+
+### 宏在和过程宏在 Rust 编译的哪个阶段
+
+declarative_macro(TokenStream) -> TokenStream
+
+过程宏知识点1其它语言的宏原理:
+
+其它语言的宏大部分都是展开成 AST，由于 Rust 的 AST 尚未稳定所以宏还是展开成 TokenStream
+
+Rust 的声明宏是编译时对宏的调用进行token**匹配**，然后展开成token_stream
+
+### 为什么过程宏要转为 AST 再转回 TokenStream
+
+参考: 张汉东的 Rust 实战课程 - 极客时间: 75 | Rust元编程之编译过程与宏展开概述
+
+persuade_macro:
+1. proc_macro2: TokenStream -> proc_macro2::TokenStream
+2. **syn**: proc_macro2::TokenStream -> AST (sync 的 AST 跟 rustc 的 AST 不太一样)
+3. **quote**: AST -> TokenStream
+
+过程宏知识点2TokenStream没有类型信息:
+
+**TokenStream 没有类型信息**，例如 expr, literal 这几种 token 都没法知道类型，
+
+像过程宏可以转为 AST，可以通过类型信息，获取结构体内存布局的大小等信息，所以比声明宏强大很多
 
 ## dylint 添加新的 lint
 

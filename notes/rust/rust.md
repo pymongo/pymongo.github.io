@@ -121,7 +121,7 @@ TODO 以下每个例子都在我learn_cpp中加上错误标注
 
 ## ✭内存泄露三大原因
 
-- 线程panic，析构函数没法调用
+- 线程panic且abort，析构函数没法调用(默认的unwind还是会析构并释放资源)
 - 使用Rc时不当造成循环引用(例如双向链表中头尾互连)
 - 调用mem::forget函数主动泄露
 
@@ -214,8 +214,6 @@ LLVM can provide the middle layers of a complete compiler system, taking interme
 This new IR can then be converted and linked into machine-dependent assembly language code for a target platform
 
 rustc将rust源码经过分词和解析生成TokenStream, 再转为AST(抽象语法树)，再进一步简化处理为HIR -> MIR(Middle IR)，最终得到LLVM IR，让LLVM生成各个平台的机器码
-
-miri是一个Rust的MIR解释器
 
 Rust源码编译生成的二进制文件在build/x86_64-unknown-linux-gnu/stage2/bin内
 

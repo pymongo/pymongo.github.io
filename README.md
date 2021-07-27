@@ -1,6 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-07**
-    - [BLP 读书笔记 7: socket](/2021/07/beginning_linux_programming_7.md)
+    - [BLP 读书笔记 7](/2021/07/beginning_linux_programming_7.md)
     - [案例分析-重复释放资源获取消息队列状态失败](/2021/07/double_deconstruct_mq_cause_msgctl_failed.md)
     - [BLP 读书笔记 6](/2021/07/beginning_linux_programming_6.md)
     - [BLP 读书笔记 5: 进程](/2021/07/beginning_linux_programming_5.md)

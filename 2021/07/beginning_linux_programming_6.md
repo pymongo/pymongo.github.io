@@ -128,6 +128,8 @@ pthread_attr_getdetachstate(&attr);
 pthread_attr_destroy(&attr);
 ```
 
+detached 的线程的生命周期可能比主线程长
+
 ### **setschedpolicy** 设置线程调度策略
 
 线程调度约等于进程调度?
@@ -271,9 +273,11 @@ but if **writer open in non-block and no reader would failed**
 
 <https://github.com/downloads/chenshuo/documents/LearningNetworkProgramming.pdf>
 
-五大 IO 模型: 阻塞，非阻塞，同步，异步，信号驱动
+五大 IO 模型: 阻塞，非阻塞，多路复用，异步，信号驱动(几乎不用, deprecated)
 
-NONBLOCK client.recv(1024) if no data to read, errno is EAGAIN(try again)
+非阻塞和多路复用有个共同点，都需要不断轮询看哪一个 IO 来数据了
+
+NONBLOCK client.recv(1024) if no data to read, errno is EAGAIN 11 Resource temporarily unavailable
 
 ---
 
@@ -350,3 +354,9 @@ key        semid      owner      perms      nsems
 - manjaro: shared_memory 和 semaphore 各用了 4-5 个
 - 纯 cli 版 centos: 完全没用
 - 纯 cli 版 ubuntu: 完全没用
+
+## non-blocking client connect()
+
+would return EINPROGRESS, and made connection asynchronously
+
+and then use select() to check socket_fd able to write

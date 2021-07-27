@@ -19,9 +19,10 @@
 - gdb
 - lldb/vscode-lldb/Intellij-Rust
 
-2. 火焰图/函数调用树等性能分析工具(profile)
+2. 火焰图/函数调用树等动态分析工具(profile)
 - dmesg
-- pref(CLion use perf on my computer)
+- cargo-miri
+- pref
 - cargo-flamegraph
 - KCachegrind
 - gprof
@@ -278,6 +279,22 @@ Debug 运行直接能跳转到问题代码的所在行，并提示 `libc::readdi
 `sudo dmesg` 能查看最近几十条内核消息，发生 segfault 后能看到这样的消息:
 
 > [73815.701427] ls[165042]: segfault at 4 ip 00007fafe9bb5904 sp 00007ffd78ff8510 error 6 in libc-2.33.so[7fafe9b14000+14b000]
+
+### cargo-miri 检查 unsafe 代码
+
+可惜 miri 现在似乎还不支持 FFI 调用函数的检查
+
+```
+[w@ww linux_commands_rewritten_in_rust]$ cargo miri run --example sigabrt_free_dylib_data
+   Compiling linux_commands_rewritten_in_rust v0.1.0 (/home/w/repos/my_repos/linux_commands_rewritten_in_rust)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.00s
+     Running `/home/w/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri target/miri/x86_64-unknown-linux-gnu/debug/examples/sigabrt_free_dylib_data`
+error: unsupported operation: can't call foreign function: sqlite3_libversion
+ --> examples/sigabrt_free_dylib_data.rs:5:19
+  |
+5 |         let ptr = sqlite3_libversion() as *mut i8;
+  |                   ^^^^^^^^^^^^^^^^^^^^ can't call foreign function: sqlite3_libversion
+```
 
 ### perf 函数调用树
 

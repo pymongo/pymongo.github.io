@@ -45,6 +45,10 @@ pub struct RawWaker {
 }
 ```
 
+trait object 的类型信息会在运行时被擦除
+
+std::raw::TraitObject 的 vtable 字段存的是函数指针集
+
 若是面试中被问及虚函数表的用处，可以答除了dyn动态分发用到虚函数表，还有Future的Context中的waker内也用到了vtable
 
 ### waker of Future
