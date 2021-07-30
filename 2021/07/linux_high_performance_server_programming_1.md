@@ -305,7 +305,7 @@ DNS 消息数据包的定义在 [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)
 ### flags: u16, 用来标记一对 DNS request/response
 
 flags 部分包含:
-- OR: 1 bit, 0 is request, 1 is reponse
+- OR: 1 bit, 0 is request, 1 is response
 - opcode: 4 bit, 定义查询和应答类型，0 表示标准查询，1 表示反向查询「通过 IP 地址获取 hostname」，2 表示请求服务器状态
 - AA: 1 bit, 授权应答标志
 - TC: 1 bit truncate flag, 仅当 DNS 用 UDP 通信时使用，因为 UDP 有长度 512 限制
