@@ -308,8 +308,42 @@ server 会返回一个 RST 且窗口大小为 0 然后 connect 调用失败
 
 ### 返回 RST 的几种可能
 - connect() 端口不存在
-- connect()
-- 重复的 SYN 数据包
+- connect() 端口处于 TIME_WAIT 状态
+- 建立连接后重复的 SYN 数据包
+- 通过 socket 的 SO_LINGER 选项发送 RST
+- 服务器主动关闭客户端却没收到 FIN 客户端发数据后会收到 RST
+
+### TCP 交互数据流
+
+用于数据量小但实时性要求高例如 SSH (IP header type_of_service 也有针对 ftp 和 SSH 用不同选项)
+
+例如 ssh/telnet 登陆后输入 ls 命令，每输入一个字母都会发 TCP 数据包
+
+此时服务端可能会延迟确认，例如等 ls 输入完了再批量 ACK
+
+与交互数据流对应的成块数据则用于 FTP
+
+### 紧急数据
+
+不在缓冲区排队，直接被应用程序处理，术语叫 Out Of Band data，在 TCP 中是 urgent_pointer
+
+其实并不是不排队，而是读到只有 1 byte 的一个带外缓冲区
+
+## (TODO 待补课)拥塞控制+流量控制+滑动窗口
+
+根据收发双方的缓冲区可用容量，调节数据包吞吐量，组成闭环反馈控制
+
+类似蒸汽机的离心式调速器: <https://en.wikipedia.org/wiki/Centrifugal_governor>
+
+当蒸汽流通快，会反馈让进气口变小，从而降低蒸汽速度，当蒸汽流通太慢时又开大进气口，从而让管道中的蒸汽速度趋于稳定
+
+TCP 也是类似，数据包 RTT 小发的快，接收端缓冲区大，就发快点，反之数据包发慢点
+
+### 滑动窗口
+
+窗口大小就是无需等待对方应答，可以继续发送数据的最大值
+
+TODO 书上讲这部分的概念我很难理解进去看进脑子，以后找时间专题突破这部分内容，该回头补课拥塞控制
 
 ### kernel 中 TCP 相关配置
 
@@ -318,5 +352,7 @@ server 会返回一个 RST 且窗口大小为 0 然后 connect 调用失败
 - /proc/sys/net/ipv4/tcp_timestamps: bool // 是否允许记录 RTT(Round Trip Time)
 - /proc/sys/net/ipv4/tcp_syn_retries: u8
 - /proc/sys/net/ipv4/tcp_max_syn_backlog: u16 // 最大 SYN 连接数(server SYN_RECV 状态等客户端 ACK)
-- /proc/sys/net/ipv4/tcp_max_orphans：u16 // 最大孤儿连接
-- /proc/sys/net/ipv4/tcp_fin_timeout：u16 // 孤儿连接在内核中的生存时间
+- /proc/sys/net/ipv4/tcp_max_orphans: u16 // 最大孤儿连接
+- /proc/sys/net/ipv4/tcp_fin_timeout: u16 // 孤儿连接在内核中的生存时间
+- /proc/sys/net/ipv4/tcp_retries1: u16 // 最大重传次数
+- /proc/sys/net/ipv4/tcp_congestion_control: String // 当前操作系统用的拥塞算法
