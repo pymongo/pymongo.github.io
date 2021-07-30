@@ -151,7 +151,7 @@ reactor 三种实现模式:
 
 跨平台的 selector，将主流操作系统的 IO 多路复用的各种机制和数据结构通过 trait 和类型系统抽象成一个 mio 库
 
-例如 mio::{Poll, Event, Registry} 和 mio::net::TcpListener(包装了std::net::TcpListener)
+例如 `mio::{Poll, Event, Registry}` 和 `mio::net::TcpListener(包装了std::net::TcpListener)`
 
 注意 non_blocking 只在 mio 的测试代码出现，所以 **mio 还是同步阻塞 IO**，所以 Idle 时 CPU 使用率几乎为 0
 
@@ -163,13 +163,15 @@ mio 抽象后的 Poll 还是跟 BLP 的 select 例子差不多
 
 例如 fd 是 server_socket 则 accept，否则去读 client 发来的数据
 
+```
 mio::Poll and syscall:
 1. Poll::new() -> libc::epoll_create
 2. Poll::Registry==mio::sys::Selector -> libc::epoll_ctl
 3. Poll::poll() -> libc::epoll_wait
+```
 
 - token: 事件的 ID 约等于 socket 的 fd
-- mio::interest: 事件的类型，只有读或者写
+- `mio::interest`: 事件的类型，只有读或者写
 
 ### 3. std Future and task
 
@@ -205,11 +207,11 @@ or
 
 ## future
 
-### std::task 约等于协程 ?
+### `std::task` 约等于协程 ?
 
 绿色线程/协程之间是一个用户态的非抢占式调度，需要协程主动让出时间片
 
-当前协程干完活之后，用 std::task::Waker 抽象去唤醒其他协程干活
+当前协程干完活之后，用 `std::task::Waker` 抽象去唤醒其他协程干活
 
 1. Future,异步计算的抽象
 2. Task,Future之上的抽象协程，Task是可以调度的，也可以组合多个Future再 spawn 一个 Task协程 去执行
@@ -322,4 +324,4 @@ dialog 的 exec 跟 Gtk 一样，弹窗被强制聚焦，用户无法选择弹�
 
 ### gcc -pedantic
 
-gcc -Wall 会包含 -pedantic，不知道会不会像 clippy::pedantic 那么强大
+gcc -Wall 会包含 -pedantic，不知道会不会像 `clippy::pedantic` 那么强大

@@ -124,6 +124,8 @@ DMA aka Direct Memory Access, 由主板上的控制器管理
 
 ### 「重要」proc filesystem
 
+整个 /proc 文件夹的大小都是 0，每次读写时都会请求 kernel 返回相应数据
+
 #### special regular empty file
 
 Example: /proc/cpuinfo, /proc/version, /proc/$PID/environ

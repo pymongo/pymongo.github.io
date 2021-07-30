@@ -42,14 +42,19 @@ const/const fn在编译的MIR解释器阶段，会进行内联(c/c++ inline keyw
 
 从集合角度上看，寿命长的/生命周期长的是生命周期短的子类型,所以才有 lifetime bound: 'static: 'a
 
-'long: 'short, 'static: 'a, (early bound, generic is early bound单态化)
+'long: 'short(跟 Java/C++ 子类继承父类语法一样), 'static: 'a, (early bound, generic is early bound单态化)
 
-- early_bound: 引用和当前作用域绑定
-- late_bound:  引用和具体是使用处绑定
+- early bound: 引用和当前作用域绑定
+- late bound:  引用和具体是使用处绑定(好像只有生命周期泛型参数才有 late bound)
 
 思考题: rust-quiz-11，late bound的生命周期参数不能用turbofish操作符指定生命周期，应让编译器随机标记上生命周期
 
 late bound: `fn<a', b'>`要在具体代码内将生命周期泛型实例化
+
+### C++ Early binding and Late binding
+
+- early binding: class A: B, instance b cast to a, 即便 b 重写了 a 的 run 方法还是调用原来 a 的 run 方法(因为 upcast)
+- late binding: runtime polymorphism, 通过虚函数 vtable 实现
 
 Rust为了避免多个引用指向相同内存内容带来的数据竞争、数据同步问题
 

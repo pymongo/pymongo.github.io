@@ -31,7 +31,7 @@
 
 3. 最后通过上述工具再分析几个内存错误案例:
 - SIGABRT/double-free
-- (TODO)SIGABRT/free-dylib-mem
+- SIGABRT/free-dylib-mem
 
 ## segfault 案例和常用调试工具
 
@@ -272,7 +272,7 @@ Debug 运行直接能跳转到问题代码的所在行，并提示 `libc::readdi
 
 ---
 
-## 性能分析工具
+## 动态分析工具
 
 ### dmesg 查看 segfault 记录
 
@@ -322,7 +322,7 @@ Rust 程序运行结束后，会在当前目录生成 perf.data 数据文件
 
 perf-report 会默认打开当前目录的 perf.data 文件，也可以通过 -i 参数制定数据文件
 
-用 perf-report 解析 Rust 程序的函数调用树，会进入一个类似 htop 的界面:
+用 perf-report 解析 Rust 程序的函数调用树，会进入一个用 curses 写的类似 htop 的命令行 UI 界面:
 
 > perf report --call-graph
 
@@ -453,7 +453,7 @@ libc::closedir(dirp);
 
 ### double free 的通用解决方法
 
-C 编程习惯: free 某个指针后必须把指针设为 NULL
+C 语言编程习惯: free 某个指针后必须把指针设为 NULL
 
 ```rust
 let mut dirp = libc::opendir("/home\0".as_ptr().cast());
@@ -486,9 +486,34 @@ dirp = std::ptr::null_mut();
 
 感兴趣的读者可以看这本书: *Beginning Linux Programming 4th edition* 的 260 页
 
-## 更多的内存错误调试案例
+## SIGABRT/free-dylib-mem 案例分享
 
-TODO WIP
+假设我想打印 sqlite 的版本，sqlite 版本信息以静态字符串的形式存储在 `/usr/lib/libsqlite3.so`
+
+```rust
+#[link(name = "sqlite3")]
+extern "C" {
+    pub fn sqlite3_libversion() -> *const libc::c_char;
+}
+
+fn main() {
+    unsafe {
+        let ptr = sqlite3_libversion() as *mut i8;
+        let version = String::from_raw_parts(ptr.cast(), "3.23.0\0".len(), "3.23.0\0".len());
+        println!("found sqlite3 version={}", version);
+    }
+}
+```
+
+结果上述代码一运行就发生内存错误 SIGABRT 异常中止，通过 gdb 调试发现报错前一个栈帧在 unsafe 代码块的析构流程内
+
+由于代码中只有 version 是 String 类型需要调用 drop 自动析构，所以就把问题锁定在 String 的析构错误上
+
+根据操作系统进程内存管理相关知识，当 Rust 的进程想要释放不属于 Rust 进程而是属于 libsqlite3.so 动态链接库的内存时就会 SIGABRT
+
+解决方法是通过 `std::mem::forget` 阻止 String 的析构函数调用，这也是 `mem::forget` API 最常用的应用场景
+
+## 更多的内存错误调试案例
 
 可以关注作者的 linux_commands_rewritten_in_rust 项目的 src/examples 文件夹
 

@@ -1,4 +1,4 @@
-# WIP Linux 文件系统
+# Linux 文件系统
 
 ## 文件系统根目录
 
@@ -38,11 +38,11 @@ var
 - lost+found: files recovery by fsck - check and repair a Linux filesystem
 - mnt: 外部存储设备挂载，例如挂载U盘会挂载到这个目录
 - opt: applications for all users，一般用户装的软件我建议像IDEA那样放在~/.local/share下
-- proc: 各个进程文件，以及CPU信息等 TODO
+- proc: procfs，整个文件夹大小都是 0 读取文件时会请求 kernel 返回相应数据
 - run: TODO
 - sbin: (system binary)link to /usr/bin, deprecated on manjaro
 - srv: Read-only data for services provided by this system, http/ftp, but deprecated on manjaro
-- sys: TODO
+- sys: 跟 procfs 同样是零大小的 virtual filesystems - no real files，以文件树结构的方式读取一些 kernel 数据
 - tmp: 临时文件，一般都是libc::tmpnam之类随机文件系统系统所创建
 - usr: /usr/bin + /usr/include + /usr/lib
 - var: Variable data, /var/lib is database datadir, /var/log is log dir
