@@ -120,7 +120,7 @@ TCP 层的包是没有 IP 地址，只有发送端端口和接收端端口的信
 数据包封装简介:
 - 应用层: 应用程序数据
 - 传输层(segment): TCP 头部 + 应用程序数据
-- 网络层(package): IP 头部 + (TCP 头部 + 应用程序数据)
+- 网络层(packet): IP 头部 + (TCP 头部 + 应用程序数据)
 - 网卡层(frame)  : Ethernet 头部 + IP 头部 + TCP 头部 + 应用程序数据 + Ethernet 尾部
 
 当发送端应用程序调用 send 或 write 系统调用往 TCP socket 写数据时
@@ -173,6 +173,8 @@ MTU(Max Transmit Unit) 在以太网是 1500，以下是我台式机( WiFi 主板
 Linux 系统必有一个 lookback 网卡设备，这是一个虚拟的特殊设备
 
 让计算机查看自身网络连接状况的设备，例如网线拔掉了就能借助 loopback device 去发现网线已被拔掉
+
+lo device 还有一个作用是 `ping 127.0.0.1` 时走的是 lo 设备而非其它设备
 
 ### demultiplexing(分用)
 
@@ -293,6 +295,8 @@ tcpdump 还能加上 -w $output_filename 参数将抓包数据导出成文件再
 > sudo tcpdump -v -X -c 40 -w temp.tcpdump host 192.168.11.32 or host 192.168.11.2
 
 ![](tcpdump_wireshark.png)
+
+---
 
 ## DNS
 
