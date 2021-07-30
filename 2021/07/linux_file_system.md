@@ -31,7 +31,7 @@ var
 
 - bin: boot所需可执行文件，但在manjaro上这是/usr/bin的软链接
 - boot: `df -TH`得知boot是引导分区相关的文件`/dev/nvme0n1p1 vfat 300M 296K 300M 1% /boot/efi`
-- dev: 设备文件 TODO
+- dev: 设备文件，同 procfs 一样都是零大小
 - etc: 配置文件
 - home: 用户文件夹
 - lib/lib64: link to /usr/lib, deprecated on manjaro

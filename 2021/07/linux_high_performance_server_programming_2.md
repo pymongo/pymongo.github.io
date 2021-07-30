@@ -100,22 +100,57 @@ TCP 发出报文后要求对方应答，如果发出后超过一定时间没应�
 
 - src_port: u16, dest_port: u16
 - sequence_number: u32 // 序号，解决网络传输包乱序问题
-- acknowledgement_number: u32 // ack，解决不丢包问题
+- acknowledgement_number: u32 // ack，解决丢包问题
 - data_offset: u4,
 - reserved: u6,
 - /// flags.URG, Urgent Pointer
-- /// flags.ACK,「重要」表示收到的 ack_num 有效
+- /// flags.ACK,「重要」表示收到的 ack_num 有效，除了建连接第一个 SYN 可以不带 ACK, 其余 TCP 数据包必带 ACK
 - /// flags.PSH(push), 告诉接收端应该立即从 TCP 缓冲区读取数据，为后续数据腾出空间
 - /// flags.RST, 要求重新建立连接
-- /// flags.SYN,「重要」要求建立连接，含 SYN 的叫同步报文
+- /// flags.SYN,「重要」要求建立连接，含 SYN 的叫同步报文, SYN aka synchronize
 - /// flags.FIN,「重要」通知对方本端要关闭连接
 - flags: u6, // URG(Urgent Pointer), , , , SYN()，
 - window: u16, // TCP 流量控制，告诉对方本端 TCP 缓冲区剩余容量，让对方根据剩余容量控制发送速度
 - checksum: u16, // CRC 算法校验 TCP 头部+数据部分
 - urgent_pointer: u16, // 或者叫紧急偏移
-- options: variant // 
+- options: `Vec<Option>`
 
-#### 三次握手建连接和 ack
+```rust
+struct Option {
+    kind: u8,
+    /// include kind and length
+    length: u8,
+    info: variant
+}
+```
+
+#### TCP options
+
+###### SYN 必带选项 max_segment_size
+
+SYN 建立连接的 TCP 数据包必定会设置上选项: kind=2, length=4
+
+用来约定最大报文长度，一般设置成 1460 = 1500(MTU) - 20(TCP_header) - 20(IPv4_header)
+
+###### SYNC 必带选项 window_scale
+
+window_scale(窗口扩大因子)，在 kernel 的设置项 `/proc/sys/net/ipv4/tcp_window_scaling` 中默认是开启
+
+window_scale 的取值范围是 0~14, 实际窗口大小则是 window << window_scale = window * 2.pow(window_scale)
+
+###### SYNC 必带选项 SACK
+
+kind=4, SACK aka Selective Acknowledgment
+
+如果不开启 SACK，TCP 某个序号的报文丢失，则需要重传该序号往后的所有数据包，造成可能重复传数据包导致性能开销的问题
+
+SACK 开启后只需要重传丢失序号的数据包
+
+##### 重要选项 timestamp
+
+kind=8, 用于计算 RTT(Round Trip Time) 通向双方的回路时间，作为拥塞控制的重要入参
+
+### 三次握手建连接和 ack
 
 例如 192.168.11.75 向 192.168.11.32 建立 TCP 连接
 
@@ -154,7 +189,11 @@ TcpHeader {
 }
 ```
 
-#### 为什么建立连接要三次握手
+server state change:
+1. SYN_RCVD: receive client syn
+2. ESTABLISHED: receive client ack
+
+### 为什么建立连接要三次握手
 
 双方都需要互相发一个 SYN，以及初始化各自的 seq_num
 
@@ -162,7 +201,15 @@ client connect() 后收到 server 返回的 SYN+ACK，client 端进入了 TCP �
 
 然后 client 返回一个 ACK，server 收到后才能进入 ESTABLISHED 状态，这也是必须要握手 2 和 3 才能让 server 进入 ESTABLISHED 状态
 
-#### 四次挥手断连接
+### 三次握手怎么解决 SYN 防重入
+
+三次握手还有一个原因是服务端防止客户端 SYN 重复发，防重入
+
+例如 客户端连续发两个 SYN, 但是第一个 SYN 在网络中没丢包只是在三次握手后才到达
+
+服务端返回 ACK, 但是客户端已经是 ESTABLISHED 状态不会回复，所以服务端不会重新建立连接
+
+### 四次挥手断连接
 
 1. A->B: FIN | ACK
 2. B->A: ACK
@@ -172,3 +219,104 @@ client connect() 后收到 server 返回的 SYN+ACK，client 端进入了 TCP �
 由于 TCP 全双工，看上去实际上像是双方各发一个 FIN 两次，因为两次 ACK 都是被动回复的
 
 因为收到 FIN 请求的一端，需要确认缓冲区没有数据要发送才会发一个 FIN，2MSL
+
+#### shutdown() 半关闭状态
+
+因为 TCP 是全双工的，允许两个方向独立的关闭，
+
+先关闭方发 FIN 告诉对方本端已经完成数据传输且收到对方 ACK 后，本端允许接收对方发来的数据，这种状态叫关闭状态
+
+所以所谓关闭连接「四次握手」，不一定是四次，有可能是 6 次，因为对方发 FIN 之前还能发数据
+
+shutdown() 系统调用提供对半关闭的支持，记住 close() 则是进入全关闭状态
+
+#### FIN_WAIT_2
+
+主动关闭连接一方收不到对方的 FIN，FIN_WAIT_2 定时器在一定时间内收不到对方 ACK 就会让主动关闭方自行关闭
+
+#### 主动关闭方 TIME-WAIT 状态
+
+解释第四次挥手后主动关闭方为什么还要等待 2 MST(Maximum segment lifetime)
+
+主动关闭方用 ACK 回复对方 FIN 后，等待的时间是 2 倍的数据包传递时间，
+
+万一对方没收到 ACK ，被动方就会重新发 FIN，ACK 一来 FIN 一去正好 2 个 MSL
+
+### 为什么要被动 ACK
+
+建立连接后，一端发送 telnet 之后另一端一定会被动返回一个 ACK，导致一次单向的 telnet 数据通信走了两次 TCP
+
+接收端 ACK 告诉发送端可以释放 TCP 缓冲区中刚刚发送的数据
+
+### TCP SYN 超时
+
+#### 实验? 用 iptables 过滤 SYN 数据包观察超时
+
+三次握手中 第 2,3 次如果超时+超过最大重连次数就会关闭连接
+
+如果 client/server 超过 tcp_syn_retries 次没回两边会断开连接
+
+超时重连的间隔是: 1s, 2, 4, ... (倍增法)
+
+### 第三方伪造 RST
+
+由于 ISN 动态随机，第三方猜出 seq 难度很大
+
+### SYN FLOOD 攻击
+
+攻击者发送大量 SYN 服务器回 SYN ACK 但攻击者又不回 ACK
+
+导致服务器大量资源用于 SYN_RECV 状态的连接中
+
+解决 SYN FLOOD 攻击的方法:
+- 减少 tcp_syn_retries 重连次数
+- 调大 tcp_max_syn_backlog 参数
+- SYN cookie 技术
+
+### 三次握手第三次丢包怎么办
+
+假设重试次数用完服务器关闭连接，但客户端不知道还在 ESTABLISHED 状态
+
+等客户端发数据包时服务端回一个 RST 要求客户端重新建立连接
+
+### 三次握手中能携带数据部分吗
+
+1,2 次不行，避免 SYN FLOOD 攻击中携带大量数据
+
+### connect() 时端口不存在会怎样
+
+server 会返回一个 RST 且窗口大小为 0 然后 connect 调用失败
+
+### client 主动关闭时的状态变化
+
+1. FIN_WAIT_1: send FIN
+2. FIN_WAIT_2: receive ack
+3. TIME_WAIT: receive server FIN
+4. CLOSED: wait 2 MST
+
+### server 被动关闭时的状态变化
+
+1. CLOSE_WAIT: receive FIN
+2. LAST_ACK: send FIN
+3. CLOSED: receive ack
+
+### 孤儿连接
+
+主动关闭方 FIN_WAIT_2 未等对方 FIN 就提前关闭，此时连接由内核托管，称为孤儿连接
+
+### netstat net 查看 TCP 状态
+
+### 返回 RST 的几种可能
+- connect() 端口不存在
+- connect()
+- 重复的 SYN 数据包
+
+### kernel 中 TCP 相关配置
+
+- /proc/sys/net/ipv4/tcp_window_scaling: bool // 是否开启 window scale
+- /proc/sys/net/ipv4/tcp_sack: bool // Selective Acknowledgment
+- /proc/sys/net/ipv4/tcp_timestamps: bool // 是否允许记录 RTT(Round Trip Time)
+- /proc/sys/net/ipv4/tcp_syn_retries: u8
+- /proc/sys/net/ipv4/tcp_max_syn_backlog: u16 // 最大 SYN 连接数(server SYN_RECV 状态等客户端 ACK)
+- /proc/sys/net/ipv4/tcp_max_orphans：u16 // 最大孤儿连接
+- /proc/sys/net/ipv4/tcp_fin_timeout：u16 // 孤儿连接在内核中的生存时间
