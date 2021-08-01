@@ -44,3 +44,76 @@ wget 可以加上 `--header="Connection:close"` header 参数告诉服务器处�
 HTTP 由于无状态，需要借助 Cookie (客户端往后的每一次请求都带上 Cookie) 实现状态上下文
 
 让服务端区分具体是哪一个客户端，实现自动登陆等效果
+
+## bind()
+
+服务端需要通过 bind() 去命名 socket 才能让客户端知道该如何连接它
+
+客户端则不需要命名 socket 通常匿名方式由操作系统分配 socket 地址
+
+## close()
+
+注意 close() 并不是立即关闭连接，而是把 fd 的引用计数 -1 (例如 fork 多进程的 TCP echo server 中要等 fd 的引用计数为 0 才真正关闭)
+
+如果想立即关闭连接更建议用 shutdown()
+
+## shutdown()
+
+相比 close() 而言 shutdown(int sockfd, int how) 更像是专门为 socket 连接而设计的 API
+
+### std::net::Shutdown
+
+```rust
+pub enum Shutdown {
+    /// SHUT_RD
+    Read,
+    /// SHUT_WR
+    Write,
+    /// SHUT_RDWR
+    Both,
+}
+```
+
+## TCP send()/recv()
+
+相比建立 TCP 连接后对 sockfd 直接 read()/write() , send/recv 多了更多读写控制
+
+### TCP OOB 带外数据
+
+由于 TCP 紧急数据的缓冲区大小只有 1 byte，所以带外数据可能会被截断
+
+### sendto/recvfrom
+
+UDP 的 sendto/recvfrom 不仅用于 UDP 和 socket_raw 还能用于 TCP (只需要将两个地址参数设为 NULL 因为 TCP 已知对方地址)
+
+### sendmsg/recvmsg
+
+更通用的 API TCP/UDP 都能用，参数是 sockfd + msghdr 结构体 + flags
+
+## 带外标记
+
+内核通知应用程序带外数据的方式: SIGURG 和 IO 复用产生的异常事件
+
+### int sockatmark(int sockfd)
+
+判断 sockfd 是否处于带外标记，返回 1 表示下一个读到的数据是带外数据
+
+## 为啥 `sudo netstat` 看不到本地 TCP echo 数据
+
+如果 TCP echo 的 server 和 client 都是 localhost
+
+则会走 lo 网卡设备的流量，可能 netstat 默认观察 WiFi 网卡流量所以就看不到我们自己写的 TCP echo 程序流量
+
+### sudo tcpdump -i lo
+
+指定用 lo 设备才能观察到客户端和服务端都是 localhost TCP 流量
+
+## setsockopt
+
+必须在 server listen 前设置，accept 之后的 client_sockfd 会继承 server_sockfd 设置好的属性
+
+### SOL_SOCKET
+
+#### SO_REUSEADDR
+
+强制使用处于 TIME_WAIT 状态连接占用的 socket 端口
