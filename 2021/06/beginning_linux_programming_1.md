@@ -47,11 +47,7 @@ TCP 三四握手建立链接和四次挥手断开链接的过程背诵下来了�
 
 就像我本来应该06/28就开始读BLP的结果因为昨晚看直播去了拖延症导致浪费一晚上的时间
 
-## 用Rust/C/Bash重写Linux命令
-
-同事建议说学操作系统或Linux编程建议重写linux大部分命令工具，这样能深入熟悉一些系统调用
-
-<https://zaiste.net/posts/shell-commands-rust/>
+## 现有用 Rust 重写的 Linux 命令，可以参考下
 
 - du -> du-dust // ncdu(C)
 - top -> bottom, ytop
@@ -110,7 +106,7 @@ leap second跟闰年没关系，以前原子钟跟太阳时有误差用来修正
 
 必须了解 Linux terminal 如何实现输入密码时隐藏密码，其余的稍微了解概念即可，本章代码示例可以不做
 
-### ch06_curses: 0 分
+### ch06_curses: 0 分跳过
 
 本章可以全部跳过，不影响后续章节阅读，本章代码示例可以不做。
 
@@ -124,7 +120,7 @@ leap second跟闰年没关系，以前原子钟跟太阳时有误差用来修正
 
 像我这样在公司用 MySQL 做过 1-2 年项目的，本章内容基本都会，就拿来学习 MySQL C 语言 FFI 调用而已
 
-### ch09_development_tool: 0 分
+### ch09_development_tool: 0 分跳过
 
 ### ch10_debugging: 5 分必看
 

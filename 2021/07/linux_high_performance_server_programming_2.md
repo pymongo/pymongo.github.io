@@ -287,12 +287,20 @@ shutdown() 系统调用提供对半关闭的支持，记住 close() 则是进入
 
 server 会返回一个 RST 且窗口大小为 0 然后 connect 调用失败
 
+### connect() 时地址不存在会怎样
+
+如果跟目标机器在一个网段，如果 ARP 缓存没有目标机器 IP，则不断发 ARP 直到超过最大重连次数
+
+如果 ARP 缓存有目标机器，但是目标机器拔掉网线了，则重发且是 ARP 缓存删掉目标机器
+
+如果目标机器在广域网另一个路由器网段中，则路由器不断转发 hop 数据包直到目标机器网段的路由器，ARP 请求对方路由器直到超过最大重连次数
+
 ### client 主动关闭时的状态变化
 
 1. FIN_WAIT_1: send FIN
 2. FIN_WAIT_2: receive ack
-3. TIME_WAIT: receive server FIN
-4. CLOSED: wait 2 MST
+3. TIME_WAIT: receive server FIN, waiting 2 MST
+4. CLOSED: after wait 2 MST
 
 ### server 被动关闭时的状态变化
 
@@ -356,3 +364,5 @@ TODO 书上讲这部分的概念我很难理解进去看进脑子，以后找时
 - /proc/sys/net/ipv4/tcp_fin_timeout: u16 // 孤儿连接在内核中的生存时间
 - /proc/sys/net/ipv4/tcp_retries1: u16 // 最大重传次数
 - /proc/sys/net/ipv4/tcp_congestion_control: String // 当前操作系统用的拥塞算法
+- /proc/sys/net/ipv4/tcp_rmem: (u32, u32, u32) // TCP 接收缓冲区大小限制
+- /proc/sys/net/ipv4/tcp_wmem: (u32, u32, u32) // TCP 发送缓冲区大小限制
