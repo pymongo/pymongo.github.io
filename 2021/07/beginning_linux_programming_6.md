@@ -150,7 +150,7 @@ cancel_state 决定线程是否接受 pthread_cancel 请求
 
 **cancel_type**:
 - PTHREAD_CANCEL_ASYNCHRONOUS: 线程收到 cancel 请求后立即结束
-- PTHREAD_CANCEL_DEFERRED: until main thread join/cond_wait to cancel
+- PTHREAD_CANCEL_DEFERRED: defer/until main thread join/cond_wait to cancel
 
 默认是 PTHREAD_CANCEL_ENABLE + PTHREAD_CANCEL_DEFERRED
 

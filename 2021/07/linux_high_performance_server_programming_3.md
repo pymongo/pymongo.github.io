@@ -51,13 +51,15 @@ HTTP 由于无状态，需要借助 Cookie (客户端往后的每一次请求都
 
 客户端则不需要命名 socket 通常匿名方式由操作系统分配 socket 地址
 
-## close()
+## close 和 shutdown
+
+### close()
 
 注意 close() 并不是立即关闭连接，而是把 fd 的引用计数 -1 (例如 fork 多进程的 TCP echo server 中要等 fd 的引用计数为 0 才真正关闭)
 
 如果想立即关闭连接更建议用 shutdown()
 
-## shutdown()
+### shutdown()
 
 相比 close() 而言 shutdown(int sockfd, int how) 更像是专门为 socket 连接而设计的 API
 
@@ -157,6 +159,8 @@ char* addr_2 = inet_ntoa(2);
 
 可重入(re-entrant)系统调用函数名都会带 `_r` 后缀
 
+多线程环境下一定要调用「可重入」版本的系统调用
+
 ### 分配了堆内存的系统调用都会提供配套的 free_xxx
 
 例如 freeaddrinfo
@@ -176,6 +180,8 @@ char* addr_2 = inet_ntoa(2);
 > int socketpair(AF_UNIX, SOCK_STREAM or SOCK_DGRAM, 0, int `fd[2]`)
 
 可能 socket pair 在内核中 IO 模型跟 pipe 类似所以 man 文档中 SEE ALSO 会有 pipe
+
+socketpair 的应用: squid 代理服务器
 
 ### dup/dup2
 
@@ -266,7 +272,7 @@ flags 的可取值:
 
 必须关联某一个 fd 才能使用，当被关联的 fd 可读写时将触发 SIGIO
 
-通过 fcntl(file control ntl) 的 F_SETSIG 进行设置，然后传递给指定的宿主进程或进程组
+通过 fcntl 的 F_SETSIG 进行设置，然后传递给指定的宿主进程或进程组
 
 使用 SIGIO 时还需要用 fcntl 将 fd 设置成 O_ASYNC
 
@@ -307,7 +313,7 @@ EUID=root 的进程称为: privileged processes
 
 ## 进程组(docker?)
 
-## 进程组会话
+### 进程组会话
 
 ## daemon()
 

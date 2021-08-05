@@ -177,7 +177,7 @@ u) Update track information for xxx
 ### some system call:
 - ioctl: control a stream device
 - mmap: map pages of memory
-- fcntl: file control
+- fcntl: file CoNTroL, 但除了 fcntl 其余系统调用函数名都把 ConTroL 缩写成 ctl
 
 ### inode
 

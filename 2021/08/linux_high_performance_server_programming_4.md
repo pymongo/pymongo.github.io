@@ -33,7 +33,9 @@ IO处理单元和多个逻辑单元之间协调完成任务的方法
 
 然后旧领导自己变成追随者去处理 IO 事件
 
-## epoll 边缘触发和水平触发
+## epoll
+
+### epoll 边缘触发和水平触发
 
 边缘触发必须将 fd 设置成 NONBLOCK
 
@@ -45,7 +47,7 @@ IO处理单元和多个逻辑单元之间协调完成任务的方法
 
 redis 用的是 LT 而 nginx 用的是 ET
 
-## epoll ONESHOT
+### epoll ONESHOT
 
 解决什么样的问题:
 
@@ -57,7 +59,7 @@ ONESHOT 是怎么解决这个问题的:
 ONESHOT 注册的事件同时只能触发一次，worker_1 操作完 fd_1 之后需要重置 fd_1 的 ONESHOT 事件。
 经验是用于 accept 的 sockfd 不要设置 ONESHOT，客户端连接的 sockfd 可以设置成 ONESHOT
 
-## epoll 和 select
+### epoll 和 select
 
 select 每次都要轮询扫描所有注册的 fd，而 epoll 采用的是回调方式，内核检测到就绪的 fd 就触发回调并插入队列，
 等适当的时机再把 events 队列 copy 到用户态中
@@ -78,7 +80,9 @@ getsockopt( sockfd, SOL_SOCKET, SO_ERROR, &error, &length );
 
 丢弃所有发向 discard 服务端口的数据包，可能用于测试吧
 
-## kill
+## 信号
+
+### kill
 
 pid 参数可选值:
 - pid > 0: 发给 PID=pid 的进程
@@ -88,27 +92,29 @@ pid 参数可选值:
 
 一般用 bash 的管道语法糖可以创建进程组
 
-## SIGTRAP
+### SIGTRAP
 
 断点陷阱，用于 gdb/lldb
 
-## 多线程环境下的信号处理
+### 多线程环境下的信号处理
 
 子线程通过 UDP socketpair 管道将信号发给主线程，只有主线程去处理信号，避免多个进程重复处理信号?
 
-## **strace**
+### **strace**
 
 strace 能追踪可执行文件的系统调用和信号，输出内容非常多建议搭配 less 进行分页
 
-## SIGHUP
+### SIGHUP
 
 xineted 通过这个信号重新加载配置文件
 
-## send 函数的 MSG_NOSIGNAL flag
+### send 函数的 MSG_NOSIGNAL flag
 
 避免往一个接收端已关闭的 socket/pipe 写数据触发 SIGPIPE 导致进程直接退出
 
-## 升序链表定时器
+## 定时器
+
+### 升序链表定时器
 
 双向链表，还有一个字段是 回调函数 和 超时时间，每收到一个 SIGALRM 就 tick() 链表往前移动一个单位
 
@@ -116,14 +122,178 @@ xineted 通过这个信号重新加载配置文件
 
 例如客户端 socket 每次读写时都更新 expired 过期时间，再由 SIGALRM 定期清理过期连接
 
-## 时间轮 定时器
+### 时间轮 定时器
 
 解决定时器链表插入/添加效率低下的问题，时间轮是一个环状数组，每次 tick 都在环状数组中移动一位   
 
-## 时间堆 定时器
+### 时间堆 定时器
 
 动态的 interval = min(timers)
 
 第一次 tick 最小定时器的时间，第二次 tick 第二小定时器的剩余时间 ...
 
 数据结构上使用 min-heap 存储多个定时器
+
+## libevent.so
+
+使用 libevent.so 的知名应用: memcached, chrome
+
+event 库中包含 双向链表/最小堆timer/DNS/HTTP/RPC 等功能
+
+## 多进程
+
+### fork()
+
+fork 的子进程信号位图被清除，所以原信号处理函数将不起作用
+
+子进程的数据复用采用的是 **Copy On Write**
+
+当子进程想修改数据时，先发一个「缺页中断」然后操作系统给子进程分配相关数据的内存(从父进程复制数据过来)
+
+父进程的 fd, working_directory 引用计数 +1
+
+### 僵尸进程
+
+1. 子进程先结束，一直等到父进程 wait() 读取子进程结束状态
+2. 父进程先结束或异常中止，此时子进程的 PPID 设置为 1
+
+解决方案: 子进程结束时会给父进程发 SIGCHLD，然后父进程在 SIGCHLD 回调中 waitpid(-1, ...) 彻底结束子进程释放资源
+
+### POSIX shm
+
+shm_open() + mmap()
+
+首先要用 shm_open 打开一个 POSIX 共享内存的 fd 但文件名固定只能是 `/xxx` 这种格式，打开 fd 后再通过 mmap 经过文件共享内存
+
+shm_open 打开的文件要 shm_unlink() 进行回收
+
+使用 POSIX shm_open/shm_unlink API 编译时要链接上动态库 rt
+
+共享内存的应用: 多进程并发服务器中，共享内存共享所有子进程的 socket read_buffer，每个进程读写偏移是 client_user_id 这样就不会互相干扰
+
+这样能避免 fork 把一堆 buffer 也 fork 了造成资源浪费
+
+### 两个进程间传递 fd
+
+sendmsg() 系统调用一些参数和设置下和 cmsghdr 联合体，可以在两个进程间传递 fd
+
+前提是只能在同一机器的 Unix Domain Socket
+
+或者如果有权限(例如两个进程都是同一个用户)，直接告诉另一个进程通过 /proc 打开当前进程的 fd 也行
+
+## 内核线程和用户线程
+
+用户线程运行在用户空间，由 glibc 的 pthread 线程库进行调度
+
+!> 当一个进程的内核线程获得 CPU 使用权时，它会加载并运行一个用户线程
+
+### 线程的三种实现方式
+
+按照 N 个内核线程和 M 个用户线程的比例，线程的实现方式可以分为三种:
+1. 完全在用户空间实现
+2. 完全由内核调度
+3. 双层调度(two level schedular)
+
+### pthread_create 创建的是什么线程
+
+在现在 NPTL 实现中 pthread_create 创建一个用户线程的同时也会通过 clone() 创建一个内核线程
+
+所以创建的线程和内核中调度实体的关系是 1:1 也有术语把 pthread_create 这样创建一对用户/内核线程的叫 naive thread
+
+### io_uring 为什么 thread-per-core?
+
+1. sched_setaffinity() 将 pthread_create 创建的线程固定在某个核去调度
+2. io_uring 的机制是会启动一个内核线程
+
+glommio 要确保二者的线程都在同一个 CPU 核调度避免上下文切换和锁
+
+### 线程实现 - 完全在用户空间
+
+无需内核支持，内核甚至不知道线程的存在，线程库负责管理执行线程例如时间片优先级等等，此时的用户线程就有点像协程
+
+线程库通过 **setjmp**/**pthread_yield** 来切换线程的执行 (*Rust In Action* 书中亦有提到 longjmp 的实验)
+
+但内核依然把整个进程当作最小单位来调度，所有线程共享该进程的时间片，对外表现出"相同的优先级"
+
+M 个用户线程对应 N=1 个内核线程
+
+!> 此时内核线程就等于进程本身
+
+§ 完全在用户空间实现线程的优缺点:
+- (+) 创建和调度无需内核干预
+- (-) 多个用户线程无法运行在不同的 CPU 上，也就只能是 glommio/tokio-uring 那样 thread-per-core
+
+### 线程实现 - 完全由内核调度
+
+1 个用户线程被映射成 1 个内核线程
+
+### 线程实现 - two level schedular
+
+内核调度 M 个内核线程，线程库调度 N 个用户线程(`M<N`)
+
+### 获取系统当前线程库版本
+
+```
+[w@ww temp]$ getconf GNU_LIBPTHREAD_VERSION
+NPTL 2.33
+```
+
+### 早期 LinuxThreads 实现的缺点
+
+clone() 创建的轻量级进程模拟内核线程会有以下问题:
+- 每个线程都有不同 PID 不符合 POSIX 规范
+- 信号处理本应基于进程，现在每个 naive 线程都能独立处理信号(因为是 clone 出来的进程)
+- UID, GID 对同一个进程的不同线程来说可能不一样
+- 程序生成的核心转存文件不会包含所有线程信息，只包含产生该文件的线程信息
+- 最大进程数等于最大线程数
+- 管理线程的引入带来额外的性能开销
+
+### NTPL 如何解决上述问题
+- 内核线程不再是一个进程
+- 摒弃了管理线程、终止线程、回收线程(也就类似 join() 和 wait())
+- 线程的同步由内核完成，不同进程的线程也能共享互斥锁
+
+### join 的 deadlock 问题
+
+EDEADLK: 两个线程互相 join 或者线程对自身进行 join
+
+### thread_attr - guard size
+
+在线程头尾额外分配 guard_size 的空间以保护堆栈不被错误的覆盖
+
+如果线程属性包含 pthread_attr_setstackaddr 那么 guard_size 设置将被忽略
+
+### thread_attr - scope
+
+- PTHREAD_SCOPE_SYSTEM(Linux 仅支持): 线程和操作系统所有线程共同竞争 CPU 使用权
+- PTHREAD_SCOPE_PROCESS: 线程仅跟同一进程下其它线程竞争 CPU 使用权
+
+### pthread_mutexattr_t
+
+对于不同类型的锁，lock/try_lock 会有不同的行为
+
+- pshared: 是否允许跨进程共享互斥锁
+- type_NORMAL_默认
+- type_ERRORCHECK_检错锁: 重复加锁会 EDEADLK 而不会像默认锁那样死锁
+- type_RECURSIVE_嵌套锁: 允许重复加锁，但也要执行相应次数
+
+### **pthread_atfork**
+
+不管进程有几个线程 fork 之后还是只有一个线程，且复制互斥锁之类的状态
+
+pthread_atfork() 提供三个回调函数入参:
+- prepare 函数指针在 fork 之前执行的回调
+- parent 创建子进程后 fork() 返回值之前在 父进程执行的回调
+- child 创建子进程 fork() 返回值之前在 子进程执行的回调
+
+可以在三个回调中清理锁资源，确保子进程创建后「锁的状态是确定的」
+
+### sigprocmask
+
+由于进程中所有线程都共享该进程的信号，所以线程库通过信号掩码决定发给哪一个线程(前提是子线程所有信号掩码互相独立互不干扰没重复)
+
+### pthread_kill
+
+将指定信号发给一个线程。see also: sig_wait()
+
+kernel 实现有很多自旋锁，自己用
