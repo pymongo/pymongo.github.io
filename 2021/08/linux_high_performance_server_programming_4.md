@@ -296,4 +296,147 @@ pthread_atfork() 提供三个回调函数入参:
 
 将指定信号发给一个线程。see also: sig_wait()
 
-kernel 实现有很多自旋锁，自己用
+## sysctl
+
+## fd 打开数量的限制
+
+- 用户级限制: 进程能打开的最大 fd 数
+- 系统级限制: 所有进程能打开的最大 fd 总数
+
+ulimit -n 可以查看进程的 fd 限制
+
+## 修改内核参数
+
+临时修改系统最大 fd 总数:
+
+> sysctl -w fs.file-max=max-file-number
+
+永久修改系统最大 fd 总数:
+
+> sudo cat fs.file-max=max-file-number >> /etc/sysctl.conf
+
+然后 `sysctl -p` 重载 sysctl 配置文件
+
+### sysctl -a 查看全部内核参数
+
+## gdb
+
+### attach PID
+
+多进程多线程环境下，gdb 可以通过 attach 命令附加上子进程的 PID
+
+### follow-fork-mode
+
+多进程下，gdb 能开启 follow-fork-mode 模式
+
+### info threads
+
+### set scheduler-locking on
+
+多线程环境下，只有当前调试中的线程才能运行
+
+## IO 复用压力测试
+
+client 用 IO 复用 压测服务器效率最高，避免线程切换的开销
+
+## lsof -p
+
+### FD
+
+我的表述不算准确，具体看 man7.org lsof(8) 的 OUTPUT 部分
+
+- rtd(root dir)
+- txt(executable file)
+- mem: memory-mapped file, 直接映射到内存中的文件(基本都是动态库)
+- mmap: memory-mapped device
+
+### DEVICE
+
+#### lsblk
+
+```
+[w@ww ~]$ lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+nvme0n1     259:0    0 465.8G  0 disk 
+├─nvme0n1p1 259:1    0   300M  0 part /boot/efi
+└─nvme0n1p2 259:2    0 465.5G  0 part /
+```
+
+lsblk 只能列出 block devices
+
+#### /proc/device
+
+完整的 DEVICE_ID 要读取 /proc/device
+
+文件所属设备，数据格式是 `主设备号,次设备号`，例如 259,2 表示 nvme 的分区 2 也就是 nvme0n1p2
+
+1 表示 mem, 136 是 pts 伪终端设备
+
+- A pts is the slave part of a pty
+- A pty (pseudo terminal device) is a terminal device which is emulated by an other program eg. kconsole
+
+### SIZE/OFF(offset)
+
+如果是设备(例如 mmap memory-mapped device)则文件大小没有意义，将显示一个偏移值。否则显示文件大小
+
+```
+[w@ww ~]$ sudo lsof -p 2641900
+lsof: WARNING: can't stat() fuse.gvfsd-fuse file system /run/user/1000/gvfs
+      Output information may be incomplete.
+lsof: WARNING: can't stat() fuse.portal file system /run/user/1000/doc
+      Output information may be incomplete.
+COMMAND     PID USER   FD   TYPE  DEVICE SIZE/OFF     NODE NAME
+ssh     2641900    w  cwd    DIR   259,2     4096 12717985 /home/w/repos/my_repos/linux_commands_rewritten_in_rust
+ssh     2641900    w  rtd    DIR   259,2     4096        2 /
+ssh     2641900    w  txt    REG   259,2   887304 27667992 /usr/bin/ssh
+ssh     2641900    w  mem    REG   259,2  3041456 27666951 /usr/lib/locale/locale-archive
+ssh     2641900    w  mem    REG   259,2    51376 27665753 /usr/lib/libnss_files-2.33.so
+ssh     2641900    w  mem    REG   259,2    92496 27665764 /usr/lib/libresolv-2.33.so
+ssh     2641900    w  mem    REG   259,2    22200 27662455 /usr/lib/libkeyutils.so.1.10
+ssh     2641900    w  mem    REG   259,2    55352 27662460 /usr/lib/libkrb5support.so.0.1
+ssh     2641900    w  mem    REG   259,2    18184 27662345 /usr/lib/libcom_err.so.2.1
+ssh     2641900    w  mem    REG   259,2   194544 27662450 /usr/lib/libk5crypto.so.3.1
+ssh     2641900    w  mem    REG   259,2   940440 27662459 /usr/lib/libkrb5.so.3.3
+ssh     2641900    w  mem    REG   259,2   589504 27662576 /usr/lib/libssl.so.1.1
+ssh     2641900    w  mem    REG   259,2   154040 27665760 /usr/lib/libpthread-2.33.so
+ssh     2641900    w  mem    REG   259,2  2150424 27665719 /usr/lib/libc-2.33.so
+ssh     2641900    w  mem    REG   259,2   344176 27662427 /usr/lib/libgssapi_krb5.so.2.2
+ssh     2641900    w  mem    REG   259,2   398560 27670873 /usr/lib/libldns.so.3.0.0
+ssh     2641900    w  mem    REG   259,2   100096 27662645 /usr/lib/libz.so.1.2.11
+ssh     2641900    w  mem    REG   259,2    22704 27665726 /usr/lib/libdl-2.33.so
+ssh     2641900    w  mem    REG   259,2  2986824 27662350 /usr/lib/libcrypto.so.1.1
+ssh     2641900    w  mem    REG   259,2   221480 27665708 /usr/lib/ld-2.33.so
+ssh     2641900    w    0u   CHR   136,8      0t0       11 /dev/pts/8
+ssh     2641900    w    1u   CHR     1,3      0t0        4 /dev/null
+ssh     2641900    w    2u   CHR   136,8      0t0       11 /dev/pts/8
+ssh     2641900    w    3u  IPv4 3793368      0t0      TCP ww:45380->xxx.compute.amazonaws.com:ssh (ESTABLISHED)
+ssh     2641900    w    4u   CHR   136,8      0t0       11 /dev/pts/8
+ssh     2641900    w    5u   CHR   136,8      0t0       11 /dev/pts/8
+ssh     2641900    w    6u   CHR   136,8      0t0       11 /dev/pts/8
+```
+
+## nc/netcat
+
+!> archlinux 要装 openbsd-netcat 别装 GNU 的 nc, centos/ubuntu 都用 BSD 的 nc
+
+- -l, listener, server
+
+§ sftrace
+
+通过 sftrace 可以追踪 Linux 命令执行过程中调用了哪些系统调用及其错误码，为自己实现 Linux 命令作准备
+
+## memory
+
+### buff cache
+
+从硬盘中读取的数据可能保持在 buff cache 中以便下一次快速访问
+
+### page cache
+
+准备写入到硬盘的数据将先放到 page cache 部分再由「硬盘中断程序」写入硬盘
+
+## mpstat
+
+每隔 1 秒采样一次 CPU 核心 1 的使用率
+
+> mpstat -P 1 1 5
