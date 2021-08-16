@@ -44,7 +44,7 @@ Apr 08 13:10:58 systemd[1]: trojan.service: Main process exited, code=exited, st
 Apr 08 13:10:58 systemd[1]: trojan.service: Failed with result 'exit-code'.
 ```
 
-## manjaro系统代理配置
+## KDE 系统代理配置
 
 系统设置的proxy设置，选用 use_system_proxy 或 use_manually_specified_proxy 都能让trojan在chrome上生效，如图
 

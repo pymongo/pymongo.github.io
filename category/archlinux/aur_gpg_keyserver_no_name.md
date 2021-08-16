@@ -1,4 +1,4 @@
-# [解决 aur 包 gpg no name 错误](/2021/05/aur_gpg_keyserver_no_name.md)
+# [解决 aur 包 gpg no name 错误](/category/archlinux/aur_gpg_keyserver_no_name.md)
 
 最近在新配的台式机安装 mongodb-bin 时出现gpg报错
 

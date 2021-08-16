@@ -1,4 +1,4 @@
-# [linux远程控制](/2021/05/manjaro_kde_vnc_screen_share.md)
+# [Linux 屏幕共享/远程控制](/category/archlinux/linux_screen_share_remote_control.md)
 
 拥有多台电脑建议用vnc实现一台台式机的键盘鼠标显示器控制多台笔记本和树莓派，强力的生产力工具
 

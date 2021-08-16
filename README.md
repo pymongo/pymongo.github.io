@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-08**
+    - [wine 安装/更新钉钉](/category/archlinux/wine_dingtalk.md)
     - [高性能服务器读书笔记 4](2021/08/linux_high_performance_server_programming_4.md)
 - **2021-07**
     - [高性能服务器读书笔记 3](2021/07/linux_high_performance_server_programming_3.md)
@@ -10,7 +11,7 @@
     - [BLP 读书笔记 6](/2021/07/beginning_linux_programming_6.md)
     - [BLP 读书笔记 5: 进程](/2021/07/beginning_linux_programming_5.md)
     - [调试/动态分析/性能分析工具](2021/07/debug_and_dynamic_analyzing_tools.md)
-    - [aur 回滚包/指定安装版本/404 等问题](/2021/07/aur_rollback_downgrade_package.md)
+    - [aur 回滚包/指定安装版本/404 等问题](/category/archlinux/aur_rollback_downgrade_package.md)
     - [gdb](/2021/07/gdb.md)
     - [错误绑定 dylib 的例子](2021/07/bad_example_in_dylib_linking.md)
     - [BLP 读书笔记 4](/2021/07/beginning_linux_programming_4.md)
@@ -25,18 +26,17 @@
     - [mongodb dump](/2021/06/mongodb_dump.md)
     - [tensorbase](/2021/06/tensorbase.md)
 - **2021-05**
-    - [linux远程控制](/2021/05/manjaro_kde_vnc_screen_share.md)
-    - [Nvidia CUDA](/2021/05/nvidia_cuda.md)
+    - [Linux 屏幕共享/远程控制](/category/archlinux/linux_screen_share_remote_control.md)    - [Nvidia CUDA](/2021/05/nvidia_cuda.md)
     - [amd 超频的尝试](/2021/05/amd_overclock.md)
-    - [解决 aur 包 gpg no name 错误](/2021/05/aur_gpg_keyserver_no_name.md)
+    - [解决 aur 包 gpg no name 错误](/category/archlinux/aur_gpg_keyserver_no_name.md)
     - [缓存解决动态规划难题](/2021/05/cache_and_recursion_memoization.md)
     - [clippy开启pedantic模式](/2021/05/clippy_pedantic.md)
     - [blanket implementations](/2021/05/blanket_implementations.md)
 - **2021-04**
     - [rust加快编译速度](/2021/04/rust_replace_ld_to_lld_speedup_linking.md)
-    - [manjaro 切换内核](/2021/04/manjaro_kde_switch_kernel.md)
-    - [KDE禁用鼠标中键粘贴](/2021/04/manjaro_kde_disable_mouse_middle_button.md)
-    - [解决KDE spell check报错](/2021/04/manjaro_kde_spell_check.md)
+    - [manjaro 更新内核](/category/archlinux/manjaro_update_kernel.md)
+    - [禁用鼠标中键粘贴](/category/archlinux/copy_on_select_disable_middle_button.md)
+    - [解决 KDE spell check 报错](/category/archlinux/kde_spell_check.md)
     - [AWS lambda serverless](/2021/04/aws_lambda_serverless.md)
     - [linux ntfsfix](/2021/04/ntfsfix.md)
     - [用 rustc 源码实现拼写错误候选词建议](/2021/04/rustc_edit_distance_and_typo_checker.md)
@@ -210,7 +210,15 @@
     - [CSS/HTML小知识(如CSS权重)](/2019/before_2019/css_html_notes.md)
     - [博客新插件/样式测试](/2019/before_2019/test.md)
 - category
-- **systemd系列**
+- **archlinux**
+    - [wine 安装/更新 钉钉](/category/archlinux/wine_dingtalk.md)
+    - [aur 回滚包/指定安装版本/404 等问题](/category/archlinux/aur_rollback_downgrade_package.md)
+    - [解决 aur 包 gpg no name 错误](/category/archlinux/aur_gpg_keyserver_no_name.md)
+    - [Linux 屏幕共享/远程控制](/category/archlinux/linux_screen_share_remote_control.md)    - [Nvidia CUDA](/2021/05/nvidia_cuda.md)
+    - [manjaro 更新内核](/category/archlinux/manjaro_update_kernel.md)
+    - [禁用鼠标中键粘贴](/category/archlinux/copy_on_select_disable_middle_button.md)
+    - [解决 KDE spell check 报错](/category/archlinux/kde_spell_check.md)
+- **systemd**
     - [systemd部署管理项目进程](/2020/11/systemd.md)
     - [systemd API段错误](/2021/03/libsystemd_segfault.md)
 - **电脑技术干货**
@@ -232,7 +240,7 @@
     - [Android Studio](/category/intellij_idea/android_studio.md)
     - [vscode技巧快捷键笔记](/category/vscode/vscode.md)
     - [vscode配置Rust环境](/category/vscode/vscode_setup_rust.md)
-- **单片机嵌入式**
+- **嵌入式**
     - [以中断方式读轻触按键](/category/embedded/button-interrupt/index.md)
     - [矩阵键盘(keypad)](/category/embedded/keypad/index.md)
 - **日本語**

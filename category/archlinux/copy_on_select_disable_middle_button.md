@@ -1,4 +1,4 @@
-# [KDE禁用鼠标中键粘贴](/2021/04/manjaro_kde_disable_mouse_middle_button.md)
+# [禁用鼠标中键粘贴](/category/archlinux/copy_on_select_disable_middle_button.md)
 
 ```
 似乎所有Linux桌面环境都有copy-on-select的功能
@@ -42,6 +42,5 @@
 
 ## 参考资料
 
-<https://askubuntu.com/questions/894673/why-my-ctrlsemicolon-was-binded-globally>
-<https://wiki.ubuntu.com/X/Config/Input>
-
+- <https://askubuntu.com/questions/894673/why-my-ctrlsemicolon-was-binded-globally>
+- <https://wiki.ubuntu.com/X/Config/Input>

@@ -1,4 +1,4 @@
-# [manjaro 切换内核](/2021/04/manjaro_kde_switch_kernel.md)
+# [manjaro 更新内核](/category/archlinux/manjaro_update_kernel.md)
 
 自从 2021-04-29 manjaro 推送更新后，每次开机 manjaro 都发一个 Notification 提示我 kernel 版本过低
 
@@ -10,7 +10,7 @@
 
 所谓「滚动式」更新就是所有软件包都用最新的版本，但是只会更新当前 kernel 小版本的更新
 
-例如 5.10.1 升级成 5.10.2 但不会升级成 5.11，kernel 跨大版本还需自己手动更新
+例如 5.10.1 升级成 5.10.2 但包管理不会升级内核的大版本，内核跨大版本还需自己手动更新
 
 ## 安装最新的 LTS kernel
 
@@ -28,12 +28,12 @@ sudo update-grub # grub reload config
 
 grub配置修改重启后会在以下grub菜单内停留几秒，选择 `Advanced Options for Manjaro Linux`
 
-![](grub1.jpeg)
+![](manjaro_update_kernel_grub_menu_1.jpeg)
 
 然后grub会进入一个选择kernel版本的界面:
 
 !> 注意不要选 `fallback initramfs` 后缀的内核，这个是用于回滚用的
 
-![](grub2.jpeg)
+![](manjaro_update_kernel_grub_menu_2.jpeg)
 
 最后 kernel 更新完后，grub的默认设置会记住上次选择的kernel,删掉老的kernel再将grub改回默认设置就行了
