@@ -1,16 +1,10 @@
-# [荣耀笔记本装linux](/2021/02/manjaro_kde_config.md)
+# [manjaro kde config](/category/archlinux/manjaro_kde_config.md)
 
-苦于13年款的mac_air屏幕太小只有11寸，分辨率1368*768看的眼睛难受，而我之前买过的thinkpad因识别不到电池开不了机，surface_pro因未知原因变砖开不了机也进不了BIOS
-
-有朋友说等21年苹果M1芯片的mbp 16寸机出了他就买，正好我也嫌弃11寸的air屏幕太小，我定下了我第一条选购标准——16寸大屏幕
+苦于13年款的mac_air屏幕太小只有11寸，分辨率1368*768看的眼睛难受，而我先前的surface和thinkpad都坏了，想买个大屏幕笔记本
 
 符合16寸+屏幕的就似乎只剩荣耀的magicbook pro 2020款(以下简称荣耀本)，看了下演示为了实现超窄边全面屏，摄像头做成升降式
 
 而且喇叭面积占键盘区域的1/4，大音量+立体声+音质好，这屏幕+喇叭的组合一下子打动了我——就华为(荣耀)笔记本了
-
-最佳实践还是1万+的台式机主用+4k的笔记本外出办公，毕竟5900X比4600H编译代码快2倍以上
-
----
 
 ## 用哪个manjaro镜像?
 
@@ -34,7 +28,7 @@ win10安装的引导盘却可以用FAT32甚至NTFS(看主板支持)
 
 由于主板默认都会选择硬盘设备的分区1,因此能正常引导，但我们U盘启动盘分区2才是引导分区，这点要分清楚
 
-### U盘格式化成FAT32(非引导盘)
+§ U盘格式化成FAT32(非引导盘)
 
 警告!以下方法仅能当存储U盘用(因为只有一个分区而没有引导分区)，manjaro的grub不能识别!
 
@@ -84,15 +78,7 @@ xfce的文件浏览器居然不支持new tab，都2021年了还跟windows那个f
 
 参考: <https://gitlab.manjaro.org/profiles-and-settings/iso-profiles/-/blob/master/manjaro/kde/Packages-Desktop>
 
-带extra开头的包就是full多装的包
-
-由于full版多了太多类似steam这种***垃圾***包，所以「**强烈建议安装min版**」
-
-### 字体相关问题
-
-#### 解决min版emoji显示成方框
-
-min版没装emoji的字体，导致crates插件emoji图标全乱码，务必安装`noto-fonts-emoji`字体
+带extra开头的包就是full多装的包，由于full版太多类似steam这种***垃圾***包，所以「**强烈建议安装min版**」
 
 ### 卸载min版自带软件
 
@@ -107,24 +93,12 @@ dejavu让vscode的英文字体非常好看
 - kaccounts-providers
 - kwallet-pam kwalletmanager # turnof kwallet first, kwallet can't delete
 - kcalc firefox (k)conversation
-- terminus-font(没啥用也不好看)
 - inxi partitionmanager
 - tlp powerdevil powertop # 笔记本不要卸载，否则休眠后唤醒可能卡死
 
 通过 `pacman -Qdtq` 能找到最近没用过的 package，然后可以卸载
 
 software token由于opennetwork依赖故无法删除
-
-### 卸载full版无用的系统自带
-
-full版manjaro无用的自带包举例:
-
-- 外设类: 打印机、扫描机(skanlite)、光驱(k3b)
-- 无用的网络工具: kget(下载器)、thunderbrid(邮件客户端)
-
-卸载manjaro-steam后需要清理以下残留文件
-
-> rm -rf .steam .steampath .steampid ~/.local/share/Steam
 
 ### 获取linux系统的安装时间
 
@@ -137,12 +111,6 @@ full版manjaro无用的自带包举例:
 ---
 
 ## KDE显示与驱动
-
-### 摄像头/指纹锁驱动检查
-
-荣耀本的埋藏式摄像头可以用VLC打开，前置摄像头能正常工作
-
-不过荣耀本的指纹锁貌似KDE无法设置，Ubuntu据说有指纹锁的设置项
 
 ### 屏幕亮度调节的方法
 
@@ -170,7 +138,7 @@ win10的建议是1080P屏幕用125%的缩放，mac的建议是4k屏用200%的缩
 
 4k@60Hz屏适合将scale(devicePixelRatio)设为200%，1080P的话用150%缩放
 
-![](kde_settings_4k_60.png)
+![](manjaro_kde_config_kde_settings_4k_60.png)
 
 ¶ KDE任务栏配置
 
@@ -178,13 +146,13 @@ win10的建议是1080P屏幕用125%的缩放，mac的建议是4k屏用200%的缩
 
 可以把开始菜单+任务栏从像win10改成像win7，但我觉得默认主题够用了
 
-![](kde_task_manager.png)
+![](manjaro_kde_config_kde_task_manager.png)
 
 ---
 
 ## 常用软件安装
 
-### 必装Rust/C/C++
+### 必装 Rust/C/C++
 
 ```
 sudo pacman -Syu
@@ -208,17 +176,15 @@ pacman安装的rustup的一个好处是可以不把`~/.cargo/bin`加到PATH环�
 
 pacman装的/usr/bin/rustc等可执行文件其实是个/usr/bin/rustup的软链接，
 
-ra等工具链的安装和配置请看我另一篇文章: [vscode配置Rust环境](/archive/vscode/vscode_setup_rust.md)
+ra等工具链的安装和配置请看我另一篇文章: [vscode配置Rust环境](/category/vscode/vscode_setup_rust.md)
 
-### 必装java
+### 必装 Java
 
 由于idea等众多java软件依赖jvm,所以还是必须装上`jdk-openjdk`
 
 Ubuntu用**update-java-alternatives**切换java版本，而arch则使用**archlinux-java**
 
-### 必装yay和chrome
-
-#### 获取pacman的历史操作
+### 获取pacman的历史操作
 
 > cat /var/log/pacman.log | grep "\[PACMAN\]"
 
@@ -258,56 +224,17 @@ mysql> show databases;
 
 至于docker安装可以参考 <https://github.com/vkill/Archlinux/blob/master/Docker.md>
 
-### proxy代理工具
-
-详见我另一篇文章: [manjaro KDE proxy setting](/2021/04/manjaro_kde_proxy.md)
-
-### 安装输入法
-
-请看我另一篇文章: [manjaro/KDE安装小鹤双拼](/2021/02/manjaro_linux_fcitx5_xiaohe_shuangpin.md)
-
-### wine dingtalk
-
-#### wine中文乱码
-
-首先需要安装以下字体避免微信中的中文字体乱码(adobe思源黑体不能解决乱码问题)
+### 浏览器中文字体
 
 > sudo pacman -S wqy-microhei wqy-zenhei
 
-#### wine初始化并安装.NET framework
+### 安装输入法
 
-> WINEPREFIX=~/.wine winecfg
+请看我另一篇文章: [安装 fcitx5 小鹤双拼](/category/archlinux/fcitx5_xiaohe_shuangpin.md)
 
-如果 KDE 的 scale 设置成 200%，那么在 wine 配置的 Graphics 中将 DPI 设置成 196 * 2
+### 安装 spell check
 
-deepin-wine-wechat 包的 wine 容器路径在 `WINEPREFIX=~/.deepinwine/Deepin-WeChat/`
-
-#### 安装/更新钉钉
-
-> wine DingTalk_v6.0.5.30302.exe
-
-#### 退出钉钉
-
-1. 任务栏右键钉钉图标退出
-2. killall wineserver
-
-#### 运行钉钉
-
-首先要保证钉钉的 wine 全部退出
-
-- wine '/home/w/.wine/drive_c/Program Files (x86)/DingDing/DingtalkLauncher.exe'
-- wine /home/w/.wine/drive_c/ProgramData/Microsoft/Windows/Start Menu/Programs/DingTalk/DingTalk.lnk
-- 安装钉钉后勾选运行钉钉去运行
-
-### (可选)安装微信
-
-(建议把微软字体`ttf-ms-fonts`也装了)然后再安装deepin包装过的wine套壳微信
-
-> yay -S deepin-wine-wechat
-
-wine应用在高分屏(4k屏)下没有缩放，会显得非常小，以下命令可以打开wine设置
-
-> WINEPREFIX=~/.deepinwine/Deepin-WeChat/ winecfg
+详细过程看我另一篇文章: [解决 KDE spell check 报错](/category/archlinux/kde_spell_check.md)
 
 ### (可选)安装办公/教学/演示软件
 
@@ -317,10 +244,6 @@ wine应用在高分屏(4k屏)下没有缩放，会显得非常小，以下命令
 - sunloginclient(远程桌面、远程控制)
 - filelight: 磁盘使用分析工具
 
-### 安装spell check
-
-详细过程看我另一篇文章: [解决 KDE spell check 报错](/2021/04/manjaro_kde_spell_check.md)
-
 ### 必装必配samba
 
 !> 必须要先禁用kde wallet，才能更好配置samba
@@ -328,10 +251,6 @@ wine应用在高分屏(4k屏)下没有缩放，会显得非常小，以下命令
 smb协议是一种跨平台文件共享协议(win/mac都内置)，由于linux自带那个ftpd不知道怎么用，看教程安装的vsftpd也启动失败
 
 安装smb的过程可以看我另一篇文章: [win/mac/linux共享文件夹](/2020/04/win_mac_linux_samba_smb_share_files.md)
-
-### 必装vnc server
-
-具体看我另一篇文章: [linux远程控制](/2021/05/manjaro_kde_vnc_screen_share.md)
 
 ---
 
@@ -461,7 +380,7 @@ screen_edge设置里鼠标移到右上角就显示show desktops这个没用
 - 删掉启动krunner的alt+F2，让vscode/idea用这个快捷键
 - application_launcher的Alt+F1改成Alt+F6(不能删掉，否则按win不能弹出开始菜单)
 
-### idea配置()
+### idea配置
 
 建议用toolbox安装idea更好(通过idea-eval-resetter用上CLion)，因为manjaro源的更新落后arch好几周
 

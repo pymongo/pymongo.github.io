@@ -1,4 +1,4 @@
-# [manjaro KDE proxy setting](/2021/04/manjaro_kde_proxy.md)
+# [archlinux proxy](/category/archlinux/archlinux_proxy.md)
 
 TODO KDE怎么把VPN共享到wifi热点，好让android_setup_wizard时可以走代理连谷歌
 
@@ -52,7 +52,7 @@ Apr 08 13:10:58 systemd[1]: trojan.service: Failed with result 'exit-code'.
 
 ![](use_manually_specified_proxy.png)
 
-在需要走代理的命令前面加上`ALL_PROXY=socks5://127.0.0.1:1080`就行了
+在需要走代理的命令前面加上 `ALL_PROXY=socks5://127.0.0.1:1080` 就行了
 
 或者加上 `socks_proxy=127.0.0.1:1080`
 
@@ -63,3 +63,7 @@ Apr 08 13:10:58 systemd[1]: trojan.service: Failed with result 'exit-code'.
 **.**.**.**[w@w-manjaro temp]$ curl --max-time 10 ifconfig.me
 curl: (28) Connection timed out after 10001 milliseconds
 ```
+
+## proxychain
+
+TODO

@@ -43,7 +43,7 @@
     - [compile nginx-rtmp](/2021/04/compile_nginx_rtmp_source.md)
     - [rustup install rust-analyzer](/2021/04/rustup_install_rust_analyzer.md)
     - [smarctl ssd lifespan](/2021/04/smartctl_ssd_lifespan.md)
-    - [manjaro KDE proxy setting](/2021/04/manjaro_kde_proxy.md)
+    - [archlinux proxy](/category/archlinux/archlinux_proxy.md)
     - [logrotate和user service](/2021/04/logrotate_and_systemd_user_service.md)
 - **2021-03**
     - [no_std binary(static link)](/2021/03/statically_linked_executable.md)
@@ -53,8 +53,8 @@
     - [dataloader解决重复查询](/2021/03/dataloader.md)
 - **2021-02**
     - [戴尔2415输出4k@60](/2021/02/dell_p2415q_enable_hdmi2.md)
-    - [荣耀笔记本装linux](/2021/02/manjaro_kde_config.md)
-    - [manjaro/KDE安装小鹤双拼](/2021/02/manjaro_kde_fcitx5_xiaohe_shuangpin.md)
+    - [manjaro kde config](/category/archlinux/manjaro_kde_config.md)
+    - [安装 fcitx5 小鹤双拼](/category/archlinux/fcitx5_xiaohe_shuangpin.md)
     - [各平台小鹤双拼解决方案](/2021/02/xiaohe_scheme_solutions.md)
     - [刷欧版MIUI教程](/2021/02/miui_eu.md)
     - [leetcode用racket](/2021/02/leetcode_racket.md)
@@ -211,13 +211,16 @@
     - [博客新插件/样式测试](/2019/before_2019/test.md)
 - category
 - **archlinux**
-    - [wine 安装/更新 钉钉](/category/archlinux/wine_dingtalk.md)
+    - [wine 安装/更新钉钉](/category/archlinux/wine_dingtalk.md)
     - [aur 回滚包/指定安装版本/404 等问题](/category/archlinux/aur_rollback_downgrade_package.md)
     - [解决 aur 包 gpg no name 错误](/category/archlinux/aur_gpg_keyserver_no_name.md)
-    - [Linux 屏幕共享/远程控制](/category/archlinux/linux_screen_share_remote_control.md)    - [Nvidia CUDA](/2021/05/nvidia_cuda.md)
+    - [Linux 屏幕共享/远程控制](/category/archlinux/linux_screen_share_remote_control.md)
     - [manjaro 更新内核](/category/archlinux/manjaro_update_kernel.md)
     - [禁用鼠标中键粘贴](/category/archlinux/copy_on_select_disable_middle_button.md)
     - [解决 KDE spell check 报错](/category/archlinux/kde_spell_check.md)
+    - [archlinux proxy](/category/archlinux/archlinux_proxy.md)
+    - [安装 fcitx5 小鹤双拼](/category/archlinux/fcitx5_xiaohe_shuangpin.md)
+    - [manjaro kde config](/category/archlinux/manjaro_kde_config.md)
 - **systemd**
     - [systemd部署管理项目进程](/2020/11/systemd.md)
     - [systemd API段错误](/2021/03/libsystemd_segfault.md)
