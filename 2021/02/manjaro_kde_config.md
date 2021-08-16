@@ -108,10 +108,6 @@ dejavu让vscode的英文字体非常好看
 - kwallet-pam kwalletmanager # turnof kwallet first, kwallet can't delete
 - kcalc firefox (k)conversation
 - terminus-font(没啥用也不好看)
-- adobe-source-han-sans-jp-fonts
-- adobe-source-han-sans-kr-fonts
-- adobe-source-han-sans-cn-fonts(纯英文工作机用)
-- ruby
 - inxi partitionmanager
 - tlp powerdevil powertop # 笔记本不要卸载，否则休眠后唤醒可能卡死
 
@@ -270,11 +266,40 @@ mysql> show databases;
 
 请看我另一篇文章: [manjaro/KDE安装小鹤双拼](/2021/02/manjaro_linux_fcitx5_xiaohe_shuangpin.md)
 
-### (可选)安装微信
+### wine dingtalk
+
+#### wine中文乱码
 
 首先需要安装以下字体避免微信中的中文字体乱码(adobe思源黑体不能解决乱码问题)
 
 > sudo pacman -S wqy-microhei wqy-zenhei
+
+#### wine初始化并安装.NET framework
+
+> WINEPREFIX=~/.wine winecfg
+
+如果 KDE 的 scale 设置成 200%，那么在 wine 配置的 Graphics 中将 DPI 设置成 196 * 2
+
+deepin-wine-wechat 包的 wine 容器路径在 `WINEPREFIX=~/.deepinwine/Deepin-WeChat/`
+
+#### 安装/更新钉钉
+
+> wine DingTalk_v6.0.5.30302.exe
+
+#### 退出钉钉
+
+1. 任务栏右键钉钉图标退出
+2. killall wineserver
+
+#### 运行钉钉
+
+首先要保证钉钉的 wine 全部退出
+
+- wine '/home/w/.wine/drive_c/Program Files (x86)/DingDing/DingtalkLauncher.exe'
+- wine /home/w/.wine/drive_c/ProgramData/Microsoft/Windows/Start Menu/Programs/DingTalk/DingTalk.lnk
+- 安装钉钉后勾选运行钉钉去运行
+
+### (可选)安装微信
 
 (建议把微软字体`ttf-ms-fonts`也装了)然后再安装deepin包装过的wine套壳微信
 
@@ -283,8 +308,6 @@ mysql> show databases;
 wine应用在高分屏(4k屏)下没有缩放，会显得非常小，以下命令可以打开wine设置
 
 > WINEPREFIX=~/.deepinwine/Deepin-WeChat/ winecfg
-
-将显示字体DPI从96改成192(就是整体放大两倍)，微信UI和字体都会变大2倍
 
 ### (可选)安装办公/教学/演示软件
 

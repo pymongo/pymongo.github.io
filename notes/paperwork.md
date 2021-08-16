@@ -136,7 +136,3 @@ KDE好像没办法全局emacs like keymap，从mac转linux不太习惯不能用C
 我就觉得Ctrl是最好按的组合键，手掌稍微往下就按上
 如果caps改键ctrl反而违反标准指法，只能小指按caps,无名指按q
 
-superuser上Ctrl怎么按的最佳回答就是用手掌按
-
-
-「」

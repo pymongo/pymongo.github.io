@@ -1,4 +1,4 @@
-# [KDE 禁用鼠标中键粘贴](/2021/04/manjaro_kde_middle_button_paste.md)
+# [KDE禁用鼠标中键粘贴](/2021/04/manjaro_kde_disable_mouse_middle_button.md)
 
 ```
 似乎所有Linux桌面环境都有copy-on-select的功能

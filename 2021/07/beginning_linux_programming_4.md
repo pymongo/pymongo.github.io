@@ -405,7 +405,7 @@ yay -S uftrace-git flamegraph-git
 
 假设以下 C 程序通过 malloc 申请了 [u8, 1024] 长度的内存，再尝试越界访问偏移为 1024 的内存
 
-```cpp
+```c
 #include <stdio.h>
 #include <stdlib.h>
 

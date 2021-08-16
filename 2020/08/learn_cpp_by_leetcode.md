@@ -23,7 +23,7 @@ C++和Rust的传参方式类似，也有copy, move, borrow(指针/引用)的概�
 
 例如N叉树的构造函数中，Clion建议把children入参move掉，避免传参前要将children入参的vector给Copy一份
 
-```cpp
+```c
 Node(int _val, vector<Node *> _children) {
     this->val = _val;
     this->children = move(_children);
@@ -48,7 +48,7 @@ Node(int _val, vector<Node *> _children) {
 
 所以代码可能是这样
 
-```cpp
+```c
 Decimal mul(Decimal* lhs, Decimal* rhs) {
     int new_flag = (*lhs)->flag & (*rhs)->flag;
     // ... 各种deref之后二者位运算
@@ -72,7 +72,7 @@ C/C++的指针类型和deref格式也很好记，例如
 
 变量名左边一个星号表示 deref
 
-```cpp
+```c
 ListNode head = ListNode{.val=1, .next=NULL};
 ListNode *head_ptr = &head;
 ListNode& head_ref = head;
@@ -82,7 +82,7 @@ ListNode& head_ref = head;
 
 下面这段代码运行时会报错，因为这里的head不是堆内存中的head
 
-```cpp
+```c
 ListNode head = ListNode{.val=1, .next=NULL};
 ListNode *head_ptr = &head;
 free(head_ptr);
@@ -96,7 +96,7 @@ free(head_ptr);
 
 nullptr是C++11新推出的，带类型的null
 
-```cpp
+```c
 deque<Node*> queue = deque<Node*>();
 queue.push_back(node);
 queue.push_back(NULL);
@@ -145,7 +145,7 @@ mac系统的g++默认是不支持一些C++11以后的feature，所以可能需�
 
 最终的代码如下，击败了98%的C++记录
 
-```cpp
+```c
 static int maxDepth(Node *root) {
     if (root == nullptr) {
         return 0;

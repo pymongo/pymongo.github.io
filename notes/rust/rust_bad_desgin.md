@@ -33,3 +33,11 @@ fn stat() -> stat {
 ## cargo alias 不够强大
 
 感觉不如 npm 的 package.json 的 run alias 强大
+
+## bad code example
+
+```rust
+union union<'union> {
+    union: &'union union<'union>
+}
+```

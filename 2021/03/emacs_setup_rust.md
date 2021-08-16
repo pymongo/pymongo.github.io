@@ -1,4 +1,4 @@
-# [尝试用emacs配rust lsp](/2020/03/emacs_setup_rust.md)
+# [尝试用emacs配rust lsp](/2021/03/emacs_setup_rust.md)
 
 首先要从melpa源获取package list(类似apt update)
 

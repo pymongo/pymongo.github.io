@@ -70,7 +70,7 @@ select 每次都要轮询扫描所有注册的 fd，而 epoll 采用的是回调
 
 ## getsockopt 获取 socket 错误
 
-```cpp
+```c
 int error = 0;
 socklen_t length = sizeof( error );
 getsockopt( sockfd, SOL_SOCKET, SO_ERROR, &error, &length );

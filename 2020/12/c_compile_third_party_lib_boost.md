@@ -47,7 +47,7 @@ target_link_libraries(boost_example_random ${Boost_LIBRARIES})
 
 以下是boost_example_random.cpp源码:
 
-```cpp
+```c
 #include <iostream>
 #include <boost/random.hpp>
 

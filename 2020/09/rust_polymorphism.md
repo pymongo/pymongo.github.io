@@ -170,7 +170,7 @@ Dog is eating
 
 再举一个C++的例子，下面是一段多态的代码
 
-```cpp
+```c
 #include <iostream>
 using std::cout;
 

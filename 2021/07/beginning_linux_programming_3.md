@@ -296,7 +296,7 @@ bash shell arranges for the STDOUT/STDIN streams to be connected to your program
 
 例如字符串也是一种一维数组，又例如
 
-```cpp
+```c
 char *menu[] = {
     "a - add new record",
     "q - quit",
