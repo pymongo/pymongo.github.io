@@ -8,6 +8,14 @@
 - _ext suffix: ext=extension, 例如futures_ext crate，例如B和C结构体"继承"了A，而且B和C在A的字段基础上多了一些字段，此时可以将B和C命名为A的a_ext
 - COMM -> command, 例如I2C通信协议的命令COMMAND: TM1637_I2C_COMM1
 
+## distributed database abbreviation
+
+- WAL: Work Ahead Log
+- HA: High Availability
+- HTAP: Hybrid Transactional/Analytical Processing
+- OLTP: 线上请求(Online Transactional Processing)
+- OLAP: 后台分析(Online Analytical Processing)
+
 ### _opt suffix
 
 opt=Option, usually use in function_indentation means the output of function_name is a Option.
