@@ -6,10 +6,6 @@
 - 不兼容的async runtime
 - 复杂的多线程数据竞争问题(Send和Sync只能解决偏初级的并发安全问题，不保证完全安全)，举个例子我以前遇过的actix_web::Data用错会存在数据竞争
 
-## Compile Time
-
-nightly的最大问题是有些!#feature可能将来会被删掉
-
 ### const propagation
 
 常量传播，例如会把3+4内联优化为7

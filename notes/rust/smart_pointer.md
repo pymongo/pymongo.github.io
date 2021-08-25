@@ -90,7 +90,6 @@ String是一段合法的UTF-8编码的u8序列，可以安全地转为一段合�
 3. Cell没有运行时开销，而RefCell运行时在维护一个额外的借用检查器，带来额外开销
 4. let mut handle = ref_cell.borrow_mut();编译时不会报错，运行时会panic: double mut borrow
 
-
 解释:
 
 Cell provides you values, RefCell with references(所以内存体积较大的结构体类型还是用RefCell)

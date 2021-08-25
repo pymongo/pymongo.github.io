@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-08**
+    - [neo4j cypher](/2021/08/neo4j_cypher.md)
     - [nebula graph](/2021/08/nebula_graph.md)
     - [wine 安装/更新钉钉](/category/archlinux/wine_dingtalk.md)
     - [高性能服务器读书笔记 4](2021/08/linux_high_performance_server_programming_4.md)

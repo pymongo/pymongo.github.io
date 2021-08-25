@@ -30,7 +30,11 @@ optional修饰的字段在字段为None时并不会像json那样设为null，而
 
 Protobuf的Message字段名可以随意改，在传输层真正有用的是「字段序号」和「字段类型」
 
-Google这种巧妙的设计让js/java等camcel_case命名 和 rust这样snake_case命名 即使两端字段名不同也能公用同一个proto文件
+### 为什么要用 filed_id 字段编号
+
+1. 传输时只传输字段 id 相比 Json 传输字符串格式的节省很多流量
+2. Google这种巧妙的设计让js/java等camcel_case命名 和 rust这样snake_case命名 即使两端字段名不同也能公用同一个proto文件
+
 
 ## codegen的两种方法
 

@@ -145,3 +145,9 @@ legend标签在fieldset标签内才能生效
   </fieldset>
 </form>
 ```
+
+## CROS 跨域
+
+后端: nginx 或 web 框架加上 cros
+
+前端 ouath 需要弹窗无法做成内嵌，或者通过浏览器插件去请求绕开浏览器安全限制
