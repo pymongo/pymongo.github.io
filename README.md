@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-08**
+    - [rustyline add cursor shortcuts](/2021/08/rustyline_add_cursor_shortcuts.md)
     - [neo4j cypher](/2021/08/neo4j_cypher.md)
     - [nebula graph](/2021/08/nebula_graph.md)
     - [wine 安装/更新钉钉](/category/archlinux/wine_dingtalk.md)

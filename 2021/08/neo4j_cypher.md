@@ -46,9 +46,11 @@ create (parent)-[right_edge:tree_node_edge]->(right_child);
 
 match (n:tree_node) return n;
 ```
-       
-## atlas hints
 
-atlas> create (b:p{id:4}) return b;
+## variable similar to AS in SQL
 
-b 只是个作用域在当前 cypher 语句的变量名而已，后续查询还是要用 id 过滤唯一的点
+create (b:p{id:4}) return b;
+
+b 只是个作用域在当前 cypher 语句的变量名而已，后续查询还是要用 id 指定点
+
+语句 1 中用到的变量名字 a 会在语句 2 中不可用，语句 2 应该用 where a.id=1 去指定 语句 1 创建的点
