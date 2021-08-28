@@ -213,8 +213,8 @@ or
 
 当前协程干完活之后，用 `std::task::Waker` 抽象去唤醒其他协程干活
 
-1. Future,异步计算的抽象
-2. Task,Future之上的抽象协程，Task是可以调度的，也可以组合多个Future再 spawn 一个 Task协程 去执行
+1. Future 异步计算的抽象
+2. Task: Future之上的抽象【协程】，Task是可以调度的，也可以组合多个Future再 spawn 一个 Task协程 去执行
    但是Task还是需要基于异步运行时去运行
 3. executor 异步运行时的异步执行器，用来 spawn task协程，以及用户态的协程调度
 
