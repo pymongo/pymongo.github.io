@@ -1,4 +1,4 @@
-# [tonic ipv6 bug](/2021/08/tonic_ipv4_ipv6_bug.md)
+# [tonic ipv6 bug](/2021/08/tonic_ipv6_bug.md)
 
 tonic/tonic-build version: 0.4
 
