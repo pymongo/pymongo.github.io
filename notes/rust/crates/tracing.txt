@@ -1,0 +1,28 @@
+Rust官方团队好像不怎么维护debugging相关功能了
+也不知道调试信息哪年能支持shadow
+所以用log或tracing比单步调试更可靠
+
+老油条：tracing的宏没法格式化好烦
+猫哥(给Rust提过多个PR的大佬): 啊？我主要用instrument，不影响格式化啊，大部分时候用这个过程宏记录下函数的进入和退出就够了
+```
+#[cfg_attr(feature="trace", tracing::instrument(level="trace",skip(globals)))]
+fn scan_keyword(globals: &mut TeXGlobals, s: str_number) -> TeXResult<boolean> { 
+```
+不开trace feature对项目代码毫无影响，避免性能损失
+猫哥: 少部分代码用的是这个宏
+```
+macro_rules! trace_span {
+    ($span_info:expr) => {
+	#[cfg(feature="trace")]
+	let span = ::tracing::span!(::tracing::Level::TRACE, $span_info);
+	#[cfg(feature="trace")]
+	let __ = span.enter();
+    }
+}
+```
+
+老油条:
+我以前以为我自己记录状态维护一个表就行了，后来才知道每个线程都有个span记录
+我以前在代码里面做了一些回调点，那些回调点都是同步函数
+我在回调里面自己去维护span表
+但是有问题，丢失了current span这个概念

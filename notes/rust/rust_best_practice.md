@@ -1,5 +1,7 @@
 # Rust最佳实践
 
+HashMap缓存不友好(缓存性能不如BTreeMap) 
+
 ## 用env::var还是OnceCell共享全局的String变量?
 
 假设env::var是通过dotenv读配置文件再写入到环境变量中，假设环境变量和OnceCell一样只会被写入一次
@@ -26,3 +28,54 @@ dotenv类似于Rails的config/application.yml，都是将kv的配置文件信息
 所以我遇到过多次Rails项目因为新增配置项，而配置文件没有同步改动，导致运行时报错
 
 如果将配置项强制反序列为一个结构体，不仅支持String以外的类型，也支持枚举/Option/结构体嵌套，最大好处是避免了少一个字段或多一个字段
+
+## 编译速度太慢
+
+可能的解决方案: crate以二进制的形式进行分发
+
+但 Rust 跟 C++ 的 STL/boost 一样库代码要跟自己代码(调用方代码)一起编译，只能以源码形式分发，难以有 ABI
+
+```
++ 这样一次link就够了，有人说增量编译慢大部分时间都在link，linker好像是单线程的
+- 二进制分发很难针对极其进行优化
+- Rust的泛型没法进行二进制分发，只要带<T>或impl就不能只分发二进制，要和调用代码一起联合编译
+```
+
+## trait语法缺陷
+
+### trait的孤儿规则
+
+导致很多时候都需要对第三方库例如Db结构体再包一层，才能添加一些自定义的方法
+
+孤儿规则既保护了上游库的trait/结构体不会被下游的调用库篡改，但是也导致了要多包一层这样的冗余代码
+
+### trait不可重叠规则
+
+例如想给10个结构体实现trait A的默认方法，剩余两个类型再单独实现，有点像OOP的override
+
+## 语法缺陷(其它)
+
+### NLL问题(1.56 几乎解决了)
+
+Non-Lexical Lifetimes (NLL): 非词法作用域生命周期
+
+撮合引擎的订单优先队列中，我的&mut orders和orders.peek_mut()两个指针「不能同时出现」，可能我只是改了堆顶订单，没有修改堆，但是编译器不允许
+
+## clippy误报或缺陷
+
+### clippy生命周期误报
+
+```rust
+impl<'a> MyTrait for MyHandler<'a> {
+    fn handle(&mut self, bytes: &[u8]) {}
+```
+
+以上代码在clippy中会误报生命周期不能省略
+
+```
+warning: explicit lifetimes given in parameter types where they could be elided (or replaced with `'_` if needed by type declaration)
+   = note: `#[warn(clippy::needless_lifetimes)]` on by default
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes
+```
+
+要解决这个警告，需要用到一个trick: 改成`fn handle<'b>(&'b mut self, bytes: &[u8])`
