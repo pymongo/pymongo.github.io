@@ -198,6 +198,18 @@ sudo pacman -S yay # 用类似的aur_helper工具yaourt也行
 yay -S google-chrome
 ```
 
+### 初始化 postgres
+
+```
+[w@ww ~]$ sudo -iu postgres # 免密码切换到 postgres 用户
+[postgres@ww ~]$ initdb --locale=en_US.UTF-8 -E UTF8 -D /var/lib/postgres/data
+[w@ww ~]$ sudo systemctl start postgresql
+[postgres@ww ~]$ createuser --interactive
+Enter name of role to add: w
+Shall the new role be a superuser? (y/n) y
+[postgres@ww ~]$ createdb w
+```
+
 ### 安装MySQL(mariadb)
 
 ```bash

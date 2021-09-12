@@ -1,6 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-09**
-    - []
+    - [archlinux 字典应用](category/archlinux/dictd.md)
 - **2021-08**
     - [tonic ipv6 bug](/2021/08/tonic_ipv6_bug.md)
     - [rustyline add cursor shortcuts](/2021/08/rustyline_add_cursor_shortcuts.md)
@@ -31,7 +31,8 @@
     - [mongodb dump](/2021/06/mongodb_dump.md)
     - [tensorbase](/2021/06/tensorbase.md)
 - **2021-05**
-    - [Linux 屏幕共享/远程控制](/category/archlinux/linux_screen_share_remote_control.md)    - [Nvidia CUDA](/2021/05/nvidia_cuda.md)
+    - [Linux 屏幕共享/远程控制](/category/archlinux/linux_screen_share_remote_control.md)
+    - [Nvidia CUDA](/2021/05/nvidia_cuda.md)
     - [amd 超频的尝试](/2021/05/amd_overclock.md)
     - [解决 aur 包 gpg no name 错误](/category/archlinux/aur_gpg_keyserver_no_name.md)
     - [缓存解决动态规划难题](/2021/05/cache_and_recursion_memoization.md)
@@ -216,6 +217,7 @@
     - [博客新插件/样式测试](/2019/before_2019/test.md)
 - category
 - **archlinux**
+    - [archlinux 字典应用](category/archlinux/dictd.md)
     - [wine 安装/更新钉钉](/category/archlinux/wine_dingtalk.md)
     - [aur 回滚包/指定安装版本/404 等问题](/category/archlinux/aur_rollback_downgrade_package.md)
     - [解决 aur 包 gpg no name 错误](/category/archlinux/aur_gpg_keyserver_no_name.md)
