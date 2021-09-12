@@ -277,6 +277,10 @@ info命令比man的优点在于联网浏览最新文档以及支持跳转
 
 也就是STDOUT和STDERR插向同一个插座，而不是把STDERR汇流到STDOUT
 
+`2>&1` 的经典使用例如将 maven 测试的 stdout/stderr 打到同一文件做记录   :
+
+> mvn test 2>&1 | tee log.txt
+
 ### 「重要」test函数
 
 在zsh中才能知道某个函数是不是bash自带函数

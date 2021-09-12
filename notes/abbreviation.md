@@ -15,6 +15,10 @@
 - HTAP: Hybrid Transactional/Analytical Processing
 - OLTP: 线上请求(Online Transactional Processing)
 - OLAP: 后台分析(Online Analytical Processing)
+- POC: Push-to-Talk over Cellular
+- MVCC: Multi Version Concurrency Control
+
+- elasticity: 弹性
 
 ### _opt suffix
 

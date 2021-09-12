@@ -311,6 +311,10 @@ kill send signal SIGHUP to PID=512
 
 而不需要像 log4rs 那样轮询配置文件改动
 
+### SIGHUP 回调中重新加载配置文件
+
+Linux 很多应用例如 dictd 都能在接收 SIGHUP 信号后重新加载配置文件
+
 #### **busy-wait** 浪费 CPU 性能
 
 不要写出 loop {} ，轮询之类浪费 CPU 性能的代码

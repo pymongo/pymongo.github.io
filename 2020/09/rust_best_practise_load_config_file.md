@@ -25,5 +25,3 @@ dotenv不好的几点:
 这样从toml文件中拼接出来的database_url可以用于sqlx的编译时sql检查？
 
 我查阅了资料无果后就放弃了，不过Rust将toml文件反序列话为约定好的结构体，真的能约束下乱写配置文件的开发人员
-
-TODO 再看看actix-web单线程的报错

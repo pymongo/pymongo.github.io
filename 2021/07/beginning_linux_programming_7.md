@@ -220,6 +220,8 @@ or
 
 ### 为什么要有 async/await 语法糖
 
+await 语法糖可以参考 [futures-macro-await](https://docs.rs/futures-macro-await/0.2.1/src/futures_macro_await/lib.rs.html#36-65)
+
 为了编程体验更好，用同步的写法写异步代码
 
 例如 promise 的 and_then 如果数据还没准备好，就切换到其它用户态的协程

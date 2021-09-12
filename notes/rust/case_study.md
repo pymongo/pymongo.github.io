@@ -150,3 +150,29 @@ online_followers每小时采集一次的数据在3月15日只有23个小时数�
 +            )
              .await?;
 ```
+
+## loop-select! 不完全等同于 while-let-some
+
+```
+Bug 2021-08 月底
+Bug 持续时间: 2 周
+Bug 损失和影响:
+  CPU 占用率在启动后暴涨，浪费高级别的员工的时间去 debug
+  至少浪费 3-4 个 P6 级别以上的同事，至少浪费 10 人日的「人工」
+  降低部门全体员工对我的印象，严重影响了试用期转正评级
+  让领导第三次暗示我研发你搞不顶要不你转岗或试用期不通过
+事故的标签: regression/revert, 本来同事的代码是对的被我改错了
+
+复盘我的所有犯错:
+1. 为了能让 store graceful shutdown 开始乱加 shutdown receiver
+   在我完全不懂 peer_communication.rs 代码的背景下
+   居然把 rpc XXX(stream Msg) returns (...) {} 的代码改掉
+   实际上只需要在 peer 和 recover 两个 tonic rpc server 改成 graceful shutdown 就行了
+2. 甩锅，多次抱怨「之前同事写的代码就有问题，与我无关」
+3. 自以为是，嘴硬，多次强调「loop-select 跟 while-let-some」一样
+   实际上，如果 stream 是无限长的，这两确实一样
+   但分布式节点间通信的 stream 的长度是固定的
+   导致代码陷入 loop-None 死循环
+   如果是有限长度的 stream 应该用 loop-select-if-some-else-break 达到 while-let-some 等价效果
+4. 专注力不够，做事情不够 focus 跟部长加班 debug 时注意力老是被其它东西分散
+```

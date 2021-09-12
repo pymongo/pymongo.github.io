@@ -96,3 +96,11 @@ reference: <https://github.com/vkill/VPS/blob/main/Redis.md>
 # or
 (command &)
 ```
+
+## 要用 adduser 添加用户别用过时的 useradd
+
+adduser 是个 perl 脚本，会在 useradd 命令创建完用户后执行一堆配置
+
+我在公司用 useradd 使得 .ssh/authorized_keys 不生效
+
+
