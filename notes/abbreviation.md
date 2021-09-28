@@ -19,6 +19,8 @@
 - MVCC: Multi Version Concurrency Control
 
 - elasticity: 弹性
+- data_inconsistency: 数据不一致性
+- data are scattered in various files: 数据分散在多个文件
 
 ### _opt suffix
 
@@ -52,3 +54,7 @@ Example: chrono::NaiveDateTime::from_timestamp_opt
 
 - SAW: Security Access Workstation 公司内只有这种电脑能访问生产环境
 - BI: Business Intelligence(例如神策公司的产品)
+
+## misc
+
+v.s.: versus

@@ -2,7 +2,7 @@
 
 相比静态分析工具例如 clippy/ra，动态分析工具则需要程序运行才能进行分析，例如官方的 bench, test
 
-## 为什么需要动态分析
+§ 为什么需要动态分析
 
 ![](flamegraph.png)
 
@@ -20,14 +20,14 @@
 - lldb/vscode-lldb/Intellij-Rust
 
 2. 火焰图/函数调用树等动态分析工具(profile)
-- dmesg
 - cargo-miri
-- pref
-- cargo-flamegraph
 - KCachegrind
-- gprof
-- uftrace
-- ebpf
+- pref
+- gprof/uftrace
+- strace
+- pstack/gdb $PID
+
+待验证可行性的方案: ebpf, cargo-flamegraph
 
 3. 最后通过上述工具再分析几个内存错误案例:
 - SIGABRT/double-free
@@ -45,7 +45,6 @@ fn main() {
         if dir_entry.is_null() {
             break;
         }
-        // ...
     }
 }
 ```
@@ -274,11 +273,9 @@ Debug 运行直接能跳转到问题代码的所在行，并提示 `libc::readdi
 
 ## 动态分析工具
 
-### dmesg 查看 segfault 记录
+§ dmesg 查看 segfault 记录
 
 `sudo dmesg` 能查看最近几十条内核消息，发生 segfault 后能看到这样的消息:
-
-> [73815.701427] ls[165042]: segfault at 4 ip 00007fafe9bb5904 sp 00007ffd78ff8510 error 6 in libc-2.33.so[7fafe9b14000+14b000]
 
 ### cargo-miri 检查 unsafe 代码
 
@@ -296,21 +293,35 @@ error: unsupported operation: can't call foreign function: sqlite3_libversion
   |                   ^^^^^^^^^^^^^^^^^^^^ can't call foreign function: sqlite3_libversion
 ```
 
-### perf 函数调用树
+### KCachegrind
+
+> valgrind --tool=callgrind ./target/debug/tree
+
+通过 valgrind 生成 callgrind.out.887505 数据( 887505 是 PID )，再通过 KCachegrind 打开进行可视化
+
+![](https://aws1.discourse-cdn.com/business5/uploads/rust_lang/original/3X/3/1/311bcd6f2cf22c1ac9fe9e23bb6801f2cde80deb.png)
+
+参考: https://users.rust-lang.org/t/is-it-possible-to-print-the-callgraph-of-a-cargo-workspace/50369/6
+
+### perf
+
+perf/pstack/bpf 这些工具应该都在 ***linux-tools*** 这个包里面
 
 #### 检查 perf 配置
 
 首先通过 `perf record` 测试下 perf 的配置能否读取系统事件，如果返回 Error 则修改以下配置文件
 
-> sudo vim /etc/sysctl.d/sysctl.conf
-
-在 sysctl.conf 配置文件下加上一行:
+在 /etc/sysctl.d/sysctl.conf 中永久修改 perf 配置:
 
 > kernel.perf_event_paranoid = -1
 
 然后重启 sysctl 进程重新加载配置:
 
 > sudo systemctl restart systemd-sysctl.service
+
+再次确认 kernel 的 perf_event_paranoid 状态是否修改成功
+
+> cat /proc/sys/kernel/perf_event_paranoid
 
 #### perf call-graph
 
@@ -334,27 +345,114 @@ perf-report 会默认打开当前目录的 perf.data 文件，也可以通过 -i
 
 在作者的电脑上，Clion 默认的 profiler(性能探测器)就用的 perf
 
-### cargo-flamegraph
+#### perf top -p $PID
 
-cargo-flamegraph 需要系统已装 perf ，能将 perf 数据渲染成火焰图
+输出结果大致如下，可以用来调试 **.await 卡死例如死锁问题**
 
-### KCachegrind
+如果死锁发生的时候会
 
-> valgrind --tool=callgrind ./target/debug/tree
+```
+Samples: 3K of event 'cycles', 4000 Hz, Event count (approx.): 680017058 lost: 0/0 drop: 0/0
+Overhead  Shared Object       Symbol
+   9.13%  libc-2.33.so        [.] __memmove_avx_unaligned_erms                                                    
+   0.65%  my_app              [.] core::sync::atomic::atomic_load
+   0.61%  my_app              [.] __rust_probestack              
+   0.54%  my_app              [.] core::ptr::mut_ptr::<impl *mut T>::guaranteed_eq                                ▒
+   0.54%  my_app              [.] <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next    ▒
+   0.53%  my_app              [.] core::ptr::const_ptr::<impl *const T>::is_null                                  ▒
+   0.51%  libc-2.33.so        [.] malloc                         
+   0.37%  [kernel]            [k] native_write_msr               
+```
 
-通过 valgrind 生成 callgrind.out.887505 数据( 887505 是 PID )，再通过 KCachegrind 打开进行可视化
+### 能调试运行中进程的 perf 子命令
 
-![](https://aws1.discourse-cdn.com/business5/uploads/rust_lang/original/3X/3/1/311bcd6f2cf22c1ac9fe9e23bb6801f2cde80deb.png)
+- perf stat -p $PID
+- perf top -p $PID
+- perf trace -p $PID
+- perf ftrace -p $PID # need root
 
-参考: https://users.rust-lang.org/t/is-it-possible-to-print-the-callgraph-of-a-cargo-workspace/50369/6
+### strace
 
-### gprof
+`strace -p $PID` 跟 `perf trace -p $PID` 一样
+
+strace 可以实时打印 attach 的进程系统调用的入参和返回值
+
+![](strace.gif)
+
+以下是一个分布式系统进程中，跟其它三个分布式节点的通信协程之间的调度
+
+```
+sched_yield()                           = 0
+sched_yield()                           = 0
+sched_yield()                           = 0
+futex(0x5646ed99135c, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY) = 0
+futex(0x5646ed991300, FUTEX_WAKE_PRIVATE, 1) = 0
+futex(0x5646ed994a78, FUTEX_WAKE_PRIVATE, 1) = 1
+sched_yield()                           = 0
+sched_yield()                           = 0
+sched_yield()                           = 0
+futex(0x5646ed991358, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, NULL, FUTEX_BITSET_MATCH_ANY) = 0
+futex(0x5646ed991300, FUTEX_WAKE_PRIVATE, 1) = 0
+futex(0x5646ed994a7c, FUTEX_WAKE_PRIVATE, 1) = 1
+sched_yield()                           = 0
+sched_yield()                           = 0
+sched_yield()                           = 0
+```
+
+其中 futex() 系统调用功能是 fast user-space locking，常结合 sched_yield 系统调用使用
+
+### pstack/gdb $PID
+
+strace/ptrace/pstack 的原理都是 (gdb) attach PID 且需要 root 权限
+
+#### pstack
+
+pstack 实际上在 debian 上是个 bash 脚本，但在 arch/manjaro 上只有一个叫 pstack 的 aur 包
+
+而且 aur 那个 pstack 有 Bug 启动就报错: `pstack: Input/output error`
+
+我[参考这篇文章](http://www.man6.org/blog/Linux/Manjaro%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8pstack.md)
+才明白原来 aur 那个 pstack 是 C 源码编译的并非正统的 pstack bash 脚本
+
+所以我把 ubuntu/centos 的 /usr/bin/pstack 脚本抄过来就能在自己 arch 系统上运行了
+
+pstack 输出的内容跟 (gdb) attch $PID 的 bt 差不多
+
+```
+[ww w]$ sudo strace -p 1278031
+#0  0x00007fe3d667e8ca in __futex_abstimed_wait_common64 () from /usr/lib/libpthread.so.0
+#1  0x00007fe3d6678574 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /usr/lib/libpthread.so.0
+#2  0x00005631d0913432 in rocksdb::port::CondVar::TimedWait (this=0x5631d3ec0fb8, abs_time_us=1631501994205256) at
+rocksdb/port/port_posix.cc:124
+#3  0x00005631d08ac5bb in rocksdb::InstrumentedCondVar::TimedWaitInternal (this=0x5631d3ec0fb8, abs_time_us=1631501
+994205256) at rocksdb/monitoring/instrumented_mutex.cc:70
+#4  0x00005631d08ac54e in rocksdb::InstrumentedCondVar::TimedWait (this=0x5631d3ec0fb8, abs_time_us=163150199420525
+6) at rocksdb/monitoring/instrumented_mutex.cc:59
+#5  0x00005631d0766e27 in rocksdb::Timer::Run (this=0x5631d3ec0f70) at rocksdb/util/timer.h:239
+#6  0x00005631d076d5b9 in std::__invoke_impl<void, void (rocksdb::Timer::*)(), rocksdb::Timer*> (__f=@0x5631d3eeaf3
+0: (void (rocksdb::Timer::*)(rocksdb::Timer * const)) 0x5631d0766c14 <rocksdb::Timer::Run()>, __t=@0x5631d3eeaf28:
+0x5631d3ec0f70) at /usr/include/c++/11.1.0/bits/invoke.h:74
+#7  0x00005631d076d4fb in std::__invoke<void (rocksdb::Timer::*)(), rocksdb::Timer*> (__fn=@0x5631d3eeaf30: (void (
+rocksdb::Timer::*)(rocksdb::Timer * const)) 0x5631d0766c14 <rocksdb::Timer::Run()>) at /usr/include/c++/11.1.0/bits
+/invoke.h:96
+#8  0x00005631d076d46b in std::thread::_Invoker<std::tuple<void (rocksdb::Timer::*)(), rocksdb::Timer*> >::_M_invok
+e<0ul, 1ul> (this=0x5631d3eeaf28) at /usr/include/c++/11.1.0/bits/std_thread.h:253
+#9  0x00005631d076d424 in std::thread::_Invoker<std::tuple<void (rocksdb::Timer::*)(), rocksdb::Timer*> >::operator
+() (this=0x5631d3eeaf28) at /usr/include/c++/11.1.0/bits/std_thread.h:260
+#10 0x00005631d076d408 in std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (rocksdb::Timer::*)(), roc
+ksdb::Timer*> > >::_M_run (this=0x5631d3eeaf20) at /usr/include/c++/11.1.0/bits/std_thread.h:211
+#11 0x00007fe3d67783c4 in std::execute_native_thread_routine (__p=0x5631d3eeaf20) at /build/gcc/src/gcc/libstdc++-v
+3/src/c++11/thread.cc:82
+#12 0x00007fe3d6672259 in start_thread () from /usr/lib/libpthread.so.0
+```
+
+### gprof/uftrace
+
+gprof 通过源码注入一些记录函数调用的代码，记录数据会比 perf 准确很多
 
 gcc/clang 加上 `-pg` 参数，会在运行程序结束后生成监控数据文件 `mon.out`
 
-然后 gprof 对 mon.out 文件进行分析，可惜 Rust 没有部分支持
-
-### uftrace
+然后 gprof 对 mon.out 文件进行分析，可惜 Rust 的 -Zinstrument-mcount 只是部分支持 -pg
 
 为了支持数据通过火焰图格式可视化，安装 utftrace 的同时也把火焰图装了:
 
@@ -365,6 +463,10 @@ gcc/clang 加上 `-pg` 参数，会在运行程序结束后生成监控数据文
 首先 Rust 编译程序时要加上类似 gcc 的 -pg 的参数:
 
 > rustc -g -Z instrument-mcount main.rs
+
+或者用 cargo 编译构建项目
+
+> RUSTFLAGS="-Zinstrument-mcount" cargo +nightly build
 
 或者用 gccrs 或 gcc 后端进行编译
 
@@ -385,9 +487,13 @@ uftrace 记录参数:
 - --kernel(need sudo): trace kernel function
 - --no-event: 不记录线程调度
 
-### ebpf
+§ cargo-flamegraph
 
-ebpf 分析 Rust 程序应该是可行的，作者还没试过
+cargo-flamegraph 需要系统已装 perf ，能将 perf 数据渲染成火焰图
+
+§ ebpf
+
+ebpf 分析 Rust 程序应该是可行的，笔者还没试过
 
 ---
 
@@ -480,11 +586,9 @@ dirp = std::ptr::null_mut();
 
 正因为 `current_dir()` 用了 Vec 申请堆内存，内存分配器发现进程内存已经 corrupted 掉了所以中止进程
 
-我摘抄了一些系统编程书籍对这一现象的解释:
+我摘抄了 *Beginning Linux Programming* 对这一现象的解释:
 
 > one reason malloc failed is the memory structures have been corrupted, When this happens, the program may not terminate immediately
-
-感兴趣的读者可以看这本书: *Beginning Linux Programming 4th edition* 的 260 页
 
 ## SIGABRT/free-dylib-mem 案例分享
 

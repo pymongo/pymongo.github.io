@@ -176,3 +176,15 @@ Bug 损失和影响:
    如果是有限长度的 stream 应该用 loop-select-if-some-else-break 达到 while-let-some 等价效果
 4. 专注力不够，做事情不够 focus 跟部长加班 debug 时注意力老是被其它东西分散
 ```
+
+---
+
+# 调试经验
+
+## CPU 占用率高
+
+一般都是 loop busy-wait 导致的，通过 perf/uftrace/pstack/gdb 等工具找出问题代码出处
+
+1. 在 loop 用了 non-blocking 的 IO 调用，案例把 redis 的 RPOP 命令(用于任务队列)换成 BRPOP
+   BRPOP 是 blocking 版本的 RPOP 改完后 CPU 占用从 100%
+2. stream 该用 while-let-some 别用 loop-select，要么 select-some 加上 else-break
