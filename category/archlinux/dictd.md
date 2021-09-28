@@ -1,4 +1,4 @@
-# [archlinux 字典](/category/archlinux/dictd.md)
+# [archlinux 字典](category/archlinux/dictd.md)
 
 受不了 dict.cn 网页查询太慢不方便，而且不支持离线查询，我调研了一些在线和离线查询的词典解决方案
 

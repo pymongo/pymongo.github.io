@@ -2,6 +2,8 @@
 
 aur 上 钉钉大多都是 eletron 网页版，不能用项目管理等一堆功能，而截止 2021 年 9 月 UOS(deepin 企业版)的钉钉据说还在开发中，所以只能用 wine 装钉钉和微信了
 
+update: 由于 wine 版本的 dingtalk 太多 Bug 了各种闪退杀不干净不能发图片，我改用 dingtalk-linux(aur)
+
 ## wine初始化并安装.NET framework
 
 > WINEPREFIX=~/.wine winecfg

@@ -1,5 +1,17 @@
 # [nebula graph](/2021/08/nebula_graph.md)
 
+## 分布式架构
+
+nebular_graph 跟 datafuse, TIDB 一样:
+
+注 1: TIDB 的 meta 叫做 Placement Driver 但功能也是类似的
+
+注 2: 一般的数据库存储层对接的是 Linux 系统，而 datafuse 对接的是 S3
+
+- meta: 存储数据库用户信息、权限、表 schema，相当于整个分布式的中枢原子性的分配 id 给 compute 和 store
+- computing: 无状态的 SQL 解析成，生成执行计划，再去存储层查数据
+- storage: 分片存储，多副本(replication)多 shard
+
 ## Graph
 
 - 点或边的结构体类型信息: label
