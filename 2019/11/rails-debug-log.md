@@ -1,4 +1,4 @@
-# [如何打彩色log与单步调试](2019/11_2/rails-debug-log)
+# [如何打彩色log与单步调试](2019/11/rails-debug-log)
 
 ruby没有自带的debug支持(而python3.7加入与debug相关的新函数)
 

@@ -4,7 +4,7 @@
 
 Fragment无法通过构造方法传参，最佳实践是定义一个newInstance静态方法
 
-Android Studio中可以通过<var class="mark">newInstance</var>自动生成出Fragment的newIntance方法，生成的代码如下
+Android Studio中可以通过<var class="mark">newInstance</var>自动生成出Fragment的newInstance方法，生成的代码如下
 
 ```java
 public static HomeFragment newInstance() {

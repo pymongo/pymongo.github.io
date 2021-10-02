@@ -1,4 +1,4 @@
-# [admin项目的配置与工作](2019/11_2/project-admin)
+# [admin项目的配置与工作](2019/11/project-admin)
 
 记录11月1日第一次参与后台管理项目过程中,环境配置的排错,任务/需求的实现等过
 
@@ -143,7 +143,7 @@ SELECT * FROM information_schema.columns WHERE column_name = 'column_name';
 
 ### Model验证逻辑问题
 
-关于robot数据验证的逻辑我放在这篇文章中介绍[rails数据验证](2019/11_2/validates)
+关于robot数据验证的逻辑我放在这篇文章中介绍[rails数据验证](2019/11/validates)
 
 ## 翻译过程中的小问题
 

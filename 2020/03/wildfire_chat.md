@@ -15,7 +15,7 @@ Telegram
 
 移动端开源但后端不开源，Telegram制定了一套IM的后端接口标准
 
-只要你服务器后端实现了标准，就能对接Telegramm的App
+只要你服务器后端实现了标准，就能对接Telegram的App
 
 Telegram的安卓端是C语言写的，编译一直报错，弃用！
 

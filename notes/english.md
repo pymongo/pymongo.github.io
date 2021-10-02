@@ -97,7 +97,7 @@ Rust map.entry() API
 
 ## Rust RFC高频词
 
-- IR(Intermediate representation): rust_code -> HIR -> MIR -> LLVM IR -> LLVM IR optimize -> target_plaform_machine_code
+- IR(Intermediate representation): rust_code -> HIR -> MIR -> LLVM IR -> LLVM IR optimize -> target_platform_machine_code
 
 ---
 

@@ -77,7 +77,7 @@ JsonObjectRequest sendChatMessage(String chatMessage) {
     @Override
     public byte[] getBody() {
       return new HashMap<String, String>() {{
-        put("message", "HellowWorld");
+        put("message", "HelloWorld");
       }}.toString().getBytes();
     }
   };

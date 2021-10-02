@@ -230,7 +230,7 @@ Rust源码编译生成的二进制文件在build/x86_64-unknown-linux-gnu/stage2
 
 ### CTFE机制
 
-Compile Time Fuction Execution: 例如const fn就用到了CTFE机制
+Compile Time Function Execution: 例如const fn就用到了CTFE机制
 
 ### Affine types
 

@@ -187,7 +187,6 @@
     - [rubymine无法识别ruby文件](/2019/11/rubymine_not_recognize_rb.md)
     - [jQuery验证checkbox](/2019/11/checkbox_jquery_validate.md)
     - [ActiveRecord关联的命名约定/规范](/2019/11/active_record_association.md)
-    - [统计有记录的交易对](/2019/11/select-distinct.md)
     - [linear-gradient](/2019/11/linear-gradient-warn.md)
     - [link_to merge参数时报错DEPRECATION](/2019/11/link_to-merge-warning.md)
     - [涉及钱的操作要加事务处理和线程锁](/2019/11/active_record_with_lock.md)

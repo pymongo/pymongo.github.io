@@ -1,4 +1,4 @@
-# [linear-gradient](2019/11_2/linear-gradient-warn)
+# [linear-gradient](2019/11/linear-gradient-warn)
 
 编译vue代码时发现一个关于CSS属性**linear-gradient**的警告⚠️
 

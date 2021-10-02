@@ -78,7 +78,7 @@ git push
 
 ```
 # config.ru 1st edit
-run Proc.new { |env| ['200', {'Content-Type' => 'text/html'}, ['hellow rack']] }  
+run Proc.new { |env| ['200', {'Content-Type' => 'text/html'}, ['hello rack']] }  
 ```
 
 > bundle exec rackup config.ru -p 3333
@@ -137,7 +137,7 @@ grape-swagger
 
 启动服务器后在 http://localhost:4000/api/v2/swagger_doc 图形化查看接口
 
-## constrant没找到/未初始化的问题
+## constant 没找到/未初始化的问题
 
 ruby的module名和文件夹名一定要对应上
 

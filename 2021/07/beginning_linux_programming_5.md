@@ -6,7 +6,7 @@
 
 > an **address** space with one or **more threads executing** within that address space, and the required system **resources** for those threads
 
-resources eg. DLLs(dylib), open_files, env_var, data_section_of_excutable_file...
+resources eg. DLLs(dylib), open_files, env_var, data_section_of_executable_file...
 
 ## 为什么线程也有 PID? 
 

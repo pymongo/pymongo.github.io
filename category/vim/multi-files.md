@@ -32,9 +32,7 @@ Ctrl+^经常与gf搭配使用，用在跳进文件定义后返回上一个文件
 
 !> vim -p file1 file2 以多标签的方式打开多个文件
 
-:tab ba # buffer expand to tabs
-
-:tabe fileName
+:tab fileName
 
 :tabnew 
 
@@ -71,7 +69,7 @@ gt/gT - switch tab
 
 按下m, 第一个候选菜单就是创建文件或目录
 
-### dir chagne
+### dir change
 
 I - toggle display of hidden files
 O - Recursively open the dir

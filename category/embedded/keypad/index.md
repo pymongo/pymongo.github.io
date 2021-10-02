@@ -48,7 +48,7 @@
 
 所以P2.5就被**短路**电平被拉低
 
-找个临时变量colum存下P2寄存器当前状态
+找个临时变量column存下P2寄存器当前状态
 
 把P2赋值为0x<b style="color:red">f0</b>，P2变化原理同上
 
@@ -61,11 +61,11 @@
 ```c
 typedef unsigned char byte;
 void keyscan() {
-  byte nop=10, row, colum;
+  byte nop=10, row, column;
   while (P2 != 0x0f) {
     while (nop--); // 去抖动
     if (P2 != 0x0f) { // 确认有按键按下
-      colum = P2;
+      column = P2;
       P2 = 0xf0;
       row = P2;
     }
@@ -83,7 +83,7 @@ void keyscan() {
 
 <img src="https://i.loli.net/2018/05/30/5b0e9347af17d.jpg" alt="keypad.JPG" title="keypad.JPG" />
 
-数据={'colum'=0b0000_1011,'row':0b0111_0000}
+数据={'column'=0b0000_1011,'row':0b0111_0000}
 
 **几个方案**
 
@@ -95,15 +95,15 @@ C语言又没有Python字典，还是switch语句算了
 
 ```c
 char keyscan() {
-  byte nop=10, colum, key;
+  byte nop=10, column, key;
   if (P2 != 0x0f) {
     while (nop--); // 去抖动
     if (P2 != 0x0f) { // 确认有按键按下
-      colum = P2;
+      column = P2;
       P2 = 0xf0;
       // 假设第一行第二列的按键被按下
-      // 'colum'=0b0000_1011,'row':0b0111_0000
-      key = P2 | colum; // 得到0b0111_1011
+      // 'column'=0b0000_1011,'row':0b0111_0000
+      key = P2 | column; // 得到0b0111_1011
     }
     P2 = 0x0f; // P2回到默认值
     switch(key) {

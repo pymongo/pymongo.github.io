@@ -24,7 +24,7 @@
 
 用的时候我也一步步照着视频做，比如最外层是相对布局，导航栏要alignParentBottom，上面的组件要layout_above...
 
-然而还是有3个Unexpect Behaviour：
+然而还是有3个Unexpected Behaviour：
 
 1. 只有activated的图标下方才有文字
 2. activated已激活项会变大

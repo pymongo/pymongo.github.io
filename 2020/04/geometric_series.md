@@ -1,6 +1,6 @@
 # [算法 - 等比级数](/2020/04/geometric_series.md)
 
-dota游戏faceless void英雄的技能是攻击时24%的概率发动一次替身攻击(替身像日漫jojo的奇妙冒险)，
+某游戏faceless void英雄的技能是攻击时24%的概率发动一次替身攻击(替身像日漫jojo的奇妙冒险)，
 
 有趣的是，替身攻击时也有24%的概率召唤一个替身进行攻击(套娃)，参考[reddit上这个视频](https://www.reddit.com/r/DotA2/comments/9z4ntu/voids_omnislash_720/)
 

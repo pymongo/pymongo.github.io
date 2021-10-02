@@ -37,7 +37,7 @@ user.accounts.map { |account|
 
 解决方案：先建立所需**关联**，通过**includes(:currency)**干掉`N+1查询`
 
-正确地**建立关联+includes**能将N个SQL转化为`SELECT * FROM xxx WHER id IN [...]`
+正确地**建立关联+includes**能将N个SQL转化为`SELECT * FROM xxx WHERE id IN [...]`
 
 ---
 

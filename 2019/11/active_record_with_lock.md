@@ -1,4 +1,4 @@
-# [涉及钱的操作要加事务处理和线程锁](2019/11_2/active_record_with_lock.md)
+# [涉及钱的操作要加事务处理和线程锁](2019/11/active_record_with_lock.md)
 
 ActiveRecord的lock老大说只是一个**数据库锁**,并不是**线程锁**
 

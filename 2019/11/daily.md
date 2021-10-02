@@ -1,4 +1,4 @@
-# [19年11月下旬日报](2019/11_2/daily)
+# [19年11月下旬日报](2019/11/daily)
 
 ## 2019.11.26
 
@@ -13,17 +13,17 @@ Bug#内存满了
 <i class="fa fa-hashtag"></i>
 Orderbook#使用jquery验证批量撤销的checkbox
 
-关于这个技术问题，我单独写了一篇博客 [jQuery验证checkbox](2019/11_2/checkbox_jquery_validate)
+关于这个技术问题，我单独写了一篇博客 [jQuery验证checkbox](2019/11/checkbox_jquery_validate)
 
 <i class="fa fa-hashtag"></i>
-rubymine新建rb文件有时会不识别，我单独写了一篇博客 [rubymine无法识别ruby文件](2019/11_2/rubymine_not_recognize_rb)
+rubymine新建rb文件有时会不识别，我单独写了一篇博客 [rubymine无法识别ruby文件](2019/11/rubymine_not_recognize_rb)
 
 ## 2019.11.27
 
 <i class="fa fa-hashtag"></i>
 我写的手动冻结的Bug
 
-因为希望中途出错operation不创建，所以先new了operation再进行写入details表，最后opertion.save
+因为希望中途出错operation不创建，所以先new了operation再进行写入details表，最后operation.save
 
 但是new的时候是不会产生id的，我当时写的是last.id + 1，如果上面没有数据，就报错了
 
@@ -39,4 +39,4 @@ puma服务器生产环境需要手动编译css和js
 
 第二天老大早上才告诉我生产环境需要手动编译css和js
 
-相关文章[puma服务器生产环境与开发环境的区别](2019/11_2/puma_production)
+相关文章[puma服务器生产环境与开发环境的区别](2019/11/puma_production)

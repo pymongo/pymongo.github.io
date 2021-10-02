@@ -27,3 +27,5 @@ chrono::DateTime<Local>	TIMETAMP
 > Fix a spell mistake: "TIMETAMP" -> "TIMESTAMP"
 
 ![](pr_to_rust_sqlx.png)
+
+翱翔 2021-10-02 评论: 当时我对 git, CI, 开源社区常用术语不太熟练，其实 commit message 叫 fix a typo 就好了

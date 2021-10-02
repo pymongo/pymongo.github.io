@@ -16,7 +16,7 @@ androidx的底部导航栏导致我开发的安卓App出现了生产事故
 
 结果通过底部导航栏从页面1切换到页面2时，所有socket的监听回调就没了
 
-打log后发现(主要是给listener的settter方法打log，以及给两个页面的生命周期打log)
+打log后发现(主要是给listener的setter方法打log，以及给两个页面的生命周期打log)
 
 先走页面2的onCreateView、onResume并将websocket的回调设为页面2的回调方法
 

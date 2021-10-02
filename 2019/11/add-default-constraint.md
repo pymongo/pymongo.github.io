@@ -1,4 +1,4 @@
-# [Add Default Constraint](2019/11_2/add-defult-constraint)
+# [Add Default Constraint](/2019/11/add-default-constraint.md)
 
 需求: 今天做offices表的CRUD的练手时发现offices表的字段实在是太多了
 

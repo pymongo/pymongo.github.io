@@ -4,7 +4,7 @@
 
 ---
 
-## print varaiable
+## print variable
 
 ### print $1
 

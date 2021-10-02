@@ -85,7 +85,7 @@ brew install mysql@5.7
 # 将mysql的bin文件夹加到环境变量PATH
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 # 重启terminal
-mysql_secure_installtion # 设置初始密码
+mysql_secure_instaltion # 设置初始密码
 brew services start mysql # 设置开机启动mysql
 ```
 

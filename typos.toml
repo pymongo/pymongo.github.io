@@ -1,0 +1,7 @@
+[files]
+extend-exclude = [
+    "/2020/05/pr_to_sqlx_document.md"
+]
+
+[default.extend-words]
+ser = "ser" # serde
