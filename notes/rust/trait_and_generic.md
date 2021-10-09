@@ -56,7 +56,9 @@ Rust没有继承的概念，Rust实现动态分发多态的过程跟Java的向�
 
 动态分发: (优点)函数的返回值可以是不同类型(好像静态分发的impl Trait写法也能实现?)，(缺点)运行时查虚表带来性能开销而且需要额外的内存去存储虚表，还有一个缺点是不能自动类型推断
 
-## Trait Object
+## dyn safety
+
+dyn safety 是官方新的称呼更贴切，以前叫 trait object safety trait 对象安全
 
 示例: `Box<dyn Any>`, 然后 downcast 成其它类型
 

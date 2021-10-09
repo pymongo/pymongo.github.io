@@ -46,6 +46,16 @@ fn main() {
 
 但自己这样编译出来的 rustc 你发现运行时报错找不到标准库 "can't find crate for `std`" 后文再详细介绍如何解决这个报错
 
+### trait rustc_driver::Callback
+
+无论是官方的 clippy/miri 工具还是第三方的 flowistry(类似 rust-analyzer 的 Rust vscode 插件)或者 c2rust 等静态分析相关的项目
+
+都是通过重写编译器回调 trait 的各个回调钩子方法，注入自己静态分析代码的逻辑
+
+可以参考 flowistry 静态分析的这行代码:
+
+<https://github.com/willcrichton/flowistry/blob/2f0f843d46995367bf20f76b43315a7199bca70d/src/core/analysis.rs#L50>
+
 #### 如何引入 rustc_driver 库
 
 1. rustup component add rustc-dev 然后就可以链接上 `#![feature(rustc_private)] extern crate rustc_driver`
@@ -130,9 +140,97 @@ components = ["rustc-dev"]
         libstd-d6566390077dd5f5.so => not found
 ```
 
-## 添加一个 Lint
+解决 ldd not found 我有个解决想法是在 lib.rs `#[link(name="libstd-xxx")]` 然后在 main 强制调用里面任意函数实现编译时链接
 
-TODO
+但是不同电脑的 crate fingerprint 指纹是不一样不能写死
+
+## 50 行代码改造 rustc
+
+例如我想添加一个检测函数名为 foo 的 lint 检查规则
+
+```rust
+#![feature(rustc_private)]
+extern crate rustc_ast;
+extern crate rustc_driver;
+extern crate rustc_interface;
+extern crate rustc_lint;
+extern crate rustc_span;
+
+struct CompilerCallback;
+impl rustc_driver::Callbacks for CompilerCallback {
+    fn config(&mut self, config: &mut rustc_interface::interface::Config) {
+        config.register_lints = Some(Box::new(move |_session, lint_store| {
+            lint_store.register_early_pass(|| Box::new(FnNameIsFoo));
+        }));
+    }
+}
+
+struct FnNameIsFoo;
+impl FnNameIsFoo {
+    const LINT: rustc_lint::Lint = {
+        let mut lint = rustc_lint::Lint::default_fields_for_macro();
+        lint.name = "fn_name_is_foo";
+        lint.default_level = rustc_lint::Level::Warn;
+        lint
+    };
+}
+
+impl rustc_lint::LintPass for FnNameIsFoo {
+    fn name(&self) -> &'static str {
+        "fn_name_is_foo"
+    }
+}
+
+impl rustc_lint::EarlyLintPass for FnNameIsFoo {
+    fn check_fn(
+        &mut self,
+        cx: &rustc_lint::EarlyContext<'_>,
+        fn_kind: rustc_ast::visit::FnKind<'_>,
+        span: rustc_span::Span,
+        _: rustc_ast::NodeId,
+    ) {
+        if let rustc_ast::visit::FnKind::Fn(_, ident, ..) = fn_kind {
+            if ident.as_str() == "foo" {
+                rustc_lint::LintContext::struct_span_lint(cx, &Self::LINT, span, |diagnostic| {
+                    let mut diagnostic = diagnostic.build("foo is a bad name for function");
+                    diagnostic.emit();
+                });
+            }
+        }
+    }
+}
+
+fn main() {
+    rustc_driver::RunCompiler::new(&std::env::args().collect::<Vec<_>>(), &mut CompilerCallback).run().unwrap();
+}
+```
+
+**警告!**由于作者能力有限未能解决的 Bug 以上代码有时候可能不会有任何检测效果，如运行后无反应纯属正常
+
+完整的项目源码在: <https://github.com/pymongo/lints>
+
+可以通过 cargo install --path . 将检查工具安装到电脑上用 RUSTC 环境变量替换成自己编译版本就能定制如下这样的 lint 检查规则
+
+```
+warning: foo is a bad name for function
+  --> src/lib.rs:21:1
+   |
+21 | / fn foo() {
+22 | |     
+23 | | }
+   | |_^
+   |
+   = note: `#[warn(lints::lints::fn_name_is_foo::fnnameisfoo)]` on by default
+```
+
+## EarlyLint 和 LateLint 区别
+
+- EarlyLint 指的是 HIR 静态分析的 lint 检查规则
+- LateLint  指的是 MIR 静态分析的 lint 检查规则
+
+上述示例中检查函数名放在 HIR 阶段就够了所以用的是 EarlyLint
+
+注意除了 lint 有 early/late 两个概念，泛型和生命周期也有 early/late bound 的概念， C++ 也有 early/late binding 的概念，这三者之间不要搞浑了
 
 ---
 
@@ -199,6 +297,8 @@ x.py/bootstrap.py 主要用于生成 cargo/rustc 命令再用 Popen 执行
 到底会生成怎样的 cargo/rustc 参数
 
 如果没有 stage0 的 cargo/rustc 就会联网根据系统类型去下载 rustc/cargo 的压缩包
+
+联网下载的 rustc/cargo 压缩包的 checksum 在源码的这个文件 src/stage0.json
 
 如果预先编译过一次编译器则会使用本地编译的 stage0 rustc/cargo 去编译 stage0 这是我的个人理解
 
