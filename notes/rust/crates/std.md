@@ -31,3 +31,7 @@ pub const VERSION: Version = { ... };
 和 unreachable! 的区别:
 - 触发时可能发生 UB 而不是 panic
 - 会有更多的编译器优化，unreachable! 没优化
+
+## std::process::id()
+
+不必再用 libc::getpid()
