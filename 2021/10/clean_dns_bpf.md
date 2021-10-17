@@ -39,9 +39,11 @@ warning: `clean-dns-bpf` (bin "clean-dns") generated 2 warnings
 Segmentation fault (core dumped)
 ```
 
-虽然我 kernel 支持 XDP (4.8 以上) 但似乎编译 elf 模块就是有 Bug 会段错误
+虽然我 kernel 支持 XDP (4.8 以上) 但 nightly 编译 elf 模块就是有 Bug 会段错误 这是 redbpf 已知的 Bug
 
 **只好且只能用编译好的 github release 二进制分发的 elf 文件了**
+
+或者用 stable toolchain 去编译
 
 ## load/unload xdp
 

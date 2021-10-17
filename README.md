@@ -1,7 +1,7 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-10**
     - [clean-dns-bpf 使用体验](2021/10/clean_dns_bpf.md)
-    - [rustc_driver add lints](2021/10/rustc_driver_add_lints.md)
+    - [基于编译器插件定制 clippy lint](2021/10/rustc_plugin_custom_lints.md)
 - **2021-09**
     - [archlinux 字典应用](category/archlinux/dictd.md)
 - **2021-08**

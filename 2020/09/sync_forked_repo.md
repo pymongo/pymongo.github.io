@@ -1,5 +1,7 @@
 # [同步forked的sqlx项目](/2020/09/sync_forked_repo.md)
 
+<https://stackoverflow.com/questions/9646167/clean-up-a-fork-and-restart-it-from-the-upstream>
+
 今天cargo updagitte更新项目第三方库后，发现sqlx编译报错了
 
 ```

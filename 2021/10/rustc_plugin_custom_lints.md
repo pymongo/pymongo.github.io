@@ -1,22 +1,25 @@
-# [rustc_driver add lints](2021/10/rustc_driver_add_lints.md)
+# [基于编译器插件定制 clippy lint](2021/10/rustc_plugin_custom_lints.md)
 
 在我先前的文章 [custom Rust lint](/2021/06/custom_rust_lint.md) 中分别介绍了 改 clippy 源码和 dylint 库两种添加自定义 lint(静态分析代码检查规则) 的方法
 
-在 [华为 | 如何定制 Rust Clippy](https://rustmagazine.github.io/rust_magazine_2021/chapter_6/custom-clippy.html) 以及 RustConfChina 2021 的相关演讲中也作出更详细的描述
+本文基于 Rust 月刊先前文章 [华为 | 如何定制 Rust Clippy](https://rustmagazine.github.io/rust_magazine_2021/chapter_6/custom-clippy.html)
 
-但改 clippy 源码的问题是 clippy 项目庞大太多宏，还要定期同步官方 clippy 的代码改动，导致难以维护
+上述文章中提供了改 clippy 源码或 dylint 库的两个开发定制 lint 的方案，
 
-dylint 添加一条新的 lint 比 clippy 添加 lint 简单多了，但 **dylint 仅 Linux 可用**
+但 dylint 不能跨平台且以动态库形式分发难以使用，改 clippy 源码不方便与官方 lint 同步
 
-dylint 也是调用了大量 clippy 的宏源码难以读懂维护，而且 dylint 是以动态库分发的难以使用
-
-我在想一种更简单的添加 lint 的方法:
+基于上述困难，我便有了以下 lint 框架的设计需求:
 1. 一定要跨平台，同时支持 windows/mac/linux 等主流操作系统
 2. 不要有任何依赖，dylint 依赖 clippy 导致 rust-toolchain 被迫绑定跟 clippy 一样的版本
 3. 代码足够简单 50 行足以加新的 Lint，不用任何宏导致 IDE 看宏代码时变成"瞎子"
 4. 定制的 lint 工具对 **用户/使用者** 而言要易于使用
 
-为了写出比 dylint/clippy 更易于读懂的 lint 框架，我阅读了大量 rustc, rust-analyzer, clippy 源码找到一个定制 lint 实现方法
+首先用 rustc_private 编译器模块将自己 lint 框架的库编译为库(以下简称 lints 库)，然后可通过三种渠道运行
+
+1. rustc plugin 编译器动态库补丁
+2. ui_test
+3. 改 rust 源码引入 lints 库并编译为 toolchains
+4. RUSTC=/path/to/my_rustc cargo check
 
 ## RUSTC 环境变量
 
@@ -24,15 +27,17 @@ dylint 也是调用了大量 clippy 的宏源码难以读懂维护，而且 dyli
 
 然后运行 `"RUSTC=my_rustc" cargo check` 就能运行自己定制的 lint 的检查了
 
-所以我们将问题简化为 如何改 rustc 源码 + 如何编译 rustc 两个部分
+所以我们将问题简化为 如何改 rustc 源码 + 如何编译 rustc 两个部分(当然这么运行会有问题，后文再展开)
 
-## rustc 的两种编译方法
+## rustc_driver
 
-### rustc_driver
+如果说 rust 源码路径下的 compiler/rustc/src/main.rs 是最终的编译器二进制文件
 
-原版 rustc 源码在 `compiler/rustc/src/main.rs` 里面也一行调用 `rustc_driver::main()`
+那么 rustc_driver 模块就是整个编译器的入口和"大脑"，可以通过 rustc_private feature 引入这些编译器的模块
 
-所以只需要一行代码就能让 **自己的代码编译出原版 rustc**
+对比 rustc_driver 源码和 rustc 源码在 `compiler/rustc/src/main.rs` 里面也一行调用 `rustc_driver::main()`
+
+发现只需要一行代码就能让 **自己的代码编译出 rustc 编译器**
 
 ```rust
 fn main() {
