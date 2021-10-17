@@ -49,7 +49,11 @@ fn main() {
 
 **编译源码的子问题被简化为直接调用 RunCompiler，修改源码子问题转换成改 DefaultCallback 即可**
 
-但自己这样编译出来的 rustc 你发现运行时报错找不到标准库 "can't find crate for `std`" 后文再详细介绍如何解决这个报错
+### 如何引入 rustc_driver 库
+
+1. rustup component add rustc-dev 然后就可以用 feature rustc_private
+2. crates.io rustc-ap-rustc_driver 这个是 Rust 官方将编译器模块同步上传的版本
+3. 自己下载 rustc 源码通过路径引入或者通过 github 链接引入
 
 ### trait rustc_driver::Callback
 
@@ -61,97 +65,59 @@ fn main() {
 
 <https://github.com/willcrichton/flowistry/blob/2f0f843d46995367bf20f76b43315a7199bca70d/src/core/analysis.rs#L50>
 
-#### 如何引入 rustc_driver 库
+## rustc_driver 找不到标准库
 
-1. rustup component add rustc-dev 然后就可以链接上 `#![feature(rustc_private)] extern crate rustc_driver`
-2. crates.io rustc-ap-rustc_driver 这个是 Rust 官方定期将编译器模块同步上传的版本
-3. 自己下载 rustc 源码或者通过 github 链接引入
+`rustc_driver::RunCompiler::new` 这样编译出来的 rustc 运行时报错找不到标准库
 
-推荐用第一种方法，这样能在本地引入 rustc_driver 动态库解决找不到标准库的问题
+> "can't find crate for `std`"
 
-### rustc 源码编译
-
-参考官方 RustConf 2021 rustc 的相关演讲，想定制 lint 其实改 rustc 源码就好了
-
-注意 stage0 阶段 0 的 compiler 好像就只有 rustc 一个可执行文件，此时可以用 RUSTC 环境变量替换默认的 rustc
-
-如果想用全新的整套还需要继续通过 stage0 编译产物继续变成出整套 toolchain 进入到 stage1 阶段(产出 cargo, rustfmt 之类的工具)
-
-1. ./x.py setup 选 `b) compiler: Contribute to the compiler itself`
-2. ./x.py build
-3. rustup toolchain link my_rustc build/x86_64-unknown-linux-gnu/stage1
-
-然后可以在别的项目中 `cargo +my_rustc` 或者 `rustc +my_rustc` 调用自己编译的 rustc
-
-这个 rustc 遗憾的是不兼容 `!#[feature(rustc_private)]` 会跟当前 nightly 的 rustc-dev 组件版本不兼容报错:
-
-> error[E0514]: found crate `rustc_driver` compiled by an incompatible version of rustc
-
-编译 rustc 源码有几大问题:
-1. 编译慢，即便在 2021 年单核最强处理器 5900X 超频下全新编译也要 **3 分钟**
-2. 不兼容已有 toolchain 的 rustc_private
-3. rust 项目源码结构比较复杂，代码分散在几个地方不好理解和修改
-
-## 解决 rustc_driver 编译后找不到标准库
-
-其实只需要在 build.rs 中加入一行，去扩展动态库的搜索路径即可
+有个不完美的解决方案，在 build.rs 中加入一行，编译时"链接"标准库(以下为 Linux 示例)
 
 > println!("cargo:rustc-link-search=/home/w/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib");
 
 build.rs 的 `cargo:rustc-link-search=` 默认库搜索类型是 all 也包含 Rust ABI 的 rlib 格式库文件
 
-但我这样写死的路径没法跨平台，所以还是先获取 rustup 安装路径和 target 信息再拼接路径
-
-```rust
-fn main() {
-    // e.g. /home/w/.rustup
-    let rustup_home = std::env::var("RUSTUP_HOME").unwrap();
-    // e.g. nightly-x86_64-unknown-linux-gnu
-    let toolchain = std::env::var("RUSTUP_TOOLCHAIN").unwrap();
-    // let host = std::env::var("HOST").unwrap();
-    let target = std::env::var("TARGET").unwrap();
-
-    // e.g. /home/w/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib
-    let path = std::path::Path::new(&rustup_home)
-        .join("toolchains")
-        .join(toolchain)
-        .join("lib")
-        .join("rustlib")
-        .join(target)
-        .join("lib");
-    if !path.exists() {
-        panic!("{:?} not exist!\nrequire nightly toolchain with rustc-dev component", path);
-    }
-    println!("cargo:rustc-link-search=all={}", path.to_str().unwrap());
-}
-```
-
-为了**跨平台**兼容 windows 的路径分隔符 "\\" 我们拼接文件路径是必须要 Path::join 不用字符串拼接 Unix 的分隔符 "/"
-
-同时我们约束下 lint 框架项目的工具链，加入 rust-toolchain.toml
-
-```
-[toolchain]
-channel = "nightly"
-components = ["rustc-dev"]
-```
-
-虽然 ldd 可执行文件会提示 librustc_driver 和 libstd not found, 但在 Linux 下暂时可用了
+build.rs 方案 **部分解决了**「链接标准库」问题，某些时候也能正常运行，但 ldd 依然提示标准库找不到
 
 ```
 [w@ww lints]$ ldd ~/.cargo/bin/lints 
-        linux-vdso.so.1 (0x00007ffe27ca6000)
         librustc_driver-e1b628cff3afb6ed.so => not found
         libstd-d6566390077dd5f5.so => not found
 ```
 
-解决 ldd not found 我有个解决想法是在 lib.rs `#[link(name="libstd-xxx")]` 然后在 main 强制调用里面任意函数实现编译时链接
+相比 build.rs 中链接标准库，更可靠的做法是运行时给 rustc 加一个 -L 参数链接标准库
 
-但是不同电脑的 crate fingerprint 指纹是不一样不能写死
+例如以下是我 lint 框架的 ui 测试部分代码，我就是通过 rustc 运行时 -L 参数解决标准库找不到的问题
 
-## 50 行代码改造 rustc
+```rust
+let stderr = std::process::Command::new("cargo")
+    .arg("run")
+    .arg("--")
+    .arg("--emit=metadata")
+    .arg("--crate-type=lib")
+    .arg("--allow=dead_code")
+    .arg("-L")
+    .arg(env!("STD_DYLIB_PATH"))
+    .arg(rs_file_path)
+    .output()
+```
 
-例如我想添加一个检测函数名为 foo 的 lint 检查规则
+`env!("STD_DYLIB_PATH")` 来自 build.rs，具体可看我 lint 框架源码: <https://github.com/pymongo/lints>
+
+## 45 行代码写个编译器补丁/插件
+
+例如我想添加一个检测函数名为 foo 的 lint 检查规则，首先 cargo 新建一个库:
+
+> cargo new --lib rustc_plugin_my_lints
+
+然后在 Cargo.toml 将库的类型设置成 dylib
+
+```
+[lib]
+crate-type = ["dylib"]
+```
+
+然后在 src/lib.rs 中写下以下代码:
 
 ```rust
 #![feature(rustc_private)]
@@ -161,13 +127,9 @@ extern crate rustc_interface;
 extern crate rustc_lint;
 extern crate rustc_span;
 
-struct CompilerCallback;
-impl rustc_driver::Callbacks for CompilerCallback {
-    fn config(&mut self, config: &mut rustc_interface::interface::Config) {
-        config.register_lints = Some(Box::new(move |_session, lint_store| {
-            lint_store.register_early_pass(|| Box::new(FnNameIsFoo));
-        }));
-    }
+#[no_mangle]
+fn __rustc_plugin_registrar(reg: &mut rustc_driver::plugin::Registry) {
+    reg.lint_store.register_early_pass(|| Box::new(FnNameIsFoo));
 }
 
 struct FnNameIsFoo;
@@ -197,36 +159,50 @@ impl rustc_lint::EarlyLintPass for FnNameIsFoo {
         if let rustc_ast::visit::FnKind::Fn(_, ident, ..) = fn_kind {
             if ident.as_str() == "foo" {
                 rustc_lint::LintContext::struct_span_lint(cx, &Self::LINT, span, |diagnostic| {
-                    let mut diagnostic = diagnostic.build("foo is a bad name for function");
-                    diagnostic.emit();
+                    diagnostic.build("foo is a bad name for function").emit();
                 });
             }
         }
     }
 }
+```
 
+然后新建一个 examples/test_plugin.rs 文件测试我们写好的编译器插件/补丁
+
+```rust
+#![feature(plugin)]
+#![plugin(rustc_plugin_my_lints)]
+fn foo() {
+
+}
 fn main() {
-    rustc_driver::RunCompiler::new(&std::env::args().collect::<Vec<_>>(), &mut CompilerCallback).run().unwrap();
+    foo();
 }
 ```
 
-**警告!**由于作者能力有限未能解决的 Bug 以上代码有时候可能不会有任何检测效果，如运行后无反应纯属正常
+最后可以运行下编译器补丁的测试:
 
-完整的项目源码在: <https://github.com/pymongo/lints>
+> cargo run --example test_plugin
 
-可以通过 cargo install --path . 将检查工具安装到电脑上用 RUSTC 环境变量替换成自己编译版本就能定制如下这样的 lint 检查规则
+然后得到了这样的输出:
 
 ```
 warning: foo is a bad name for function
-  --> src/lib.rs:21:1
-   |
-21 | / fn foo() {
-22 | |     
-23 | | }
-   | |_^
-   |
-   = note: `#[warn(lints::lints::fn_name_is_foo::fnnameisfoo)]` on by default
+ --> examples/test_plugin.rs:3:1
+  |
+3 | / fn foo() {
+4 | |
+5 | | }
+  | |_^
+  |
+  = note: `#[warn(fn_name_is_foo)]` on by default
 ```
+
+由于 plugin feature 已经 deprecated 了，以后可能会被删掉，我的 lint 框架的设计思路是只做 lint 检查规则的功能测试和 ui 测试，定期集成到 rust 源码中编译一套自己的工具链做长远使用，同时提供 my_rustc 可执行文件或者编译器插件库进行使用
+
+---
+
+# (END)
 
 ## EarlyLint 和 LateLint 区别
 
@@ -237,9 +213,30 @@ warning: foo is a bad name for function
 
 注意除了 lint 有 early/late 两个概念，泛型和生命周期也有 early/late bound 的概念， C++ 也有 early/late binding 的概念，这三者之间不要搞浑了
 
----
-
 为了体验下修改 rustc 源码注入自己定制的 lint，以下是我编译 rustc 源码的记录 **与本文无关**
+
+## rustc 源码编译
+
+参考官方 RustConf 2021 rustc 的相关演讲，想定制 lint 其实改 rustc 源码就好了
+
+注意 stage0 阶段 0 的 compiler 好像就只有 rustc 一个可执行文件，此时可以用 RUSTC 环境变量替换默认的 rustc
+
+如果想用全新的整套还需要继续通过 stage0 编译产物继续变成出整套 toolchain 进入到 stage1 阶段(产出 cargo, rustfmt 之类的工具)
+
+1. ./x.py setup 选 `b) compiler: Contribute to the compiler itself`
+2. ./x.py build
+3. rustup toolchain link my_rustc build/x86_64-unknown-linux-gnu/stage1
+
+然后可以在别的项目中 `cargo +my_rustc` 或者 `rustc +my_rustc` 调用自己编译的 rustc
+
+这个 rustc 遗憾的是不兼容 `!#[feature(rustc_private)]` 会跟当前 nightly 的 rustc-dev 组件版本不兼容报错:
+
+> error[E0514]: found crate `rustc_driver` compiled by an incompatible version of rustc
+
+编译 rustc 源码有几大问题:
+1. 编译慢，即便在 2021 年单核最强处理器 5900X 超频下全新编译也要 **3 分钟**
+2. 不兼容已有 toolchain 的 rustc_private
+3. rust 项目源码结构比较复杂，代码分散在几个地方不好理解和修改
 
 ## 编译 rustc 源码的 workflow
 
