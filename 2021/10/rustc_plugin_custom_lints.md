@@ -104,6 +104,8 @@ let stderr = std::process::Command::new("cargo")
 
 `env!("STD_DYLIB_PATH")` 来自 build.rs，具体可看我 lint 框架源码: <https://github.com/pymongo/lints>
 
+即便运行时加上 -L 参数，但这样的 rustc 依然不容易进行 `cargo build` 或 codegen，建议仅用于分析代码
+
 ## 45 行代码写个编译器补丁/插件
 
 例如我想添加一个检测函数名为 foo 的 lint 检查规则，首先 cargo 新建一个库:
@@ -200,9 +202,11 @@ warning: foo is a bad name for function
 
 由于 plugin feature 已经 deprecated 了，以后可能会被删掉，我的 lint 框架的设计思路是只做 lint 检查规则的功能测试和 ui 测试，定期集成到 rust 源码中编译一套自己的工具链做长远使用，同时提供 my_rustc 可执行文件或者编译器插件库进行使用
 
+最后，用 rustc plugin 插件不光能定制 lint 还可以做帮组源码中的 enum 排序等等有趣的事情
+
 ---
 
-# (END)
+## (END)
 
 ## EarlyLint 和 LateLint 区别
 
