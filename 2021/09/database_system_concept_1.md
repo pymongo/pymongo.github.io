@@ -20,3 +20,11 @@ particular the schema of the database
 ## query optimization
 
 picks the lowest cost evaluation plan from among the alternatives
+
+## ch2 (divider)
+
+## DDL/DML/DQL
+
+- DDL: CREATE/DROP/ALTER
+- DML: INSERT/DELETE/UPDATE, Procedural/Declarative/nonprocedural(当今主流，数据库自动生成执行计划) DML
+- DQL: SELECT

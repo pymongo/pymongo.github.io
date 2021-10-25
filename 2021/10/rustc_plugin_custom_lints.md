@@ -200,7 +200,43 @@ warning: foo is a bad name for function
   = note: `#[warn(fn_name_is_foo)]` on by default
 ```
 
+## lints 框架的设计思路
+
 由于 plugin feature 已经 deprecated 了，以后可能会被删掉，我的 lint 框架的设计思路是只做 lint 检查规则的功能测试和 ui 测试，定期集成到 rust 源码中编译一套自己的工具链做长远使用，同时提供 my_rustc 可执行文件或者编译器插件库进行使用
+
+在我读了很多 rust-analyzer/rust-clippy/dylint/flowistry 等静态分析相关项目源码后设计了 lints 静态分析框架
+
+这是 lints 项目源码的链接: <https://github.com/pymongo/lints>
+
+以下是 lints 项目的源码结构和解读:
+
+```
+.
+├── build.rs
+├── Cargo.lock
+├── Cargo.toml
+├── examples
+│   └── compiler_plugin.rs # 编译器插件的示例
+├── README.md # crate lints 的文档
+├── rust-toolchain.toml # 定义所需 rustup components
+├── src
+│   ├── bin
+│   │   └── rustc_.rs # 用于 ui 测试，也能通过 RUSTC=/path/to/rustc_ cargo c 运行在简单项目
+│   ├── lib.rs
+│   └── lints # early_lint + late_lint 的定义和逻辑
+│       ├── check_enum_size.rs
+│       ├── fn_name_is_foo.rs
+│       └── mod.rs
+├── tests # 测试代码
+│   └── ui_test.rs # ui 测试
+└── ui_test # ui 测试用例: 输入+输出+期待值
+    ├── check_enum_size.rs
+    ├── check_enum_size.stderr
+    ├── fn_name_is_foo.rs
+    └── fn_name_is_foo.stderr
+```
+
+添加一条 lint 检查规则非常简单只需在 src/lints 下加一个文件，定义一个新的结构体并注册在 src/lints/mod.rs 即可
 
 最后，用 rustc plugin 插件不光能定制 lint 还可以做帮组源码中的 enum 排序等等有趣的事情
 

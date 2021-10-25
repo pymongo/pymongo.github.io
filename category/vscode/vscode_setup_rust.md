@@ -18,13 +18,15 @@ vscode的Rust插件和rust-analyzer(以下简称ra)插件会冲突，都支持co
 4. sudo pacman -S rust-analyzer
 5. rustup component add rust-analyzer-preview
 
+> 2021-10-25 更新: 如果有能力改 ra 源码，强烈建议改源码编译能定制忽略很多 panic 错误
+
 由于ra更新推送速度上 rustup > archlinux源 > manjaro源，建议用第五种方法安装并管理ra的更新
 
-运行rust-analyzer可执行文件的方法
+运行 rustup 版 rust-analyzer "组件"的可执行文件
 
 > rustup run nightly rust-analyzer --version
 
-vscode的setting.json中ra相关配置
+vscode 的 setting.json 中 ra 相关配置
 
 ```json
 { "rust-analyzer.server.path": "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rust-analyzer" }
