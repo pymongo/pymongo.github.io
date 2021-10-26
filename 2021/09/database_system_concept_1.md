@@ -28,3 +28,13 @@ picks the lowest cost evaluation plan from among the alternatives
 - DDL: CREATE/DROP/ALTER
 - DML: INSERT/DELETE/UPDATE, Procedural/Declarative/nonprocedural(当今主流，数据库自动生成执行计划) DML
 - DQL: SELECT
+
+## terms
+
+### relation instance
+
+term relation instance to refer to a specific instance of a relation,
+
+that is, containing a specific set of rows. The instance of instructor shown in Figure 2.1
+
+has 12 tuples, corresponding to 12 instructors.

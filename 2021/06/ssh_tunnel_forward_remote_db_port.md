@@ -13,6 +13,8 @@
 
 我们可以借助SSH的22端口作隧道，将远程服务器的端口映射到localhost这样就能让本地的datagrip或mongodb compass浏览数据了
 
-> ssh -L 27777:127.0.0.1:27017 centos@remote_server
+> ssh -N -L 27777:127.0.0.1:27017 centos@remote_server
+
+-N 表示**仅转发**，不进行 ssh login
 
 建议本地用「只读权限」的数据库帐号去浏览数据
