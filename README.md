@@ -1,4 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
+- **2021-11**
+    - [gio mime](2021/11/gio_mime_type.md)
 - **2021-10**
     - [LLVM dataflow visualization](2021/10/llvm_dataflow_visualization.md)
     - [clean-dns-bpf 使用体验](2021/10/clean_dns_bpf.md)

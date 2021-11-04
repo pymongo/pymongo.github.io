@@ -1,0 +1,3 @@
+ctrl+.: open repo in vscode online editor(github.dev)
+
+ctrl+k: command palette, #keyword to search keyword in issue

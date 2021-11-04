@@ -188,3 +188,19 @@ Bug 损失和影响:
 1. 在 loop 用了 non-blocking 的 IO 调用，案例把 redis 的 RPOP 命令(用于任务队列)换成 BRPOP
    BRPOP 是 blocking 版本的 RPOP 改完后 CPU 占用从 100%
 2. stream 该用 while-let-some 别用 loop-select，要么 select-some 加上 else-break
+
+tokio-console 会放大 CPU 空转等 Bug 代码的问题，如果 console 连不上则进程的 CPU 占用率一定是 100% 异常
+
+如果不开 tokio-console 可能还发现不了这问题且 CPU 可能还正常运转
+
+## 进程卡死
+
+### tokio 运行时内使用 futures::executor::block_on
+
+如果此时用 LLDB 看会提示 `'tokio-runtime-w', stop reason = signal SIGSTOP`
+
+futures 用到 channel 去唤醒，channel 底层是管道，由于运行时是 tokio 管道一直收不到唤醒就让线程 STOP 睡眠了
+
+导致「似乎所有线程都停了」
+
+

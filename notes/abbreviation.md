@@ -1,3 +1,6 @@
+## data warehouse term
+- SQL Lineage Analysis: SQL 血缘分析()
+
 ## coding abbreviation
 
 - cb -> callback, 常见于网络编程例如 read_cb/listen_cb，参考源码 repo: rust-reactor-executor-example, rust-epoll-example 
