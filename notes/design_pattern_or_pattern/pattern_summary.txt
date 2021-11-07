@@ -7,7 +7,7 @@
 - pub trait Visitor<'ast> // rustc_ast::visit, similar to syn::visit::Visitor
 - pub fn walk_expr_field // rustc_ast::visit
 
-## ~~fold~~
+## fold
 常用: AST 代码
 例子(rustc 源码没找到 Fold 的例子):
 - pub trait Fold // syn::fold::Fold
