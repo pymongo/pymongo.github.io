@@ -11,7 +11,7 @@
 - `xxxBuilder::build()`, `xxxBuilder::default()`
 
 ## examples
-- std::thread::Builder::new().stack_size(1024).spawn(|| {})
+- `std::thread::Builder::new().stack_size(1024).spawn(|| {})`
 
 ## usage suggestions
 

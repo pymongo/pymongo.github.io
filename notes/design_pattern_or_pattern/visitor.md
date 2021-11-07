@@ -8,7 +8,7 @@
 - 对外提供复杂树状数据结构的同时建议也提供该树状结构的 Visitor
 
 ## 常见于 Stmt/Expr
-- `pub struct Visitor`
+- `trait Visitor`
 - `fn visit_expr()`, `fn walk_xxx()`
 
 ## examples
