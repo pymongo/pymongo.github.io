@@ -20,9 +20,9 @@ fn stat() -> stat {
 }
 ```
 
-## 孤儿规则(new type 模式)
+## 孤儿规则
 
-双刃剑吧，有好有坏，不过导致过多将别人上游的结构体包一层的模板代码，可以用 Deref trait自动解引用让这层抽象对调用者来说是透明的
+双刃剑，有好有坏，好处是保护上游代码，坏处是不能直接为上游库的实现第三方 trait不方便，参考 notes/design_pattern_or_pattern/newtype.md
 
 ## move 判别粒度不够细
 
