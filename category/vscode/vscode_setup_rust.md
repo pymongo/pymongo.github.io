@@ -16,7 +16,7 @@ vscode的Rust插件和rust-analyzer(以下简称ra)插件会冲突，都支持co
 2. 自行去ra的github仓库的release页面下载相应操作系统编译好的二进制可执行文件分发
 3. git clone ra源码进行编译
 4. sudo pacman -S rust-analyzer
-5. rustup component add rust-analyzer-preview
+5. ~~rustup component add rust-analyzer-preview~~(建议改 ra 源码编译)
 
 > 2021-10-25 更新: 如果有能力改 ra 源码，强烈建议改源码编译能定制忽略很多 panic 错误
 
