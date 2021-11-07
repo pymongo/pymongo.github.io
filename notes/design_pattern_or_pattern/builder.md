@@ -1,21 +1,21 @@
 # Builder design pattern
 
 ## 作用
-
 为调用者构造结构体提供便利和可读性，说实话 Rust 的 struct expression 可读性也不比 Builder 设计模式差，如果对外的结构体的所有字段都是 pub 我宁可用 struct expression
+
+## 常用
+数据库连接池的配置结构体的构造
 
 ## 常见于 Stmt/Expr
 - `pub struct xxxBuilder`
 - `xxxBuilder::build()`, `xxxBuilder::default()`
 
 ## examples
-
 - std::thread::Builder::new().stack_size(1024).spawn(|| {})
 
 ## usage suggestions
 
 ### bad usage case
-
 如果 Builder 构建的结构体的所有字段都是 pub 则不建议用 Builder 改而用 struct expr 即可
 
 ```rust
@@ -28,7 +28,6 @@ let pool = ThreadPool {
 ```
 
 ### good usage case
-
 Builder 设计模式适用于以下这种情况结构体部分字段 pub 然后对外暴露 Builder 构造的接口
 
 ```rust
