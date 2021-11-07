@@ -5,7 +5,7 @@
 - about-this-guide
 - getting-started
 
-当前进度: how-to-build-and-run.html#create-a-configtoml
+当前进度: suggested.html#installing-a-pre-commit-hook
 
 ## bootstrapping
 
@@ -45,3 +45,15 @@ used in breaking change or features gate
 ### MCP
 
 MCP = Major Change Proposal
+
+## 默认的 stage1 编译过程
+
+Unfortunately, incremental cannot be used to speed up making the stage1 libraries
+
+1. Build std using the stage0 compiler (using incremental)
+2. Build stage1.rustc using the stage0 compiler (using incremental)
+3. Build stage1.std using the stage1 compiler (cannot use incremental)
+
+## suggested.html#configuring-rust-analyzer-for-rustc
+
+重要的必做内容， vscode 和 ra 设置上 x.py check 之后 ra 可以在 Rust 源码仓库进行代码跳转的类型提示
