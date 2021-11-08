@@ -7,8 +7,10 @@ pattern 翻译成编程范式，主要是 Rust 语言特有设计带来的编程
 Design Pattern:
 - Builder
 
-(Rust) Pattern:
-- New type
+Rust Pattern【重点】:
+- Arena
+- Ext
+- NewType
 
 ---
 

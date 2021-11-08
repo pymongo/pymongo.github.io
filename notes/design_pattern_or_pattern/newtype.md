@@ -2,6 +2,13 @@
 
 newtype 模式中被 `struct xxx()` 包起来的类型必须是 private 的，让调用方 .0 这么访问不方便也不符号**封装**的设计
 
+## 常见于 Stmt::Item(ItemStrut)
+
+可以用正则表达式去搜 NewType 模式/编程范式结构体的定义:
+
+> `struct \w+\(\w+\);`
+## 作用
+
 ### 作用 1. 为第三方库类型实现 derive/impl 或方法
 用 ext 模式只能实现定制方法，不能为第三方库类型 impl 另一个第三方库的 trait
 

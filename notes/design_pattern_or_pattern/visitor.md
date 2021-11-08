@@ -15,6 +15,11 @@
 - pub trait Visitor<'ast> // syn::visit
 - pub trait Visitor<'ast> // rustc_ast::visit
 - pub fn walk_expr_field // rustc_ast::visit
+- [servo 源码用的 syn::visit](https://github.com/servo/servo/blob/a3af32155fe74ab886862a56a75af06dee9ea9d5/components/style_derive/to_css.rs#L111)
+- [rustc_lint 的各种回调就是通过 visit 实现](https://github.com/rust-lang/rust/blob/46b8e7488eae116722196e8390c1bd2ea2e396cf/compiler/rustc_lint/src/early.rs#L83>)
+
+## Read more
+- https://github.com/ZhangHanDong/real-world-rust-design-pattern/blob/main/src/visitor.md
 
 ## See also
 - syn::fold::Fold, and Fold pattern on AST
