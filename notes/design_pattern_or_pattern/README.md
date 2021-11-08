@@ -11,6 +11,7 @@ Rust Pattern【重点】:
 - Arena
 - Ext
 - NewType
+- Fold
 
 ---
 

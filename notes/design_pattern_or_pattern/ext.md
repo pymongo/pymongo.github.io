@@ -68,7 +68,7 @@ pub arg_ext: ArgExtension // compiler/rustc_target/src/abi/call/mod.rs
 我学了那么多语言也就 Haskell 和 Rust 有 sum type，所以以前写 Java/Golang/Python 不清楚 enum 的和类型抽象能力也属正常
 
 Java 里面没有 sum_type/tagged_union 的抽象，用 extends 或 Interface 实现的"人类可以是老师或者是学生"抽象  
-(但即便是 Interface 依然无法实现类型必须是 Teacher 或 Student 二选一的和类型抽象)
+(JDK 15+ 中 [permits keyword](https://howtodoinjava.com/java15/sealed-classes-interfaces/) 可以实现「类型强制二选一」的抽象)
 
 ```java
 class PersonCommonFields {
@@ -104,6 +104,18 @@ enum PersonExt {
 ```
 
 Rust 共用字段方法二可以参考 syn 源码通过「元编程/依赖注入」codegen 的方式自动生成共有字段的结构体
+
+以下是来自飞书群他人的评价和回复:
+
+```
+这个说法有一定问题，我纠正几个点：
+1. Sum Type 是为了把有共同属性的，数量有限的类收到同一个类下面，而字段共享这件事的难点是在于，后续的其他 struct 可能仍然会 share 相同字段，在 sum type 下会导致原始类的所有代码变成 non-exhaust 的，这个用继承的实现更好；
+2. Extension Object 这种 pattern 的核心在于为已有的类扩展能力，而这种能力为什么传统的 OOP 语言不需要，本质就是因为类的继承能够完全满足这种形式。
+
+当然，解决这个问题有两种思路，一种是类似于翱翔的代码，准备一个 Core 类来 hold 共享字段，然后准备一个 Proxy 类来包含特定字段，通过 trait 等方式让两个类的字段访问变成透明的，这样使用方可能需要一定的处理 or 用动态分配来解决这个问题。另一种是用宏在 AST 上做一些操作，动态生成各个分开的结构体，这样可能会拉长编译时间和膨胀 binary，但是全静态的编译速度可能会更快。
+
+上面的说法比较绝对，其实 Extension Object 在 OOP 语言也是存在的，一个经典 case 就是对于某些不能被 Subclass 的类（比如某些 Singleton，对初始化顺序有足够要求的），也会使用 Extension Object
+```
 
 ---
 
