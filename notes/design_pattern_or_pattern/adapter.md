@@ -16,7 +16,7 @@ Adapter 主要是 Java Android 代码用的多，Rust 类型系统的抽象能�
 
 我看也不是 Java 没有 trait 这样的抽象，只不过安卓这些 API 有点过度设计过度抽象了，同为 GUI 渲染列表数组数据的代码，怎么就非要 Adapter 不可
 
-然后 Rust 源码这里除了 std::iter 有个 module 叫 adpter 然后对外 pub use 都隐藏掉这个 adapter 了（感觉 Rust 迭代器往后可以接实现迭代器 trait 的方法即可，没必要叫适配器 Adapter）
+然后 Rust 源码这里除了 std::iter 有个 module 叫 adapter 然后对外 pub use 都隐藏掉这个 adapter 了（感觉 Rust 迭代器往后可以接实现迭代器 trait 的方法即可，没必要叫适配器 Adapter）
 
 Rust 目前只在迭代器中说到往后可以接若干个适配器，实际上不要所谓的适配器抽象也够
 

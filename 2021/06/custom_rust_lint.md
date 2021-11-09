@@ -368,6 +368,8 @@ impl rustc_lint::LateLintPass<'_> for MyLintRecursiveCode {
 
 目前 Rust 浮点数的 lint 只有大小比较、i32 as f32 等 lint 并没有业务需要的这种精度丢失检测
 
+> 2021-11-08 更新: clippy pedantic lint group 有这种 cast 精度丢失的检查
+
 所以很有必要根据自身业务定制一些浮点数的 lint ，避免前端展示的浮点数出现异常情况
 
 ---

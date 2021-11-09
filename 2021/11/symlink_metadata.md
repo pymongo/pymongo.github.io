@@ -82,3 +82,17 @@ du 命令没骗你，`/dev`, `/proc`, `/sys` 这三个虚拟文件系统还真�
 有很多参数的值都是 String 类型，所以说 zcat 出来的大小也是「变长」的或者说 **不确定的长度**
 
 所以 stat 只是说 /proc/config.gz 在当前时刻如果读取出来那么长度会是多少而已
+
+```
+[w@ww repos]$ stat /proc/config.gz 
+  File: /proc/config.gz
+  Size: 58526           Blocks: 0          IO Block: 1024   regular file
+Device: 0,21    Inode: 4026532079  Links: 1
+Access: (0444/-r--r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-11-08 21:11:50.742480314 +0800
+Modify: 2021-11-08 21:11:50.742480314 +0800
+Change: 2021-11-08 21:11:50.742480314 +0800
+ Birth: -
+[w@ww repos]$ du /proc/config.gz 
+0       /proc/config.gz
+```
