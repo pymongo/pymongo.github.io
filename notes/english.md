@@ -93,14 +93,6 @@ Rust map.entry() API
 
 上下文: sqlx在一次重构url parser的commit后，db_url中不能携带non-ASCII的字符，老版本还是可以的，作者认为PR#214对db_url密码的解析是一种(regression倒退)
 
----
-
-## Rust RFC高频词
-
-- IR(Intermediate representation): rust_code -> HIR -> MIR -> LLVM IR -> LLVM IR optimize -> target_platform_machine_code
-
----
-
 deprecated
 
 ## 2020年第二季度英语积累
@@ -154,3 +146,23 @@ deprecated
 
 - Your unit tests should nearly exhaust all possible interactions with the unit
 - exhaust在CS中指的是穷举、穷尽的感觉
+
+记录每天读article/paper/book时印象深刻的陌生单词
+
+## 2020-01-18
+
+- admission: 入场费/门票费
+
+## 2020-01-25
+
+- carte blanche: (自由行使权)complete freedom to act as one wishes or thinks best.
+- empirically speaking: 凭经验而论
+- notoriously: 众所周知
+- anticipate: 预测/prediction/forecast
+
+## 2020-01-29
+
+- ubiquitous: 到处都是\[Iterators are ubiquitous in Rust]
+- terse: 简短的/简洁的
+- cite: 引用
+- wildcard: 通配符

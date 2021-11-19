@@ -33,8 +33,24 @@ picks the lowest cost evaluation plan from among the alternatives
 
 ### relation instance
 
-term relation instance to refer to a specific instance of a relation,
+term *relation* instance to refer to a specific instance of a relation,
 
 that is, containing a specific set of rows. The instance of instructor shown in Figure 2.1
 
 has 12 tuples, corresponding to 12 instructors.
+
+### tuple and attribute
+
+- relations == table
+- tuple == row
+- attribute == field/attribute
+- domain == attribute/字段 的可选值(a set of permitted values)
+    * a domain is atomic: 字段是单个值，字段的值不是数组 ~~ atomic domain 相当于 unique 吧 ~~
+
+A relationship between n values is represented mathematically by an
+n-tuple of values, that is, a tuple with n values, which corresponds to a row in a table.
+Thus, in the relational model the term relation is used to refer to a table, while the
+term tuple is used to refer to a row. Similarly, the term attribute refers to a column of a
+table.
+
+###

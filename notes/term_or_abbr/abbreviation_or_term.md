@@ -43,7 +43,7 @@ Example: chrono::NaiveDateTime::from_timestamp_opt
 - wip: working in progress
 - CVE: Common Vulnerabilities and Exposures
 
-## Rust的PR/issue常见缩写
+## Rust 社区常见术语或缩写
 
 - MIR/HIR: LLVM中间语言，Rust编译过程简单来说从AST到High-Level IR再到MIR再到LLVM IR(Intermediate Representation)
 - GAT: generic associated types
@@ -62,3 +62,15 @@ Example: chrono::NaiveDateTime::from_timestamp_opt
 ## misc
 
 v.s.: versus
+
+---
+
+## term in naming
+
+- query 和 search: query 用于结构化数据查询，能快速得到结果，例如数据库；search 则偏非结构/模糊查询，例如 google serach
+- state 和 status
+都表示状态，但是有状态转移的用 state 无状态转移的用 status 例如 HTTP status code
+<https://liqiang.io/post/status-or-state-fa70399e>
+
+
+

@@ -48,3 +48,36 @@ systemd[698]: run-rb95be102148247059e5fbf2cfcee2dcb.scope: A process of this uni
 }
 [components/tikv_util/src/sys/cgroup.rs:83] self.is_v2 = true
 
+
+---
+
+## tikv PR 2
+
+ProcessCollector
+
+```
+tikv_util: ProcessCollector should use IntGauge to provide better performance, close #11306
+
+* prometheus ProcessCollector use IntGauge because /proc/self/stat value are all integer,
+use IntGauge/IntCounter to provide better performance
+
+Signed-off-by: wuaoxiang <wuaoxiang@stargraph.cn>
+
+* move stat.starttime calculate from ProcessCollector::collect() to ProcessCollector::new()
+because process starttime is immutable only need to calculate once 
+
+Signed-off-by: wuaoxiang <wuaoxiang@stargraph.cn>
+
+* remove pid field in ProcessInfo because Process::new(pid) has string concat operation
+string/path concat, has extra performance overhead
+
+Signed-off-by: wuaoxiang <wuaoxiang@stargraph.cn>
+
+* remove redundant Mutex in ProcessInfo cpu_total field because already has Arc<Atomic> warp
+
+Signed-off-by: wuaoxiang <wuaoxiang@stargraph.cn>
+
+* remove procfs unused default chrono feature
+
+Signed-off-by: wuaoxiang <wuaoxiang@stargraph.cn>
+```
