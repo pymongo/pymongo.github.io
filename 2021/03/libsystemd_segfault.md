@@ -1,6 +1,6 @@
-# [systemd API段错误](/2021/03/libsystemd_segfault.md)
+# [systemd API段错误](2021/03/libsystemd_segfault.md)
 
-在我[上一篇systemd的文章](/2020/11/systemd.md)讲解了用systemd部署和管理Rust项目，
+在我上一篇 [systemd的文章](/2020/11/systemd.md) 讲解了用systemd部署和管理Rust项目，
 
 这篇文章主要讲如何改进Rust的logger并将Rust的日志级别映射成systemd-journal的日志级别
 

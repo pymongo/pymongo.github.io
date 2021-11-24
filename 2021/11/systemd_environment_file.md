@@ -1,5 +1,11 @@
 # [systemd env file](2021/11/systemd_environment_file.md)
 
+## 吴翱翔 systemd 系列文章
+
+- [systemd部署管理项目进程](/2020/11/systemd.md)
+- [systemd API段错误](2021/03/libsystemd_segfault.md)
+- [systemd env file](2021/11/systemd_environment_file.md)
+
 ## .service 的三种配置方法
 
 1. config file in /etc, e.g. `/etc/my.cnf`(MySQL), `/etc/grafana.ini`

@@ -21,7 +21,7 @@ sudo vim /etc/shadowsocks/1080.json
     "local_address": "0.0.0.0",
     "local_port": 1080,
     "password": "TODO",
-    "timeout": 300,
+    "timeout": 15,
     "method": "xchacha20-ietf-poly1305",
 
     // require shadowsocks-v2ray-plugin package
