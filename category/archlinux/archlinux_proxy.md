@@ -10,11 +10,11 @@ expressvpn用的openVPN协议，默认就是「全局代理」，系统设置成
 
 ## shadowsocks
 
-> sudo pacman -S shadowsocks-libev shadowsocks-v2ray-plugin
+> sudo pacman -S shadowsocks-libev
 
 sudo vim /etc/shadowsocks/1080.json
 
-```
+```json
 {
     "server": "TODO",
     "server_port": 443,
@@ -23,9 +23,11 @@ sudo vim /etc/shadowsocks/1080.json
     "password": "TODO",
     "timeout": 300,
     "method": "xchacha20-ietf-poly1305",
-    "fast_open": true,
-    "plugin": "v2ray-plugin",
-    "plugin_opts": "TODO"
+
+    // require shadowsocks-v2ray-plugin package
+    // "fast_open": true,
+    // "plugin": "v2ray-plugin",
+    // "plugin_opts": "TODO"
 }
 ```
 

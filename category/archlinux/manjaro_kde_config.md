@@ -398,9 +398,9 @@ screen_edge设置里鼠标移到右上角就显示show desktops这个没用
 
 建议用toolbox安装idea更好(通过idea-eval-resetter用上CLion)，因为manjaro源的更新落后arch好几周
 
-linux下的idea首先要安装官方的mac_keymap插件才能导入mac的配置
+linux下的idea想用mac的快捷键配置，首先要安装官方的mac_keymap插件才能导入mac的配置
 
-然后就`Help->Edit Custom Properties`中加以下配置，允许以win键为modifier的快捷键
+`Help->Edit Custom Properties`中加以下配置，允许以win键为modifier的快捷键
 
 > keymap.windows.as.meta=true
 

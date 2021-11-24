@@ -1,5 +1,20 @@
 # [database system 读书笔记 1](/2021/09/database_system_concept_1.md)
 
+## current process
+
+2.3 Database Schema, page 44
+
+## 快速选中沙拉查词/firefox 的 pdf 阅读器进行反色
+
+inspect($$('#viewerContainer')[0])
+
+## relational algebra review
+
+| operator | SQL |
+| --- | --- |
+| select | WHERE predicate |
+| projection | SELECT |
+
 ## words
 
 - obtained 48 patents: 拥有 48 项专利
@@ -53,4 +68,11 @@ Thus, in the relational model the term relation is used to refer to a table, whi
 term tuple is used to refer to a row. Similarly, the term attribute refers to a column of a
 table.
 
-###
+### snapshot
+- *database schema*: logic design of database
+- *database instance*: a *snapshot* of the data in the database
+
+### superkey
+- *superkey*: 主键或者复合主键
+- *candidate keys*/primary_key: superkey's and its subsets only one superkey
+    也就是~~单个~~主键的意思，或者是复合主键但去掉任何一个复合主键tuple成员都会无法构成 pk
