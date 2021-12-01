@@ -51,3 +51,23 @@ block_in_place 会把当前线程的其他任务分摊到其他线程中，好�
 用于排查 tokio CPU 占用率高和 await 卡死的问题，能显示出 CPU 占用率高的协程是在第几行 spawn 的
 
 但是 tokio-console 有个问题，监控的进程如果 CPU 负载很高时，监控 UI 就会卡死不动了，不可靠
+
+可以通过 TOKIO_CONSOLE_BIND 环境变量给不同进程指定不同的端口
+
+## executor
+
+tokio 默认是单线程，开 rt-multi-thread feature 后 tokio::main 宏是多线程
+
+`#[tokio::main(flavor = "current_thread")]` 可以让代码在单线程执行器内运行
+
+## tokio 缺陷
+
+为了跨平台，似乎没有一些 Linux only 的 API 例如 detach, pin to core ?
+
+### 没有 pin to core 相关 API
+
+一个 Future 可能在多个 thread 执行，上下文切换太多
+
+能不能让请求数据从网卡直接到 CPU 的固定某个核执行
+
+关键词: spdk, 协议栈

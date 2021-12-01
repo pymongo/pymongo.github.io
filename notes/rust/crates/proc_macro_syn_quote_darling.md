@@ -6,7 +6,7 @@
 
 因为嵌套的属性宏可以将外层宏的属性通过"上下文"往下游传递比较方便好用
 
-poem_openapi::OpenApi 用到了一种特殊的「设计模式」
+poem_openapi::OpenApi 用到了一种特殊的「设计模式」(pin_project 应该也用到了)
 
 解析 ImplItem::Method 的函数属性宏时候，remove 掉 ImplItem 函数的 oai 属性宏
 
