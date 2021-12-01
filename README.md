@@ -1,5 +1,8 @@
 - [归档 - 吴翱翔的博客](/)
+- **2021-12**
+    - [/proc/swaps](2021/12/proc_swaps.md)
 - **2021-11**
+    - [gpg encrypt file](2021/11/linux_gpg_encrypt_file.md)
     - [systemd env file](2021/11/systemd_environment_file.md)
     - [软链接引发的卡死问题](2021/11/symlink_metadata.md)
     - [rustc guide 读书笔记 1](2021/11/rustc_dev_guide_1.md)

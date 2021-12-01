@@ -1,3 +1,5 @@
+# [gpg encrypt file](2021/11/linux_gpg_encrypt_file.md)
+
 ## encrypt
 
 -c aka encrypt in gpg or compress in gzip

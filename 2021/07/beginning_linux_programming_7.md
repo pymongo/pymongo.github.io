@@ -226,6 +226,18 @@ await 语法糖可以参考 [futures-macro-await](https://docs.rs/futures-macro-
 
 例如 promise 的 and_then 如果数据还没准备好，就切换到其它用户态的协程
 
+### await 等于 loop-poll? —— 错!
+
+可以试试 在 poll 里面只写两行
+
+```
+println!("MyFuture::poll()");
+// cx.waker().wake_by_ref(); 这行生效的话相当于 cpu busy-wait busy-loop
+Poll::Pending
+```
+
+然后你会发现该 Future await 的时候只会执行一次打印，其实这就要一直等到 Context(waker) 去唤醒它告诉它可以继续 poll
+
 ### 为什么用户态的协程只能是「协作调度」cooperation
 
 Linux 默认下线程都是 preemptive 抢占式调度线程按时间片为单位去切换运行，不需要 yield
