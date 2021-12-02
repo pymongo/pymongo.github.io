@@ -51,20 +51,6 @@ Q: 比Spring Boot性能更好的框架?
 
 Akka(Actor)
 
-### 异步和同步
-
-<i class="fa fa-hashtag"></i>
-Q: 为什么要异步编程
-
-能充分利用CPU的空闲时钟周期，性能更好
-
-<i class="fa fa-hashtag"></i>
-await的作用
-
-异步变同步，用同步的思维写异步编程的代码
-
-futures do nothing unless polled or await
-
 ### 类型较丰富语言和类型不丰富语言
 
 自从Go/Rust做到了编译语言的自动类型推断以后，而且Rust/Java也有REPL环境，
@@ -76,8 +62,6 @@ futures do nothing unless polled or await
 例如Python
 
 例如Java，有符号的无符号的整数都叫int或long，在python里就只是一个Number
-
-C/C+还将整形
 
 但是在Rust/Go/+中，整数还分u8、u32......
 
@@ -93,27 +77,13 @@ C/C+还将整形
 
 2. 树/图这种考的少，数组/dp/双指针/逻辑(智商题)这种可能考的比较多
 
-以下是bytedance某员工对我简历版本(c6c730bdf714fd544af589580ec3e0c25c13f470)的review建议
-
-头条最早使用的是Kylin框架，后面慢慢转为ClickHouse
-
-### 博客和leetcode要不要写
-
-简历里千万不要出现刷题的经历或leetcode项目
-
-个人博客算是亮点，放到联系方式里，后者在自我介绍中加上，不要单独写成一个项目
-
-### 开源项目参与
+### 简历-开源项目参与
 
 如果开源项目投入度/参与度不高，只是一些边边角角的PR，可以穿插进项目经历中，或者放在简历最后独立写
 
 ---
 
 ## 多线程
-
-### Atomic原子序
-
-TODO
 
 ---
 
@@ -150,14 +120,14 @@ TODO
 离开页面时将onResponse回调设为null，等待新的页面重新设定Ws的onResponse
 
 ```java
-  @Override
-  public void onResume() {
+@Override
+public void onResume() {
     super.onResume();
     WebSocketConnection.getInstance().connect(message -> {
       // ...
     });
     WebSocketConnection.getInstance().subscribe(channel);
-  }
+}
 ```
 
 ```java

@@ -13,13 +13,11 @@
 - [video: Learning Rust: Memory, Ownership and Borrowing](https://www.youtube.com/watch?v=8M0QfLUDaaA&list=LLFLN2ZAPopjz2zM-FomwnkQ&index=2&t=8s)
 - [book: Rust编程之道第一版](https://github.com/ZhangHanDong/tao-of-rust-codes)
 - [article: Build Script Examples - The Cargo book](https://doc.rust-lang.org/cargo/reference/build-script-examples.html)
-
-### 看完的async资料
-
 - [talking: Rust's Journey to Async/Await](https://www.youtube.com/watch?v=lJ3NC-R3gSI&t=1700s)
 - [article: 刀哥Rust学习笔记3: 有栈协程/无栈协程](https://rustcc.cn/article?id=c0c47719-be7f-4298-ab5a-507cb65f9538)
 - [article: 刀哥Rust学习笔记4: async/await](https://rustcc.cn/article?id=495f1e25-2ede-46ec-8c85-8fd823f0a8a9)
 - [mdbook: async book](https://rust-lang.github.io/async-book)
+- article: fasterthanli.me 的所有四篇 Future 相关文章
 
 ## 日常看
 
@@ -72,5 +70,3 @@ edition-guide
 [RUST IN CURL WITH HYPER](https://daniel.haxx.se/blog/2020/10/09/rust-in-curl-with-hyper/)
 
 文章作者是curl的作者，内容大致是展望libcurl的未来规划(要做成像LLVM一样有个backend，可以自由选择想用的SSL库之类的)以及使用Rust和hyper重写的原因
-
-
