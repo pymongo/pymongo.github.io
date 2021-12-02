@@ -48,7 +48,7 @@ edition-guide
 
 ## Rust实战项目
 
-- [postgres数据库客户端/协议解析器]()
+- postgres数据库客户端/协议解析器
 
 ---
 

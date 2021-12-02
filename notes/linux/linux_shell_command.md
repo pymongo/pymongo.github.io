@@ -21,31 +21,11 @@
 /etc/samba/smb.conf
 ```
 
-## 清理所有node_modules和target文件夹
+## 清理所有 node_modules
 
 brew install trash
 
 > find . -name node_modules -type d -prune -exec trash {} +
-
-> find . -name target -type d -prune -exec trash {} +
-
-### ag和grep的性能对比
-
-PWD=~/.rustup/toolchains/nightly-x86_64-apple-darwin
-
-```
-> time ag -G '\.rs$' 'dyn ' .
-ag -G '\.rs$' 'dyn ' .  0.05s user 0.08s system 113% cpu 0.115 total
-```
-
-```
-> time grep -r --include=\*.rs 'dyn ' .
-ag -G '\.rs$' 'dyn ' .  0.05s user 0.08s system 113% cpu 0.115 total
-```
-
-## sed命令
-
-类似awk，对文本进行处理
 
 ## terminal技巧
 
@@ -83,11 +63,11 @@ reference: <https://github.com/vkill/VPS/blob/main/Redis.md>
 
 最后删掉/var/lib/redis文件夹并换成软链接指向 /data/redis，这样
 
-例如mongodb的数据文件的权限都是 mongod:mongod，rsync会把权限复制过去
+例如 mongodb 的数据文件的权限都是 mongod:mongod，rsync 会把权限复制过去
 
 好像`cp -rp`也能保持权限地复制
 
-## 括号内的nohup
+## 括号内的 nohup
 
 通常我们都用systemd部署项目进程，避免ssh shell内执行的`cargo run &`在离开会话或网络中断时不会因为父进程shell结束而结束
 
@@ -102,5 +82,3 @@ reference: <https://github.com/vkill/VPS/blob/main/Redis.md>
 adduser 是个 perl 脚本，会在 useradd 命令创建完用户后执行一堆配置
 
 我在公司用 useradd 使得 .ssh/authorized_keys 不生效
-
-

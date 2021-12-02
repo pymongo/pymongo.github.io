@@ -55,3 +55,7 @@ HashMap 遍历时顺序都是随机的，原因是 Rust 故意的是一个 featu
 tokio::select! 似乎没有这个问题，或者用 futures::select_biased!
 
 [wangrunji 的分享提到这个问题](https://github.com/madsys-dev/madsim/commit/6e6c613c5d42833629dc1d0c0e27cc9984fce9f6)
+
+## async 传染性太强
+
+10 个函数的调用链内，只有一行 await，结果导致所有 10 个函数都要定义成 async

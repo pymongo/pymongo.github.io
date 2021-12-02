@@ -5,6 +5,7 @@
 
 ## 常用
 - 编译器/数据库 parser 代码的 AST 遍历
+- clippy Lint 的各个回调就是通过 Visitor 实现
 - 对外提供复杂树状数据结构的同时建议也提供该树状结构的 Visitor
 
 ## 常见于 Stmt/Expr

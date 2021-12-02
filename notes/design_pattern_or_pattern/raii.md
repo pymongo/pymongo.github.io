@@ -1,4 +1,1 @@
-# RAII design pattern
-
-## examples
-- String
+Rust 的 Drop 或者说智能指针都用了 RAII 设计模式

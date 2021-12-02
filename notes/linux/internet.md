@@ -16,8 +16,6 @@ Open Systems Interconnection model 7 layer:
 
 建立连接3次握手，终止连接4次握手
 
-Physics
-
 ===
 
 ## 几个项目用不上但是挺有用的js API

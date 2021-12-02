@@ -61,7 +61,8 @@ Example: chrono::NaiveDateTime::from_timestamp_opt
 
 ## misc
 
-v.s.: versus
+- v.s.: versus
+- clang地址消毒(Address Sanitizer)检查内存错误
 
 ---
 

@@ -1,4 +1,1 @@
-# Iterator design pattern
-
-## examples
-- std::iter::IntoIter
+std::iter::IntoIter

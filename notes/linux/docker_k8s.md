@@ -66,10 +66,6 @@ TODO
 
 TODO
 
-## Dockerfile
-
-TODO
-
 ## Kubernetes
 
 谐音k8s，k和s中间有8个字母。k8s是docker集群的监控编排管理软件。
