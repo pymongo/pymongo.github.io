@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-12**
+    - [docker - resolve host](2021/12/docker_could_not_resolve_host.md)
     - [/proc/swaps](2021/12/proc_swaps.md)
 - **2021-11**
     - [gpg encrypt file](2021/11/linux_gpg_encrypt_file.md)
