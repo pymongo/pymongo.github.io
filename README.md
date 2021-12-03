@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-12**
+    - [curl -L follow redirect](2021/12/curl_redirect.md)
     - [docker - resolve host](2021/12/docker_could_not_resolve_host.md)
     - [/proc/swaps](2021/12/proc_swaps.md)
 - **2021-11**

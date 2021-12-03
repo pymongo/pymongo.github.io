@@ -10,10 +10,13 @@ inspect($$('#viewerContainer')[0])
 
 ## relational algebra review
 
-| operator | SQL |
-| --- | --- |
-| select | WHERE predicate |
-| projection | SELECT |
+relational algebra 学术上用于无重复的数据集合/records，但现代数据库允许表中有重复行，因此可以推广到
+
+| operator | Greek letter | SQL | notes |
+| --- | --- | --- | --- |
+| select | sigma(σ) | WHERE predicate | and(∧) or(∨) not(¬) |
+| projection | pi(Π) | SELECT |
+| Cartesian-product | cross(x) |
 
 ## words
 

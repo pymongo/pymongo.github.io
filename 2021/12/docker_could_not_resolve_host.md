@@ -11,13 +11,15 @@ Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_6
 
 这种问题就是 docker container 的 DNS 问题
 
-在 /etc/docker/daemon.json 中加上
+在 /etc/docker/daemon.json 中加上(国内网络别用谷歌的 DNS)
 
 ```
 "dns" : [
-    "114.114.114.114",
-    "8.8.8.8"
+    "119.29.29.29",
+    "114.114.114.114"
 ]
 ```
 
 然后 sudo systemctl restart docker 就能用了
+
+**如果本机发生过 OpenVPN 网络切换，需要 restart docker 才能让 container 网络访问正常**
