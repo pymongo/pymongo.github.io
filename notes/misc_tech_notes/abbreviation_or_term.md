@@ -68,7 +68,7 @@ Example: chrono::NaiveDateTime::from_timestamp_opt
 
 ## term in naming
 
-- query 和 search: query 用于结构化数据查询，能快速得到结果，例如数据库；search 则偏非结构/模糊查询，例如 google serach
+- query 和 search: query 用于结构化数据查询，能快速得到结果，例如数据库；search 则偏非结构/模糊查询，例如 google search
 - state 和 status
 都表示状态，但是有状态转移的用 state 无状态转移的用 status 例如 HTTP status code
 <https://liqiang.io/post/status-or-state-fa70399e>

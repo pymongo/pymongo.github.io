@@ -16,7 +16,14 @@ relational algebra 学术上用于无重复的数据集合/records，但现代�
 | --- | --- | --- | --- |
 | select | sigma(σ) | WHERE predicate | and(∧) or(∨) not(¬) |
 | projection | pi(Π) | SELECT |
-| Cartesian-product | cross(x) |
+| Cartesian-product | cross(x) | CROSS JOIN |
+| join | ⋈ |
+| rename | rho(ρ) | AS |
+
+### set operation
+- union
+- intersection
+- except
 
 ## words
 

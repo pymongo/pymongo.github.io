@@ -23,9 +23,7 @@
 
 ## 清理所有 node_modules
 
-brew install trash
-
-> find . -name node_modules -type d -prune -exec trash {} +
+> find . -name node_modules -type d -prune -exec gio trash {} +
 
 ## terminal技巧
 
