@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-12**
+    - [记得检查 journal 日志持久化](2021/12/systemd_journal_keep_logs.md)
     - [centos - scl_source](2021/12/centos_clang_scl_source.md)
     - [curl -L follow redirect](2021/12/curl_redirect.md)
     - [docker - resolve host](2021/12/docker_could_not_resolve_host.md)

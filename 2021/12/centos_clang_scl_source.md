@@ -29,3 +29,12 @@ yum install -y epel-release centos-release-scl
 [root@localhost aoxiang]# clang
 clang-5.0: error: no input files
 ```
+
+为了编译带 librocksdb 的 Rust 项目， centos OS 需要安装
+- epel-release (optional?)
+- centos-release-scl // add `scl_source enable llvm-toolset-7` to ~/.bashrc
+- llvm-toolset-7
+- base-devel gcc-c++
+
+
+- clang 或 devtoolset-7-llvm ?
