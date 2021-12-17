@@ -6,6 +6,7 @@
 - cb -> callback, 常见于网络编程例如 read_cb/listen_cb，参考源码 repo: rust-reactor-executor-example, rust-epoll-example 
 - tx -> transaction, 常见于 sqlx 的源码和 channel 的发送/接收端命名
 - srv -> server
+- svc -> service
 - conn -> connection
 - ret -> return_value, 常见于 leetcode 题解，题解的返回值的变量名通常都用 ret 或 ans，用 res 容易和 Rust 的 Result 产生歧义
 - _ext suffix: ext=extension, 例如futures_ext crate，例如B和C结构体"继承"了A，而且B和C在A的字段基础上多了一些字段，此时可以将B和C命名为A的a_ext

@@ -3,6 +3,10 @@
 - `ssh -R`: map localhost's port to remote_server
 - `ssh -L`: map remote_server's port to localhost
 
+e.g. map 44 machine 21024 port to local 11024 port, forward other machine access local 11024 port to 44 machine
+
+> ssh -N -L 0.0.0.0:11024:0.0.0.0:21024 root@192.168.1.44
+
 ## 用datagrip浏览服务器上的数据
 
 由于业界处于安全考虑一般生产服务器的数据库的端口都不会对外开放

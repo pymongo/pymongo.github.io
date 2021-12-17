@@ -16,6 +16,16 @@ tail -f /var/log/nginx/error.log
 # Ctrl+b, d 暂时退出当前tmux会话
 ```
 
+---
+
+## tmux -CC control mode
+
+将终端的 tab 映射成 tmux 的 tab/window，需要 terminal emulator 支持
+
+例如 KDE 的 console 不支持，mac 也只有 iterm 支持
+
+---
+
 额tmux的缺点是跟mac系统下Ctrl+B光标左移的快捷键冲突了，还有个小缺点就是默认不允许嵌套会话(也是好处，避免嵌套会话过于乱套)
 
 tail_f_nginx会话启动python3 http.server:

@@ -1,5 +1,7 @@
 # [database system 读书笔记 1](/2021/09/database_system_concept_1.md)
 
+ch01-ch02
+
 ## current process
 
 2.3 Database Schema, page 44
@@ -34,6 +36,8 @@ relational algebra 学术上用于无重复的数据集合/records，但现代�
 - payroll: 工资表
 - ubiquitous: 无所不在
 - cybersecurity: 网络安全
+
+typos: indexes -> indices
 
 ## misc
 

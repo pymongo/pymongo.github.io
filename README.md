@@ -1,5 +1,7 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-12**
+    - [database system 读书笔记 2](/2021/12/database_system_concept_2.md)
+    - [librocksdb-sys on centos7](/2021/12/centos_7_rocksdb.md)
     - [记得检查 journal 日志持久化](2021/12/systemd_journal_keep_logs.md)
     - [centos - scl_source](2021/12/centos_clang_scl_source.md)
     - [curl -L follow redirect](2021/12/curl_redirect.md)
@@ -16,6 +18,7 @@
     - [clean-dns-bpf 使用体验](2021/10/clean_dns_bpf.md)
     - [基于编译器插件定制 clippy lint](2021/10/rustc_plugin_custom_lints.md)
 - **2021-09**
+    - [database system 读书笔记 1](/2021/09/database_system_concept_1.md)
     - [archlinux 字典应用](category/archlinux/dictd.md)
 - **2021-08**
     - [tonic ipv6 bug](/2021/08/tonic_ipv6_bug.md)
