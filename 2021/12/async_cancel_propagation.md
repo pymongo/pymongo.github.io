@@ -1,4 +1,4 @@
-# [async cancel 的传播](2021/12/async_cancel_propagation.md)
+# [tokio cancel 传播的缺陷](2021/12/async_cancel_propagation.md)
 
 最近项目中遇到一些 Bug: tokio channel 的接收方不知道为何被 drop 掉了导致 send Error
 
@@ -62,6 +62,8 @@ index 5226249b..6de7f682 100644
 一般收到 cancel 后要把信号传播到每个协程中，但有些**顽固**协程活的时间很长(例如 loop sleep 之类的轮询任务)
 
 最终让 systemd stop 超时无奈发 kill 信号停止，然而发 kill 信号停止进程完成部署更新并不好，因为 `libc::signal` 的回调函数不能也无法处理 SIGKILL 信号，无法进行定制的一些资源回收操作
+
+(这个问题 golang 也有 go routetine 泄漏，go 只能 spawn 出去加上一个 down 的 channel/ctx 通知机制，通过父 task 传递下去)
 
 ```
 Dec 18 10:39:21 ww systemd[715]: Stopping graph...
@@ -203,6 +205,10 @@ tokio 能不能让某个 Future 固定在某个 CPU 核心上执行，避免在�
 在我们项目中 benchmark 发现某些模块用 tokio 的单线程 runtime 反而性能会更好，所以不能迷信多线程就一定比单线程性能好，由于 CPU 多个核心之前同步数据的开销很大，需要具体情况具体分析到底用单线程还是多线程 runtime
 
 (但单线程和多线程的 tokio::spawn 的 Future 签名是一样的... 单线程并没有少一个 Send 约束...)
+
+### tokio 对 cancel on drop 的讨论
+
+https://github.com/tokio-rs/tokio/issues/1830
 
 ---
 
