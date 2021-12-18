@@ -43,6 +43,10 @@ index 5226249b..6de7f682 100644
 如果客户端还没等 server response 就提前主动关闭连接，hyper 会将 `async fn api_get_response` 给 cancel 掉，
 所以 rx 就被 drop 掉导致后续的发送失败
 
+## cancel 没有传播带来的问题
+
+### 大量主动断开连接的恶意请求
+
 这样导致的问题是，客户端没等 response 已经掐断连接， server 端还在不停的查 spawn 协程查数据库，
 **极容易被人利用攻击服务器**，例如有人恶意发 10 万个处理时间要很长的请求，请求发出去之后客户端立即 cancel 掉，
 此时 server 如果还在处理「已经被 cancel 掉的请求」会造成资源浪费
@@ -50,6 +54,33 @@ index 5226249b..6de7f682 100644
 如果客户端断开连接后，理应让处理该请求的所有关联的异步 Task/Future 从根节点开始往后全部往后传播并取消掉，
 
 否则客户端早就断开连接服务端还在**傻乎乎的继续去查**一堆数据库，消耗大量资源查出来的数据准备返回给客户端的时候才发现 Send Error
+
+### systemctl stop 超时
+
+例如 web server 进程一般通过 [libc::signal](https://man7.org/linux/man-pages/man2/signal.2.html) 回调函数，让进程收到关闭的信号后，graceful shutdown web server
+
+一般收到 cancel 后要把信号传播到每个协程中，但有些**顽固**协程活的时间很长(例如 loop sleep 之类的轮询任务)
+
+最终让 systemd stop 超时无奈发 kill 信号停止，然而发 kill 信号停止进程完成部署更新并不好，因为 `libc::signal` 的回调函数不能也无法处理 SIGKILL 信号，无法进行定制的一些资源回收操作
+
+```
+Dec 18 10:39:21 ww systemd[715]: Stopping graph...
+Dec 18 10:39:21 ww atlasd[1518986]: 2021-12-18 10:39:21.588323  INFO atlasd: Signal SIGTERM received, stopping this daemon server
+Dec 18 10:39:21 ww atlasd[1518986]: 2021-12-18 10:39:21.588408  INFO server::graph: Prepare to stop graph server
+Dec 18 10:39:21 ww atlasd[1518986]: 2021-12-18 10:39:21.588744  INFO start_prometheus_exporter{ip=0.0.0.0 port=19100 instance_kind=Graph}:prometheus_exporter(accept): common::metrics::prome>
+Dec 18 10:39:21 ww atlasd[1518986]: 2021-12-18 10:39:21.588830  INFO web::server: graceful shutdown web server
+Dec 18 10:40:51 ww systemd[715]: graph.service: State 'stop-sigterm' timed out. Killing.
+Dec 18 10:40:51 ww systemd[715]: graph.service: Killing process 1518986 (atlasd) with signal SIGKILL.
+Dec 18 10:40:51 ww systemd[715]: graph.service: Killing process 1518988 (tokio-runtime-w) with signal SIGKILL.
+Dec 18 10:40:51 ww systemd[715]: graph.service: Killing process 1518989 (tokio-runtime-w) with signal SIGKILL.
+Dec 18 10:40:51 ww systemd[715]: graph.service: Killing process 1518993 (tokio-runtime-w) with signal SIGKILL.
+Dec 18 10:40:51 ww systemd[715]: graph.service: Killing process 1519000 (tokio-runtime-w) with signal SIGKILL.
+Dec 18 10:40:51 ww systemd[715]: graph.service: Killing process 1519002 (tokio-runtime-w) with signal SIGKILL.
+Dec 18 10:40:51 ww systemd[715]: graph.service: Killing process 1519007 (tokio-runtime-w) with signal SIGKILL.
+Dec 18 10:40:51 ww systemd[715]: graph.service: Main process exited, code=killed, status=9/KILL
+Dec 18 10:40:51 ww systemd[715]: graph.service: Failed with result 'timeout'.
+Dec 18 10:40:51 ww systemd[715]: Stopped graph.
+```
 
 ## Future 剪枝?
 
