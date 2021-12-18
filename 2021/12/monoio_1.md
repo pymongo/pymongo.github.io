@@ -68,3 +68,7 @@ uring里有个突破性技术 fastpoll 内核帮你处理fd的读写状态
 poll-based io and completion-based io
 
 epoll is a blocking operation (epoll_wait()) - you block the thread until some event happens and then you dispatch the event to different procedures/functions/branches in your code.
+
+感觉不是rust的锅，future的poll是无法用户传参的 只能捕获（类似闭包）所以默认也是无法主动切换上下文，
+本身的future根本无法通过多次poll传递不同的上下文，因为没限制 生态野蛮生长了
+hyper的h2
