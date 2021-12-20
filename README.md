@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2021-12**
+    - [nproc 获取核心数](2021/12/nproc.md)
     - [IOCP mio wine](2021/12/iocp_mio_wine.md)
     - [monoio 笔记 1](2021/12/monoio_1.md)
     - [async cancel 的传播](2021/12/async_cancel_propagation.md)
