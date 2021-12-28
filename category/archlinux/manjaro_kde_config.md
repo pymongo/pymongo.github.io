@@ -10,11 +10,12 @@
 
 ### U盘引导盘制作
 
-荣耀本的BIOS不支持MBR引导，所以将安装包ISO解压到FAT格式的U盘是不行的，推荐用etcher/raspberrypi_imager制作EFI格式的U盘引导
+**荣耀/华为本不支持 MBR 引导启动**，
+所以将安装包ISO解压到FAT格式的U盘是不行的，fedora 引导时会报错 `dracut-initqueue timeout`
+(我发现iso镜像解压到FAT32格式的U盘，启动时报错Unknown filesystem进入grub rescue)
 
-我发现iso镜像解压到FAT32格式的U盘，启动时报错Unknown filesystem进入grub rescue
+可用 etcher/raspberrypi_imager 制作 EFI 格式的 U 盘引导
 
-grub确实不能用FAT32文件系统去引导，还是只能用raspberrypi_imager制作U盘启动
 
 win10安装的引导盘却可以用FAT32甚至NTFS(看主板支持)
 

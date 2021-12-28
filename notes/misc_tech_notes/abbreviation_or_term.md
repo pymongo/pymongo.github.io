@@ -19,7 +19,7 @@
 - HTAP: Hybrid Transactional/Analytical Processing
 - OLTP: 线上请求(Online Transactional Processing)
 - OLAP: 后台分析(Online Analytical Processing)
-- POC: Push-to-Talk over Cellular
+- POC: Proof of Concept，是业界流行的针对客户具体应用的验证性测试
 - MVCC: Multi Version Concurrency Control
 
 - elasticity: 弹性
