@@ -11,8 +11,7 @@ yum install -y centos-release-scl
 # would install `llvm-toolset-7` and `devtoolset-7` to /opt/rh
 # devtoolset-7 include gcc/c++/ld binary
 yum install -y llvm-toolset-7
-echo "source scl_source enable llvm-toolset-7" >> ~/.bashrc
-echo "source scl_source enable devtoolset-7" >> ~/.bashrc
+echo "source scl_source enable llvm-toolset-7 devtoolset-7" >> ~/.bashrc
 
 # optional, just for compile fast
 yum install -y llvm-toolset-7.0-lld
@@ -21,15 +20,7 @@ echo "source scl_source enable llvm-toolset-7.0" >> ~/.bashrc
 # ignore rustup install ...
 ```
 
-!> 注意 centos7 的 gcc/ld 版本太旧了无法支持 lld
-
----
-
-## centos7 ~/.bashrc 所需内容
-
-```bash
-
-```
+!> 注意 centos7 的 gcc 版本太旧 config.toml 的 linker 要选 clang 才能支持 lld
 
 ---
 

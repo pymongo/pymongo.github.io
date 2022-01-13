@@ -49,7 +49,7 @@ T 的工资虽然会跟所有部门 B 的员工工资比，但只要比 B 部分
 
 ---
 
-## lateral keyword
+## lateral clause
 派生表, lateral join，一般用于某些需要自关联的子查询
 
 ## with clause
@@ -102,3 +102,6 @@ from department;
 
 ## scalar subquery
 子查询返回一个值
+
+## coalesce()
+用于表达 val if val is not null else DEFAULT_VAL 的逻辑，用 coalesce 会比 case-when-else 语句更简洁
