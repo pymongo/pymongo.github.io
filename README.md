@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2022-01**
+    - [Java JNI 学习笔记](/2022/01/jni.md)
     - [tikv notes](2022/01/tikv_notes.md)
 - **2021-12**
     - [gnome workspace switch](2021/12/gnome_workspace.md)
