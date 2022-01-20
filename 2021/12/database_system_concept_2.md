@@ -105,3 +105,57 @@ from department;
 
 ## coalesce()
 用于表达 val if val is not null else DEFAULT_VAL 的逻辑，用 coalesce 会比 case-when-else 语句更简洁
+
+## crossjoin/Cartesian product
+
+```
+...
+Tanaka|EE-181
+Tanaka|CS-101
+Tanaka|CS-315
+Tanaka|BIO-101
+Tanaka|BIO-301
+sqlite> explain select name, course_id from student cross join takes;
+addr  opcode         p1    p2    p3    p4             p5  comment      
+----  -------------  ----  ----  ----  -------------  --  -------------
+0     Init           0     11    0                    0   Start at 11
+1     OpenRead       0     14    0     2              0   root=14 iDb=0; student
+2     OpenRead       2     17    0     k(6,,,,,,)     0   root=17 iDb=0; sqlite_autoindex_takes_1
+3     Rewind         0     10    0                    0   
+4       Rewind         2     9     1     0              0   
+5         Column         0     1     1                    0   r[1]=student.name
+6         Column         2     1     2                    0   r[2]=takes.course_id
+7         ResultRow      1     2     0                    0   output=r[1..2]
+8       Next           2     5     0                    1   
+9     Next           0     4     0                    1   
+10    Halt           0     0     0                    0   
+11    Transaction    0     0     11    0              1   usesStmtJournal=0
+12    Goto           0     1     0                    0   
+```
+
+## natural join
+
+> select name,course_id from student,takes where student.ID = takes.ID;
+
+is same as
+
+> select name,course_id from student natural join takes where student.ID = takes.ID; -- or using ID
+
+|||
+|---|---|
+|cross join|Cartesian product, not a set addition|
+|natural join|default inner join, can set to left/right outer join|
+|inner join|a.intersect(b)|
+|left outer join| f b not in a, all b fields would NULL|
+|right outer join|if a not in b, all a fields would NULL|
+|full outer join|preserve all tuple in both relations|
+
+join ... on 和 join .. where 是不太一样的，在 outer join 结果会不一样
+
+## view
+
+虽然 with_clause/sub_query 也能模拟需要，但不方便，用 view 还能让表中数据变动时同步更新到 view(需要用 materialized view 才能同步更新)
+
+需求: 员工表的工资应该是保密的，所以员工表除了工资以外的字段可以做成 view 开放权限给普通级别的员工看
+
+
