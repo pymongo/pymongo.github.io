@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2022-01**
+    - [advertise_address](2022/01/advertise_address.md)
     - [etcd](2022/01/etcd.md)
     - [微服务 BFF 数据聚合](2022/01/micro_service_bff.md)
     - [Java JNI 学习笔记](/2022/01/jni.md)

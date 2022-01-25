@@ -6,6 +6,8 @@ Rust 编译 rocksdb 还是报错 clang 找不到
 
 centos 好像在 root 用户下才把 clang 之类的加到 PATH, 新创建的用户需要 scl_source 一下才能把 llvm 的工具加到 PATH
 
+(更新: 这是 centos7 的问题，centos 8 可以直接装 lld 不用加 scl_source 源)
+
 ---
 
 ```

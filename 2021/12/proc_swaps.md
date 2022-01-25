@@ -14,7 +14,7 @@ mount -a 可以模拟重启后重新挂载的配置，会发现 `swapoff -a` 并
 
 但是在 fedora 35+ 高版本的 swap 好像不是通过分区实现的
 
-> Fedora uses in-memory swap, not uses file or parition-based swap anymore
+> Fedora uses in-memory swap, not uses file or partition-based swap anymore
 
 https://fedoraproject.org/wiki/QA:Testcase_SwapOnZRAM_disable
 

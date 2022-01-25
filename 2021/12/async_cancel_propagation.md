@@ -39,7 +39,7 @@ index 5226249b..6de7f682 100644
 ```
 
 `async fn api_get_response` 是一个 hyper 处理 http 请求的异步函数，在里面 spawn 了一个 Task 去做一些费时的操作，
-我们用 sleep 模拟需要 5 秒才能做完任务，最后通过 chanel 将处理完的数据/结果发送给 `async fn api_get_response`，
+我们用 sleep 模拟需要 5 秒才能做完任务，最后通过 channel 将处理完的数据/结果发送给 `async fn api_get_response`，
 如果客户端还没等 server response 就提前主动关闭连接，hyper 会将 `async fn api_get_response` 给 cancel 掉，
 所以 rx 就被 drop 掉导致后续的发送失败
 
