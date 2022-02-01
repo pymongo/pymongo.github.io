@@ -17,7 +17,9 @@
 用[mdict 平台](https://mdict.org/categories/english-chinese/)
 牛津词典
 
-在 golden dict 的 dictionary 中添加牛津词典的目录，然后点 rescan 就能用牛津英汉词典了
+在 golden dict 的 dictionary 中添加牛津词典(高清大图)的目录(*.mdx, *.mdd)，然后点 rescan 就能用牛津英汉词典了
+
+![](goldendict_lettuce.png)
 
 ## dictd(可行性不行)
 
