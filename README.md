@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2022-01**
+    - [wordle](2022/02/wordle.md)
     - [Dockerfile 尽量一个 RUN](2022/01/dockerfile_use_one_run.md)
     - [advertise_address](2022/01/advertise_address.md)
     - [etcd](2022/01/etcd.md)
