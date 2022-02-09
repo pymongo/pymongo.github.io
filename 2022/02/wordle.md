@@ -4,7 +4,7 @@ recently I read a lot wordle on my twitter
 
 wordle is a word game to test your vocabulary on english, japaneses...
 
-everyday a guess a new 5 letters word with unique letters, you has 6 times to try
+everyday a guess a new 5 letters word ~~with unique letters~~, you has 6 times to try
 
 wordle start with type a random word then click enter
 
