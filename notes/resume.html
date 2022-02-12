@@ -74,8 +74,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 <div class="page-container">
     <h1 class="header1 resume-title">应聘 Rust 开发 - 吴翱翔的简历</h1>
     <div style="text-align: center">17150313884 | os.popen@gmail.com</div>
-    <div style="text-align: center"><span class="bold">博客</span>: pymongo.github.io | Github: pymongo</div>
-    <!-- <div style="text-align: center">leetcode账号: leetcode-cn.com/u/user0772-d</div> -->
+    <div style="text-align: center"><span class="bold">博客/Github</span>: pymongo.github.io</div>
     <hr class="divider">
 
     <!-- <h2 class="header2">§ 教育经历</h2>
@@ -90,7 +89,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <h3 class="header3">
         <span class="project-title">北京海致星图科技有限公司</span>
         <span class="project-role">高级图数据库开发工程师</span>
-        <span class="project-cycle">2021.08 - 2022.02</span>
+        <span class="project-cycle">2021.08 - 至今</span>
     </h3>
     <p>・负责图数据库的查询引擎和周边工具的开发、可观测性建设和 devops 等工作</p>
     <h3 class="header3">
@@ -119,8 +118,6 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <h2 class="header2">§ 项目经历</h2>
 
 <!--
-
-
 - 参与版本管理工作流规范制定和代码质量，推动
 - 通过 custom_test_frameworks 搭建自动测试框架
 -->
@@ -135,46 +132,50 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 - 研发 rpm/systemd 打包交付，降低客户安装/升级/部署产品的学习成本
 - 修复了图数据库协程泄漏等耗尽系统资源的 Bug
 - 编写/测试/调试多个图数据库内置函数，并产出数据库查询的产品文档
-
 devops:
 - 开发图数据库的 docker-compose/systemd 部署配置和脚本
 - 编写 gitlab/jenkins 持续构建/持续集成用的 centos7 Dockerfile
 - CI 自动出包: 每个 commit 自动构建 rpm/docker image 并上传到 minio/jfrog
-- 
-
+- 效仿 Tikv 代码质量管理力求每行代码跟 jira 任务和 wiki 文档一一对应
 可观测性建设:
-- prometheus/grafana 指标数据收集与 rpc 监控
-
-[项目依赖上游开源项目改进]
-
-
-
-
-
-
-
-　　　　   2. 熟练 archlinux 作为开发机模拟服务器环境，学会隧道映射服务器数据库端口进行调试
+- prometheus/grafana 指标数据收集、进程 coredump 信息收集
+- 调研 sidecar 伴生容器日志收集，分析多种日志收集方案的 trade-off
+基础工程:
+- 配置文件 merge 功能开发(从命令行参数 overwrite 配置项)
+- 通过 perf/strace/uftrace/tcpdump 分析解决一些性能问题
+周边工具:
+- 图数据导入工具、数据库查询性能测试工具
+- 数据命令行客户端自动补全功能
+查询引擎工作:
+- 开发批量添加边等 rpc 接口
+项目依赖上游开源库的贡献:
+- rust-prometheus: 提供 process feature 的信息采集速度(#430)
+- procfs: 新增 /proc/net/route 解析(#162)、减小包的体积(#156)
+- poem: OpenApi 过程宏多个新功能实现(#46,47,59,71)
+数据库领域相关开源贡献:
+- tikv: 修复 cgroup 测试用例失败(#11176)、提升 prometheus 采集 CPU 信息的性能(#11308)
+- databend: 实现内置函数 inet_ntoa(#2824)、报告 RADIANS 函数 bug(#2844)
+- tensorbase: 改进单元测试一些临时文件创建的逻辑(#115,153,197)
     </pre>
 
     <h3 class="header3">
         <span class="project-title">Ig Analyzer</span>
-        <span class="project-role">Rust 开发</span>
-        <span class="project-cycle">2020.11 - 至今</span>
+        <span class="project-role"></span>
+        <span class="project-cycle">2020.11 - 2021.08</span>
     </h3>
     <pre class="project-details">
-[项目介绍] Instagram/Twitter 等社交平台的推文/粉丝数的数据分析应用
-[技术架构] 数据通信格式主要用 grpc-web(protobuf) 和 Graphql(json)
-[主要工作] 1. Instagram 粉丝国家/城市/年龄/性别分布等时序数据的统计和分析接口
-　　　　   2. 将 libsystemd.so/syslog 等日志相关系统调用跟 Rust 应用对接
-　　　　   3. 考察后端运行时换成 io_uring 的 glommio 或 tokio-uring 的可行性
-[项目收获] 1. 深入理解 tokio/mio 源码的 epoll IO 多路复用结合异步编程 reactor 的抽象
-　　　　   2. 熟练 archlinux 作为开发机模拟服务器环境，学会隧道映射服务器数据库端口进行调试
+贡献价值:
+- 完成 Instagram 粉丝时序数据定时抓取和存储功能
+项目依赖上游开源库的贡献:
+- mongodb/bson-rust: 优化 bson::DateTime::now() 性能提升约 70%(#260)
+- rust-postgres#669: 我读了写 pg 协议部分文档后改进了库中相关代码(#669)
+- sqlx: 修复若干 MySQL/SQLite 部分的 Bug(#319,581,592,1002)
     </pre>
 
 <!--
     <h3 class="header3">
         <span class="project-title">WebSocket 服务器</span>
-        <span class="project-role">Rust 开发</span>
+        <span class="project-role"></span>
         <span class="project-cycle">2020.07 - 至今</span>
     </h3>
     <pre class="project-details">
@@ -188,23 +189,20 @@ devops:
 -->
     <h3 class="header3">
         <span class="project-title">数字货币交易所订单撮合引擎</span>
-        <span class="project-role">Rust 开发</span>
+        <span class="project-role"></span>
         <span class="project-cycle">2020.04 - 2020.07</span>
     </h3>
-    <pre class="deprecated">使用泛型复用了所有接口表单中公共参数的校验，例如检查lang字段合法就是通过泛型实现</pre>
-    <pre class="deprecated">diesel遇到数据库死锁的问题，使用MySQL的slow_log/general_log排查与调试性能问题，通过添加索引等方式提高性能</pre>
-    <pre class="deprecated">静态区间和数据用前缀和，动态区间和数据用线段树；静态排序数据用快排，动态排序数据用堆</pre>
-    <pre class="deprecated">由于内存订单数据使用到了堆，所以删除操作是lazy_delete的，发现了thread::spawn内打印log(日志)会运行时异常，而用tokio::spawn则不会发生该错误</pre>
-    <pre class="deprecated">
-        　3. 实现了股票撮合引擎当日加权平均成交收盘价的自动更新，解决了股票成交后账户余额可能变负数的问题
+    <!--
+    使用泛型复用了所有接口表单中公共参数的校验，例如检查lang字段合法就是通过泛型实现
+    diesel遇到数据库死锁的问题，使用MySQL的slow_log/general_log排查与调试性能问题，通过添加索引等方式提高性能
+    静态区间和数据用前缀和，动态区间和数据用线段树；静态排序数据用快排，动态排序数据用堆
+    由于内存订单数据使用到了堆，所以删除操作是lazy_delete的，发现了thread::spawn内打印log(日志)会运行时异常，而用tokio::spawn则不会发生该错误
+    　3. 实现了股票撮合引擎当日加权平均成交收盘价的自动更新，解决了股票成交后账户余额可能变负数的问题
 　　　　   2. 撮合引擎本质上是一个 API 服务器，主要由创建订单/撤单/撤销全部三个接口组成
 　　　　      三个接口都需要将各参数按字典序加private_key算出数字签名，我开发了一个derive过程宏
 　　　　      不仅可以让每个表单在编译时自动实现参数验证的方法，还能用泛型复用三个接口
 　　　　   4. 一个进程只负责一个交易对，所有进程都是共用一个可执行文件，通过环境变量/命令行参数区分交易对
 　　　　   2. 解决多线程环境下内存撮合过程中买单卖单成交操作的原子性，确保交易所对账准确无误
-    </pre>
-    <pre class="project-details">
-[项目介绍] 数字货币交易所的撮合引擎的功能是将价格相近的买单和买单匹配在一起进行成交
 [项目成绩] 我用 Rust 重写后每秒处理请求数是 Ruby 版的 15-25 倍，CPU 负载比老版低很多
 [技术架构] 1. 技术栈是: tide+sqlx+async-redis，曾经用过 actix-web+diesel
 　　　　   2. 将未完成的订单数据用「优先队列/堆」的数据结构持久化存储在内存中，减少 MySQL 的负载
@@ -213,6 +211,16 @@ devops:
 [项目收获] 1. 熟悉 Rust 全局共享可变和不可变数据的各种方法，摸索出比 OnceCell 或 LazyStatic 更佳的
 　　　　      共享数据方式: 在 main 中创建 state 往后层层传递到各个协程
 　　　　   2. 发现 rust_decimal 性能比 bigdecimal-rs 好得多，适用于金融计算的业务
+    -->
+    <pre class="project-details">
+项目介绍:
+- 数字货币交易所的撮合引擎的功能是将价格相近的买单和买单匹配在一起进行成交
+贡献价值:
+- Rust 重写 Ruby 版撮合引擎后，查询延迟降低 90%，CPU/内存占用降低 95%
+- 用堆算法存储进行中的订单，插入性能比老版有序数组快了一个数量级
+项目依赖上游开源库的贡献:
+- bigdecimal-rs: 我实现了四舍五入的 round 方法并贡献了 16 个测试用例(#66)
+- uinb/galois: galois 改良 galois 股票撮合引擎的配置文件(#7,#12)
     </pre>
 
     <!--
@@ -221,64 +229,28 @@ devops:
         <span class="project-role">安卓开发</span>
         <span class="project-cycle">2020.01 - 2020.04</span>
     </h3>
-    <pre class="project-details">
-　　　　   1. 通过Parcelable序列化/反序列化接口实现两个页面之间传递Java实例对象，友盟 SDK
-    </pre>
+    <pre class="project-details">1. 通过Parcelable序列化/反序列化接口实现两个页面之间传递Java实例对象，友盟 SDK</pre>
     <hr class="divider">
     -->
-    <h2 class="header2">§ 个人开源项目</h2>
-    <h3 class="header3">
-        <span class="project-title">WebSocket 聊天</span>
-        <span class="project-role">Rust/C++</span>
-        <span class="project-cycle"></span>
-    </h3>
+    <h2 class="header2">§ 个人项目</h2>
     <pre class="project-details">
-[项目链接] https://github.com/pymongo/chat_server
-[项目介绍] 后端 tokio，桌面端用 gtk 的聊天应用，准备自己造个异步 executor 重写
-[项目收获] 熟悉 tokio 协程间通信的相关 API，了解 gtk tree_view 和 qt list_view 的区别
+¶ 嵌入式/FFI 相关
+- saks: 针对树莓派 BCM2711 芯片手册研发的瑞士军刀扩展板驱动，使用 mmap 读写寄存器
+¶ 数据库相关
+- gdbm_compat(已发布 crates.io): key-value 数据库 dbm 的 FFI 绑定库
+- pg_client: pg 数据库成协议解析器/客户端，学习了 little endian 以及 cursor 读数据
+¶ 静态分析/文本分析相关:
+- lints: 定制 clippy lint 框架，实现过程中学习了 rustc_lint 相关源码
+- typo_checker: 基于 rustc 私有 API 和前缀树的拼写错误检查应用
+¶ 算法相关
+- leetcode-rust: 通过了 500 多题/周赛过 2-3 题水平，力求多解曾用 rustc_lexer 解题
+¶ 系统编程相关:
+- logger: 基于 systemd/syslog API 的 Rust 日志库
+- 用 Rust 重写过一些 Linux 命令工具，积累 SIGABRT/SIGSEGV 的调试经验
+- 练习过 pipe, socket, System V message queue, semaphores 等相关系统调用
     </pre>
 
-    <h3 class="header3">
-        <span class="project-title">linux_commands_rewritten_in_rust</span>
-        <span class="project-role"></span>
-        <span class="project-cycle"></span>
-    </h3>
-    <pre class="project-details">
-[项目链接] https://github.com/pymongo/linux_commands_rewritten_in_rust
-[项目介绍] Rust 系统编程、数据库驱动开发和用 Rust 重写所有 Linux 命令
-　　　　   目前用 Rust 已写完 ping, tree 等命令的，涵盖文件系统网络编程等场景
-[项目收获] 1. System V message queue, semaphores, shared memory
-　　　　   2. 积累 FFI 调用代码中 SIGABRT/SIGSEGV/SIGBUG/SIGRET 等内存错误的案例分析和调试经验
-    </pre>
-
-    <!--
-BinChengZhao/delay-timer#1: 解决文档中 Rust 代码渲染高亮失败的问题
-¶ 区块链相关 PR
-- Phala-Network/phala-blockchain#172: use is_empty() to check str/vec empty
--->
-    <h2 class="header2">§ 开源社区贡献 PR</h2>
-    <pre class="project-details">
-¶ 数据库相关 PR
-- mongodb/bson-rust#260: 我优化了 bson::DateTime::now(), mongodb 官方人员称性能提升约 70%
-- mongodb/bson-rust#277: 重构 RFC3389 格式时间字符串的解析和 chrono feature
-- rust-postgres#669: make postgres protocol version value more readable
-- sqlx(rust)#319,#581,#592,#1002: 解决了 sqlx 的 issue#981 编译时 SQL 检查可能 hang
-- tensorbase#115,#153,#197:
-    tensorbase 是 Rust 写的类似 clickhouse 的数据仓库
-    我用 tmpfile 系统调用优化了临时文件的创建，还负责在 ARM 架构硬件的测试
-- tikv/agatedb#104: 修复了一些 clippy 的 lints
-¶ 数据结构相关 PR
-- bigdecimal-rs#66: 我实现了四舍五入的 round 方法并贡献了 16 个测试用例
-¶ Web 框架相关 PR
-- KernelErr/blacktea#1: blacktea 是基于 hyper 的 HTTP 框架，我负责 io_uring 异步运行时的支持
-¶ 基础设施/操作系统工具相关 PR
-- polyverse/rmesg#11： 这是用 Rust 重写内核信息查看工具 dmesg ，我增加了 sudo 权限的帮助提示
-- actix/examples#298: 删掉了 actix-web 关闭服务器代码例子中两个无用变量
-¶ 应用相关 PR
-- wildfirechat/android-chat#330: 野火聊天安卓端，我将一些文案改成 tools:text 属性(仅预览下可见)
-- uinb/galois#7,#12: galois 是一个股票撮合引擎，基于我之前撮合开发的经验改良了配置文件
-    </pre>
-
+<!--
     <h2 class="header2">§ 个人的演讲/教学视频/开源库</h2>
     <pre class="project-details">
 ¶ 演讲:
@@ -289,19 +261,9 @@ BinChengZhao/delay-timer#1: 解决文档中 Rust 代码渲染高亮失败的问�
 - 用 Rust 重写 Linux 命令系列: https://bilibili.com/video/BV14q4y1s7UB/
 - 20 分钟写个聊天服务器: https://bilibili.com/video/BV1QK4y1G7ao/
 - Rust 运行时动态加载配置文件和软中断: https://bilibili.com/video/BV1Jw41197Rd/
-¶ CI/CD相关库:
-- typo_checker: 基于 rustc 私有 API 和前缀树的拼写错误检查应用
-- my_lints: 静态分析 lint 工具，包含禁止使用递归代码，精度丢失等代码质量检查lint规则
-¶ 基础设施相关库:
-- logger: 针对 systemd 部署的 Rust 项目设计的一款高性能 logger，支持按时间范围查询日志
 ¶ 数据结构相关库:
 - typeid_key_hashmap: 类似 actix_web::web::Data，key 是类型支持存储任意类型的 HashMap
-¶ 数据库相关库:
-- gdbm_compat(已上传crates.io): key-value 数据库 dbm 的 FFI 绑定库，还提供了增删改查的示例
-- pg_client: postgres 协议解析器/客户端，学习了 little/naive endian 以及 cursor 读数据
-¶ 驱动类相关库:
-- saks(已上传crates.io): 针对 BCM2711 芯片手册研发的瑞士军刀扩展版驱动，使用 mmap 读写寄存器 
-    </pre>
+-->
 
     <!--
     <h3 class="header3">
