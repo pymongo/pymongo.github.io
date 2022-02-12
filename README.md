@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2022-01**
+    - [logstash, sidecar](2022/02/logstash_sidecar.md)
     - [/usr/bin/true](2022/02/usr_bin_true.md)
     - [miri 能干什么](2022/02/what_miri_can_do.md)
     - [BinaryHeap Hole](2022/02/binary_heap_hole.md)

@@ -65,20 +65,16 @@
 <body>
 <!--
 STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)；
-
-好的项目经历，应该包含：项目名称-项目角色-项目周期、项目简介/介绍/描述、项目背景、项目架构、主要工作、开源贡献(穿插)、个人收获/项目收获
 不但完成了网站界面、调度队列的开发工作，更提出了高效的组件级缓存系统，通过碎片化缓冲有效的提升了系统的渲染效率。（F，这部分是很多同学忘掉的，细化具体工作，要写出你在这个项目中具体负责的部分，以及你贡献出来的价值）
 在该系统上线后，Web前端性能从 10QPS 提升到 200QPS，服务器由 10 台减少到 3 台。（A，通过量化的数字进行对比）
-2008 年，升任 WAPCMS 项目负责人，带领一个 3 人小组支持着每天超过 2 亿的 PV。（B，你能带给前雇主的价值，也就是你能带给新雇主的价值）
-
-讲不出成绩时，就讲你的成长。因为学习能力也是每家公司都看中的东西。你可以写你在这个项目里边遇到了一个什么样的问题，
-别人怎么解决的，你怎么解决的，【你的方案好在什么地方】，最终这个方案的效果如何。具体、量化、有说服力，是技术简历特别需要注重的地方。
+带领一个 3 人小组支持着每天超过 2 亿的 PV。（B，你能带给前雇主的价值，也就是你能带给新雇主的价值）
+讲不出成绩时，就讲你的成长。你可以写你在这个项目里边遇到了一个什么样的问题，别人怎么解决的，你怎么解决的，【你的方案好在什么地方】，最终这个方案的效果如何。具体、量化、有说服力，是技术简历特别需要注重的地方。
 -->
 
 <div class="page-container">
     <h1 class="header1 resume-title">应聘 Rust 开发 - 吴翱翔的简历</h1>
     <div style="text-align: center">17150313884 | os.popen@gmail.com</div>
-    <div style="text-align: center"><span class="bold">博客</span>: pymongo.github.io | Github: pymongo | leetcode: 已通过 518 题</div>
+    <div style="text-align: center"><span class="bold">博客</span>: pymongo.github.io | Github: pymongo</div>
     <!-- <div style="text-align: center">leetcode账号: leetcode-cn.com/u/user0772-d</div> -->
     <hr class="divider">
 
@@ -94,21 +90,21 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <h3 class="header3">
         <span class="project-title">北京海致星图科技有限公司</span>
         <span class="project-role">高级图数据库开发工程师</span>
-        <span class="project-cycle">2021.08 - 至今</span>
+        <span class="project-cycle">2021.08 - 2022.02</span>
     </h3>
-    <p>・负责图数据库的查询引擎和周边工具的 Rust 开发，以及 Java SDK(client) 的维护</p>
+    <p>・负责图数据库的查询引擎和周边工具的开发、可观测性建设和 devops 等工作</p>
     <h3 class="header3">
         <span class="project-title">北京范高科技有限公司</span>
         <span class="project-role">中级服务端开发</span>
         <span class="project-cycle">2020.09 - 2021.08</span>
     </h3>
-    <p>・负责 protobuf/graphql Rust 服务端开发，主要业务是 Instagram 数据分析</p>
+    <p>・负责用 Rust 开发 Instagram 数据分析产品的 grpc/graphql 的服务端</p>
     <h3 class="header3">
         <span class="project-title">海南自贸区威中杰信息技术有限公司</span>
         <span class="project-role">全栈开发工程师</span>
         <span class="project-cycle">2019.10 - 2020.09</span>
     </h3>
-    <p>・负责数字货币交易所订单撮合引擎和后端，及交易所安卓端/网页端开发</p>
+    <p>・负责数字货币交易所订单撮合引擎和后端，及交易所安卓端/网页端全栈开发</p>
     <hr class="divider">
 
     <!--
@@ -119,14 +115,46 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <p>・业务是汽车ECU(电子控制器)的功能测试，以日方提供的脚本语言进行编程，调试</p>
     -->
 
-    <!-- 项目经验的高逼格术语: 具效化, sso/cas 单点登录, more fine-grained control(进行更细粒度的控制) -->
+    <!-- 项目经验的高逼格术语: 阶梯团队建设(团队有牛人也有彩笔)，具效化, sso/cas 单点登录, more fine-grained control(进行更细粒度的控制) -->
     <h2 class="header2">§ 项目经历</h2>
 
+<!--
+
+
+- 参与版本管理工作流规范制定和代码质量，推动
+- 通过 custom_test_frameworks 搭建自动测试框架
+-->
     <h3 class="header3">
         <span class="project-title">Atlas Graph</span>
-        <span class="project-role">工具组</span>
+        <span class="project-role"></span>
         <span class="project-cycle">2021.08 - 至今</span>
     </h3>
+    <pre class="project-details">
+贡献价值:
+- 通过缓存等技术让每次持续集成的流水线耗时从 17 分钟优化到 5 分钟
+- 研发 rpm/systemd 打包交付，降低客户安装/升级/部署产品的学习成本
+- 修复了图数据库协程泄漏等耗尽系统资源的 Bug
+- 编写/测试/调试多个图数据库内置函数，并产出数据库查询的产品文档
+
+devops:
+- 开发图数据库的 docker-compose/systemd 部署配置和脚本
+- 编写 gitlab/jenkins 持续构建/持续集成用的 centos7 Dockerfile
+- CI 自动出包: 每个 commit 自动构建 rpm/docker image 并上传到 minio/jfrog
+- 
+
+可观测性建设:
+- prometheus/grafana 指标数据收集与 rpc 监控
+
+[项目依赖上游开源项目改进]
+
+
+
+
+
+
+
+　　　　   2. 熟练 archlinux 作为开发机模拟服务器环境，学会隧道映射服务器数据库端口进行调试
+    </pre>
 
     <h3 class="header3">
         <span class="project-title">Ig Analyzer</span>
