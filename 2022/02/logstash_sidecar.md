@@ -1,5 +1,13 @@
 # [logstash, sidecar](2022/02/logstash_sidecar.md)
 
+本文随便扯点工作中学到的容器、网关、日志收集的笔记
+
+## alpine
+
+好处: 体积最小的 docker container 适合放 release build binary
+
+缺点: 坑点是只能用 musl ? musl 在内存分配等方面的性能不如 glibc
+
 ## 网关
 
 解决前端需要记 prometheus,loki 等等一堆微服务后端的地址，不仅麻烦还会跨域
@@ -22,3 +30,22 @@ k8s 的例子:
 - app 写数据到 volume 伴生容器读 volume 收集日志/metrics 
 
 docker/systemd 就是让应用将日志打印到 stdout 然后 docker logs/journal 去收集日志再做日志分割压缩等等操作
+
+## 日志收集两种做法
+
+一、每个业务模块搞一个伴生容器再汇总
+
+二、例如 filebeat/logstash 全局日志收集
+
+更大力度放一个，例如一个 k8s node 放一个，
+每个业务模块按固定格式规范将日志放在固定路径，日志输出内容也是固定格式
+
+## dind
+
+dind aka docker in docker
+
+常见于 gitlab CI/CD 中
+
+## gitlab SDK
+
+有 python gitlab SDK，也可以自己根据 graphql/RESTFUL API 获取 gitlab 信息
