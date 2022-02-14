@@ -20,7 +20,7 @@ deepin-wine-wechat 包的 wine 容器路径在 `WINEPREFIX=~/.deepinwine/Deepin-
 
 我在网上搜 msyh.ttc 就容易搜到 [下载页面](https://github.com/owent-utils/font/tree/master/%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91)
 
-注意要将 msyh.ttc 放到 ~/.wine/driver_c 内任意文件夹
+注意要将字体注册表文件放到 ~/.wine/driver_c 内任意文件夹
 
 ## 安装/更新钉钉
 
@@ -38,3 +38,7 @@ deepin-wine-wechat 包的 wine 容器路径在 `WINEPREFIX=~/.deepinwine/Deepin-
 - wine '/home/w/.wine/drive_c/Program Files (x86)/DingDing/DingtalkLauncher.exe'
 - wine /home/w/.wine/drive_c/ProgramData/Microsoft/Windows/Start Menu/Programs/DingTalk/DingTalk.lnk
 - 安装钉钉后勾选运行钉钉去运行
+
+## 微信无法发图片
+
+ubuntu 下可以装一个 libjpeg 等

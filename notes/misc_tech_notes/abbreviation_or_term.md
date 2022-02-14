@@ -22,6 +22,7 @@
 - POC: Proof of Concept，是业界流行的针对客户具体应用的验证性测试
 - MVCC: Multi Version Concurrency Control
 
+- backfill: 当你错过了某一次执行时间之后，往回去补充执行的行为
 - elasticity: 弹性
 - data_inconsistency: 数据不一致性
 - data are scattered in various files: 数据分散在多个文件

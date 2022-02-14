@@ -40,11 +40,27 @@ docker/systemd 就是让应用将日志打印到 stdout 然后 docker logs/journ
 更大力度放一个，例如一个 k8s node 放一个，
 每个业务模块按固定格式规范将日志放在固定路径，日志输出内容也是固定格式
 
+## 日志和 tracing 区别
+
+分布式 tracing 指的是例如数据库业务输入一个查询语句的 rpc 到执行结束
+
+中间经过的多机多进程多个函数的过程，每个函数耗时等等
+
+tracing 为了分析查询性能哪一个环节耗时很久，跟日志是两回事
+
+所以 tracing 必然要在查询或一次 rpc 处理上下文中加入很多记时记调用的内容，导致性能会下降很多
+
 ## dind
 
 dind aka docker in docker
 
 常见于 gitlab CI/CD 中
+
+## kind
+
+kind aka kubernetes in docker (跟 dind 的缩写有点像)
+
+kind 和 minikube 这是 TIDB 文档中介绍最简构建 k8s cluster 的方案
 
 ## gitlab SDK
 
