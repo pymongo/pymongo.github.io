@@ -67,7 +67,7 @@ set ignorecase
 set smartcase
 set cursorline
 "set cursorcolumn
-"cursorline only actived window
+"cursorline only activated window
 augroup CursorLine
     au! 
     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline

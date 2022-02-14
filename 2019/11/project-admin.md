@@ -134,7 +134,7 @@ SELECT * FROM information_schema.columns WHERE column_name = 'column_name';
   validates :interval_of_hook, length: { in: 1..60 }
   validates :interval_of_sleep, length: { in: 1..60 }
   validates :status, inclusion: { in: %w(ok error),
-    message: "staus must be ok or error" }
+    message: "status must be ok or error" }
 ```
 
 ### superclass mismatch for class RobotsController

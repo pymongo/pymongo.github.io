@@ -416,7 +416,7 @@ pstack 实际上在 debian 上是个 bash 脚本，但在 arch/manjaro 上只有
 
 所以我把 ubuntu/centos 的 /usr/bin/pstack 脚本抄过来就能在自己 arch 系统上运行了
 
-pstack 输出的内容跟 (gdb) attch $PID 的 bt 差不多
+pstack 输出的内容跟 (gdb) attach $PID 的 bt 差不多
 
 ```
 [ww w]$ sudo strace -p 1278031

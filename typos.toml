@@ -5,4 +5,5 @@ extend-exclude = [
 
 [default.extend-words]
 ser = "ser" # serde
+cros = "cros"
 iterm = "iterm"
