@@ -12,17 +12,24 @@
 
 通过这样一个闭环的反馈不断反思自己今日为啥学习少了，自己的学习能力和速度应该能不断锻炼提升
 
+每时每刻都要思考现在做的事情有没有偏离目标设定
+
+---
+
 § 22-02-15(制定目标都花了半小时多)
-- [ ] 用 Rust 做一个 python jupyter kernel(高优/白海面试用/低可行谨慎做)
-- [ ] 实战 tidb-in-kubernetes 部署(高优/白海面试用)
-- [ ] 看完 coolshell 的 RESTFUL API 文章
-- [ ] 看完该[文章](https://liujiacai.net/blog/2021/04/27/trait-usage)理解 trait 为啥不能 downcast
+- [放弃] 用 Rust 做一个 python jupyter kernel(高优/面试用/低可行谨慎做)
+- [ ] 实战 tidb-in-kubernetes 部署(高优/面试用)
+- [x] 看完 coolshell 的 RESTFUL API 文章
+- [x] 看完该[文章](https://liujiacai.net/blog/2021/04/27/trait-usage)理解 trait 为啥不能 downcast
 - [ ] 看完该[文章](https://www.skyzh.dev/posts/articles/2022-01-31-gat-async-trait/)理解 GAT
 - [ ] wordle solver 算法 repo(低优/感兴趣)
-- [ ] 图数据库白皮书剩余一半内容(低优)
+- [x] 图数据库白皮书剩余一半内容(低优)
+- [ ] (临时因 RESTFUL API 文章和兴趣加的目标)凤凰架构阅读进度: (中优/感兴趣)
 
 一些笔记:
 
-HTTP 所有 API 返回 200 状态码再通过 json 的 code 字段判断是否成功的设计不好，导致监控、网关还得把 json 解开反序列化才得知请求响应是否成功，不能根据 4xx 状态码得知是客户端非法请求，还是 5xx 需要服务端重试/熔断之类的
+HTTP 所有 API 返回 200 状态码(例如 GraphQL)再通过 json 的 code 字段判断是否成功的设计不好，导致监控、网关还得把 json 解开反序列化才得知请求响应是否成功，不能根据 4xx 状态码得知是客户端非法请求，还是 5xx 需要服务端重试/熔断之类的(例如持续出现 10 分钟 500 报错就熔断该服务)
+
+grpc-web/json-rpc 就是泉涌 POST 请求方法把 HTTP 当信道用倒是没问题
 
 我工作中性能测试发现，多机的数据库导数性能是好于单机版本的，因为能利用多个 CPU 对 rpc 请求进行反序列化编码，虽然网络传输和多机副本数据同步也有开销不过依然多机依然比单机有很大性能提升。这就是分布式计算的必要性了，单机算的太慢，多个机器一起算例如 spark，还有一些 map-reduce 的论文等等。其次可以自己写一个分布式任务调度框架，根据 job_id 的哈希派到不同机器不同进程执行，返回结果汇总即可

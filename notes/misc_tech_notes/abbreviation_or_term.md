@@ -22,6 +22,7 @@
 - POC: Proof of Concept，简单来说就是产品竞标打分，是业界流行的针对客户具体应用的验证性测试
 - MVCC: Multi Version Concurrency Control
 - DAG: directed acyclic graph 有向无环图
+- ETL: Extract,Transfer,Load 指定是数仓或者数据库人员对业务数据进行抽象建模设计数据库表字段的工作
 
 - RDD: Resilient Distributed Dataset, spark 的分布式计算模型
 
@@ -77,6 +78,24 @@ Example: chrono::NaiveDateTime::from_timestamp_opt
 - state 和 status
 都表示状态，但是有状态转移的用 state 无状态转移的用 status 例如 HTTP status code
 <https://liqiang.io/post/status-or-state-fa70399e>
+
+---
+
+## term in microservice
+
+- SOA: Service-Oriented Architecture
+- Service Mesh: 服务网格如 lstio
+
+§ 不可变基础设施:  
+不再局限于方便运维、程序升级和部署的手段，而是升华为向应用代码隐藏分布式架构复杂度
+
+§ 蓝绿部署:  
+蓝当前版本且有业务流量，绿新版本代码，同一时间业务流量只会重定向到蓝或绿，一旦新版本出问题可以立即将流量重定向回旧版本
+
+§ 灰度发布/金丝雀发布:  
+跟蓝绿类似两套环境，不同的是先是 1% 流量导流到新环境，然后没问题的话慢慢提高到 10%, 25%, 100%。
+这样新代码环境出了问题也只会影响极小部分用户，所以也能先让 1/3 机器升级版本再慢慢测试让业务流量一点点的导流到部署新版本的机器上
+
 
 
 
