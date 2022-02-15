@@ -77,14 +77,6 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <div style="text-align: center"><span class="bold">博客/Github</span>: pymongo.github.io</div>
     <hr class="divider">
 
-    <h2 class="header2">§ 教育经历</h2>
-    <h3 class="header3">
-        <span class="project-title">天津职业技术师范大学(本科)</span>
-        <span class="project-role" style="font-size: 15px">电子信息工程</span>
-        <span class="project-cycle" style="font-size: 16px">2015 - 2019</span>
-    </h3>
-    <hr class="divider">
-
     <!--
 ## HR 问为什么工作一年换一次跳槽频繁、不稳定?
 先从最近这份海致的工作说起，图数据库部门里面 10 多人只有 2 人不是清华硕士
@@ -110,6 +102,21 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
 
 很多人建议我要不两份工作经历合二为一造假免得频繁跳槽每人要，我不愿意做不诚信的事情，自己犯错年轻付出的代价自己勇于承担
 感谢您愿意倾听到此，希望我们能有机会进一步沟通互相了解
+
+## 面试进展
+
+先考虑 Rust 岗位自己喜欢这门语言且我在社区有影响力
+
+|公司&岗位|面试进度||
+|---|---|---|
+|非凸科技|简历筛选失败(私募/量化/大厂不喜欢频繁跳槽的简历且我没量化数学功底)|
+|字节框架组|简历筛选中|
+|星链天下-BI业务后端||
+|https://www.zhipin.com/job_detail/b90444ea3fb3e1dd1XR629i9FlVX.html||
+|安捷中科-时序数据库|低兴趣(不会数据库)|
+|吉利-区块链|低兴趣(大兴太远)|
+|期刊外企(曼迪匹艾)后端|低兴趣(通州太远)|
+
     -->
     <h2 class="header2">§ 工作经历</h2>
     <h3 class="header3">
@@ -130,6 +137,13 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
         <span class="project-cycle">2019.10 - 2020.09</span>
     </h3>
     <p>・负责数字货币交易所订单撮合引擎和网站前后端的全栈开发</p>
+
+    <h2 class="header2">§ 教育经历</h2>
+    <h3 class="header3">
+        <span class="project-title">天津职业技术师范大学(本科)</span>
+        <span class="project-role" style="font-size: 15px">电子信息工程</span>
+        <span class="project-cycle" style="font-size: 16px">2015 - 2019</span>
+    </h3>
     <hr class="divider">
 
     <!--
@@ -144,7 +158,7 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <h2 class="header2">§ 项目经历</h2>
 
 <!--
-- 参与版本管理工作流规范制定和代码质量，推动
+- 参与版本管理工作流规范制定和代码质量，保证代码可扩展性，不会遇到多个新需求无法实现就频繁重构
 - 通过 custom_test_frameworks 搭建自动测试框架
 -->
     <h3 class="header3">
@@ -188,7 +202,7 @@ devops:
     <h3 class="header3">
         <span class="project-title">Ig Analyzer</span>
         <span class="project-role"></span>
-        <span class="project-cycle">2020.11 - 2021.08</span>
+        <span class="project-cycle">2020.10 - 2021.08</span>
     </h3>
     <pre class="project-details">
 贡献价值:
@@ -293,14 +307,12 @@ devops:
 
     <!--
     <h3 class="header3">
-        <span class="project-title">交易所移动端API接口</span>
-        <span class="project-cycle">2019.12 - 2020.04</span>
+        <span class="project-title">交易所移动端API接口</span><span class="project-cycle">2019.12 - 2020.04</span>
     </h3>
     <pre class="project-details">
 [项目架构] 1. 对于时效性短的数据，存入redis减轻MySQL负载，例如当日取消订单3次就禁止交易的功能
 　　　　   2. 使用FactoryBot库结合Faker库通过工厂模式生成测试数据，借助单元测试进行代码重构
-[主要工作] 1. 维护老的API接口，为APP的新页面开发接口，我参与开发了30~40个接口以及相应的单元测试
-　　　　   2. 分析多表联查时出现N+1查询的原因，通过加单向/双向关联和includes语句解决N+1查询问题
+　　　　   3. 分析多表联查时出现N+1查询的原因，通过加单向/双向关联和includes语句解决N+1查询问题
     </pre>
 
     <div class="row-padding-lv1">・开发了OkHttpHelper，为每个请求加上签名校验和设备信息(如机型,安卓版本)等参数，方便后端统计</div>
@@ -309,7 +321,6 @@ devops:
     <div class="row-padding-lv1">・对于时效性短的数据，存入redis减轻MySQL负载，如当日取消订单3次限制交易的功能通过redis实现</div>
 [项目架构] 「防重入」避免用户重复点击发起多个请求的解决方案：发起请求前禁用按钮，请求response时恢复按钮
 [主要工作] 开发读取配置保存配置两个接口，vue-router/props携带参数地在页面中跳转，简单入门了Vue，了解v-for列表渲染，Vue如何发起网络请求
-    <div class="row-padding-lv1">・该工具用于绘制低交易量交易对的K线图，是交易所交易数据造假的工具之一</div>
 [项目收获] 浮点数转BigDecimal时只能传字符串的构造方法, 对数据库进行金钱变动操作时要加上事务处理和FOR UPDATE悲观锁避免数据竞争
     <div class="row-padding-lv1">・学习crontab定时任务，建立User表与Account表之间的<b>「双向关联」</b>，简化操作代码</div>
     <div class="row-padding-lv1">・需求是同时按转账发起人邮箱和转账接收人邮箱进行查询，转账记录表需要join用户表两次</div>

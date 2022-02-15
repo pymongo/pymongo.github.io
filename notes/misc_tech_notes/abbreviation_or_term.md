@@ -19,8 +19,11 @@
 - HTAP: Hybrid Transactional/Analytical Processing
 - OLTP: 线上请求(Online Transactional Processing)
 - OLAP: 后台分析(Online Analytical Processing)
-- POC: Proof of Concept，是业界流行的针对客户具体应用的验证性测试
+- POC: Proof of Concept，简单来说就是产品竞标打分，是业界流行的针对客户具体应用的验证性测试
 - MVCC: Multi Version Concurrency Control
+- DAG: directed acyclic graph 有向无环图
+
+- RDD: Resilient Distributed Dataset, spark 的分布式计算模型
 
 - backfill: 当你错过了某一次执行时间之后，往回去补充执行的行为
 - elasticity: 弹性
