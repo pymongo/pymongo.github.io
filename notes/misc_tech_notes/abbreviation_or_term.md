@@ -23,11 +23,15 @@
 - MVCC: Multi Version Concurrency Control
 - DAG: directed acyclic graph 有向无环图
 - ETL: Extract,Transfer,Load 指定是数仓或者数据库人员对业务数据进行抽象建模设计数据库表字段的工作
+- DAU: Daily Active User 日活跃用户
+- RBO: rule base optimization (第一种是基于规则的优化器)
+- CBO: cost base optimization (cost model 第二种是基于代价的优化器)
 
 - RDD: Resilient Distributed Dataset, spark 的分布式计算模型
 
 - backfill: 当你错过了某一次执行时间之后，往回去补充执行的行为
 - elasticity: 弹性
+- compaction: 压缩
 - data_inconsistency: 数据不一致性
 - data are scattered in various files: 数据分散在多个文件
 
@@ -95,7 +99,4 @@ Example: chrono::NaiveDateTime::from_timestamp_opt
 § 灰度发布/金丝雀发布:  
 跟蓝绿类似两套环境，不同的是先是 1% 流量导流到新环境，然后没问题的话慢慢提高到 10%, 25%, 100%。
 这样新代码环境出了问题也只会影响极小部分用户，所以也能先让 1/3 机器升级版本再慢慢测试让业务流量一点点的导流到部署新版本的机器上
-
-
-
 

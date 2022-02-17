@@ -4,7 +4,8 @@
 
 ## fcitx5安装
 
-> sudo pacman -S fcitx5-im fcitx5-chinese-addons
+- archlinux: pacman -S fcitx5-im fcitx5-chinese-addons
+- fedora: dnf install fcitx5 fcitx5-autostart fcitx5-chinese-addons fcitx5-configtool fcitx5-gtk fcitx5-qt
 
 `fcitx5-im`已经包含`fcitx5-gtk`和`fcitx5-qt`
 

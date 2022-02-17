@@ -22,9 +22,20 @@
 - [x] 看完 coolshell 的 RESTFUL API 文章
 - [x] 看完该[文章](https://liujiacai.net/blog/2021/04/27/trait-usage)理解 trait 为啥不能 downcast
 - [ ] 看完该[文章](https://www.skyzh.dev/posts/articles/2022-01-31-gat-async-trait/)理解 GAT
-- [ ] wordle solver 算法 repo(低优/感兴趣)
+- [推迟一天] wordle solver 算法 repo(低优/感兴趣)
+- [x] 信通院图数据库白皮书剩余一半内容(低优)
+- [前言] (临时因 RESTFUL API 文章和兴趣加的目标)凤凰架构阅读进度: (中优/感兴趣)
+
+§ 22-02-16
+- [完成第一版但有 Bug] wordle solver 算法 repo(低优/感兴趣)
 - [x] 图数据库白皮书剩余一半内容(低优)
-- [ ] (临时因 RESTFUL API 文章和兴趣加的目标)凤凰架构阅读进度: (中优/感兴趣)
+- [x] 字节跳动自研万亿级图数据库(低优)
+- [推迟一天] 字节跳动万亿级图数据库的应用与挑战 - deeplus
+- [ ] 凤凰架构(中优/面试用)
+
+§ 22-02-17
+- [x] 字节跳动万亿级图数据库的应用与挑战 - deeplus
+
 
 一些笔记:
 
