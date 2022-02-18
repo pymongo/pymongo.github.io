@@ -1,6 +1,7 @@
 - [归档 - 吴翱翔的博客](/)
 - **2022-02**
     - [22-02 学习计划](/2022/02/study_plan.md)
+    - [TiDB Kubernetes](/2022/02/tidb_deploy_on_kubernetes.md)
     - [bytegraph](/2022/02/bytegraph.md)
     - [logstash, sidecar](2022/02/logstash_sidecar.md)
     - [/usr/bin/true](2022/02/usr_bin_true.md)
