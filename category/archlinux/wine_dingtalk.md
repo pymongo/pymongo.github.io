@@ -42,3 +42,19 @@ deepin-wine-wechat 包的 wine 容器路径在 `WINEPREFIX=~/.deepinwine/Deepin-
 ## 微信无法发图片
 
 ubuntu 下可以装一个 libjpeg 等
+
+---
+
+## wine 玩游戏
+
+可以参考这篇文章: https://www.addictivetips.com/ubuntu-linux-tips/play-world-of-warcraft-on-linux/
+
+或者用 lutris (linux game platform) 自动帮忙安装一堆库
+
+需要 wine wine-mono 
+
+winetricks 可以帮忙清除所有游戏(不想玩之后)
+
+玩游戏的时候「强烈建议用 wayland」
+
+wayland 可以保证全屏游戏时依然有 night color 护眼模式
