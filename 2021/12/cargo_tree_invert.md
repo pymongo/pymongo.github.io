@@ -75,3 +75,31 @@ openssl-sys v0.9.72
 这样一下子就找到 web 和 common 的 Cargo.toml 里有 openssl 相关依赖
 
 以后 cargo audit 例如找到 chrono 有漏洞，也能通过 cargo tree -p chrono --reverse 快速定位到项目中哪些库依赖到了 chrono
+
+## pactree
+
+Linux 包管理可视化依赖树也有个类似 cargo tree 的工具，叫 pactree
+
+```
+[w@ww runtime]$ pactree --reverse zeromq
+zeromq
+├─libteam
+│ └─networkmanager
+│   └─networkmanager-qt
+│     └─plasma-nm
+└─python-pyzmq
+  └─python-jupyter_client
+    ├─jupyter
+    │ └─jupyter-nbconvert
+    │   └─jupyter-notebook
+    │     └─jupyter-widgetsnbextension
+    │       └─python-ipywidgets
+    │         └─jupyter
+    ├─jupyter-notebook
+    ├─jupyter_console
+    │ └─jupyter
+    └─python-ipykernel
+      ├─jupyter
+      ├─jupyter_console
+      └─python-jupyter_client
+```

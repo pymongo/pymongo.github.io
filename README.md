@@ -1,4 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
+- **2022-03**
+    - [pactree](/2022/03/pacman_pactree.md)
 - **2022-02**
     - [22-02 学习计划](/2022/02/study_plan.md)
     - [OpenVPN client](/2022/02/openvpn_client.md)
