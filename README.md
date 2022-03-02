@@ -1,6 +1,7 @@
 - [归档 - 吴翱翔的博客](/)
 - **2022-03**
     - [22-03 学习计划](/2022/03/study_plan.md)
+    - [知识管理](/2022/03/knowledge_management.md)
     - [pactree](/2022/03/pacman_pactree.md)
 - **2022-02**
     - [22-02 学习计划](/2022/02/study_plan.md)

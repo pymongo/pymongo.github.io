@@ -1,7 +1,9 @@
 sddadadaadfddadddddaddddsadfasfsdfasdfsdaffdaf
 # [pactree](/2022/03/pacman_pactree.md)
 
-pactree --reverse 跟 cargo tree --invert 类似，不过想知道 yum/dnf/apt 这样的包管理有没有同样好用的工具
+pactree --reverse 跟 cargo tree --invert 类似，
+
+debian 类似的工具是 debtree，网上了解了 rpm/yum/dnf 包管理依赖树工具并没有 pactree 好用
 
 ![](pactree_reverse.png)
 
