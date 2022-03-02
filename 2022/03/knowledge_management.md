@@ -3,7 +3,8 @@
 虽然很多人博客/笔记都是 note.xuanwo.io 这样带 label/tag 分类方便索引知识的网站
 但由于我博客放在 github page 纯静态页面没法搞 label/tag 这样的分类(或者说很难搞我用的 docsify 框架不支持)
 
-所以我觉得用时间排序归档文章/笔记也挺好的，想找 systemd 相关文章全文搜索关键词或者搜索文件名即可完全够用，
+所以我觉得用时间排序归档文章/笔记也挺好的，想找 systemd 相关文章全文【搜索关键词】或者【搜索文件名】即可完全够用，
+因为我文件名命名都习惯很长方便我能在 IDE 快速列出带 systemd/systemctl 的笔记文件，导致文章上列举出相关文章这种耗时耗费维护精力的工作也没必要的。
 例如很多大厂在用的 wiki 文档管理工具 confluence 貌似也没有 tag 分类功能?或者说我公司基本不用，主要是 confluence 全文搜索太强了也够用
 
 confluence 或者 wordpress 这样 ContentManageSystem 过于笨重不适合个人笔记这种内容量小的场景

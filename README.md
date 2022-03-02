@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2022-03**
+    - [systemctl mask](/2022/03/systemd_mask.md)
     - [22-03 学习计划](/2022/03/study_plan.md)
     - [知识管理](/2022/03/knowledge_management.md)
     - [pactree](/2022/03/pacman_pactree.md)
