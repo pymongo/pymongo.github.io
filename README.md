@@ -1,6 +1,7 @@
 - [归档 - 吴翱翔的博客](/)
 - **2022-03**
     - [22-03 学习计划](/2022/03/study_plan.md)
+    - [Rust 中止线程](/2022/03/pthread_cancel.md)
     - [UI 组件术语](/2022/03/ui_widgets.md)
     - [systemctl mask](/2022/03/systemd_mask.md)
     - [知识管理](/2022/03/knowledge_management.md)
