@@ -8,7 +8,7 @@
 
 ## 存储层
 
-事务: 读取支持 read commited 的隔离级别
+事务: 读取支持 read committed 的隔离级别
 
 存储层(GS)就像是一个将磁盘的 KV 缓存到内存(page)
 
