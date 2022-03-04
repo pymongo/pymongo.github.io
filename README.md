@@ -1,6 +1,7 @@
 - [归档 - 吴翱翔的博客](/)
 - **2022-03**
     - [22-03 学习计划](/2022/03/study_plan.md)
+    - [依赖用 git ssh 链接](/2022/03/cargo_dep_git_ssh.md)
     - [Rust 中止线程](/2022/03/pthread_cancel.md)
     - [UI 组件术语](/2022/03/ui_widgets.md)
     - [systemctl mask](/2022/03/systemd_mask.md)
