@@ -1,6 +1,7 @@
 - [归档 - 吴翱翔的博客](/)
 - **2022-03**
     - [22-03 学习计划](/2022/03/study_plan.md)
+    - [jupyter add kernel](/2022/03/jupyter_add_kernel.md)
     - [解析可能为空的 json](/2022/03/serde_empty_object.md)
     - [serde 字段继承/共用](/2022/03/serde_flattern.md)
     - [检查 json 重复/多余字段](/2022/03/serde_deny_unknown_fields.md)
