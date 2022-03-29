@@ -60,3 +60,7 @@ k8s 部署更新的方法很多啦，例如 `rollup update`, 改镜像 TAG, helm
 一开始有人说编译完镜像后是不是要 sleep 才能让 k8s 识别啥的，
 
 我自己以为是 kubectl delete 之后要 sleep (典型的瞎搞乱猜)
+
+## 用 set image 也能部署更新
+
+![](kubectl_set_image.png)

@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2022-03**
+    - [wine 企业微信中文乱码](/2022/03/wine_wxwork_chinese_display.md)
     - [22-03 学习计划](/2022/03/study_plan.md)
     - [容器内 coredump 收集](/2022/03/docker_container_coredump_collect.md)
     - [k8s 自动部署坑点](/2022/03/k8s_deploy_docker_no_cache.md)
