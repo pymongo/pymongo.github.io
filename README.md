@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2022-03**
+    - [linux mount usb](/2022/03/linux_mount_usb_drive.md)
     - [wine 企业微信中文乱码](/2022/03/wine_wxwork_chinese_display.md)
     - [22-03 学习计划](/2022/03/study_plan.md)
     - [容器内 coredump 收集](/2022/03/docker_container_coredump_collect.md)
