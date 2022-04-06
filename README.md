@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2022-03**
+    - [docker scratch](/2022/03/docker_scratch.md)
     - [package file list](/2022/03/list_package_file.md)
     - [centos8 container sshd](/2022/03/centos8_container_sshd.md)
     - [linux mount usb](/2022/03/linux_mount_usb_drive.md)
