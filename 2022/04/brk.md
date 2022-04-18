@@ -37,6 +37,10 @@ Rust 的 spawn 用的是 clone (不清楚什么时候会用 posix_spawn)
 
 根据 man 文档说也就 clone 提供了更细粒度的子进程控制，例如父子进程共享虚拟内存
 
+## LWP
+
+clone 创建的是轻量级进程(LWP)，轻量级进程等于线程?
+
 ## strace 必经流程
 
 1. execve
