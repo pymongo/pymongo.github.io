@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2022-04**
+    - [scoped thread](/2022/04/scoped_thread.md)
     - [spawn or exec](/2022/04/process_spawn_or_exec.md)
     - [alpine sh not found](/2022/04/alpine_sh_not_found.md)
     - [brk](/2022/04/brk.md)
