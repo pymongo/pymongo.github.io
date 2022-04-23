@@ -18,3 +18,5 @@ http {
 ```
 
 加上 `user root;` 一行以及 http 配置中加上 `include /etc/nginx/conf.d/*.conf;`
+
+另外 nginx 502 错误要么是 proxy_pass 的应用没有启动，要么是应用发生 panic
