@@ -1,4 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
+- **2022-05**
+    - [synchronized wait](/2022/05/synchronized_process_wait.md)
 - **2022-04**
     - [iftop iotop](/2022/04/iftop_iotop.md)
     - [libc::SIGERR](/2022/04/signal_sig_err.md)
