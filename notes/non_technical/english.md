@@ -166,3 +166,21 @@ deprecated
 - terse: 简短的/简洁的
 - cite: 引用
 - wildcard: 通配符
+
+## Why Do Big Turtles Die While Living With Pet Turtles?
+
+<https://www.youtube.com/watch?v=O4f-ny9FICI>
+
+这个 WATOP 讲 turtle shield 跟 what's inside turtle shell 那个视频一样有趣
+
+这个视频似乎在说 red-eared slide turtle 带来的生物入侵
+
+- vowed: 誓言论
+- crumbs: 一些
+- predator: 捕食者(天敌)
+- scorching: 猛烈的
+- flaw: 缺点
+- intimidating: 吓人的
+- hippo: 河马
+- herbivores: 食草动物
+- metabolism: 新陈代谢
