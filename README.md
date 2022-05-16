@@ -14,6 +14,7 @@
     - [brk](/2022/04/brk.md)
     - [用时序图理解接口业务](/2022/04/uml_sequence_diagram.md)
 - **2022-03**
+    - [wine 中文乱码](/2022/03/wine_chinese.md)
     - [docker scratch](/2022/03/docker_scratch.md)
     - [package file list](/2022/03/list_package_file.md)
     - [centos8 container sshd](/2022/03/centos8_container_sshd.md)
