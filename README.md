@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2022-05**
+    - [kubectl VirtualService lstio](/2022/05/kubectl_get_vs.md)
     - [tensorboard](/2022/05/tensorboard.md)
     - [kubectl top pod](/2022/05/kubectl_top_pod.md)
     - [synchronized wait](/2022/05/synchronized_process_wait.md)
