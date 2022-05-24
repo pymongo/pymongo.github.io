@@ -1,5 +1,6 @@
 - [归档 - 吴翱翔的博客](/)
 - **2022-05**
+    - [看函数调用链路/树](/2022/05/vscode_show_call_hierarchy.md)
     - [nfs iowait](/2022/05/nfsiostat.md)
     - [kubectl VirtualService lstio](/2022/05/kubectl_get_vs.md)
     - [tensorboard](/2022/05/tensorboard.md)
