@@ -1,5 +1,6 @@
-- [归档 - 吴翱翔的博客](/)
+- [文章列表 - 吴翱翔的博客](/)
 - **2022-05**
+    - [rustdecimal 供应链投毒](/2022/05/rustdecimal_malicious.md)
     - [cargo ramdisk](/2022/05/cargo_ramdisk_memdisk.md)
     - [看函数调用链路/树](/2022/05/vscode_show_call_hierarchy.md)
     - [nfs iowait](/2022/05/nfsiostat.md)
