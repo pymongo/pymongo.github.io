@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-05**
+    - [python ray](/2022/05/python_ray.md)
     - [养生壶白灼虾](/2022/05/cook_shrimp_at_home.md)
     - [rustdecimal 供应链投毒](/2022/05/rustdecimal_malicious.md)
     - [cargo ramdisk](/2022/05/cargo_ramdisk_memdisk.md)
