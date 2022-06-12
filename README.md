@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-06**
+    - [json pointer](/2022/06/json_pointer.md)
     - [tencent meeting linux](/2022/06/tencent_meeting_linux_client.md)
     - [into_raw_fd](/2022/06/into_raw_fd.md)
 - **2022-05**
