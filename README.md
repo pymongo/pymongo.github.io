@@ -4,6 +4,7 @@
     - [tencent meeting linux](/2022/06/tencent_meeting_linux_client.md)
     - [into_raw_fd](/2022/06/into_raw_fd.md)
 - **2022-05**
+    - [dmesg /dev/kmsg](/2022/05/dmesg_dev_kmsg.md)
     - [S_IRUSR err on M1](/2022/05/libc_open_error_on_mac_m1.md)
     - [kubenetes iceberg](/2022/05/kubenetes_iceberg.md)
     - [封城与心脏病](/2022/05/lockdown_and_herat_disease.md)
