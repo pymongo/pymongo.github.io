@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-06**
+    - [k8s entrypoint](/2022/06/k8s_entrypoint.md)
     - [journal -o cat](/2022/06/journalctl_output_cat.md)
     - [json pointer](/2022/06/json_pointer.md)
     - [tencent meeting linux](/2022/06/tencent_meeting_linux_client.md)
