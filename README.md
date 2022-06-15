@@ -6,6 +6,7 @@
     - [json pointer](/2022/06/json_pointer.md)
     - [tencent meeting linux](/2022/06/tencent_meeting_linux_client.md)
     - [into_raw_fd](/2022/06/into_raw_fd.md)
+    - [colab](/2022/06/colab.md)
 - **2022-05**
     - [dmesg /dev/kmsg](/2022/05/dmesg_dev_kmsg.md)
     - [S_IRUSR err on M1](/2022/05/libc_open_error_on_mac_m1.md)
