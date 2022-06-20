@@ -34,6 +34,8 @@ COPY app.conf /etc/supervisor/conf.d/
 ENTRYPOINT ["supervisord", "-c", "/etc/supervisor/supervisord.conf", "--nodaemon"]
 ```
 
+supervisord 的 nodaemon 参数就是不让后台执行/detach 否则作为 entrypoint 一下子就让镜像 complete 了
+
 ## 更新 pod 内 app 可执行文件
 
 ```
