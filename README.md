@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-06**
+    - [scp compressed](/2022/06/scp_compressed.md)
     - [supervisorctl](/2022/06/supervisorctl.md)
     - [ipy magic cmd](/2022/06/ipython_magic_command.md)
     - [systemd-detect-virt](/2022/06/systemd_detect_virt.md)

@@ -40,7 +40,7 @@ supervisord 的 nodaemon 参数就是不让后台执行/detach 否则作为 entr
 
 ```
 cargo b --bin app
-scp target/debug/app server:/root
+scp -C target/debug/app server:/root
 
 ssh server <<'REMOTE_COMMAND'
 set -exu
@@ -51,4 +51,17 @@ for pod in app-1 app-2; do
     kubectl exec $pod_name -- supervisorctl restart app
 done
 REMOTE_COMMAND
+```
+
+## supervisor relaod config
+
+```
+supervisorctl reread
+supervisorctl update
+
+(base) ray@lz:/store/lz$ sudo supervisorctl reread
+submitter: changed
+(base) ray@lz:/store/lz$ sudo supervisorctl update
+submitter: stopped
+submitter: updated process group
 ```

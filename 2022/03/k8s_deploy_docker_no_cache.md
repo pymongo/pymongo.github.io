@@ -64,3 +64,7 @@ k8s 部署更新的方法很多啦，例如 `rollup update`, 改镜像 TAG, helm
 ## 用 set image 也能部署更新
 
 ![](kubectl_set_image.png)
+
+## supervisorctl restart
+
+要么就 kubectl cp 可执行文件进 pod 之后再 kubectl exec -- supervisorctl restart 应用实现无 pod 重启更新应用
