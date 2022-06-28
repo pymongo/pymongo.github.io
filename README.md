@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-06**
+    - [multi user share cargo](/2022/06/multi_user_same_uid_share_cargo_home.md)
     - [NFS fifo file](/2022/06/nfs_fifo_pipe.md)
     - [scp compressed](/2022/06/scp_compressed.md)
     - [supervisorctl](/2022/06/supervisorctl.md)

@@ -56,8 +56,7 @@ REMOTE_COMMAND
 ## supervisor relaod config
 
 ```
-supervisorctl reread
-supervisorctl update
+supervisorctl reread && supervisorctl update
 
 (base) ray@lz:/store/lz$ sudo supervisorctl reread
 submitter: changed
