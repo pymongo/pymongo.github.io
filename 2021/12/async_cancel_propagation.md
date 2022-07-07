@@ -67,12 +67,12 @@ index 5226249b..6de7f682 100644
 
 ```
 Dec 18 10:39:21 ww systemd[715]: Stopping graph...
-Dec 18 10:39:21 ww atlasd[1518986]: 2021-12-18 10:39:21.588323  INFO atlasd: Signal SIGTERM received, stopping this daemon server
-Dec 18 10:39:21 ww atlasd[1518986]: 2021-12-18 10:39:21.588408  INFO server::graph: Prepare to stop graph server
-Dec 18 10:39:21 ww atlasd[1518986]: 2021-12-18 10:39:21.588744  INFO start_prometheus_exporter{ip=0.0.0.0 port=19100 instance_kind=Graph}:prometheus_exporter(accept): common::metrics::prome>
-Dec 18 10:39:21 ww atlasd[1518986]: 2021-12-18 10:39:21.588830  INFO web::server: graceful shutdown web server
+Dec 18 10:39:21 ww appd[1518986]: 2021-12-18 10:39:21.588323  INFO appd: Signal SIGTERM received, stopping this daemon server
+Dec 18 10:39:21 ww appd[1518986]: 2021-12-18 10:39:21.588408  INFO server::graph: Prepare to stop graph server
+Dec 18 10:39:21 ww appd[1518986]: 2021-12-18 10:39:21.588744  INFO start_prometheus_exporter{ip=0.0.0.0 port=19100 instance_kind=Graph}:prometheus_exporter(accept): common::metrics::prome>
+Dec 18 10:39:21 ww appd[1518986]: 2021-12-18 10:39:21.588830  INFO web::server: graceful shutdown web server
 Dec 18 10:40:51 ww systemd[715]: graph.service: State 'stop-sigterm' timed out. Killing.
-Dec 18 10:40:51 ww systemd[715]: graph.service: Killing process 1518986 (atlasd) with signal SIGKILL.
+Dec 18 10:40:51 ww systemd[715]: graph.service: Killing process 1518986 (appd) with signal SIGKILL.
 Dec 18 10:40:51 ww systemd[715]: graph.service: Killing process 1518988 (tokio-runtime-w) with signal SIGKILL.
 Dec 18 10:40:51 ww systemd[715]: graph.service: Killing process 1518989 (tokio-runtime-w) with signal SIGKILL.
 Dec 18 10:40:51 ww systemd[715]: graph.service: Killing process 1518993 (tokio-runtime-w) with signal SIGKILL.

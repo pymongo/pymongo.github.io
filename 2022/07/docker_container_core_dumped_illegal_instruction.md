@@ -1,4 +1,4 @@
-# [container illegal instr](/2022/07/docker_container_core_dumped_illegal_instruction.md)
+# [docker illegal instr](/2022/07/docker_container_core_dumped_illegal_instruction.md)
 
 ```
 https://twitter.com/ospopen/status/1544970889925885952
@@ -10,6 +10,9 @@ illegal instruction (core dumped)
 
 看来还是高版本 glibc 编译出来的可执行文件不能在低版本系统运行的限制
 ```
+
+但我觉得是 fedora:36 的 glibc 2.35 发生了一些不兼容改动吧，
+毕竟公司生产服务器上宿主机 centos7 常年跑 centos8/ubuntu:20.04 的应用也没问题
 
 容器内没有捕获 coredump 的话，coredump 会记录在宿主机的 dmesg
 

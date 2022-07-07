@@ -57,10 +57,10 @@ openssl-sys v0.9.72
 ├── native-tls v0.2.8
 │   ├── hyper-tls v0.5.0
 │   │   └── reqwest v0.11.7
-│   │       └── web v0.1.0 (/home/w/repos/haizhi/atlas/src/web)
-│   │           └── server v0.1.0 (/home/w/repos/haizhi/atlas/src/server)
+│   │       └── web v0.1.0 (/home/w/repos/company/app/src/web)
+│   │           └── server v0.1.0 (/home/w/repos/company/app/src/server)
 │   │       [dev-dependencies]
-│   │       └── web v0.1.0 (/home/w/repos/haizhi/atlas/src/web) (*)
+│   │       └── web v0.1.0 (/home/w/repos/company/app/src/web) (*)
 │   ├── reqwest v0.11.7 (*)
 │   └── tokio-native-tls v0.3.0
 │       ├── hyper-tls v0.5.0 (*)
@@ -68,7 +68,7 @@ openssl-sys v0.9.72
 └── openssl v0.10.38
     ├── native-tls v0.2.8 (*)
     └── osshkeys v0.5.2
-        ├── common v0.1.0 (/home/w/repos/haizhi/atlas/src/common)
+        ├── common v0.1.0 (/home/w/repos/company/app/src/common)
 ...
 ```
 
