@@ -8,10 +8,6 @@ NAME                                      CPU(cores)   MEMORY(bytes)
 idp-develop-b-executor-5b87fdc98d-jstsz   5m           1155Mi  
 ```
 
-```
-
-```
-
 - /sys/fs/cgroup/memory/memory.usage_in_bytes
 - /sys/fs/cgroup/cpu/cpuacct.usage
 - man 2 getrusage
