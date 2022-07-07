@@ -1,4 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
+- **2022-07**
+    - [container illegal instr](/2022/07/docker_container_core_dumped_illegal_instruction.md)
 - **2022-06**
     - [arch pip TypeError](/2022/06/arch_pip_fail_after_system_upgrade.md)
     - [/bin/timeout](/2022/06/bin_timeout.md)
