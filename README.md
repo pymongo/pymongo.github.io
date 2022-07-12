@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-07**
+    - [k8s ray crd](/2022/07/k8s_ray_crd.md)
     - [k8s template hash](/2022/07/k8s_pod_template_hash.md)
     - [docker --progress=plain](/2022/07/docker_build_progress_plain.md)
     - [docker illegal instr](/2022/07/docker_container_core_dumped_illegal_instruction.md)
