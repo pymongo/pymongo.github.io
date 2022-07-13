@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-07**
+    - [us3 体验](/2022/07/us3.md)
     - [k8s ray crd](/2022/07/k8s_ray_crd.md)
     - [k8s template hash](/2022/07/k8s_pod_template_hash.md)
     - [docker --progress=plain](/2022/07/docker_build_progress_plain.md)
