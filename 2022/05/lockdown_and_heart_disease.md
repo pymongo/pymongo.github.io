@@ -1,4 +1,4 @@
-# [封城与心脏病](/2022/05/lockdown_and_herat_disease.md)
+# [封城与心脏病](/2022/05/lockdown_and_heart_disease.md)
 
 22 年 5 月底
 [联合早报](https://www.zaobao.com/realtime/china/story20220527-1276893)

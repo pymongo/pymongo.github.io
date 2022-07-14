@@ -24,8 +24,8 @@
 - **2022-05**
     - [dmesg /dev/kmsg](/2022/05/dmesg_dev_kmsg.md)
     - [S_IRUSR err on M1](/2022/05/libc_open_error_on_mac_m1.md)
-    - [kubenetes iceberg](/2022/05/kubenetes_iceberg.md)
-    - [封城与心脏病](/2022/05/lockdown_and_herat_disease.md)
+    - [kubernetes iceberg](/2022/05/kubernetes_iceberg.md)
+    - [封城与心脏病](/2022/05/lockdown_and_heart_disease.md)
     - [python ray](/2022/05/python_ray.md)
     - [养生壶白灼虾](/2022/05/cook_shrimp_at_home.md)
     - [rustdecimal 供应链投毒](/2022/05/rustdecimal_malicious.md)
