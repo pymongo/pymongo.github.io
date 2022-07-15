@@ -27,3 +27,7 @@ raycluster.cluster.ray.io "t-12345" deleted
 所以可以通过 selector 获取某个 raycluster 的 pod 可以这么写:
 
 > kubectl -n dp get pod -l ray-node-name=ray-idp-raycluster-b-global-head -o custom-columns=:metadata.name --no-headers
+
+## k8s operator
+
+提到 crd 就不得不提 operator, 在 ray 这个应用中 operator 是负责动态创建 ray 集群以及调度(dispatch) 的 pod

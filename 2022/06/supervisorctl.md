@@ -64,3 +64,9 @@ submitter: changed
 submitter: stopped
 submitter: updated process group
 ```
+
+## supervisor 日志收集权限
+
+如果 program:app 通过 app 用户去运行，是没有权限将日志写入 /var/log/app.log 的，
+
+说明日志收集过程是 supervisor 先内部捕获进程 stdout 再转发/合并到 /var/log 中
