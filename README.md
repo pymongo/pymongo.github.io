@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-07**
+    - [out of tree module](/2022/07/out_of_tree_module.md)
     - [insmod](/2022/07/insmod.md)
     - [Linux 源码读后感1](/2022/07/linux_source_review_1_vendor.md)
     - [第三方库的三种引入](/2022/07/three_way_import_third_party_lib.md)

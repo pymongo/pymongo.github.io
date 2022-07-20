@@ -4,6 +4,8 @@
 
 尝试插入 rust_print.ko 内核模块到本机
 
+其实代码很简单也就一堆 C 语言的 printk 函数最后通过 dmesg 或 /dev/kmesg 观察输出结果
+
 ```
 [w@ww linux]$ file samples/rust/rust_print.ko 
 samples/rust/rust_print.ko: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), BuildID[sha1]=c6d9eeed3bbdf2b2c0460a0078c53bfcbbce5966, with debug_info, not strippe

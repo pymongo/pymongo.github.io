@@ -10,6 +10,8 @@
 
 Linux 源码貌似把 glibc 部分系统调用加上 strlen 之类 C 语言的常用方法都 vendor 进来
 
+好的设计上 Linux 没有 git submodule 而 rust 源码一堆 submodule 个人就不太喜欢
+
 例如某些 arm 的 arch 的 strlen 实现跟默认实现不一样的话，通过各种宏去实现 override 的效果
 
 ---
