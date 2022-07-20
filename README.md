@@ -1,5 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-07**
+    - [Linux 源码 Rust 示例](/2022/07/rust_for_linux_build_samples_rust.md)
+    - [docker19 buildkit](/2022/07/docker_buildkit_on_docker_19.md)
     - [Map::entry 异步时的坑](/2022/07/entry_or_insert_in_async.md)
     - [tracing mem leak review](/2022/07/tracing_span_cross_await_memory_leak_review.md)
     - [kubectl cp 原理](/2022/07/kubectl_cp_tar.md)

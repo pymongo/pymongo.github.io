@@ -14,6 +14,8 @@ illegal instruction (core dumped)
 但我觉得是 fedora:36 的 glibc 2.35 发生了一些不兼容改动吧，
 毕竟公司生产服务器上宿主机 centos7 常年跑 centos8/ubuntu:20.04 的应用也没问题
 
+但实际原因是云产商的 centos7 不一定是 3.10 的内核，我司的生产服务器上是 4.19 甚至 5.4 内核版本的都有
+
 容器内没有捕获 coredump 的话，coredump 会记录在宿主机的 dmesg
 
 ```
