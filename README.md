@@ -1,5 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-07**
+    - [Linux 源码读后感1](/2022/07/linux_source_review_1_vendor.md)
+    - [第三方库的三种引入](/2022/07/three_way_import_third_party_lib.md)
     - [Linux 源码 Rust 示例](/2022/07/rust_for_linux_build_samples_rust.md)
     - [docker19 buildkit](/2022/07/docker_buildkit_on_docker_19.md)
     - [Map::entry 异步时的坑](/2022/07/entry_or_insert_in_async.md)
