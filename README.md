@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-07**
+    - [一致性哈希](/2022/07/consistent_hashing.md)
     - [out of tree module](/2022/07/out_of_tree_module.md)
     - [insmod](/2022/07/insmod.md)
     - [Linux 源码读后感1](/2022/07/linux_source_review_1_vendor.md)
