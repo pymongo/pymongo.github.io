@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-07**
+    - [HTTP header ascii](/2022/07/http_header_ascii_only.md)
     - [一致性哈希](/2022/07/consistent_hashing.md)
     - [out of tree module](/2022/07/out_of_tree_module.md)
     - [insmod](/2022/07/insmod.md)
