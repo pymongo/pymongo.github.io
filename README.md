@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-07**
+    - [k8s 滚动更新](/2022/07/k8s_rolling_update.md)
     - [kernel module](/2022/07/linux_kernel_module_quick_start.md)
     - [HTTP header ascii](/2022/07/http_header_ascii_only.md)
     - [一致性哈希](/2022/07/consistent_hashing.md)
