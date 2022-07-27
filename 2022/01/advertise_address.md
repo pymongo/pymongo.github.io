@@ -1,4 +1,4 @@
-# [advertise_address](2022/01/advertise_address.md)
+# [advertise_address](/2022/01/advertise_address.md)
 
 常见于 etcd, docker-runner 配置中，表示客户端连接要用域名
 
@@ -18,3 +18,5 @@ examples/get_default_route_ip_and_mac.rs 文件有详细介绍
 
 1. 解析 /proc/net/route 获取 default_network_interface
 2. 解析 /sys/class/net/{default_network_interface}/address
+
+(本文由于文件名带 advertise 后缀导致被我广告拦截器屏蔽掉了...)

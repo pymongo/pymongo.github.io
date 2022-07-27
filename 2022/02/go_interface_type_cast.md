@@ -1,4 +1,4 @@
-# [go interface cast](2022/02/go_interface_cast.md)
+# [go interface cast](/2022/02/go_interface_type_cast.md)
 
 从酷熊博客学到的 go 小知识: https://fasterthanli.me/articles/some-mistakes-rust-doesnt-catch
 

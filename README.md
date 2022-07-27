@@ -47,7 +47,7 @@
     - [cargo ramdisk](/2022/05/cargo_ramdisk_memdisk.md)
     - [看函数调用链路/树](/2022/05/vscode_show_call_hierarchy.md)
     - [nfs iowait](/2022/05/nfsiostat.md)
-    - [kubectl VirtualService lstio](/2022/05/kubectl_get_vs.md)
+    - [kubectl VirtualService lstio](/2022/05/kubectl_get_vs_lstio.md)
     - [tensorboard](/2022/05/tensorboard.md)
     - [kubectl top pod](/2022/05/kubectl_top_pod.md)
     - [synchronized wait](/2022/05/synchronized_process_wait.md)
@@ -96,11 +96,11 @@
     - [/usr/bin/true](2022/02/usr_bin_true.md)
     - [miri 能干什么](2022/02/what_miri_can_do.md)
     - [BinaryHeap Hole](2022/02/binary_heap_hole.md)
-    - [go interface cast](2022/02/go_interface_cast.md)
+    - [go interface cast](/2022/02/go_interface_type_cast.md)
     - [wordle](2022/02/wordle.md)
 - **2022-01**
     - [Dockerfile 尽量一个 RUN](2022/01/dockerfile_use_one_run.md)
-    - [advertise_address](2022/01/advertise_address.md)
+    - [advertise_address](/2022/01/advertise_address.md)
     - [etcd](2022/01/etcd.md)
     - [微服务 BFF 数据聚合](2022/01/micro_service_bff.md)
     - [Java JNI 学习笔记](/2022/01/jni.md)
@@ -205,7 +205,7 @@
     - [diesel CRUD示例](/2020/11/diesel_crud.md)
     - [运维-tmux会话管理](/2020/11/tmux.md)
     - [systemd部署管理项目进程](/2020/11/systemd.md)
-    - [Linux创建进程到进入Rust可执行文件的main函数的过程](/notes/linux/from_fork_exec_to_rust_main.md)
+    <!-- - [Linux创建进程到进入Rust可执行文件的main函数的过程](/notes/linux/from_fork_exec_to_rust_main.md) -->
     - [Rust2018新增的mod文件夹写法](/2020/11/rust_2018_folder_module_mount.md)
     - [no_std中实现printf](/2020/11/impl_printf_in_no_std.md)
 - **2020-10**

@@ -1,4 +1,4 @@
-# [kubectl VirtualService lstio](/2022/05/kubectl_get_vs.md)
+# [kubectl VirtualService lstio](/2022/05/kubectl_get_vs_lstio.md)
 
 ## lstio VirtualService
 
