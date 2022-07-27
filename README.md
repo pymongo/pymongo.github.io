@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-07**
+    - [rename cross fs](/2022/07/rename_errno_18_invalid_cross_device_link.md)
     - [addr2line](/2022/07/addr2line.md)
     - [k8s 滚动更新](/2022/07/k8s_rolling_update.md)
     - [kernel module](/2022/07/linux_kernel_module_quick_start.md)
