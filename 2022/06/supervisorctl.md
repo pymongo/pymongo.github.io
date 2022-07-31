@@ -70,3 +70,13 @@ submitter: updated process group
 如果 program:app 通过 app 用户去运行，是没有权限将日志写入 /var/log/app.log 的，
 
 说明日志收集过程是 supervisor 先内部捕获进程 stdout 再转发/合并到 /var/log 中
+
+## 定制 k8s 存活探针
+
+一般一个容器就一个进程，进程挂容器挂会触发 k8s 自动重启 pod
+
+但是在 supervisor 作为 container entrypoint 进程时去启动多个应用进程时，应用挂了不会重启 pod
+
+这时候就需要定制 k8s 存活探针通过轮询 `supervisorctl status app` 如果应用不是 running 状态则 exit code 不是 0
+
+虽然 supervisor/systemd 默认会将挂掉的应用尝试重启 3 次，但 3 次都失败之后，可能还是重启 pod 让应用的前置依赖也重启下会解决问题
