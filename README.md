@@ -1,5 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
+- **2022-08**
 - **2022-07**
+    - [docker cp pid root](/2022/07/proc_pid_root_docker_cp.md)
     - [k8s probe](/2022/07/k8s_probe.md)
     - [docker system df](/2022/07/docker_system_df.md)
     - [get pod -A](/2022/07/kubectl_get_pod_all_namespace.md)
