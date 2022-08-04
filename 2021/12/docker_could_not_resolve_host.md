@@ -23,3 +23,5 @@ Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_6
 然后 sudo systemctl restart docker 就能用了
 
 **如果本机发生过 OpenVPN 网络切换，需要 restart docker 才能让 container 网络访问正常**
+
+UPDATE: 后记，curl error 6 也可能是 docker 低版本(<=19)的 bug 导致报错, strace 下就看到就不是 DNS 报错而是 clone3 系统调用报错

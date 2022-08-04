@@ -45,6 +45,10 @@ real    0m0.101s
 
 所有 kubectl 都会翻译成 k8s RESTFUL API 发给 k8s api server
 
+任何 pod 内都可通过 KUBERNETES_SERVICE_HOST 环境变量获取 api server 的 IP
+
+<https://stackoverflow.com/questions/30690186/how-do-i-access-the-kubernetes-api-from-within-a-pod-container>
+
 kubectl 用 -v 参数就能看到实际请求的 json
 
 ```
