@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-08**
+    - [goproxy](/2022/08/goproxy.md)
     - [选用下载量最高的库](/2022/08/crate_sort_by_downloads.md)
     - [燕飞五点支撑](/2022/08/waist_fitness.md)
     - [docker build curl err](/2022/08/docker_build_curl_getaddrinfo_err.md)
