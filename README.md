@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-08**
+    - [燕飞五点支撑](/2022/08/waist_fitness.md)
     - [docker build curl err](/2022/08/docker_build_curl_getaddrinfo_err.md)
 - **2022-07**
     - [docker cp pid root](/2022/07/proc_pid_root_docker_cp.md)
