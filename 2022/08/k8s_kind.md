@@ -46,7 +46,9 @@ kubeadm 是创建集群才用到的工具，平时学习用 kubectl 就够了
 
 <https://stackoverflow.com/questions/30449313/how-do-i-make-a-docker-container-start-automatically-on-system-boot>
 
-on-failure will not only restart the container on failure, but also at system boot.
+on-failure will not only restart the container on failure, but also at system boot
+
+但是我不确定 minikube 的一些命令会不会把 container restart 参数改掉
 
 ## kind
 
@@ -72,7 +74,9 @@ on-failure will not only restart the container on failure, but also at system bo
             },
 ```
 
-### kind cluster-info
+用 docker events 去看 kind 开机启动的事件 `docker events --filter container=kind-control-plane --since=15m`
+
+kind cluster-info:
 
 ```
 [w@localhost ~]$ kubectl get cluster-info
@@ -88,29 +92,3 @@ CoreDNS is running at https://127.0.0.1:44039/api/v1/namespaces/kube-system/serv
 ```
 
 我更喜欢 kind 没有用 192 开头的虚拟 IP 作为 cluster api server
-
-### k8s dashboard
-
-minikube dashboard 傻瓜命令可安装，但是在 kind 我可以 apply yaml 这样去学习
-
-```
-[w@localhost ~]$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.0/aio/deploy/recommended.yaml
-
-[w@localhost ~]$ kubectl get pod -A 
-NAMESPACE              NAME                                         READY   STATUS    RESTARTS      AGE
-kube-system            coredns-6d4b75cb6d-7t4z5                     1/1     Running   3 (23m ago)   32m
-kube-system            coredns-6d4b75cb6d-blx2z                     1/1     Running   3 (23m ago)   32m
-kube-system            etcd-kind-control-plane                      1/1     Running   4 (22m ago)   32m
-kube-system            kindnet-drg7p                                1/1     Running   3 (23m ago)   32m
-kube-system            kube-apiserver-kind-control-plane            1/1     Running   4 (22m ago)   32m
-kube-system            kube-controller-manager-kind-control-plane   1/1     Running   4 (22m ago)   32m
-kube-system            kube-proxy-tl997                             1/1     Running   3 (23m ago)   32m
-kube-system            kube-scheduler-kind-control-plane            1/1     Running   4 (22m ago)   32m
-kubernetes-dashboard   dashboard-metrics-scraper-7bfdf779ff-nwp72   1/1     Running   0             2m6s
-kubernetes-dashboard   kubernetes-dashboard-6cdd697d84-bdf8b        1/1     Running   0             2m6s
-local-path-storage     local-path-provisioner-9cd9bd544-lj7lb       1/1     Running   4 (23m ago)   32m
-```
-
-然后开一个 kubectl proxy 代理服务器的网关在后台就能访问
-
-
