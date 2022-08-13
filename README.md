@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-08**
+    - [k8s metrics server](/2022/08/k8s_metrics_server.md)
     - [k8s dashboard](/2022/08/k8s_dashboard_and_kubectl_proxy.md)
     - [k8s kind](/2022/08/k8s_kind.md)
     - [goproxy](/2022/08/goproxy.md)

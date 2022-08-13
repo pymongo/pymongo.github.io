@@ -92,3 +92,9 @@ CoreDNS is running at https://127.0.0.1:44039/api/v1/namespaces/kube-system/serv
 ```
 
 我更喜欢 kind 没有用 192 开头的虚拟 IP 作为 cluster api server
+
+### kind load docker-image
+
+如果 deployment pull 策略为 Never 则 kind 无法使用宿主机的镜像
+
+所以 pod 会报错 ErrImageNeverPull 除非用 kind load docker-image 将宿主机镜像发给 kind 容器才能用
