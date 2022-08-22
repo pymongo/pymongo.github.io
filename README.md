@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-08**
+    - [Stream::try_clone](/2022/08/stream_try_clone.md)
     - [牙髓血运重建术](/2022/08/revascularization_procedure.md)
     - [go post json 初体验](/2022/08/go_http_client.md)
     - [低代码的开发效率](/2022/08/low_code_effective_develop.md)
