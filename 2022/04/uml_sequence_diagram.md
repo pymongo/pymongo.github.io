@@ -10,6 +10,13 @@ UML SEQUENCE DIAGRAM 用于描述一次请求的处理过程
 
 ![](https://www.researchgate.net/profile/Michael-Pantazoglou/publication/228764961/figure/fig4/AS:667634911686666@1536187975679/An-example-behavioral-query-expressed-in-a-UML-sequence-diagram.png)
 
+## code to UML
+
+有两种 DSL 我考察了下比较适合(比裸写 graphviz 容易多了)
+
+- plainuml: 本质上好像也是代码转 graphviz 再可视化
+- zenuml(confluence 插件生态的，大部分功能付费)
+
 ## reference
 
 - <https://medium.com/the-ui-girl/what-is-uml-diagram-bf9bf8f4a573>
