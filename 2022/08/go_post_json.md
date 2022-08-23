@@ -18,6 +18,8 @@ type Resp struct {
 
 > struct field code has json tag but is not exported
 
+可以用 vscode 的 gomodifytags 一键给结构体的所有字段加上 json tag
+
 ## json post 请求
 
 我试着写了个 json POST 请求的例子，请求用 map 序列化 body 响应用结构体反序列化
