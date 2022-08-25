@@ -4,6 +4,8 @@
 
 <https://github.com/golang/vscode-go/wiki/tools#goplay>
 
+archlinux 有个 go-tools 的包有另一些官方工具，本文介绍的工具则是 vscode Go 插件建议安装的工具
+
 ```
 go:	/usr/bin/go: go version go1.19 linux/amd64
 
