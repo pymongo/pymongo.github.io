@@ -1,6 +1,6 @@
-# [k8s redis NodePort](/2022/05/k8s_redis_service_node_port.md)
+# [K8s redis NodePort](/2022/05/k8s_redis_service_node_port.md)
 
-最近公司的 k8s 集群跑着跑着 redis 服务就挂了
+最近公司的 K8s 集群跑着跑着 redis 服务就挂了
 
 kubectl get services 发现 redis 服务 type 是 NodePort
 

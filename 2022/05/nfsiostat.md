@@ -30,7 +30,7 @@ FTP,CIFS/samba,NFS,OSS(s3/minio) 还有就是厂商自研的闭源分布式文�
 
 ## s3 不能被两台机器 mount
 
-由于 k8s 对内核 namespace 隔离限制，pod 1 mount 了 s3 bucket1 之后另一个 pod 就看不到 s3 的文件了
+由于 K8s 对内核 namespace 隔离限制，pod 1 mount 了 s3 bucket1 之后另一个 pod 就看不到 s3 的文件了
 
 即便 mount point 在 NFS 上其它 pod 也就只能看到 pod 1 的 s3 bucket1 文件夹看不到任何文件，文件夹都是空的
 

@@ -1,6 +1,6 @@
 # [docker build curl err](/2022/08/docker_build_curl_getaddrinfo_err.md)
 
-公司有台装了 docker 19 的 ubuntu 20.04 机器(运维说的随便百度找的 k8s 离线安装压缩包全是 binary 的，优点是离线安装和低版本 k8s 还用 docker 引擎没用 containerd 所以版本比 apt 源的低)
+公司有台装了 docker 19 的 ubuntu 20.04 机器(运维说的随便百度找的 K8s 离线安装压缩包全是 binary 的，优点是离线安装和低版本 K8s 还用 docker 引擎没用 containerd 所以版本比 apt 源的低)
 
 里面构建任何发行版的 Dockerfile 都算正常，但是跑 fedora 装包时必然报错
 
@@ -54,4 +54,4 @@ clone(child_stack=0x7fa3f697ddf0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGH
 
 <https://github.com/docker/buildx/issues/772>
 
-于是让运维卸载掉 k8s 离线工具的 docker 再 apt install docker 就彻底解决 curl 在 fedora 不能用的问题了
+于是让运维卸载掉 K8s 离线工具的 docker 再 apt install docker 就彻底解决 curl 在 fedora 不能用的问题了

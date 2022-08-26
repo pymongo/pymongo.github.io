@@ -1,6 +1,6 @@
 # [centos8 container sshd](/2022/03/centos8_container_sshd.md)
 
-试试在一个精简版的 centos8 image 用于 k8s 某个 pod 的 container 启动 sshd
+试试在一个精简版的 centos8 image 用于 K8s 某个 pod 的 container 启动 sshd
 
 dnf install openssh-server
 

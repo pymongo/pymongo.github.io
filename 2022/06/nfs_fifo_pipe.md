@@ -23,7 +23,7 @@ container mount 宿主机 /dev 下的一块固态硬盘设备是独占的，moun
 
 ## 为什么要 NFS 是因为跨机器
 
-因为公司的 k8s 集群有多个节点跨机器的，只能通过 NFS 共享文件了
+因为公司的 K8s 集群有多个节点跨机器的，只能通过 NFS 共享文件了
 
 ## unix socket 也不能放 NFS
 

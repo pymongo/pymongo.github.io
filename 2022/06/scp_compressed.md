@@ -2,7 +2,7 @@
 
 最近沉迷 scp && kubectl cp && supervisorctl restart 的 "热更新"(不重启 pod) 的部署
 
-影响部署速度的最大问题是 scp 到 k8s 控制的云主机太慢了
+影响部署速度的最大问题是 scp 到 K8s 控制的云主机太慢了
 
 本来想说本地 zip 一下再 scp，同事突然打断说用 scp 可以加上压缩参数
 

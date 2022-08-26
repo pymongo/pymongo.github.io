@@ -1,4 +1,4 @@
-# [k8s template hash](/2022/07/k8s_pod_template_hash.md)
+# [K8s template hash](/2022/07/k8s_pod_template_hash.md)
 
 <https://stackoverflow.com/questions/69940393/whats-the-exact-reason-a-pod-template-hash-is-added-to-the-name-of-the-replicas>
 
@@ -26,7 +26,7 @@ postgres-58697bd5d-djsph                    1/1     Running             1       
 
 > kubectl get pods | grep postgres | awk '{print $1}'
 
-用 selector 选中 app 为 postgres 之后再只选中 name 列就能直接通过 k8s API 拿到 pod name
+用 selector 选中 app 为 postgres 之后再只选中 name 列就能直接通过 K8s API 拿到 pod name
 
 ```
 > time kubectl get pod --selector=app=postgres -o custom-columns=:metadata.name --no-headers
@@ -43,7 +43,7 @@ real    0m0.101s
 
 ## api server
 
-所有 kubectl 都会翻译成 k8s RESTFUL API 发给 k8s api server
+所有 kubectl 都会翻译成 K8s RESTFUL API 发给 K8s api server
 
 任何 pod 内都可通过 KUBERNETES_SERVICE_HOST 环境变量获取 api server 的 IP
 

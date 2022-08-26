@@ -1,4 +1,4 @@
-# [k8s dashboard](/2022/08/k8s_dashboard_and_kubectl_proxy.md)
+# [K8s dashboard](/2022/08/k8s_dashboard_and_kubectl_proxy.md)
 
 minikube dashboard 傻瓜命令可安装，但是在 kind 我可以 apply yaml 这样去学习
 
@@ -34,9 +34,9 @@ local-path-storage     local-path-provisioner-9cd9bd544-lj7lb       1/1     Runn
 
 说起 token 想起公司的每个 pod 都有这样一个 mount: /var/run/secrets/kubernetes.io/serviceaccount
 
-可能是用于 pod 跟 k8s api server 之间鉴权
+可能是用于 pod 跟 K8s api server 之间鉴权
 
-由于 KUBERNETES_SERVICE_HOST 相关环境变量可能拿不到所以我都是根据上述文件判断 Rust 进程运行在一个 k8s pod 中
+由于 KUBERNETES_SERVICE_HOST 相关环境变量可能拿不到所以我都是根据上述文件判断 Rust 进程运行在一个 K8s pod 中
 
 <https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md>
 

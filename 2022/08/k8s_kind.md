@@ -1,12 +1,12 @@
-# [k8s kind](/2022/08/k8s_kind.md)
+# [K8s kind](/2022/08/k8s_kind.md)
 
-复盘下在 fedora 和 manajaro 单机开发机装 k8s 集群的过程
+复盘下在 fedora 和 manajaro 单机开发机装 K8s 集群的过程
 
-当初完全不懂 k8s 看 minikube 各种概念痛苦无比(例如 get cm 是 configmap)，摸熟公司 k8s 集群后再学就一览众山小了
+当初完全不懂 K8s 看 minikube 各种概念痛苦无比(例如 get cm 是 configmap)，摸熟公司 K8s 集群后再学就一览众山小了
 
 最终发现 kind 的效果最好(docker restart=always能开机启动)，所以以后就用 kind 够了
 
-## k8s 周边工具安装
+## K8s 周边工具安装
 
 kubectl 客户端命令行工具要加 google repo 源才能用，但谷歌源加上也被墙所以我用 snap install kubectl
 

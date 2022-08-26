@@ -24,7 +24,7 @@
 ## 伴生/旁路(sidecar?)
 
 k8s 的例子:
-- k8s 一个 pod 可以有多个 container
+- K8s 一个 pod 可以有多个 container
 - 同一个 pod 内多个 container 可共用 volume
 - 主业务容器叫 app 伴生/旁路容器叫 sidecar
 - app 写数据到 volume 伴生容器读 volume 收集日志/metrics 
@@ -33,7 +33,7 @@ docker/systemd 就是让应用将日志打印到 stdout 然后 docker logs/journ
 
 ### sidecar proxy
 
-sidecar proxy 广泛用于基于 k8s 的服务网格技术中
+sidecar proxy 广泛用于基于 K8s 的服务网格技术中
 
 伴生/旁路容器负责对业务容器的流量监控转发等工作，可以进行更细粒度的流量链路管理和监控，隔离业务逻辑和监控逻辑
 
@@ -43,7 +43,7 @@ sidecar proxy 广泛用于基于 k8s 的服务网格技术中
 
 二、例如 filebeat/logstash 全局日志收集
 
-更大力度放一个，例如一个 k8s node 放一个，
+更大力度放一个，例如一个 K8s node 放一个，
 每个业务模块按固定格式规范将日志放在固定路径，日志输出内容也是固定格式
 
 ## 日志和 tracing 区别
@@ -66,7 +66,7 @@ dind aka docker in docker
 
 kind aka kubernetes in docker (跟 dind 的缩写有点像)
 
-kind 和 minikube 这是 TIDB 文档中介绍最简构建 k8s cluster 的方案
+kind 和 minikube 这是 TIDB 文档中介绍最简构建 K8s cluster 的方案
 
 ## gitlab SDK
 
