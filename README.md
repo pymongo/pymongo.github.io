@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-08**
     - [pip 存在但无法导入的包](/2022/08/pip_show_ok_buf_import_not_found.md)
+    - [ra 分析死代码](/2022/08/impl_rust_analyzer_client.md)
     - [LSP](/2022/08/lsp.md)
     - [go tools](/2022/08/vscode_go_tools.md)
     - [Stream::try_clone](/2022/08/stream_try_clone.md)
