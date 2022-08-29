@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-08**
+    - [DTO 等命名术语](/2022/08/java_dto_entity_pojo.md)
     - [gopls 高亮常量](/2022/08/gopls_highlight_const_struct.md)
     - [K8s patch CRD](/2022/08/kubectl_patch_crd.md)
     - [K8s 的 k 要大写](/2022/08/k8s_first_k_is_capital.md)
