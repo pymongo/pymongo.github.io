@@ -13,3 +13,7 @@
 还有另一种情况是 numpy 源码存在但是不完整缺少个别 py 文件导致 numpy.ndarray 找不到
 
 出事原因: 安装/升级某个依赖 numpy 的包，升级过程中卸载了 numpy 然后机器挂了没触发 pip 的事务回滚?
+
+## whl 其实是个 tar.gz
+
+用 file --mime-type 去看 whl 其实就是一个压缩包，里面就 setup.py, src, requirement.txt 可能就这些吧

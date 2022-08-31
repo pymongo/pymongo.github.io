@@ -23,6 +23,8 @@ nvme0n1     259:0    0 238.5G  0 disk
 └─nvme0n1p5 259:5    0 151.3G  0 part /home
 ```
 
+建议用 dmesg 去看 USB flash mount 在哪一个 /dev 上
+
 插入 U 盘后的 lsblk
 
 ```

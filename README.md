@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-08**
+    - [日志收集 ELK/EFK](/2022/08/log_collect_elk_efk_and_loki.md)
     - [DTO 等命名术语](/2022/08/java_dto_entity_pojo.md)
     - [gopls 高亮常量](/2022/08/gopls_highlight_const_struct.md)
     - [K8s patch CRD](/2022/08/kubectl_patch_crd.md)
