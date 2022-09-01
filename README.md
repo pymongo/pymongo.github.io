@@ -1,5 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
+- **2022-09**
 - **2022-08**
+    - [暗黑3 自动脚本](/2022/08/diablo3_ros_bot.md)
     - [win11 安装和配置](/2022/08/windows11_install_or_config.md)
     - [日志收集 ELK/EFK](/2022/08/log_collect_elk_efk_and_loki.md)
     - [DTO 等命名术语](/2022/08/java_dto_entity_pojo.md)
