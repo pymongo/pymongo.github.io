@@ -8,5 +8,5 @@
 |POJO|Plain Old Java Objects|同义词是 Bean，除 getter/setter 外无任何方法的结构体|
 |entity||字段跟数据库表一一对应|
 |DAO|Data Access Object|数据库表 CRUD 的 interface, 参考 room 框架|
-|PO|Persistant Object|ORM 插入参数/查询返回的结构体|
+|PO|Persistent Object|ORM 插入参数/查询返回的结构体|
 |VO|Value Object|业务层内部传输用的纯数据结构体|

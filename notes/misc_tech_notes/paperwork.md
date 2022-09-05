@@ -79,7 +79,7 @@ recaptcha密钥是绑定client域名的，同事想从两个域名A和B访问登
 
 ```
 解决办法是toml配置文件把recaptcha的配置项改成数组类型，这样就可以支持多组域名+密钥的配置(可能网站推广时为了SEO前端会有多个域名)，
-然后启动时将recaptcha配置转成HashMap，根据client请求的Origin/Referer去查询相应的密钥
+然后启动时将recaptcha配置转成HashMap，根据client请求的Origin/Referrer去查询相应的密钥
 
 为了测试我一天点了上百次recaptcha图片验证码:(
 ```

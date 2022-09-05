@@ -57,6 +57,10 @@ Logstash 可以把例如 nginx access log 这样的非结构化数据转换通�
 
 > Pinpoint 这种详细程度的追踪对应用系统的性能压力是相当大的，一般**仅在出错时开启**
 
+### tracing 系统跨进程传递 span 的实现
+
+通过 HTTP/grpc 的 HEADER 单独有个字段携带 span 信息，通过 HTTP header 进行传播
+
 ## time series db
 
 如果 20 的节点，每个节点有 10 个微服务，每个微服务每秒生成 200 个指标，一天就有数十亿的数据传统关系型数据库难以解决

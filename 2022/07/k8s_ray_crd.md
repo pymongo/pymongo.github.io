@@ -22,7 +22,7 @@ t-1537032634283712512     Running   2          11d
 raycluster.cluster.ray.io "t-12345" deleted
 ```
 
-一般习惯上 raycluster 类型资源的 pod 的一些配置都在 metatada.labels 中
+一般习惯上 raycluster 类型资源的 pod 的一些配置都在 metadata.labels 中
 
 所以可以通过 selector 获取某个 raycluster 的 pod 可以这么写:
 

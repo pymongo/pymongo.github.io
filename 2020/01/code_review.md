@@ -42,4 +42,4 @@ App components一共四种，除了Activity还有Services(如音乐播放器)
 
 `jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/`
 
-TODO jenv的实践经验
+更新 jenv 只是 mac 电脑用用算了，Linux 有 update-alternative 和 archlinux-java 管理版本挺好的
