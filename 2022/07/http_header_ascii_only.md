@@ -12,7 +12,7 @@
 
 原来是 HTTP Header 中只允许是 ascii 编码，解决方案就 urlencode 一下好了
 
-## ws client 代码
+## ws client 加 header
 
 由于 ws 协议关系，客户端第一次握手的请求中 body 必须为空，所以想带简单参数放 query_string, path
 
