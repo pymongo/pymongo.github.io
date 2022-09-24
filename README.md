@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-09**
+    - [凤凰架构笔记](/2022/09/icyfenix_notes.md)
     - [stream::unfold rsp](/2022/09/process_command_to_http_stream.md)
 - **2022-08**
     - [暗黑3 自动脚本](/2022/08/diablo3_ros_bot.md)

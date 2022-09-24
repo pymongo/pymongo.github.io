@@ -40,6 +40,14 @@ kubeadm 是创建集群才用到的工具，平时学习用 kubectl 就够了
 
 加一个 systemd service 专门去开机启动太麻烦，或者 docker update 让它开机启动，再看看 kind 吧
 
+### minikube image mirror
+
+minikube 启动的时候加上以下两个参数应该能缓解下谷歌镜像被墙的问题
+
+> --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers
+
+> --registry-mirror=https://registry.docker-cn.com
+
 ### minikube start on boot
 
 > docker update --restart=always minikube
