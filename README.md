@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-09**
+    - [browser Service Worker](/2022/09/browser_service_worker_api.md)
     - [币圈夹子机器人](/2022/09/block_chain_robot.md)
     - [凤凰架构笔记](/2022/09/icyfenix_notes.md)
     - [stream::unfold rsp](/2022/09/process_command_to_http_stream.md)
