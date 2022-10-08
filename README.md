@@ -1,4 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
+- **2022-10**
+    - [redis 硬盘满的报错](/2022/10/redis_disk_full.md)
 - **2022-09**
     - [browser Service Worker](/2022/09/browser_service_worker_api.md)
     - [币圈夹子机器人](/2022/09/block_chain_robot.md)
