@@ -20,6 +20,14 @@
 
 因为我用的不是360水冷所以散热跟不上PBO带来的性能提升也有限
 
+## 台式机配置
+
+散热用的猫头鹰中高端风冷
+
+BIOS 设置内存超频开启 XMP，CPU 设置 PBO 开启 auto 以及 SVM mode 开启(用于 kvm)
+
+![](my_5900x_desktop_manifest.png)
+
 ## CPU温度
 
 sensors命令工具的输出中， k10temp-pci是amd的CPU温度传感器

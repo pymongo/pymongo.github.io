@@ -35,9 +35,9 @@ Machine:   Type: Desktop Mobo: ASUSTeK model: TUF GAMING X570-PLUS (WI-FI) v: Re
 12/04/2020
 ```
 
-## (todo)荣耀笔记本更新BIOS
+## 荣耀笔记本更新 BIOS
 
-驱动之类的让linux的包管理帮忙更新，驱动存储在硬盘上，可能只有BIOS固件是烧录在主板上的
+驱动之类的让linux的包管理帮忙更新，驱动存储在硬盘上，可能只有 BIOS 固件是烧录在主板上的
 
 由于虚拟机不能更新固件，双系统怕引导坏，建议U盘装个winPE/win-to-go
 

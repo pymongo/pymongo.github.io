@@ -95,6 +95,24 @@ Rust map.entry() API
 
 deprecated
 
+## 生物类词汇
+- predation(捕食者/天敌)
+- instinct(本能)
+- regulate(调节)
+- heatstroke(中暑)
+- excavating(挖掘)
+- dehydration(脱水)
+- trample(践踏)
+- camouflage(迷彩/伪装)
+- incessant(持续不断的)
+- territory(领地)
+- climatic(气候)
+- slope(斜坡)
+
+## 游戏类词汇
+- density(密度): this build has an exceptional(杰出的) scaling with monster density
+- detonating(引爆)
+
 ## 2020年第二季度英语积累
 
 - v. instantiate 实例化
