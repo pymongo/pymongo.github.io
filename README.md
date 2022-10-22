@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-10**
+    - [when ser json fail](/2022/10/when_serde_json_ser_error.md)
     - [/dev/kvm](/2022/10/dev_kvm_not_found.md)
     - [redis 硬盘满的报错](/2022/10/redis_disk_full.md)
 - **2022-09**
