@@ -93,7 +93,7 @@ Rust map.entry() API
 
 上下文: sqlx在一次重构url parser的commit后，db_url中不能携带non-ASCII的字符，老版本还是可以的，作者认为PR#214对db_url密码的解析是一种(regression倒退)
 
-deprecated
+- mandatory(强制)
 
 ## 生物类词汇
 - predation(捕食者/天敌)
@@ -104,7 +104,7 @@ deprecated
 - dehydration(脱水)
 - trample(践踏)
 - camouflage(迷彩/伪装)
-- incessant(持续不断的)
+- incessant(持续不断的) 
 - territory(领地)
 - climatic(气候)
 - slope(斜坡)
