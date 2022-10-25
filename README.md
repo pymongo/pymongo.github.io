@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-10**
+    - [helm install](/2022/10/helm_install_volcano.md)
     - [pip 包多版本管理](/2022/10/pip_install_same_package_multi_version.md)
     - [when ser json fail](/2022/10/when_serde_json_ser_error.md)
     - [/dev/kvm](/2022/10/dev_kvm_not_found.md)
