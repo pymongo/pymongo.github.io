@@ -41,3 +41,7 @@ volcano-system       volcano-scheduler-5c7d8679b4-5m5fj           1/1     Runnin
 NAME    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
 volcano volcano-system  1               2022-10-24 21:14:33.231083626 +0800 CST deployed        volcano-1.5     0.1 
 ```
+
+## volcano concepts
+
+- podGroup: e.g. spark cluster

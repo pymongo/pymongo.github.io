@@ -108,6 +108,7 @@ Rust map.entry() API
 - territory(领地)
 - climatic(气候)
 - slope(斜坡)
+- juvenile(少年)
 
 ## 游戏类词汇
 - density(密度): this build has an exceptional(杰出的) scaling with monster density

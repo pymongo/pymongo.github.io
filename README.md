@@ -1,4 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
+- **2022-11**
+    - [解决 mold 源码编译报错](/2022/11/mold_compile_fail_include_span_not_found.md)
 - **2022-10**
     - [helm install](/2022/10/helm_install_volcano.md)
     - [pip 包多版本管理](/2022/10/pip_install_same_package_multi_version.md)
@@ -137,7 +139,7 @@
     - [wordle](2022/02/wordle.md)
 - **2022-01**
     - [Dockerfile 尽量一个 RUN](2022/01/dockerfile_use_one_run.md)
-    - [advertise_address](/2022/01/a_d_v_e_r_t_i_s_e_address.md)
+    - [advertise_address](/2022/01/advertise_address.md)
     - [etcd](2022/01/etcd.md)
     - [微服务 BFF 数据聚合](2022/01/micro_service_bff.md)
     - [Java JNI 学习笔记](/2022/01/jni.md)
