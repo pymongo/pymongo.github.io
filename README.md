@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-11**
+    - [windows sshd](/2022/11/windows_start_sshd.md)
     - [解决 mold 源码编译报错](/2022/11/mold_compile_fail_include_span_not_found.md)
 - **2022-10**
     - [helm install](/2022/10/helm_install_volcano.md)

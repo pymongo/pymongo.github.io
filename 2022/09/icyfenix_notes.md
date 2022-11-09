@@ -308,7 +308,7 @@ M = 1000*1000 bytes
 
 request 是用户/研发对资源的需求，而 limit 才是真正传递给 cgroup 进行资源限制的参数
 
-所以 request >= limit
+所以 request <= limit
 
 > requests是给调度器用的，Kubernetes 选择哪个节点运行 Pod
 

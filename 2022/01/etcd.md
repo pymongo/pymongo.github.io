@@ -1,6 +1,6 @@
 # [etcd](2022/01/etcd.md)
 
-etcd 是基于 Raft 实现分布式一致性的 KV 数据库，k8s 的就是基于 etcd 实现
+etcd 是基于 Raft 实现分布式一致性的 KV 数据库，K8s 的就是基于 etcd 实现
 
 ## Install/Deploy etcd
 

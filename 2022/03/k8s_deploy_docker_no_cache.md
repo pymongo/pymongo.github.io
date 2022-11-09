@@ -10,7 +10,7 @@ docker --no-cache 禁用缓存后我写的 K8s 自动部署总算能凑合用
 
 https://twitter.com/ospopen/status/1504319859341291521
 
-## 怎么创建一个 k8s
+## 怎么创建一个 K8s
 
 ## K8s 添加服务
 

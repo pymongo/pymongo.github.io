@@ -23,7 +23,7 @@
 
 ## 伴生/旁路(sidecar?)
 
-k8s 的例子:
+K8s 的例子:
 - K8s 一个 pod 可以有多个 container
 - 同一个 pod 内多个 container 可共用 volume
 - 主业务容器叫 app 伴生/旁路容器叫 sidecar

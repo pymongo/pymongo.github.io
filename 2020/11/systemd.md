@@ -37,7 +37,7 @@
 4. 支持时间段查询、高级查询过滤条件的journalctl日志工具
 5. 使用systemd内置log项目应用无需额外输出一份同样的log到某个文件中，减少日志输出到某文件的性能开销
 6. 项目应用因为某些原因(例如内存不足或内存申请失败)，systemd也能自动重启应用避免网站停掉
-7. docker,k8s(kubernetes)等新兴技术都用了systemd，systemd是未来运维的趋势
+7. docker,K8s(kubernetes)等新兴技术都用了systemd，systemd是未来运维的趋势
 
 ## journalctl日志工具的常用查询
 
