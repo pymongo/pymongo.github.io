@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-11**
+    - [python UnicodeDecodeError](/2022/11/python_unicode_decode_error.md)
     - [compare cpu/gpu](/2022/11/cpu_gpu_benchmark.md)
     - [scoop proxy](/2022/11/scoop_connect_proxy_fail.md)
     - [windows sshd](/2022/11/windows_start_sshd.md)
