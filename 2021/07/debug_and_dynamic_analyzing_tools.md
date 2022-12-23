@@ -25,7 +25,7 @@
 - pref
 - gprof/uftrace
 - strace
-- pstack/gdb $PID
+- sudo pstack/gdb $PID
 
 待验证可行性的方案: ebpf, cargo-flamegraph
 

@@ -42,6 +42,10 @@ NAME    NAMESPACE       REVISION        UPDATED                                 
 volcano volcano-system  1               2022-10-24 21:14:33.231083626 +0800 CST deployed        volcano-1.5     0.1 
 ```
 
+最后发现某天我电脑风扇突然很吵，发现 kind 里面装的 volcano 内存占用 20G 一怒之下卸载！
+
+> helm -n volcano-system uninstall volcano
+
 ## volcano concepts
 
 - podGroup: e.g. spark cluster
