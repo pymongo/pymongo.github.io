@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2022-12**
+    - [流放之路赌博般的做装](/2022/12/poe_crafting_is_gambling.md)
     - [numactl](/2022/12/numactl_lstopo.md)
 - **2022-11**
     - [POE 魔力保留机制](/2022/11/poe_aura_mana_reservation_mechanism.md)
