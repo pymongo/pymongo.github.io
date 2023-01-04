@@ -1,4 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
+- **2023-01**
+    - [grafana query cpu usage](/2023/01/grafana_query_inspect_prometheus_pod_cpu_usage.md)
 - **2022-12**
     - [ipython 画图原理](/2022/12/how_ipython_plot_matplotlib.md)
     - [流放之路赌博般的做装](/2022/12/poe_crafting_is_gambling.md)
