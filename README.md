@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-01**
+    - [curl measure DNS latency](/2023/01/curl_measure_dns_resolve_time.md)
     - [grafana query cpu usage](/2023/01/grafana_query_inspect_prometheus_pod_cpu_usage.md)
 - **2022-12**
     - [ipython 画图原理](/2022/12/how_ipython_plot_matplotlib.md)
