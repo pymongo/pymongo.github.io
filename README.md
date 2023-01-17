@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-01**
+    - [sudo 丢环境变量](/2023/01/sudo_lose_env_var.md)
     - [curl measure DNS latency](/2023/01/curl_measure_dns_resolve_time.md)
     - [grafana query cpu usage](/2023/01/grafana_query_inspect_prometheus_pod_cpu_usage.md)
 - **2022-12**

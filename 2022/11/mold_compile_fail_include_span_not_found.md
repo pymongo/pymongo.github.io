@@ -15,3 +15,12 @@ mold 已经加入到 ubuntu 22.04 或更高版本发行版的官方源中，但�
 通过 cmake 的 CMAKE_CXX_COMPILER 参数使用更高版本的 g++ 而非系统的 g++
 
 > cmake -DCMAKE_CXX_COMPILER=g++-10 --build . -j $(nproc) --verbose
+
+完整操作过程 (mold 版本 v1.9.0)
+
+```
+git clone https://github.com/rui314/mold.git
+mkdir mold/build
+cd mold/build
+git checkout v1.9.0
+```
