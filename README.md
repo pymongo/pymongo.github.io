@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-02**
+    - [ChatGPT signup](/2023/02/chatgpt_signup.md)
     - [top find thread](/2023/02/top_find_subprocess_or_thread_high_cpu.md)
 - **2023-01**
     - [sudo 丢环境变量](/2023/01/sudo_lose_env_var.md)
