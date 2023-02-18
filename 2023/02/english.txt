@@ -1,0 +1,7 @@
+aural 听觉的
+classification 分类
+trapezoidal 梯形
+echelon 梯队
+coefficients 系数
+dense 密集
+diabetes 糖尿病

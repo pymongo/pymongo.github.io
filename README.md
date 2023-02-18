@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-02**
+    - [sklearn 最小二乘/解方程](/2023/02/sklearn_regression_least_squares.md)
     - [ChatGPT signup](/2023/02/chatgpt_signup.md)
     - [top find thread](/2023/02/top_find_subprocess_or_thread_high_cpu.md)
 - **2023-01**
