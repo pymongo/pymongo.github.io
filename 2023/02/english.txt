@@ -6,3 +6,5 @@ coefficients 系数
 dense 密集
 diabetes 糖尿病
 throttle 喉咙,节流阀,tokio_stream的throttle可让futures_util::stream::iter流迭代器中间sleep一会
+identical 相同的
+amusement 娱乐
