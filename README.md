@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-02**
+    - [Python (反)序列化](/2023/02/python_serialize_deserialize.md)
     - [K8s ptrace 权限](/2023/02/kubernetes_strace_ptrace_permission.md)
     - [HTTP 302/307 flask](/2023/02/http_302_and_307_flask_redirect.md)
     - [sklearn 最小二乘/解方程](/2023/02/sklearn_regression_least_squares.md)
