@@ -89,3 +89,9 @@ return Ok(Sse::new(stream).keep_alive(KeepAlive::new().interval(Duration::from_s
 ```
 
 async Rust 经典问题了，这个问题下篇文章会详细讨论并解决
+
+update:
+
+用 tokio_util::either::Either 或者 FutureExt::boxed 都没能解决
+
+axum `impl Stream` 不好处理多种流类型，只能通通 into_reponse 接口返回值改成 Response 就解决了
