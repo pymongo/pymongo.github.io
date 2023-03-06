@@ -2,6 +2,26 @@
 
 reqwest 作为 Rust 人气第一的 HTTP 库，我想逐行流式打印 K8s/docker log 接口返回的日志，但是只有 bytes_stream 方法返回一个 `Stream<Item=Bytes>`
 
+虽然自己手动版 BufRead 实现如下，但能有现成的 Trait 用最好不要自己造轮子
+
+```rust
+let mut buf = Vec::<u8>::new();
+while let Some(data_res) = futures_util::StreamExt::next(&mut rsp_stream).await {
+    let data = match data_res {
+        Ok(data) => data,
+        Err(err) => {
+            error!("{err}");
+            buf.clear();
+            break;
+        }
+    };
+    buf.extend(data.to_vec());
+    if !buf.ends_with(b"\n") {
+        continue;
+    }
+}
+```
+
 按理说 tokio 生态的客户端，支持个 AsyncBufReadExt 不难吧，于是我按 `reqwest AsyncRead` 为关键词去查
 
 作者说可以用 <https://github.com/seanmonstar/reqwest/issues/482>
@@ -57,7 +77,11 @@ let stream = futures::AsyncBufReadExt::lines(stream).map(|x| match x {
 });
 ```
 
-总觉得有点遗憾，既然都用了 tokio 的运行时了，可能用 tokio 的 AsyncRead 比 futures 的 AsyncRead
+---
+
+## tokio compat
+
+既然都用了 tokio 的运行时了，可能用 tokio 的 AsyncRead 比 futures 的 AsyncRead
 
 (无论是 std,tokio 还是 futures, Read 表示读 bytes, BufRead 一般用于逐行读，lines/read_until 之类)
 
@@ -79,19 +103,68 @@ let stream = futures::AsyncBufReadExt::lines(file).map(|x| match x {
 return Ok(Sse::new(stream).keep_alive(KeepAlive::new().interval(Duration::from_secs(45))));
 ```
 
-由于我函数既可能转发 HTTP body 返回日志流，也可能转发文件流来返回日志流，即便两个流返回值一样
+---
 
-但每个 async block 编译器内部上就是不同类型不同 generator
+## left_stream()
+
+```rust
+if container_is_running {
+    return docker_logs_stream;
+} else {
+    return read_log_file_stream;
+}
+```
+
+想做如上的业务逻辑，if 业务条件返回"类型不同"但数据一样的异步迭代器/流，结果报错
 
 ```
 = note: expected struct `Sse<Map<Lines<Compat<BufReader<File>>>, [closure@run_log.rs:76:64]>>`
            found struct `Sse<Map<Lines<IntoAsyncRead<Map<impl Stream<Item = Result<Bytes, Error>>, ...
 ```
 
-async Rust 经典问题了，这个问题下篇文章会详细讨论并解决
+用 tokio_util::either::Either left_future 或者 FutureExt::boxed 都没能解决
 
-update:
+**left_stream** 足以兜底，如果 if 有三个 branch 就 `Ether<Left, Ether<Left, Right>>` 以此类推
 
-用 tokio_util::either::Either 或者 FutureExt::boxed 都没能解决
+```rust
+pub async fn handler(
+    req: Json<Req>,
+) -> Sse<impl Stream<Item = Result<Event, std::io::Error>>> {
+    let stream = match handler_inner(req).await {
+        Ok(x) => x.left_stream(),
+        Err(err) => futures::stream::once(async move { Event::default().data(err.to_string()) })
+            .map(Ok)
+            .right_stream(),
+    };
+    Sse::new(stream).keep_alive(KeepAlive::new())
+}
+```
 
-axum `impl Stream` 不好处理多种流类型，只能通通 into_reponse 接口返回值改成 Response 就解决了
+~~实在不行最终也能用将接口返回值改成 axum::response::Response 兜底(极不建议这样返回给前端的 content-type 会有多种)~~
+
+## Stream map or then?
+
+正常用 map 转换流的输出结果够了，如果流转换代码内有异步函数则用 **StreamExt::then**
+
+```rust
+let stream = futures::StreamExt::then(rsp.bytes_stream(), move |x| {
+    let output_path = output_path.clone();
+    async move {
+        let data = match x {
+            Ok(x) => x,
+            Err(err) => return Err(std::io::Error::new(std::io::ErrorKind::Other, err)),
+        };
+        let mut file = tokio::fs::OpenOptions::new()
+            .write(true)
+            .create(true)
+            .append(true)
+            .open(&output_path)
+            .await?;
+        tokio::io::AsyncWriteExt::write(&mut file, &data.to_vec()).await?;
+        Ok(Event::default().data("1".to_string()))
+    }
+});
+Sse::new(stream);
+```
+
+[How to pass variable to Stream::then](https://users.rust-lang.org/t/how-to-pass-variable-to-stream-then/60206)

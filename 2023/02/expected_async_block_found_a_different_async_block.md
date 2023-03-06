@@ -20,6 +20,7 @@ async fn f() -> i32{
         .unwrap_or_else(|_| async { 0 }).await
 }
 
+/// similar to StreamExt::left_stream
 async fn f1() -> i32 {
     Ok::<_, Infallible>(1)
         .map(|_| async { 1 }.left_future())
