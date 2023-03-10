@@ -154,17 +154,25 @@ let stream = futures::StreamExt::then(rsp.bytes_stream(), move |x| {
             Ok(x) => x,
             Err(err) => return Err(std::io::Error::new(std::io::ErrorKind::Other, err)),
         };
-        let mut file = tokio::fs::OpenOptions::new()
-            .write(true)
-            .create(true)
-            .append(true)
-            .open(&output_path)
-            .await?;
-        tokio::io::AsyncWriteExt::write(&mut file, &data.to_vec()).await?;
-        Ok(Event::default().data("1".to_string()))
+        bypass_write_data_to_db(data.clone()).await?;
+        Ok(Event::default().data("ok".to_string()))
     }
 });
 Sse::new(stream);
 ```
 
+<https://gendignoux.com/blog/2021/04/08/rust-async-streams-futures-part2.html>
+
 [How to pass variable to Stream::then](https://users.rust-lang.org/t/how-to-pass-variable-to-stream-then/60206)
+
+## scan: stream mut state
+
+如何完成这样的需求，累加/统计 reqwest body stream 总共返回了多少个字节
+
+同步/异步迭代器 fold(有的语言叫 reduce) 可以在多个流之间共享可变状态，实现累加迭代器所有元素的效果
+
+但是 fold 不是 lazy 惰性的会消耗掉迭代器，如果想**旁路**累加每次流元素的大小而不影响流元素返回，可以用 scan
+
+<https://stackoverflow.com/questions/64044531/how-can-i-mutate-state-inside-async-block-with-streamextscan-method-in-rust>
+
+最后如果编译器报错 StreamExt::scan 闭包返回值的引用或者生命周期问题，可以给闭包返回值包一层 future::ready 去解决

@@ -13,3 +13,21 @@ securityContext:
     capabilities:
         add: [ "SYS_PTRACE" ]
 ```
+
+或者加上 SYS_ADMIN 权限 ADMIN 权限等于启用所有 securityContext 选项包括 SYS_PTRACE
+
+SYS_ADMIN 的权限太大了，可以让容器内看到物理机的真实进程 ID 或者绕开 GPU 卡数资源限制
+
+```yaml
+spec:
+  containers:
+  - args:
+    - 'foo'
+    command:
+    - bash
+    securityContext:
+      capabilities:
+        add:
+        - SYS_ADMIN
+      privileged: true
+```

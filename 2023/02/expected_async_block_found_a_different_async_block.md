@@ -1,4 +1,4 @@
-# [boxed/either async block](/2023/02/expected_async_block_found_a_different_async_block.md)
+# [FutureExt::left_future()](/2023/02/expected_async_block_found_a_different_async_block.md)
 
 两个或多个 stream, async block/fn 明明是一样的返回值但是会被编译报错类型不一致
 

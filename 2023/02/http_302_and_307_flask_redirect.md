@@ -23,6 +23,19 @@ def api_handler():
 
 [查资料](https://stackoverflow.com/a/33507729)发现是服务端有 HTTPS 而我用 HTTP 的原因
 
+## CROS 问题
+
+HTTPS 重定向为 HTTP  浏览器会报错 mixed-content
+
+ HTTP 重定向为 HTTPS 浏览器会报错 CROS 跨域
+
+所以转发前是什么协议就原封不动的转发回去就好
+
+```python
+from urllib.parse import urlparse
+http_or_https: str = urlparse(request.url).scheme
+```
+
 ## 302 POST 变 GET
 
 改 https 之后终于请求通了，可是服务 b 报错 305
@@ -39,5 +52,5 @@ def api_handler():
 
 ```python
 query_string = request.query_string.decode()
-return flask.redirect(f'https://{DOMAIN}/service_b/api?{query_string}', code=307)
+return flask.redirect(f'{request.url_root}/service_b/api?{query_string}', code=307)
 ```
