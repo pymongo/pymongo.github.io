@@ -18,6 +18,8 @@ securityContext:
 
 SYS_ADMIN 的权限太大了，可以让容器内看到物理机的真实进程 ID 或者绕开 GPU 卡数资源限制
 
+`privileged: true` 等于所有 capabilities 都加上，下面配置其实就不用再加 SYS_ADMIN 了
+
 ```yaml
 spec:
   containers:

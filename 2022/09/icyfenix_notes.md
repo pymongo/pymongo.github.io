@@ -269,6 +269,8 @@ docker_gwbridge         8000.02425b38cc0a       no              veth5b662a4
 
 优点: 可跨主机通信，缺点是额外的报文头多达 50+ byte
 
+overlayfs 常用于 docker, 例如 docker image 每个 layer 都是一层文件系统，最后所有层叠加成最终用户看到的 container 文件系统
+
 ---
 
 ## PV and PVC

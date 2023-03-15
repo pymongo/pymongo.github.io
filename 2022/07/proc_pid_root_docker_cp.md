@@ -27,17 +27,17 @@ kindest 的 container 是通过 `docker run --restart=always` 类似 systemd ser
 我们想在宿主机看 note 容器内每个进程在宿主机的 PID 可以用 docker top container
 
 ```
-UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
-root                1298131             1298110             0                   Jul31               ?                   00:00:10            /usr/bin/python3 /usr/bin/supervisord --nodaemon
-root                1298236             1298131             0                   Jul31               ?                   00:00:31            redis-server *:6379
-root                1298237             1298131             0                   Jul31               ?                   00:00:00            gateway
-root                1298238             1298131             0                   Jul31               ?                   00:00:00            kernel_manage
-root                1298239             1298131             0                   Jul31               ?                   00:00:00            lsp
-root                1298240             1298131             0                   Jul31               ?                   00:00:03            python3 /usr/bin/remote_criu.py
-root                1298241             1298131             0                   Jul31               ?                   00:00:00            note_storage
-root                1298242             1298131             0                   Jul31               ?                   00:00:00            submitter
-root                1298243             1298131             0                   Jul31               ?                   00:00:00            node src/server.js
-root                1299805             1298110             0                   Jul31               pts/0               00:00:00            tail -f /var/log/kernel_manage.log
+UID   PID      PPID     C  STIME  TTY    TIME      CMD
+root  1298131  1298110  0  Jul31  ?      00:00:10  /usr/bin/python3 /usr/bin/supervisord --nodaemon
+root  1298236  1298131  0  Jul31  ?      00:00:31  redis-server *:6379
+root  1298237  1298131  0  Jul31  ?      00:00:00  gateway
+root  1298238  1298131  0  Jul31  ?      00:00:00  kernel_manage
+root  1298239  1298131  0  Jul31  ?      00:00:00  lsp
+root  1298240  1298131  0  Jul31  ?      00:00:03  python3 /usr/bin/remote_criu.py
+root  1298241  1298131  0  Jul31  ?      00:00:00  note_storage
+root  1298242  1298131  0  Jul31  ?      00:00:00  submitter
+root  1298243  1298131  0  Jul31  ?      00:00:00  node src/server.js
+root  1299805  1298110  0  Jul31  pts/0  00:00:00  tail -f /var/log/kernel_manage.log
 ```
 
 可以看到容器的 pid=1 进程是 supervisord 在物理机的 pid 是 1298131
