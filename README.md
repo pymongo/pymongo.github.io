@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-03**
+    - [Linux RCU](/2023/03/linux_read_copy_update.md)
     - [ubuntu change kernel](/2023/03/ubuntu_change_kernel_version.md)
     - [split cmd with space](/2023/03/shlex.split-cmd_args_with_space.md)
     - [mac 文件系统不区分大小写](/2023/03/macos_file_system_case_insensitive.md)

@@ -24,3 +24,9 @@ mkdir mold/build
 cd mold/build
 git checkout v1.9.0
 ```
+
+---
+
+> clang: error: invalid linker name in argument '-fuse-ld=mold'
+
+如果出现上述报错，则 mold 写成绝对路径就好了
