@@ -176,3 +176,49 @@ Sse::new(stream);
 <https://stackoverflow.com/questions/64044531/how-can-i-mutate-state-inside-async-block-with-streamextscan-method-in-rust>
 
 最后如果编译器报错 StreamExt::scan 闭包返回值的引用或者生命周期问题，可以给闭包返回值包一层 future::ready 去解决
+
+```rust
+let file = std::sync::Arc::new(tokio::sync::Mutex::new(
+    tokio::fs::OpenOptions::new()
+        .write(true)
+        .create(true)
+        .truncate(true)
+        .open(save_path)
+        .await?,
+));
+let stream =
+futures::StreamExt::scan(rsp.bytes_stream(), 0usize, |saved_bytes, incoming_res| {
+    let incoming = match incoming_res {
+        Ok(incoming) => incoming,
+        Err(err) => {
+            error!("{err}");
+            return futures::future::ready(None);
+        }
+    };
+    *saved_bytes += incoming.len();
+    futures::future::ready(Some((incoming.to_vec(), *saved_bytes)))
+})
+.then({
+    move |(incoming, saved_bytes)| {
+        let file = file.clone();
+        async move {
+            let mut file = file.lock().await;
+            file.write_all(&incoming).await?;
+            Ok::<_, std::io::Error>(
+                StreamRspItem {
+                    saved_bytes,
+                    total_bytes: content_length,
+                    error: String::new(),
+                }
+                .to_sse_event(),
+            )
+        }
+    }
+});
+```
+
+一开始我是把 path move 到 then 回调里面每次打开文件 append 内容
+
+小文件没问题，遇到大文件会导致下载到的内容大小一样但 md5sum 不一样看上去内容乱序
+
+所以我不得不 move `Arc<Mutex<File>>` 进 StreamExt::then 闭包
