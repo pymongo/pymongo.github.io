@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-03**
+    - [serde_json::RawValue](/2023/03/serde_json_raw_value.md)
     - [/usr/bin/shuf](/2023/03/usr_bin_shuf)
     - [Linux RCU](/2023/03/linux_read_copy_update.md)
     - [ubuntu change kernel](/2023/03/ubuntu_change_kernel_version.md)
