@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-03**
+    - [futures select_all](/2023/03/futures_select_all.md)
     - [memcpy 重叠问题](/2023/03/memcpy_memmove_std_ptr_copy_nonoverlapping.md)
     - [serde_json::RawValue](/2023/03/serde_json_raw_value.md)
     - [/usr/bin/shuf](/2023/03/usr_bin_shuf)
