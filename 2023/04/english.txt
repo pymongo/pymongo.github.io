@@ -1,0 +1,3 @@
+underestimate 低估
+overestimate 高估
+negligible 微不足道的/可忽略不计的

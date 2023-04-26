@@ -12,3 +12,7 @@ vaguely/fuzzy 模糊
 coherency 一致性
 minified 削减
 verbatim 逐字的(serde_json::value::RawValue 文档)
+subtle 不易察觉
+pitfall 陷阱
+bail 保释
+hearing 听证会
