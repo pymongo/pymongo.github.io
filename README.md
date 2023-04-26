@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-04**
+    - [Chain Exception](/2023/04/python_chain_nested_exception.md)
     - [Arc 计数溢出处理](/2023/04/how_arc_handle_ref_count_overflow.rs)
 - **2023-03**
     - [futures select_all](/2023/03/futures_select_all.md)
