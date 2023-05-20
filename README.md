@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-05**
+    - [变速自行车档位](/2023/05/7_speed_bike_gear_adjustment.md)
     - [技术成长!=well-being](/2023/05/well_being.md)
     - [明十三陵骑行](/2023/05/bike_tour_to_mings_tombs.md)
     - [serde alias](/2023/05/serde_alias.md)
