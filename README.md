@@ -1,4 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
+- **2023-06**
+    - [sqlx schema bug](/2023/06/sqlx_sqlite_schema_bug.md)
 - **2023-05**
     - [北京后花园游记](/2023/05/beijing_back_yard_tour.md)
     - [火炬之光无限](/2023/05/torchlight_infinite_review.md)
