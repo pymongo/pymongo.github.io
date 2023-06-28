@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-06**
+    - [memrise 学日语](/2023/06/learn_japanese_by_memrise_app.md)
     - [饱和潜水](/2023/06/saturation_diving.md)
     - [sqlx schema bug](/2023/06/sqlx_sqlite_schema_bug.md)
 - **2023-05**
