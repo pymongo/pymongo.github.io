@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-06**
+    - [慎用 svc 的 externalIp](/2023/06/kubernetes_svc_node_port_external_ip.md)
     - [sidecar 掐断 redis 流量](/2023/06/istio_sidecar_block_redis_ftp_traffic.md)
     - [热水的浮力更高吗](/2023/06/does_hot_water_have_a_higher_buoyancy_force_than_cold_water.md)
     - [memrise 学日语](/2023/06/learn_japanese_by_memrise_app.md)
