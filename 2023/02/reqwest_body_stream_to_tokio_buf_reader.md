@@ -103,6 +103,8 @@ let stream = futures::AsyncBufReadExt::lines(file).map(|x| match x {
 return Ok(Sse::new(stream).keep_alive(KeepAlive::new().interval(Duration::from_secs(45))));
 ```
 
+alternative: 用 tokio_stream::wrappers::ReceiverStream 也可以把一个包含 tokio::io async closure 转换成一个 futures::Stream
+
 ---
 
 ## left_stream()
