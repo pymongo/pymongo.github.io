@@ -47,8 +47,8 @@ cp -r winter ~/.local/share/fcitx5/themes
 
 ## fcitx5内置输入法的一些技巧
 
-- 默认下"]"键可以输入直角括号「」
-- 为了照顾emcas`C-space`进入选中文本模式，我把输入法切换的快捷键改成alt+shift
+- 默认下 `]` 键可以输入直角括号「」
+- 为了照顾 emacs `C-space`进入选中文本模式，我把输入法切换的快捷键改成alt+shift
 
 ## 参考文章:
 

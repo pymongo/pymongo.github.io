@@ -17,7 +17,7 @@ systemd/supervisor 都有相似的 restart/reload 命令，systemd 的 reload �
 - systemctl 的 --host 可以控制远程主机，跨机器进程编排
 - systemctl 可以通过 cgroup 进行资源限制，supervisor 不行
 
-## supervisor relaod config
+## supervisor reload config
 
 ```
 supervisorctl reread && supervisorctl update

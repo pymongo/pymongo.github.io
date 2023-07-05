@@ -29,7 +29,7 @@ the tensorbase example config file have a clickhouse field, I guess need to inst
 
 ```
 $ yay -S clickhouse-server-bin
-$ sodo systemctl status clickhouse-server
+$ sudo systemctl status clickhouse-server
 $ sudo systemctl start clickhouse-server
 ```
 

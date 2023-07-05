@@ -8,7 +8,7 @@ Ubuntu安装无图形界面版本的emacs: `apt install emacs-nox`
 
 emacs快捷键表示中`M-v`表示按住Meta/Alt键后按v，同理`s-`开头表示按住win/command键(这个要记下)，
 
-`S-`开头表示按住shift的快捷键，但是shfit一般就只用于打大写字母或符号，emacs官方几乎没有需要按Shift的快捷键(我推测的)
+`S-`开头表示按住shift的快捷键，但是 shift 一般就只用于打大写字母或符号，emacs官方几乎没有需要按Shift的快捷键(我推测的)
 
 首先要学的是退出emacs: `C-x, C-c`
 

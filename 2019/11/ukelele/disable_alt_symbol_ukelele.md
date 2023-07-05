@@ -7,7 +7,7 @@
 严重地影响了emacs之类软件的默认快捷键，
 [网上有很多解决方案](https://stackoverflow.com/questions/11876485/how-to-disable-typing-special-characters-when-pressing-option-key-in-mac-os-x)
 
-emacs的问题可以通过Termial设置`use option as meta key`解决
+emacs 的问题可以通过 Terminal 设置`use option as meta key`解决
 
 可是想要全局解决比较麻烦(我曾经因为误触Alt+字母，导致代码因特殊符号出现bug)
 
