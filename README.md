@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-07**
+    - [switch downcast interface](/2023/07/golang_switch_downcast_interface.md)
     - [Go map 遍历每次随机](/2023/07/python_and_go_both_randomization_in_dict.md)
     - [Rust 实现 tail -f](/2023/07/impl_tail_follow_in_rust.md)
 - **2023-06**

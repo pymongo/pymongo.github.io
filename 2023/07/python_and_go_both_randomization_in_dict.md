@@ -32,7 +32,7 @@ If you need a consistent iteration order, you can use collections.OrderedDict
 
 md5 hextdigest 是 16 byte 而 lightgbm 推理传入 `List[float64]` 只需要 8byte 所以有所失真
 
-对于问题二，Rust/Go/Python 的 map 均是每次遍历都是随机顺序，Rust/Go 可用 LinkedHashMap 达到 OrderedDict 效果
+对于问题二，Rust/Go/Python 的 map 均是每次遍历都是随机顺序，Rust/Go 可用 LinkedHashMap 达到 OrderedDict 效果，或者用 pandas.DataFrame 也是有序遍历
 
 或者提前写死个 `List[str]` 作为 order 去遍历 map
 
