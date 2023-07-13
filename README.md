@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-07**
+    - [#[track_caller]](/2023/07/error_new_track_caller.md)
     - [except Fn found closure](/2023/07/excepted_a_fn_found_closure.md)
     - [switch downcast interface](/2023/07/golang_switch_downcast_interface.md)
     - [Go map 遍历每次随机](/2023/07/python_and_go_both_randomization_in_dict.md)
