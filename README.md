@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-07**
+    - [strings 命令查 so](/2023/07/strings_command_get_so_glibc_version.md)
     - [clash bind 0.0.0.0](/2023/07/clash_bind_0.0.0.0.md)
     - [#[track_caller]](/2023/07/error_new_track_caller.md)
     - [except Fn found closure](/2023/07/excepted_a_fn_found_closure.md)
