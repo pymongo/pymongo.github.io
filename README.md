@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-07**
+    - [must use struct tag to](/2023/07/cpp_ok_but_c_not_must_use_struct_tag_to_refer_type.md)
     - [strings 命令查 so](/2023/07/strings_command_get_so_glibc_version.md)
     - [clash bind 0.0.0.0](/2023/07/clash_bind_0.0.0.0.md)
     - [#[track_caller]](/2023/07/error_new_track_caller.md)
