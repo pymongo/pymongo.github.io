@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-07**
+    - [ffi void** SIGSEGV](/2023/07/ffi_bind_void**_sigsegv_case_study.md)
     - [bindgen cpp libs](/2023/07/bindgen_cpp_libs.md)
     - [vscode C++ lldb](/2023/07/vscode_cpp_lldb.md)
     - [must use struct tag to](/2023/07/cpp_ok_but_c_not_must_use_struct_tag_to_refer_type.md)
@@ -88,7 +89,7 @@
     - [go tools](/2022/08/vscode_go_tools.md)
     - [Stream::try_clone](/2022/08/stream_try_clone.md)
     - [牙髓血运重建术](/2022/08/revascularization_procedure.md)
-    - [go post json 初体验](/2022/08/go_http_client.md)
+    - [go post json](/2022/08/go_post_json.md)
     - [低代码的开发效率](/2022/08/low_code_effective_develop.md)
     - [K8s metrics server](/2022/08/k8s_metrics_server.md)
     - [K8s dashboard](/2022/08/k8s_dashboard_and_kubectl_proxy.md)

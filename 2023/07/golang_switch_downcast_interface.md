@@ -1,6 +1,6 @@
 # [switch downcast interface](/2023/07/golang_switch_downcast_interface.md)
 
-我这段 downcast interface 的代码有点丑陋，gpt 建议我改成 swich 写法
+我这段 downcast interface 的代码有点丑陋，gpt 建议我改成 switch 写法
 
 > how to refactor these golang type assert code
 
