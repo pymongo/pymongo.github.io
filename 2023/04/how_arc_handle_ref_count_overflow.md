@@ -1,4 +1,4 @@
-# [Arc 计数溢出处理](/2023/04/how_arc_handle_ref_count_overflow.rs)
+# [Arc 计数溢出处理](/2023/04/how_arc_handle_ref_count_overflow.md)
 
 Rc 在当前线程的引用计数为1的时候应该是可以安全的 Send 到第二个线程
 

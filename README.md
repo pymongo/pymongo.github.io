@@ -7,7 +7,7 @@
     - [strings 命令查 so](/2023/07/strings_command_get_so_glibc_version.md)
     - [clash bind 0.0.0.0](/2023/07/clash_bind_0.0.0.0.md)
     - [#[track_caller]](/2023/07/error_new_track_caller.md)
-    - [except Fn found closure](/2023/07/excepted_a_fn_found_closure.md)
+    - [except Fn found closure](/2023/07/excepted_fn_found_closure.md)
     - [switch downcast interface](/2023/07/golang_switch_downcast_interface.md)
     - [Go map 遍历每次随机](/2023/07/python_and_go_both_randomization_in_dict.md)
     - [Rust 实现 tail -f](/2023/07/impl_tail_follow_in_rust.md)
@@ -29,7 +29,7 @@
     - [serde alias](/2023/05/serde_alias.md)
 - **2023-04**
     - [Chain Exception](/2023/04/python_chain_nested_exception.md)
-    - [Arc 计数溢出处理](/2023/04/how_arc_handle_ref_count_overflow.rs)
+    - [Arc 计数溢出处理](/2023/04/how_arc_handle_ref_count_overflow.md)
 - **2023-03**
     - [futures select_all](/2023/03/futures_select_all.md)
     - [memcpy 重叠问题](/2023/03/memcpy_memmove_std_ptr_copy_nonoverlapping.md)
@@ -42,7 +42,7 @@
 - **2023-02**
     - [FutureExt::left_future()](/2023/02/expected_async_block_found_a_different_async_block.md)
     - [reqwest 转为逐行流](/2023/02/reqwest_body_stream_to_tokio_buf_reader.md)
-    - [bridge tokio stream](/2023/02/bridge_async_file_stream_to_http_stream.md)
+    - [bridge tokio stream](/2023/02/bridge_file_stream_to_http_stream.md)
     - [Python (反)序列化](/2023/02/python_serialize_deserialize.md)
     - [K8s ptrace 权限](/2023/02/kubernetes_strace_ptrace_permission.md)
     - [HTTP 302/307 flask](/2023/02/http_302_and_307_flask_redirect.md)
@@ -202,7 +202,7 @@
     - [wordle](2022/02/wordle.md)
 - **2022-01**
     - [Dockerfile 尽量一个 RUN](2022/01/dockerfile_use_one_run.md)
-    - [advertise_address](/2022/01/advertise_address.md)
+    - [advertise_address](/2022/01/a_dvertise_address.md)
     - [etcd](2022/01/etcd.md)
     - [微服务 BFF 数据聚合](2022/01/micro_service_bff.md)
     - [Java JNI 学习笔记](/2022/01/jni.md)

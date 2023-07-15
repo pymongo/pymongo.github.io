@@ -1,4 +1,4 @@
-# [bridge tokio stream](/2023/02/bridge_async_file_stream_to_http_stream.md)
+# [bridge tokio stream](/2023/02/bridge_file_stream_to_http_stream.md)
 
 想做一个像 docker logs 那样的接口，把日志文件读取流实时转发到 HTTP 流中，让多个客户端可以实时获取日志流
 

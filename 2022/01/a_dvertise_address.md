@@ -1,4 +1,4 @@
-# [advertise_address](/2022/01/advertise_address.md)
+# [advertise_address](/2022/01/a_dvertise_address.md)
 
 常见于 etcd, docker-runner 配置中，表示客户端连接要用域名
 

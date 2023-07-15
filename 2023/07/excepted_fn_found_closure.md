@@ -1,4 +1,4 @@
-# [except Fn found closure](/2023/07/excepted_a_fn_found_closure.md)
+# [except Fn found closure](/2023/07/excepted_fn_found_closure.md)
 
 在复用一段 stream 的代码的时候出现报错:
 
