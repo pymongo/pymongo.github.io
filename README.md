@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-07**
+    - [bindgen 精简生成代码](/2023/07/bindgen_reduce_generate_code_size.md)
     - [ffi void** SIGSEGV](/2023/07/ffi_bind_void**_sigsegv_case_study.md)
     - [bindgen cpp libs](/2023/07/bindgen_cpp_libs.md)
     - [vscode C++ lldb](/2023/07/vscode_cpp_lldb.md)
