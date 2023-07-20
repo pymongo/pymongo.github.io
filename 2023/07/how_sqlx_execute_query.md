@@ -50,12 +50,14 @@ impl PartialEq for TypeInfo {
 ---
 
 1. 数据库 prepare 的时候就能拿到 sql 返回结果的字段名称类型是否非空约束等元信息
-2. prepare 后吧 .bind(1i32) 类型编码后进行 sqlite3_bind_int
+2. prepare 后吧 .bind(1i32) 进行 encode() 后 sqlite3_bind_int
 3. 执行 sql 后 fetch_many 迭代器拿结果
 
 因为 query_as::<_ (i32,)> 返回一个元组，所以要实现 `impl sqlx_core::column::ColumnIndex<Row> for usize`
 
 如果是返回结果存到结构体中，则是需要实现 `impl sqlx_core::column::ColumnIndex<Row> for &'_ str`
+
+impl_encode_for_option! 这个宏可以自动给 T: Encode 实现 `Option<T: Encode>`
 
 ## 给数据库加一种数据类型
 
@@ -65,3 +67,5 @@ sqlx 核心的 Trait 的结构体就 `Value, TypeInfo(Value), Row(Vec<Value>), C
 
 1. enum Value 加一种类型，然后实现下转换成对应数据库的 type_id, 编码解码过程
 2. impl Encode/Decode/Type for i128
+
+(sqlx 开发最让人痛苦的是 ra 检测出循环依赖导致无法静态分析 <https://github.com/rust-lang/cargo/issues/8734>)

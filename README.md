@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-07**
+    - [iter::once 避免 move](/2023/07/iterator_closure_move_fnmut.md)
     - [sqlx 如何执行查询](/2023/07/how_sqlx_execute_query.md)
     - [sqlx Null 解码源码](/2023/07/sqlx_how_to_decode_null_to_option.md)
     - [含生命周期的迭代器闭包](/2023/07/iterator_closure_with_lifetime.md)

@@ -4,6 +4,8 @@
 
 sqlx 的解决很赏心悦目，通过 query_as 传入的泛型类型参数决定某字段是不是非空的相应的是否会返回 Option
 
+## decode Option<T>
+
 ```rust
 // implement `Decode` for Option<T> for all SQL types
 impl<'r, DB, T> Decode<'r, DB> for Option<T>
@@ -45,6 +47,8 @@ impl Val {
 
 sqlx_core::value::Value 虽也有 is_null() 但不会被调用，Value trait 的三个方法我都没有实现
 
----
+sqlx-sqlite 中通过 sqlite3_column_type 获取类型值来判断是否非空
 
-最后举个例子，sqlx-sqlite 中通过 sqlite3_column_type 获取类型值来判断是否非空
+## encode Option<T>
+
+sqlx_core::impl_encode_for_option!(Mydb);

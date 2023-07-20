@@ -22,7 +22,7 @@
 
 ## breadcrumb navigation
 
-面包屑多级菜单导航栏就像选外卖地址 `中国 > 北京 > 朝阳区`，具体参考 ant desgin
+面包屑多级菜单导航栏就像选外卖地址 `中国 > 北京 > 朝阳区`，具体参考 ant design
 
 ## modal
 
