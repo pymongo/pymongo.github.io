@@ -1,4 +1,4 @@
-# [ffi void** SIGSEGV](/2023/07/ffi_bind_void**_sigsegv_case_study.md)
+# [ffi void** SIGSEGV](/2023/07/ffi_bind_void_double_pointer_sigsegv_case_study.md)
 
 这个 C 函数 `HandleAlloc(void **hndlpp)` ffi 我遇到了 SIGSEGV 积累下解决该问题的经验
 
