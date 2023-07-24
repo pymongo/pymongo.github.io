@@ -6,7 +6,7 @@
     - [含生命周期的迭代器闭包](/2023/07/iterator_closure_with_lifetime.md)
     - [from_bytes_until_nul](/2023/07/from_bytes_until_nul.md)
     - [bindgen 精简生成代码](/2023/07/bindgen_reduce_generate_code_size.md)
-    - [ffi void** SIGSEGV](/2023/07/ffi_bind_void**_sigsegv_case_study.md)
+    - [ffi void** SIGSEGV](/2023/07/ffi_bind_void_double_pointer_sigsegv_case_study.md)
     - [bindgen cpp libs](/2023/07/bindgen_cpp_libs.md)
     - [vscode C++ lldb](/2023/07/vscode_cpp_lldb.md)
     - [must use struct tag to](/2023/07/cpp_ok_but_c_not_must_use_struct_tag_to_refer_type.md)
