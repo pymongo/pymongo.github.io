@@ -76,17 +76,15 @@ Rust的编译器在编译时就不知道函数最后要返回要返回引用a还
 
 标记生命周期并不能改变引用实际的生命周期，只是帮组编译器检查悬垂指针，但是使用了错误的生命周期时依然会报错
 
-## Send和Sync Trait
+## Send/Sync Trait
 
 借助这两个Trait实现编译时数据竞争问题的检查
 
 Send/Sync/Copy这三个trait仅仅用于标记，内部代码为空
 
-```rust
-pub unsafe auto trait Send {
-    // empty.
-}
-```
+> pub unsafe auto trait Send {}
+
+T is Sync if and only if &T is Send, e.g. &Rc require current thread ref count so not Send
 
 ## rust编译过程中LLVM的作用
 
