@@ -1,5 +1,6 @@
 - [文章列表 - 吴翱翔的博客](/)
 - **2023-07**
+    - [标准库 3 种 channel](/2023/07/rust_std_three_kind_of_channel.md)
     - [sqlx Any 还不成熟](/2023/07/sqlx_any_driver.md)
     - [iter::once 避免 move](/2023/07/iterator_closure_move_fnmut.md)
     - [sqlx 如何执行查询](/2023/07/how_sqlx_execute_query.md)
