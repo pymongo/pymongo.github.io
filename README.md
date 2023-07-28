@@ -1,4 +1,5 @@
 - [文章列表 - 吴翱翔的博客](/)
+- [正在读的书](/books.md)
 - **2023-07**
     - [标准库 3 种 channel](/2023/07/rust_std_three_kind_of_channel.md)
     - [sqlx Any 还不成熟](/2023/07/sqlx_any_driver.md)
