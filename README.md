@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-07**
+    - [DAP 调试协议](/2023/07/debugpy_debug_adapter_protocol.md)
     - [Weak 解决循环引用](/2023/07/how_rc_arc_handle_circular_refs.md)
     - [NFS 写延迟/同步很久](/2023/07/nfs_write_delay.md)
     - [标准库 3 种 channel](/2023/07/rust_std_three_kind_of_channel.md)
