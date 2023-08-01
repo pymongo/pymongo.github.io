@@ -15,22 +15,22 @@ futex = Linux fast user space mutex, pthread_mutex
 ```rust
 /// posible EAGAIN error, would EAGAIN cause futex_wait spurious exit?
 fn futex_wait(a: &AtomicU32, expected: u32) {
-    libc::syscall(
+    unsafe { libc::syscall(
         libc::SYS_futex,
         a,
         libc::FUTEX_WAIT,
         expected,
         std::ptr::null::<libc::timespec>(),
-    );
+    ); }
 }
 
 fn futex_wake_one(a: &AtomicU32) {
-    libc::syscall(
+    unsafe { libc::syscall(
         libc::SYS_futex,
         a,
         libc::FUTEX_WAKE,
         1,
-    );
+    ); }
 }
 ```
 
@@ -57,7 +57,7 @@ struct MyMutex<T> {
     data: std::cell::UnsafeCell<T>,
     // is_poisoned: AtomicBool
 }
-unsafe impl<T> Sync for MyMutex<T> where T: Send {}
+unsafe impl<T> Sync for MyMutex<T> where T: Send+Sync {}
 
 impl<T> MyMutex<T> {
     fn new(data: T) -> Self { todo!() }
