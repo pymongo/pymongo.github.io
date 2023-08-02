@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-08**
+    - [Vec::push FFI 内存错误](/2023/08/vec_push_mem_addr_change_cause_ffi_fail.md)
 - **2023-07**
     - [Atomic Lock 读书笔记](/2023/07/rust_atomic_and_lock.md)
     - [Mutex 源码实现](/2023/07/mutex_source_code_and_impl.md)

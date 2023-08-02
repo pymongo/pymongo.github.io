@@ -10,7 +10,7 @@ variance一般可以分为三类:
 - 逆变(contravariant): 反过来Vec<Animal>是Vec<Cat>的子类型
 - 不变(invariant): 既不保持又不逆转关系 => Vec<Animal>和Vec<Cat>没有任何关系
 
-Rust 只有生命周期体现了父子类型的概念
+Rust 只有生命周期体现了父子类型的概念(gpt 说 trait bound Sub: Super 也算子类型)
 
 协变(绝大部分): 能传 'a 的也能传入 'static，生命周期短的父类型 'a 引用如果能传入函数，那么生命周期长的子类型 'static 引用也能传入
 

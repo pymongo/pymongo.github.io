@@ -56,7 +56,7 @@ answer: a,o,t is correct position, answer not contains b and r
 
 ## 4th guess
 
-```
+```rust
 #[test]
 fn _4th_guess() {
     let start = std::time::Instant::now();

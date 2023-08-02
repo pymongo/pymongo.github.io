@@ -1,6 +1,5 @@
 ## 正在读的书
 
-- rust atomic and lock(ch6)
 - computer science a programmer's perspective
 
 ## 已读
@@ -13,9 +12,12 @@
 - 為你自己學 Ruby on Rails
 - The Rust Programming Language(官方 the book 讲的太浅了)
 - Rust 编程之道
-- beginning linux programming(深入理解 gcc 动态库，与 APUE/TLPI 部分内容重叠)
+- beginning linux programming(与 APUE/TLPI 部分内容重叠)
+- Asynchronous Programming in Rust
 - Linux 高性能服务端编程
+- The Rustonomicon
 - 凤凰架构
+- Rust Atomics and Locks
 
 ## 已读非技术类书
 

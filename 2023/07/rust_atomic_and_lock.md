@@ -435,3 +435,18 @@ hazard pointers 类似引用计数，适用于读多写少场合
 ## parking_lot's deadlock_detection feature
 
 tokio 开 parking_lot feature, 然后 parking_lot 再开死锁检测就能检测死锁?
+
+```rust
+use parking_lot::RwLock;
+let t = std::thread::spawn(|| {
+    let x = RwLock::new(1);
+    let r = x.read();
+    let w = x.write();
+});
+unsafe { libc::sleep(1); }
+let dead_locks = parking_lot::deadlock::check_deadlock();
+dbg!(dead_locks[0][0].backtrace());
+t.join().unwrap();
+```
+
+确实能检测出死锁的线程个数，但是 backtrace 上找不到自己的代码
