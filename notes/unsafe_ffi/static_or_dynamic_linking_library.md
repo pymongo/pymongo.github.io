@@ -4,7 +4,7 @@
 
 学完gcc/rustc/build.rs引入DLL/SLL之后，不仅能在Rust代码里引入C语言的wiringpi库，还能学会gcc/Makefile如何构建多个第三方库的项目
 
-自从我mac升级Big Sur系统后的Xcode变化导致我抄《Rust编程之道》的cc库编译C++代码给Rust调用的示例报错了(ld错误)
+自从我 mac 升级系统后的Xcode变化导致我抄《Rust编程之道》的cc库编译C++代码给Rust调用的示例报错了(ld错误)
 
 于是我萌生脱离cc/gcc这样的Rust库去实现Rust调用C++函数，但是这需要了解很多gcc工具链的背景知识
 

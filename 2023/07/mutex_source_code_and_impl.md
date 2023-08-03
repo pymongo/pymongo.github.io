@@ -13,7 +13,7 @@ futex = Linux fast user space mutex, pthread_mutex
 !> futex 系统调用高并发下偶尔会 errno 11 EAGAIN Resource temporarily unavailable
 
 ```rust
-/// posible EAGAIN error, would EAGAIN cause futex_wait spurious exit?
+/// possible EAGAIN error, would EAGAIN cause futex_wait spurious exit?
 fn futex_wait(a: &AtomicU32, expected: u32) {
     unsafe { libc::syscall(
         libc::SYS_futex,

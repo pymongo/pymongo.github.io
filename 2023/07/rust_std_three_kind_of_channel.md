@@ -6,7 +6,7 @@ enum SenderFlavor<T> {
     // mpsc::sync_channel(100)
     Array(counter::Sender<array::Channel<T>>),
     /// Unbounded channel implemented as a linked list.
-    // mpsc::chanel()
+    // mpsc::channel()
     List(counter::Sender<list::Channel<T>>),
     /// Zero-capacity channel.
     // mpsc::sync_channel(0)

@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-08**
+    - [RISC-V qemu SBI](/2023/08/riscv_qemu_opensbi.md)
     - [learningOS](/2023/08/learning_os.md)
     - [strdup 记得 free](/2023/08/strdup_require_free.md)
     - [Vec::push FFI 内存错误](/2023/08/vec_push_mem_addr_change_cause_ffi_fail.md)

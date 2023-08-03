@@ -243,7 +243,7 @@ enum SenderFlavor<T> {
     // mpsc::sync_channel(100)
     Array(counter::Sender<array::Channel<T>>),
     /// Unbounded channel implemented as a linked list.
-    // mpsc::chanel()
+    // mpsc::channel()
     List(counter::Sender<list::Channel<T>>),
     /// Zero-capacity channel.
     // mpsc::sync_channel(0)
@@ -294,7 +294,7 @@ RISC 好处是指令简单容易实现，因此 ARM 可以更细粒度控制比 
 
 ### (ARM) ldr: mem->reg
 
-load memory addres x0 to register w8
+load memory address x0 to register w8
 
 - ARM: `ldr w8, [x0]`
 - AT&T: `movl (%rax), %eax`

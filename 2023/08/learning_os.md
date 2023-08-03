@@ -4,12 +4,20 @@
 
 - <https://github.com/learningOS>
 - <https://github.com/LearningOS/rust-based-os-comp2023/blob/main/relatedinfo.md>
+- MIT RISC-V OS 实验: <https://pdos.csail.mit.edu/6.828/2021/tools.html>
+
+OS 课缺失的 lecture7 可以看学堂在线公开课的版本
 
 ## 学习进度
-- CSAPP: ch1
-- computer... RISC-V edition: ch1.2
-- OS Three pieces: ch1
-- os_lecture: 20220228第二次课视频 61min
+|||
+|---|---|
+|CSAPP| ch1 |
+|computer RISC-V edition| ch1.2 |
+|OS Three pieces| ch1 |
+|os_lecture| lecture03 |
+|操作系统(RISC-V)(2020秋)| 2.2 从OS角度看RISC-V |
+|MIT 6.828 Operating System Engineering| |
+|xv6 a simple Unix-like teaching operating system| |
 
 ## 预备知识
 
@@ -43,13 +51,35 @@ https://pages.cs.wisc.edu/~remzi/OSTEP/
 - uCore tutorial book
 - rCore tutorial book
 
+---
+
 ## 操作系统概述
 
 ### 如何定义操作系统
 对底层硬件访问进行抽象并虚拟化，控制程序执行过程防止错误(coredump)
 
-### 未来的操作系统?
+未来的操作系统?
 IOT,分布式操作系统，边缘计算
+
+RISC-V 页机制
+与 SIGABRT/SIGSEGV 多次打交道的我早已熟悉多个应用虚拟内存互相隔离，地址空间这些
 
 ### 操作系统 bug 非常多
 写过操作系统的都知道漏洞非常非常多，多到 bugfix 因此也就有了网络空间安全这样专门找 bug 的专业
+### 特权模式
+
+例如一些访问底层硬件的指令只能在特权模式下执行，x86/ARM/RISC-V 都有这样的机制，通过中断从普通模式到特权模式的来回切换
+
+linux 将特权模式抽象成 kernel-space
+
+---
+
+## MIT OS lab
+
+MIT 的 git 仓库要认证才能使用 git://g.csail.mit.edu/xv6-labs-2021
+
+github 上面有人分享了这个 https://github.com/mit-pdos/xv6-riscv
+
+安装 riscv 工具链 <https://pdos.csail.mit.edu/6.828/2021/tools.html>
+
+(重点看) 如何用 gdb/addr2line 调试报错 <https://pdos.csail.mit.edu/6.828/2021/labs/guidance.html>
