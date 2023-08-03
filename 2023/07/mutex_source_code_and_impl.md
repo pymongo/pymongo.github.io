@@ -138,3 +138,16 @@ fn drop(&mut self) {
 错误二: compare_exchange 语义理解错了，不需要提前 load 一次，入参一是期望当前值是什么，入参二是如果当前值符合期望则修改成入参二
 
 错误三: while..futex_wait 循环应该是 while swap(2)!=0，当前线程拿到锁之后，swap 成 2 继续阻塞其他等待中线程
+
+## Mutex Starvation
+
+Atomic Locks 书中说读写锁有饥饿问题，我想了下标准库互斥锁也会饥饿
+
+Mutex 释放锁 FUTEX_WAKE 【随机】唤醒一个等待锁的线程去获取锁，
+如果某线程等待锁后一直有其他线程频繁获取锁，那这个线程有可能永远都无法获取锁
+
+FairMutex 用队列解决饥饿
+tokio Mutex 文档说是 Fair 没说是不是 Reentrant 的
+
+## ReentrantMutex
+指的是同一个线程可以重复多次获取同一个锁而不会死锁
