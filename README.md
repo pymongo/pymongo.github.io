@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-08**
+    - [RISC-V 汇编写 swap](/2023/08/riscv_asm_swap_two_integer.md)
     - [布隆过滤器 缓存击穿](/2023/08/bloom_filter_solve_cache_penetration.md)
     - [RISC-V qemu SBI](/2023/08/riscv_qemu_opensbi.md)
     - [learningOS](/2023/08/learning_os.md)

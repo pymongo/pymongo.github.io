@@ -26,6 +26,11 @@
 
 我现在改用Rust操控树莓派的GPIO，树莓派linux系统不能像51单片机那样寄存器的值等于相应管脚的电压(gpio似乎在内存片段上哪怕用汇编改寄存器也没用)
 
+## update
+我后面用 Rust 写过一个树莓派瑞士军刀扩展版的~~驱动~~SDK: <https://github.com/pymongo/saks/blob/main/src/lib.rs>
+
+算不上是驱动，因为驱动是树莓派操作系统已经集成了的 /dev/gpiomem
+
 ## Roadmap
 
 - [ ] 微信公众号+VPS实现微信公众号/小程序远程控制
