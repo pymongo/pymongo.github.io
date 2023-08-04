@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-08**
+    - [布隆过滤器 缓存击穿](/2023/08/bloom_filter_solve_cache_penetration.md)
     - [RISC-V qemu SBI](/2023/08/riscv_qemu_opensbi.md)
     - [learningOS](/2023/08/learning_os.md)
     - [strdup 记得 free](/2023/08/strdup_require_free.md)
