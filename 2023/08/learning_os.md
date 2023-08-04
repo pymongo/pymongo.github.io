@@ -19,6 +19,8 @@ OS 课缺失的 lecture7 可以看学堂在线公开课的版本
 |MIT 6.828 Operating System Engineering| |
 |xv6 a simple Unix-like teaching operating system| |
 
+一些作业/实验的代码仓库，都可以通过切分支来切换到不同实验，例如 rCore 的第一个实验可以切换到 ch1 分支
+
 ## 预备知识
 
 ### CSAPP
