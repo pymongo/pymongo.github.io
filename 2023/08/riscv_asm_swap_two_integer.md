@@ -37,6 +37,10 @@ deref example: movl (%rdi), %eax copies the value from the memory address pointe
 |x10,x11|a0,a1|function argument or return value register|
 |x12,x17|a2,a7|function argument register|
 
+除了 general register 还有以下几个特殊寄存器
+- pc: Program Counter, address of the current instruction being executed
+
+
 ## 试试编译汇编
 
 我还不会写汇编，可以先写出 C 代码编译出汇编来学习下
