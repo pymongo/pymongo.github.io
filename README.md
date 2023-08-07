@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-08**
+    - [volatile 不解决分支预测](/2023/08/volatile_and_cpu_branch_prediction.md)
     - [qemu vscode gdb](/2023/08/qemu_riscv_vscode_gdb.md)
     - [gcc/ld --as-needed](/2023/08/gcc_ld_as_needed.md)
     - [dumpbin](/2023/08/dumpbin_ldd_alternative_on_windows.md)
