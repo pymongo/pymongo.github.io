@@ -12,15 +12,15 @@ OS 课缺失的 lecture7 可以看学堂在线公开课的版本
 
 书籍和课程视频
 
-|||
-|---|---|
-|CSAPP| ch1 |
-|计算机组成与设计 RISC-V edition| ch2.3.2 常数 |
-|OS Three easy pieces| ch4 进程抽象 |
-|rCore Turtorial Book| ch1.6 为内核支持函数调用 |
-|程序员的自我修养链接装载库| ch1.6 线程 |
-|os_lecture| lecture03 70min |
-|操作系统(RISC-V)(2020秋)| 3.4 系统调用 |
+||||
+|---|---|---|
+|CSAPP| ch1.5 | 高速缓存 |
+|计算机组成与设计 RISC-V edition| ch2.3.2 | 常数 |
+|OS Three easy pieces| ch4 | 进程抽象 |
+|rCore Turtorial Book| ch2.4 | 批处理系统 |
+|程序员的自我修养链接装载库| ch2 | 静态链接 |
+|os_lecture| lecture03 37min | 异常/中断的硬件处理 |
+|操作系统(RISC-V)(2020秋)| 3.4 | 系统调用 |
 
 |||
 |---|---|

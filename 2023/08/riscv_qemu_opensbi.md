@@ -28,6 +28,20 @@ ELF = executable or linkable format
 
 ## firmware and OpenSBI
 
+以下是 RISC-V 硬件分层抽象的架构设计
+
+1. application execution environment: OS, TEE(trusted execution environment e.g. Intel SGX)
+2. supervisor binary interface
+3. supervisor execution enviroment: hypervisor/VM monitor
+4. hypervisor binary interface
+5. hypervisor execution enviroment: software layer that enables virtualization on RISC-V processors
+6. (optional)hardward abstract layer
+7. baremetal hardware
+
+中断: 控制流脱离了其所在的执行环境，并产生 执行环境的切换。 我们把这种“突变”的控制流称为 异常控制流 (ECF, Exceptional Control Flow) 
+
+在操作系统中，需要处理三类异常控制流：外设中断 (Device Interrupt) 、陷入 (Trap 系统调用切换到内核态) 和异常 (内存访问越界等Exception，也称Fault Interrupt)
+
 **Supervisor Binary Interface**
 
 It is an interface provided by the RISC-V architecture to enable interaction between the privileged software (such as firmware or operating system kernel) and the underlying hardware
@@ -76,6 +90,7 @@ static const MemMapEntry virt_memmap[] = {
     [VIRT_PCIE_ECAM] =    { 0x30000000,    0x10000000 },
     [VIRT_PCIE_MMIO] =    { 0x40000000,    0x40000000 },
     // 操作系统的代码在 DRAM
+    // qemu 默认启动参数是 128M 内存
     [VIRT_DRAM] =         { 0x80000000,           0x0 },
 };
 ```

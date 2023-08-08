@@ -1,8 +1,12 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-08**
+    - [特权级机制](/2023/08/riscv_privilege_mode.md)
+    - [中断和 trap](/2023/08/riscv_interrupt_and_trap.md)
+    - [RISC-V 术语](/2023/08/riscv_terminology.md)
     - [volatile 不解决分支预测](/2023/08/volatile_and_cpu_branch_prediction.md)
-    - [qemu vscode gdb](/2023/08/qemu_riscv_vscode_gdb.md)
+    - [RISC-V 函数调用](/2023/08/riscv_function_call_and_return.md)
+    - [rcore lab1 qemu gdb](/2023/08/rcore_os_lab1_qemu_gdb.md)
     - [gcc/ld --as-needed](/2023/08/gcc_ld_as_needed.md)
     - [dumpbin](/2023/08/dumpbin_ldd_alternative_on_windows.md)
     - [ptr::addr_of!](/2023/08/ptr_addr_of.md)

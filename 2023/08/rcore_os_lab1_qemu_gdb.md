@@ -1,4 +1,4 @@
-# [rcore lab1 qemu gdb](/2023/08/rcore_os_lab1_qemu_gdb)
+# [rcore lab1 qemu gdb](/2023/08/rcore_os_lab1_qemu_gdb.md)
 
 yay -S riscv-gnu-toolchain-bin
 
@@ -55,7 +55,12 @@ qemu-system-riscv64 -machine virt -nographic \
 
 我的思考是 0x802 内存地址必须紧凑排满生成出的代码块，因此就不能 debug symbol? 这里我没想明白，linux kernel 确实也有 debug symbol 相关配置
 
-解答: 看本文后续 ELF section 解释以及 linker-qemu.ld 源码中都是将各个 section 位置写死装载到内存中
+解答: rcore 书中有解释为什么用这个地址，看本文后续 ELF section 解释以及 linker-qemu.ld 源码中都是将各个 section 位置写死装载到内存中
+
+## 为什么用 0x80200000 地址
+qemu 源码内存布局写死的 0x80000000 是 DRAM 也就是内存的首地址
+
+然后将 ROM 中的固件 RustSBI 加载到内存中占用了 200000 大小
 
 ## qemu gdb 初体验
 
@@ -66,6 +71,10 @@ ubuntu 用 gdb-multiarch 亦可
 用 `i r` 命令也就是 info registers 的缩写看看寄存器的值
 
 `i r mstatus` 能看一些特殊寄存器
+
+mstatus 跟 riscv 的模式有关，例如 User mode 跟 Machine mode 之间的切换就是通关修改 mstatus 寄存器实现的
+
+
 
 结果全是 0 只有当前执行指令地址的 pc 寄存器有值 0x1000
 
@@ -176,16 +185,95 @@ text section 就是代码段一般在前两个位置 text section 的例子
 说起 ELF 文件加载想起一本必须要看的经典书《程序员的自我修养：链接、装载与库》
 
 ### ELF 三个核心 section
-
-- text: 放代码和常量
-- bss:  未初始化的 static 变量
-- data: 已初始化的 static 变量 
+- .text: 放代码和常量
+- .bss:  未初始化的 static 变量
+- .data: 已初始化的 static 变量
+- .rodata: 已初始化只读的 static 变量
+- .srodata: String-Read Only Data
 
 ## objdump 反汇编
-
 rust-objdump -all target/riscv64gc-unknown-none-elf/release/os
 
 可以去找下 main/_start 的汇编代码
 
 ## objcopy
 实验一中已经用熟练了
+
+---
+
+## linker 原理
+rcore 第一章好多内容都是 链接、装载与库 书中知识，再次觉得自己看的书太少了
+
+linker 在汇编器后执行，算是编译的最后一步了
+
+1. symbol resolution
+2. symbol relocation
+3. symbol merging
+4. relocation table generate
+5. generate executable file or dylib
+
+### relocation
+多个编译好的 .o 格式 ELF 文件，合并所有 ELF 文件的 .text,.data 等部分
+
+因此合并前源文件中 函数符号到内存地址的映射 合并后会变化，需要 relocation 重新定位一遍
+
+对于动态库的符号会存一个符号表，不会在 link 阶段映射出内存地址
+
+### ld script 示例讲解
+
+```
+.rodata : {
+    *(.rodata .rodata.*)
+    *(.srodata .srodata.*)
+}
+```
+
+首先 `*()` 是个通配符，也就是匹配所有 .o 文件中，带 .rodata 或者带 .rodata. 前缀的所有 section
+
+### runtime linker/loader
+ld.so 运行时将程序所需的动态库加载到内存(多个程序还是能复用同一个动态库内存)，并将程序动态库符号表 relocation
+
+### linker-qemu.ld 源码
+手动做 symbol merging 和 relocation 的步骤，手动去合并 .text 等 section
+
+stext,etext 分别表示 start text 和 end text
+
+`global_asm!(include_str!("entry.asm"));` 做了一些跟 sbi/qemu 之前初始化的工作，然后再跳转到 rust main 函数，因此 text 段先拼上了 .entry.start
+
+### PIE，Position-independent Executable
+gdb `x/10i $pc` 看内存上当前指令往后的 10 个指令是什么
+
+rcore 程序中的寻址全都是基础地址 0x80200000 的【相对地址】，因此**加载**到内存任意位置都能执行，
+相反如果有的程序寻址是固定的内存地址，则要求一个固定的内存布局
+
+## entry.asm 代码解读
+
+汇编 `.global` 表示全局函数
+
+以下代码是初始化【创建栈空间】的代码
+
+```
+    .globl _start
+_start:
+    # la 是伪指令 load address of src symbol to dst register
+    la sp, boot_stack_top
+    call rust_main
+
+...
+# 如果发生爆栈，则新数据会覆盖掉内核的其他代码
+boot_stack_lower_bound:
+    .space 4096 * 16
+    .globl boot_stack_top
+boot_stack_top:
+```
+
+对应 linker-qemu.ld 和 Rust 代码 clear_bss() `#[link_section]`
+
+```
+.bss : {
+    *(.bss.stack)
+    sbss = .;
+    *(.bss .bss.*)
+    *(.sbss .sbss.*)
+}
+```
