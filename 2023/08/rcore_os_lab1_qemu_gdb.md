@@ -277,3 +277,7 @@ boot_stack_top:
     *(.sbss .sbss.*)
 }
 ```
+
+---
+
+实验一还有一个 ch1-qemu-exit 版本代替 sbi::shutdown <https://github.com/rcore-os/rCore-Tutorial-v3/compare/ch1...ch1-qemu-exit>

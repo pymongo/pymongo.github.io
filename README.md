@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-08**
+    - [lab2 批处理系统](/2023/08/rcore_os_lab2_batch_system.md)
     - [特权级机制](/2023/08/riscv_privilege_mode.md)
     - [中断和 trap](/2023/08/riscv_interrupt_and_trap.md)
     - [RISC-V 术语](/2023/08/riscv_terminology.md)

@@ -30,3 +30,8 @@ sret/mret 跟 ecall 成对出现起 return 效果
 - mret: machine mode return
 
 规律: riscv 命名上 m/s mode 状态下特有的命令/寄存器会命名成 m/s 前缀，例如 mret,mstatus 和 sret,sstatus
+
+## x86 实模式/保护模式
+实模式: 段地址+偏移地址 16+4 的物理寻址
+
+保护模式: 虚拟内存/分页/特权级别划分

@@ -8,3 +8,4 @@ extend-exclude = [
 ser = "ser" # serde
 cros = "cros"
 iterm = "iterm"
+sie = "sie"

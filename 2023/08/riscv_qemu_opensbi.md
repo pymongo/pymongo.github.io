@@ -32,10 +32,10 @@ ELF = executable or linkable format
 
 1. application execution environment: OS, TEE(trusted execution environment e.g. Intel SGX)
 2. supervisor binary interface
-3. supervisor execution enviroment: hypervisor/VM monitor
+3. supervisor execution environment: hypervisor/VM monitor
 4. hypervisor binary interface
-5. hypervisor execution enviroment: software layer that enables virtualization on RISC-V processors
-6. (optional)hardward abstract layer
+5. hypervisor execution environment: software layer that enables virtualization on RISC-V processors
+6. (optional)hardware abstract layer
 7. baremetal hardware
 
 中断: 控制流脱离了其所在的执行环境，并产生 执行环境的切换。 我们把这种“突变”的控制流称为 异常控制流 (ECF, Exceptional Control Flow) 

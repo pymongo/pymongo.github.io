@@ -48,3 +48,37 @@ S mode 的操作系统发现用户态触发了异常/trap 再判断下如果异�
 
 ## TLB
 Translation Lookaside Buffer, cache virtual-to-physical address translation
+
+---
+
+https://github.com/73fc/DailySchedule/blob/master/rcore/lab1/os/src/interrupt/timer.rs
+
+```rust
+/// 初始化中断处理
+///
+/// 把中断入口 `__interrupt` 写入 `stvec` 中，并且开启中断使能
+pub fn init() {
+    unsafe {
+        extern "C" {
+            /// `interrupt.asm` 中的中断入口
+            fn __interrupt();
+        }
+        // 使用 Direct 模式，将中断入口设置为 `__interrupt`
+        stvec::write(__interrupt as usize, stvec::TrapMode::Direct);
+    }
+}
+
+// timer/mod.rs
+
+/// 开启时钟中断使能，并且预约第一次时钟中断
+pub fn init() {
+    unsafe {
+        // 开启 STIE，允许时钟中断
+        sie::set_stimer(); 
+        // 开启 SIE（不是 sie 寄存器），允许内核态被中断打断
+        sstatus::set_sie();
+    }
+    // 设置下一次时钟中断
+    set_next_timeout();
+}
+```
