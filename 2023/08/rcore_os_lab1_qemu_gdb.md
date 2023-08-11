@@ -126,6 +126,17 @@ mstatus 跟 riscv 的模式有关，例如 User mode 跟 Machine mode 之间的�
 
 http://rcore-os.cn/rCore-Tutorial-Book-v3/appendix-b/index.html#
 
+### size 看 elf 长度
+
+size mod.o
+
+```
+   text    data     bss     dec     hex filename
+    176       0       0     176      b0 mod.o
+```
+
+dec,hex 字段分别表示总长度的十进制和十六进制，可以看到静态的 .o relocatable 文件的 .bss 长度必然是零大小
+
 ### readelf/rust-readobj
 
 readelf -h os/target/riscv64gc-unknown-none-elf/debug/os
@@ -184,12 +195,19 @@ text section 就是代码段一般在前两个位置 text section 的例子
 
 说起 ELF 文件加载想起一本必须要看的经典书《程序员的自我修养：链接、装载与库》
 
-### ELF 三个核心 section
+### ELF 核心 section
 - .text: 放代码和常量
 - .bss:  未初始化的 static 变量
 - .data: 已初始化的 static 变量
 - .rodata: 已初始化只读的 static 变量
 - .srodata: String-Read Only Data
+
+一个程序的多个副本同时在运行的时候，内存中的 .text 会复用，所有副本公用一段 .text
+
+### .bss 静态时零大小，运行时才有大小
+> .bss section has a zero size in the ELF file, it occupies a non-zero size in memory when the program is loaded and executed.
+
+另外如果 static 变量的初始值为零，则编译器会优化掉将其放置于 .bss 段
 
 ## objdump 反汇编
 rust-objdump -all target/riscv64gc-unknown-none-elf/release/os

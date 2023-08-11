@@ -14,12 +14,12 @@ OS 课缺失的 lecture7 可以看学堂在线公开课的版本
 
 ||||
 |---|---|---|
-|CSAPP| ch1.5 | 高速缓存 |
+|CSAPP| ch2.2.3 | 补码 |
 |计算机组成与设计 RISC-V edition| ch2.3.2 | 常数 |
 |OS Three easy pieces| ch4 | 进程抽象 |
-|rCore Tutorial Book| ch3.2 | 任务切换 |
-|程序员的自我修养链接装载库| ch2.2.4 | IR |
-|ArceOS Tutorial Book|||
+|rCore Tutorial Book| ch3.2 | 协作调度 |
+|程序员的自我修养链接装载库| ch4.1 | 空间地址分配 |
+|ArceOS Tutorial Book|看完||
 |os_lecture| lecture05 | 多任务实验讲解 |
 |操作系统(RISC-V)(2020秋)| 4.3 | 连续内存分配 |
 
@@ -50,7 +50,7 @@ RISC-V 只有 40 多个指令非常适合初学者入门学完之后构建一个
 
 ### 链接装载库
 1. gcc/g++ preprocess: .c/.cpp -> .i/.ii
-2. cc/cc1(not include lex/yacc) compile and as(assembler): .i/.ii -> .o
+2. cc/cc1(not include lex/yacc) compile and as(assembler): .i/.ii -> .o （relocatable file）
 3. ld linker: one or multi .o -> elf
 
 ## textbook
