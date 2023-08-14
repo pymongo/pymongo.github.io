@@ -17,11 +17,12 @@ OS 课缺失的 lecture7 可以看学堂在线公开课的版本
 |CSAPP| ch2.2.3 | 补码 |
 |计算机组成与设计 RISC-V edition| ch2.3.2 | 常数 |
 |OS Three easy pieces| ch4 | 进程抽象 |
-|rCore Tutorial Book| ch3.2 | 协作调度 |
+|rCore Tutorial Book| ch4-6 | 地址空间 |
+|uCore Tutorial Book| ch4 | 地址空间 |
 |程序员的自我修养链接装载库| ch4.1 | 空间地址分配 |
+|os_lecture| lecture08 | 进程 |
+|操作系统 RISC-V 学堂在线| 9.4 | 进程模型 |
 |ArceOS Tutorial Book|看完||
-|os_lecture| lecture05 | 多任务实验讲解 |
-|操作系统(RISC-V)(2020秋)| 4.3 | 连续内存分配 |
 
 |||
 |---|---|

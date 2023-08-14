@@ -2,7 +2,7 @@
 
 ||||
 |---|---|---|
-|TLB|Translation Lookaside Buffer|cache virtual-to-physical address translation|
+|TLB|Translation Lookaside Buffer|(中文叫快表)cache virtual-to-physical address translation|
 |AMO|Atomic Memory Operations|exception code 6: Store/AMO address misaligned|
 |CSR|control and status register||
 |sfence.vma|指令|刷新 TLB 缓存|
@@ -17,9 +17,31 @@
 |.got|Global Offset Table|动态库运行时寻址 dynamic symbol resolution during runtime|
 |.percpu|per-cpu data|
 |bl|branch and link|call subroutine to target label, 类似 include! 的效果，例子在 arceos trap.S 和 boot.rs|
+|Stride|调度算法|
+|AMO|atomic memory operation|
+|TCB|thread control block|
+
+## 页表相关术语
+
+|||
+|---|---|
+|page|逻辑页|
+|frame|物理页|
+|ppn|page physics number|
+|va|virtual address|
+|pa|physics address|
+|pte|page table entry(存页表可读可写等元信息)|
+|satp|supervisor address translation and protection|
+
+地址空间(MemorySet)=PageTable(操作系统)+MapArea(应用)
+
+MapArea 应该是存储了应用的每个 section 的 virtual page number
 
 ## 内存分配器的粒度
 
 例如 BuddyByteAllocator 和 SlabByteAllocator 是基于 byte 为粒度
 
 BitmapPageAllocator 是基于 page 为粒度
+
+## TLB 没命中会怎样
+先去内存页表找，页表也没有的话就触发缺页中断

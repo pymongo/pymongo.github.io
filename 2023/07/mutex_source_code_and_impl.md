@@ -151,3 +151,7 @@ tokio Mutex 文档说是 Fair 没说是不是 Reentrant 的
 
 ## ReentrantMutex
 指的是同一个线程可以重复多次获取同一个锁而不会死锁
+
+---
+
+总结，学完 Rust Atomic And Locks 了解到互斥锁读写锁都有的两个属性: 公平(牺牲性能解决饥饿问题)、可重入(牺牲性能解决单线程死锁)

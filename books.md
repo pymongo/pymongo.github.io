@@ -1,5 +1,6 @@
 ## 正在读的书
 
+- 程序员的自我修养:链接装载库(23.08.07-)
 - computer science a programmer's perspective
 
 ## 已读
@@ -18,6 +19,31 @@
 - The Rustonomicon
 - 凤凰架构
 - Rust Atomics and Locks
+
+## 编译原理
+
+```
+以下是一些与离散数学、形式语言与自动机以及编译原理相关的书籍推荐：
+
+离散数学：
+
+《离散数学及其应用》（Discrete Mathematics and its Applications） - Kenneth H. Rosen
+《离散数学导论》（Introduction to Mathematical Reasoning） - Susanna S. Epp
+《离散数学及其应用教程》（A Course in Discrete Mathematics） - Jiří Matoušek, Jaroslav Nešetřil
+形式语言与自动机：
+
+《形式语言与自动机》（Introduction to the Theory of Computation） - Michael Sipser
+《自动机、语言与计算》（Automata, Languages, and Computation） - John E. Hopcroft, Rajeev Motwani, Jeffrey D. Ullman
+《计算的本质：深入剖析程序和计算机》（The Nature of Computation: Introduction to Computer Science） - Cristopher Moore, Stephan Mertens
+编译原理：
+
+《编译原理》（Compilers: Principles, Techniques, and Tools） - Alfred V. Aho, Monica S. Lam, Ravi Sethi, Jeffrey D. Ullman
+《现代编译原理》（Modern Compiler Implementation in C/Java/ML） - Andrew W. Appel
+《编译器设计与实现》（Engineering a Compiler） - Keith D. Cooper, Linda Torczon
+这些书籍都是在相关领域被广泛使用的经典教材，它们提供了深入的理论和实践知识，适合作为学习的参考和指南。请根据个人的学习习惯和需求选择适合自己的教材。另外，还可以结合在线教学资源、学术论文以及习题集等多种学习资源来加深理解和实践。
+```
+
+---
 
 ## 已读非技术类书
 

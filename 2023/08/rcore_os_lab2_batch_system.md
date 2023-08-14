@@ -197,3 +197,9 @@ if ptr + len > APP_BASE_ADDRESS + APP_SIZE_LIMIT {
 ---
 
 (lab2 好多中断寄存器修改指令代码看的好痛苦记不住)
+
+---
+
+lab2/lab3 参考代码? <https://github.com/jackming2271/rCore-Tutorial-v3/tree/ch3>
+
+<https://github.com/Create-a-Second-Earth-2030/reimplement-rCore-Tutorial-v3-from-scratch>
