@@ -1,6 +1,5 @@
 # [链接装载库读书笔记](/2023/08/link_load_and_lib_notes.md)
 
-
 ## /usr/include/elf.h
 size/readelf 命令都能查看 elf 文件每个 section 的长度
 
@@ -78,19 +77,62 @@ C 语言用 __attribute__((section("foo")))
 |C++: extern "C"|#[no_mangle]|
 |`__attribute__((constructor))`||
 
-看书/代码看到 link_section link(weak) 这些 ABI 相关的属性宏
-整理了下发现都能找到 C 语言一一对应的 __attribute__
+注意 `__attribute__((section(".bss")))` 在 visual studio 工具链上可用 `#pragma data_set(".bss")`
 
 注意 `extern "C"` 是 C++ 专有语法，因此用的时候经常套上 `#ifdef __cplusplus`
 
 ~~链接的时候如果有多个 weak symbol 则会选择占用空间最大的一个~~ 书中这个说法跟 gpt 不一致，gpt 说选择 ld 入参文件顺序的第一个 week symbol
+
+看书/代码看到 link_section link(weak) 这些 ABI 相关的属性宏
+整理了下发现都能找到 C 语言一一对应的 __attribute__
 
 ### weak/weak_ref
 weak 还有一个用法是判断编译时有没有加上 -lpthread 从而让业务代码走单线程分支还是多线程分支
 
 如果没有加 -lpthread 则 weak symbol 指针为 0 以此判断是否 -lpthread
 
+### VMA/LMA
+
+objdump 返回的表头中 Virtual/Load memory address 应该相等，但在嵌入式尤其是 ROM 中程序就不相等
+
+### .init/.fini
+
+放 C++ 全局构造和析构函数，.init 会在 main 函数之前执行，.fini 会在之后执行
+
+(libc 大约上千个 .o) ar -t /usr/lib/x86_64-linux-gnu/libc.a
+
+找 printf 在哪个 .o 
+
+> objdump -t /usr/lib/x86_64-linux-gnu/libc.a | grep -w printf
+
+### bfd.h
+binary format descriptor lib
+
+bfs_target_list() 就类似 rustup target list 列出所有 GNU 编译器后端支持的 target ABI
+
+### ASLR(随机化布局)
+
+代码中打印出的指针地址是 linker BASE_ADDRESS 的偏移地址，除了嵌入式和 bare-metal 应用基本不会用非 Position-independent executables
+
+address space layout randomization 操作系统会随机分配虚拟地址空间的基地址，这是为了增加安全性，防止 malware 用绝对地址攻击
+
+## int 0x80 系统调用
+
+x86 `int $0x80` 等同于 RISC-V 的 ecall 二者都是系统调用
+
+int 0x80 的系统调用 id 入参存放在 eax, 系统调用三个参数存放在寄存器 ebx,ecx,edx，返回值存放在 eax
+
+ecall 的系统调用 id 入参存放在 x17/a7, 系统调用三个参数存放在寄存器 x10(a0),x11(a1),x12(a2), 返回值存放在 x10(a0)
+
 ---
+
+## clang AddressSanitizer
+
+> clang -fsanitize=address -O1 -fno-omit-frame-pointer -g   tests/use-after-free.c
+
+对应 Rust 的编译器 flag 是 RUSTFLAGS=-Zsanitizer=address
+
+但不适用于有过程宏的项目 libserde_derive-56d82479fb854012.so: undefined symbol: __asan_option_detect_stack_use_after_return
 
 ## 超线程/超标量/流水线
 

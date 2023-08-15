@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-08**
+    - [页面置换算法](/2023/08/page_replacement.md)
     - [Device Tree Blob](/2023/08/device_tree_blob.md)
     - [acreos](/2023/08/arceos.md)
     - [链接装载库读书笔记](/2023/08/link_load_and_lib_notes.md)
