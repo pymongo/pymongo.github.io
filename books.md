@@ -1,6 +1,9 @@
 ## 正在读的书
 
-- 程序员的自我修养:链接装载库(23.08.07-)
+- rcore tutorial book
+
+## 计划读的书
+
 - computer science a programmer's perspective
 
 ## 已读
@@ -9,6 +12,7 @@
 因此建立书单记录读书过程，书单建立前读过的书就不一一记录了
 
 - adventure in python(大学图书馆内我还看完过好几本 python 入门级的书不记得名字了)
+- 浪潮之巅
 - 数学之美
 - 為你自己學 Ruby on Rails
 - The Rust Programming Language(官方 the book 讲的太浅了)
@@ -19,6 +23,7 @@
 - The Rustonomicon
 - 凤凰架构
 - Rust Atomics and Locks
+- 程序员的自我修养:链接装载库(23.08.07-23.08.17)
 
 ## 编译原理
 

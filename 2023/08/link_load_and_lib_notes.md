@@ -72,6 +72,8 @@ C 语言用 __attribute__((section("foo")))
 |`__attribute__((always_inline))`|#[inline(always)]|
 |C++: extern "C"|#[no_mangle]|
 |__thread|#[thread_local]|
+|gcc -nostdlib|#![no_std]|
+|gcc -nonstartfiles|#![no_main]|
 
 <!-- |`__attribute__((constructor))`|| -->
 
@@ -121,6 +123,8 @@ x86 `int $0x80` 等同于 RISC-V 的 ecall 二者都是系统调用
 int 0x80 的系统调用 id 入参存放在 eax, 系统调用三个参数存放在寄存器 ebx,ecx,edx，返回值存放在 eax
 
 ecall 的系统调用 id 入参存放在 x17/a7, 系统调用三个参数存放在寄存器 x10(a0),x11(a1),x12(a2), 返回值存放在 x10(a0)
+
+x86_64 正常情况下前四个入参寄存器: rdi,rsi,rdx,rcx 返回值是 rax
 
 ## segment/section
 
@@ -230,6 +234,8 @@ ELF 的静态变量定义的时候加上 __thread 就可以做成线程局部静
 
 Rust 确实有 `#[thread_local]` 属性不过是不稳定的
 
+除了 __thread 这样隐式 TLS 之外，pthread 还提供了 pthread_key_create,pthread_key_delete,pthread_getspecific,pthread_setspecific 四个显式 API，但是这几个 API 有诸多缺点和限制不推荐使用了
+
 ### Lazy Binding
 为了加速可执行文件启动前动态库加载过程，ELF 采用了延迟绑定的做法，当第一次调用动态库的函数的时候才做该动态库的符号查找、地址重定位等
 
@@ -277,7 +283,7 @@ jump _dl_runtiem_resolve
 
 ### Elf64_auxv_t
 
-栈空间向低地址增长，进程栈空间从低到高分别是 argc -> argv -> env -> Elf64_auxv_t
+栈空间向低地址增长(因此入参从右往左入栈)，进程栈空间从低到高分别是 argc -> argv -> env -> Elf64_auxv_t
 
 所以下面代码要把环境变量指针遍历到头之后才能拿到 elf 辅助数组信息
 
@@ -340,7 +346,7 @@ $ LD_PRELOAD=/path/to/libsleep.so ./a.out
 sleep 1 seconds
 ```
 
-动态链接库劫持比较方便修改系统调用实现，否则就只能改内核模块源码 hook/patch 内核中的系统调用表
+动态链接库劫持比较方便修改系统调用实现，ptrace 繁琐点，更复杂的是，改内核模块源码 hook/patch 内核中的系统调用表
 
 大部分动画引擎都是通过 sleep 来实现 tick 的吧，例如炉石回合制游戏都有无限流无限手牌费用，唯一约束就是回合时间和打出每张牌的动画，因此变速齿轮将 sleep 重写掉，这样动画时间为零又有更多时间打牌达成无限牌无限资源的电表倒转
 
@@ -358,6 +364,41 @@ sleep 1 seconds
 
 ### LD_DEBUG=files
 LD_DEBUG 的选项还有很多，帮助学习动态库执行流程
+
+### @PLT和@GOT
+
+```
+callq memset@PLT和callq memset@GOT在含义上有一些区别。
+
+callq memset@PLT：这是对memset函数的调用，使用了PLT（Procedure Linkage Table）进行函数调用。PLT是一个动态链接的机制，用于在程序运行时解析函数地址。当需要调用memset函数时，会首先跳转到PLT表中的入口，然后再跳转到真正的函数地址。
+
+callq memset@GOT：这是对memset函数的调用，使用了GOT（Global Offset Table）进行函数调用。GOT是一个全局偏移表，用于在程序运行时解析全局变量和函数的地址。当需要调用memset函数时，会直接从GOT表中获取函数地址。
+
+在使用这两种调用方式时，PLT表和GOT表会在程序运行时被填充和更新。PLT表会在首次调用函数时进行函数地址的解析，然后将地址缓存到GOT表中，以便后续的调用可以直接从GOT表中获取函数地址，避免了重复的解析过程。
+
+总的来说，callq memset@PLT使用了两级跳转的方式进行函数调用，而callq memset@GOT直接从GOT表中获取函数地址进行调用。在绝大多数情况下，这两种方式的性能差异很小，具体使用哪种方式取决于编译器和链接器的设置。
+```
+
+---
+
+## .ctor 段
+
+atexit 函数有点像 defer 的感觉，会在 main 函数结束后执行，一般用来释放资源等
+
+main 函数之前的 _init() 实际上调用 _do_global_ctors_aux 函数是与 C++ 中全局构造函数（global constructors）相关的一个函数
+
+__CTOR_LIST__ 全局构造函数的数组指针
+
+##  /usr/lib/x86_64-linux-gnu/crti.o
+
+C 语言运行库环境，无论 c 静态还是动态链接都会链接这个访问在程序运行前执行
+
+可以用 -nostdlib -nostartfile 不加载这个运行库
+
+## asmlinkage = __attribute((regparm(0)))
+这是内核源码的一个宏，表示函数只从栈上获取入参，避免用寄存器传递入参，适用于中断上下文切换避免污染寄存器的场合
+
+---
 
 ## clang AddressSanitizer
 

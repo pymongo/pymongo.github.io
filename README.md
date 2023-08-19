@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-08**
+    - [进程调度](/2023/08/process.md)
     - [rustc-demangle](/2023/08/rustc_demangle.md)
     - [页面置换算法](/2023/08/page_replacement.md)
     - [Device Tree Blob](/2023/08/device_tree_blob.md)

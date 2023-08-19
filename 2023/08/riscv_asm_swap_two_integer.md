@@ -37,6 +37,8 @@ deref example: movl (%rdi), %eax copies the value from the memory address pointe
 |x10,x11|a0,a1|function argument or return value register|
 |x12,x17|a2,a7|function argument register|
 
+在 x86 中通用寄存器都有 r/e 前缀版本 rax 是 64 位，eax 是 rax 寄存器的低 32 位，类似的 ax/al 表示 rax 低 16/8 位，
+
 寄存器越多电信号传播越久时钟周期变长，寄存器越少写代码不方便，RISCV 的寄存器数量精心设计过
 
 除了 general register 还有以下几个特殊寄存器

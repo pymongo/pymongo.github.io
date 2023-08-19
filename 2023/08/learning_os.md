@@ -17,12 +17,12 @@ OS 课缺失的 lecture7 可以看学堂在线公开课的版本
 |CSAPP| ch2.2.3 | 补码 |
 |计算机组成与设计 RISC-V edition| ch2.3.2 | 常数 |
 |OS Three easy pieces| ch4 | 进程抽象 |
-|rCore Tutorial Book| ch5 | 进程引言 |
+|rCore Tutorial Book| ch6.2 | 文件系统 |
 |uCore Tutorial Book| ch4 | 地址空间 |
-|程序员的自我修养链接装载库| ch10.2 | 堆栈 |
-|清华 os_lecture| lecture08 | 进程 |
-|操作系统 RISC-V 学堂在线| 10.2 | 进程创建 |
-|ArceOS Tutorial Book|看完||
+|程序员的自我修养链接装载库| 看完了 |
+|清华 os_lecture| lecture10 | 文件系统 |
+|清华操作系统(RISC-V) 学堂在线| 17 | 文件系统 |
+|ArceOS Tutorial Book|看完了|
 |南京大学操作系统 jyywiki.cn/OS/2022/|||
 
 |||
