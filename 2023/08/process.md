@@ -81,7 +81,7 @@ Round-Robin 的变种，适合手机个人电脑进程少需要低延迟的，�
 
 ## task_struct 的 状态
 
-线程实际上是一种特殊的进程(轻量级进程)，它们共享相同的地址空间和其他进程资源。因此，内核中对线程和进程的表示方式是一致的
+线程实际上是一种特殊的进程(一个轻量级进程背后有一个内核线程)，它们共享相同的地址空间和其他进程资源。因此，内核中对线程和进程的表示方式是一致的
 
 - ~~进程状态: Terminated,Running,Sleeping,stopped,zombie~~
 - ~~线程状态: Terminated,Running,Blocked,Runnable,Suspended~~

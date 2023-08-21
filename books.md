@@ -1,6 +1,7 @@
 ## 正在读的书
 
 - rcore tutorial book
+- Operate System Three Easy Pieces
 
 ## 计划读的书
 
