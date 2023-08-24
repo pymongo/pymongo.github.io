@@ -20,6 +20,8 @@
 |Stride|调度算法|
 |AMO|atomic memory operation|
 |TCB|thread control block|
+|TLSF|Two-Level Segregated Fit|内存分配算法;segregated:隔离;申请和释放都是O(1)固定时间适合嵌入式实时操作系统|
+|PMD|Peripheral Module Driver 外设模块驱动程序|
 
 ## 页表相关术语
 

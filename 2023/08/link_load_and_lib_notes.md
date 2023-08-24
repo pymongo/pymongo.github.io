@@ -70,6 +70,7 @@ C 语言用 __attribute__((section("foo")))
 |`__attribute__((packed))`|#[repr(packed)]|
 |`__attribute__((aligned(32)))`|#[repr(align(32))]|
 |`__attribute__((always_inline))`|#[inline(always)]|
+|`__attribute__((naked))`|#[naked]|
 |C++: extern "C"|#[no_mangle]|
 |__thread|#[thread_local]|
 |gcc -nostdlib|#![no_std]|
@@ -85,6 +86,8 @@ C 语言用 __attribute__((section("foo")))
 
 看书/代码看到 link_section link(weak) 这些 ABI 相关的属性宏
 整理了下发现都能找到 C 语言一一对应的 __attribute__
+
+`#[naked]` 指的是让编译器别按照函数调用约定在函数调用前后注入保存恢复寄存器值的汇编指令
 
 ### weak/weak_ref
 weak 还有一个用法是判断编译时有没有加上 -lpthread 从而让业务代码走单线程分支还是多线程分支

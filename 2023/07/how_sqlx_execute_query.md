@@ -69,3 +69,9 @@ sqlx 核心的 Trait 的结构体就 `Value, TypeInfo(Value), Row(Vec<Value>), C
 2. impl Encode/Decode/Type for i128
 
 (sqlx 开发最让人痛苦的是 ra 检测出循环依赖导致无法静态分析 <https://github.com/rust-lang/cargo/issues/8734>)
+
+```
+[ERROR project_model::workspace] cyclic deps: sqlx_core(Idx::<CrateData>(304)) -> sqlx(Idx::<CrateData>(268)), alternative path: sqlx(Idx::<CrateData>(268)) -> sqlx_core(Idx::<CrateData>(304))
+[ERROR project_model::workspace] cyclic deps: sqlx_sqlite(Idx::<CrateData>(327)) -> sqlx(Idx::<CrateData>(268)), alternative path: sqlx(Idx::<CrateData>(268)) -> sqlx_macros(Idx::<CrateData>(321)) -> sqlx_macros_core(Idx::<CrateData>(323)) -> sqlx_sqlite(Idx::<CrateData>(327))
+[ERROR project_model::workspace] cyclic deps: sqlx_test(Idx::<CrateData>(328)) -> sqlx(Idx::<CrateData>(268)), alternative path: sqlx(Idx::<CrateData>(268)) -> sqlx_test(Idx::<CrateData>(328))
+```

@@ -116,7 +116,9 @@ pub fn print<T: AsRef<[u8]>>(buf: T) {
 }
 ```
 
-### 尝试用实验一的 sbi_call
+### qemu 调 sbi::console_putchar 失败
+
+要想打印字符串，除了用 write 系统调用我还想到 sbi putchar
 
 ```rust
 #[no_mangle]

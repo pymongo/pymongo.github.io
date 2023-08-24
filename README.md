@@ -1,6 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-08**
+    - [arceos 如何解决循环依赖](/2023/08/arceos_crate_interface_solve_circular_dependencies.md)
+    - [最小的 Future executor](/2023/08/minimal_future_executor.md)
     - [文件系统](/2023/08/file_system.md)
     - [进程调度](/2023/08/process.md)
     - [rustc-demangle](/2023/08/rustc_demangle.md)
