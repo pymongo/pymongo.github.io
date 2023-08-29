@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-08**
+    - [jyy 操作系统笔记](/2023/08/jyy_operate_system_notes.md)
     - [分辨 CRD 和 deploy](/2023/08/distinguish_pod_from_deploy_or_crd.md)
     - [CSAPP 笔记](/2023/08/csapp_note.md)
     - [再学 Rust for Linux](/2023/08/rust_for_linux.md)

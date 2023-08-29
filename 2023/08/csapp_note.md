@@ -331,3 +331,16 @@ TCP/UDP 扩展的 IP 协议，使得数据包可以在进程间传播而不是�
 getaddrinfo类似于DNS解析，输入域名输出sockaddr。getnameinfo 类似反向DNS解析，输入sockaddr输出域名
 
 ## ch12 并发编程
+建议 phtread_join 回收线程资源，如果不打算 join 等线程结束则用 pthread_detach(pthread_self())
+
+Rust 的读写锁(写优先)，当两个获取写锁的线程来回传递，这样读锁是不是会饥饿
+
+srand 所有线程共用一个随机数 seed 建议用线程安全的 rand_r
+
+```
+RDTSC指令是用来读取时间戳计数器（TSC）的值，TSC是一个递增的计数器，它记录了处理器从上电以来经过的时钟周期数。虽然可以将其用作随机种子，但它并不是真正的随机数生成器。
+
+RDRAND指令是Intel Ivy Bridge微架构引入的一个指令，用于从硬件随机数生成器（Hardware Random Number Generator，HRNG）中读取随机数。HRNG的实现依赖于物理上的随机事件，如热噪声或放射性衰变。这使得RDRAND生成的数看起来是随机的，但并不是真正的随机数。
+
+要生成真正的随机数，通常需要依赖外部的随机源，如操作系统提供的随机数生成器或专用的硬件随机数生成器
+```
