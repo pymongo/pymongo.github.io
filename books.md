@@ -1,13 +1,13 @@
 ## 正在读的书
 
-- Operate System Three Easy Pieces
-- Computer science a programmer's perspective
+- Operate System Three Easy Pieces ch7
 
 ## 计划读的书
 
 - Linux Device Drivers
 
 ## 已读(倒序)
+- Computer Science A Programmer's Perspective
 - rCore Tutorial Book
 - 程序员的自我修养:链接装载库(23.08.07-23.08.17)
 - Rust Atomics and Locks

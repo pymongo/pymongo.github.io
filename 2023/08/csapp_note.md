@@ -327,3 +327,7 @@ fd2=3
 TCP/UDP 扩展的 IP 协议，使得数据包可以在进程间传播而不是主机间传送的粒度
 
 > cat /etc/services | grep postgres
+
+getaddrinfo类似于DNS解析，输入域名输出sockaddr。getnameinfo 类似反向DNS解析，输入sockaddr输出域名
+
+## ch12 并发编程
