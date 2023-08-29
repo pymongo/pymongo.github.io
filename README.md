@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-08**
+    - [分辨 CRD 和 deploy](/2023/08/distinguish_pod_from_deploy_or_crd.md)
     - [CSAPP 笔记](/2023/08/csapp_note.md)
     - [再学 Rust for Linux](/2023/08/rust_for_linux.md)
     - [arceos 如何解决循环依赖](/2023/08/arceos_crate_interface_solve_circular_dependencies.md)

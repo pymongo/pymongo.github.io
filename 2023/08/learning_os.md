@@ -14,7 +14,7 @@ OS 课缺失的 lecture7 可以看学堂在线公开课的版本
 
 ||||
 |---|---|---|
-|CSAPP| 9.6.1 |  |
+|CSAPP| 11.4 | 网络编程 |
 |计算机组成与设计 RISC-V edition| ch2.3.2 | 常数 |
 |OS Three easy pieces| ch7 |  |
 |rCore Tutorial Book| 看完了 |

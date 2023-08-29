@@ -305,9 +305,25 @@ L1-L3 cache is sram, memory is dram
 
 第二，只有一级页表项才需要常驻内存和经常使用的二级页表才会在内存中
 
-练习题 9.4 怎么计算地址这块还是有点不理解(书中 9.6 内容)
+练习题 9.4 怎么计算地址这块还是有点不理解(书中 9.6 内容 <https://hansimov.gitbook.io/csapp/part2/ch09-virtual-memory/9.6-address-translation>)
 
 ### 内部碎片/外部碎片
 内部碎片: 为了内存对齐额外申请的空间
 
 外部碎片: 两段连续内存分配之间的小间隙无法使用
+
+### GC: Mark&Sweep 算法
+最早出现在 Lisp 垃圾回收的时候，从堆内存开始遍历，发现有的内存分配节点是 unreachable 的说明这是垃圾内存没有引用可以回收
+
+## ch10 文件
+这章好水，所有内容我之前读 《beginning linux programming》都学过了
+
+v-node 表，所有进程共享的打开的文件
+
+### 练习题 10.1
+fd2=3
+
+## ch11 网络编程
+TCP/UDP 扩展的 IP 协议，使得数据包可以在进程间传播而不是主机间传送的粒度
+
+> cat /etc/services | grep postgres
