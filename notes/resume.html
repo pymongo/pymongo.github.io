@@ -1,3 +1,59 @@
+<!-- // 自己瞎逼折腾的简历模板和样式难看的要死，还不如用 boss 直聘导出的 pdf 模板，写好内容文案
+大纲: 工作经历 项目经历 专业技能(boss 上叫个人优势,堆砌关键词让猎头检索) 教育经历
+看了下 boss 的简历模板全都有头像而且没有专业技能排版一般，还是用超级简历样式排版算了
+
+## 废弃/编辑中的文案
+saks(树莓派瑞士军刀扩展板 SDK), lints(定制 clippy lint 框架/规则)
+业务目标同一份 sqlx postgres 语法的查询代码完全兼容 Oracle 查询语法的天域数据库。
+### arceos tokio 支持
+预计3-4行
+占位1
+占位2
+占位3
+
+## 工作经历
+北京白海科技有限公司 高级 Rust 开发工程师 22.02-至今
+开发 K8s 云原生 AI 中台的模型训练、模型评估、异构计算资源调度等业务应用
+
+北京海致星图科技有限公司 高级图数据库开发工程师 2021.08-2022.02
+图数据库内核查询引擎的内置函数、grpc 接口等功能的开发测试
+
+海南自贸区威中杰信息技术有限公司 全栈开发工程师 19.07-21.08
+虚拟货币交易所的订单撮合引擎、造市等后端业务模块开发和安卓端网页端维护
+
+## 项目经历(项目开始/结束时间就瞎编吧)
+### 天域数据库 Rust SDK
+业务背景是某客户国产化部署要求将业务数据库 postgres 换成国产的天域
+具体工作内容
+1. 将天域 C++ 头文件用 bindgen 转换并抽象出数据库 unsafe FFI 调用方法
+2. 适配 sqlx 过程宏做出 sqlx-tydb driver
+3. 跟天域技术人员一起沟通解决若干 Segment Fault(例如数组扩容导致悬垂指针)
+
+### AtlasGraph 分布式图数据库
+1. 编写/测试 cypher 内置函数，修复表达式 NULL 值比较错误
+2. 开发批量添加边等 rpc 接口，修复若干 lexer 解析错误的 Bug
+3. 图数据库 Java 客户端维护，对接公司的知识图谱平台
+
+### 数字货币交易所订单撮合引擎
+本项目是将是将价格相近的买单和买单匹配在一起进行成交
+我用 Rust 重构了 Ruby 老版撮合引擎后，
+平均查询延迟从 45ms 降到 7ms 降低了 84%，吞吐量提升 12 倍
+内存占用降低 95%, 查询延迟和吞吐量都接近竞品(火币等)
+
+## 专业技能
+github/技术博客: pymongo, pymongo.github.io
+系统编程: 有 bare metal 裸机/嵌入式编程经验，熟悉 rcore 操作系统源码
+容器化技术: 熟悉 Kubernetes/docker 构建部署，有 K8s CRD, istio 管理运维经验
+编程语言: Rust, C, Java, Python, RISC-V 汇编
+开源贡献:
+- tikv: 修复 cgroup 测试用例(#11176)、提升 prometheus 采集性能(#11308)
+- sqlx: 去掉无用依赖 num-traits(#581)、修复 query! 卡死问题(#1002)
+- arceos#115: 堆内存分配器 trait NonZeroUsize 改成 NonNull 更符合语义
+- databend#2824: 实现数据库内置函数 inet_ntoa
+- mongodb/bson-rust#260: 优化 bson::DateTime::now(), 性能提升约 70%
+- procfs#162: 新增 /proc/net/route 解析
+- bigdecimal-rs#66: 实现 round 方法并贡献 16 个测试用例
+-->
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -81,25 +137,19 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
         <span class="project-role">高级 Rust 开发工程师</span>
         <span class="project-cycle">2022.02 - 至今</span>
     </h3>
-    <p>・负责云原生 IDE 产品执行器内核开发，内核组组长，带领组内一名初级开发</p>
+    <p>・开发 K8s 云原生 AI 中台的模型训练、模型评估、异构计算资源调度等业务应用</p>
     <h3 class="header3">
         <span class="project-title">北京海致星图科技有限公司</span>
         <span class="project-role">高级图数据库开发工程师</span>
         <span class="project-cycle">2021.08 - 2022.02</span>
     </h3>
-    <p>・负责分布式图数据库竞标书的查询层开发</p>
-    <!-- <h3 class="header3">
-        <span class="project-title">北京范高科技有限公司</span>
-        <span class="project-role">中级服务端开发</span>
-        <span class="project-cycle">2020.09 - 2021.08</span>
-    </h3>
-    <p>・负责 Instagram 数据分析产品的的 Rust 服务端开发</p> -->
+    <p>・图数据库内核查询引擎的内置函数、grpc 接口等功能的开发测试</p>
     <h3 class="header3">
         <span class="project-title">海南自贸区威中杰信息技术有限公司</span>
         <span class="project-role">全栈开发工程师</span>
         <span class="project-cycle">2019.07 - 2021.08</span>
     </h3>
-    <p>・负责区块链虚拟币交易所订单撮合引擎和交易所网站的全栈开发</p>
+    <p>・虚拟货币交易所的订单撮合引擎、造市等后端业务模块开发和安卓端网页端维护</p>
     <!--
     <h3 class="header3">
         <span class="project-title">北京邦友科技开发有限公司</span>
@@ -108,46 +158,11 @@ STAR法则：情境(situation)、任务(task)、行动(action)、结果(result)�
     <p>・业务是汽车ECU(电子控制器)的功能测试，以日方提供的脚本语言进行编程，调试</p>
     -->
 
-    <h2 class="header2">§ 教育经历</h2>
-    <h3 class="header3">
-        <span class="project-title">天津职业技术师范大学(本科)</span>
-        <span class="project-role" style="font-size: 15px">电子信息工程</span>
-        <span class="project-cycle" style="font-size: 16px">2015 - 2019</span>
-    </h3>
-    <hr class="divider">
-
     <!-- 项目经验的高逼格术语: 阶梯团队建设(团队有牛人也有彩笔)，具效化, sso/cas 单点登录, more fine-grained control(进行更细粒度的控制) -->
     <h2 class="header2">§ 项目经历</h2>
-
-    <h3 class="header3">
-        <span class="project-title">IDPStudio 单机开源版</span>
-        <span class="project-role">负责人</span>
-        <span class="project-cycle">2022.02 - 至今</span>
-    </h3>
-项目职责:
-基于闭源 IDE 产品的云原生分布式版本二次开发，跨平台免安装解压可用的单机版
-制定开发规范和代码质量管理机制
-
-带领 1-2 名初级开发
-
 <!--
 - 参与版本管理工作流规范制定和代码质量，保证代码可扩展性，不会遇到多个新需求无法实现就频繁重构
-- 通过 custom_test_frameworks 搭建自动测试框架
 -->
-    <h3 class="header3">
-        <span class="project-title">IDPStudio</span>
-        <span class="project-role">kernel 组</span>
-        <span class="project-cycle">2022.02 - 至今</span>
-    </h3>
-    <pre class="project-details">
-项目成绩:
-- 重构前 k8s/docker 启动 Java 版服务要 15 秒重构后只需 5 秒
-- 带领组员攻克 jupyter kernel 实现的技术难关
-
-贡献价值:
-
-    </pre>
-
     <h3 class="header3">
         <span class="project-title">Atlas Graph</span>
         <span class="project-role"></span>
@@ -186,27 +201,13 @@ devops:
 - tensorbase: 改进单元测试一些临时文件创建的逻辑(#115,153,197)
     </pre>
 
-    <h3 class="header3">
-        <span class="project-title">Ig Analyzer</span>
-        <span class="project-role"></span>
-        <span class="project-cycle">2020.10 - 2021.08</span>
-    </h3>
-    <pre class="project-details">
-贡献价值:
-- 完成 Instagram 粉丝时序数据定时抓取和存储功能的 graphql/grpc 接口
-项目依赖上游开源库的贡献:
+    <!-- <h3 class="header3">
 - mongodb/bson-rust: 优化 bson::DateTime::now() 性能提升约 70%(#260)
 - rust-postgres#669: 我读了写 pg 协议部分文档后改进了库中相关代码(#669)
 - sqlx: 修复若干 MySQL/SQLite 部分的 Bug(#319,581,592,1002)
-    </pre>
+    </pre> -->
 
 <!--
-    <h3 class="header3">
-        <span class="project-title">WebSocket 服务器</span>
-        <span class="project-role"></span>
-        <span class="project-cycle">2020.07 - 至今</span>
-    </h3>
-    <pre class="project-details">
 [技术架构] 用的是actix框架，一种Actor管理长链接，另一种Actor监听UDP且存储每个频道的客户端订阅
 　　　　   UdpActor会缓存其它Ruby脚本发来的上一条推送数据，一旦客户端订阅频道就立即推送缓存的数据
 　　　　   SessionActor的析构回调中会通知UdpActor删掉所有频道的订阅列表中已断开连接的Actor地址
@@ -238,6 +239,7 @@ devops:
 [项目收获] 1. 熟悉 Rust 全局共享可变和不可变数据的各种方法，摸索出比 OnceCell 或 LazyStatic 更佳的
 　　　　      共享数据方式: 在 main 中创建 state 往后层层传递到各个协程
 　　　　   2. 发现 rust_decimal 性能比 bigdecimal-rs 好得多，适用于金融计算的业务
+- uinb/galois: galois 改良 galois 股票撮合引擎的配置文件(#7,#12)
     -->
     <pre class="project-details">
 项目介绍:
@@ -292,17 +294,10 @@ devops:
 - typeid_key_hashmap: 类似 actix_web::web::Data，key 是类型支持存储任意类型的 HashMap
 -->
 
-    <!--
-    <h3 class="header3">
-        <span class="project-title">交易所移动端API接口</span><span class="project-cycle">2019.12 - 2020.04</span>
-    </h3>
-    <pre class="project-details">
-[项目架构] 1. 对于时效性短的数据，存入redis减轻MySQL负载，例如当日取消订单3次就禁止交易的功能
+    <!-- 废弃文案
+交易所移动端API接口[项目架构] 1. 对于时效性短的数据，存入redis减轻MySQL负载，例如当日取消订单3次就禁止交易的功能
 　　　　   2. 使用FactoryBot库结合Faker库通过工厂模式生成测试数据，借助单元测试进行代码重构
 　　　　   3. 分析多表联查时出现N+1查询的原因，通过加单向/双向关联和includes语句解决N+1查询问题
-    </pre>
-
-    <div class="row-padding-lv1">・开发了OkHttpHelper，为每个请求加上签名校验和设备信息(如机型,安卓版本)等参数，方便后端统计</div>
     <div class="row-padding-lv1">・将项目升级为androidx，用navigation-graph重构了底部导航栏，了解dagger2依赖注入</div>
     <div class="row-padding-lv1">・从WebSocket获取数据的RecyclerView改为用SQLite的数据(Room ORM)进行初始化,WebSocket恢复订阅功能</div>
     <div class="row-padding-lv1">・对于时效性短的数据，存入redis减轻MySQL负载，如当日取消订单3次限制交易的功能通过redis实现</div>
@@ -312,7 +307,6 @@ devops:
     <div class="row-padding-lv1">・学习crontab定时任务，建立User表与Account表之间的<b>「双向关联」</b>，简化操作代码</div>
     <div class="row-padding-lv1">・需求是同时按转账发起人邮箱和转账接收人邮箱进行查询，转账记录表需要join用户表两次</div>
     <div class="row-padding-lv1">・在ActiveRecord转账记录表上建立了sender/receiver_user_id外键关联</div>
-    <div class="project-title">交易所后台管理系统</div>
     <div class="row-padding-lv1">・为所有导出csv下载的链接添加参数过滤(params.slice)，防止携带参数跳转时「无关的数据被暴露」</div>
     <div class="row-padding-lv1">・select2.js添加搜索框，通过参数merge解决了切换语言时GET请求参数被覆盖的问题</div>
     [主要工作] 为所有导出csv下载的链接添加参数过滤(params.slice)，防止携带参数跳转时「无关的数据被暴露」

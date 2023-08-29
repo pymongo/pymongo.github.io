@@ -74,7 +74,7 @@ C 语言用 __attribute__((section("foo")))
 |C++: extern "C"|#[no_mangle]|
 |__thread|#[thread_local]|
 |gcc -nostdlib|#![no_std]|
-|gcc -nonstartfiles|#![no_main]|
+|gcc -nostartfiles|#![no_main]|
 
 <!-- |`__attribute__((constructor))`|| -->
 

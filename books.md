@@ -1,32 +1,30 @@
 ## 正在读的书
 
-- rcore tutorial book
 - Operate System Three Easy Pieces
+- Computer science a programmer's perspective
 
 ## 计划读的书
 
-- computer science a programmer's perspective
+- Linux Device Drivers
 
-## 已读
+## 已读(倒序)
+- rCore Tutorial Book
+- 程序员的自我修养:链接装载库(23.08.07-23.08.17)
+- Rust Atomics and Locks
+- 凤凰架构
+- The Rustonomicon
+- Linux 高性能服务端编程
+- Asynchronous Programming in Rust
+- beginning linux programming(与 APUE/TLPI 部分内容重叠)
+- Rust 编程之道
+- The Rust Programming Language(官方 the book 讲的太浅了)
+- 為你自己學 Ruby on Rails
+- 数学之美
+- 浪潮之巅
+- adventure in python(大学图书馆内我还看完过好几本 python 入门级的书不记得名字了)
 
 工作两年后意识到自己读过的书太少了，总沉迷类似奶头乐这样时效性低的信息而没有接触时效性长含金量高的经典书籍，
 因此建立书单记录读书过程，书单建立前读过的书就不一一记录了
-
-- adventure in python(大学图书馆内我还看完过好几本 python 入门级的书不记得名字了)
-- 浪潮之巅
-- 数学之美
-- 為你自己學 Ruby on Rails
-- The Rust Programming Language(官方 the book 讲的太浅了)
-- Rust 编程之道
-- beginning linux programming(与 APUE/TLPI 部分内容重叠)
-- Asynchronous Programming in Rust
-- Linux 高性能服务端编程
-- The Rustonomicon
-- 凤凰架构
-- Rust Atomics and Locks
-- 程序员的自我修养:链接装载库(23.08.07-23.08.17)
-
-## 编译原理
 
 ```
 以下是一些与离散数学、形式语言与自动机以及编译原理相关的书籍推荐：

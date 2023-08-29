@@ -14,16 +14,16 @@ OS 课缺失的 lecture7 可以看学堂在线公开课的版本
 
 ||||
 |---|---|---|
-|CSAPP| ch2.2.3 | 补码 |
+|CSAPP| 9.6.1 |  |
 |计算机组成与设计 RISC-V edition| ch2.3.2 | 常数 |
-|OS Three easy pieces| ch6 |  |
-|rCore Tutorial Book| ch8.2 | 线程 |
+|OS Three easy pieces| ch7 |  |
+|rCore Tutorial Book| 看完了 |
 |uCore Tutorial Book| ch4 | 地址空间 |
 |程序员的自我修养链接装载库| 看完了 |
-|清华 os_lecture 2022| lecture13 00:53:00 | 线程 |
-|清华操作系统(RISC-V) 学堂在线| 看完+通过慕课考试 |
-|南京大学操作系统 jyywiki.cn/OS/2022/|||
-|ArceOS 设计&实现 阿图教育|02|
+|清华 os_lecture 2022| 看完了|
+|清华操作系统(RISC-V) 学堂在线| 看完了+通过慕课考试 |
+|南京大学操作系统 jyywiki.cn/OS/2022/|lecture02||
+|ArceOS 设计&实现 阿图教育|linux 内核驱动开发基础|
 |ArceOS Tutorial Book|看完了|
 
 |||
@@ -92,7 +92,7 @@ RISC-V 页机制
 linux 将特权模式抽象成 kernel-space
 
 ## 信号(软中断)不如硬件中断及时性的原因
-进程收到信号上只是在 TrapContext 存储了信号和信号回调地址，并不会立即执行信号回调
+进程收到信号上只是在 TrapContext 存储了信号和信号回调地址，并不会立即执行信号回调(rcore 是，linux 应该不是)
 
 等到进程下一次进入 trap 才会执行信号回调，如果进程一直没系统调用最坏的情况下跑完一个时间片后进入 trap 才会处理信号
 
@@ -101,15 +101,45 @@ linux 将特权模式抽象成 kernel-space
 
 处理信号时，内核会自动处理信号的返回问题，你不需要手动调用sigreturn或rt_sigreturn。通常情况下，信号处理回调函数只需要完成一些轻量级的操作，例如修改全局变量、发送信号到其他进程等。
 sigreturn和rt_sigreturn系统调用主要用于在特定的场景下恢复复杂的信号处理程序状态，例如在信号处理程序中实现自定义的信号栈、修改寄存器状态等
+
+不完全正确。在Linux中，进程收到信号后，并不是要等到下一次陷入内核态时才会处理信号。实际上，信号处理是异步的，进程在任何时刻都可能收到信号并触发信号处理程序。
+
+当进程收到信号时，内核会中断进程的正常执行流程，并在进程的上下文中执行信号处理程序。这可能发生在进程的用户态或内核态。进程在处理完信号后，会根据处理方式的不同，继续执行原来的指令或者根据信号处理程序所指定的操作进行处理。
+
+然而，有一些情况下，进程在一些特定的操作中会阻塞信号的处理。例如，在某些系统调用（如read、write、sleep等）期间，进程可以选择阻塞信号，直到系统调用完成后才处理信号。这样做的目的是确保特定操作的原子性或避免异常情况下的竞态条件
 ```
 
 ## rcore/linux 的 fork 有何不同
 rcore 的 process control block 包含了线程数组，因此 fork 的时候线程也会复制一份，但 linux fork 只是当前进程复制不会有子线程复制。(当然 rcore 源码现在优化了，fork 不复制线程了)
 
-## 对称/非对称 coroutinue
+## 对称/非对称 coroutine
 非对称的不能从 callee 切换到 caller 也就是 task 之间是不对等的，task1 能切 task2 反之不行
 
 有栈协程好处是可以在任意函数位置中挂起，而无栈不行(因为上下文数据在堆上)
+
+## eventfd
+用户空间程序可以创建一个事件对象，并设置初始的计数值。然后，程序可以使用read系统调用等待事件的发生。当事件发生时，read调用将返回。eventfd在Linux中被广泛用于异步编程、事件驱动编程、线程同步和多线程通信等场景
+
+## 网卡设备用中断+轮询更高效
+网卡和显卡都是高速设备，如果一次 IO 就要中断 CPU 一次会过于频繁导致活锁问题
+
+网卡是没数据时等数据中断 CPU 建立 socket 之后 CPU 不断轮询数据直到通信结束，网卡是中断为主轮询为辅的 IO 处理，像键盘这样低速设备纯中断通知效率更高
+
+CPU主要有三种方式可以与外设进行数据传输：Programmed I/O (简称PIO)、Interrupt、Direct Memory Access (简称DMA)
+
+PIO方式可以进一步细分为基于Memory-mapped的PIO（简称MMIO）和Port-mapped的PIO（简称PMIO
+
+## 总线
+对于 PC 机来说总线通常显卡/网卡/固态/内存连 PCIE 高速总线
+
+对于树莓派这样的 SOC 来说总线通常来说也叫 Platform 总线
+
+dtb 设备树有五个设备可以理解成总线上有五个空的"插槽"，这些空插槽必须让驱动和设备关联起来才能用
+
+要么是设备先注册到总线，然后驱动去总线设备列表找关联的设备，要么反之驱动先注册到总线再遍历设备
+
+## /var/log/kern.log
+dmesg 是内存 ring buffer 里面的 kernel log, kern.log 是持久化之后的 kernel log
 
 ---
 
@@ -150,3 +180,10 @@ github 上面有人分享了这个 https://github.com/mit-pdos/xv6-riscv
 安装 riscv 工具链 <https://pdos.csail.mit.edu/6.828/2021/tools.html>
 
 (重点看) 如何用 gdb/addr2line 调试报错 <https://pdos.csail.mit.edu/6.828/2021/labs/guidance.html>
+
+## perCPU 概念
+类似 threadLocal linux 每个核心的 L1 缓存都有独占的数据记录调度信息
+
+arceos 的多核模式下有分 **主核** 和副核
+
+主核就无限 yield 进入低功耗等中断模式让控制权交给应用，多个核心通过 spinlock 获取同一个任务队列
