@@ -2,9 +2,9 @@
 - [正在读的书](/books.md)
 - **2023-08**
     - [jyy 操作系统笔记](/2023/08/jyy_operate_system_notes.md)
-    - [分辨 CRD 和 deploy](/2023/08/distinguish_pod_from_deploy_or_crd.md)
+    - [Rust for Linux 网卡驱动](/2023/08/rust_for_linux_network_driver.md)
     - [CSAPP 笔记](/2023/08/csapp_note.md)
-    - [再学 Rust for Linux](/2023/08/rust_for_linux.md)
+    - [分辨 CRD 和 deploy](/2023/08/distinguish_pod_from_deploy_or_crd.md)
     - [arceos 如何解决循环依赖](/2023/08/arceos_crate_interface_solve_circular_dependencies.md)
     - [最小的 Future executor](/2023/08/minimal_future_executor.md)
     - [文件系统](/2023/08/file_system.md)

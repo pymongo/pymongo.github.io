@@ -1,4 +1,34 @@
-# [再学 Rust for Linux](/2023/08/rust_for_linux.md)
+# [Rust for Linux 网卡驱动](/2023/08/rust_for_linux_network_driver.md)
+
+## r4l 实验报告
+|||
+|---|---|
+|实验报告网页版(持续更新)|<https://pymongo.github.io/2023/08/rust_for_linux_network_driver.md>|
+|实验指南|<https://docs.qq.com/doc/DY2RVVFNoa3dxS2Vh>|
+|我的 fork|<https://docs.qq.com/doc/DY2RVVFNoa3dxS2Vh>|
+
+![](r4l_exercise1.png)
+
+图一实验一结果 调整参数编译内核
+
+![](r4l_exercise2.png)
+
+实验二截图，实验前禁用了 Intel 网卡所以 ifconfig 应该空白输出，由于 Rust 驱动疯狂打印日志导致难以在一个截图中包含五次命令操作的记录
+
+```
+~ # ip addr add broadcast 10.0.2.255 dev eth0
+[   40.427431] r4l_e1000_demo: Rust for linux e1000 driver demo (net device get_stats64)
+[   40.430088] r4l_e1000_demo: Rust for linux e1000 driver demo (net device get_stats64)
+ip: RTNETLINK answers: Invalid argument
+```
+
+中途有个命令报错了，但是不影响使用
+
+![](r4l_exercise3.png)
+
+实验三如上图，dmesg 中可见 Rust 模块的打印
+
+
 
 ## 别浪费时间搞 out-of-tree-module
 一年前我写过文章探索 r4l out of tree module 编译(毕竟这样方便点用少量文件完成构建，不用在 linux 源码中构建只能 qemu 执行)，现在 Manjaro 也有 6.1 内核了先试试看
@@ -7,11 +37,7 @@
 origin	https://github.com/Rust-for-Linux/rust-out-of-tree-module.git (push)
 [w@ww rust-out-of-tree-module]$ zcat /proc/config.gz | grep _RUST
 CONFIG_HAVE_RUST=y
-[w@ww rust-out-of-tree-module]$ make
-make -C /lib/modules/`uname -r`/build M=$PWD
-warning: the compiler differs from the one used to build the kernel
-  The kernel was built by: gcc (GCC) 13.2.1 20230801
-  You are using:           clang version 15.0.7
+
   RUSTC [M] /home/w/repos/learningOS/rust-out-of-tree-module/rust_out_of_tree.o
 error: target file "./rust/target.json" does not exist
 ```
@@ -29,11 +55,6 @@ error[E0050]: method `init` has 1 parameter but the declaration in trait `kernel
    |
 20 |     fn init(_module: &'static ThisModule) -> Result<Self> {
    |                      ^^^^^^^^^^^^^^^^^^^ expected 2 parameters, found 1
-   |
-   = note: `init` from trait: `fn(&'static kernel::prelude::CStr, &'static kernel::ThisModule) -> core::result::Result<Self, kernel::Error>`
-
-error: aborting due to previous error
-
 
 [w@ww rust-out-of-tree-module]$ make KDIR=../linux/
 make -C ../linux/ M=$PWD
@@ -44,14 +65,10 @@ make -C ../linux/ M=$PWD
 
 sudo insmod ./rust_out_of_tree.ko
 insmod: ERROR: could not insert module ./rust_out_of_tree.ko: Invalid module format
+[314501.389747] rust_out_of_tree: version magic '6.3.0-g18b749148002 SMP preempt mod_unload ' should be '6.1.44-1-MANJARO SMP preempt mod_unload '
 ```
 
-dmesg 报错日志:
-
-> [314501.389747] rust_out_of_tree: version magic '6.3.0-g18b749148002 SMP preempt mod_unload ' should be '6.1.44-1-MANJARO SMP preempt mod_unload '
-
 ## kernel config
-
 ```
 rustup override set $(scripts/min-tool-version.sh rustc)
 rustup component add rust-src
@@ -193,6 +210,27 @@ Requesting system halt
 !> 注意 halt 跟 riscv 的 wfi 指令进入低功耗等中断待机模式不是一回事
 
 ## out-of-tree-module ra&clangd
+用 linux 源码文件夹的 Makefile 给当前 out-of-tree module 生成， 至于 clangd 的 compile_commands 我也是引用 linux 目录下面的就行了
+
+## 踩坑 ra 支持要打 patch
+~~米老师给的 r4l 代码太旧了，需要人肉更新下才能支持 ra~~
+
+```
+$ make -C ../linux M=$PWD rust-analyzer
+No rule to make target 'rust-analyzer'
+```
+
+两个群友和老师说打 patch 能用，但我试了好久都没成功，~~暂时放弃~~
+
+我直接用 r4l 的 ra out-of-tree PR 版本的代码就能给 out of tree 加上 ra 支持了
+
+```
+[w@ww rusty-linux]$ git remote -v
+origin  https://github.com/vvarma/rusty-linux.git (fetch)
+origin  https://github.com/vvarma/rusty-linux.git (push)
+[w@ww rusty-linux]$ git log -1 --oneline --abbrev-commit --all --graph
+* 33102ff30 (grafted, HEAD -> extmod/rustanalyzer, origin/extmod/rustanalyzer) scripts: `make rust-analyzer` for out-of-tree modules
+```
 
 ---
 
