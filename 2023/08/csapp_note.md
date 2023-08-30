@@ -331,7 +331,7 @@ TCP/UDP 扩展的 IP 协议，使得数据包可以在进程间传播而不是�
 getaddrinfo类似于DNS解析，输入域名输出sockaddr。getnameinfo 类似反向DNS解析，输入sockaddr输出域名
 
 ## ch12 并发编程
-建议 phtread_join 回收线程资源，如果不打算 join 等线程结束则用 pthread_detach(pthread_self())
+建议 pthread_join 回收线程资源，如果不打算 join 等线程结束则用 pthread_detach(pthread_self())
 
 Rust 的读写锁(写优先)，当两个获取写锁的线程来回传递，这样读锁是不是会饥饿
 

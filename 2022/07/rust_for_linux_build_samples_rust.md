@@ -60,7 +60,7 @@ error: the feature `nll` has been stable since 1.63.0 and no longer requires an 
 error: aborting due to previous error
 ```
 
-换回 1.62 版本后 `make LLVM=1 -j$(nproc)` 之后就是一堆的配置我是一直按回车使用默认配置
+rustup override set 换回 1.62 版本后 `make LLVM=1 -j$(nproc)` 之后就是一堆的配置我是一直按回车使用默认配置
 
 我 5900X 机器花了 53 秒就编译好 kernel image 了
 

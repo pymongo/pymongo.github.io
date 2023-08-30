@@ -24,6 +24,9 @@ jyy 视频里面 gdb 的配置好花哨，想起了 rcore 里面推荐的 gdb-da
 
 (图为 starti 停在程序的第一个指令和 bt full 命令)
 
+### layout asm
+弹出汇编代码的上半窗口
+
 ### info threads/inferiors 区别
 info threads：这个命令用于显示程序中所有线程的信息。它会列出每个线程的唯一标识符（thread ID），当前所在的函数调用栈，以及其他线程相关的信息。您可以使用 info threads 来查看程序中所有线程的状态和调用栈信息，以便分析和调试多线程程序。
 
