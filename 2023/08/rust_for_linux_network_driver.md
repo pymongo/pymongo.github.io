@@ -5,7 +5,7 @@
 |---|---|
 |实验报告网页版(持续更新)|<https://pymongo.github.io/2023/08/rust_for_linux_network_driver.md>|
 |实验指南|<https://docs.qq.com/doc/DY2RVVFNoa3dxS2Vh>|
-|我的 fork|<https://docs.qq.com/doc/DY2RVVFNoa3dxS2Vh>|
+|我的 fork|<https://github.com/pymongo/stage3_homework>|
 
 ![](r4l_exercise1.png)
 
@@ -261,6 +261,16 @@ ip route add default via 10.0.2.1
 ip link set eth0 down
 ip link set eth0 up
 ```
+
+## 踩坑 Segment Fault
+
+我一开始 stop 实现 `dev.netif_stop_queue(); dev.netif_carrier_off();`
+
+不过第二次调用 open 会 Segment Fault，好在有 backtrace, demagle 一下符号能看出 Rust 函数名, 不过我懒得 qemu -S -s 了打日志定位到 `*data.rx_ring.lock_irqdisable()`
+
+加上两行 `*data.tx_ring.lock() = None; *data.rx_ring.lock() = None;` 后 SegmentFault 出现在 `data.napi.enable();`
+
+由于 disable 方法是私有的，我改了下 r4l 源码总算通关了没有段错误
 
 ## 同学们报错常见 FAQ
 
