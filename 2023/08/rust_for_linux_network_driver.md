@@ -28,7 +28,9 @@ ip: RTNETLINK answers: Invalid argument
 
 实验三如上图，dmesg 中可见 Rust 模块的打印
 
+![](r4l_exercise4.png)
 
+实验四 网卡反复 up/down, 思考为什么 lspci 看不到网卡
 
 ## 别浪费时间搞 out-of-tree-module
 一年前我写过文章探索 r4l out of tree module 编译(毕竟这样方便点用少量文件完成构建，不用在 linux 源码中构建只能 qemu 执行)，现在 Manjaro 也有 6.1 内核了先试试看
@@ -212,7 +214,7 @@ Requesting system halt
 ## out-of-tree-module ra&clangd
 用 linux 源码文件夹的 Makefile 给当前 out-of-tree module 生成， 至于 clangd 的 compile_commands 我也是引用 linux 目录下面的就行了
 
-## 踩坑 ra 支持要打 patch
+## 踩坑 out-of-tree ra 支持打 patch
 ~~米老师给的 r4l 代码太旧了，需要人肉更新下才能支持 ra~~
 
 ```
@@ -230,11 +232,77 @@ origin  https://github.com/vvarma/rusty-linux.git (fetch)
 origin  https://github.com/vvarma/rusty-linux.git (push)
 [w@ww rusty-linux]$ git log -1 --oneline --abbrev-commit --all --graph
 * 33102ff30 (grafted, HEAD -> extmod/rustanalyzer, origin/extmod/rustanalyzer) scripts: `make rust-analyzer` for out-of-tree modules
+
+make -C ../../rusty-linux M=$PWD rust-analyzer
+```
+
+但是很快问题又来了，原来 r4l 驱动课官方魔改/新增了很多 Rust 内核库，我向助教提问 linux/rust/dma.rs 找不到定义
+
+> dma.rs这个官方那个rust for linux好像没有，是这次实验提供的linux下面的，所以你用官方的代码树生成的rust-project应该是找不到的
+
+只好静下心分析 rusty-linux 和我的 linux 版本对比二者 make -d 结果并无收获，
+
+于是按照我的经验 no rule make target 要么是没有用tab作为缩进检查了下缩进对的，要么是前置依赖不满足看了下 ra target 也没有
+
+最后我突然发现 Makefile 大量 #if 条件编译，再对比下 patch
+
+我以为根目录的 patch 就上下挪动 ra target 位置没啥意义，我就没有修改
+
+最后走投无路试试看，没想到从 1800 行挪到 2000 行跳过了某个条件编译终于能让 out-of-tree-module 的 ra 运行成功了
+
+## 测试启动/禁用网卡
+
+```
+insmod r4l_e1000_demo.ko
+ip link set eth0 up
+ip addr add broadcast 10.0.2.255 dev eth0
+ip addr add 10.0.2.15/255.255.255.0 dev eth0 
+ip route add default via 10.0.2.1
+ip link set eth0 down
+ip link set eth0 up
+```
+
+## 同学们报错常见 FAQ
+
+### Rust 模块签名报错
+insmod 时 module verification failed
+
+解决思路，禁用内核模块签名验证，以下两个内核配置 key 设置成空
+
+```
+CONFIG_SYSTEM_TRUSTED_KEYS=""
+CONFIG_SYSTEM_REVOCATION_KEYS=""
 ```
 
 ---
 
 以下是理论知识和源码解读
+
+## ACPI 和 dtb
+x86和高端的ARM机器通常会使用ACPI（Advanced Configuration and Power Interface）而不是DTB，因为ACPI提供了更全面和灵活的功能来管理和配置系统。
+
+ACPI是一种标准化的电源管理和硬件配置接口
+
+### /sys/firmware/acpi/
+
+对应 ARM/RISCV 则是 /proc/device-tree
+
+```
+[w@ww linux]$ ls /sys/firmware/acpi/
+bgrt  fpdt  hotplug  interrupts  pm_profile  tables
+[w@ww linux]$ tree  /sys/firmware/acpi/
+/sys/firmware/acpi/
+├── bgrt
+│   ├── image
+│   ├── status
+│   ├── type
+│   ├── version
+│   ├── xoffset
+│   └── yoffset
+├── fpdt
+│   ├── boot
+│   │   ├── bootloader_launch_ns
+```
 
 ## include/linux/drive.h
 内核入口函数 main.c start_kernel
@@ -250,8 +318,32 @@ origin  https://github.com/vvarma/rusty-linux.git (push)
 ### 一致性 DMA
 一致性DMA的概念涉及到设备和系统内存之间的数据一致性。在多核处理器系统中，不同的处理器（或设备）可能有各自的高速缓存，数据被存储在这些缓存中并可能不同步更新到主内存中。这就可能导致设备访问的数据与主内存中的数据不一致。一致性DMA的目标是确保设备访问的数据与主内存中的数据一致。
 
+## r4l 现状
+rust-next 分支比较活跃，支持了 ra 的 out-of-tree module 等
+
+截至 6.5 内核中 Rust 模块库代码非常少能做的事情极其有限，主要看内核邮件列表，有几个邮件列表是一些 r4l 探索，例如思科有个文件系统，然后还有一些网卡驱动小组，本次实验的网卡代码就借鉴自这些小组提交的补丁
+
+例如本次实验代码内核库 dma.rs 在 r4l 仓库没有的，通过邮件列表找到这些补丁
+
+## 网络模块
+
+### 思考如何在内核模块中【抓包】
+
+### skbuff 贯穿网络协议栈的结构体
+- len: 当前长度
+- data_len: 剥离去 http/tcp 等等报文头尾后，原始数据包长度
+- data 指针
+
+struct skb_shared_info 记录数据包因为 MTU 等限制被分片后的分片信息
+
+### socket 层相关数据结构
+socket 层在内核视角看应该叫协议无关层，protocol off
+
+socket 结构体字段: type,flag,file,proto_ops(e.g. ipv4),sock(实际存储各种socket属性),socket_wq,
+
 ## 术语表
 
 |||
 |---|---|
 |libdrm.so|图形驱动相关 Direct Rendering Manager|
+|ACPI|Advanced Configuration and Power Interface, x86 版本设备树(DTB)|

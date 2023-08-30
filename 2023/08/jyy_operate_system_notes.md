@@ -7,6 +7,8 @@
 
 > 一些技巧来实现类似于继承的概念。这通常被称为结构体的嵌套。通过在一个结构体中嵌套另一个结构体，可以实现某种形式的代码复用和属性继承，并不是严格意义上的类继承
 
+linux 源码中习惯把 dyn trait 类型命名成 xxx_ops, 对应 Rust for Linux 的 #[vtable] 宏?
+
 ## AbstractMachine
 代码仓库应该是: <https://github.com/NJU-ProjectN/abstract-machine>
 
