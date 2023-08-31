@@ -1,6 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
+- **2023-09**
 - **2023-08**
+    - [sdcv 命令行离线词典](/2023/08/sdcv_dict_cli.md)
     - [jyy 操作系统笔记](/2023/08/jyy_operate_system_notes.md)
     - [Rust for Linux 网卡驱动](/2023/08/rust_for_linux_network_driver.md)
     - [CSAPP 笔记](/2023/08/csapp_note.md)

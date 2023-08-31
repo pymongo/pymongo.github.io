@@ -270,7 +270,10 @@ ip link set eth0 up
 
 加上两行 `*data.tx_ring.lock() = None; *data.rx_ring.lock() = None;` 后 SegmentFault 出现在 `data.napi.enable();`
 
-由于 disable 方法是私有的，我改了下 r4l 源码总算通关了没有段错误
+由于 data.napi.disable 方法是"私有的"，我改了下 r4l 源码总算通关了没有段错误
+
+## follow up
+能不能把 remove 也实现下，做到可重复 insmod/rmmod 不会资源泄露
 
 ## 同学们报错常见 FAQ
 
@@ -287,6 +290,18 @@ CONFIG_SYSTEM_REVOCATION_KEYS=""
 ---
 
 以下是理论知识和源码解读
+
+## r4l alloc 只是标准库一个子集
+演示一段多态代码，所有堆内存分配都是 try_xxx 因此没有 vec! 宏
+
+```rust
+let mut vec = Vec::<Box<dyn Animal>>::new();
+vec.try_push(Box::try_new(Dog).unwrap()).unwrap();
+vec.try_push(Box::try_new(Cat).unwrap()).unwrap();
+for each in vec {
+    dbg!(each.name());
+}
+```
 
 ## ACPI 和 dtb
 x86和高端的ARM机器通常会使用ACPI（Advanced Configuration and Power Interface）而不是DTB，因为ACPI提供了更全面和灵活的功能来管理和配置系统。

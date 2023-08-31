@@ -26,8 +26,8 @@ jyy 视频里面 gdb 的配置好花哨，想起了 rcore 里面推荐的 gdb-da
 
 (图为 starti 停在程序的第一个指令和 bt full 命令)
 
-### layout asm
-弹出汇编代码的上半窗口
+### layout asm/regs/src
+弹出汇编代码的上半窗口, 再按 layout next 切回上一个 layout
 
 ### info threads/inferiors 区别
 info threads：这个命令用于显示程序中所有线程的信息。它会列出每个线程的唯一标识符（thread ID），当前所在的函数调用栈，以及其他线程相关的信息。您可以使用 info threads 来查看程序中所有线程的状态和调用栈信息，以便分析和调试多线程程序。
@@ -37,5 +37,18 @@ info inferiors：这个命令用于显示程序中所有子进程的信息。在
 ### !cat /proc/2717/maps
 gdb 里面打印进程地址空间映射，注意不能用 /proc/self 不然打印成 cat 自身的
 
+### watch point
+```
+root@DESKTOP-1PU6QQH:~# cat asm_rdrand.c
+#include <unistd.h>
+int main() { while(1) {
+asm volatile("rdrand %rax");
+}}
+
+(gdb) watch $rax
+```
+
 ## 其他工具的使用
-vim `:!gcc` 可以执行命令，这个我忘了好几年了
+vim/gdb `:!gcc` 可以执行命令，vim 里面 `:! file %` 百分号等于指代当前文件
+
+vim `:%! grep stat %` 可以将 grep 过滤后内容更新到当前 vim buffer
