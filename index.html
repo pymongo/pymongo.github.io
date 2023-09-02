@@ -18,8 +18,19 @@
 
 <body>
 <div id="app"></div>
-<script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+
+<!-- mermaid init -->
+<script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({ startOnLoad: true });
+    window.mermaid = mermaid;
+</script>
+<script src="//unpkg.com/docsify-mermaid@2.0.0/dist/docsify-mermaid.js"></script>
+<!-- end mermaid init -->
+
 <script>
+    var num = 0;
+    mermaid.initialize({ startOnLoad: true });
     window.$docsify = {
         // 警告：历史模式下请求old会返回old文件夹目录，而hash模式会返回404
         // 错误：历史模式下docsify无法热重载
@@ -54,6 +65,18 @@
             nextText: 'NEXT',
             crossChapter: true
         },
+        markdown: {
+            renderer: {
+                code: function(code, lang) {
+                    if (lang === "mermaid") {
+                        return (
+                            '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
+                        );
+                    }
+                    return this.origin.code.apply(this, arguments);
+                }
+            }
+        }
     }
     const gitalk = new Gitalk({
         clientID: '3f7bb4e684db807b9a4d',
@@ -65,17 +88,20 @@
         distractionFreeMode: false
     })
 </script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+<script src="https://unpkg.com/docsify-gitalk@1.0.0/dist/docsify-gitalk.min.js"></script>
+
 <!-- flexible-alerts会引入font-awesome -->
 <script src="//cdn.jsdelivr.net/npm/docsify@latest/lib/docsify.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/docsify@latest/lib/plugins/search.min.js"></script>
-<!-- FIXME use.fontawesome.com被墙，而且fontawesome的css有多层依赖不容易下载到本地，所以先停用 -->
+<!-- FIXME use.fontawesome.com 被墙，而且 fontawesome 的 css 有多层依赖不容易下载到本地，所以先停用 -->
 <!--<script src="//cdn.jsdelivr.net/npm/docsify-plugin-flexible-alerts/dist/docsify-plugin-flexible-alerts.min.js"></script>-->
 <script src="//cdn.jsdelivr.net/npm/docsify-pagination@latest/dist/docsify-pagination.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@latest/dist/docsify-copy-code.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/docsify-tabs@latest/dist/docsify-tabs.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
 <script src="//cdn.jsdelivr.net/npm/docsify-dark-mode@latest/dist/index.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-rust.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-c.min.js"></script>
 </body>

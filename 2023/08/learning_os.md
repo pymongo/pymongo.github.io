@@ -16,13 +16,13 @@ OS 课缺失的 lecture7 可以看学堂在线公开课的版本
 |---|---|---|
 |CSAPP| 看完了 |
 |计算机组成与设计 RISC-V edition| ch2.3.2 | 常数 |
-|OS Three easy pieces| ch7 |  |
+|OS Three easy pieces| ch15 |  |
 |rCore Tutorial Book| 看完了 |
 |uCore Tutorial Book| ch4 | 地址空间 |
 |程序员的自我修养链接装载库| 看完了 |
 |清华 os_lecture 2022| 看完了|
 |清华操作系统(RISC-V) 学堂在线| 看完了+通过慕课考试 |
-|南京大学操作系统 jyywiki.cn/OS/2022/|lecture02 67min|汉诺塔非递归写法|
+|南京大学操作系统 jyy 2022|lecture04 10.5min||
 |ArceOS 设计&实现 阿图教育|linux 内核驱动开发基础|
 |ArceOS Tutorial Book|看完了|
 

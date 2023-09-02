@@ -2,6 +2,7 @@
 - [正在读的书](/books.md)
 - **2023-09**
 - **2023-08**
+    - [OSTEP 笔记](/2023/08/ostep_note.md)
     - [CPU 太旧导致 SIGILL](/2023/08/avx512_no_support_cause_sigill.md)
     - [sdcv 命令行离线词典](/2023/08/sdcv_dict_cli.md)
     - [jyy 操作系统笔记](/2023/08/jyy_operate_system_notes.md)

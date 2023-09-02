@@ -1,5 +1,13 @@
 # [博客新功能/样式测试](/uncategorized/test.md)
 
+## mermaid Entity Relationship Diagram
+
+```mermaid
+erDiagram
+    CAR ||--o{ NAMED-DRIVER : allows
+    PERSON ||--o{ NAMED-DRIVER : is
+```
+
 ## text's style test
 
 ~~line-through~~ **strong** *italic* <mark>mark_tag·</mark>
