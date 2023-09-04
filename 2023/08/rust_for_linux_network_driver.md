@@ -291,6 +291,18 @@ CONFIG_SYSTEM_TRUSTED_KEYS=""
 CONFIG_SYSTEM_REVOCATION_KEYS=""
 ```
 
+### 为什么 stop 函数不能用 lock_irqdisable
+
+```
+这个问题我也遇到了。 仔细查了一下原因如下：
+dma_free_coherent() 背后也是调用 dma_free_attrs() ，这个函数定义里有一个  WARN_ON(irqs_disabled())  意思是在 irq被禁用的条件下调用此函数来清理DMA内存，会报一个警告。 （具体原因，是某些平台上无法保证缓存一致性，必须在中断中清理DMA，详见 邮件列表：   https://lore.kernel.org/all/bfe85e97-2974-06ee-8c6d-f8e8a83348ea@arm.com/   ）
+
+咱们的 tx_ring 和 rx_ring 是放在 SpinLock 里边的， 需要加锁， 很多时候用的 lock_irqdisable() 就是把中断禁用再提供锁里的内容， 如果在这个语境下，对DMA内存进行了清理， 就会报一个 WARN trace 
+
+解决方案就是， 提前手动把 irq 清理掉，或者确认此时不必须 禁用irq ，直接调用 lock() 来获取 spinlock 中的内容 
+```
+
+
 ---
 
 以下是理论知识和源码解读

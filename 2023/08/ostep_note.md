@@ -7,3 +7,5 @@ STCF(Shortest Time-to-Completion First)=PSJF(Preemptive Shortest Job First)，�
 不确定的状态随机数，并发程序的形式语义
 
 缓存亲和性，一个进程最好调度在同一个 CPU 上执行充分利用缓存，同理 K8s 节点亲和性也是想着让 pod 调度在同一个节点执行
+
+连续的内存分配 malloc/free 返回的指针地址没有长度信息，有个解决办法是，内存分配器让 ptr-4 这段区域设置成分配区域大小(但是指针越界写错这段数值就完了)
