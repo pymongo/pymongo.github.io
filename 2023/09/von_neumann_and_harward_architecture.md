@@ -15,6 +15,8 @@ x86,RISC-V,大部分 ARM 都是冯诺依曼架构，嵌入式/工控领域用哈
 
 Cortex-A/Cortex-R 是哈佛的，低功耗的 Cortex-M 是冯诺依曼架构
 
+> irom和iram是用于SoC引导和启动的,芯片上电后首先会执行内部irom中固化的代码,就好像一个MCU一样，irom就是他的flash，iram就是他的SRAM，这又是典型的哈佛结构。所以bootloader固件中像哈佛架构，开机后又变成冯架构
+
 ## bitwidth of ATmega328P instruction/data memory/bus
 data memory/bus 8bit, instruction 16bit, but PC is 14bit=16kb and 32kb flash
 

@@ -16,15 +16,13 @@ OS 课缺失的 lecture7 可以看学堂在线公开课的版本
 |---|---|---|
 |CSAPP| 看完了 |
 |计算机组成与设计 RISC-V edition| ch2.3.2 | 常数 |
-|OS Three easy pieces| ch19 | TLB |
+|OS Three easy pieces| ch22 | |
 |rCore Tutorial Book| 看完了 |
 |uCore Tutorial Book| ch4 | 地址空间 |
 |程序员的自我修养链接装载库| 看完了 |
 |清华 os_lecture 2022| 看完了|
 |清华操作系统(RISC-V) 学堂在线| 看完了+通过慕课考试 |
-|南京大学操作系统 jyy 2022|lecture04 67min||
-|ArceOS Tutorial Book|看完了|
-|ArceOS 设计&实现 阿图教育|linux 内核驱动开发基础|
+|南京大学操作系统 jyy 2022|lecture05 3min||
 
 |||
 |---|---|
@@ -32,6 +30,12 @@ OS 课缺失的 lecture7 可以看学堂在线公开课的版本
 |xv6 a simple Unix-like teaching operating system| |
 
 一些作业/实验的代码仓库，都可以通过切分支来切换到不同实验，例如 rCore 的第一个实验可以切换到 ch1 分支
+
+一些内容量较少的课或书
+||||
+|---|---|---|
+|ArceOS 设计&实现 阿图教育|linux 内核驱动开发基础|
+|ArceOS Tutorial Book|看完了|
 
 ## 预备知识
 
