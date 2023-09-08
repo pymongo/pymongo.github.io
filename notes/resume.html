@@ -23,12 +23,12 @@ saks(树莓派瑞士军刀扩展板 SDK), lints(定制 clippy lint 框架/规则
 
 ## 项目经历(项目开始/结束时间就瞎编吧)
 ### Rust for Linux 网卡驱动
-2023 自动驾驶OS开发训练营 最终项目，完成 Rust E1000 驱动的 stop 函数。
-配置 Linux 和 out-of-tree module 项目的 rust-analyzer/clangd 静态分析工具，
+自动驾驶操作系统训练营最终项目，完成 Rust E1000 驱动的 stop 函数
+配置 Linux 内核源码和 out-of-tree module 的 ra/clangd 静态分析环境
+我当选训练营优秀学员组长带领 5 人小组完成 arceos 移植和 r4l 内核驱动开发
 
 ### 天域数据库 Rust SDK
-业务背景是某客户国产化部署要求将业务数据库 postgres 换成国产的天域
-具体工作内容
+业务背景是某客户国产化部署要求将业务数据库 postgres 换成国产的天域，具体工作内容
 1. 将天域 C++ 头文件用 bindgen 转换并抽象出数据库 unsafe FFI 调用方法
 2. 适配 sqlx 过程宏做出 sqlx-tydb driver
 3. 跟天域技术人员一起沟通解决若干 Segment Fault(例如数组扩容导致悬垂指针)
@@ -42,11 +42,11 @@ saks(树莓派瑞士军刀扩展板 SDK), lints(定制 clippy lint 框架/规则
 本项目是将是将价格相近的买单和买单匹配在一起进行成交
 我用 Rust 重构了 Ruby 老版撮合引擎后，
 平均查询延迟从 45ms 降到 7ms 降低了 84%，吞吐量提升 12 倍
-内存占用降低 95%, 查询延迟和吞吐量都接近竞品(火币等)
+内存占用降低 95%, 查询延迟和吞吐量都接近竞品
 
 ## 专业技能
 github/技术博客: pymongo, pymongo.github.io
-系统编程: 有 bare metal 裸机/嵌入式编程经验，熟悉 rcore 操作系统源码
+系统编程: 深入了解 C ABI,有 AVR 嵌入式经验,了解 rCore/arceos 操作系统源码
 容器化技术: 熟悉 Kubernetes/docker 构建部署，有 K8s CRD, istio 管理运维经验
 编程语言: Rust, C, Java, Python, Ruby, JavaScript, RISC-V 汇编
 开源贡献:
@@ -57,6 +57,18 @@ github/技术博客: pymongo, pymongo.github.io
 - mongodb/bson-rust#260: 优化 bson::DateTime::now(), 性能提升约 70%
 - procfs#162: 新增 /proc/net/route 解析
 - bigdecimal-rs#66: 实现 round 方法并贡献 16 个测试用例
+
+
+
+您好，我想应聘你们Rust开发的岗位，我有4年工作经验(Rust 3年)
+目前在从事Rust Kubernetes后端应用开发。我擅长FFI系统编程，操作系统等
+这是我的 github/技术博客 pymongo.github.io
+我最近参加了国汽智联的自动驾驶操作系统训练营获得优秀毕业学员荣誉，
+有 Rust for Linux 内核模块驱动开发的经验
+
+我本人也是个gpt3.5模型付费用户，但公司团队里用过gpt的不超过5人大部分都是用百度中文搜索出一些错误的答案和内容
+我看到你们要求有google/gpt相信你们团队氛围的英语水平很棒，很喜欢你们这样的氛围
+
 -->
 <!DOCTYPE html>
 <html lang="zh">

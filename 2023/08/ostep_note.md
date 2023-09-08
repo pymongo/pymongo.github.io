@@ -29,3 +29,20 @@ TLB miss 导致 RAM 并不是访问 RAM 的随机任意部位都一样快
 
 优化程序访存模式：优化程序的访存模式可以减少对TLB的访问。例如，可以通过局部性原理来提高程序的局部性，从而减少对TLB的访问次数。
 ```
+
+三种 cache miss:
+- compulsory miss: 强制性未命中，缓存一开始为空被迫未命中
+- capacity miss: 缓存容量满了需要替换置换一个旧的缓存
+- conflict miss: 多个不同的缓存 key 映射到同一个缓存位置
+
+LRU 具有 stack property, 加大缓存容量不会出现 Belady 问题，而 FIFO/random 会出现容量增大反而命中率下降的问题
+
+riscv 比 x86 lock 更聪明的办法?
+
+x86 是 lock 一个变量 m 之后，通过总线通知所有其他 CPU 核心或者其他 CPU socket 的缓存中的变量 m 要清除，开销很大
+
+riscv 做法是 load_reserved/store_conditional
+
+lr 指令让缓存打个 reserved 标记，然后处理器一继续拿这个数据去计算，如果其他处理器用了 sc 指令则会清除这个标记，
+
+等处理器一计算完发现标记没了，就会重新读取一次变量 m 再重新计算(有点像 compare_and_swap)，在计算量很小的场合下这种策略确实比 x86 性能好(jyy 说 ARM/RISC-V 这样弱内存原子序的各个处理器之间简直就像一个分布式系统)
