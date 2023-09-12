@@ -18,5 +18,16 @@ CAN 协议很多功能/抽象层是在硬件上完成的
 ## 网连车的自动驾驶技术级别
 汽车的L1、L2、L3、L4和L5标准是指自动驾驶技术的五个级别。大部分新能源汽车包括特斯拉都是L2级别
 
+## 汽车域控制器(Domain Control Unit)
+由于车载系统的ECU芯片过多功能也多，因此加了一层汇总抽象例如动力域名、底盘域、车身域、
+
+ADAS(Advanced Driver Assistance System)自动驾驶域
+
+## T-BOX
+Telematics Box车载远程通信模块继承蜂窝网络、WiFi、蓝牙等
+
+## BSP
+Board Support Package
+
 ## Reference
 - <https://www.arrow.cn/blog/post/gateway.html>

@@ -19,6 +19,7 @@
 - Rust 编程之道
 - The Rust Programming Language(官方 the book 讲的太浅了)
 - 為你自己學 Ruby on Rails
+- 超圖解Arduino 互動設計入門
 - 数学之美
 - 浪潮之巅
 - adventure in python(大学图书馆内我还看完过好几本 python 入门级的书不记得名字了)

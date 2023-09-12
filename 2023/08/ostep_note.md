@@ -46,3 +46,13 @@ riscv 做法是 load_reserved/store_conditional
 lr 指令让缓存打个 reserved 标记，然后处理器一继续拿这个数据去计算，如果其他处理器用了 sc 指令则会清除这个标记，
 
 等处理器一计算完发现标记没了，就会重新读取一次变量 m 再重新计算(有点像 compare_and_swap)，在计算量很小的场合下这种策略确实比 x86 性能好(jyy 说 ARM/RISC-V 这样弱内存原子序的各个处理器之间简直就像一个分布式系统)
+
+死锁解决办法，最完美的解决办法 total order 全序锁，按照顺序无环获取，但实现难，Linux 内存映射源码是 partial ordering 按照锁的地址从低到高或者从高到低加锁，例如加锁顺序 i_mmap_mutex, private_lock, swap_lock, mapping->tree_lock。死锁预防算法银行家算法，或者说两个互相依赖锁不让他们同时调度
+
+基于事件的异步IO还有个问题是发生缺页的时候不可避免的阻塞
+
+RAID 需要额外的控制器硬件支持(包含处理器内存等),我感觉用树莓派做 RAID 控制器是个不错的选择
+
+RAID0 类似分布式一致性哈希，对 key 取模决定映射到哪个硬盘上
+
+fsync 不一定会立刻刷硬盘，如果文件没创建的话? 要把文件的父目录也 fsync 才会刷盘

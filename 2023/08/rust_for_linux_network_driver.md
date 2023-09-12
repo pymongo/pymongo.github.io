@@ -72,6 +72,7 @@ insmod: ERROR: could not insert module ./rust_out_of_tree.ko: Invalid module for
 
 ## kernel config
 ```
+make defconfig
 rustup override set $(scripts/min-tool-version.sh rustc)
 rustup component add rust-src
 cargo install -f --locked --version $(scripts/min-tool-version.sh bindgen) bindgen
@@ -95,6 +96,7 @@ file vmlinux
 
 ## vscode ra&clangd
 ```
+# 需要 make 成功才能 make rust-analyzer
 make LLVM=1 rust-analyzer # would generate rust-project.json? 其实是 make 内核之后也会生成
 
 cat .vscode/settings.json

@@ -52,3 +52,11 @@ asm volatile("rdrand %rax");
 vim/gdb `:!gcc` 可以执行命令，vim 里面 `:! file %` 百分号等于指代当前文件
 
 vim `:%! grep stat %` 可以将 grep 过滤后内容更新到当前 vim buffer
+
+---
+
+## 我不知道的 C 语法
+
+the declaration char *m="1" "2" "3"; is a valid C syntax.
+
+In C, adjacent string literals are concatenated, so "1" "2" "3" is equivalent to "123"
