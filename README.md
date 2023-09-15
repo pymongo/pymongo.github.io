@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-09**
+    - [树莓派 UART 驱动](/2023/09/rpi_uart_driver.md)
     - [黑芝麻芯片内核编译踩坑](/2023/09/bst_chip_arm_linux_cross_compile.md)
     - [Automotive Gateway](/2023/09/automotive_gateway.md)
     - [sloppy counter](/2023/09/sloppy_counter.md)

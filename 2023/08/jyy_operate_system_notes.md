@@ -53,10 +53,12 @@ vim/gdb `:!gcc` 可以执行命令，vim 里面 `:! file %` 百分号等于指�
 
 vim `:%! grep stat %` 可以将 grep 过滤后内容更新到当前 vim buffer
 
----
+## JTAG ≈ gdb(嵌入式)?
 
 ## 我不知道的 C 语法
 
 the declaration char *m="1" "2" "3"; is a valid C syntax.
 
 In C, adjacent string literals are concatenated, so "1" "2" "3" is equivalent to "123"
+
+htop 的 load 表示在一段时间内待处理的任务数量，通常以三个数值表示，如"0.71 0.36 0.20"。这些数值对应于最近1分钟、5分钟和15分钟

@@ -115,6 +115,8 @@ clang 配置 <https://docs.qq.com/doc/DY0ZJZXhxZkNXZ3FH> 不用 bear 70% 的定�
 在代码仓库的根目录中执行以下命令启动clangd：clangd --compile-commands-dir=.clangd。这会告诉clangd在.clangd文件夹中查找编译数据库文件。
 ```
 
+不用 
+
 > bear -- make LLVM=1 -j$(nproc)
 
 没用 bear ，即便用了以下 clangd 配置依然是只能解析 6-7 成符号，用了 bear 生成几十万行的 compile_commands.json 之后符号

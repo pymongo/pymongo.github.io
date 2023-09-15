@@ -1,6 +1,8 @@
 # [黑芝麻芯片内核编译踩坑](/2023/09/bst_chip_arm_linux_cross_compile.md)
 
-## archlinux dtc compile error
+## archlinux 内核编译踩坑
+
+### archlinux dtc compile error
 
 > make ARCH=arm64 LLVM=1 O=build -j24 WERROR=0 CROSS_COMPILE=aarch64-linux-gnu- V=1
 
@@ -22,9 +24,7 @@ vim scripts/Makefile.lib
 
 find dtc_cpp_flags and add realpath of ./include e.g. `-I/home/w/repos/learningOS/linux-rust/include`
 
----
-
-## 高版本 gcc 需要去掉一些高版本的编译警告才能编译成功
+### 高版本 gcc 需要去掉一些高版本的编译警告才能编译成功
 
 会遇到以下这两个类似的报错应该都是类似高版本 rustc/clippy 会引入新的警告类型，但内核编译又是 deny(warnings) 那样禁止警告，所以我们需要加上 WERROR=0 环境变量忽略一些警告
 
@@ -42,7 +42,6 @@ find dtc_cpp_flags and add realpath of ./include e.g. `-I/home/w/repos/learningO
 static mali_bool mali_executor_is_working()
                                          ^
                                           void
-
 ```
 
 加上编译环境变量 WERROR=0 还不够用，还要注释掉 drivers/media/platform/bst-a1000/Makefile 最后一行(cflags 相关)
@@ -59,9 +58,52 @@ VERSION="20.04.4 LTS (Focal Fossa)"
 
 但还是有一些漏网之鱼的警告，我最终改了根目录的 Makefile 中的 KBUILD_CFLAGS 去掉 -Wall 以及相应警告
 
----
+### 禁用 MODVERSIONS 和 RANDSTRUCT 配置
+一样的代码在 Ubuntu 22 上面这两个配置是禁用的所以 CONFIG_RUST 配置能出现，在 manjaro/archlinux 上面却启用了，这两都是自动的配置改不了导致无法启用 RUST
 
-## ubuntu 20.04 LLVM 版本设置成 11
+make xconfig 发现 MODVERSIONS 依赖 RANDSTRUCT
+
+Google `linux disable RANDSTRUCT` 发现 clang 16+ 之后这个选项就被打开了，要加上一个 patch 才能禁用
+
+<https://lore.kernel.org/lkml/CAKwvOdkYWXCYr75JkzHqMJ8j=UefW86Zq9tD_AyZQKzW__7TEA@mail.gmail.com/t/>
+
+打上 patch 之后虽然 `grep RANDSTRUCT .config` 结果跟最新的 Linux 配置有差别，但 general_setup->rust_support 终于能看到了
+
+#### RANDSTRUCT
+
+```
+RANDSTRUCT_FULL是Linux内核的一个配置选项，用于增强内核中数据结构的随机化。它是Linux内核中的一项安全功能，旨在增加系统的抗攻击能力，特别是针对内核数据结构的攻击。
+
+当启用RANDSTRUCT_FULL时，内核会对一些关键的数据结构进行随机化，包括函数指针、结构体布局和其他内部数据。这种随机化使得攻击者更难以利用已知的数据结构布局和函数指针来进行攻击，从而增加了系统的安全性。
+
+然而，需要注意的是，RANDSTRUCT_FULL选项会对内核的运行时性能产生一定的影响，因为它会引入一些额外的开销来进行随机化操作。因此，是否启用该选项需要在安全性和性能之间进行权衡考虑，根据具体需求进行配置。
+
+
+如果一个配置项同时设置了 def_bool 和 depend_on，那么 depend_on 会具有更高的优先级
+```
+
+### 然而 clang 跟 bindgen 版本不一致会报错
+bindgen 版本太高 Rust for Linux 代码太旧会报错
+
+clang 版本太高，bindgen 版本太低也会报错
+
+```
+  RUSTC L rust/build_error.o
+  RUSTC L rust/alloc.o
+  EXPORTS rust/exports_alloc_generated.h
+thread 'main' panicked at '"ftrace_branch_data_union_(anonymous_at__/_/include/linux/compiler_types_h_120_2)" is not a valid Ident', /home/w/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/proc-macro2-1.0.24/src/fallback.rs:693:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+make[1]: *** [rust/Makefile:329: rust/bindings/bindings_generated.rs] Error 1
+make[1]: *** Deleting file 'rust/bindings/bindings_generated.rs'
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:1286: prepare] Error 2
+```
+
+### 还是老实用 ubuntu Dockerfile
+
+
+
+#### ubuntu 20.04 LLVM 版本设置成 11
 系统默认版本是 10
 
 ```
@@ -75,31 +117,46 @@ scripts/Kconfig.include:56: Sorry, this linker is not supported.
 make[3]: *** [../scripts/kconfig/Makefile:77: syncconfig] Error 1
 ```
 
-```
-../arch/arm64/boot/dts/bst/bsta1000b.dtsi../arch/arm64/boot/dts/bst/bsta1000b.dtsi::1212::1010::  fatal error: fatal error: 'dt-bindings/interrupt-controller/arm-gic.h' file not found'dt-bindings/interrupt-controller/arm-gic.h' file not found
-```
-
-> apt-get install libllvm-11-ocaml-dev libllvm11 llvm-11 llvm-11-dev llvm-11-doc llvm-11-examples llvm-11-runtime \ clang-11 clang-tools-11 clang-11-doc libclang-common-11-dev libclang-11-dev libclang1-11 clang-format-11 clangd-11 \ libfuzzer-11-dev lldb-11 lld-11 libc++-11-dev libc++abi-11-dev libomp-11-dev -y
-
-E: Unable to locate package  clang-11
-E: Unable to locate package  libfuzzer-11-dev
-
-应该是 ` \ ` 的问题
-
-> apt install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu libllvm-11-ocaml-dev libllvm11 llvm-11 llvm-11-dev llvm-11-doc llvm-11-examples llvm-11-runtime clang-tools-11 clang-11-doc libclang-common-11-dev libclang-11-dev libclang1-11 clang-format-11 clangd-11 lldb-11 lld-11 libc++-11-dev libc++abi-11-dev libomp-11-dev
 
 ```
 #sudo ln -s /usr/bin/lld-11 /usr/bin/lld
 
-sudo ln -s /usr/bin/clang-11 /usr/bin/clang
-sudo ln -s /usr/bin/ld.lld-11 /usr/bin/ld.lld
-sudo ln -s /usr/bin/llvm-strip /usr/bin/llvm-strip-11
+ln -s /usr/bin/clang-11 /usr/bin/clang
+ln -s /usr/bin/ld.lld-11 /usr/bin/ld.lld
+ln -s /usr/bin/llvm-strip-11 /usr/bin/llvm-strip
 ld.lld --version
 ```
+
+---
+
+## 不要 export ARCH=arm64 O=build
+很玄学的是 export ARCH 环境变量之后会导致一堆头文件找不到的编译报错
+
+`make ARCH=arm64 LLVM=1 WERROR=0 O=build -j$nproc` 就这样正常编译就行了
+
+## 不加 O=build 会出现一堆奇怪编译报错
+
+```
+  CC      security/selinux/ss/policydb.o
+  CC      net/ipv4/protocol.o
+In file included from drivers/bstn/bstn_sysfile.c:11:
+In file included from drivers/bstn/bstn.h:78:
+drivers/bstn/bstn_misc.h:19:10: error: 'bstn_netreg.h' file not found with <angled> include; use "quotes" instead
+#include <bstn_netreg.h>
+         ^~~~~~~~~~~~~~~
+         "bstn_netreg.h"
+1 error generated.
+  CC      net/sched/act_api.o
+make[3]: *** [scripts/Makefile.build:250: drivers/bstn/bstn_sysfile.o] Error 1
+```
+
+感觉像是黑芝麻的代码加到内核后配置写的不好的原因?问 gpt 不知道，问黑芝麻的人也没答复
 
 ## 内核镜像/驱动构建方法
 
 最后生成引导镜像的命令是 mkimage -f ../kernel_a1000b.its arch/arm64/boot/Image.itb > /dev/null 2>&1
+
+注意一定要使用 `arch/arm64/configs/bsta1000b_defconfig` 当默认配置
 
 ```
 Command 'mkimage' not found, but can be installed with:
@@ -152,24 +209,6 @@ make ARCH=arm64 && make defconfig && make rust-analyzer
 关键是这个项目要 O=build 才能编译成功，冒然改配置在非build文件夹编译出一堆.o后，下次再O=build就会提示make mrproper 清空编译缓存重新编译太麻烦
 
 bear + O=build 的编译倒是没有特别困难
-
-## 不加 O=build 会出现一堆奇怪编译报错
-
-```
-  CC      security/selinux/ss/policydb.o
-  CC      net/ipv4/protocol.o
-In file included from drivers/bstn/bstn_sysfile.c:11:
-In file included from drivers/bstn/bstn.h:78:
-drivers/bstn/bstn_misc.h:19:10: error: 'bstn_netreg.h' file not found with <angled> include; use "quotes" instead
-#include <bstn_netreg.h>
-         ^~~~~~~~~~~~~~~
-         "bstn_netreg.h"
-1 error generated.
-  CC      net/sched/act_api.o
-make[3]: *** [scripts/Makefile.build:250: drivers/bstn/bstn_sysfile.o] Error 1
-```
-
-感觉像是黑芝麻的代码加到内核后配置写的不好的原因?问 gpt 不知道，问黑芝麻的人也没答复
 
 ## 一个内核模块报错
 我搜索 drivers/soc 下面 module_init 找到 NOC 芯片的驱动代码? 的入口函数 

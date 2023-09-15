@@ -82,3 +82,23 @@ pub static DB_POOL: Lazy<DbPool> = Lazy::new(|| {
 ```
 
 问题就解决了，不知道我之前遇到 sqlx Pool timeout 的问题是不是也跟这个有关
+
+# sqlx openEuler bug
+
+然后虽然在 Ubuntu 20.04 和 Ubuntu 22.04 没问题，但是在 `openEuler 22.03` 上面就 panic 了
+
+!> thread 'tokio-runtime-worker' panicked at 'called `Result::unwrap()` on an `Err` value: Protocol("unexpected response from SSLRequest: 0x00")', /home/wuaoxiang/IDP/crates/sqlx/src/lib.rs:42:10
+
+sqlx::pool::PoolOptions::connect 方法我 unwrap 的报错
+
+换成 tokio::sync::OnceCell 也没用
+
+## step to reproduce
+
+```
+docker run --rm --name postgres -p5432:5432 -v /var/lib/postgresql/data --tmpfs=/var/lib/postgresql/data -e POSTGRES_HOST_AUTH_METHOD=trust postgres
+```
+
+> docker run -it --net=host openeuler/openeuler:22.03-lts-sp2
+
+好吧复现失败了，跟同事沟通才发现，欧拉系统的部署环境在 5432 端口启动了另一个国产数据库(信创纯国产环境)不是 postgres 协议，所以 postgres 协议解析失败是正常的
