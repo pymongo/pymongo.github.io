@@ -18,7 +18,7 @@ OS 课缺失的 lecture7 可以看学堂在线公开课的版本
 |计算机组成与设计 RISC-V edition| ch2.3.2 | 常数 |
 |OS Three easy pieces| 看完了 |
 |rCore Tutorial Book| 看完了 |
-|uCore Tutorial Book| ch4 | 地址空间 |
+|uCore Tutorial Book| ch4 | SV39 实现 |
 |程序员的自我修养链接装载库| 看完了 |
 |清华 os_lecture 2022| 看完了|
 |清华操作系统(RISC-V) 学堂在线| 看完了+通过慕课考试 |

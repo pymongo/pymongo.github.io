@@ -89,6 +89,8 @@ C 语言用 __attribute__((section("foo")))
 
 `#[naked]` 指的是让编译器别按照函数调用约定在函数调用前后注入保存恢复寄存器值的汇编指令
 
+参考 绿色线程有栈协程的实现 <https://github.com/chyyuu/example-coroutine-and-thread/tree/stackful-coroutine-x86>
+
 ### weak/weak_ref
 weak 还有一个用法是判断编译时有没有加上 -lpthread 从而让业务代码走单线程分支还是多线程分支
 

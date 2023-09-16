@@ -62,3 +62,5 @@ the declaration char *m="1" "2" "3"; is a valid C syntax.
 In C, adjacent string literals are concatenated, so "1" "2" "3" is equivalent to "123"
 
 htop 的 load 表示在一段时间内待处理的任务数量，通常以三个数值表示，如"0.71 0.36 0.20"。这些数值对应于最近1分钟、5分钟和15分钟
+
+gdb 确定到 Segmentation Fault 的位置，而它恰好是一条 SSE 指令 则很可能原因是没对齐(如果是 SIGILL 大概率是不支持 SSE 指令集)
