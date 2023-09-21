@@ -97,14 +97,6 @@ idea则是alt+enter的code_action里可以展开宏
 
 无论是idea或vscode都不支持过程宏的展开，过程宏展开只能靠cargo expand
 
-## vscode Rust插件推荐
-
-- CodeLLDB: Rust或rust-analyzer依赖插件，用于打断点调试
-- rust-analyzer: Rust官方插件的替代品，必装
-- crates: 类似cargo-outdated静态分析工具，提示Cargo.toml中哪些第三方库可以更新
-- code_spell_checker: typo检查，毕竟参与开源项目时第一个PR也就只能修修typo再慢慢参与更核心部分的修改
-- Bookmarks: 类似idea的书签功能，方便读源码时记录关键位置，方便跳转
-
 ## ra和intellij-Rust的比较
 
 ra的不足:

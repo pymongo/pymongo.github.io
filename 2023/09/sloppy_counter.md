@@ -14,4 +14,6 @@ gpt 的一句话点醒了我 **缺点是近似的计数方法**
 
 但 OSTEP 书中更聪明，维护一个所有线程ID->counter的映射数组，每次线程想增加计数器时，先从数组找到自己线程的局部计数器去自增，这样就不用改CPU调度的亲和性了
 
+OSTEP ch29 Locked Data Structures
+
 <https://twitter.com/ospopen/status/1700119320091910306>

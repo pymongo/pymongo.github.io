@@ -134,6 +134,8 @@ ld.lld --version
 
 `make ARCH=arm64 LLVM=1 WERROR=0 O=build -j$nproc` 就这样正常编译就行了
 
+注意"环境变量"要写到make后面，如果写到make的前面的话效果就不一样了
+
 ## 不加 O=build 会出现一堆奇怪编译报错
 
 ```
@@ -163,13 +165,13 @@ Command 'mkimage' not found, but can be installed with:
 apt install u-boot-tools
 
 # O=build would generate build/.config, not .config
-make ARCH=arm64 LLVM=1 bsta1000b_defconfig O=build
-make ARCH=arm64 LLVM=1 bsta1000b_defconfig
+make ARCH=arm64 LLVM=1 O=build bsta1000b_defconfig
 
-make ARCH=arm64 LLVM=1 WERROR=0 O=build -j$nproc
+# ubuntu 上编译不用加 WERROR=0
+make ARCH=arm64 LLVM=1 O=build -j$nproc
 
 # make modules_install 不会修改内核
-make ARCH=arm64 LLVM=1 O=build modules_install INSTALL_MOD_PATH=modules_install INSTALL_MOD_STRIP=1
+make ARCH=arm64 LLVM=1 O=build INSTALL_MOD_PATH=modules_install INSTALL_MOD_STRIP=1 modules_install
 
 # 看门狗驱动内嵌在内核中，似乎 NOC 要手动 insmod
 tree build/modules_install/lib/modules/6.1.12+2-rt7/kernel/ | grep noc
@@ -209,6 +211,22 @@ make ARCH=arm64 && make defconfig && make rust-analyzer
 关键是这个项目要 O=build 才能编译成功，冒然改配置在非build文件夹编译出一堆.o后，下次再O=build就会提示make mrproper 清空编译缓存重新编译太麻烦
 
 bear + O=build 的编译倒是没有特别困难
+
+```
+make[1]: Entering directory '/home/wuaoxiang/linux-rust/build'
+Traceback (most recent call last):
+  File "../scripts/generate_rust_analyzer.py", line 141, in <module>
+    main()
+  File "../scripts/generate_rust_analyzer.py", line 134, in main
+    "crates": generate_crates(args.srctree, args.objtree, args.sysroot_src),
+  File "../scripts/generate_rust_analyzer.py", line 107, in generate_crates
+    if f"{name}.o" not in open(path.parent / "Makefile").read():
+FileNotFoundError: [Errno 2] No such file or directory: '../drivers/block/nvme_mq/Makefile'
+make[2]: *** [../rust/Makefile:392: rust-analyzer] Error 1
+make[1]: *** [/home/wuaoxiang/linux-rust/Makefile:1850: rust-analyzer] Error 2
+```
+
+touch drivers/block/nvme_mq/Makefile 就解决这个报错
 
 ## 一个内核模块报错
 我搜索 drivers/soc 下面 module_init 找到 NOC 芯片的驱动代码? 的入口函数 
@@ -297,3 +315,50 @@ USB协议也支持一种特殊的模式，即On-The-Go（OTG）模式。在OTG�
 
 ## MTD=Memory Technology Device
 为原始闪存设备（例如NAND，OneNAND，NOR 等）提供了一个抽象层。 这些不同类型的Flash都可以使用相同的API
+
+## platform device
+
+Linux源码学习之platform_driver
+
+按照驱动probe用的结构体的不同去分类驱动
+驱动可分为usb_serial_driver,platform_driver等等
+基本上各种不同的驱动结构体都"继承"了device,device_driver
+
+platform_driver适用于特定硬件平台
+如图中所示树莓派的GPIO名字跟树莓派官网下载的dtb设备树文件中完全一致
+
+```
+[w@ww rpi_linux]$ git remote -v
+origin	https://github.com/raspberrypi/linux.git (fetch)
+origin	https://github.com/raspberrypi/linux.git (push)
+[w@ww rpi_linux]$ dtc bcm2711-rpi-4-b.dtb -o rpi4.dtc 2>/dev/null
+[w@ww rpi_linux]$ grep gpiomem rpi4.dtc
+		gpiomem {
+			compatible = "brcm,bcm2835-gpiomem";
+[w@ww rpi_linux]$ grep -n -r "brcm,bcm2835-gpiomem" drivers/
+drivers/char/broadcom/bcm2835-gpiomem.c:237:	{.compatible = "brcm,bcm2835-gpiomem",},
+[w@ww rpi_linux]$ grep -B1 -A12 -n -H -h -r "brcm,bcm2835-gpiomem" drivers/
+236-static const struct of_device_id bcm2835_gpiomem_of_match[] = {
+237:	{.compatible = "brcm,bcm2835-gpiomem",},
+238-	{ /* sentinel */ },
+239-};
+240-
+241-MODULE_DEVICE_TABLE(of, bcm2835_gpiomem_of_match);
+242-
+243-static struct platform_driver bcm2835_gpiomem_driver = {
+244-	.probe = bcm2835_gpiomem_probe,
+245-	.remove = bcm2835_gpiomem_remove,
+246-	.driver = {
+247-		   .name = DRIVER_NAME,
+248-		   .owner = THIS_MODULE,
+249-		   .of_match_table = bcm2835_gpiomem_of_match,
+```
+
+## 
+
+Linux源码学习之bindings_helpers
+
+C函数签名带static的不会暴露在动态库/静态库的符号中，约等于"私有函数"
+
+例如ioremap只好创建一个非static的rust_helper_ioremap函数当作wrapper把私有函数包一层
+另外一种办法是static inline函数内一般都是调用一个公开的函数，要不就直接调里面的函数也行

@@ -71,6 +71,7 @@ C 语言用 __attribute__((section("foo")))
 |`__attribute__((aligned(32)))`|#[repr(align(32))]|
 |`__attribute__((always_inline))`|#[inline(always)]|
 |`__attribute__((naked))`|#[naked]|
+|`__attribute__ ((warn_unused_result))`|#[unused_must_use]|
 |C++: extern "C"|#[no_mangle]|
 |__thread|#[thread_local]|
 |gcc -nostdlib|#![no_std]|

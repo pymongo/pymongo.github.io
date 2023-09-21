@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-09**
+    - [web3 与量化](/2023/09/web3_and_quantitative_trading.md)
     - [-fsanitize 检查越界](/2023/09/gcc_fsanitize_detect_index_out_of_range_error.md)
     - [树莓派 UART 驱动](/2023/09/rpi_uart_driver.md)
     - [黑芝麻芯片内核编译踩坑](/2023/09/bst_chip_arm_linux_cross_compile.md)

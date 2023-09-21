@@ -29,5 +29,8 @@ Telematics Box车载远程通信模块继承蜂窝网络、WiFi、蓝牙等
 ## BSP
 Board Support Package
 
+## 新能源汽车产商
+- BBA: 宝马奔驰奥迪
+
 ## Reference
 - <https://www.arrow.cn/blog/post/gateway.html>
