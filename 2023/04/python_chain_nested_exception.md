@@ -25,7 +25,7 @@ AssertionError
 
 cause 和 context 都是上一个 Exception 的引用(类比成链表的 next 字段)
 
-PEP 上说 raise..from 是显示的连锁异常，多层嵌套是隐式的
+PEP 上说 raise..from 是显式的连锁(多层嵌套)异常(`__cause__`)，一般的异常是隐式的连锁嵌套(`__context__`)
 
 对使用者而言二者区别就错误提示文案不同
 

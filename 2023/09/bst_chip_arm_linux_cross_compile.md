@@ -301,6 +301,10 @@ Copysudo rm /var/lock/LCK..ttyUSB0
 |adb logcat|exec: logcat command not found|
 |adb shell screencap|screencap command not found|
 
+adb shell 可以直接进嵌入式系统的 shell
+
+试试 adb shell reboot 可以重启嵌入式系统，所以说写个脚本 adb push + adb shell reboot 就能一键脚本替换内核并重启了
+
 ### USB 协议是个主从协议?
 USB协议也支持一种特殊的模式，即On-The-Go（OTG）模式。在OTG模式下，一个设备可以既充当主机又充当从设备
 
