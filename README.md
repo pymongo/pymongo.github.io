@@ -1,5 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
+- **2023-10**
+    - [游戏灰产的金融学](/2023/10/game_grey_market_bot_hacker.md)
+    - [沙雕动画的商业模式](/2023/10/shadiao_animation_business_model.md)
 - **2023-09**
     - [重新思考 try/Result](/2023/09/rethink_of_try_catch_and_result.md)
     - [web3 与量化](/2023/09/web3_and_quantitative_trading.md)

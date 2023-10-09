@@ -8,8 +8,6 @@
 
 前辈透露他们公司币圈的集成测试都是拿真钱在各个链交易所去测，一天跑测试光手续费都两三千不止，然后公司美国分部还有MIT硕士比清北都卷
 
-## TODO
-
 ## 区块链与web3
 
 ### 区块链的吞吐量相比传统分布式数据库
@@ -121,6 +119,14 @@ Bitcoin NVT Signal <https://www.wikibit.com/zh-cn/202305246314131425.html>
 
 因此，使用AI模型进行量化交易是一种选择，但不是必不可少的。选择使用何种方法取决于交易者的偏好、策略的特点以及所面对的市场环境。
 ```
+
+### general pre-trained transformer 参数调优
+- temperature: 控制生成内容的随机性
+- top_p: 控制生成内容的多样性
+- 微调: 利用特定数据集进一步训练gpt，例如好大夫用医疗问答数据继续训练
+- embedded/向量化数据库: pdf内容太多超出gpt token限制，将pdf分片存储在向量数据库，gpt开联网功能读向量数据库中的pdf
+
+<https://guangzhengli.com/blog/zh/gpt-embeddings/>
 
 ### 数字货币高频量化，做市商
 
