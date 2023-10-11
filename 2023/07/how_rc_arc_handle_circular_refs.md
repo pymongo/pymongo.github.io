@@ -47,3 +47,9 @@ fn main() {
 但 Weak 没有 new 方法，创建的时候需要从 Arc 中 downgrade 一个出来
 
 所以 Arc 内部有强弱引用两个 AtomicUsize downgrade 也是克隆但只有弱引用计数加一
+
+---
+
+无 GC 不是吞吐量友好而是延迟友好，所以 Go 有些业务比 Rust 吞吐量好正常，有人评测 Go 写的 js 编译器比 swc 性能好也正常
+
+有 GC 也需要引入弱引用解决循环引用问题例如 Python 标准的 weakref
