@@ -1,6 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-10**
+    - [永续合约](/2023/10/perpetual_futures_contract.md)
+    - [为何 taker 手续费更高](/2023/10/why_taker_more_fee.md)
     - [128g 内存够办公么](/2023/10/use_128g_memory_for_work.md)
     - [游戏灰产的金融学](/2023/10/game_grey_market_bot_hacker.md)
     - [沙雕动画的商业模式](/2023/10/shadiao_animation_business_model.md)

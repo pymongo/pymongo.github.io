@@ -46,3 +46,47 @@ Upload: 33.15 Mbit/s
 |ProxyCommand corkscrew|4.485s|
 |代理且 scp -C|3.1s|
 |mscp|8.1s|
+
+## pre-commit hook
+
+新公司领导说我们代码还有 clippy 报错就提交了习惯不太好。github 公共的免费 CI 还是自建的 CI 又太慢了，显得 pre commit hook 非常有用，如果没有 fmt 的代码就拒绝 commit
+
+> pip3 install pre-commit
+
+每个项目初始化一次, 会创建一个 .git/hooks/pre-commit 的 bash/python 脚本在 commit 前执行 .pre-commit-config.yaml
+
+```yaml
+fail_fast: false
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.3.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: cargo-fmt
+        name: cargo fmt
+        description: Format files with rustfmt.
+        entry: bash -c 'cargo fmt -- --check'
+        language: rust
+        files: \.rs$
+        args: []
+      - id: cargo-test
+        name: cargo test
+        description: run stateless unittest
+        entry: cargo test --all -- --nocapture
+        language: rust
+        files: \.rs$
+        pass_filenames: false
+```
+
+如果没改动 rs 文件 就不会触发 commit hook, 如果有 commit 的时候还有几个脏文件，第一个检查会拒绝提交(治好了我的坏习惯)
+
+```
+Fix End of Files.........................................................Passed
+Trim Trailing Whitespace.................................................Passed
+cargo fmt............................................(no files to check)Skipped
+cargo check..........................................(no files to check)Skipped
+```
+
