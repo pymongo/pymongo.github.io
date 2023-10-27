@@ -110,3 +110,8 @@ debug symbol常用于gdb或anyhow error backtrace
 其实只记录错误上抛位置的行号，再用vscode call hierarchy找完整调用栈
 用track_caller自动在错误转换上抛前记录行号 不需要错误宏
 ```
+
+---
+
+## update from 23/10/19
+track_caller 无法在 async_trait 生效
