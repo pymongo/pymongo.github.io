@@ -23,7 +23,7 @@ OS 课缺失的 lecture7 可以看学堂在线公开课的版本
 |uCore Tutorial Book| ch4 | SV39 实现 |
 |清华 os_lecture 2022| 看完了|
 |清华操作系统(RISC-V) 学堂在线| 看完了+通过慕课考试 |
-|南京大学操作系统 jyy 2022|lecture06 7min||
+|南京大学操作系统 jyy 2022|lecture08  并发 Bug 和应对||
 
 |||
 |---|---|

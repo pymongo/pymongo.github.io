@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-10**
+    - [win11 初始化和设置](/2023/10/win11_settings.md)
     - [量化笔记](/2023/10/quantitative_trading_notes.md)
     - [永续合约](/2023/10/perpetual_futures_contract.md)
     - [为何 taker 手续费更高](/2023/10/why_taker_more_fee.md)
