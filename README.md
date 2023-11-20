@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-11**
+    - [金融量化书单](/2023/11/book_list_of_quantitative.md)
     - [reqwest http2 踩坑](/2023/11/reqwest_http2.md)
     - [A股 T+1 交易规则](/2023/11/stock_t_plus_one_settlement.md)
     - [缓存问题](/2023/11/csapp_and_os_is_cache_problem.md)
