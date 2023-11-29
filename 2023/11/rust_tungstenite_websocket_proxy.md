@@ -53,7 +53,7 @@ let (mut websocket, response) = match client(req, tls_stream) {
 
 经过 gpt4 友好提示很快理解到标准库 TcpStream 用代理库 socks 包一层，然后用 rustls Stream 包一层，最后传入到 tung 大致是这样的抽象
 
-但是踩坑的地方在于 rustls 的 api 变动的很频繁，我让 gpt4-turbo 换着生成几种代码都不能跑，甚至 rustls 官方 example 都报错
+但是踩坑的地方在于 rustls 的 api 变动的很频繁，我让 gpt4-turbo 换着生成几种代码都不能跑，~~甚至 rustls 官方 example 都报错(当然因为是beta版发生了不兼容改动)~~
 
 没办法只好从 tung 抄一个版本 tung="0.20.1", rustls="0.21.9", webpki-roots="0.25.2"
 

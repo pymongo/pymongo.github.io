@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-11**
+    - [去中心化交易所](/2023/11/decentralized_exchange.md)
     - [Rust WS 代理与压缩](/2023/11/rust_tungstenite_websocket_proxy.md)
     - [金融量化书单](/2023/11/book_list_of_quantitative.md)
     - [reqwest http2 踩坑](/2023/11/reqwest_http2.md)
