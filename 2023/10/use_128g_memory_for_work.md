@@ -47,6 +47,10 @@ Upload: 33.15 Mbit/s
 |代理且 scp -C|3.1s|
 |mscp|8.1s|
 
+update: wsl2 用 /etc/resolve.conf 里面的 ip 亦可
+
+我现在的 ssh 代理配置是 `ProxyCommand=nc -x 172.25.240.1:10808 %h %p` 只设置到云主机下面没有设置成全局，设置成全局的话就公司git私服就连不上了
+
 ## pre-commit hook
 
 新公司领导说我们代码还有 clippy 报错就提交了习惯不太好。github 公共的免费 CI 还是自建的 CI 又太慢了，显得 pre commit hook 非常有用，如果没有 fmt 的代码就拒绝 commit

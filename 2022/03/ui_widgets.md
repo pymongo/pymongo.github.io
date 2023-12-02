@@ -35,3 +35,7 @@ bootstrap 组件库的 banner 提示，例如登陆成功就提示
 ## message
 
 alert 跟 message 很像区别在于 message 是弹窗，alert 是在父组件顶部展示横幅
+
+## sparkline
+
+[UI: sparkline](/2023/11/sparkline.md)
