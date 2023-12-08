@@ -79,3 +79,19 @@ Ethereum 2.0升级：Ethereum网络正在逐步升级到Ethereum 2.0，这将包
 
 费用市场改革（EIP-1559）：EIP-1559是Ethereum网络的一个重要升级，它更改了交易费用市场的机制，虽然不一定减少总体费用，但可提供更可预测的交易费用模型。
 ```
+
+## dydx 获取 api 密钥
+按照 api v3 的文档流程走很麻烦，要注册一个 starknet 钱包，然后 metamask/starknet/dydx 互相关联钱包，最后 starknet 要生成一个私钥
+
+```python
+from dydx3 import Client
+from web3 import Web3
+client = Client(
+    host='https://api.stage.dydx.exchange',
+    web3=Web3.HTTPProvider(WEB3_PROVIDER_URL),
+    stark_private_key='077c...', # 记得去掉 0x 前缀
+)
+onboarding_information = client.onboarding.create_user
+```
+
+后来我看网友说直接去看网页端 localStorage 的 API_KEY_PAIRS 字段 key/secret/passphrase 就全有了

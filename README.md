@@ -1,5 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
+- **2023-12**
+    - [enum_dispatch与缓存命中](/2023/12/enum_dispatch.md)
+    - [systemctl --failed](/2023/12/systemctl_failed.md)
 - **2023-11**
     - [去中心化交易所](/2023/11/decentralized_exchange.md)
     - [Rust WS 代理与压缩](/2023/11/rust_tungstenite_websocket_proxy.md)
