@@ -95,3 +95,22 @@ onboarding_information = client.onboarding.create_user
 ```
 
 后来我看网友说直接去看网页端 localStorage 的 API_KEY_PAIRS 字段 key/secret/passphrase 就全有了
+
+## uniswap AMM 做市模型
+关于 uniswap 的 AMM 模型我有这样的总结。假设ETH USDT在流动性池中的数量分别为 X 和 Y。根据Constant Product Market Maker Model，它们的乘积应该保持不变
+
+所以 eth_price * eth_amount = usdt_amount
+
+假设当前池子中 eth 数量为 10 而 usdt 数量为 1万 这时候，有用户想用池子外部资金1000usdt想换1eth
+
+交易后池子变成 9 个 eth 和 1.1万usdt 这时候 eth 的价格会变成1222usdt
+
+不对!
+
+首先计算两个币种的数量乘积的k值，也就是10*10000=100000
+
+然后用户想用池子外1000u交换池子1个eth，首先池子会流入1000u
+
+新的 eth 数量应该是  old_k/new_usdt_amount=100000/11000=9.09eth 等于说用户因为滑点和market impact cost亏了0.81eth
+
+所以新的 eth 价格变成 1,210.12 
