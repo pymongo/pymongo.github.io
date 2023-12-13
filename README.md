@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-12**
+    - [智能合约部署踩坑](/2023/12/smart_contract.md)
     - [BTC 铭文问题](/2023/12/bitcoin_inscriptions_problem_ordi.md)
     - [enum_dispatch与缓存命中](/2023/12/enum_dispatch.md)
     - [systemctl --failed](/2023/12/systemctl_failed.md)
