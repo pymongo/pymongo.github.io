@@ -109,4 +109,6 @@ target/
 
 然后 html 报告中 blue curve shows the measurements from this run 说明蓝色直方图是当前运行红色是上次运行
 
+html report 中生成的是 Kernel Density Estimation 图看上去很像平滑正态分布的直方图纵坐标是密度
+
 TODO: 如何比较一次bench中比较两个库的性能画在同一个直方图中
