@@ -132,6 +132,7 @@ CONFIG_COREDUMP=y
 > (gdb) run Cargo.toml
 
 ```
+
 Starting program: /home/w/repos/my_repos/linux_commands_rewritten_in_rust/target/debug/ls Cargo.toml
 [Thread debugging using libthread_db enabled]
 Using host libthread_db library "/usr/lib/libthread_db.so.1".
@@ -166,12 +167,14 @@ $ 查看问题代码的附近几行
 > (gdb) info locals
 
 ```
+
 (gdb) frame 1
 #1  0x0000555555569317 in ls::main () at src/bin/ls.rs:20
 20              let dir_entry = unsafe { libc::readdir(dir) };
 (gdb) info locals
 dir = 0x0
 // ...
+
 ```
 
 此时发现 main 栈帧的 `dir = 0x0` 是空指针，导致 readdir 系统调用 segfault
@@ -466,6 +469,16 @@ gcc/clang 加上 `-pg` 参数，会在运行程序结束后生成监控数据文
 
 或者用 cargo 编译构建项目
 
+```
+[target.x86_64-unknown-linux-gnu]
+# rustflags = [
+#     "-Z",
+#     "instrument-mcount",
+#     "-C",
+#     "passes=ee-instrument<post-inline>",
+# ]
+```
+
 > RUSTFLAGS="-Zinstrument-mcount" cargo +nightly build
 
 或者用 gccrs 或 gcc 后端进行编译
@@ -476,7 +489,20 @@ gcc/clang 加上 `-pg` 参数，会在运行程序结束后生成监控数据文
 
 uftrace record ./main
 
-本文篇幅有限只介绍 uftrace 通过火焰图进行可视化的方式:
+本文篇幅有限只介绍 uftrace 通过火焰图进行可视化的方式
+
+用 perf 采集火焰图数据也类似
+
+```
+# perf record -g 是必须的 debuginfo, -F 是采样频率越高效果越好但是负担更大 默认 4000hz
+perf record -F 10000 -g -- ./exe
+perf script > out.perf
+./FlameGraph/stackcollapse-perf.pl out.perf | ./FlameGraph/flamegraph.pl > flamegraph.svg
+```
+
+- **块的长度（宽度）**：代表了该函数在采样中占用的时间（或样本数）。一个块越长，表示该函数在程序运行期间耗费的时间越多，或者说在采样中出现得越频繁。这意味着它可能是性能瓶颈的所在。
+- **块的颜色**：在很多火焰图工具中，颜色并不表示调用的次数，而是用来区分不同的函数或不同的代码路径。有些工具会根据函数的自身CPU使用时间或其整个调用栈的CPU使用时间来给出颜色渐变，但这并不是普遍规则。颜色深浅通常是为了视觉效果，帮助用户区分不同的堆栈层级或函数。
+- **堆叠的块（堆栈）**：火焰图中的每一个“层”代表堆栈中的一个函数调用。顶部的函数是正在执行的函数，而它下面的函数则是它的调用者。这样可以很容易看出哪些函数是由哪些其他函数调用的。
 
 > uftrace dump --flame-graph | flamegraph > ~/temp/uftrace_flamegraph.svg && google-chrome-stable ~/temp/uftrace_flamegraph.svg
 
@@ -486,6 +512,17 @@ uftrace 记录参数:
 - --nest-libcall: 例如 new() 函数记录上内置的 malloc()
 - --kernel(need sudo): trace kernel function
 - --no-event: 不记录线程调度
+
+#### uftrace coredump 解决
+我一开始以为是版本问题，从最新版切换到写本文的v0.10依然 `free(): invalid size`
+
+可能是我交易所ws应用deflate还是libz调用导致触发bug
+
+uftrace record 加上参数 -e --no-libcall 就解决了
+
+> uftrace record -e --no-libcall
+
+<https://github.com/namhyung/uftrace/issues/744>
 
 § cargo-flamegraph
 
