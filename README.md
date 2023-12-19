@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-12**
+    - [ws-tool压缩bug](/2023/12/ws_tool_deflate_bug.md)
     - [双峰分布biomodal](/2023/12/bimodal_distribution.md)
     - [Criterion bench](/2023/12/criterion_benchmark.md)
     - [智能合约部署踩坑](/2023/12/smart_contract.md)
