@@ -9,3 +9,5 @@
 ![](errno_26_text_file_busy.png)
 
 https://twitter.com/ospopen/status/1504318339317112836
+
+update: 先 scp/rsync 到 tmp 再 mv 到目标位置(只要没跨硬盘)即可解决不用先 stop
