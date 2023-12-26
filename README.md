@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-12**
+    - [iptables模拟服务端停机](/2023/12/iptables_mock_disconnect.md)
     - [ws-tool压缩bug](/2023/12/ws_tool_deflate_bug.md)
     - [双峰分布biomodal](/2023/12/bimodal_distribution.md)
     - [Criterion bench](/2023/12/criterion_benchmark.md)

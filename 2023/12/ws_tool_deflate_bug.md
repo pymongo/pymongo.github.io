@@ -93,6 +93,16 @@ Rust生态知名的active-web,tokio-tungstenite,websocket-rs这几个没一个�
 
 > [2023-12-19T14:31:39Z ERROR ws::handler] WS Error <Io(Custom { kind: BrokenPipe, error: "None" })>
 
+[ws-tool随后的修复patch](https://github.com/PrivateRookie/ws-tool/commit/73c6906bb87cef8f46fa98b7042fe7a9b3fe7d15)
+
+顺便也把我之前反馈的币安windowsSize设置15会报错但14不会也解决了
+
+<https://dev.binance.vision/t/receive-invalid-json-error-with-permessage-deflate-window-bits-set-to-15-but-when-it-set-to-9-14-get-no-error/17759>
+
+不过okx的api有点奇怪 明明启用了deflate, 但传过来的确实rsv1==false的帧, 也就是没压缩的 (我猜测是网关转发消息中间件问题)
+
+[ws-tool 针对 okx 的修复 patch](https://github.com/PrivateRookie/ws-tool/commit/f036f0521b63265b476549bb604c258387869f62)
+
 ## lz4
 
 浏览器实现 deflate 和 zlib 的 deflate 实现都有些小差异... 没几个能参考的...
