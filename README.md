@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2023-12**
+    - [不能tokio join多个锁](/2023/12/tokio_join_dead_lock.md)
     - [mv解决Text file busy](/2023/12/mv_solve_text_file_busy.md)
     - [iptables模拟服务端停机](/2023/12/iptables_mock_disconnect.md)
     - [ws-tool压缩bug](/2023/12/ws_tool_deflate_bug.md)
