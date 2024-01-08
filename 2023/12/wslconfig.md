@@ -8,5 +8,10 @@ gpt4说可能默认wsl最大内存分配限制就是宿主机的一半，我就�
 
 ```
 [wsl2]
-memory=60GB
+memory=600GB
+pageReporting=false
 ```
+
+pageReporting Default true setting enables Windows to reclaim unused memory allocated to WSL 2 virtual machine.
+
+试试看不让win回收wsl2空闲内存会不会减少linux被OOM killed的风险
