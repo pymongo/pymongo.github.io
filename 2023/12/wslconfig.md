@@ -8,7 +8,9 @@ gpt4说可能默认wsl最大内存分配限制就是宿主机的一半，我就�
 
 ```
 [wsl2]
-memory=600GB
+memory=64GB
+swap=0GB
+guiApplications=false
 pageReporting=false
 ```
 
