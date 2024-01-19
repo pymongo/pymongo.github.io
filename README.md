@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-01**
+    - [BTC现货ETF](/2024/01/bitcoin_spot_etf.md)
     - [部署gpt nextweb](/2024/01/deploy_chatgpt_next_web.md)
     - [unwrap_or中不要调用函数](/2024/01/do_not_call_funtion_in_unwrap_or.md)
     - [derivatives](/2024/01/derivatives.md)

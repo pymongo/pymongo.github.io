@@ -22,3 +22,7 @@ docker run --name gpt -p 3000:3000 \
 最后是去掉防火墙规则的代码
 
 > Remove-NetFirewallRule -DisplayName 'Docker port 3000'
+
+## 必须关闭Auto Generate Title否则扣两次钱
+
+跟官方 gpt web的行为一样，每次问答后，还会将当前会话的所有内容发给gpt动态生成/更新会话的标题，这样导致提问一次会扣费两次，一定要关掉这个没啥用的配置省点钱，目前我才用了两天就花了 1.3$
