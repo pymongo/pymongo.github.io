@@ -6,7 +6,6 @@
     <meta name="description" content="吴翱翔的博客 - Rust/C++ developer, manjaro/KDE user"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- <link rel="icon" href="http://showmethemoney.sweetysoft.com/image_after_2019_06/1851/favicon.ico"> -->
-    <link rel="icon" href="data:;base64,=">
     <link rel="stylesheet" href="/assets/vue.css"/>
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@latest/lib/themes/vue.css"> -->
     <link rel="stylesheet" href="/assets/my_style.css"/>
@@ -14,23 +13,17 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-dark-mode@latest/dist/style.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
 </head>
 
 <body>
 <div id="app"></div>
 
-<!-- mermaid init -->
-<script type="module">
-    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-    mermaid.initialize({ startOnLoad: true });
-    window.mermaid = mermaid;
-</script>
-<script src="//unpkg.com/docsify-mermaid@2.0.0/dist/docsify-mermaid.js"></script>
-<!-- end mermaid init -->
 
+<script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>
     var num = 0;
-    mermaid.initialize({ startOnLoad: true });
+    mermaid.initialize({ startOnLoad: false });
     window.$docsify = {
         // 警告：历史模式下请求old会返回old文件夹目录，而hash模式会返回404
         // 错误：历史模式下docsify无法热重载
