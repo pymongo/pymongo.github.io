@@ -6,10 +6,13 @@
 
 ```
 docker run --name gpt -p 3000:3000 \
-   -e OPENAI_API_KEY=foo \
    -e BASE_URL=https://one-api.xiaobaiteam.com \
+   -e CUSTOM_MODELS=-all,+gpt-4-1106-preview \
+   -e OPENAI_API_KEY=foo \
    yidadaa/chatgpt-next-web
 ```
+
+In PowerShell, you can use the backtick character (`) as the line continuation char
 
 用nginx反向代理略有很多不同和配置，我就暂不考虑
 
@@ -26,3 +29,5 @@ docker run --name gpt -p 3000:3000 \
 ## 必须关闭Auto Generate Title否则扣两次钱
 
 跟官方 gpt web的行为一样，每次问答后，还会将当前会话的所有内容发给gpt动态生成/更新会话的标题，这样导致提问一次会扣费两次，一定要关掉这个没啥用的配置省点钱，目前我才用了两天就花了 1.3$
+
+但我发现前端缓存没了或者wsl2 docker崩溃恢复出厂设置了，Auto Generate Title设置就变成默认了，所以我还是用环境变量 CUSTOM_MODELS 指定只用 gpt4 模型白名单，这样nextweb看到没有便宜的gpt 3.5就不会在对话结束后发请求生成标题了减少每次对话额外一次3.5的扣费
