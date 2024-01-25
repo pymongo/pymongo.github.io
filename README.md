@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-01**
+    - [kaggle机器学习竞赛](/2024/01/kaggle_titanic_competition.md)
     - [贷款证券化](/2024/01/mortgage_backed_securities.md)
     - [BTC现货ETF](/2024/01/bitcoin_spot_etf.md)
     - [部署gpt nextweb](/2024/01/deploy_chatgpt_next_web.md)
