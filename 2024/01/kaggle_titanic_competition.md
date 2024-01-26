@@ -185,6 +185,15 @@ df = pd.concat([df.reset_index(drop=True), onehot_df_enum.reset_index(drop=True)
 df.drop('Embarked', axis=1, inplace=True)
 ```
 
+或者用 pandas 的 `get_dummies` api
+
+### Ordinal Encoder
+大于 两个可取值/variant 的除了 OneHot 还能用 Ordinal 
+
+适合像是 学士,硕士,博士 这样每个取值特征差距差不多的
+
+但蓝色、绿色、红色分别编码成是不合理的，因为我们并没有理由认为“蓝色”和“绿色”的差距比“蓝色”和“红色”的差距对于特征的影响是不同的
+
 #### 多重共线性问题
 
 多重共线性（Multicollinearity）是指在多元回归分析中，自变量（解释变量）之间存在高度相关关系的现象。在统计模型中，多重共线性可能会导致模型估计的不稳定性和解释能力的下降，因为它使得模型中的一个或多个变量难以独立地解释输出变量的变化。
