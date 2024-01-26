@@ -76,3 +76,257 @@ predictions = model.predict(X_test)
 记得在使用模型之前，您需要进行数据预处理，包括处理缺失值、转换类别变量（如使用独热编码），以及特征缩放等。
 
 随着您对数据和模型的进一步理解，您可以尝试使用更复杂的模型，并对它们进行调优以获得更好的结果。
+
+## 缺失值填充
+
+典型的机器学习二分类问题，train.csv的第二列Survived表示是否存活的布尔值，不过csv有缺失值需要填充
+
+```python
+print(df.isnull().any())
+# Age,Cabin,Embarked column has null
+rows_with_null_age = df[df['Age'].isnull()]
+print(f"rows_with_null_age count={rows_with_null_age.count()}")
+print(rows_with_null_age)
+```
+
+Age 缺失177条, Cabin(船舱号)缺失177条, Embarked(登船地点)缺失两条 这三列有缺失，首先登船地点是一个枚举只有三种，而且只缺失两条，直接用众数填充
+
+Imputation: You can fill in the missing values with the mean, median, or mode(众数) age, or use k-Nearest Neighbors to predict the missing age values based on the other features
+
+年龄是一个大概率正态分布的，用中位数填充，登船地点只有两条数据用众数填充即可，麻烦的是船舱号
+
+```
+age_imputer = SimpleImputer(strategy='median')
+df['Age'] = age_imputer.fit_transform(df[['Age']]).astype(int)
+```
+
+### 船舱号缺失处理
+
+You're right; using the mode to fill in missing values for the 'Cabin' column in the Titanic dataset could be misleading because it would imply that 177 passengers shared the same cabin, which is not realistic.
+
+The 'Cabin' column presents a more complex case for imputation because it is not only categorical but also has a high percentage of missing values. Here are a few alternative strategies for handling missing 'Cabin' data:
+
+1. **Create a new category for missing values**: You can treat missing cabins as a separate category. This is a common approach when the fact that data is missing might be informative in itself.
+
+    ```python
+    df['Cabin'].fillna('Missing', inplace=True)
+    ```
+
+2. **Use a placeholder value**: Replace missing cabins with a placeholder like 'U' for 'Unknown'.
+
+    ```python
+    df['Cabin'].fillna('U', inplace=True)
+    ```
+
+3. **Extract deck information**: Sometimes the first letter of the cabin number is used to indicate the deck. You could extract this and treat the deck as a feature, filling in missing decks with a placeholder.
+
+    ```python
+    df['Deck'] = df['Cabin'].apply(lambda x: x[0] if pd.notnull(x) else 'U')
+    ```
+
+4. **Model-based imputation**: Use a model to predict the missing cabin based on other features. This is a more sophisticated approach and might be overkill for this variable, given the high proportion of missing values.
+
+5. **Discard the 'Cabin' column**: If the 'Cabin' information is not critical to your analysis or predictions, and the high proportion of missing data makes imputation unreliable, you might choose to drop the column altogether.
+
+    ```python
+    df.drop('Cabin', axis=1, inplace=True)
+    ```
+
+6. **Group cabins by fare**: Group passengers into different cabin categories based on the fare they paid. This approach assumes a relationship between fare and cabin.
+
+    ```python
+    fare_bins = pd.qcut(df['Fare'], 4, labels=['Low', 'Medium', 'High', 'Very_High'])
+    df['Cabin_Imputed'] = df['Cabin'].fillna(fare_bins)
+    ```
+
+7. **Hierarchical imputation**: If there's a hierarchy or some dependency between 'Pclass' (Passenger Class) and 'Cabin', you could fill in missing cabins differently for each class.
+
+    ```python
+    df['Cabin'] = df.groupby('Pclass')['Cabin'].transform(lambda x: x.fillna(x.mode()[0] if not x.mode().empty else "U"))
+    ```
+
+The choice of method depends on the importance of the 'Cabin' feature in your analysis, the assumptions you are willing to make, and the complexity you want to introduce into your data preprocessing step.
+
+我选择忽略 Cabin 列
+
+## 枚举值处理
+
+Convert categorical variables to numeric variables
+
+### LabelEncoder 二元编码
+
+Sex 列只有 male/female 两种可能的取值，需要将字符串转换成f64方便模型读取处理
+
+> df['Sex'].replace({"male": 1, "female": 0}, inplace=True)
+
+或者用 scikit-learn 的 LabelEncoder
+
+```python
+label_encoder = LabelEncoder()
+# 默认会按照类别的出现顺序进行编码, 使用 fit 方法拟合编码器，显式指定编码映射
+label_encoder.fit(["female", "male"])
+df['Sex'] = label_encoder.fit_transform(df['Sex'])
+```
+
+### OneHotEncoder 独热编码
+
+Embarked 上船地点列有 C,Q,S 三种取值，一般经验上可以转换成二元值得 Embarked_C  Embarked_Q  Embarked_S 三列
+
+```python
+onehot_encoder = OneHotEncoder(sparse=False)  # 使用 sparse=False 来直接得到一个密集矩阵
+encoded_data_enum = onehot_encoder.fit_transform(df[['Embarked']])
+# 创建一个包含独热编码后列的 DataFrame
+# 不再需要传入 ['Embarked'] 给 get_feature_names_out
+onehot_df_enum = pd.DataFrame(encoded_data_enum, columns=onehot_encoder.get_feature_names_out())
+# 连接独热编码后的 DataFrame 与原始 DataFrame
+# 确保 DataFrame 的索引匹配，以避免任何潜在的数据错位问题
+df = pd.concat([df.reset_index(drop=True), onehot_df_enum.reset_index(drop=True)], axis=1)
+# 删除原始的 'Embarked' 列
+df.drop('Embarked', axis=1, inplace=True)
+```
+
+#### 多重共线性问题
+
+多重共线性（Multicollinearity）是指在多元回归分析中，自变量（解释变量）之间存在高度相关关系的现象。在统计模型中，多重共线性可能会导致模型估计的不稳定性和解释能力的下降，因为它使得模型中的一个或多个变量难以独立地解释输出变量的变化。
+
+当使用独热编码（One-Hot Encoding）处理分类变量时，每个类别都被转换成一个新的二元特征，其中一个类别对应的特征为1，其他都为0。如果一个变量有 $N$ 个类别，标准的独热编码会创建 $N$ 个二元特征。这就引入了一个潜在的多重共线性问题，因为这 $N$ 个特征之间是完全相关的：任何一个特征都可以通过其他 $N-1$ 个特征的组合来完美预测。换句话说，这些特征之间的关系可以用一个线性方程来表示，这就违反了多元线性回归模型中自变量应该相互独立的假设。
+
+为了避免这个问题，通常会从独热编码的特征中移除一个，以确保自变量之间的独立性。这称作“去掉一个等级”或“减少一个维度”，通常是移除一个特征列。例如，如果有三个类别 `A`、`B` 和 `C`，独热编码会创建三个特征 `is_A`、`is_B` 和 `is_C`。为了避免多重共线性，我们可以移除 `is_A`，这样只保留 `is_B` 和 `is_C`。由于如果一个观测不属于 `B` 和 `C`，它必然属于 `A`，我们仍然可以通过 `is_B` 和 `is_C` 的值推断出 `is_A` 的值。
+
+在 `OneHotEncoder` 中，可以通过设置参数 `drop='first'` 来自动地去除第一个类别对应的特征，从而避免多重共线性问题。这在创建模型，尤其是需要变量间独立性的线性模型中是一种常见的做法。
+
+多重共线性问题在某些统计模型中可能会导致问题，特别是在回归分析中，因为它可能会影响到模型参数的估计和解释。然而，在某些情况下，特别是当使用一些不受多重共线性影响的算法时（比如决策树或随机森林），避免多重共线性并不是必须的。
+
+## 模型训练测试推理
+
+在我之前最小二乘法的文章中已经详细学过记录过split切分训练测试数据集的过程，xy特征列定义等，本文不在赘述
+
+test.csv kaggle测试数据集中踩坑1是Fare票价列有null值，我用中位数填充了
+
+第二个坑就是对 df 和 series 之间转换还不出很熟练，由于模型predict输出是一个ndarry一维数组
+
+一开始我用以下写法结果报错了，原来 test_df['PassengerId'] 返回的是series而不是df
+
+> submission_df = test_df['PassengerId']; submission_df['Survived'] = test_predictions
+
+虽然本地运行结果中准确率有80%，但是上传到kaggle提交通过后，我的评分排名就只有后10% 太卷了~
+
+---
+
+## 最终代码
+
+```python
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.impute import SimpleImputer
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+
+# Step 1: Load the data
+df = pd.read_csv('train.csv')
+
+def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
+    # Step 2: Handle missing values
+    # For simplicity, we'll fill missing numerical values with the median and missing categorical with the most frequent value
+    # print("data.isnull()", data.isnull())
+    # print("df.isnull().any()", df.isnull().any())
+    # Age,Cabin,Embarked column has null
+
+    # rows_with_null_age = df[df['Age'].isnull()]
+    # print(f"rows_with_null_age count={rows_with_null_age.count()}", rows_with_null_age)
+    # rows_with_null_cabin = df[df['Cabin'].isnull()] # 船仓号
+    #print(f"rows_with_null_cabin count={rows_with_null_age.count()}", rows_with_null_cabin)
+    # rows_with_null_embarked = df[df['Embarked'].isnull()]
+    # print(f"rows_with_null_embarked count={rows_with_null_embarked.count()}", rows_with_null_embarked)
+
+    # 首先登船地点Embarked是一个枚举只有三种，而且只缺失两条，直接用众数填充
+    embarked_mode = df['Embarked'].mode()[0]
+    df['Embarked'].fillna(embarked_mode, inplace=True)
+
+    # 年龄大概率是正态分布，用中位数填充缺失值 astype(int) 将中位数可能出现转换
+    age_imputer = SimpleImputer(strategy='median')
+    df['Age'] = age_imputer.fit_transform(df[['Age']]).astype(int)
+
+    # 训练数据Fare没有null，但测试数据里面Fare有null
+    fare_imputer = SimpleImputer(strategy='median')
+    df['Fare'] = fare_imputer.fit_transform(df[['Fare']])
+
+    # skip useless/not-relative columns
+    df.drop(['Cabin', 'Ticket', 'Name', 'PassengerId'], axis=1, inplace=True)
+
+    # Step 3: Convert categorical variables to numeric variables
+
+    # 将性别（gender）这样的二元类别变量转换为数值 0 和 1 的过程被称为二元编码（binary encoding）或二值编码（binarization）
+    # We'll use LabelEncoder for simplicity, but one-hot encoding is often a better choice
+
+    # LabelEncoder 二元编码
+    label_encoder = LabelEncoder()
+    # 默认会按照类别的出现顺序进行编码, 使用 fit 方法拟合编码器，显式指定编码映射
+    label_encoder.fit(["female", "male"])
+    df['Sex'] = label_encoder.fit_transform(df['Sex'])
+    # same as df['Sex'].replace({"male": 1, "female": 0}, inplace=True)
+
+    # OneHotEncoder 独热编码
+    # one-hot encoding enum Embarked(C,Q,S) -> Embarked_C  Embarked_Q  Embarked_S
+    onehot_encoder = OneHotEncoder(sparse_output=False)  # 使用 sparse=False 来直接得到一个密集矩阵
+    encoded_data_enum = onehot_encoder.fit_transform(df[['Embarked']])
+
+    # 创建一个包含独热编码后列的 DataFrame
+    # 不再需要传入 ['Embarked'] 给 get_feature_names_out
+    onehot_df_enum = pd.DataFrame(encoded_data_enum, columns=onehot_encoder.get_feature_names_out())
+
+    # 连接独热编码后的 DataFrame 与原始 DataFrame
+    # 确保 DataFrame 的索引匹配，以避免任何潜在的数据错位问题
+    df = pd.concat([df.reset_index(drop=True), onehot_df_enum.reset_index(drop=True)], axis=1)
+
+    # 删除原始的 'Embarked' 列
+    df.drop('Embarked', axis=1, inplace=True)
+
+    return df
+
+df = preprocess_data(df)
+# Step 4: Split the dataset into training and test sets
+# Selecting relevant features for simplicity (you might want to engineer more features)
+features = ['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked_C', 'Embarked_Q', 'Embarked_S']
+X = df[features]
+y = df['Survived']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Step 5: Train the model
+X = df.drop('Survived', axis=1)
+y = df['Survived']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Model selection
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+
+# Train the model
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+# Step 6: Evaluate the model (optional)
+predictions = model.predict(X_test)
+accuracy = accuracy_score(y_test, predictions)
+print(f'Accuracy: {accuracy}')
+
+# Step 7: predict kaggle test data
+# If you want to predict the test set from Kaggle, you'll need to preprocess it in the same way as the training set
+test_df = pd.read_csv('test.csv')
+# Make sure submission_df is a DataFrame with one column
+# NOTE 'test_df['PassengerId']' is a Series not a dataframe
+submission_df = test_df[['PassengerId']]
+test_data_preprocessed = preprocess_data(test_df)
+print(test_data_preprocessed)
+# print("test_data_preprocessed.isnull().any()", test_data_preprocessed.isnull().any())
+
+# ... apply the same preprocessing ...
+test_predictions = model.predict(test_data_preprocessed)
+# ... and then generate a submission file.
+submission_df['Survived'] = test_predictions
+print(submission_df)
+
+# index=False to exclude rowid row
+submission_df.to_csv('submission.csv', index=False)
+```
