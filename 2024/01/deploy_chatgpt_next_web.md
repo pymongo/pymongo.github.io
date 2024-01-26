@@ -5,12 +5,15 @@
 于是我还是考虑买一个gpt api key独享账号，顺便对比下比20刀一个月的gpt plus价格哪个更划算
 
 ```
-docker run --name gpt -p 3000:3000 \
+docker run --name gpt --net=host \
    -e BASE_URL=https://one-api.xiaobaiteam.com \
    -e CUSTOM_MODELS=-all,+gpt-4-1106-preview \
    -e OPENAI_API_KEY=foo \
+   -e PROXY_URL=socks5://127.0.0.1:10808 \
    yidadaa/chatgpt-next-web
 ```
+
+(小白 AI 服务器在东京国内偶尔无法直连还是得代理)
 
 In PowerShell, you can use the backtick character (`) as the line continuation char
 
