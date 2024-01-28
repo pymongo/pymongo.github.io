@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-01**
+    - [A股的手续费](/2024/01/shanghai_stock_exchange_a_shares_fee.md)
     - [帕鲁NFT钓鱼网站复盘](/2024/01/palworld_nft_phishing_website.md)
     - [NFT运动鞋项目投研](/2024/01/gmt_token_nft_sneakers.md)
     - [Binning](/2024/01/binning_and_normalization.md)
