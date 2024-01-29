@@ -5,7 +5,7 @@
 于是我还是考虑买一个gpt api key独享账号，顺便对比下比20刀一个月的gpt plus价格哪个更划算
 
 ```
-docker run --name gpt --net=host \
+docker run --name gpt --net=host --restart=always \
    -e BASE_URL=https://one-api.xiaobaiteam.com \
    -e CUSTOM_MODELS=-all,+gpt-4-1106-preview \
    -e OPENAI_API_KEY=foo \

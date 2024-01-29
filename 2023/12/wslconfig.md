@@ -18,3 +18,5 @@ networkingMode=mirrored
 pageReporting Default true setting enables Windows to reclaim unused memory allocated to WSL 2 virtual machine.
 
 试试看不让win回收wsl2空闲内存会不会减少linux被OOM killed的风险
+
+!> 注意如果发生OOM killed需要重启电脑，否则networkingMode=mirrored会失效docker run --network=host在windows上无法访问
