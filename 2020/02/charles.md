@@ -1,6 +1,8 @@
 # [charles抓包笔记](/2020/02/charles.md)
 
-激活码请前往zhile.io，以下记录我配置charles直到成功抓取火币安卓端的Https请求数据包
+激活码请前往zhile.io，生成激活码工具: https://www.zzzmode.com/mytools/charles/
+
+以下记录我配置charles直到成功抓取火币安卓端的Https请求数据包
 
 <i class="fa fa-hashtag"></i>
 Step 1. 安装根证书

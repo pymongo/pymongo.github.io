@@ -39,15 +39,12 @@ Couldn't find manifest for 'ruby'.
 PS C:\Users\w> scoop bucket list
 WARN  No bucket found. Please run 'scoop bucket add main' to add the default 'main' bucket.
 PS C:\Users\w> scoop bucket add main
-Checking repo... OK
 The main bucket was added successfully.
 
 scoop bucket add versions
-# from versions bucket
 scoop install nodejs18
 scoop install yarn
 yarn config set registry https://registry.npmmirror.com
-yarn install
 ```
 
 .env.local
@@ -55,19 +52,17 @@ yarn install
 ```
 BASE_URL=https://one-api.xiaobaiteam.com
 CUSTOM_MODELS=-all,+gpt-4-1106-preview
-OPENAI_API_KEY=foo
+OPENAI_API_KEY=sk-foo
 PROXY_URL=socks5://127.0.0.1:10808
 ```
 
 ```
 Exit code: 1
-Command: node scripts/postinstall.mjs
-Arguments:
 Directory: C:\Users\w\ChatGPT-Next-Web\node_modules\@vercel\speed-insights
 Output:
 The system cannot find the path specified.
 
-Error: EPERM: operation not permitted, mkdir 'C:\Users\�����Ƽ�\scoop\
+Error: EPERM: operation not permitted, mkdir
 ```
 
 > yarn config set script-shell powershell
@@ -89,7 +84,7 @@ npm config get script-shell
 
 总结两大踩坑是，不要用scoop安装要用nodejs官网msi安装包安装 和 不要`npm config set script-shell bash`这样会调用wsl linux的bash无法找到windows的node可执行文件
 
-精简下windows源码编译nextweb过程
+### 精简下windows源码编译nextweb过程
 
 ```
 node-v20.11.0-x64.msi
@@ -100,6 +95,18 @@ yarn install
 yarn build 
 yarn start
 ```
+
+### 防火墙允许node绑定0.0.0.0
+
+`Get-Command node` 获取下 nodejs 绝对路径，官方安装包会安装到  C:\Program Files\nodejs\node.exe
+
+如果 nodejs bind 0.0.0.0 仍然无法从其他设备访问，需要去 `Control Panel\All Control Panel Items\Windows Defender Firewall` Allow an app..
+
+### nginx 部署
+
+流失输出的问题参考 README 的配置
+
+subpath/prefix 问题 https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web/issues/693#issuecomment-1502658357
 
 ## 必须关闭Auto Generate Title否则扣两次钱
 
