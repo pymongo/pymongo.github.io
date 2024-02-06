@@ -5,10 +5,10 @@
 于是我还是考虑买一个gpt api key独享账号，顺便对比下比20刀一个月的gpt plus价格哪个更划算
 
 ```
-docker run --name gpt --net=host --restart=always \
+docker run -d --name gpt --net=host --restart=always \
    -e BASE_URL=https://one-api.xiaobaiteam.com \
-   -e CUSTOM_MODELS=-all,+gpt-4-1106-preview \
-   -e OPENAI_API_KEY=foo \
+   -e CUSTOM_MODELS=-all,+gpt-4-0125-preview \
+   -e OPENAI_API_KEY=sk- \
    -e PROXY_URL=socks5://127.0.0.1:10808 \
    yidadaa/chatgpt-next-web
 ```
@@ -51,7 +51,7 @@ yarn config set registry https://registry.npmmirror.com
 
 ```
 BASE_URL=https://one-api.xiaobaiteam.com
-CUSTOM_MODELS=-all,+gpt-4-1106-preview
+CUSTOM_MODELS=-all,+gpt-4-0125-preview
 OPENAI_API_KEY=sk-foo
 PROXY_URL=socks5://127.0.0.1:10808
 ```
@@ -69,10 +69,7 @@ Error: EPERM: operation not permitted, mkdir
 
 windows scoop 安装的 npm 有权限问题不能 npm install -g 我改回 nodejs 官方安装包
 
-```
-npm ERR! command failed
-npm ERR! command powershell -c :; (node ./preinstall.js > /dev/null 2>&1 || true)
-```
+> npm ERR! command powershell -c :; (node ./preinstall.js > /dev/null 2>&1 || true)
 
 > ChatGPT-Next-Web/node_modules/.bin/cross-env: 12: node: not found
 
@@ -101,6 +98,26 @@ yarn start
 `Get-Command node` 获取下 nodejs 绝对路径，官方安装包会安装到  C:\Program Files\nodejs\node.exe
 
 如果 nodejs bind 0.0.0.0 仍然无法从其他设备访问，需要去 `Control Panel\All Control Panel Items\Windows Defender Firewall` Allow an app..
+
+### windows proxychains
+
+由于 PROXY_URL 配置项是docker部署only，windows上还是得需要个前置代理命令工具，例如经典的 proxychains
+
+> scoop install proxychains
+
+配置文件在 HOME 目录 scoop\apps\proxychains\current\proxychains.conf
+
+只需要改最后的 ProxyList
+
+```
+[PID13180] [I] 2024/02/06 22:49:45 Mswsock.dll (FP)ConnectEx(916 127.0.0.1:63139 16) DIRECT
+Assertion failed: uv__has_active_reqs((loop)), file c:\ws\deps\uv\src\win\tcp.c, line 1200
+error Command failed with exit code 3221226505
+```
+
+windows proxychain curl 谷歌没问题偏偏 yarn start 一请求就报错，查了下还是一个nodejs libuv的C源码报错位置
+
+作者在issue的评论说 `nodejs 没有比较好的 proxy 方案，我自己曾尝试过多种方案，都不太行，等 api 地址替换吧`
 
 ### nginx 部署
 
