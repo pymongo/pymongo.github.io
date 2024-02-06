@@ -38,3 +38,17 @@ Proxy->SSL Proxy Setting->include栏新增*:443
 终于可以抓到火币法币交易的广告列表数据啦~
 
 ![charles_huobi](charles_huobi.png)
+
+---
+
+## update 安卓7无法装证书
+
+apkpure看到ok交易所的app强制要求安卓7.0+，也就是支持SSL pinning且非root权限不能安装CA根证书
+
+好家伙我红米14太新了CA证书难怪装不上只能装在user目录下不能全局CA根证书
+
+唯一解决办法就root一个Android studio虚拟机
+
+https://www.eet-china.com/mp/a162752.html
+
+https://crifan.github.io/app_capture_package_tool_charles/website/how_capture_app/complex_https/https_ssl_pinning/android/xposed_justtrustme.html
