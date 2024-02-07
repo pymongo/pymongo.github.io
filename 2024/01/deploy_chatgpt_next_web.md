@@ -9,7 +9,8 @@ docker run -d --name gpt --net=host --restart=always \
    -e BASE_URL=https://one-api.xiaobaiteam.com \
    -e CUSTOM_MODELS=-all,+gpt-4-0125-preview \
    -e OPENAI_API_KEY=sk- \
-   -e PROXY_URL=socks5://127.0.0.1:10808 \
+   -e PROXY_URL=socks5://172.25.240.1:10808 \
+   -e PORT=4000 \
    yidadaa/chatgpt-next-web
 ```
 
@@ -118,6 +119,34 @@ error Command failed with exit code 3221226505
 windows proxychain curl 谷歌没问题偏偏 yarn start 一请求就报错，查了下还是一个nodejs libuv的C源码报错位置
 
 作者在issue的评论说 `nodejs 没有比较好的 proxy 方案，我自己曾尝试过多种方案，都不太行，等 api 地址替换吧`
+
+由于 wsl `networkingMode=mirrored` 对 nodejs 应用资源加载有 bug 所以我目前解决方案是 wsl linux 的 `apt install docker.io` 版本部署个端口 4000 的容器可配代理，然后windows上3000端口yarn start也部署一个 双份容灾
+
+不过去掉 mirror 网络后懒得改我代理设置，用nginx将windows上两个代理服务器反向代理到linux的localhost
+
+```
+http {
+    server {
+        listen 10809;
+
+        location / {
+            proxy_pass http://172.25.240.1:10809;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
+}
+
+stream {
+    server {
+        listen 10808;
+        proxy_pass 172.25.240.1:10808;
+        proxy_connect_timeout 1s;
+    }
+}
+```
 
 ### nginx 部署
 
