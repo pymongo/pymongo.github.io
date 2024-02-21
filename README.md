@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-02**
+    - [链游也能上steam?](/2024/02/web3_gamefi_launch_on_steam_or_google_play.md)
     - [gashero装备寿命经济系统](/2024/02/gashero_economy.md)
     - [做市商PFOF模式](/2024/02/market_maker_payment_for_order_flow.md)
 - **2024-01**
