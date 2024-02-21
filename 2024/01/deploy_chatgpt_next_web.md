@@ -9,7 +9,7 @@ docker run -d --name gpt --net=host --restart=always \
    -e BASE_URL=https://one-api.xiaobaiteam.com \
    -e CUSTOM_MODELS=-all,+gpt-4-0125-preview \
    -e OPENAI_API_KEY=sk- \
-   -e PROXY_URL=socks5://172.25.240.1:10808 \
+   -e PROXY_URL=socks5://192.168.224.1:10808 \
    -e PORT=4000 \
    yidadaa/chatgpt-next-web
 ```
