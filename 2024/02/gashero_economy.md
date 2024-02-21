@@ -1,6 +1,8 @@
 # [gashero装备寿命经济系统](/2024/02/gashero_economy.md)
 
-gashero应该是国人mable在杭州创业的项目，跟stepn合作所以也是用的 solana 生态的 GMT 代币
+gashero应该是国人mable在杭州创业的项目，这个杭州公司的团队出品了stepn/gashero项目也俗称FSL团队
+
+创世NFT中创世跑鞋和创世英雄都是无限寿命不会死亡，其他NFT资产都会死亡，然后跑鞋可以配种生娃，英雄也可以...
 
 游戏内的资产就 英雄装备宠物的NFT 和稳定币GMT，但是所有的英雄装备这些NFT资产都是由寿命(耐久度)的，下副本或者闲置都会消耗寿命。寿命结束装备就消失
 
@@ -27,6 +29,10 @@ gashero相当于让矿机有了寿命，类似于现实的房子有寿命不可�
 跟 palworld 配种只需要消耗蛋糕不同的是，gashero配种交配时间是3天，一个英雄一生只能配种7次
 
 生育是获得新英雄的重要途径，而跟STEPN的「生鞋」设计不同的是，Gas Hero英雄生育时需满足「一男一女」的要求。
+
+## bot与工作室
+
+Saku(Matr1x-Fire)认为工作室给市场提供了流动性，加速了价值发现的过程，而Mable仍然认为以鞋厂为代表的工作室没有起到正面作用
 
 ## 装备寿命机制的思考
 
@@ -114,6 +120,9 @@ gashero相当于让矿机有了寿命，类似于现实的房子有寿命不可�
 - [gashero公测20天物价暴跌](https://www.binance.com/zh-CN/feed/post/3248987436842)
 - [gashero 白皮书解读](https://forum.chainchallenger.xyz/t/topic/46/3)
 - <https://twitter.com/G_M_Alliance/status/1751196438523224462>
+- <https://twitter.com/fff_franklin/status/1707789568244855285>
+- <https://twitter.com/_wangjiaran/status/1727713588511695307>
+- <https://pbs.twimg.com/media/F_oSKkfbYAAEqjG?format=jpg&name=large>
 
 ---
 
