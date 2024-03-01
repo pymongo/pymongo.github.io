@@ -2,7 +2,7 @@
 
 GasHero DC 群有人分享类暗黑的 ARPG 链游[SERAPH](https://store.steampowered.com/app/2589920/SERAPH__In_the_Darkness/)今年要上 steam
 
-还有我之前看到的 Matrix-fire 也已经上架了 google play
+还有我之前看到的 Matrix-fire 也已经上架了 google play (ios store開放上 stepn很神奇)
 
 我不理解的是，SERAPH上steam或者matrix上谷歌/苹果商店，玩家的氪金不是要抽成30%给平台，还有上架审核。可能上steam/google play会锁区只有特定区才能下载？当然我没有激活码玩不了SERAPH瞎猜的
 
