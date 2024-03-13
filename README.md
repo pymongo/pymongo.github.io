@@ -2,6 +2,7 @@
 - [正在读的书](/books.md)
 - **2024-03**
     - [币安神盾出金](/2024/03/binance_shield.md)
+    - [我的传销母亲](/2024/03/my_multi_level_marketing_mother.md)
     - [const Decimal](/2024/03/rust_decimal_const.md)
 - **2024-02**
     - [tokio interval问题](/2024/02/tokio_time_interval_problem.md)
