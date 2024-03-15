@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-03**
+    - [移动/跟踪 止盈止损](/2024/03/trailing_stop_order.md)
     - [币安神盾出金](/2024/03/binance_shield.md)
     - [我的传销母亲](/2024/03/my_multi_level_marketing_mother.md)
     - [const Decimal](/2024/03/rust_decimal_const.md)
