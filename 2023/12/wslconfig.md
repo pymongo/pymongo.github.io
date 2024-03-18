@@ -12,7 +12,13 @@ memory=64GB
 swap=0GB
 guiApplications=false
 pageReporting=false
-networkingMode=mirrored
+vmIdleTimeout=9999000
+firewall=false
+
+#networkingMode=mirrored
+
+[experimental]
+autoMemoryReclaim=gradual
 ```
 
 pageReporting Default true setting enables Windows to reclaim unused memory allocated to WSL 2 virtual machine.
