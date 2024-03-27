@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-03**
+    - [FLT 空投撸毛](/2024/03/fluence_airdrop.md)
     - [WETH与杠杠质押](/2024/03/weth.md)
     - [移动/跟踪 止盈止损](/2024/03/trailing_stop_order.md)
     - [币安神盾出金](/2024/03/binance_shield.md)
