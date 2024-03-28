@@ -64,4 +64,53 @@ provider 是指提供以太坊网络接口的实体，它可以是本地运行�
 
 你只需要一个可以访问以太坊网络的 provider，这可以是你自己运行的以太坊节点，也可以是像 Infura 这样的托管服务
 
-ethereum-node docker 镜像部署需要
+ethereum-node docker 镜像部署需要5T硬盘和几百G内存性能要求极高不建议自行部署运行eth主网完整节点
+
+## eth web3py 查询余额
+
+```python
+from web3 import Web3
+import json
+
+token_address_raw = "0x6081d7f04a8c31e929f25152d4ad37c83638c62b"
+token_address = Web3.to_checksum_address(token_address_raw)
+account_address_raw = "0xf6477e4ceb4c238e03ef08eb6cf0bab14a5cf65e"
+account_address = Web3.to_checksum_address(account_address_raw)
+
+token_abi = [
+    {
+        "constant": True,
+        "name": "decimals",
+        "type": "function",
+        "inputs": [],
+        "outputs": [{"name": "", "type": "uint8"}],
+    },
+    {
+        "constant": True,
+        "name": "balanceOf",
+        "type": "function",
+        "inputs": [{"name": "_owner", "type": "address"}],
+        "outputs": [{"name": "balance", "type": "uint256"}],
+    },
+]
+token_abi = json.dumps(token_abi)
+
+# w3 = Web3(Web3.HTTPProvider('https://eth.public-rpc.com'))
+# w3 = Web3(Web3.HTTPProvider('https://cloudflare-eth.com/'))
+w3 = Web3(
+    Web3.HTTPProvider("https://mainnet.infura.io/v3/YOUR_INFURA_TOKEN")
+)
+
+token_contract = w3.eth.contract(address=token_address, abi=token_abi)
+
+# Get decimals
+decimals = token_contract.functions.decimals().call()
+
+# Get balance in smallest unit
+balance_smallest_unit = token_contract.functions.balanceOf(account_address).call()
+
+# Convert to actual token balance
+balance = balance_smallest_unit / (10**decimals)
+
+print(f"The balance of account {account_address_raw} is {balance}.")
+```

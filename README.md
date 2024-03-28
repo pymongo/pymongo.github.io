@@ -1,6 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-03**
+    - [Go generate interface](/2024/03/go_vscode_generate_impl_stubs.md)
+    - [eth 状态裁剪](/2024/03/eth_state_pruning.md)
     - [FLT 空投撸毛](/2024/03/fluence_airdrop.md)
     - [WETH与杠杠质押](/2024/03/weth.md)
     - [移动/跟踪 止盈止损](/2024/03/trailing_stop_order.md)

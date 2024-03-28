@@ -4,7 +4,7 @@
 
 <https://github.com/golang/vscode-go/wiki/tools#goplay>
 
-archlinux 有个 go-tools 的包有另一些官方工具，本文介绍的工具则是 vscode Go 插件建议安装的工具
+archlinux 有个 go-tools 的包有另一些官方工具，本文介绍的工具则是 vscode Go 插件建议安装的工具 用 vscode Go Locale go tools 列出清单
 
 ```
 go:	/usr/bin/go: go version go1.19 linux/amd64
@@ -54,3 +54,12 @@ json["data"].(map[string]interface{})["records"].([]interface{})[0].(map[str
 ```
 
 > https://twitter.com/ospopen/status/1561973110844592128
+
+## Ctrl+S 自动删除未使用的 imports
+
+```json
+"[go]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {"source.organizeImports": "explicit"},
+},
+```
