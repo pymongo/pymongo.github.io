@@ -66,7 +66,7 @@ provider 是指提供以太坊网络接口的实体，它可以是本地运行�
 
 ethereum-node docker 镜像部署需要5T硬盘和几百G内存性能要求极高不建议自行部署运行eth主网完整节点
 
-## eth web3py 查询余额
+## web3py查FLT余额
 
 ```python
 from web3 import Web3
@@ -114,3 +114,13 @@ balance = balance_smallest_unit / (10**decimals)
 
 print(f"The balance of account {account_address_raw} is {balance}.")
 ```
+
+---
+
+## STRK 空投
+
+![](strk_github_airdrop.png)
+
+![](strk_github_airdrop_claim.png)
+
+用的 STRK layer2 消耗 STRK 作为 gas 转回 bn，但是交易在 layer1 上预计要等5小时，实际上跟群友反馈的一致要花2小时
