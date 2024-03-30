@@ -63,3 +63,21 @@ json["data"].(map[string]interface{})["records"].([]interface{})[0].(map[str
     "editor.codeActionsOnSave": {"source.organizeImports": "explicit"},
 },
 ```
+
+## 我的 vscode go 配置
+
+```json
+    "[go]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
+    },
+    "go.formatTool": "gofmt",
+    "go.addTags": {
+        "transform": "snakecase"
+    },
+    "gopls": {
+        "ui.semanticTokens": true,
+    }
+```
