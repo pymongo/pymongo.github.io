@@ -30,3 +30,24 @@ mdbook v0.4.35 release build
 |magicbookpro2020-ryzen|4600H|61s|
 |company's desktop|12600k|23.59s|
 |小新pro16 IRH8|13900H|22.1s|
+
+rust 1.75 solana v1.18.9, do not consider ld/mold linker performance
+
+> cargo clean && cargo c --bin solana-keygen
+
+|cpu|os|time cost|
+|---|---|---|
+|13400F|ubuntu20|21.58s|
+|13900H|ubuntu20|17.44s|
+|5900X|manjaro|16.88s|
+|5900X|ubuntu20(server)|14.79s|
+
+mold version 2.30
+
+> cargo clean && cargo b --bin solana-keygen
+
+|cpu|os|time cost|
+|---|---|---|
+|13900H|ubuntu20 mold2.30|27.99s|
+|5900X|manjaro mold2.4|23.13s|
+|5900X|ubuntu20 mold2.30|19.85s|

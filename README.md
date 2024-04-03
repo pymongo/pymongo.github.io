@@ -1,5 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
+- **2024-04**
+    - [主板CPU_FAN接口](/2024/04/motherboard_cpu_fan_cpu_opt.md)
 - **2024-03**
     - [ETH两种l2实现](/2024/03/eth_layer2.md)
     - [crypto洗钱与投机](/2024/03/crypto_money_laundering_and_speculating.md)
