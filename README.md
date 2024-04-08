@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-04**
+    - [fxhash一致性哈希更均匀?](/2024/04/rustc_hash_more_uniform_distribution_in_consistent_hashing.md)
     - [ahash rustc性能对比](/2024/04/ahash_vs_rustc_hash.md)
     - [主板CPU_FAN接口](/2024/04/motherboard_cpu_fan_cpu_opt.md)
 - **2024-03**
