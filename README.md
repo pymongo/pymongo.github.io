@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-05**
+    - [rustover remote](/2024/05/jetbrains_gateway_rustover.md)
     - [第一次rustc提PR](/2024/05/rustc_pr_125004.md)
     - [tokio无零容量channel](/2024/05/tokio_no_unbuffered_channel.md)
     - [bincode2改动](/2024/05/bincode2_review.md)
