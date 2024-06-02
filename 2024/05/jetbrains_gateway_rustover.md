@@ -6,4 +6,6 @@
 
 以windows机器远程连linux服务端开发为例，下载 jetbrains gateway ssh 连接远程服务器，然后安装rustover服务端
 
-最后需要登录jb账号才能使用免费证书且免费证书有效期一年(应该可以无限续杯吧) 然后一些专业版的功能例如多人协作或者数据库连接应该是没有的
+最后需要登录jb账号才能使用免费证书且免费证书有效期一年(应该可以无限续杯吧) 然后一些专业版的功能例如remote/多人协作或者数据库连接应该是没的
+
+gateway/pycharm/idea社区版不能用remote功能 不过应该可以给rustover装pycharm插件的方式绕过

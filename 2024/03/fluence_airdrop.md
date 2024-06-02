@@ -124,3 +124,25 @@ print(f"The balance of account {account_address_raw} is {balance}.")
 ![](strk_github_airdrop_claim.png)
 
 用的 STRK layer2 消耗 STRK 作为 gas 转回 bn，但是交易在 layer1 上预计要等5小时，实际上跟群友反馈的一致要花2小时
+
+---
+
+## FLT解锁
+
+![](fluence_airdrop_unlock.png)
+
+据说eth升级gas费用变低，手续费低只是说明没人玩了都去sol了 之前我claim FTL-DROP 花了10u GAS 现在调用合约send花了5u gas
+
+还是之前claim的网站 https://claim.fluence.network/ 会多了一个按钮 I already have
+
+还好同事提醒我，**【FLT还不领取明天就减半了】**，果然网站上看到 reduce amount after 8hour...
+
+我有两个同事比我先领取，他们都提到gate上面0.56的价位卖掉了，当初我claim的时候价格还是1.1
+
+FLT不是土狗毕竟上了gate/coinex所以领取后okx钱包不用加合约地址也看到FLT余额了
+
+最终 FLT 全在0.52-0.53的均价卖掉了，然后gate因为资产大于2000u升级到VIP1了！
+
+我不相信他们的叙事能替代aws云计算，昨晚放了一晚赚币结果FLT零利息，果断卖掉都放在gate理财了
+
+本来想放gate基金(限时免管理费 赎回时收30%利润抽成)，结果gate基金最低申购门槛1万u

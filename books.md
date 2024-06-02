@@ -5,6 +5,7 @@
 - Linux Device Drivers
 
 ## 已读(倒序)
+- 定投改变命运
 - Operate System Three Easy Pieces
 - Computer Science A Programmer's Perspective
 - rCore Tutorial Book
