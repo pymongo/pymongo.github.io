@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-06**
+    - [DEX土狗战法](/2024/06/dex_and_meme_coin.md)
     - [asyncio diff loop](/2024/06/python3_asyncio_future_attach_to_a_different_loop.md)
 - **2024-05**
     - [安卓6 VPN方式抓包](/2024/05/android6_http_capture.md)
