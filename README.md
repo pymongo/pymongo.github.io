@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-06**
+    - [做市商对冲](/2024/06/market_maker_hedge.md)
     - [NFT价格预言机](/2024/06/nft_price_oracle.md)
     - [Bytes和Vec<u8>唯一不同](/2024/06/tokio_bytes.md)
     - [订单不平衡因子过拟合](/2024/06/order_imbalance_factor.md)
