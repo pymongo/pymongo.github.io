@@ -84,6 +84,18 @@ token合约拥有者的钱包调用renounceOwnership转移拥有者，说明要�
 ### scammer
 骗子钱包地址的意思 gmgn等平台根据一定算法标记出来的，很多误报或者作恶的方法，例如被人举报就成scammer
 
+### 老鼠仓
+不知道gmgn.ai的老鼠仓算法怎么鉴别的
+
+### 轻节点
+轻节点只下载区块头（block headers）而不是整个区块链数据
+
+### 1INCH
+多个dex swap聚合，大单拆分到多个swap中交易降低成本
+
+### bitcoin RGB
+感觉就跟 BRC20 类似，要把eth的一些功能加到btc，RGB是想智能合约执行不在btc上但是用btc的共识层
+
 ## gmgn.ai first70数据
 gmgn.ai DexTools DexScreener 三大token数据分析平台
 
@@ -110,3 +122,5 @@ DexScreener 选中一个链搜索某个币，点底部的top traders 分析盈�
 MEV的好处是保持了链上的活力，像NEO封装了交易矿工要从交易信封才能执行记账类似HTTP->HTTPS杜绝夹子，可是没人玩
 
 MEV通俗说就像是CEX的做市商那样赚取微小价差滑点带来了流动性和加快价格发现
+
+当然eth也有解决MEV问题的方案 Flashbots 
