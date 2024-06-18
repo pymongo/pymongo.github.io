@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-06**
+    - [python导入路径不同类id不同](2024/06/python3_same_class_different_import_path_class_id_not_same.md)
     - [暗黑4评测](/2024/06/diablo4_review.md)
     - [做市商对冲](/2024/06/market_maker_hedge.md)
     - [NFT价格预言机](/2024/06/nft_price_oracle.md)
