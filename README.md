@@ -1,7 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-06**
-    - [MEV](/2024/06/mev.md)
+    - [用clear别用=[]](/2024/06/python_use_clear.md)
+    - [foundry部署合约](/2024/06/foundry_deploy_on_local_network.md)
     - [eth节点部署](/2024/06/deploy_eth.md)
     - [python导入路径不同类id不同](2024/06/python3_same_class_different_import_path_class_id_not_same.md)
     - [暗黑4评测](/2024/06/diablo4_review.md)

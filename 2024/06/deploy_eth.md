@@ -354,5 +354,6 @@ btc orphan blocks类似eth uncles也是因为最长链原则或数据竞争导�
 - execution_client: reth(包含revm?)
 - consensus_client: lighthouse
 - rpc/api_sdk: https://github.com/alloy-rs/alloy
+- foundry: 类似remix
 
 另外经典的mev(solidity)实现: https://github.com/libevm/subway
