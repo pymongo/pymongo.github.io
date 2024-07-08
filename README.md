@@ -1,9 +1,10 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-07**
-    - [Rust调用sui合约](/2024/07/sui_todo_list_example.md)
+    - [Rust调用sui合约](/2024/07/rust_call_sui_contract_function.md)
 - **2024-06**
     - [用clear别用=[]](/2024/06/python_use_clear.md)
+    - [私钥不能推出助记词](/2024/06/can_not_get_mnemoic_from_private_key.md)
     - [foundry部署合约](/2024/06/foundry_deploy_on_local_network.md)
     - [eth节点部署](/2024/06/deploy_eth.md)
     - [python导入路径不同类id不同](2024/06/python3_same_class_different_import_path_class_id_not_same.md)
