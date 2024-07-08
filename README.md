@@ -1,5 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
+- **2024-07**
+    - [Rust调用sui合约](/2024/07/sui_todo_list_example.md)
 - **2024-06**
     - [用clear别用=[]](/2024/06/python_use_clear.md)
     - [foundry部署合约](/2024/06/foundry_deploy_on_local_network.md)
