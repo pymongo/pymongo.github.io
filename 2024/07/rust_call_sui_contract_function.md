@@ -10,7 +10,7 @@ sui client ptb \
   --move-call $PACKAGE_ID::todo_list::new \
   # 将new函数的返回值保存到list中
   --assign list \
-  # transfer 之后用 sui client objects 就能看到我拥有个 TodoList Object
+  # transfer 之后用 sui client objects --json 就能看到我拥有个 TodoList Object
   --transfer-objects "[list]" sender
 ```
 
@@ -32,6 +32,10 @@ sui client ptb 或者 call 都能调用合约，但 ptb 的功能更多点不仅
 
 最后区块浏览器查看 <https://suiscan.xyz/testnet/object/0x6d08e394bcc4dec6a8349f1ffb4e5630c0cd55df1ba9882cfe66dfa5b1f7d130>
 
+sui/sol/apt一样，数据存储需要支付押金 Storage Rebate <https://docs.sui.io/concepts/tokenomics/gas-pricing?ref=blog.sui.io#storage>
+
+可以类似sol销户那样退存储押金
+
 ## 背景知识
 
 ### struct SuiObjectData
@@ -50,6 +54,13 @@ sui client ptb 或者 call 都能调用合约，但 ptb 的功能更多点不仅
 例如我 todo_list object 修改了三次之后 digest 是 o#B1t1pVwpn8vQ9LDEeKT5HY6wA859rPHwuJwUGW1NcXyt
 
 理论上修改第四次的时候 digest 会变，果然变了 o#n9pBGbgV3fF2R2KDDWicVitys7PGvStQgYSizo4R5N9
+
+### tx commands
+- SplitCoins: 例如支付GAS
+- MoveCall: 调用智能合约函数
+- TransferObjects
+
+Transaction effects are the changes that a transaction makes to the blockchain state
 
 ### sign tx
 
@@ -118,9 +129,11 @@ let builder = ptb.finish();
 
 这个函数对应的 move 源码 以及 ABI
 
-```
+```move
+module todo_list::todo_list {
 // 因为sui有次升级为了方便前端tx调用合约函数，没有entry修饰的函数也可以rpc调用了
 public fun add(list: &mut TodoList, item: String) {
     list.items.push_back(item);
+}
 }
 ```
