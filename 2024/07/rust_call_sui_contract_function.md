@@ -40,7 +40,7 @@ sui/sol/apt一样，数据存储需要支付押金 Storage Rebate <https://docs.
 
 ### struct SuiObjectData
 
-<https://docs.sui.io/concepts/object-model>
+<https://docs.sui.io/concepts/object-model>, Object 类似于 aptos 的 Resource 和 solana 的 Account
 
 核心字段(组成 ObjectRef ):
 - object_id: u256
