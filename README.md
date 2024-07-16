@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-07**
+    - [solana-keygen](/2024/07/solana_keygen.md)
     - [aptos #[view]](/2024/07/aptos_view_functions.md)
     - [Rust调用aptos合约](/2024/07/rust_call_aptos_move_function.md)
     - [Rust调用sui合约](/2024/07/rust_call_sui_contract_function.md)
