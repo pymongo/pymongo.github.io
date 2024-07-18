@@ -40,6 +40,8 @@ Program Id                                   | Slot      | Authority            
 6jL67XKqEVWPBZEmMT8AuhTP4zJefpPs48BmV3JLxncR | 312032887 | 6YA5ZxLRNuYEg44xbkLPtgbu5dBQdEftcWS31kpyba4f | 0.1350588 SOL
 ```
 
+注意 program 的私钥在 target/deploy/greeting_account-keypair.json 换开发电脑的时候记得备份 program 私钥
+
 ## ts/rs调用合约
 
 代码参考 <https://github.com/pymongo/solana_client_example/blob/master/examples/invoke_program.rs>
@@ -52,11 +54,24 @@ Program Id                                   | Slot      | Authority            
 - APT/SUI 智能合约用 move 的 bcs 格式序列化
 - borsh/bcs都是固定长编码，跟bincode2,protobuf小整数用变长编码不一样
 
+其实solana源码还是挺多地方用了 bincode 的
+
 ## 合约销毁退租金
 
 同一个合约项目种重复deploy的话不会创建新的program_id
 
 > solana program close
+
+```
+Program Id                                   | Slot      | Authority                                    | Balance
+8xubajzX923ZXpUzbyTcXuxy9QcMbrUCosm4H6ZRtTtk | 312304419 | EsQczJECiL2QXYofUT9Cs9c6BuujdEYcmRnhuhUbFr4H | 0.33901464 SOL
+GmCUexGFRgPmqYzGjvRwaP5YKLzEE1dGj7NSCcxzfZ3E | 312453867 | EsQczJECiL2QXYofUT9Cs9c6BuujdEYcmRnhuhUbFr4H | 0.52615512 SOL
+DsdkMKakvJrRgZCGq3zmywyAUfG9mw1qfvPM1f7BLZh9 | 312455182 | EsQczJECiL2QXYofUT9Cs9c6BuujdEYcmRnhuhUbFr4H | 0.1350588 SOL
+
+root@lb1:~/solana_client_example# solana program close DsdkMKakvJrRgZCGq3zmywyAUfG9mw1qfvPM1f7BLZh9 --bypass-warning
+
+Closed Program Id DsdkMKakvJrRgZCGq3zmywyAUfG9mw1qfvPM1f7BLZh9, 0.1350588 SOL reclaimed
+```
 
 ## token acount租金
 
