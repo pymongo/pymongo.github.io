@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-07**
+    - [Uniswap ws订阅行情](/2024/07/uniswap_batch_rpc_ws_subscribe_price.md)
     - [pump.fun](/2024/07/pumpfun.md)
     - [SOL 数据租金](/2024/07/solana_rent_epoch.md)
     - [SOL合约部署调用](/2024/07/solana_deploy_invoke_program.md)
