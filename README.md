@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-07**
+    - [abigen](/2024/07/abigen.md)
     - [layer2 Gas Coin](/2024/07/layer2_gas_coin.md)
     - [PendingNonceAt](/2024/07/pending_nonce_at.md)
     - [Uniswap ws订阅行情](/2024/07/uniswap_batch_rpc_ws_subscribe_price.md)
