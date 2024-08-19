@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-08**
+    - [合约体验金能套利吗](/2024/08/perp_trial_fee.md)
     - [tenderly调试合约](/2024/08/tenderly_debug_solidity.md)
     - [options](/2024/08/options.md)
     - [白嫖项目方rpc](/2024/08/using_uniswap_rpc_url.md)
