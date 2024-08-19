@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-08**
+    - [SOL与wSOL转换](/2024/08/wrapped_solana_sync_native_instruction.md)
     - [合约体验金能套利吗](/2024/08/perp_trial_fee.md)
     - [tenderly调试合约](/2024/08/tenderly_debug_solidity.md)
     - [options](/2024/08/options.md)
