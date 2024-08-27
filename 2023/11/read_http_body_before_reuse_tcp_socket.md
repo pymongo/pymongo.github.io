@@ -14,7 +14,7 @@ fn main() {
 }
 ```
 
-同事说他用ureq包了一个 Python C extention module 库里面倒是可以复用连接，review完代码才发现原来差异是消费了body
+同事说他用ureq包了一个 Python C extension module 库里面倒是可以复用连接，review完代码才发现原来差异是消费了body
 
 同事说 Go 标准库 http.Client 跟 ureq 类似必须显示消费完 body 才能继续复用这个 socket 连接
 

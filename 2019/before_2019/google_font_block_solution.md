@@ -61,10 +61,10 @@ vue中文版文档直接把英文版的谷歌字体请求部分给【注释掉�
 vue中文版把需要用到的字体提前放在自己服务器上的, 参考[vue中文文档的github项目](https://github.com/vuejs/cn.vuejs.org/tree/master/themes/vue/source/fonts)
 
 ```html
-/* 这是styl文件 */
+/* 这是style文件 */
 @font-face
-    font-family: "Source Sans Pro" /* styl这里没有分号 */
+    font-family: "Source Sans Pro" /* style这里没有分号 */
     src: local("Source Sans Pro"), url(/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf)
 ```
 
-我很好奇styl文件编译成css后, 把字体等静态文件资源路径给改变了
+我很好奇style文件编译成css后, 把字体等静态文件资源路径给改变了

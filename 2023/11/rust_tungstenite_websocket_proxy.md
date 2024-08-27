@@ -4,7 +4,7 @@
 
 朋友说python websocket-client开代理很简单就一个配置完事，怎么到了 Rust 这边最火的 ws 库 tungstenite 既不能开代理也不能开 permessage-deflate 压缩像个原始人一样
 
-目前就 ws-tool, ws-rs 支持消息压缩，但没有一个库支持 proxy 可能是被类型体操限制了，那我就拿 tung 试试看
+目前就 ws-tool, ws-rs 支持消息压缩，但没有一个库支持 proxy 可能是被类型体操限制了，那我就拿 tungstenite 试试看
 
 ```rust
 let ws_uri = url::Url::parse("wss://fstream.binance.com/stream?streams=!bookTicker").unwrap();
@@ -57,7 +57,7 @@ let (mut websocket, response) = match client(req, tls_stream) {
 
 没办法只好从 tung 抄一个版本 tung="0.20.1", rustls="0.21.9", webpki-roots="0.25.2"
 
-再看 ws-tool 作者的 tung proxy patch `https://github.com/snapview/tungstenite-rs/issues/177` 就跟我的实现差不多了
+再看 ws-tool 作者的 patch `https://github.com/snapview/tungstenite-rs/issues/177` 就跟我的实现差不多了
 
 ---
 

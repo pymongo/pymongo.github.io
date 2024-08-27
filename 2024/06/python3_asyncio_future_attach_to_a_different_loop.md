@@ -13,7 +13,7 @@ task 里代码很简单就 `async with lock: asyncio.sleep` 就报错了
 asyncio这loop各种运行时报错类似于tokio runtime各种类似的运行时panic
 
 ```
-not runing in a tokio runtime
+not running in a tokio runtime
 can't create runtime inside a runtime
 can't drop runtime...
 ```
@@ -27,6 +27,6 @@ python3 asyncio 遇到报错 Future attached to a different loop
 
 asyncio loop这各种运行时报错 让我联想到tokio runtime也是类似的运行时panic
 
-not runing in a tokio runtime
+not running in a tokio runtime
 can't create runtime inside a runtime
 can't drop runtime...

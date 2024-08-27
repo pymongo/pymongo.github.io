@@ -105,10 +105,10 @@ public int[] twoSum(int[] nums, int target) {
 > (style:flat), label:untitled, iconVisibility:visible
 
 > [!WARNING]
-> This is a warnning alert!
+> This is a warning alert!
 
 > [!WARNING|style:flat]
-> (style:flat)This is a warnning alert!
+> (style:flat)This is a warning alert!
 
 > [!DANGER]
 > This is a danger alert!

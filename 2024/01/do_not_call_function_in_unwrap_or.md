@@ -1,4 +1,4 @@
-# [unwrap_or中不要调用函数](/2024/01/do_not_call_funtion_in_unwrap_or.md)
+# [unwrap_or中不要调用函数](/2024/01/do_not_call_function_in_unwrap_or.md)
 
 以前很费解为什么 clippy 老是建议有些 expect/unwrap_or 改成 unwrap_or_else
 

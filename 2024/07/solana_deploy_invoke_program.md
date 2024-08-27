@@ -73,7 +73,7 @@ root@lb1:~/solana_client_example# solana program close DsdkMKakvJrRgZCGq3zmywyAU
 Closed Program Id DsdkMKakvJrRgZCGq3zmywyAUfG9mw1qfvPM1f7BLZh9, 0.1350588 SOL reclaimed
 ```
 
-## token acount租金
+## token account租金
 
 USDC转账的时候，如果接收方没有开通过USDC账户，则发送方需要支付创建USDC账户的租金，如下图
 

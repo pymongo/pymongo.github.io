@@ -136,7 +136,7 @@ Bitcoin NVT Signal <https://www.wikibit.com/zh-cn/202305246314131425.html>
 
 ## 国产区块链代币生态
 - SOL: solana不是国产的，FTX是sol的最大投资人，FTX暴雷之后sol从最高200一直暴跌到50-60
-- GAS/NEO: 就是原来的小蚁币(ANC) NEO 网络 号称国产ETH
+- GAS/NEO: 就是原来的小蚁币 NEO 网络 号称国产ETH
 - TRX: 波场公链
 - DOT: Polkadot波卡跨链
 - CFX: 树图区块链公链白皮书上说是技术领先吞吐量大

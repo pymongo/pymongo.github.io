@@ -1,7 +1,10 @@
 [files]
 extend-exclude = [
     "/2020/05/pr_to_sqlx_document.md",
-    "/2021/07/beginning_linux_programming_2.md"
+    "/2021/07/beginning_linux_programming_2.md",
+    "/2023/11/rust_tungstenite_websocket_proxy.md",
+    "/2024/01/derivatives.md",
+    "/2024/06/order_imbalance_factor.md"
 ]
 
 [default.extend-words]

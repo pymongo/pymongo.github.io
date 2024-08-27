@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [正在读的书](/books.md)
 - **2024-08**
+    - [solana os trap](/2024/08/solana_and_move_parallel.md)
     - [SOL与wSOL转换](/2024/08/wrapped_solana_sync_native_instruction.md)
     - [合约体验金能套利吗](/2024/08/perp_trial_fee.md)
     - [tenderly调试合约](/2024/08/tenderly_debug_solidity.md)
@@ -71,7 +72,7 @@
     - [贷款证券化](/2024/01/mortgage_backed_securities.md)
     - [BTC现货ETF](/2024/01/bitcoin_spot_etf.md)
     - [部署gpt nextweb](/2024/01/deploy_chatgpt_next_web.md)
-    - [unwrap_or中不要调用函数](/2024/01/do_not_call_funtion_in_unwrap_or.md)
+    - [unwrap_or中不要调用函数](/2024/01/do_not_call_function_in_unwrap_or.md)
     - [derivatives](/2024/01/derivatives.md)
     - [滚仓/浮盈当保证金](/2024/01/reinvesting_unrealized_profits.md)
 - **2023-12**

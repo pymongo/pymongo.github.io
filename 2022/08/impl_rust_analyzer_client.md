@@ -171,7 +171,7 @@ lsp_server::Message::from(lsp_server::Request {
                 .unwrap(),
         ),
         // crates/rust-analyzer/src/bin/main.rs `fn run_server` config.update
-        // rust_analyzer::config::ConfigData sturct is private
+        // rust_analyzer::config::ConfigData struct is private
         initialization_options: Some(
             serde_json::to_value(&serde_json::json!({
                 "checkOnSave": {

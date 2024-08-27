@@ -8,10 +8,11 @@ However, Go does not support this kind of method overloading. In Go, the method 
 
 如果interface很长很多方法，可以用一下办法像rust/java生成impl
 
-vscode Go generate interface stubs
+vscode Go **generate interface stubs** (go impl)
 
 语法是 self(也就是Self自身的参数名) struct_name interface_name
 
+另一个常用的 vscode go 指令是清除 unused import **Organize imports**
 
 ## embedding/composite interface
 

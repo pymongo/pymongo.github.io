@@ -1,6 +1,6 @@
 # [去中心化交易所](/2023/11/decentralized_exchange.md)
 
-去中心化交易所没有KYC(Konw Your Customer)所以没有注册账号的概念，登录账号变成 connect wallet
+去中心化交易所没有KYC(Know Your Customer)所以没有注册账号的概念，登录账号变成 connect wallet
 
 看了下 uniswap/uniswap 都支持 metamask/imtoken 等主流eth钱包，考虑到imtoken只有手机端要扫码很不方便，我选择用metamask浏览器插件，metamask钱包账号由密码+助记词 组成
 

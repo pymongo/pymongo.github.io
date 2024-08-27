@@ -122,7 +122,7 @@ docker inspect 7e6229b8a41c | grep md -A18
 > admin.nodeInfo
 {
   enode: "enode://4e62f4038eb7c1292af7c1b608a201210afb81f11b1a7d1cc07d51120a7400930c75ac10be146bd4c77da2b2faa7a0c65feecac43565938096550841a95e92ce@127.0.0.1:30303?discport=0",
-  enr: "enr:-Jy4QB-WY96O_O-Bcu3-PXsPljKJgjIxciwipw1zNfFqGWnKUvP7F0rYCgv8eiYyVcJZhUBH2RWTqPiv883Ue8_6xK-GAZAw7SXlg2V0aMfGhPfMbZGAgmlkgnY0gmlwhH8AAAGJc2VjcDI1NmsxoQJOYvQDjrfBKSr3wbYIogEhCvuB8RsafRzAfVESCnQAk4RzbmFwwIN0Y3CCdl8",
+  enr: "enr:-Jy4QB-...",
   id: "a5f3e3921729be2b81a7696bc3c1bf338c5be9acd4a0a7426019ecd0011ca7cd",
   ip: "127.0.0.1",
   listenAddr: "[::]:30303",
