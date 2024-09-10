@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 <!-- - [正在读的书](/books.md) -->
 - **2024-09**
+    - [Defi 二池](/2024/09/defi_2_pool.md)
     - [Re-fi 生态](/2024/09/regenerative_finance.md)
 - **2024-08**
     - [三盘理论笔记](/2024/08/pool_schema.md)
