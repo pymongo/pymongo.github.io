@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 <!-- - [正在读的书](/books.md) -->
 - **2024-09**
+    - [UniswapV2部署加流动性](/2024/09/uniswapv2_add_liquidity.md)
     - [MPC/多签/门限算法区别](/2024/09/mpc_multisig_threshold.md)
     - [强/弱/去共识](/2024/09/weak_consensus.md)
     - [Defi 二池](/2024/09/defi_2_pool.md)
