@@ -1,6 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 <!-- - [正在读的书](/books.md) -->
 - **2024-09**
+    - [跳转到ts函数的js实现](/2024/09/ts_go_to_js_define.md)
+    - [BTC RGB](/2024/09/rgb_protocol.md)
     - [UniswapV2部署加流动性](/2024/09/uniswapv2_add_liquidity.md)
     - [MPC/多签/门限算法区别](/2024/09/mpc_multisig_threshold.md)
     - [强/弱/去共识](/2024/09/weak_consensus.md)
@@ -600,7 +602,7 @@
     - [Add Default Constraint](/2019/11/add-default-constraint.md)
     - [grape接口服务器](/2019/11/grape.md)
     - [提高百万行记录count的速度](2019/11/millions-count.md)
-    - [测量数据库查询时间](/2019/11/measure-qurey-time.md)
+    - [测量数据库查询耗时](/2019/11/measure-query-time.md)
     - [model数据验证与消息闪现(flash)](/2019/11/validates.md)
     - [admin项目的配置与工作](/2019/11/project-admin.md)
     - [初始化base-api遇到的各种报错](/2019/11/base-api-error.md)
