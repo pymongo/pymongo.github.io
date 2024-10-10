@@ -1,5 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 <!-- - [正在读的书](/books.md) -->
+- **2024-10**
+    - [sui USDCarb无流动性](/2024/10/sui_usdcarb_no_liquidity.md)
 - **2024-09**
     - [跳转到ts函数的js实现](/2024/09/ts_go_to_js_define.md)
     - [BTC RGB](/2024/09/rgb_protocol.md)
