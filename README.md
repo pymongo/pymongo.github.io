@@ -1,6 +1,7 @@
 - [文章列表 - 吴翱翔的博客](/)
 <!-- - [正在读的书](/books.md) -->
 - **2024-11**
+    - [aws EC2 部署FTP](/2024/11/aws_ec2_deploy_vsftpd.md)
     - [ts不代理DNS](/2024/11/ts_proxychain_dns_addrinfo.md)
 - **2024-10**
     - [LP portfolio](/2024/10/portfolio.md)
