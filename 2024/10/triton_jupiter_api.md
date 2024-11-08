@@ -1,3 +1,4 @@
+# [triton jupiter](/2024/10/triton_jupiter_api.md)
 
 苦于 jupiter 询价 API 太慢了难以捕获市场机会，斥资购买了 号称 solana 最贵最快的 rpc 提供商 triton
 

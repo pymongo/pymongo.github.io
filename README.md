@@ -1,7 +1,10 @@
 - [文章列表 - 吴翱翔的博客](/)
 <!-- - [正在读的书](/books.md) -->
 - **2024-11**
+    - [ts不代理DNS](/2024/11/ts_proxychain_dns_addrinfo.md)
 - **2024-10**
+    - [LP portfolio](/2024/10/portfolio.md)
+    - [triton jupiter](/2024/10/triton_jupiter_api.md)
     - [复盘CLMM做LP](/2024/10/clmm_lp_review.md)
     - [sui USDCarb无流动性](/2024/10/sui_usdcarb_no_liquidity.md)
 - **2024-09**
