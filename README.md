@@ -1,6 +1,9 @@
 - [文章列表 - 吴翱翔的博客](/)
 <!-- - [正在读的书](/books.md) -->
 - **2024-11**
+    - [复盘bybit爆仓](/2024/11/review_bybit_force_liquidation.md)
+    - [量化指标days of DD](/2024/11/days_of_dd.md)
+    - [量化指标APR/APY](/2024/11/apr_and_apy.md)
     - [aws EC2 部署FTP](/2024/11/aws_ec2_deploy_vsftpd.md)
     - [ts不代理DNS](/2024/11/ts_proxychain_dns_addrinfo.md)
 - **2024-10**
