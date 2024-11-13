@@ -1,6 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
+- [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
 - **2024-11**
+    - [币安公告ACT套利](/2024/11/binance_announcement_act.md)
     - [复盘bybit爆仓](/2024/11/review_bybit_force_liquidation.md)
     - [量化指标days of DD](/2024/11/days_of_dd.md)
     - [量化指标APR/APY](/2024/11/apr_and_apy.md)
