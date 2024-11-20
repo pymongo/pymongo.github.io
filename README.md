@@ -2,6 +2,8 @@
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
 - **2024-11**
+    - [优先费与快速上链](/2024/11/solana_priority_fee.md)
+    - [aws弹性IP](/2024/11/aws_elastic_ip.md)
     - [币安公告ACT套利](/2024/11/binance_announcement_act.md)
     - [复盘bybit爆仓](/2024/11/review_bybit_force_liquidation.md)
     - [量化指标days of DD](/2024/11/days_of_dd.md)
@@ -365,7 +367,7 @@
     - [scp 报错 file busy](/2022/03/errno_26_text_file_busy.md)
     - [jupyter add kernel](/2022/03/jupyter_add_kernel.md)
     - [解析可能为空的 json](/2022/03/serde_empty_object.md)
-    - [serde 字段继承/共用](/2022/03/serde_flattern.md)
+    - [serde 字段继承/共用](/2022/03/serde_flatten.md)
     - [检查 json 重复/多余字段](/2022/03/serde_deny_unknown_fields.md)
     - [依赖用 git ssh 链接](/2022/03/cargo_dep_git_ssh.md)
     - [Rust 中止线程](/2022/03/pthread_cancel.md)

@@ -1,6 +1,6 @@
-# [serde 字段继承/共用](/2022/03/serde_flattern.md)
+# [serde 字段继承/共用](/2022/03/serde_flatten.md)
 
-刚学会 serde(flattern) 可以实现字段"继承"或共用的效果，
+刚学会 serde(flatten) 可以实现字段"继承"或共用的效果，
 例如右图 jupyter 执行结果的 json 中，
 执行成功返回 4 个字段，执行失败时会在 4 个字段的基础上额外返回例如 traceback 字段
 

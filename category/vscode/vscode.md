@@ -94,10 +94,10 @@ Input:  `<h1>Title</h1>`
 
 Output: `# Title`
 
-Regax: `<h1>(.+?)<\/h1>`
+Regex: `<h1>(.+?)<\/h1>`
 
 Replace: `# $1`
 
 将html的<h1>标签转为markdown的一个井号的一级标题写法: [stackoverflow](https://stackoverflow.com/questions/43577528/visual-studio-code-search-and-replace-with-regular-expressions) 
 
-![01-regax-replace](vscode_regax_replace.gif "01-regax-replace")
+![](vscode_regex_replace.gif)

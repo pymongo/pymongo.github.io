@@ -7,8 +7,8 @@
 1. 机构申请
 2. 白名单用户在sui usdc合约mint，一比一铸造，burn虫洞eth的usdc
 3. swap
-4. (comming soon)Cross-Chain Transfer Protocol
-5. (comming soon)coinbase/binance withdraw
+4. (coming soon)Cross-Chain Transfer Protocol
+5. (coming soon)coinbase/binance withdraw
 
 241009 sui价格1.96左右 赎回放贷的资金在cetus上组LP 447SUI+556USDC
 
@@ -32,7 +32,7 @@ LP一下午赚了3u 想添加第二个流动性报错，以为一个交易对只
 - AddLiquidity: 3369SUI+3323USDC (9700$) EoAuje3YsyQcUPDnDBkRHb6Vkn4SH5zPijDpP2EgD5tm
 - RemLiquidity: 5164SUI (9360$) 6saFXkfkJJdzHSei6pbyj6VuxNZXBpQ11se8xzXazdSh
 
-![](CLMM_dump_otu_of_tick_fully_impermanent_loss_to_base.png)
+![](CLMM_dump_out_of_tick_fully_impermanent_loss_to_base.png)
 
 不甘心啊，眼看 sui hippo 下午上 kucoin 调研了下 十一期间其实已经上了 mexc 和 coinex
 
