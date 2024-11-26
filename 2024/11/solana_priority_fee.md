@@ -158,6 +158,8 @@ swqos节点基本是被triton,helius这样的大户厂商垄断了，quicknode�
 
 由于triton服务不对外公开销售了，所以也就只能用helius付费的staked connection rpc消耗的额度是普通rpc的50倍
 
+nextblock.io 有 Dedicated SWQoS 服务看上去比 helius staked-connection 好
+
 ## 如何确认交易成功/交易重试
 
 由于solana网络拥堵时，发出去的交易可能被rpc节点丢弃没有发成功给leader节点了，或者等很久很久才上链，因此重试策略推荐阅读 triton 这篇文章 <https://docs.triton.one/chains/solana/sending-txs>
