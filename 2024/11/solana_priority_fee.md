@@ -4,19 +4,21 @@
 
 ---
 
-判断SOL网络拥堵的指标, SOL 域名解析商 sns.id 网页上右上角基本都是显示 `Congested network`, 从 solscan 等区块浏览器上看 sol TPS 普遍都有 4000+ 但 true TPS 真正属于用户交易的其实就只有几百 TPS，其余的 TPS 都是网络共识层投票等。
+可否量化SOL网络拥堵的指标区调整优先费提高上链速度呢？判断SOL网络拥堵的指标, SOL 域名解析商 sns.id 网页上右上角显示 `Congested network`, 从区块浏览器上看TPS 普遍都有 4000+ 但 true TPS 真正属于用户交易的其实就只有几百 TPS，其余的 TPS 都是网络共识层投票等。
 
 网络拥堵时，交易员/开发者/套利者等发出去的交易常常等很久都不上链，也听space上开发者抱怨交易很难上链或者优先费用卷的很高，如何利用**优先费用(priority fee)**或者**jito小费(jito tips)**机制提高交易成功率和上链速度呢?
 
 ## 优先费用机制
 
 1. 交易带 SetComputeUnitPrice 指令才启用 优先费机制
-2. 交易带 SetComputeUnitPrice 但没 SetComputeUnitLimit 指令 默认按 20万 ComputeUnitLimit/每条指令
+2. 交易带 SetComputeUnitPrice 但没 SetComputeUnitLimit 指令 默认按 **20万 ComputeUnitLimit/每条指令**
 3. 交易同时带 CU price/limit 两个指令(不管指令顺序)，不管交易成功或失败都收取 price*limit 的优先费用
 
 ComputeUnit往后简称为CU, [sol官方文档 how-to-use-priority-fees](https://solana.com/developers/guides/advanced/how-to-use-priority-fees) 中有个[规则2的示例交易(solscan)](https://solscan.io/tx/5scDyuiiEbLxjLUww3APE9X7i8LE3H63unzonUwMG7s2htpoAGG17sgRsNAhR1zVs6NQAnZeRVemVbkAct5myi17)
 
 文档说 `set the Compute Unit Limit to 300 CUs while also adding a priority fee of 20000 micro-lamports`
+
+> 应该是这篇文章里面的tx太旧了，是以前验证者节点代码，最新的agave源码中如果是内置指令没有加CUlimit也会自动设置成150, 第三方指令就20万
 
 实际上这个交易忘了设置 CU limit 变成默认的 20万 CU limit 每条指令(最新验证者节点这个交易CU limit应该自动是300 可能过于古老了) 所以收取了每笔交易基本费用，注意CU price单位是micro lamports要乘以1e-6转换成SOL_lamports per CU的量纲
 
@@ -69,7 +71,8 @@ CULimit越低的交易上链的优先级更大
 
 - transfer/SetCU: 150
 - 智能合约部署: 约2500-3000
-- token transfer: 5000(不需要开户时)
+- CloseAccount: 2916
+- token transfer: 4644(不需要开户时)
 - create ATA account(token开户): 约30000
 - raydium AMM swap: 约33000-40000
 - jupiter swap: 约100000-400000
@@ -106,13 +109,20 @@ jito的出现就解决了这个问题，jito的交易不需要设置优先费用
 
 所以发送给jito的交易失败发生回滚的话，最后一条小费指令不会执行，也就损失5000lamports的基础交易费用
 
-**bloXroute**好像是类似jito这样的产品，我没用过就不评价了
+### **bloXroute**加速上链服务
+
+很多bot的交易不直接发给jito，而是通过bloXroute转发给jito。因为bloXroute有一个super bundle的功能，能打包不冲突的交易，bundle的tip也给的高，所以比直接发jito速度更快。
+
+bloXroute也是jito最大的合作伙伴之一，在jito那里有很高的账户等级；tip给的高，只是快速上链的条件之一。其实还有其他一些基础设施上的配置，包括全球的节点布置，合作节点，网络拓扑优化等等
+
+据说主要是交易机器人和一些dex,做市商等采购 bloXroute 服务，我没用过就不评价了
 
 ## 什么时候用jito什么时候用优先费
 
 § 适用于jito加速交易的业务
 1. 套利交易
 2. 狙击pump/raydium等开盘
+3. 防夹
 3. 价格波动大的LP建仓
 4. 失败率高允许重试有希望快点上链的业务
 
@@ -120,6 +130,7 @@ jito的出现就解决了这个问题，jito的交易不需要设置优先费用
 
 § 适用于优先费用加速交易的业务
 1. memecoin swap交易
+2. 快点转账
 
 § 既不要jito也不要优先费的业务
 1. 转账(钱包软件基本不给优先费)
