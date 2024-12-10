@@ -109,6 +109,8 @@ jito的出现就解决了这个问题，jito的交易不需要设置优先费用
 
 所以发送给jito的交易失败发生回滚的话，最后一条小费指令不会执行，也就损失5000lamports的基础交易费用
 
+### jito的竞争者nextblock.io
+
 ### **bloXroute**加速上链服务
 
 很多bot的交易不直接发给jito，而是通过bloXroute转发给jito。因为bloXroute有一个super bundle的功能，能打包不冲突的交易，bundle的tip也给的高，所以比直接发jito速度更快。
@@ -145,7 +147,30 @@ bloXroute也是jito最大的合作伙伴之一，在jito那里有很高的账户
 
 由于SOL网络中当前epoch POS的leader顺序是确定的，也可以预测下个leader是jito的节点就给jito发交易，如果是helius/triton节点就用优先费给他们发
 
-~~还有一种思路nonceAccount同时签名**两个交易一个发jito一个发helius**，一个成功另一个自然因为nonce无效而失败~~
+可以用 <https://solanabeach.io/> 工具, 或者 rpc 方法 **getLeaderSchedule** 获取当前leader
+
+solanabeach工具可见大部分验证者都在欧洲法兰克福包括helius，美西美东也有一些(毕竟美国各大交易所不准KYC，幻影钱包和moonshot就是美国版币安)，东京很少
+
+jito/agave源码中 TPU 客户端发送交易，会查询当前leader节点
+
+```rust
+pub async fn try_send_write_transaction() {
+    let leaders = self
+        .leader_tpu_service
+        .unique_leader_tpu_sockets(self.fanout_slots)
+}
+```
+
+还有源码找下 `if is_leader_slot` 和 bench-tps crate
+
+### both/mixed广播方式
+jupiter/metaora 可以选both方式同时给jito和非jito发交易，具体怎么实现的？
+
+由于jito的bundle交易，捆绑5笔，只给一笔小费，或者给5笔小费都行
+
+我的理解是先签名一个带优先费用的交易同时发给jito和helius,发jito的多捆绑一个打小费的交易
+
+还有一种思路**nonceAccount**同时签名**两个交易一个发jito一个发helius**，一个成功另一个自然因为nonce无效而失败
 
 ## swqos机制加速上链
 

@@ -1,8 +1,10 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
+- **2024-12**
+    - [lifinity项目投研](/2024/12/lifinity.md)
 - **2024-11**
-    - [metaora亏钱经验](/2024/11/metaora.md)
+    - [metaora亏钱经验](/2024/11/meteora.md)
     - [ray为何一个月暴涨三倍](/2024/11/ray_tokenomics.md)
     - [黄石grpc服务商对比](/2024/11/yellowstone_grpc.md)
     - [优先费与快速上链](/2024/11/solana_priority_fee.md)
