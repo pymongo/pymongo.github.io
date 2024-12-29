@@ -2,6 +2,7 @@
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
 - **2024-12**
+    - [JLP接针策略](/2024/12/jlp.md)
     - [lifinity项目投研](/2024/12/lifinity.md)
 - **2024-11**
     - [metaora亏钱经验](/2024/11/meteora.md)

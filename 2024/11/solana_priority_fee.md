@@ -109,6 +109,8 @@ jito的出现就解决了这个问题，jito的交易不需要设置优先费用
 
 所以发送给jito的交易失败发生回滚的话，最后一条小费指令不会执行，也就损失5000lamports的基础交易费用
 
+24/12/16 jito auction 规则更新(现在跟优先费类似也看cuLimit了) tip-based prioritization to a tip-per-CU prioritization.
+
 ### jito的竞争者nextblock.io
 
 ### **bloXroute**加速上链服务
