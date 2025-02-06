@@ -12,7 +12,7 @@
 
 可能CLMM很多小白用户超区间或者区间挂的不好，没有LFNTY这样算法自动调仓资金利用率高
 
-我买了1SOL(220$)的LFNTY锁仓9天 到时候再看看收益如何
+我买了1SOL(220$)的LFNTY锁仓9天 结果收益是 0.018 USDC 有点低了
 
 此外LFNTY也开发了类似ratex的yield-trading平台sandglass
 

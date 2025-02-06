@@ -1,10 +1,14 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
-- **2024-12**
+- **25-02**
+- **25-01**
+    - [bybit u卡](/2025/01/bybit_u_card.md)
+- **24-12**
+    - [hJLP vault](/2024/12/hjlp.md)
     - [JLP接针策略](/2024/12/jlp.md)
     - [lifinity项目投研](/2024/12/lifinity.md)
-- **2024-11**
+- **24-11**
     - [metaora亏钱经验](/2024/11/meteora.md)
     - [ray为何一个月暴涨三倍](/2024/11/ray_tokenomics.md)
     - [黄石grpc服务商对比](/2024/11/yellowstone_grpc.md)
@@ -16,12 +20,12 @@
     - [量化指标APR/APY](/2024/11/apr_and_apy.md)
     - [aws EC2 部署FTP](/2024/11/aws_ec2_deploy_vsftpd.md)
     - [ts不代理DNS](/2024/11/ts_proxychain_dns_addrinfo.md)
-- **2024-10**
+- **24-10**
     - [LP portfolio](/2024/10/portfolio.md)
     - [triton jupiter](/2024/10/triton_jupiter_api.md)
     - [复盘CLMM做LP](/2024/10/clmm_lp_review.md)
     - [sui USDCarb无流动性](/2024/10/sui_usdcarb_no_liquidity.md)
-- **2024-09**
+- **24-09**
     - [跳转到ts函数的js实现](/2024/09/ts_go_to_js_define.md)
     - [BTC RGB](/2024/09/rgb_protocol.md)
     - [UniswapV2部署加流动性](/2024/09/uniswapv2_add_liquidity.md)
@@ -29,7 +33,7 @@
     - [强/弱/去共识](/2024/09/weak_consensus.md)
     - [Defi 二池](/2024/09/defi_2_pool.md)
     - [Re-fi 生态](/2024/09/regenerative_finance.md)
-- **2024-08**
+- **24-08**
     - [三盘理论笔记](/2024/08/pool_schema.md)
     - [map并发读写panic](/2024/08/fatal_concurrent_map_read_and_map_write.md)
     - [solana os trap](/2024/08/solana_and_move_parallel.md)
@@ -40,7 +44,7 @@
     - [白嫖项目方rpc](/2024/08/using_uniswap_rpc_url.md)
     - [息差套利](/2024/08/carry_trade.md)
     - [pendle利率掉期](/2024/08/interest_rate_swaps.md)
-- **2024-07**
+- **24-07**
     - [abigen](/2024/07/abigen.md)
     - [layer2 Gas Coin](/2024/07/layer2_gas_coin.md)
     - [PendingNonceAt](/2024/07/pending_nonce_at.md)
@@ -52,7 +56,7 @@
     - [aptos #[view]](/2024/07/aptos_view_functions.md)
     - [Rust调用aptos合约](/2024/07/rust_call_aptos_move_function.md)
     - [Rust调用sui合约](/2024/07/rust_call_sui_contract_function.md)
-- **2024-06**
+- **24-06**
     - [用clear别用=[]](/2024/06/python_use_clear.md)
     - [私钥不能推出助记词](/2024/06/can_not_get_mnemoic_from_private_key.md)
     - [foundry部署合约](/2024/06/foundry_deploy_on_local_network.md)
@@ -65,18 +69,18 @@
     - [订单不平衡因子过拟合](/2024/06/order_imbalance_factor.md)
     - [DEX土狗战法](/2024/06/dex_and_meme_coin.md)
     - [asyncio diff loop](/2024/06/python3_asyncio_future_attach_to_a_different_loop.md)
-- **2024-05**
+- **24-05**
     - [安卓6 VPN方式抓包](/2024/05/android6_http_capture.md)
     - [rustover remote](/2024/05/jetbrains_gateway_rustover.md)
     - [第一次rustc提PR](/2024/05/rustc_pr_125004.md)
     - [tokio无零容量channel](/2024/05/tokio_no_unbuffered_channel.md)
     - [bincode2改动](/2024/05/bincode2_review.md)
-- **2024-04**
+- **24-04**
     - [aws T系列积分机制](/2024/04/aws_t2_nano_cpu_credit.md)
     - [fxhash一致性哈希更均匀?](/2024/04/rustc_hash_more_uniform_distribution_in_consistent_hashing.md)
     - [ahash rustc性能对比](/2024/04/ahash_vs_rustc_hash.md)
     - [主板CPU_FAN接口](/2024/04/motherboard_cpu_fan_cpu_opt.md)
-- **2024-03**
+- **24-03**
     - [ETH两种l2实现](/2024/03/eth_layer2.md)
     - [crypto洗钱与投机](/2024/03/crypto_money_laundering_and_speculating.md)
     - [Go generate interface](/2024/03/go_vscode_generate_impl_stubs.md)
@@ -87,13 +91,13 @@
     - [币安神盾出金](/2024/03/binance_shield.md)
     - [我的传销母亲](/2024/03/my_multi_level_marketing_mother.md)
     - [const Decimal](/2024/03/rust_decimal_const.md)
-- **2024-02**
+- **24-02**
     - [tokio interval问题](/2024/02/tokio_time_interval_problem.md)
     - [链游也能上steam?](/2024/02/web3_gamefi_launch_on_steam_or_google_play.md)
     - [gashero装备寿命经济系统](/2024/02/gashero_economy.md)
     - [ETC投资复盘](/2024/02/etc_investmen_review.md)
     - [做市商PFOF模式](/2024/02/market_maker_payment_for_order_flow.md)
-- **2024-01**
+- **24-01**
     - [A股的手续费](/2024/01/shanghai_stock_exchange_a_shares_fee.md)
     - [帕鲁NFT钓鱼网站复盘](/2024/01/palworld_nft_phishing_website.md)
     - [NFT运动鞋项目投研](/2024/01/gmt_token_nft_sneakers.md)
@@ -106,7 +110,7 @@
     - [unwrap_or中不要调用函数](/2024/01/do_not_call_function_in_unwrap_or.md)
     - [derivatives](/2024/01/derivatives.md)
     - [滚仓/浮盈当保证金](/2024/01/reinvesting_unrealized_profits.md)
-- **2023-12**
+- **23-12**
     - [.wslconfig 设内存](/2023/12/wslconfig.md)
     - [不能tokio join多个锁](/2023/12/tokio_join_dead_lock.md)
     - [mv解决Text file busy](/2023/12/mv_solve_text_file_busy.md)
@@ -118,7 +122,7 @@
     - [BTC 铭文问题](/2023/12/bitcoin_inscriptions_problem_ordi.md)
     - [enum_dispatch与缓存命中](/2023/12/enum_dispatch.md)
     - [systemctl --failed](/2023/12/systemctl_failed.md)
-- **2023-11**
+- **23-11**
     - [去中心化交易所](/2023/11/decentralized_exchange.md)
     - [Rust WS 代理与压缩](/2023/11/rust_tungstenite_websocket_proxy.md)
     - [金融量化书单](/2023/11/book_list_of_quantitative.md)
@@ -127,7 +131,7 @@
     - [缓存问题](/2023/11/csapp_and_os_is_cache_problem.md)
     - [为什么TLS不能split](/2023/11/why_tls_can_not_split.md)
     - [不读完body就无法复用连接](/2023/11/read_http_body_before_reuse_tcp_socket.md)
-- **2023-10**
+- **23-10**
     - [泊松分布](/2023/10/poisson_distribution.md)
     - [win11 初始化和设置](/2023/10/win11_settings.md)
     - [量化笔记](/2023/10/quantitative_trading_notes.md)
@@ -136,7 +140,7 @@
     - [128g 内存够办公么](/2023/10/use_128g_memory_for_work.md)
     - [游戏灰产的金融学](/2023/10/game_grey_market_bot_hacker.md)
     - [沙雕动画的商业模式](/2023/10/shadiao_animation_business_model.md)
-- **2023-09**
+- **23-09**
     - [重新思考 try/Result](/2023/09/rethink_of_try_catch_and_result.md)
     - [web3 与量化](/2023/09/web3_and_quantitative_trading.md)
     - [-fsanitize 检查越界](/2023/09/gcc_fsanitize_detect_index_out_of_range_error.md)
@@ -146,7 +150,7 @@
     - [sloppy counter](/2023/09/sloppy_counter.md)
     - [tokio ScheduledIo panic](/2023/09/tokio_scheduled_io_panic.md)
     - [冯/哈佛架构混合?](/2023/09/von_neumann_and_harward_architecture.md)
-- **2023-08**
+- **23-08**
     - [OSTEP 笔记](/2023/08/ostep_note.md)
     - [CPU 太旧导致 SIGILL](/2023/08/avx512_no_support_cause_sigill.md)
     - [sdcv 命令行离线词典](/2023/08/sdcv_dict_cli.md)
@@ -179,7 +183,7 @@
     - [learningOS](/2023/08/learning_os.md)
     - [strdup 记得 free](/2023/08/strdup_require_free.md)
     - [Vec 动态扩容悬垂裸指针](/2023/08/vec_push_mem_addr_change_cause_ffi_fail.md)
-- **2023-07**
+- **23-07**
     - [Atomic Lock 读书笔记](/2023/07/rust_atomic_and_lock.md)
     - [Mutex 源码实现](/2023/07/mutex_source_code_and_impl.md)
     - [线程优先级反转/继承](/2023/07/task_priority_inversion_and_priority.md)
@@ -205,7 +209,7 @@
     - [switch downcast interface](/2023/07/golang_switch_downcast_interface.md)
     - [Go map 遍历每次随机](/2023/07/python_and_go_both_randomization_in_dict.md)
     - [Rust 实现 tail -f](/2023/07/impl_tail_follow_in_rust.md)
-- **2023-06**
+- **23-06**
     - [grpc unimpl 报错原因](/2023/06/grpc_unimpl_error_reason.md)
     - [节点亲和](/2023/06/kubernetes_node_affinity.md)
     - [慎用 svc 的 externalIp](/2023/06/kubernetes_svc_node_port_external_ip.md)
@@ -214,17 +218,17 @@
     - [memrise 学日语](/2023/06/learn_japanese_by_memrise_app.md)
     - [饱和潜水](/2023/06/saturation_diving.md)
     - [sqlx schema bug](/2023/06/sqlx_sqlite_schema_bug.md)
-- **2023-05**
+- **23-05**
     - [北京后花园游记](/2023/05/beijing_back_yard_tour.md)
     - [火炬之光无限](/2023/05/torchlight_infinite_review.md)
     - [变速自行车档位](/2023/05/7_speed_bike_gear_adjustment.md)
     - [技术成长!=well-being](/2023/05/well_being.md)
     - [明十三陵骑行](/2023/05/bike_tour_to_mings_tombs.md)
     - [serde alias](/2023/05/serde_alias.md)
-- **2023-04**
+- **23-04**
     - [Chain Exception](/2023/04/python_chain_nested_exception.md)
     - [Arc 计数溢出处理](/2023/04/how_arc_handle_ref_count_overflow.md)
-- **2023-03**
+- **23-03**
     - [futures select_all](/2023/03/futures_select_all.md)
     - [memcpy 重叠问题](/2023/03/memcpy_memmove_std_ptr_copy_nonoverlapping.md)
     - [serde_json::RawValue](/2023/03/serde_json_raw_value.md)
@@ -233,7 +237,7 @@
     - [ubuntu change kernel](/2023/03/ubuntu_change_kernel_version.md)
     - [split cmd with space](/2023/03/shlex.split-cmd_args_with_space.md)
     - [mac 文件系统不区分大小写](/2023/03/macos_file_system_case_insensitive.md)
-- **2023-02**
+- **23-02**
     - [FutureExt::left_future()](/2023/02/expected_async_block_found_a_different_async_block.md)
     - [reqwest 转为逐行流](/2023/02/reqwest_body_stream_to_tokio_buf_reader.md)
     - [bridge tokio stream](/2023/02/bridge_file_stream_to_http_stream.md)
@@ -243,33 +247,33 @@
     - [sklearn 最小二乘/解方程](/2023/02/sklearn_regression_least_squares.md)
     - [ChatGPT signup](/2023/02/chatgpt_signup.md)
     - [top find thread](/2023/02/top_find_subprocess_or_thread_high_cpu.md)
-- **2023-01**
+- **23-01**
     - [sudo 丢环境变量](/2023/01/sudo_lose_env_var.md)
     - [curl measure DNS latency](/2023/01/curl_measure_dns_resolve_time.md)
     - [grafana query cpu usage](/2023/01/grafana_query_inspect_prometheus_pod_cpu_usage.md)
-- **2022-12**
+- **22-12**
     - [ipython 画图原理](/2022/12/how_ipython_plot_matplotlib.md)
     - [流放之路赌博般的做装](/2022/12/poe_crafting_is_gambling.md)
     - [numactl](/2022/12/numactl_lstopo.md)
-- **2022-11**
+- **22-11**
     - [POE 魔力保留机制](/2022/11/poe_aura_mana_reservation_mechanism.md)
     - [python UnicodeDecodeError](/2022/11/python_unicode_decode_error.md)
     - [compare cpu/gpu](/2022/11/cpu_gpu_benchmark.md)
     - [scoop proxy](/2022/11/scoop_connect_proxy_fail.md)
     - [windows sshd](/2022/11/windows_start_sshd.md)
     - [解决 mold 源码编译报错](/2022/11/mold_compile_fail_include_span_not_found.md)
-- **2022-10**
+- **22-10**
     - [helm install](/2022/10/helm_install_volcano.md)
     - [pip 包多版本管理](/2022/10/pip_install_same_package_multi_version.md)
     - [when ser json fail](/2022/10/when_serde_json_ser_error.md)
     - [/dev/kvm](/2022/10/dev_kvm_not_found.md)
     - [redis 硬盘满的报错](/2022/10/redis_disk_full.md)
-- **2022-09**
+- **22-09**
     - [browser Service Worker](/2022/09/browser_service_worker_api.md)
     - [币圈夹子机器人](/2022/09/block_chain_robot.md)
     - [凤凰架构笔记](/2022/09/icyfenix_notes.md)
     - [stream::unfold rsp](/2022/09/process_command_to_http_stream.md)
-- **2022-08**
+- **22-08**
     - [暗黑3 自动脚本](/2022/08/diablo3_ros_bot.md)
     - [win11 安装和配置](/2022/08/windows11_install_or_config.md)
     - [日志收集 ELK/EFK](/2022/08/log_collect_elk_efk_and_loki.md)
@@ -292,7 +296,7 @@
     - [选用下载量最高的库](/2022/08/crate_sort_by_downloads.md)
     - [燕飞五点支撑](/2022/08/waist_fitness.md)
     - [docker build curl err](/2022/08/docker_build_curl_getaddrinfo_err.md)
-- **2022-07**
+- **22-07**
     - [docker cp pid root](/2022/07/proc_pid_root_docker_cp.md)
     - [K8s probe](/2022/07/k8s_probe.md)
     - [docker system df](/2022/07/docker_system_df.md)
@@ -317,7 +321,7 @@
     - [K8s template hash](/2022/07/k8s_pod_template_hash.md)
     - [docker --progress=plain](/2022/07/docker_build_progress_plain.md)
     - [docker illegal instr](/2022/07/docker_container_core_dumped_illegal_instruction.md)
-- **2022-06**
+- **22-06**
     - [arch pip TypeError](/2022/06/arch_pip_fail_after_system_upgrade.md)
     - [/bin/timeout](/2022/06/bin_timeout.md)
     - [multi user share cargo](/2022/06/multi_user_same_uid_share_cargo_home.md)
@@ -332,7 +336,7 @@
     - [tencent meeting linux](/2022/06/tencent_meeting_linux_client.md)
     - [into_raw_fd](/2022/06/into_raw_fd.md)
     - [colab](/2022/06/colab.md)
-- **2022-05**
+- **22-05**
     - [dmesg /dev/kmsg](/2022/05/dmesg_dev_kmsg.md)
     - [S_IRUSR err on M1](/2022/05/libc_open_error_on_mac_m1.md)
     - [kubernetes iceberg](/2022/05/kubernetes_iceberg.md)
@@ -348,7 +352,7 @@
     - [kubectl top pod](/2022/05/kubectl_top_pod.md)
     - [synchronized wait](/2022/05/synchronized_process_wait.md)
     - [K8s redis NodePort](/2022/05/k8s_redis_service_node_port.md)
-- **2022-04**
+- **22-04**
     - [iftop iotop](/2022/04/iftop_iotop.md)
     - [libc::SIGERR](/2022/04/signal_sig_err.md)
     - [ipc json "粘包"](/2022/04/stream_do_not_read_to_end.md)
@@ -360,7 +364,7 @@
     - [alpine sh not found](/2022/04/alpine_sh_not_found.md)
     - [brk](/2022/04/brk.md)
     - [用时序图理解接口业务](/2022/04/uml_sequence_diagram.md)
-- **2022-03**
+- **22-03**
     - [wine 中文乱码](/2022/03/wine_chinese.md)
     - [docker scratch](/2022/03/docker_scratch.md)
     - [package file list](/2022/03/list_package_file.md)
@@ -381,7 +385,7 @@
     - [systemctl mask](/2022/03/systemd_mask.md)
     - [知识管理](/2022/03/knowledge_management.md)
     - [pactree](/2022/03/pacman_pactree.md)
-- **2022-02**
+- **22-02**
     - [22-02 学习计划](/2022/02/study_plan.md)
     - [OpenVPN client](/2022/02/openvpn_client.md)
     - [房租六千八的坑](/2022/02/rent_6800.md)
@@ -394,14 +398,14 @@
     - [BinaryHeap Hole](2022/02/binary_heap_hole.md)
     - [go interface cast](/2022/02/go_interface_type_cast.md)
     - [wordle](2022/02/wordle.md)
-- **2022-01**
+- **22-01**
     - [Dockerfile 尽量一个 RUN](2022/01/dockerfile_use_one_run.md)
     - [advertise_address](/2022/01/a_dvertise_address.md)
     - [etcd](2022/01/etcd.md)
     - [微服务 BFF 数据聚合](2022/01/micro_service_bff.md)
     - [Java JNI 学习笔记](/2022/01/jni.md)
     - [tikv notes](2022/01/tikv_notes.md)
-- **2021-12**
+- **21-12**
     - [gnome workspace switch](2021/12/gnome_workspace.md)
     - [MySQL concat_ws](2021/12/mysql_concat_ws.md)
     - [nproc 获取核心数](2021/12/nproc.md)
@@ -416,26 +420,26 @@
     - [curl -L follow redirect](2021/12/curl_redirect.md)
     - [docker - resolve host](2021/12/docker_could_not_resolve_host.md)
     - [/proc/swaps](2021/12/proc_swaps.md)
-- **2021-11**
+- **21-11**
     - [gpg encrypt file](2021/11/linux_gpg_encrypt_file.md)
     - [systemd env file](2021/11/systemd_environment_file.md)
     - [软链接引发的卡死问题](2021/11/symlink_metadata.md)
     - [rustc guide 读书笔记 1](2021/11/rustc_dev_guide_1.md)
     - [gio mime](2021/11/gio_mime_type.md)
-- **2021-10**
+- **21-10**
     - [LLVM dataflow visualization](2021/10/llvm_dataflow_visualization.md)
     - [clean-dns-bpf 使用体验](2021/10/clean_dns_bpf.md)
     - [基于编译器插件定制 clippy lint](2021/10/rustc_plugin_custom_lints.md)
-- **2021-09**
+- **21-09**
     - [database system 读书笔记 1](/2021/09/database_system_concept_1.md)
     - [archlinux 字典应用](category/archlinux/dictd.md)
-- **2021-08**
+- **21-08**
     - [tonic ipv6 bug](/2021/08/tonic_ipv6_bug.md)
     - [rustyline add cursor shortcuts](/2021/08/rustyline_add_cursor_shortcuts.md)
     - [nebula graph](/2021/08/nebula_graph.md)
     - [wine 安装/更新钉钉](/category/archlinux/wine_dingtalk.md)
     - [高性能服务器读书笔记 4](2021/08/linux_high_performance_server_programming_4.md)
-- **2021-07**
+- **21-07**
     - [高性能服务器读书笔记 3](2021/07/linux_high_performance_server_programming_3.md)
     - [高性能服务器读书笔记 2](2021/07/linux_high_performance_server_programming_2.md)
     - [高性能服务器读书笔记 1](2021/07/linux_high_performance_server_programming_1.md)
@@ -451,14 +455,14 @@
     - [linux_desktop_notification](/2021/07/linux_desktop_notification.md)
     - [BLP 读书笔记 3](/2021/07/beginning_linux_programming_3.md)
     - [BLP 读书笔记 2](/2021/07/beginning_linux_programming_2.md)
-- **2021-06**
+- **21-06**
     - [BLP 读书笔记 1](/2021/06/beginning_linux_programming_1.md) 
     - [custom Rust lint](/2021/06/custom_rust_lint.md)
     - [glommio io_uring runtime](/2021/06/glommio_io_uring_runtime.md)
     - [ssh forward remote db](/2021/06/ssh_tunnel_forward_remote_db_port.md)
     - [mongodb dump](/2021/06/mongodb_dump.md)
     - [tensorbase](/2021/06/tensorbase.md)
-- **2021-05**
+- **21-05**
     - [Linux 屏幕共享/远程控制](/category/archlinux/linux_screen_share_remote_control.md)
     - [Nvidia CUDA](/2021/05/nvidia_cuda.md)
     - [amd 超频的尝试](/2021/05/amd_overclock.md)
@@ -466,7 +470,7 @@
     - [缓存解决动态规划难题](/2021/05/cache_and_recursion_memoization.md)
     - [clippy开启pedantic模式](/2021/05/clippy_pedantic.md)
     - [blanket implementations](/2021/05/blanket_implementations.md)
-- **2021-04**
+- **21-04**
     - [rust加快编译速度](/2021/04/rust_replace_ld_to_lld_speedup_linking.md)
     - [manjaro 更新内核](/category/archlinux/manjaro_update_kernel.md)
     - [禁用鼠标中键粘贴](/category/archlinux/copy_on_select_disable_middle_button.md)
@@ -479,32 +483,32 @@
     - [smarctl ssd lifespan](/2021/04/smartctl_ssd_lifespan.md)
     - [archlinux proxy](/category/archlinux/archlinux_proxy.md)
     - [logrotate和user service](/2021/04/logrotate_and_systemd_user_service.md)
-- **2021-03**
+- **21-03**
     - [no_std binary(static link)](/2021/03/statically_linked_executable.md)
     - [尝试用emacs配rust lsp](/2021/03/emacs_setup_rust.md)
     - [cling C++ repl](/2021/03/cling_cpp_repl.md)
     - [systemd API段错误](/2021/03/libsystemd_segfault.md)
     - [dataloader解决重复查询](/2021/03/dataloader.md)
-- **2021-02**
+- **21-02**
     - [戴尔2415输出4k@60](/2021/02/dell_p2415q_enable_hdmi2.md)
     - [manjaro kde config](/category/archlinux/manjaro_kde_config.md)
     - [安装 fcitx5 小鹤双拼](/category/archlinux/fcitx5_xiaohe_shuangpin.md)
     - [各平台小鹤双拼解决方案](/2021/02/xiaohe_scheme_solutions.md)
     - [刷欧版MIUI教程](/2021/02/miui_eu.md)
     - [leetcode用racket](/2021/02/leetcode_racket.md)
-- **2021-01**
+- **21-01**
     - [PR: sqlx sqlite编译时死循环](/2021/01/sqlx_sqlite_group_by_infinite_loop.md)
-- **2020-12**
+- **20-12**
     - [leetcode上Rust调用C函数](/2020/12/leetcode_rust_call_c_function.md)
     - [g++或cmake导入第三方库boost](/2020/12/c_compile_third_party_lib_boost.md)
-- **2020-11**
+- **20-11**
     - [diesel CRUD示例](/2020/11/diesel_crud.md)
     - [运维-tmux会话管理](/2020/11/tmux.md)
     - [systemd部署管理项目进程](/2020/11/systemd.md)
     <!-- - [Linux创建进程到进入Rust可执行文件的main函数的过程](/notes/linux/from_fork_exec_to_rust_main.md) -->
     - [Rust2018新增的mod文件夹写法](/2020/11/rust_2018_folder_module_mount.md)
     - [no_std中实现printf](/2020/11/impl_printf_in_no_std.md)
-- **2020-10**
+- **20-10**
     - [为什么异步要用轻量级线程](/notes/async/green_thread_and_coroutinue.md)
     - [Postgres协议解析器/client](/2020/10/pg_protocol.md)
     - [vscode配置Rust环境](/category/vscode/vscode_setup_rust.md)
@@ -512,7 +516,7 @@
     - [type constructor and mir](/2020/10/enum_type_constructor_mir.md)
     - [翻译RFC2000 const generic](/2020/10/rfc_const_generics.md)
     - [tide如何兼容tokio](/2020/10/tide_async_runtime.md)
-- **2020-09**
+- **20-09**
     - [Rust读配置文件的思考](/2020/09/rust_best_practise_load_config_file.md)
     - [Rust protobuf](/2020/09/protobuf.md)
     - [RwLock死锁导致sqlx卡死](/2020/09/rwlock_dead_lock_affect_sqlx.md)
@@ -522,31 +526,31 @@
     - [RefCell实现lazy_static](/2020/09/refcell_impl_lazy_static.md)
     - [Vue页面跳转时携带参数](/2020/09/vue_router_params.md)
     - [Rust通过dyn实现多态](/2020/09/rust_polymorphism.md)
-- **2020-08**
+- **20-08**
     - [Rust编译成安卓/IOS库](/2020/08/rust_to_android_ios_mac.md)
     - [通过N叉树最大深度一题复习C++](/2020/08/learn_cpp_by_leetcode.md)
     - [Rust读牛客网编程题stdin](/2020/08/newcoder_stdin.md)
     - [emacs初体验](/2020/08/emacs_first_attempt.md)
     - [直线方程与N皇后问题](/2020/08/n_queens.md)
-- **2020-07**
+- **20-07**
     - [async fn的展开写法](/2020/07/async_fn.md) <!-- [2020年7月近况分享](/2020/07/recent_study_plan.md) -->
     - [关键字搜索chrono获取昨天的API](/2020/07/how_to_search_chrono_yesterday_api.md)
     - [异步线程安全地操作redis](/2020/07/async_redis.md)
     - [thread has overflowed可能的原因](/2020/07/fix_thread_has_overflowed.md)
     - [Rust进程间通信](/2020/07/rust_ipc.md)
-- **2020-06**
+- **20-06**
     - [mac/Ubuntu上安装pyenv和pipenv](/2020/06/install_pyenv_and_pipenv.md)
     - [解决no field on type `&T`](/2020/06/generic_error_no_field_on_type_t.md)
     - [初窥Atomic无锁编程](/2020/06/atomic_lock_freedom.md)
     - [类型丰富语言](/2020/06/type_rich_language.md)
-- **2020-05**
+- **20-05**
     - [异步时死锁的解决办法](/2020/05/async_mutex_deadlock.md)
     - [sqlx教程](/2020/05/sqlx_tutorial.md)
     - [sqlx项目提PR修正文档](/2020/05/pr_to_sqlx_document.md)
     - [chrono不能连用两个local](/2020/05/rust_chrono_dual_local_ub.md)
     - [rust BigDecimal最佳实践](/2020/05/rust_bigdecimal.md)
     - [diesel给mysql加锁](/2020/05/diesel_mysql_lock.md)
-- **2020-04**
+- **20-04**
     - [Go语言学习](/2020/04/golang.md)
     - [chrome导出插件](/2020/04/chrome_export_extension.md)
     - [抄底BTC成功案例分析](/2020/04/case_study_buy_low_sell_high_on_btc.md)
@@ -560,7 +564,7 @@
     - [国产安卓机UI测试的坑](/2020/04/domestic_can_not_run_ui_test.md)
     - [底部导航栏页面切换的坑(socket)](/2020/04/navigation_lifecircle.md)
     - [Rust入门](/2020/04/first_time_learn_rust.md)
-- **2020-03**
+- **20-03**
     - [安卓搜索栏SearchView](/2020/03/search_view.md)
     - [parcelable页面间传递实例对象](/2020/03/parcelable_serializable.md)
     - [安卓每月小知识积累](/2020/03/monthly_android_note.md)
@@ -572,7 +576,7 @@
     - [spring官方集成测试Demo的错误](/2020/03/spring_integration_test_error.md)
     - [spring boot部署与体验](/2020/03/spring_boot_quickstart.md)
     - [安卓解决重命名包名后IDE报错的办法](/2020/03/android_rename_package.md)
-- **2020-02**
+- **20-02**
     - [recyclerView正确的渲染方法](/2020/02/recycler_view_inflate.md)
     - [魅族所有等级的日志输出](/2020/02/meizu_enable_debug_log_level.md)
     - [charles抓包笔记](/2020/02/charles.md)
@@ -580,7 +584,7 @@
     - [2020年2月英语积累](/2020/02/monthly_english.md)
     - [安卓虚拟机将App快捷方式添加到桌面](/2020/02/avd_add_app_shortcut_to_home.md)
     - [安卓WebSocket研究](/2020/02/android_websocket.md)
-- **2020-01**
+- **20-01**
     - [安卓读写SQLite数据库](/2020/01/android_sqlite.md)
     - [安卓笔记](/2020/01/android_notes.md)
     - [adb从手机中导出apk](/2020/01/adb_export_apk.md)
@@ -588,7 +592,7 @@
     - [Android底部导航栏](/2020/01/bottom_navigation.md)
     - [Java的volley网络请求库](/2020/01/volley.md)
     - [Android - ListView](/2020/01/list_view.md)
-- **2019-12**
+- **19-12**
     - [2019年下旬的codeReview总结](/2019/12/code_review.md)
     - [rspec只运行一个it/example/case](/2019/12/rspec_single_it.md)
     - [postman发送字符串+和发送文件的方法](/2019/12/postman_send_plus.md)
@@ -606,7 +610,7 @@
     - [测试mysql对emoji的测试](/2019/12/mysql_emoji.md)
     - [except数组内包含特定哈希](/2019/12/except_array_include_hash.md)
     - [构建接口测试样例数据](/2019/12/rspec_test_example.md)
-- **2019-11**
+- **19-11**
     - [返回CSV更友好的nil如果对象不存在](/2019/11/try_return_nil.md)
     - [禁用option/alt键的特殊符号](/2019/11/ukelele/disable_alt_symbol_ukelele.md)
     - [puma服务器生产环境与开发环境的区别](/2019/11/puma_production.md)
@@ -627,7 +631,7 @@
     - [model数据验证与消息闪现(flash)](/2019/11/validates.md)
     - [admin项目的配置与工作](/2019/11/project-admin.md)
     - [初始化base-api遇到的各种报错](/2019/11/base-api-error.md)
-- **2019-10**
+- **19-10**
     - [mac init(配置等)](/2019/10/mac_init.md)
     - [同时热重载(livereload)多个网页](/2019/10/multi_livereload.md)
     - [仿京东移动端网页中遇到的问题](/2019/10/jd_vue_problem.md)

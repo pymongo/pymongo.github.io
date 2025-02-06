@@ -4,7 +4,7 @@
 
 meteora是jup团队开发的CLMM defi平台，JUP首次IDO就在meteora首发，而且meteora跟jupiter用的是同一个triton/rpcpool的api_url(~~所以JUP亲儿子会不会在聚合器代码优先用meteora~~)
 
-meteora好处是是做LP零协议费用，相比之下uniswapV2要1/6，raydium好像是1/5
+meteora好处是是做LP零协议费用(其实是有的 dynamicFee这部分里面的5%是protocol fee协议费用)，相比之下uniswapV2要1/6，raydium好像是1/5
 
 也就是ray的LP手续费收益的一部分上交给RAY，当然有的池子会奖励RAY，RAY也会把协议费用的部分类似FTX一样回购自己股票，而cetus/dydx则是质押后获得协议费用(手续费)分红
 

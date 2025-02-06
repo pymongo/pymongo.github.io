@@ -20,9 +20,11 @@ etcher 写入时报错，etcher 推荐我使用另一个软件制作 windows 启
 
 ## 激活
 
-说实话 windows 激活方法很多，不需要装额外的工具，先禁用
+说实话 windows 激活方法很多，不需要装额外的工具，先禁用windows defender
 
-<https://zhuanlan.zhihu.com/p/555118529>
+<https://github.com/TGSAN/CMWTAT_Digital_Edition/issues/81>
+
+> irm https://massgrave.dev/get | iex
 
 ## 驱动
 
