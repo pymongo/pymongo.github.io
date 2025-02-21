@@ -10,4 +10,8 @@ drift vault 上面的 hJLP (In Kind) 是唯一一个能存JLP生息的
 
 24-12-29 当天 JLP=4.21,SOL=194,BTC=94902 基金持仓 209.42JLP(881.6$)
 
+---
+
 我今天再加仓 2006.7 个 JLP <https://solscan.io/tx/2ExpV7awVMtZy2UTSNLJ79dvS3VifMDXRsvULgkEyGzpJZhjcM7BVvCE6qvFBsspsQKqVXRF4YGrPGwp2qCQmz6n>
+
+25-01-07 赎回的时候就只剩 1,943.6 个 JLP(那几天赎回的人太多了变成跑得慢吃亏了) <https://solscan.io/tx/4xq4HKoYktbfxZzTZFNKGrEzCs8Y5Xxp51QZYkDHGZosMEU1yiEHM3HZYDg7xtfZ6zANK2FuXZr2cACHQixGuowk>

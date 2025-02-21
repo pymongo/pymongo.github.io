@@ -2,6 +2,7 @@
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
 - **25-02**
+    - [VPS单核性能测试](/2025/02/vps_single_core_benchmark.md)
     - [东莞深圳交通方案](/2025/02/dongguan_shenzhen_bus.md)
 - **25-01**
     - [bybit u卡](/2025/01/bybit_u_card.md)
