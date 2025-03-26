@@ -2,28 +2,35 @@
 
 > sysbench --test=cpu --cpu-max-prime=20000 run
 
-| CPU         | Events per Second | Avg Latency | P95 Latency | Compile Rust Analyzer | Note            |
-|-------------|-------------------|-------------|-------------|-----------------------|------------------|
-| 9950X      | 26545             | 0.38        | 0.38        | 40s                   |                  |
-| 9274F      | 18599             | 0.54        | 0.56        |                       |                  |
-| 13900H     | 17124             | 0.58        | 0.68        | 87s                   | my laptop        |
-| 9454P      | 17033             | 0.59        | 0.60        |                       |                  |
-| 9R14       | 16776             | 0.60        | 0.61        |                       | aws c7a         |
-| 7002       | 16443             | 0.61        | 0.62        |                       | hetzner x86      |
-| Neoverse-N1 | 12688             | 0.79        | 0.83        |                       | hetzner arm      |
-| 8488C      | 12446             | 0.80        | 0.83        |                       | aws c7i-flex     |
+> stress-ng --cpu 1 --cpu-method prime --timeout 10s --metrics
 
+| CPU | Sysbench | Stress (bogo realTime) | Stress-ng | Note |
+|-----|----------|----------------------|-----------|------|
+| 9950X | 26545 | - | - | compile ra 40s |
+| 7950X | 23638 | 2963 | - | hostkey |
+| 9274F | 18599 | - | - | - |
+| 13900H | 17124 | - | - | my laptop compile ra 87s |
+| 9454P | 17033 | - | - | hetzner AX162-R |
+| 9R14 | 16776 | 2013 | - | aws c7a |
+| 7002 | 16443 | 2025 | - | hetzner x86 6€ |
+| 9354 | 16089 | 1943 | - | hostkey |
+| Neoverse-N1 | - | 12688 | - | hetzner arm |
+| 8488C | 12446 | - | - | aws c7i-flex |
+| 7402 | 6230 | 596 | - | living-bot |
 
 ```
-cpu,evts_per_sec,avg_latency,p95_latency,compile_rust_analyzer,note
-9950X,26545,0.38,0.38,40s,
-9274F,18599,0.54,0.56,,
-13900H,17124,0.58,0.68,87s,my laptop
-9454P,17033,0.59,0.60,,
-9R14,16776,0.60,0.61,,aws c7a
-7002,16443,0.61,0.62,,hetzner x86
-Neoverse-N1,12688,0.79,0.83,,hetzner arm
-8488C,12446,0.8,0.83,,aws c7i-flex
+cpu,sysbench,stress(bogo realTime),note
+9950X,26545,,compile ra 40s
+7950X,23638,2963,hostkey
+9274F,18599,,
+13900H,17124,,,my laptop compile ra 87s
+9454P,17033,,hetzner AX162-R
+9R14,16776,2013,aws c7a
+7002,16443,2025,hetzner x86 6€
+9354,16089,1943,hostkey VPS 7€
+Neoverse-N1,,12688,hetzner arm
+8488C,12446,,aws c7i-flex
+7402,6230,596,living-bot
 ```
 
 根据 www.cpubenchmark.net 数据 9274F,5900X,9950X 的单核性能分别是 3373,3470,4744

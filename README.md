@@ -1,6 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
+- **25-03**
+    - [jito多IP](/2025/03/add_floating_ip.md)
 - **25-02**
     - [VPS单核性能测试](/2025/02/vps_single_core_benchmark.md)
     - [东莞深圳交通方案](/2025/02/dongguan_shenzhen_bus.md)
