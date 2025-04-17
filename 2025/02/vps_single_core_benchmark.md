@@ -4,30 +4,31 @@
 
 > stress-ng --cpu 1 --cpu-method prime --timeout 10s --metrics
 
-| CPU | Sysbench | Stress (bogo realTime) | Stress-ng | Note |
-|-----|----------|----------------------|-----------|------|
-| 9950X | 26545 | - | - | compile ra 40s |
-| 7950X | 23638 | 2963 | - | hostkey |
-| 9274F | 18599 | - | - | - |
-| 13900H | 17124 | - | - | my laptop compile ra 87s |
-| 9454P | 17033 | - | - | hetzner AX162-R |
-| 9R14 | 16776 | 2013 | - | aws c7a |
-| 7002 | 16443 | 2025 | - | hetzner x86 6€ |
-| 9354 | 16089 | 1943 | - | hostkey |
-| Neoverse-N1 | - | 12688 | - | hetzner arm |
-| 8488C | 12446 | - | - | aws c7i-flex |
-| 7402 | 6230 | 596 | - | living-bot |
+| cpu | sysbench | stress(bogo realTime) | note |
+|-----|----------|----------------------|------|
+| 9950X | 26545 | | compile ra 40s |
+| 7950X | 23638 | 2963 | hostkey |
+| 9274F | 18599 | | |
+| 13900H | 17124 | | my laptop compile ra 87s |
+| 9454P | 17033 | | hetzner AX162-R |
+| 9R14 | 16776 | 2013 | aws c7a |
+| 7002 | 16443 | 2025 | hetzner x86 6€ |
+| 9354 | 16089 | 1943 | hostkey VPS 7€ |
+| Neoverse-N1 | | 12688 | hetzner arm |
+| 8488C | 12446 | | aws c7i-flex |
+| 7402 | 6230 | 596 | living-bot |
 
 ```
-cpu,sysbench,stress(bogo realTime),note
+cpu,sysbench,stress(bogo real),note
 9950X,26545,,compile ra 40s
 7950X,23638,2963,hostkey
 9274F,18599,,
-13900H,17124,,,my laptop compile ra 87s
+13900H,17124,,my laptop compile ra 87s
 9454P,17033,,hetzner AX162-R
 9R14,16776,2013,aws c7a
 7002,16443,2025,hetzner x86 6€
 9354,16089,1943,hostkey VPS 7€
+12500,13317,2079,hetzner auction
 Neoverse-N1,,12688,hetzner arm
 8488C,12446,,aws c7i-flex
 7402,6230,596,living-bot
