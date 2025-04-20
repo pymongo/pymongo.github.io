@@ -1,6 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
+- **25-04**
+    - [币安借钱砍头息](/2025/04/front_loaded_interest.md)
 - **25-03**
     - [cursor MCP例子](/2025/03/cursor_mcp.md)
     - [jito多IP](/2025/03/add_floating_ip.md)
