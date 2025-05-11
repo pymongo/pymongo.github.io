@@ -1,6 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
+- **25-05**
+    - [SOL cap efficiency](/2025/05/sol_usdc_capital_efficiency.md)
 - **25-04**
     - [数据盘延迟套利](/2025/04/shadow_exchange.md)
     - [币安借钱砍头息](/2025/04/front_loaded_interest.md)

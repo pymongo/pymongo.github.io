@@ -4,9 +4,10 @@
 
 > stress-ng --cpu 1 --cpu-method prime --timeout 10s --metrics
 
-| cpu | sysbench | stress(bogo realTime) | note |
+| cpu | sysbench | stress(bogo real) | note |
 |-----|----------|----------------------|------|
 | 9950X | 26545 | | compile ra 40s |
+| 9700X | 25731 | 3055 |
 | 7950X | 23638 | 2963 | hostkey |
 | 9274F | 18599 | | |
 | 13900H | 17124 | | my laptop compile ra 87s |
@@ -21,6 +22,7 @@
 ```
 cpu,sysbench,stress(bogo real),note
 9950X,26545,,compile ra 40s
+9700X,25731,3055
 7950X,23638,2963,hostkey
 9274F,18599,,
 13900H,17124,,my laptop compile ra 87s
