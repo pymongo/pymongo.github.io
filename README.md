@@ -2,6 +2,7 @@
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
 - **25-06**
+    - [我合约被盗360u](/2025/06/hacker_stole_100u_on_my_contract_v3swapcallback.md)
     - [bn alpha](/2025/06/bn_alpha.md)
 - **25-05**
     - [钱包矿工小费对比](/2025/05/wallet_fee_compare.md)
