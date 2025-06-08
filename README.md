@@ -1,6 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
+- **25-06**
+    - [bn alpha](/2025/06/bn_alpha.md)
 - **25-05**
     - [钱包矿工小费对比](/2025/05/wallet_fee_compare.md)
     - [SOL cap efficiency](/2025/05/sol_usdc_capital_efficiency.md)
