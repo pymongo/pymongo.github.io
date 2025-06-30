@@ -2,14 +2,22 @@
 
 以前看不上alpha 现在套利不好赚钱了放下我的偏见科学家也刷alpha了。我主要用的两个刷alpha的工具
 
-- [我账号积分](https://www.bn-alpha.site/0xd4b4372f1c7759f12c0e0b7e5cad2f5c833da66d)
-- [我妈账号积分](https://www.bn-alpha.site/0xee55c0ce850f150caa779fb274d52232e913795d)
-- [我哥账号积分](https://www.bn-alpha.site/0xEFCF391282f9ec52E20441D230614C8CBDEb652D)
+- [我账号积分](https://alpha.dog/#alpha/one-i/0xd4b4372f1c7759f12c0e0b7e5cad2f5c833da66d)
+- [我妈账号积分](https://alpha.dog/#alpha/one-i/0xee55c0ce850f150caa779fb274d52232e913795d)
+- [我哥账号积分](https://alpha.dog/#alpha/one-i/0xEFCF391282f9ec52E20441D230614C8CBDEb652D)
+
+之前用的工具 https://www.bn-alpha.site/0xd4b4372f1c7759f12c0e0b7e5cad2f5c833da66d
+zkj/koge交易额算的偏少了 导致我多刷 换 alpha.dog 工具了
+
+https://www.bn-alpha.site/0xee55c0ce850f150caa779fb274d52232e913795d
 
 |||
 |---|---|
 |https://litangdingzhen.me|往期alpha合格人数和利润|
+|https://dune.com/ethan714/bn-alpha-analysis|dune数据每天刷15分交易量人数(不含余额分)|
 |https://www.bn-alpha.site|查钱包当天买入交易量和磨损|
+
+dune数据可以用 https://tonvox.com/
 
 类似的查分工具: https://blockai.pro/alpha-tool  https://alpha.dog/#alpha/address
 

@@ -1,6 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
+- **25-07**
+    - [合约残留资金无了](/2025/07/forge_transfer_remain_u_in_contract.md)
 - **25-06**
     - [我合约被盗360u](/2025/06/hacker_stole_100u_on_my_contract_v3swapcallback.md)
     - [bn alpha](/2025/06/bn_alpha.md)
