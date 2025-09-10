@@ -22,7 +22,7 @@ IUniswapV3PoolActions(pool).swap(
 );
 ```
 
-这笔tx用的 dataseed.binance 发的 没有用隐私节点 当然我觉得就算用48club也不排除被夹
+这笔tx用的 dataseed.binance 发的 没有用隐私节点 当然我觉得就算用48club也不排除被夹 7/07血亏48000
 
 https://web3.okx.com/explorer/bsc/tx/0xe76c65e27106613b28faf8fcef98ca690453b5161034c38dd25981e2545ecfd0
 

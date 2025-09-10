@@ -1,7 +1,10 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
+- **25-09**
+    - [stripe比paypal便宜](/2025/09/stripe_alipay_vs_paypal_bankcard.md)
 - **25-07**
+    - [quq被割3万u](/2025/07/quq_lp_lose_31000.md)
     - [bsc被夹5万](/2025/07/bsc_mev_lose_50000.md)
     - [合约残留资金无了](/2025/07/forge_transfer_remain_u_in_contract.md)
 - **25-06**
