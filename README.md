@@ -1,6 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
+- **25-10**
+    - [黄金投资](/2025/10/gold_investment.md)
 - **25-09**
     - [stripe比paypal便宜](/2025/09/stripe_alipay_vs_paypal_bankcard.md)
 - **25-07**
