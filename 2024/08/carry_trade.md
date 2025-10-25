@@ -1,5 +1,9 @@
 # [息差套利](/2024/08/carry_trade.md)
 
+25/10/17再次复现了25/08/05日元加息导致币圈大跌, 日元放出加息信号 吓得美日循环贷的交易员马上卖币卖股还款平仓
+
+---
+
 [深度解读 8.5 暴跌的背后原因：日本央行加息与「渡边太太们」的退场](https://foresightnews.pro/article/detail/65810)
 [微信链接](https://mp.weixin.qq.com/s?__biz=MzUzNzg5MDMxMw==&mid=2247483857&idx=1&sn=e15caf08f38c79a6cda4041b1b9983c6&chksm=fae15ab7cd96d3a146149a3cce59a1b7abda515f5bfed43db819846cadaa9d66dce855ad381f&token=564125636&lang=zh_CN#rd)
 

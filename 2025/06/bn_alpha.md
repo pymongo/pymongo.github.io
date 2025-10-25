@@ -6,6 +6,8 @@
 - [我妈账号积分](https://alpha.dog/#alpha/one-i/0xee55c0ce850f150caa779fb274d52232e913795d)
 - [我哥账号积分](https://alpha.dog/#alpha/one-i/0xEFCF391282f9ec52E20441D230614C8CBDEb652D)
 
+我表弟地址: 0xE00b0C192108aA53028EFD07d7438E8FFdfb8dB6
+
 之前用的工具 https://www.bn-alpha.site/0xd4b4372f1c7759f12c0e0b7e5cad2f5c833da66d
 zkj/koge交易额算的偏少了 导致我多刷 换 alpha.dog 工具了
 

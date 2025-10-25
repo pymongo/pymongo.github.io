@@ -2,6 +2,7 @@
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
 - **25-10**
+    - [bybit爆仓反思](/2025/10/bybit_liqudation.md)
     - [黄金投资](/2025/10/gold_investment.md)
 - **25-09**
     - [stripe比paypal便宜](/2025/09/stripe_alipay_vs_paypal_bankcard.md)
