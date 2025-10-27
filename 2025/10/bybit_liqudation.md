@@ -1,5 +1,7 @@
 # [bybit爆仓反思](/2025/10/bybit_liqudation.md)
 
+update: bybit SERAPH+RFC亏了6万 bybit赔偿1.2万(感谢来之不易的赔偿了 合约1.2现货0.08真被大哥操纵cex也没办法)
+
 bybit RFC+SERAPH插针爆仓 4100抄底几万u的ETH再浮亏几千u
 
 合约是真的烦 空仓涨怕插针，跌怕ADL 

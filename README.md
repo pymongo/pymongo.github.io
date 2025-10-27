@@ -2,6 +2,7 @@
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
 - **25-10**
+    - [睡眠呼吸暂停](/2025/10/snore.md)
     - [DLMM的历史](/2025/10/dlmm.md)
     - [bybit爆仓反思](/2025/10/bybit_liqudation.md)
     - [黄金投资](/2025/10/gold_investment.md)
