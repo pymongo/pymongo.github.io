@@ -1,6 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
+- **25-11**
+    - [循环贷亏2SOL](/2025/11/kamino_multiple_lose.md)
 - **25-10**
     - [solfi暗池cu风控](/2025/10/solfi_abnormal_cu.md)
     - [睡眠呼吸暂停](/2025/10/snore.md)
