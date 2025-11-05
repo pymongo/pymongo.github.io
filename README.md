@@ -2,6 +2,7 @@
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
 - **25-10**
+    - [solfi暗池cu风控](/2025/10/solfi_abnormal_cu.md)
     - [睡眠呼吸暂停](/2025/10/snore.md)
     - [DLMM的历史](/2025/10/dlmm.md)
     - [bybit爆仓反思](/2025/10/bybit_liqudation.md)
@@ -83,7 +84,7 @@
     - [Rust调用sui合约](/2024/07/rust_call_sui_contract_function.md)
 - **24-06**
     - [用clear别用=[]](/2024/06/python_use_clear.md)
-    - [私钥不能推出助记词](/2024/06/can_not_get_mnemoic_from_private_key.md)
+    - [私钥不能推出助记词](/2024/06/can_not_get_mnemonic_from_private_key.md)
     - [foundry部署合约](/2024/06/foundry_deploy_on_local_network.md)
     - [eth节点部署](/2024/06/deploy_eth.md)
     - [python导入路径不同类id不同](2024/06/python3_same_class_different_import_path_class_id_not_same.md)

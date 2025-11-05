@@ -36,7 +36,7 @@ BLAKE: 2850
 CLARK: 2450
 SCOTT: 3000
 */
--- Oracle的BETWEEN可用于datatime
+-- Oracle的BETWEEN可用于datetime
 ```
 
 ## NULL

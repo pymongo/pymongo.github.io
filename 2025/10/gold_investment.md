@@ -26,6 +26,7 @@ H 左上角1 左下角1  左上角表示质量数=质子+中子=1 左下角1表�
 - eth: XAUT uni-14M  0.05%
 - sui: XAUM mmt-2M   0.05% 存mmt有补贴 25/08 sui基金会发blog站台 Tokenized Gold
 - sol: Gold met-0.5M 0.25%            25/10 sol基金会转推
+- sol: XAUT0 byreal:0.2M 0.2%  byreal补贴一天130$
 - bsc: XAUM cake0.3M 0.05%
 
 黄金期货衍生品 和 理财产品

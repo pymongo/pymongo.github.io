@@ -8,7 +8,7 @@ zachXBT 老外喜欢把 抹茶 称为 shadow exchange 中文意思是 数据盘�
 
 因此有了延迟套利的玩法 只要我获取币安行情比小所快 币安价格高于小所就做多 数据盘迟早会复制币安行情因此套利
 
-bg最近的voxel亏损事件 让推友想起floki子币 链上都没TGE bg为了抢热度居然开盘了
+bg最近的voxel亏损事件 让推友想起floki子币 链上都没发币开盘 bg为了抢热度居然开盘了
 
 https://x.com/wkxiaogu/status/1913907504435908879
 

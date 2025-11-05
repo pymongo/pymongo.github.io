@@ -8,7 +8,7 @@ Rust安装类似Haskell要先装ghcup，rustup是强大的Rust工具链管理工
 
 1. 项目文件夹内放一个`rust-toolchain.toml`
 2. `rustup override set nightly-2021-04-08`类似`rbenv local 2.5.1`
-3. `rustup run nightly cargo`能暂时调用nighly版本的cargo命令
+3. `rustup run nightly cargo`能暂时调用nightly版本的cargo命令
 
 `rustup override set ni`类似`rbenv local`，设置项目文件夹的Rust版本
 

@@ -10,6 +10,6 @@ https://x.com/BroLeonAus/status/1944968674726830413
 
 https://x.com/BroLeonAus/status/1945093646703055157
 
-目前存在着这么一个野庄团体阴谋集团在有预谋的布局，吃币安Alpah这个红利，收割刷Alpah的用户和其他LP
+目前存在着这么一个野庄团体阴谋集团在有预谋的布局，吃币安Alpha这个红利，收割刷Alpha的用户和其他LP
 
 (找quq这样市值低的alpha壳)借壳上市吸筹->bot刷交易量(这也是为啥BR/quq半夜)

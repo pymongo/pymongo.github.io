@@ -208,7 +208,7 @@ wait() function might return spuriously, without a corresponding wake operation
 
 由于 wait 可能伪造的结束，一般用法都是结合循环使用 while load()==UNLOCK { wait() }
 
-- wait(state: &AtomicU32, val: u32): wait unti state != val
+- wait(state: &AtomicU32, val: u32): wait until state != val
 - wake_one(&AtomicU32): 
 - wake_all(&AtomicU32): 
 
