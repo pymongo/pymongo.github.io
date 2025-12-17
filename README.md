@@ -1,7 +1,11 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
+- **25-12**
+    - [prop amm sysvar](/2025/12/prop_amm_sysvar.md)
 - **25-11**
+    - [量子纠缠货币](/2025/11/quantum_entanglement_currency.md)
+    - [okular font](/2025/11/okular_font.md)
     - [循环贷亏2SOL](/2025/11/kamino_multiple_lose.md)
 - **25-10**
     - [solfi暗池cu风控](/2025/10/solfi_abnormal_cu.md)
