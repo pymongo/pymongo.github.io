@@ -2,6 +2,7 @@
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
 - **25-12**
+    - [暗池如何识别bundle](/2025/12/prop_amm_anti_bundle.md)
     - [prop amm sysvar](/2025/12/prop_amm_sysvar.md)
 - **25-11**
     - [量子纠缠货币](/2025/11/quantum_entanglement_currency.md)
