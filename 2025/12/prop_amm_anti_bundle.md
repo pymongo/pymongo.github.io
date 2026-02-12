@@ -6,6 +6,8 @@
 
 暗池之前喜欢带 jitodontfront 这样 jitodontfront1111111111111111Bui1dWithDF1ow
 
+或者 jitodontfront1111111111111111JustUseJupiter 这样的钱包不是私钥碰撞生成的 应该就是直接用合法的base58公钥反正也不需要知道私钥
+
 Any bundle containing a transaction with the jitodontfront account will be rejected by the block engine unless that transaction appears first (at index 0) in the bundle
 
 jitodontfront意思是 包含这个账户的tx必须放在bundle第一个
