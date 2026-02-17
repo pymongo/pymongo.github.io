@@ -2,6 +2,7 @@
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
 - **25=02**
+    - [佛山飞拉达](/2026/02/foshan_via_ferrata.md)
     - [我的agent要罢工](/2026/02/cursor_agent_terminal_noise.md)
 - **25-12**
     - [暗池如何识别bundle](/2025/12/prop_amm_anti_bundle.md)
