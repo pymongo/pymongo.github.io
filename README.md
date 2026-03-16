@@ -1,6 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
+- **25-03**
+    - [toxic prop amm](/2026/03/toxic_prop_amm.md)
 - **25-02**
     - [虎门职校与李想](/2026/02/humen_vocational_training_school_and_lixiang.md)
     - [佛山飞拉达](/2026/02/foshan_via_ferrata.md)
