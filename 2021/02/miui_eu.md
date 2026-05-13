@@ -19,7 +19,7 @@ MIUI官方人员的回复:
 
 twrp recovery和解锁bootloader都是「一次性」的，如何手机之前做过则不需要重复做。
 
-twrp是进行"卡刷"的界面，有备份、清除数据等功能，需要用Andoird SDK platform tools帮忙刷入。
+twrp是进行"卡刷"的界面，有备份、清除数据等功能，需要用Android SDK platform tools帮忙刷入。
 
 为此我直接安装了一个Android Studio，提供了fastboot,adb等命令行工具
 

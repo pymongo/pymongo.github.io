@@ -1,7 +1,13 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
+- **25-05**
+    - [context manage](/2026/05/context_manage.md)
+- **25-04**
+    - [deepseekv4华为芯片](/2026/04/deepseekv4.md)
+    - [王自如AI笔记](/2026/04/wangziru_ai.md)
 - **25-03**
+    - [洛克王国原神](/2026/03/roco_kingdom.md)
     - [同舟渡 影评](/2026/03/hebutongzhoudu.md)
     - [toxic prop amm](/2026/03/toxic_prop_amm.md)
 - **25-02**

@@ -5,6 +5,7 @@
 - Linux Device Drivers
 
 ## 已读(倒序)
+- 幣安人生: 幸運、韌性與保護用戶的回憶錄
 - 定投改变命运
 - Operate System Three Easy Pieces
 - Computer Science A Programmer's Perspective

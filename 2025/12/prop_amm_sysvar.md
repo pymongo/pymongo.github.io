@@ -1,6 +1,6 @@
 # [prop amm sysvar](/2025/12/prop_amm_sysvar.md)
 
-为什么暗池swap都要传sysvarInstrution账户? breakpoint2025的演讲 <https://www.youtube.com/watch?v=_VPQHv5WRP4> <https://x.com/chrischang43/status/2000651609743982877>
+为什么暗池swap都要传sysvarInstruction账户? breakpoint2025的演讲 <https://www.youtube.com/watch?v=_VPQHv5WRP4> <https://x.com/chrischang43/status/2000651609743982877>
 
 暗池有这样的需求:
 1. 识别特定交易进行手续费惩罚或者让利

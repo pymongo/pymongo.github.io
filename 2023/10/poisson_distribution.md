@@ -10,7 +10,7 @@ https://zhuanlan.zhihu.com/p/538673358 例如这个知乎文章的例题服务�
 
 scipy 的泊松分布概率质量函数是 `scipy.stats.poisson.pmf(k, lambda)`
 
-例题2 某5分钟内不超过4次请求的概率 for i in range(4): posisson(i, 2.5)
+例题2 某5分钟内不超过4次请求的概率 for i in range(4): posison(i, 2.5)
 
 例题3-4就很简单跟例题1一样把lambda的单位换算下代入公式即可
 

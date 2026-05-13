@@ -210,7 +210,7 @@ Introduction章节的一些疑问:
 
 ## ch1.GetStarted
 
-简评 Instroduction 到 GetStarted 都过于水，而且过多篇幅比较linux和windows的差异
+简评 Introduction 到 GetStarted 都过于水，而且过多篇幅比较linux和windows的差异
 
 > A complete discussion of shared libraries and their implementation on different systems is beyond the scope of thisbook
 

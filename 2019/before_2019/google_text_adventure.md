@@ -129,6 +129,6 @@ You see a map on a bench.  Type "grab" to pick it up.
 - 汇率换算/单位/进制转化: 1000JPY to CNY
 - 地图问路: from nagoya to tokyo
 - 天气查询: tianjin weather
-- 随机数生成器: ramdom number (generator)或 rng
+- 随机数生成器: random number (generator)或 rng
 - 查询颜色: 输入rgb(2,2,2)或#f2f2f2或(253,254,2)
 - 函数绘图
