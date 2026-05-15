@@ -2,6 +2,7 @@
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
 - **25-05**
+    - [fast模型更贵](/2026/05/fast_more_expensive.md)
     - [context manage](/2026/05/context_manage.md)
 - **25-04**
     - [deepseekv4华为芯片](/2026/04/deepseekv4.md)
