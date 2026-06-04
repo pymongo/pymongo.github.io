@@ -1,6 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
+- **26-06**
+    - [邻居空调外机噪音](/2026/05/noise_from_upstairs.md)
 - **25-05**
     - [fast模型更贵](/2026/05/fast_more_expensive.md)
     - [context manage](/2026/05/context_manage.md)

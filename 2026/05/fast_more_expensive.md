@@ -9,3 +9,9 @@ thinking模型token消耗好像是两倍
 |claude-opus-4-7-thinking-high|2.8M|8%|
 
 从额度消耗上可以看到 claude-opus thinking 和 fast 两种模式的 token 价格都是更贵
+
+thinking 消耗翻倍; fast 消耗是 **6倍**
+
+> Fast 模式 = 独占高规格 A100/H100 集群、优先调度、硬保低延迟
+
+
