@@ -26,7 +26,7 @@ ISIG可以禁用Ctrl+C这种特殊控制符的输入
 
 ### sizeterm.c
 
-获取当前terminal的长宽是，单位是字符，setupterm(NULL,...)， NULL表示选用当前terimnal规格(通过环境变量$TERM)，或者填入其它terminal名称的字符串
+获取当前terminal的长宽是，单位是字符，setupterm(NULL,...)， NULL表示选用当前terminal规格(通过环境变量$TERM)，或者填入其它terminal名称的字符串
 
 ### menu5.c
 

@@ -2,8 +2,9 @@
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
 - **26-06**
-    - [邻居空调外机噪音](/2026/05/noise_from_upstairs.md)
+    - [宝可梦卡交易所做市](/2026/06/pokemon_mystery_box.md)
 - **25-05**
+    - [邻居空调外机噪音](/2026/05/noise_from_upstairs.md)
     - [fast模型更贵](/2026/05/fast_more_expensive.md)
     - [context manage](/2026/05/context_manage.md)
 - **25-04**
