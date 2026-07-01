@@ -2,6 +2,7 @@
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
 - **26-07**
+    - [大湾区大学](/2026/07/great_bay_university.md)
     - [医保家庭医生定点](/2026/07/medical_insurance_family_doctor.md)
 - **26-06**
     - [MSTR strc危机](/2026/06/mstr_strc.md)
