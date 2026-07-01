@@ -2,6 +2,8 @@
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
 - **26-06**
+    - [MSTR strc危机](/2026/06/mstr_strc.md)
+    - [BIOS ECO mode](/2026/06/bios_eco_mode.md)
     - [宝可梦卡交易所做市](/2026/06/pokemon_mystery_box.md)
 - **25-05**
     - [邻居空调外机噪音](/2026/05/noise_from_upstairs.md)
