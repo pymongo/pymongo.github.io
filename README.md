@@ -1,6 +1,8 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
+- **26-07**
+    - [医保家庭医生定点](/2026/07/medical_insurance_family_doctor.md)
 - **26-06**
     - [MSTR strc危机](/2026/06/mstr_strc.md)
     - [BIOS ECO mode](/2026/06/bios_eco_mode.md)
