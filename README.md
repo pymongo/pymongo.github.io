@@ -1,6 +1,12 @@
 - [文章列表 - 吴翱翔的博客](/)
 - [联系方式](/notes/contact.md)
 <!-- - [正在读的书](/books.md) -->
+- **26-10**
+    - [云梯monkey bar](/2026/10/monkey_bar.md)
+- **26-09**
+
+- **26-08**
+    - [医保小程序转账](/2026/08/yibao_zhuanzhen.md)
 - **26-07**
     - [大湾区大学](/2026/07/great_bay_university.md)
     - [医保家庭医生定点](/2026/07/medical_insurance_family_doctor.md)
